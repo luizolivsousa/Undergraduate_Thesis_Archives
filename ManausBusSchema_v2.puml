@@ -1,0 +1,677 @@
+@startuml ManausBusSchema_v2
+
+'Esta versão do diagrama reúne as barras recebeidas
+'na versão v0 com algumas barras da versão v1.
+
+'O arquivo conta com 143 barras. 
+
+skinparam linetype ortho
+object 10300 {
+    JAPAREC-AM069
+    } 
+'object 10304 {
+'    MITACO2-AM138
+'    }
+object 10306 {
+    MIRANDU-AM138
+    }
+object 10308 {
+    MPARQ10-AM138
+    }
+object 10310 {
+    MDI-4---AM138
+    }
+object 10312 {
+    MRIOPTE-AM138
+    }
+object 10313 {
+    MAMAZON-AM138
+    }
+object 10315 {
+    DAPARB1UTE013
+    }
+object 10317 {
+    DAPARB2UTE013
+    }
+object 10320 {
+    JMAUAB1-AM069
+    }
+object 10321 {
+    DMAUAB3UTE013
+    }  
+object 10325 {
+    JMAUAB2-AM069
+    } 
+object 10330 {
+    OTARUMA-AM230
+    } 
+object 10331 {
+    MTARUMA-AM138
+    } 
+object 10335 {
+    JMAUA2M-AM069
+    } 
+object 10344 {
+    JCONSE1-AM069
+    } 
+object 10345 {
+    JCONSE2-AM069
+    } 
+object 10350 {
+    JCACHO2-AM069
+    } 
+object 10351 {
+    JCACHO1-AM069
+    } 
+object 10360 {
+    JVOITO--AM069
+    } 
+object 10361 {
+    ZJTEIX1-AM000
+    } 
+object 10362 {
+    ZJTEIX2-AM000
+    } 
+object 10363 {
+    ZJTEIX3-AM000
+    } 
+object 10364 {
+    ZJTEIX4-AM000
+    } 
+object 10365 {
+    DJTEIX1-AM013
+    } 
+object 10366 {
+    DJTEIX2-AM013
+    }
+object 10367 {
+    DJTEIX3-AM013
+    }
+object 10368 {
+    DJTEIX4-AM013
+    }
+object 10369 {
+    ZJTEIX5-AM000
+    }
+object 10370 {
+    JFLORES-AM069
+    }
+object 10371 {
+    DJTEIX5-AM013
+    }
+object 10375 {
+    DFLORESUTE013
+    }
+object 10379 {
+    JAMBEV--AM069
+    }
+object 10380 {
+    JPNEGRA-AM069
+    }
+object 10381 {
+    ZMAU3-1-AM000
+    }
+object 10382 {
+    ZMAU3-2-AM000
+    }
+object 10383 {
+    ZMAU3-3-AM000
+    }
+object 10384 {
+    ZMAU3-4-AM000
+    }
+object 10385 {
+    DMAU3-1-AM013
+    }
+object 10386 {
+    DMAU3-2-AM013
+    }
+object 10387 {
+    DMAU3-3-AM013
+    }
+object 10388 {
+    DMAU3-4-AM013
+    }
+object 10390 {
+    JPIEPNG-AM069
+    }
+object 10391 {
+    DPIEPNGUTE013
+    }
+object 10393 {
+    JPISMAE-AM069
+    }
+object 10394 {
+    JSHOPMA-AM069
+    }
+object 10395 {
+    JSERING-AM069
+    }
+object 10400 {
+    OMANAUS-AM230
+    }
+object 10401 {
+    JMANA1A-AM069
+    }
+object 10402 {
+    JMANAU2-AM069
+    }
+object 10405 {
+    OCROCHA-AM230
+    }
+object 10406 {
+    DCROCHAUTE013
+    }
+object 10407 {
+    DCROCHBUTE013
+    }
+object 10410 {
+    OBALBIN-AM230
+    }
+object 10411 {
+    DBALBI1UHE013
+    }
+object 10412 {
+    DBALBI2UHE013
+    }
+object 10413 {
+    DBALBI3UHE013
+    }
+object 10414 {
+    DBALBI4UHE013
+    }
+object 10415 {
+    DBALBI5UHE013
+    }
+object 10416 {
+    JP.FIG.-AM069
+    }
+object 10418 {
+    DP.FIG.-AM013
+    } 
+object 10419 {
+    OP.FIG.-AM230
+    }
+object 10420 {
+    JDISTR1-AM069
+    }
+object 10421 {
+    JCESPEC-AM069
+    }
+object 10422 {
+    ZMANA-1-AM000
+    }
+object 10423 {
+    DMANA-1-AM013
+    }
+object 10424 {
+    ZMANA-2-AM000
+    }
+object 10425 {
+    DMANA-2-AM013
+    }
+object 10426 {
+    ZMANA-3-AM000
+    }
+object 10427 {
+    DMANA-3-AM013
+    }
+object 10428 {
+    ZMANA-4-AM000
+    }
+object 10429 {
+    DMANA-4-AM013
+    }
+object 10430 {
+    JCIDNOV-AM069
+    }
+object 10435 {
+    JMANAUA-AM069
+    } 
+object 10436 {
+    DPIEMANUTE013
+    }
+object 10437 {
+    JSTAETE-AM069
+    }
+object 10440 {
+    JDISTR2-AM069
+    }
+object 10445 {
+    JTAMBAQ-AM069
+    }
+object 10447 {
+    DPIETBQUTE013
+    }
+object 10450 {
+    JSJOSE--AM069
+    }
+object 10451 {
+    JPLACIB-AM069
+    }
+object 10460 {
+    JSTOANT-AM069
+    }
+object 10461 {
+    JJARAQU-AM069
+    }
+object 10466 {
+    JSIVAM--AM069
+    }
+object 10471 {
+    DPIEJRQUTE013
+    }
+object 10480 {
+    JMANACA-AM069
+    }
+object 10485 {
+    JIRANDU-AM069
+    }
+object 10486 {
+    DIRANDUUTE013
+    }
+object 10490 {
+    JREDENC-AM069
+    }
+object 10492 {
+    JMARAPA-AM069
+    }
+object 10493 {
+    JCES----AM069
+    }
+object 10500 {
+    OMAUA-3-AM230
+    }
+object 10501 {
+    DMAUA3GUTE013
+    }
+object 10503 {
+    DMAUA3VUTE013
+    }
+object 10504 {
+    MMAUA-3-AM138
+    }
+object 10505 {
+    JMAUA-3-AM069
+    }
+object 10509 {
+    JMUBL4M-AM069
+    }
+object 10510 {
+    OJ.TEIX-AM230
+    }
+object 10511 {
+    MJ.TEIX-AM138
+    }
+object 10513 {
+    JMUBL4D-AM069
+    }
+object 10515 {
+    JAMAZON-AM069
+    }
+object 10520 {
+    MMUTIRA-AM138
+    }
+object 10530 {
+    MCGRAND-AM138
+    }
+object 10533 {
+    MBARREI-AM138
+    }
+object 10534 {
+    MB.VIST-AM138
+    }
+object 10540 {
+    MCOMPEN-AM138
+    }
+object 10543 {
+    MMAUES--AM138
+    }
+object 10545 {
+    MCENTRO-AM138
+    }
+object 10548 {
+    MN.OLIN-AM138
+    }
+object 10550 {
+    MDISTR3-AM138
+    }
+object 10557 {
+    ZPARNT1-AM000
+    }
+object 10558 {
+    DPARNT1-AM013
+    }
+object 10566 {
+    MURICUR-AM138
+    }
+object 10567 {
+    MPARINT-AM138
+    }
+object 10569 {
+    ZPARNT2-AM000
+    }
+object 10570 {
+    DPARNT2-AM013
+    }
+object 10575 {
+    MHUMAIT-AM138
+    }
+object 10576 {
+    DHUMAIT-AM013
+    }
+'object 10577 {
+'    MITAPIR-AM138
+'    }
+object 10700 {
+    MJARAQ2-AM138
+    }
+object 10701 {
+    MP.NEG2-AM138
+    }
+object 10713 {
+    DMUBL4MUTE013
+    }
+object 10722 {
+    MMANACU-AM138
+    }
+'As barras 10756 e 10757 não estão definidas pois
+'no arquivo v1 as barras 10701, 10331, 10330 as quais
+'ligam as duas primeiras à barra 10380 também não
+'estão definidas
+'object 10756' 
+'object 10757'  
+'object 13550' 
+'object 41958'
+
+'Bars added from v1'
+object 10222 {
+    SLE-S-ACAP500
+    }
+object 10223 {
+    SLE-S-BCAP500
+    }
+object 10012 {
+    SLECHUG-AM500
+    }
+object 10122 {
+    ZLECHU3-AM000
+    }
+object 10126 {
+    ZLECHU4-AM000
+    }
+object 10120 {
+    ZLECHU1-AM000
+    }
+object 10121 {
+    ZLECHU2-AM000
+    }
+object 10125 {
+    DLECHU3-AM013
+    }
+object 10128 {
+    DLECHU4-AM013
+    }
+object 10123 {
+    DLECHU1-AM013
+    }
+object 10124 {
+    DLECHU2-AM013
+    }
+object 10110 {
+    OLECHUG-AM230
+    }
+object 10111 {
+    MLECHUG-AM138
+    }
+object 10130 {
+    ZLECHU1-AM000
+    }
+object 10131 {
+    ZLECHU2-AM000
+    }
+object 10132 {
+    ZLECHU3-AM000
+    }
+object 10133 {
+    DLECHU1-AM013
+    }
+object 10134 {
+    DLECHU2-AM013
+    }
+object 10135 {
+    DLECHU3-AM013
+    }
+object 10755 {
+    OAE-SB5-AM230
+    }
+'object 10007 {
+'    MSILVES-AM138
+'    }
+object 10417 {
+    JP.FIG.-AM069
+    }
+'Lines added from v1'
+10012 -- 10222
+10012 -- 10223
+10122 -> 10012
+10122 -- 10125
+10126 -- 10012
+10126 -- 10128
+10120 -- 10012
+10120 -- 10123
+10121 -- 10124
+10122 -- 10110
+10125 -- 10110
+10120 -- 10110
+10121 -- 10110
+10410 -- 10110
+10130 -- 10110
+10131 -- 10110
+10132 -- 10110
+10130 -- 10111
+10130 -- 10133
+10131 -- 10111
+10131 -- 10134
+10132 -- 10111
+10132 -- 10135
+'-------------------'
+'10007 -- 10304
+'10007 -- 10304
+'10007 -- 10577
+10110 -- 10400
+10110 -- 10400
+10110 -- 10510
+10110 -- 10510
+10110 -- 10510
+10111 -- 10312
+10111 -- 10313
+10111 -- 10313
+10300 -- 10380
+10300 -- 10395
+10306 -- 10485
+10306 -- 10722
+10313 -- 10515
+10313 -- 10515
+10313 -- 10700
+10313 -- 10700
+10315 -- 10300
+10317 -- 10300
+10320 -- 10325
+10320 -- 10402
+10320 -- 10420
+10320 -- 10492
+10321 -- 10320
+10325 -- 10335
+10325 -- 10440
+10325 -- 10440
+10330 -- 10331
+10330 -- 10331
+10331 -- 10701
+10331 -- 10701
+10335 -- 10505
+10335 -- 10509
+10344 -- 10505
+10345 -- 10430
+10345 -- 10505
+10350 -- 10440
+10350 -- 10492
+10351 -- 10300
+10351 -- 10350
+10351 -- 10395
+10351 -- 10401
+10361 -- 10365
+10361 -- 10511
+10362 -- 10366
+10362 -- 10511
+10363 -- 10367
+10363 -- 10511
+10364 -- 10368
+10364 -- 10511
+10369 -- 10371
+10369 -- 10511
+10370 -- 10379
+10370 -- 10490
+10370 -- 10490
+10375 -- 10370
+10380 -- 10390
+10380 -- 10490
+10380 -- 10490
+10380 -- 10701
+10380 -- 10701
+10381 -- 10385
+10381 -- 10504
+10382 -- 10386
+10382 -- 10504
+10383 -- 10387
+10383 -- 10504
+10384 -- 10388
+10384 -- 10504
+10391 -- 10390
+10393 -- 10300
+10393 -- 10380
+10393 -- 10485
+10395 -- 10394
+10400 -- 10422
+10400 -- 10424
+10400 -- 10426
+10400 -- 10428
+10400 -- 10755
+10401 -- 10360
+10401 -- 10360
+10401 -- 10370
+10401 -- 10370
+10401 -- 10370
+10401 -- 10394
+10401 -- 10395
+10402 -- 10401
+10402 -- 10420
+10402 -- 10430
+10402 -- 10450
+10402 -- 10460
+10405 -- 10110
+10405 -- 10406
+10405 -- 10407
+10405 -- 10419
+10410 -- 10110
+10410 -- 10411
+10410 -- 10412
+10410 -- 10413
+10410 -- 10414
+10410 -- 10415
+10416 -- 10417
+10416 -- 10417
+10417 -- 10418
+10417 -- 10418
+10419 -- 10410
+10419 -- 10416
+10419 -- 10416
+10420 -- 10350
+10420 -- 10402
+10420 -- 10421
+10420 -- 10440
+10422 -- 10401
+10422 -- 10423
+10424 -- 10401
+10424 -- 10425
+10426 -- 10401
+10426 -- 10427
+10428 -- 10401
+10428 -- 10429
+10430 -- 10437
+10435 -- 10436
+10440 -- 10445
+10440 -- 10505
+10440 -- 10505
+10445 -- 10447
+10450 -- 10451
+10451 -- 10505
+10460 -- 10401
+10460 -- 10466
+10461 -- 10471
+10485 -- 10480
+10485 -- 10480
+10486 -- 10485
+10492 -- 10493
+10500 -- 10381
+10500 -- 10382
+10500 -- 10383
+10500 -- 10384
+10500 -- 10501
+10500 -- 10503
+10500 -- 10510
+10500 -- 10510
+10504 -- 10310
+10504 -- 10310
+10504 -- 10505
+10504 -- 10505
+10504 -- 10505
+10504 -- 10505
+10505 -- 10325
+10505 -- 10402
+10505 -- 10420
+10505 -- 10420
+10505 -- 10492
+10510 -- 10361
+10510 -- 10362
+10510 -- 10363
+10510 -- 10364
+10510 -- 10369
+10511 -- 10520
+10511 -- 10520
+10511 -- 10550
+10511 -- 10550
+10513 -- 10420
+10513 -- 10509
+10515 -- 10435
+10515 -- 10437
+10515 -- 10460
+10515 -- 10461
+10520 -- 10530
+10520 -- 10530
+10530 -- 10308
+10530 -- 10308
+10530 -- 10540
+10530 -- 10545
+10533 -- 10534
+10534 -- 10543
+10534 -- 10566
+10540 -- 10306
+10540 -- 10545
+10557 -- 10558
+10557 -- 10567
+10566 -- 10548
+10567 -- 10533
+10569 -- 10567
+10569 -- 10570
+10575 -- 10576
+10701 -- 10540
+10701 -- 10540
+10713 -- 10509
+10755 -- 10500
+10756 -- 10330
+10757 -- 10330
+'13550 -- 10557'
+'13550 -- 10569'
+'41958 -- 10575'
+@enduml
