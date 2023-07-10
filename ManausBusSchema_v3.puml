@@ -1,17 +1,12 @@
 @startuml ManausBusSchema_v2
 
-'Esta versão do diagrama reúne as barras recebeidas
-'na versão v0 com algumas barras da versão v1.
-
-'O arquivo conta com 143 barras. 
+'O arquivo conta com 142 barras. 
 
 skinparam linetype ortho
+
 object 10300 {
     JAPAREC-AM069
-    } 
-'object 10304 {
-'    MITACO2-AM138
-'    }
+    }
 object 10306 {
     MIRANDU-AM138
     }
@@ -360,9 +355,6 @@ object 10575 {
 object 10576 {
     DHUMAIT-AM013
     }
-'object 10577 {
-'    MITAPIR-AM138
-'    }
 object 10700 {
     MJARAQ2-AM138
     }
@@ -375,16 +367,6 @@ object 10713 {
 object 10722 {
     MMANACU-AM138
     }
-'As barras 10756 e 10757 não estão definidas pois
-'no arquivo v1 as barras 10701, 10331, 10330 as quais
-'ligam as duas primeiras à barra 10380 também não
-'estão definidas
-'object 10756' 
-'object 10757'  
-'object 13550' 
-'object 41958'
-
-'Bars added from v1'
 object 10222 {
     SLE-S-ACAP500
     }
@@ -445,13 +427,9 @@ object 10135 {
 object 10755 {
     OAE-SB5-AM230
     }
-'object 10007 {
-'    MSILVES-AM138
-'    }
 object 10417 {
     JP.FIG.-AM069
     }
-'Lines added from v1'
 10012 -- 10222
 10012 -- 10223
 10122 -- 10012
@@ -464,7 +442,6 @@ object 10417 {
 10122 -- 10110
 10120 -- 10110
 10121 -- 10110
-'10410 -- 10110
 10130 -- 10110
 10131 -- 10110
 10132 -- 10110
@@ -474,10 +451,6 @@ object 10417 {
 10131 -- 10134
 10132 -- 10111
 10132 -- 10135
-'-------------------'
-'10007 -- 10304
-'10007 -- 10304
-'10007 -- 10577
 10110 -- 10400
 10110 -- 10400
 10110 -- 10510
@@ -670,7 +643,4 @@ object 10417 {
 10755 -- 10500
 10756 -- 10330
 10757 -- 10330
-'13550 -- 10557'
-'13550 -- 10569'
-'41958 -- 10575'
 @enduml
