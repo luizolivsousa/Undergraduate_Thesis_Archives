@@ -310,50 +310,14 @@ object 10520 {
 object 10530 {
     MCGRAND-AM138
     }
-object 10533 {
-    MBARREI-AM138
-    }
-object 10534 {
-    MB.VIST-AM138
-    }
 object 10540 {
     MCOMPEN-AM138
-    }
-object 10543 {
-    MMAUES--AM138
     }
 object 10545 {
     MCENTRO-AM138
     }
-object 10548 {
-    MN.OLIN-AM138
-    }
 object 10550 {
     MDISTR3-AM138
-    }
-object 10557 {
-    ZPARNT1-AM000
-    }
-object 10558 {
-    DPARNT1-AM013
-    }
-object 10566 {
-    MURICUR-AM138
-    }
-object 10567 {
-    MPARINT-AM138
-    }
-object 10569 {
-    ZPARNT2-AM000
-    }
-object 10570 {
-    DPARNT2-AM013
-    }
-object 10575 {
-    MHUMAIT-AM138
-    }
-object 10576 {
-    DHUMAIT-AM013
     }
 object 10700 {
     MJARAQ2-AM138
@@ -625,18 +589,8 @@ object 10417 {
 10530 -- 10308
 10530 -- 10540
 10530 -- 10545
-10533 -- 10534
-10534 -- 10543
-10534 -- 10566
 10540 -- 10306
 10540 -- 10545
-10557 -- 10558
-10557 -- 10567
-10566 -- 10548
-10567 -- 10533
-10569 -- 10567
-10569 -- 10570
-10575 -- 10576
 10701 -- 10540
 10701 -- 10540
 10713 -- 10509
