@@ -1,6 +1,6 @@
 @startuml ManausBusSchema_v2
 
-'O arquivo conta com 142 barras. 
+'O arquivo conta com 127 barras. 
 
 skinparam linetype ortho
 
@@ -316,9 +316,6 @@ object 10550 {
 object 10700 {
     MJARAQ2-AM138
     }
-object 10701 {
-    MP.NEG2-AM138
-    }
 object 10713 {
     DMUBL4MUTE013
     }
@@ -463,8 +460,6 @@ object 10417 {
 10380 -- 10390
 10380 -- 10490
 10380 -- 10490
-10380 -- 10701
-10380 -- 10701
 10381 -- 10385
 10381 -- 10504
 10382 -- 10386
@@ -581,8 +576,6 @@ object 10417 {
 10530 -- 10545
 10540 -- 10306
 10540 -- 10545
-10701 -- 10540
-10701 -- 10540
 10713 -- 10509
 10755 -- 10500
 @enduml
