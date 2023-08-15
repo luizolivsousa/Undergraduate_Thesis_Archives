@@ -1,0 +1,1201 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_OLRPC_TOV_V8.cdu                                                                 |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(-------------------------------------------------------------------------------------------------------------|
+(
+( NOTA: FEV19 - Alteração do nível de potência para chaveamento dos filtros
+(
+(-------------------------------------------------------------------------------------------------------------|
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 9395 - OPEN-LOOP RPC E TOV CONTROL - URUGUAY
+( CDU 9396 - OPEN-LOOP RPC E TOV CONTROL - BRAZIL
+(----------------------------------------------------------------------
+( TDOL alterado de 0.50 para 0.15 s - ONS - Mai/18
+(----------------------------------------------------------------------
+DCDU
+(ncdu) ( nome cdu )
+  9395 OLRPC-TOV-UR
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO                   1         # AUTO=1 / MANUAL=0
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CONV                3102         # CONVERSOR URUGUAI
+DEFPAR #ACBUS               3192         # BARRA AC URUGUAI
+DEFPAR #FILT                3194         # FILTROS URUGUAI - 3 x 110 MVAR
+DEFPAR #REAT                3195         # REATOR URUGUAI - 1 x 70 Mvar
+DEFPAR #PORD                2015         # PORD (from Power Control)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #MXFLT                  3         # NUMERO MAXIMO DE FILTROS
+DEFPAR #MNFLT                  1         # NUMERO MINIMO DE FILTROS
+(
+(OPEN-LOOP REACTIVE POWER CONTROL (OLRPC)
+(EFPAR (nome) (     valor      )
+DEFPAR #TDOL                0.15         # TEMPO DE ATRASO OPEN-LOOP RPC, EM SEGUNDOS => (de 0.50 para 0.15 s alterado p/ ONS)
+DEFPAR #TSWOL                0.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO OLRPC, EM SEGUNDOS
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RPCOL1 0.2305              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE CONEXÃO FILTRO 2, EM PU
+DEFVAL        RPCOL2 0.4605              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE CONEXÃO FILTRO 3, EM PU
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RPCOL3 0.1765              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE DESCONEXÃO FILTRO 2, EM PU
+DEFVAL        RPCOL4 0.4195              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE DESCONEXÃO FILTRO 3, EM PU
+(
+(TEMPORARY OVERVOLTAGE CONTROL (TOV)
+(EFPAR (npar) (     valpar     )
+DEFPAR #T1    0.00084                    # CONSTANTE DE TEMPO DE MEDIÇÃO (AVANÇO) DA TENSÃO AC, EM SEGUNDOS
+DEFPAR #T2    0.01                       # CONSTANTE DE TEMPO DE MEDIÇÃO (AVANÇO) DA TENSÃO AC, EM SEGUNDOS
+(
+DEFPAR #ISOL1 1.07                       # TOV ISOLATE LEVEL 1, EM PU
+DEFPAR #ISOL2 1.15                       # TOV ISOLATE LEVEL 2, EM PU
+DEFPAR #ISOL3 1.3                        # TOV ISOLATE LEVEL 3, EM PU
+DEFPAR #ISOL4 1.4                        # TOV ISOLATE LEVEL 4, EM PU
+(
+DEFPAR #TISO1 1.95                       # TEMPO DE ATRASO TOV ISOLATE LEVEL 1, EM SEGUNDOS
+DEFPAR #TISO2 0.85                       # TEMPO DE ATRASO TOV ISOLATE LEVEL 2, EM SEGUNDOS
+DEFPAR #TISO3 0.025                      # TEMPO DE ATRASO TOV ISOLATE LEVEL 3, EM SEGUNDOS
+DEFPAR #TISO4 0.025                      # TEMPO DE ATRASO TOV ISOLATE LEVEL 4, EM SEGUNDOS
+(
+DEFPAR #TSWV1 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 1, EM SEGUNDOS
+DEFPAR #TSWV2 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 2, EM SEGUNDOS
+DEFPAR #TSWV3 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 3, EM SEGUNDOS
+DEFPAR #TSWV4 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 4, EM SEGUNDOS
+(
+DEFPAR #TBRK  0.05                       # TEMPO ASSOCIADO À COMUNICAÇÃO, PROCESSAMENTO NA BCU E OPERAÇÃO DO DISJUNTOR, EM SEGUNDOS
+(
+DEFPAR #TSBLK 0.005                      # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS APÓS BLOQUEIO, EM SEGUNDOS
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        AUTO   #AUTO
+DEFVAL        MXFLT  #MXFLT
+DEFVAL        MNFLT  #MNFLT
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TSWOL  #TSWOL
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ISOL1  #ISOL1
+DEFVAL        ISOL2  #ISOL2
+DEFVAL        ISOL3  #ISOL3
+DEFVAL        ISOL4  #ISOL4
+DEFVAL        TSWV1  #TSWV1
+DEFVAL        TSWV2  #TSWV2
+DEFVAL        TSWV3  #TSWV3
+DEFVAL        TSWV4  #TSWV4
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBRK   #TBRK
+DEFVAL        TSWBLK #TSBLK
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        TRES   3.0
+DEFVAL        INF    9999.
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CONF   0.0
+DEFVAL        ISOF   0.0
+DEFVAL        CONR   0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    NFILT  NF0
+DEFVAL VAR    NFREQ  NF0
+DEFVAL VAR    REATOR REAT0
+DEFVAL VAR    REAT_A REAT0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    F01_M  F01_0
+DEFVAL VAR    F02_M  F02_0
+DEFVAL VAR    F03_M  F03_0
+DEFVAL VAR    REAT_M REAT0
+(
+(----------------------------------------------------------------------
+(
+(  EXPORTS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0010 EXPORT STBSH  NFILT         #FILT
+0020 EXPORT STBSH  REATOR        #REAT
+(
+(  ENTRADS BASICOS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0030 ENTRAD               ZERO
+0040 ENTRAD               HUM
+0043 ENTRAD               DOIS
+0044 ENTRAD               TRES
+0045 ENTRAD               INF
+0050 ENTRAD               AUTO
+0060 ENTRAD               MNFLT
+(
+( CHAVEAMENTO MANUAL DOS FILTROS POR SUB-BANCO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0070 ENTRAD               F01_M
+0080 ENTRAD               F02_M
+0090 ENTRAD               F03_M
+0100 ENTRAD               REAT_M
+(
+(  STATUS INICIAL POR SUB-BANCO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0110 LIMITA        NF0    F01_0                           ZERO   HUM
+0120 FUNCAO RETA   NF0    X120   1.0   -1.0
+0130 LIMITA        X120   F02_0                           ZERO   HUM
+0140 FUNCAO RETA   NF0    X140   1.0   -2.0
+0150 LIMITA        X140   F03_0                           ZERO   HUM
+0160 SOMA          F01_0  NF_0
+                   F02_0  NF_0
+                   F03_0  NF_0
+0170 SAIDA         NF_0
+(
+(  NUMERO INICIAL DE FILTROS E STATUS INICIAL DO REATOR
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0180 IMPORT NUBSH         NF0    #FILT  0.0
+0190 IMPORT NUBSH         REAT0  #REAT  0.0
+0200 SAIDA         REAT0
+(
+(  SELEÇÃO DO FILTRO A SER CHAVEADO POR SUB-BANCO - MANUAL/AUTO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0210 FUNCAO RETA   NFREQ  REQ01  1.0   -1.0
+0220 FUNCAO RETA   NFREQ  REQ02  1.0   -2.0
+0230 FUNCAO RETA   NFREQ  REQ03  1.0   -3.0
+(
+0240 COMPAR .GE.   REQ01  F01_A
+                   ZERO   F01_A
+0250 COMPAR .GE.   REQ02  F02_A
+                   ZERO   F02_A
+0260 COMPAR .GE.   REQ03  F03_A
+                   ZERO   F03_A
+(
+0270 SELET2        F01_M  F01
+                   F01_A  F01
+                   AUTO   F01
+0280 SELET2        F02_M  F02
+                   F02_A  F02
+                   AUTO   F02
+0290 SELET2        F03_M  F03
+                   F03_A  F03
+                   AUTO   F03
+(
+0300 SOMA          F01    NFILT
+                   F02    NFILT
+                   F03    NFILT
+(
+(  CHAVEAMENTO DO REATOR - MANUAL/AUTO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0310 SELET2        REAT_M REATOR
+                   REAT_A REATOR
+                   AUTO   REATOR
+(
+(  BLOQUEIO DO BTB - RAPID FILTER REMOVAL (RFR)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 312 IMPORT ESTCNV        ESTCNV #CONV 0.
+ 313 LOGIC  .NOT.  ESTCNV BLOCK
+ 314 LOGIC  .NOT.  BLOCK  DEBLK
+(
+(  CONEXÃO E DESCONEXÃO DE FILTROS
+(
+(conexão
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0330 LOGIC  .AND.  OLCON  CONF
+                   DEBLK  CONF
+                   NOTMAX CONF
+                   SWINT  CONF
+(desconexão
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0340 LOGIC  .OR.   VISO1  VISO
+                   VISO2  VISO
+                   VISO3  VISO
+                   VISO4  VISO
+0350 LOGIC  .AND.  VISO   X350
+                   NOTMIN X350
+                   SWINT  X350
+                   REATOR X350
+                   DEBLK  X350
+0351 LOGIC  .AND.  BLOCK  X351
+                   SWINT  X351
+0352 LOGIC  .OR.   X350   ISOF
+                   X351   ISOF
+                   OLISO  ISOF
+(
+(  CONEXÃO DO REATOR
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0353 LOGIC  .NOT.  REATOR X353
+0354 LOGIC  .AND.  VISO   CONR
+                   X353   CONR
+                   DEBLK  CONR
+(
+( INIBE NOVOS CHAVEAMENTOS NO INTERVALO TSWINT DE ACORDO COM A FUNÇÃO ATIVA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0360 LOGIC  .OR.   CONF   SWITCH
+                   ISOF   SWITCH
+                   CONR   SWITCH
+0370 LOGIC  .NOT.  X420   X370
+0380 DELAY         X370   SWINT
+(
+(monostable - switching interval - inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa (monostable foi modificado para não permitir que TSWINT varie durante a contagem de tempo)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0390 COMPAR .LE.   X440   TRACK
+                   ZERO   TRACK
+0400 T/HOLD        TSWINT TSINT
+                   TRACK  TSINT
+(
+0410 LOGIC  .AND.  SWITCH X410
+                   X510   X410
+0420 LOGIC  FFLOP1 RESET1 X420
+                   X410   X420
+0430 DIVSAO        X420   X430
+                   TSINT  X430
+0440 INTRES        X430   X440   1.0                      ZERO   HUM
+                   RES1   X440
+                   ZERO   X440
+0450 LIMITA        X440   X450                            ZERO   HUM
+0460 COMPAR .GE.   X450   X460
+                   HUM    X460
+0470 DELAY         X460   RESET1
+0480 DELAY         SWITCH X480
+0490 LOGIC  .NOT.  X480   X490
+0500 LOGIC  FFLOP1 X490   X500
+                   RESET1 X500
+0510 LOGIC  .NOT.  X500   X510
+0520 SOMA          SWITCH X520
+                  -X480   X520
+0530 LOGIC  .OR.   RESET1 RES1
+                   X520   RES1
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X440   0.0
+(
+(seleção do intervalo TSWINT entre chaveamentos
+0540 ENTRAD               TSWV1
+0550 ENTRAD               TSWV2
+0560 ENTRAD               TSWV3
+0570 ENTRAD               TSWV4
+0580 ENTRAD               TSWOL
+0585 ENTRAD               TSWBLK
+0590 SELET2        TSWOL  X590
+                   TSWV1  X590
+                   VHIGH1 X590
+0600 SELET2        X590   X600
+                   TSWV2  X600
+                   VHIGH2 X600
+0610 SELET2        X600   X610
+                   TSWV3  X610
+                   VHIGH3 X610
+0620 SELET2        X610   X620
+                   TSWV4  X620
+                   VHIGH4 X620
+0625 SELET2        X620   TSWINT
+                   TSWBLK TSWINT
+                   BLOCK  TSWINT
+(
+(  ATRASO NO CHAVEAMENTO DOS FILTROS - COMUNICAÇÃO, PROCESSAMENTO E DISJUNTOR
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0626 ENTRAD               TBRK
+0627 SELET2        TBRK   TINTI
+                   TSWBLK TINTI
+                   BLOCK  TINTI
+(
+(monostable - connection 50ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0630 LOGIC  .AND.  CONF   X630
+                   X730   X630
+0640 LOGIC  FFLOP1 RESET2 X640
+                   X630   X640
+0650 DIVSAO        X640   X650
+                   TINTI  X650
+0660 INTRES        X650   X660   1.0                      ZERO   HUM
+                   RESET2 X660
+                   ZERO   X660
+0670 LIMITA        X660   X670                            ZERO   HUM
+0680 COMPAR .GE.   X670   X680
+                   HUM    X680
+0690 DELAY         X680   RESET2
+0700 DELAY         CONF   X700
+0710 LOGIC  .NOT.  X700   X710
+0720 LOGIC  FFLOP1 X710   X720
+                   RESET2 X720
+0730 LOGIC  .NOT.  X720   X730
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X660   0.0
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0740 DELAY         X640   X740
+0750 SOMA          X740   X750
+                  -X640   X750
+0760 LIMITA        X750   CONFD                           ZERO   HUM
+(
+(monostable - isolate 50ms (se block, então T=5ms)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0770 LOGIC  .AND.  ISOF   X770
+                   X870   X770
+0780 LOGIC  FFLOP1 RESET3 X780
+                   X770   X780
+0790 DIVSAO        X780   X790
+                   TINTI  X790
+0800 INTRES        X790   X800   1.0                      ZERO   HUM
+                   RESET3 X800
+                   ZERO   X800
+0810 LIMITA        X800   X810                            ZERO   HUM
+0820 COMPAR .GE.   X810   X820
+                   HUM    X820
+0830 DELAY         X820   RESET3
+0840 DELAY         ISOF   X840
+0850 LOGIC  .NOT.  X840   X850
+0860 LOGIC  FFLOP1 X850   X860
+                   RESET3 X860
+0870 LOGIC  .NOT.  X860   X870
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X800   0.0
+(
+0880 DELAY         X780   X880
+0890 SOMA          X880   X890
+                  -X780   X890
+0900 LIMITA        X890   ISOFD                           ZERO   HUM
+(
+(  CONTADOR DO NÚMERO DE FILTROS SOLICITADOS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0910 SOMA          CONFD  X910
+                  -ISOFD  X910
+0920 ACUM          X910   X920   1.0
+                   ZERO   X920
+                   ZERO   X920
+                   ZERO   X920
+0930 DELAY         X920   X930
+0940 LIMITA        X930   NFREQ                           ZERO   MXFLT
+(
+(  VERIFICA SE O NÚMERO DE FILTROS ESTÁ NOS LIMITES
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0950 COMPAR .LT.   NFREQ  NOTMAX
+                   MXFLT  NOTMAX
+0960 COMPAR .GT.   NFREQ  NOTMIN
+                   MNFLT  NOTMIN
+(
+(Quando um filtro é desligado, o mesmo fica indisponível por 10 min (MXFLT=MXFLT-1)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0970 COMPAR .GT.   X930   X970
+                   X920   X970
+0980 ACUM          X970   X980   -1.0
+                   ZERO   X980
+                   ZERO   X980
+                   ZERO   X980
+0990 LIMITA        X980   X990                            MNFLT  INF
+1000 DELAY         X990   MXFLT
+(
+(  ATRASO NA CONEXÃO DO REATOR - COMUNICAÇÃO, PROCESSAMENTO E DISJUNTOR
+(
+(monostable - isolate 50ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1010 LOGIC  .AND.  CONR   X1010
+                   X1110  X1010
+1020 LOGIC  FFLOP1 RESET4 X1020
+                   X1010  X1020
+1030 FRACAO        X1020  X1030  1.0   0.0   #TBRK 0.0
+1040 INTRES        X1030  X1040  1.0                      ZERO   HUM
+                   RESET4 X1040
+                   ZERO   X1040
+1050 LIMITA        X1040  X1050                           ZERO   HUM
+1060 COMPAR .GE.   X1050  X1060
+                   HUM    X1060
+1070 DELAY         X1060  RESET4
+1080 DELAY         CONR   X1080
+1090 LOGIC  .NOT.  X1080  X1090
+1100 LOGIC  FFLOP1 X1090  X1100
+                   RESET4 X1100
+1110 LOGIC  .NOT.  X1100  X1110
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X1040  0.0
+(
+1120 DELAY         X1020  X1120
+1130 SOMA          X1120  X1130
+                  -X1020  X1130
+1140 LIMITA        X1130  CONRD                           ZERO   HUM
+(
+(  CONEXÃO DO REATOR - TOV
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1150 SOMA          CONRD  X1150
+                  -ZERO   X1150
+1160 ACUM          X1150  X1160  1.0
+                   ZERO   X1160
+                   ZERO   X1160
+                   ZERO   X1160
+1170 DELAY         X1160  X1170
+1180 LIMITA        X1170  REAT_A                          ZERO   HUM
+(
+( *****************************************************************************
+( *******************             OPEN-LOOP RPC             *******************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1190 IMPORT CDU           PORD   #PORD  0.0
+(
+1210 ENTRAD               RPCOL1
+1220 ENTRAD               RPCOL2
+1215 ENTRAD               RPCOL3
+1225 ENTRAD               RPCOL4
+(
+(Numero minimo de filtros em função de PORD (MNOL)
+1230 COMPAR .LT.   PORD   X1230
+                   RPCOL1 X1230
+1240 GANHO         X1230  MNOL1  1.0
+1245 COMPAR .GE.   PORD   X1245
+                   RPCOL1 X1245
+1247 GANHO         X1245  MNOL2  2.0
+1250 COMPAR .GE.   PORD   X1250
+                   RPCOL2 X1250
+1260 GANHO         X1250  MNOL3  3.0
+(
+1270 MAX           MNOL1  MNOL
+                   MNOL2  MNOL
+                   MNOL3  MNOL
+(
+(conecta filtros pelo OL-RPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1280 COMPAR .GT.   MNOL   HHIGH
+                   NFREQ  HHIGH
+(
+(delay on - THPC segundos
+1290 LOGIC  .NOT.  HHIGH  X1290
+1300 LOGIC  .AND.  HHIGH  X1300
+                   X1370  X1300
+1310 LOGIC  FFLOP1 X1380  X1310
+                   X1300  X1310
+1320 FRACAO        X1310  X1320  1.0   0.0   #TDOL 0.0
+1330 INTRES        X1320  X1330  1.0                      ZERO   HUM
+                   X1290  X1330
+                   ZERO   X1330
+1340 LIMITA        X1330  X1340                           ZERO   HUM
+1350 COMPAR .GE.   X1340  OLCON
+                   HUM    OLCON
+1360 DELAY         OLCON  X1360
+1370 LOGIC  .NOT.  X1360  X1370
+1380 LOGIC  .OR.   X1290  X1380
+                   X1360  X1380
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X1330  0.0
+(
+(Numero máximo de filtros em função de PORD (MXOL)
+1400 COMPAR .GT.   PORD   X1400
+                   RPCOL4 X1400
+1405 GANHO         X1400  X1405  3.0
+1406 SELET2        INF    MXOL3
+                   X1405  MXOL3
+                   X1400  MXOL3
+1410 COMPAR .LE.   PORD   X1410
+                   RPCOL4 X1410
+1415 GANHO         X1410  X1415  2.0
+1416 SELET2        INF    MXOL2
+                   X1415  MXOL2
+                   X1410  MXOL2
+1420 COMPAR .LE.   PORD   X1420
+                   RPCOL3 X1420
+1425 GANHO         X1420  X1425  1.0
+1426 SELET2        INF    MXOL1
+                   X1425  MXOL1
+                   X1420  MXOL1
+(
+1430 MIN           MXOL1  MXOL
+                   MXOL2  MXOL
+                   MXOL3  MXOL
+(
+(desconecta filtros pelo OL-RPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1435 COMPAR .LT.   MXOL   HLOW
+                   NFREQ  HLOW
+(
+(delay on - THPC segundos
+1440 DISMAX        HLOW   OLISO  0.5   #TDOL 0.0
+(
+( *****************************************************************************
+( *******************             TOV CONTROL               *******************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1500 IMPORT*VOLT          VB     #ACBUS
+1515 LEDLAG        VB     VBF    1.0   #T1   1.0   #T2
+(
+1525 ENTRAD               ISOL1
+1530 ENTRAD               ISOL2
+1535 ENTRAD               ISOL3
+1540 ENTRAD               ISOL4
+(
+(TOV isolate 1
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1545 COMPAR .GT.   VBF    X1545
+                   ISOL1  X1545
+1546 COMPAR .LE.   VBF    X1546
+                   ISOL2  X1546
+1547 LOGIC  .AND.  X1545  VHIGH1
+                   X1546  VHIGH1
+(
+(tempo interpolado entre #TISO1 e #TISO2 em função da sobretensão (TISO1D)
+1548 FUNCAO RAMPA  VBF    TISO1D #ISOL1#TISO1#ISOL2#TISO2
+(
+(delay on - TISO1 segundos
+5050 LOGIC  .NOT.  VHIGH1 X5050
+5060 LOGIC  .AND.  VHIGH1 X5060
+                   X5130  X5060
+5070 LOGIC  FFLOP1 X5140  X5070
+                   X5060  X5070
+(5080 FRACAO        X5070  X5080  1.0   0.0   #TISO10.0
+5080 DIVSAO        X5070  X5080
+                   TISO1D X5080
+5090 INTRES        X5080  X5090  1.0                      ZERO   HUM
+                   X5050  X5090
+                   ZERO   X5090
+5100 LIMITA        X5090  X5100                           ZERO   HUM
+5110 COMPAR .GE.   X5100  VISO1
+                   HUM    VISO1
+5120 DELAY         VISO1  X5120
+5130 LOGIC  .NOT.  X5120  X5130
+5140 LOGIC  .OR.   X5050  X5140
+                   X5120  X5140
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X5090  0.0
+((
+(TOV isolate 2
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1550 COMPAR .GT.   VBF    VHIGH2
+                   ISOL2  VHIGH2
+(delay on - TISO2 segundos
+6110 DISMAX        VHIGH2 VISO2  0.5   #TISO20.0
+(
+(TOV isolate 3
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1555 COMPAR .GT.   VBF    VHIGH3
+                   ISOL3  VHIGH3
+(delay on - TISO3 segundos
+7110 DISMAX        VHIGH3 VISO3  0.5   #TISO30.0
+(
+(TOV isolate 4
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1560 COMPAR .GT.   VBF    VHIGH4
+                   ISOL4  VHIGH4
+(delay on - TISO4 segundos
+8110 DISMAX        VHIGH4 VISO4  0.5   #TISO40.0
+(
+( *****************************************************************************
+( *************           FILTER CAPABLITY POWER LIMIT            *************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1600 COMPAR .GE.   MXFLT  X1600
+                   TRES   X1600
+1605 COMPAR .EQ.   MXFLT  X1605
+                   DOIS   X1605
+1610 COMPAR .LT.   MXFLT  X1610
+                   DOIS   X1610
+1620 SELET2        ZERO   X1620
+                   RPCOL1 X1620
+                   X1610  X1620
+1630 SELET2        X1620  X1630
+                   RPCOL2 X1630
+                   X1605  X1630
+1640 SELET2        X1630  PLIMU
+                   INF    PLIMU
+                   X1600  PLIMU
+1650 EXPORT CDU    PLIMU
+(
+FIMCDU
+(
+(ncdu) ( nome cdu )
+  9396 OLRPC-TOV-BR
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO                   1         # AUTO=1 / MANUAL=0
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CONV                3101         # DLOC CONVERSOR BRASIL
+DEFPAR #ACBUS               3191         # DLOC BARRA AC BRASIL
+DEFPAR #FILT                3193         # DLOC FILTROS BRASIL - 3 x 96 MVAR
+DEFPAR #FCAND               3196         # FILTRO CANDIOTA - 1 x 65 Mvar
+DEFPAR #PORD                2028         # DLOC PORD (from Power Control)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #MXFLT                  3         # NUMERO MAXIMO DE FILTROS
+DEFPAR #MNFLT                  1         # NUMERO MINIMO DE FILTROS
+(
+(OPEN-LOOP REACTIVE POWER CONTROL (OLRPC)
+(EFPAR (nome) (     valor      )
+DEFPAR #TDOL                0.15         # TEMPO DE ATRASO OPEN-LOOP RPC, EM SEGUNDOS => (de 0.50 para 0.15 s alterado p/ ONS)
+DEFPAR #TSWOL                0.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO OLRPC, EM SEGUNDOS
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RPCOL1 0.2305              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE CONEXÃO FILTRO 2, EM PU
+DEFVAL        RPCOL2 0.4605              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE CONEXÃO FILTRO 3, EM PU
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RPCOL3 0.1765              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE DESCONEXÃO FILTRO 2, EM PU
+DEFVAL        RPCOL4 0.4195              # OPEN-LOOP REACTIVE POWER CONTROL (OLRPC) -> PONTO DE DESCONEXÃO FILTRO 3, EM PU
+(
+(TEMPORARY OVERVOLTAGE CONTROL (TOV)
+(EFPAR (npar) (     valpar     )
+DEFPAR #T1    0.00084                    # CONSTANTE DE TEMPO DE MEDIÇÃO (AVANÇO) DA TENSÃO AC, EM SEGUNDOS
+DEFPAR #T2    0.01                       # CONSTANTE DE TEMPO DE MEDIÇÃO (AVANÇO) DA TENSÃO AC, EM SEGUNDOS
+(
+DEFPAR #ISOL1 1.07                       # TOV ISOLATE LEVEL 1, EM PU
+DEFPAR #ISOL2 1.15                       # TOV ISOLATE LEVEL 2, EM PU
+DEFPAR #ISOL3 1.3                        # TOV ISOLATE LEVEL 3, EM PU
+DEFPAR #ISOL4 1.4                        # TOV ISOLATE LEVEL 4, EM PU
+(
+DEFPAR #TISO1 1.95                       # TEMPO DE ATRASO TOV ISOLATE LEVEL 1, EM SEGUNDOS
+DEFPAR #TISO2 0.85                       # TEMPO DE ATRASO TOV ISOLATE LEVEL 2, EM SEGUNDOS
+DEFPAR #TISO3 0.025                      # TEMPO DE ATRASO TOV ISOLATE LEVEL 3, EM SEGUNDOS
+DEFPAR #TISO4 0.025                      # TEMPO DE ATRASO TOV ISOLATE LEVEL 4, EM SEGUNDOS
+(
+DEFPAR #TSWV1 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 1, EM SEGUNDOS
+DEFPAR #TSWV2 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 2, EM SEGUNDOS
+DEFPAR #TSWV3 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 3, EM SEGUNDOS
+DEFPAR #TSWV4 0.1                        # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO TOV LEVEL 4, EM SEGUNDOS
+(
+DEFPAR #TBRK  0.05                       # TEMPO ASSOCIADO À COMUNICAÇÃO, PROCESSAMENTO NA BCU E OPERAÇÃO DO DISJUNTOR, EM SEGUNDOS
+(
+DEFPAR #TSBLK 0.005                     # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS APÓS BLOQUEIO, EM SEGUNDOS
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        AUTO   #AUTO
+DEFVAL        MXFLT  #MXFLT
+DEFVAL        MNFLT  #MNFLT
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TSWOL  #TSWOL
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ISOL1  #ISOL1
+DEFVAL        ISOL2  #ISOL2
+DEFVAL        ISOL3  #ISOL3
+DEFVAL        ISOL4  #ISOL4
+DEFVAL        TSWV1  #TSWV1
+DEFVAL        TSWV2  #TSWV2
+DEFVAL        TSWV3  #TSWV3
+DEFVAL        TSWV4  #TSWV4
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBRK   #TBRK
+DEFVAL        TSWBLK #TSBLK
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        TRES   3.0
+DEFVAL        INF    9999.
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CONF   0.0
+DEFVAL        ISOF   0.0
+DEFVAL        ISOFC  0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    NFILT  NF0
+DEFVAL VAR    NFREQ  NF0
+DEFVAL VAR    FCAND  FCAND0
+DEFVAL VAR    FCAN_A FCAND0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    F01_M  F01_0
+DEFVAL VAR    F02_M  F02_0
+DEFVAL VAR    F03_M  F03_0
+DEFVAL VAR    FCAN_M FCAND0
+(
+(----------------------------------------------------------------------
+(
+(  EXPORTS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0010 EXPORT STBSH  NFILT         #FILT
+0025 EXPORT STBSH  FCAND         #FCAND
+(
+(  ENTRADS BASICOS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0030 ENTRAD               ZERO
+0040 ENTRAD               HUM
+0043 ENTRAD               DOIS
+0044 ENTRAD               TRES
+0045 ENTRAD               INF
+0050 ENTRAD               AUTO
+0060 ENTRAD               MNFLT
+(
+( CHAVEAMENTO MANUAL DOS FILTROS POR SUB-BANCO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0070 ENTRAD               F01_M
+0080 ENTRAD               F02_M
+0090 ENTRAD               F03_M
+0105 ENTRAD               FCAN_M
+(
+(  STATUS INICIAL POR SUB-BANCO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0110 LIMITA        NF0    F01_0                           ZERO   HUM
+0120 FUNCAO RETA   NF0    X120   1.0   -1.0
+0130 LIMITA        X120   F02_0                           ZERO   HUM
+0140 FUNCAO RETA   NF0    X140   1.0   -2.0
+0150 LIMITA        X140   F03_0                           ZERO   HUM
+0160 SOMA          F01_0  NF_0
+                   F02_0  NF_0
+                   F03_0  NF_0
+0170 SAIDA         NF_0
+(
+(  NUMERO INICIAL DE FILTROS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0180 IMPORT NUBSH         NF0    #FILT  0.0
+0205 IMPORT NUBSH         FCAND0 #FCAND 0.0
+0206 SAIDA         FCAND0
+(
+(  SELEÇÃO DO FILTRO A SER CHAVEADO POR SUB-BANCO - MANUAL/AUTO
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0210 FUNCAO RETA   NFREQ  REQ01  1.0   -1.0
+0220 FUNCAO RETA   NFREQ  REQ02  1.0   -2.0
+0230 FUNCAO RETA   NFREQ  REQ03  1.0   -3.0
+(
+0240 COMPAR .GE.   REQ01  F01_A
+                   ZERO   F01_A
+0250 COMPAR .GE.   REQ02  F02_A
+                   ZERO   F02_A
+0260 COMPAR .GE.   REQ03  F03_A
+                   ZERO   F03_A
+(
+0270 SELET2        F01_M  F01
+                   F01_A  F01
+                   AUTO   F01
+0280 SELET2        F02_M  F02
+                   F02_A  F02
+                   AUTO   F02
+0290 SELET2        F03_M  F03
+                   F03_A  F03
+                   AUTO   F03
+(
+0300 SOMA          F01    NFILT
+                   F02    NFILT
+                   F03    NFILT
+(
+(  CHAVEAMENTO DO FILTRO EM CANDIOTA - MANUAL/AUTO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0315 SELET2        FCAN_M FCAND
+                   FCAN_A FCAND
+                   AUTO   FCAND
+(
+(  BLOQUEIO DO BTB - RAPID FILTER REMOVAL (RFR)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 312 IMPORT ESTCNV        ESTCNV #CONV 0.
+ 313 LOGIC  .NOT.  ESTCNV BLOCK
+ 314 LOGIC  .NOT.  BLOCK  DEBLK
+(
+(  CONEXÃO E DESCONEXÃO DE FILTROS
+(
+(conexão
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0330 LOGIC  .AND.  OLCON  CONF
+                   DEBLK  CONF
+                   NOTMAX CONF
+                   SWINT  CONF
+(desconexão
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0340 LOGIC  .OR.   VISO1  VISO
+                   VISO2  VISO
+                   VISO3  VISO
+                   VISO4  VISO
+0350 LOGIC  .AND.  VISO   X350
+                   NOTMIN X350
+                   SWINT  X350
+                   DEBLK  X350
+0351 LOGIC  .AND.  BLOCK  X351
+                   SWINT  X351
+0352 LOGIC  .OR.   X350   ISOF
+                   X351   ISOF
+                   OLISO  ISOF
+(
+(desconexão do filtro em Candiota - RFR
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0342 GANHO         BLOCK  ISOFC  1.0
+(
+( INIBE NOVOS CHAVEAMENTOS NO INTERVALO TSWINT DE ACORDO COM A FUNÇÃO ATIVA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0360 LOGIC  .OR.   CONF   SWITCH
+                   ISOF   SWITCH
+0370 LOGIC  .NOT.  X420   X370
+0380 DELAY         X370   SWINT
+(
+(monostable - switching interval - inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa (monostable foi modificado para não permitir que TSWINT varie durante a contagem de tempo)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0390 COMPAR .LE.   X440   TRACK
+                   ZERO   TRACK
+0400 T/HOLD        TSWINT TSINT
+                   TRACK  TSINT
+(
+0410 LOGIC  .AND.  SWITCH X410
+                   X510   X410
+0420 LOGIC  FFLOP1 RESET1 X420
+                   X410   X420
+0430 DIVSAO        X420   X430
+                   TSINT  X430
+0440 INTRES        X430   X440   1.0                      ZERO   HUM
+                   RES1   X440
+                   ZERO   X440
+0450 LIMITA        X440   X450                            ZERO   HUM
+0460 COMPAR .GE.   X450   X460
+                   HUM    X460
+0470 DELAY         X460   RESET1
+0480 DELAY         SWITCH X480
+0490 LOGIC  .NOT.  X480   X490
+0500 LOGIC  FFLOP1 X490   X500
+                   RESET1 X500
+0510 LOGIC  .NOT.  X500   X510
+0520 SOMA          SWITCH X520
+                  -X480   X520
+0530 LOGIC  .OR.   RESET1 RES1
+                   X520   RES1
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X440   0.0
+(
+(seleção do intervalo TSWINT entre chaveamentos
+0540 ENTRAD               TSWV1
+0550 ENTRAD               TSWV2
+0560 ENTRAD               TSWV3
+0570 ENTRAD               TSWV4
+0580 ENTRAD               TSWOL
+0585 ENTRAD               TSWBLK
+0590 SELET2        TSWOL  X590
+                   TSWV1  X590
+                   VHIGH1 X590
+0600 SELET2        X590   X600
+                   TSWV2  X600
+                   VHIGH2 X600
+0610 SELET2        X600   X610
+                   TSWV3  X610
+                   VHIGH3 X610
+0620 SELET2        X610   X620
+                   TSWV4  X620
+                   VHIGH4 X620
+0625 SELET2        X620   TSWINT
+                   TSWBLK TSWINT
+                   BLOCK  TSWINT
+(
+(  ATRASO NO CHAVEAMENTO DOS FILTROS - COMUNICAÇÃO, PROCESSAMENTO E DISJUNTOR
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0626 ENTRAD               TBRK
+0627 SELET2        TBRK   TINTI
+                   TSWBLK TINTI
+                   BLOCK  TINTI
+(
+(monostable - connection 50ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0630 LOGIC  .AND.  CONF   X630
+                   X730   X630
+0640 LOGIC  FFLOP1 RESET2 X640
+                   X630   X640
+0650 DIVSAO        X640   X650
+                   TINTI  X650
+0660 INTRES        X650   X660   1.0                      ZERO   HUM
+                   RESET2 X660
+                   ZERO   X660
+0670 LIMITA        X660   X670                            ZERO   HUM
+0680 COMPAR .GE.   X670   X680
+                   HUM    X680
+0690 DELAY         X680   RESET2
+0700 DELAY         CONF   X700
+0710 LOGIC  .NOT.  X700   X710
+0720 LOGIC  FFLOP1 X710   X720
+                   RESET2 X720
+0730 LOGIC  .NOT.  X720   X730
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X660   0.0
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0740 DELAY         X640   X740
+0750 SOMA          X740   X750
+                  -X640   X750
+0760 LIMITA        X750   CONFD                           ZERO   HUM
+(
+(monostable - isolate 50ms (se block, então T=5ms)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0770 LOGIC  .AND.  ISOF   X770
+                   X870   X770
+0780 LOGIC  FFLOP1 RESET3 X780
+                   X770   X780
+0790 DIVSAO        X780   X790
+                   TINTI  X790
+0800 INTRES        X790   X800   1.0                      ZERO   HUM
+                   RESET3 X800
+                   ZERO   X800
+0810 LIMITA        X800   X810                            ZERO   HUM
+0820 COMPAR .GE.   X810   X820
+                   HUM    X820
+0830 DELAY         X820   RESET3
+0840 DELAY         ISOF   X840
+0850 LOGIC  .NOT.  X840   X850
+0860 LOGIC  FFLOP1 X850   X860
+                   RESET3 X860
+0870 LOGIC  .NOT.  X860   X870
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X800   0.0
+(
+0880 DELAY         X780   X880
+0890 SOMA          X880   X890
+                  -X780   X890
+0900 LIMITA        X890   ISOFD                           ZERO   HUM
+(
+(  CONTADOR DO NÚMERO DE FILTROS SOLICITADOS
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0910 SOMA          CONFD  X910
+                  -ISOFD  X910
+0920 ACUM          X910   X920   1.0
+                   ZERO   X920
+                   ZERO   X920
+                   ZERO   X920
+0930 DELAY         X920   X930
+0940 LIMITA        X930   NFREQ                           ZERO   MXFLT
+(
+(  VERIFICA SE O NÚMERO DE FILTROS ESTÁ NOS LIMITES
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0950 COMPAR .LT.   NFREQ  NOTMAX
+                   MXFLT  NOTMAX
+0960 COMPAR .GT.   NFREQ  NOTMIN
+                   MNFLT  NOTMIN
+(
+(Quando um filtro é desligado, o mesmo fica indisponível por 10 min (MXFLT=MXFLT-1)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0970 COMPAR .GT.   X930   X970
+                   X920   X970
+0980 ACUM          X970   X980   -1.0
+                   ZERO   X980
+                   ZERO   X980
+                   ZERO   X980
+0990 LIMITA        X980   X990                            MNFLT  INF
+1000 DELAY         X990   MXFLT
+(
+(  DESCONEXÃO DO FILTRO DE CANDIOTA - RFR
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1182 SOMA          ZERO   X1182
+                  -ISOFC  X1182
+1184 ACUM          X1182  X1184  1.0
+                   ZERO   X1184
+                   ZERO   X1184
+                   ZERO   X1184
+1186 ATRASO        X1184  X1186  #TBRK
+1188 LIMITA        X1186  FCAN_A                          ZERO   HUM
+(
+( *****************************************************************************
+( *******************             OPEN-LOOP RPC             *******************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1190 IMPORT CDU           PORD   #PORD  0.0
+(
+1210 ENTRAD               RPCOL1
+1220 ENTRAD               RPCOL2
+1215 ENTRAD               RPCOL3
+1225 ENTRAD               RPCOL4
+(
+(Numero minimo de filtros em função de PORD (MNOL)
+1230 COMPAR .LT.   PORD   X1230
+                   RPCOL1 X1230
+1240 GANHO         X1230  MNOL1  1.0
+1245 COMPAR .GE.   PORD   X1245
+                   RPCOL1 X1245
+1247 GANHO         X1245  MNOL2  2.0
+1250 COMPAR .GE.   PORD   X1250
+                   RPCOL2 X1250
+1260 GANHO         X1250  MNOL3  3.0
+(
+1270 MAX           MNOL1  MNOL
+                   MNOL2  MNOL
+                   MNOL3  MNOL
+(
+(conecta filtros pelo OL-RPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1280 COMPAR .GT.   MNOL   HHIGH
+                   NFREQ  HHIGH
+(
+(delay on - THPC segundos
+1290 LOGIC  .NOT.  HHIGH  X1290
+1300 LOGIC  .AND.  HHIGH  X1300
+                   X1370  X1300
+1310 LOGIC  FFLOP1 X1380  X1310
+                   X1300  X1310
+1320 FRACAO        X1310  X1320  1.0   0.0   #TDOL 0.0
+1330 INTRES        X1320  X1330  1.0                      ZERO   HUM
+                   X1290  X1330
+                   ZERO   X1330
+1340 LIMITA        X1330  X1340                           ZERO   HUM
+1350 COMPAR .GE.   X1340  OLCON
+                   HUM    OLCON
+1360 DELAY         OLCON  X1360
+1370 LOGIC  .NOT.  X1360  X1370
+1380 LOGIC  .OR.   X1290  X1380
+                   X1360  X1380
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X1330  0.0
+(
+(Numero máximo de filtros em função de PORD (MXOL)
+1400 COMPAR .GT.   PORD   X1400
+                   RPCOL4 X1400
+1405 GANHO         X1400  X1405  3.0
+1406 SELET2        INF    MXOL3
+                   X1405  MXOL3
+                   X1400  MXOL3
+1410 COMPAR .LE.   PORD   X1410
+                   RPCOL4 X1410
+1415 GANHO         X1410  X1415  2.0
+1416 SELET2        INF    MXOL2
+                   X1415  MXOL2
+                   X1410  MXOL2
+1420 COMPAR .LE.   PORD   X1420
+                   RPCOL3 X1420
+1425 GANHO         X1420  X1425  1.0
+1426 SELET2        INF    MXOL1
+                   X1425  MXOL1
+                   X1420  MXOL1
+(
+1430 MIN           MXOL1  MXOL
+                   MXOL2  MXOL
+                   MXOL3  MXOL
+(
+(desconecta filtros pelo OL-RPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1435 COMPAR .LT.   MXOL   HLOW
+                   NFREQ  HLOW
+(
+(delay on - THPC segundos
+1440 DISMAX        HLOW   OLISO  0.5   #TDOL 0.0
+(
+( *****************************************************************************
+( *******************             TOV CONTROL               *******************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1500 IMPORT*VOLT          VB     #ACBUS
+1515 LEDLAG        VB     VBF    1.0   #T1   1.0   #T2
+(
+1525 ENTRAD               ISOL1
+1530 ENTRAD               ISOL2
+1535 ENTRAD               ISOL3
+1540 ENTRAD               ISOL4
+(
+(TOV isolate 1
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1545 COMPAR .GT.   VBF    X1545
+                   ISOL1  X1545
+1546 COMPAR .LE.   VBF    X1546
+                   ISOL2  X1546
+1547 LOGIC  .AND.  X1545  VHIGH1
+                   X1546  VHIGH1
+(
+(tempo interpolado entre #TISO1 e #TISO2 em função da sobretensão (TISO1D)
+1548 FUNCAO RAMPA  VBF    TISO1D #ISOL1#TISO1#ISOL2#TISO2
+(
+(delay on - TISO1 segundos
+5050 LOGIC  .NOT.  VHIGH1 X5050
+5060 LOGIC  .AND.  VHIGH1 X5060
+                   X5130  X5060
+5070 LOGIC  FFLOP1 X5140  X5070
+                   X5060  X5070
+(5080 FRACAO        X5070  X5080  1.0   0.0   #TISO10.0
+5080 DIVSAO        X5070  X5080
+                   TISO1D X5080
+5090 INTRES        X5080  X5090  1.0                      ZERO   HUM
+                   X5050  X5090
+                   ZERO   X5090
+5100 LIMITA        X5090  X5100                           ZERO   HUM
+5110 COMPAR .GE.   X5100  VISO1
+                   HUM    VISO1
+5120 DELAY         VISO1  X5120
+5130 LOGIC  .NOT.  X5120  X5130
+5140 LOGIC  .OR.   X5050  X5140
+                   X5120  X5140
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X5090  0.0
+((
+(TOV isolate 2
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1550 COMPAR .GT.   VBF    VHIGH2
+                   ISOL2  VHIGH2
+(delay on - TISO2 segundos
+6110 DISMAX        VHIGH2 VISO2  0.5   #TISO20.0
+(
+(TOV isolate 3
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1555 COMPAR .GT.   VBF    VHIGH3
+                   ISOL3  VHIGH3
+(delay on - TISO3 segundos
+7110 DISMAX        VHIGH3 VISO3  0.5   #TISO30.0
+(
+(TOV isolate 4
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1560 COMPAR .GT.   VBF    VHIGH4
+                   ISOL4  VHIGH4
+(delay on - TISO4 segundos
+8110 DISMAX        VHIGH4 VISO4  0.5   #TISO40.0
+(
+( *****************************************************************************
+( *************           FILTER CAPABLITY POWER LIMIT            *************
+( *****************************************************************************
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1600 COMPAR .GE.   MXFLT  X1600
+                   TRES   X1600
+1605 COMPAR .EQ.   MXFLT  X1605
+                   DOIS   X1605
+1610 COMPAR .LT.   MXFLT  X1610
+                   DOIS   X1610
+1620 SELET2        ZERO   X1620
+                   RPCOL1 X1620
+                   X1610  X1620
+1630 SELET2        X1620  X1630
+                   RPCOL2 X1630
+                   X1605  X1630
+1640 SELET2        X1630  PLIMB
+                   INF    PLIMB
+                   X1600  PLIMB
+1650 EXPORT CDU    PLIMB
+(
+FIMCDU
+(
+999999
+(
+FIM

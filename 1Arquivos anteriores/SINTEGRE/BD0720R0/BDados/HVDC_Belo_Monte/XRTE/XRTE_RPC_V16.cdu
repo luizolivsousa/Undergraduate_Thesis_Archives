@@ -1,0 +1,3278 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_RPC_V16.cdu                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 8401 - RPC CONTROL - XINGU
+( CDU 8402 - RPC CONTROL - T. RIO
+(
+DCDU
+(ncdu) ( nome cdu )
+ 8401   RPC_S1
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #RPC_A 1.0                        # Control type (1: Automatic / 0: Manual )
+DEFPAR #CMOD  0.0                        # Automatic control mode (1: Q Control / 0: U Control)
+(
+DEFPAR #UACS1 1971                       # Xingu Bus
+DEFPAR #FA    1901                       # Xingu Filter Bank A
+DEFPAR #FB    1902                       # Xingu Filter Bank A
+DEFPAR #FC    1903                       # Xingu Filter Bank A
+DEFPAR #CNVX1 1981                       # Xingu Converter Pole 1
+DEFPAR #CNVX2 1983                       # Xingu Converter Pole 2
+DEFPAR #PS2P1 1982                       # T.Rio Converter Pole 1
+DEFPAR #PS2P2 1984                       # T.Rio Converter Pole 2
+DEFPAR #URDP1 2127                       # Reduced Voltage Status on Pole 1
+DEFPAR #URDP2 2327                       # Reduced Voltage Status on Pole 2
+(
+DEFPAR #AVA_F 9.0                        # Number of available filters
+(
+( Q CONTROL
+DEFPAR #Q_REF 400.0                      # Reactive power reference [MVAr]
+DEFPAR #Q_DB  150.0                      # Reactive power deadband  [MVAr]
+DEFPAR #QDLAY   3.0                      # Delay for Q Control Switching
+DEFPAR #QINTR  10.0                      # Interval between filters
+(
+( U CONTROL
+DEFPAR #U_REF 525.0                      # Voltage reference [kV]
+DEFPAR #U_DB  25.0                       # Voltage deadband  [kV]
+DEFPAR #UDLAY   5.0                      # Delay for U Control Switching
+DEFPAR #UINTR   5.0                      # Interval between filters
+(
+( UMAX / UMIN
+DEFPAR #UMAX  550.0                      # Max voltage (1.10 pu)
+DEFPAR #UMxEn 544.0                      # Max voltage threshold (1.088 pu)
+DEFPAR #UMXDL 3.0                        # Delay for UMax Switching
+DEFPAR #EnUmx 0.0                        # Umax Filter Switching (0: Disable 1: Enable)
+(
+DEFPAR #UMIN  465.0                      # Minimum voltage (0.93 pu)
+DEFPAR #UmnEn 485.0                      # Minimum voltage threshold (0.97 pu)
+DEFPAR #U_Hys 5.25                       # Voltage hysteresis
+DEFPAR #UMNDL 3.0                        # Delay for UMin Switching
+DEFPAR #UMNIN 5.0                        # Interval between filters
+(
+( OVERVOLTAGE
+DEFPAR #OV_EN 1.0                        # Overvoltage protection   (1: Enable / 0: Disble)
+DEFPAR #OVST1 575.0                      # Over voltage set 1 [kV]  (1.15 pu)
+DEFPAR #OVST2 600.0                      # Over voltage set 2 [kV]  (1.20 pu)
+DEFPAR #OVST3 635.0                      # Over voltage set 3 [kV]  (1.27 pu)
+
+DEFPAR #T_OV1 1.900                      # Over voltage time set 1 [s]
+DEFPAR #I_OV1 0.500                      # Interval between disconnections for set 1
+DEFPAR #T_OV2 0.235                      # Over voltage time set 2 [s]
+DEFPAR #I_OV2 0.150                      # Interval between disconnections for set 2
+DEFPAR #T_OV3 0.135                      # Over voltage time set 3 [s]
+DEFPAR #I_OV3 0.150                      # Interval between disconnections for set 3
+(
+( QMAX
+DEFPAR #QMXUR 530.0                      # Voltage Reference [kV] (1.060 pu)
+DEFPAR #IUQMX 0.5                        # Interval between QMAX/UMAX disconnections
+DEFPAR #TripA 0.0                        # Enable Trip All
+(
+( MIN FILTER
+DEFPAR #HMINF 50.0                        # Power hysteresis for Min Filter [MW]
+DEFPAR #MNFDL 5.0                         # Delay for Min Filter Switching
+DEFPAR #MNFIN 5.0                         # Interval between filters
+(
+( ABS MIN FILTER
+DEFPAR #HABMN 50.0                       # Power hysteresis for Abs min
+DEFPAR #ABSDL 0.5                        # Delay for Abs Min Filter Switching
+DEFPAR #ABSIN 2.0                        # Interval between filters
+DEFPAR #DRBAM 10.0                       # Delay for Runback by Abs Min (30s on real equipment)
+(
+( Min Filter - Bipolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #MFR1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFR2  560.0              Maximum power with 2 filters (MW)
+DEFPAR #MFR3  700.0              Maximum power with 3 filters (MW)
+DEFPAR #MFR4  1540.0             Maximum power with 4 filters (MW)
+DEFPAR #MFR5  2520.0             Maximum power with 5 filters (MW)
+DEFPAR #MFR6  2800.0             Maximum power with 6 filters (MW)
+(
+( Min Filter - Bipolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #MFN1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFN2  800.0              Maximum power with 2 filters (MW)
+DEFPAR #MFN3  1200.0             Maximum power with 3 filters (MW)
+DEFPAR #MFN4  2800.0             Maximum power with 4 filters (MW)
+DEFPAR #MFN5  3200.0             Maximum power with 5 filters (MW)
+DEFPAR #MFN6  3600.0             Maximum power with 6 filters (MW)
+DEFPAR #MFN7  4000.0             Maximum power with 7 filters (MW)
+(
+( Min Filter - Monopolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #MFRM1 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFRM2 560.0              Maximum power with 2 filters (MW)
+DEFPAR #MFRM3 1260.0             Maximum power with 3 filters (MW)
+DEFPAR #MFRM4 1400.0             Maximum power with 4 filters (MW)
+(
+( Min Filter - Monopolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #MFM1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFM2  1000.0             Maximum power with 2 filters (MW)
+DEFPAR #MFM3  1400.0             Maximum power with 3 filters (MW)
+DEFPAR #MFM4  1800.0             Maximum power with 4 filters (MW)
+DEFPAR #MFM5  2000.0             Maximum power with 5 filters (MW)
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #AMR1  280.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMR2  560.0              Maximum power with 2 filters (MW)
+DEFPAR #AMR3  700.0              Maximum power with 3 filters (MW)
+DEFPAR #AMR4  2380.0             Maximum power with 4 filters (MW)
+DEFPAR #AMR5  2800.0             Maximum power with 5 filters (MW)
+(
+( Abs Min - Bipolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #AMN1  400.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMN2  800.0              Maximum power with 2 filters (MW)
+DEFPAR #AMN3  1200.0             Maximum power with 3 filters (MW)
+DEFPAR #AMN4  2800.0             Maximum power with 4 filters (MW)
+DEFPAR #AMN5  4000.0             Maximum power with 5 filters (MW)
+DEFPAR #AMN6  5000.0             Maximum power with 6 filters (MW)
+DEFPAR #AMN7  5320.0             Maximum power with 7 filters (MW)
+(
+( Abs Min - Monopolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #AMRM1 210.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMRM2 1190.0             Maximum power with 2 filters (MW)
+DEFPAR #AMRM3 1400.0             Maximum power with 3 filters (MW)
+(
+( Abs Min - Monopolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #AMM1  200.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMM2  1100.0             Maximum power with 2 filters (MW) (1200.0 for earth return)
+DEFPAR #AMM3  2200.0             Maximum power with 3 filters (MW)
+DEFPAR #AMM4  2600.0             Maximum power with 4 filters (MW)
+DEFPAR #AMM5  2700.0             Maximum power with 5 filters (MW)
+(
+(
+( Min Filter - Bipolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #MFR1R 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFR2R 553.0              Maximum power with 2 filters (MW)
+DEFPAR #MFR3R 688.0              Maximum power with 3 filters (MW)
+DEFPAR #MFR4R 1353.0             Maximum power with 4 filters (MW)
+DEFPAR #MFR5R 1868.0             Maximum power with 5 filters (MW)
+DEFPAR #MFR6R 2244.0             Maximum power with 6 filters (MW)
+(
+( Min Filter - Bipolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #MFN1R  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFN2R  988.0              Maximum power with 2 filters (MW)
+DEFPAR #MFN3R  1377.0             Maximum power with 3 filters (MW)
+DEFPAR #MFN4R  2143.0             Maximum power with 4 filters (MW)
+DEFPAR #MFN5R  2708.0             Maximum power with 5 filters (MW)
+DEFPAR #MFN6R  2154.0             Maximum power with 6 filters (MW)
+(
+( Min Filter - Monopolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #MRM1R 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MRM2R 476.0              Maximum power with 2 filters (MW)
+DEFPAR #MRM3R 1124.0             Maximum power with 3 filters (MW)
+(
+( Min Filter - Monopolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #MFM1R  0.0               Maximum power with 1 filter  (MW)
+DEFPAR #MFM2R  953.0             Maximum power with 2 filters (MW) (972.0 for earth return)
+DEFPAR #MFM3R  1646.0            Maximum power with 3 filters (MW) (1707.0 for earth return)
+DEFPAR #MFM4R  1960.0            Maximum power with 4 filters (MW) (2052.0 for earth return)
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #AMR1R  278.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMR2R  553.0              Maximum power with 2 filters (MW)
+DEFPAR #AMR3R  688.0              Maximum power with 3 filters (MW)
+DEFPAR #AMR4R  1868.0             Maximum power with 4 filters (MW)
+DEFPAR #AMR5R  2244.0             Maximum power with 5 filters (MW)
+(
+( Abs Min - Bipolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMN1R  398.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMN2R  988.0              Maximum power with 2 filters (MW)
+DEFPAR #AMN3R  1377.0             Maximum power with 3 filters (MW)
+DEFPAR #AMN4R  2143.0             Maximum power with 4 filters (MW)
+DEFPAR #AMN5R  3983.0             Maximum power with 5 filters (MW)
+DEFPAR #AMN6R  4160.0             Maximum power with 6 filters (MW)
+(
+( Abs Min - Monopolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #ARM1R 207.0              Maximum power with 1 filter  (MW)
+DEFPAR #ARM2R 925.0              Maximum power with 2 filters (MW)
+DEFPAR #ARM3R 1124.0             Maximum power with 3 filters (MW)
+(
+( Abs Min - Monopolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMM1R  198.0              Maximum power with 1 filter  (MW) (199.0 for earth return)
+DEFPAR #AMM2R  1133.0             Maximum power with 2 filters (MW) (1159.0 for earth return)
+DEFPAR #AMM3R  1960.0             Maximum power with 3 filters (MW)(2052.0 for earth return)
+(
+(=========================================================================
+   1 EXPORT STBSH  NFA           #FA
+   2 EXPORT STBSH  NFB           #FB
+   3 EXPORT STBSH  NFC           #FC
+   4 SOMA          AZ1CIN NFA
+                   AZ3CIN NFA
+                   AZ5CIN NFA
+   5 SOMA          AZ2CIN NFB
+                   AZ4CIN NFB
+                   AZ6CIN NFB
+   6 SOMA          AZ7CIN NFC
+                   AZ8CIN NFC
+                   AZ9CIN NFC
+
+( Medições
+0010 IMPORT CDU           VREDP1 #URDP1 0.0
+0011 IMPORT CDU           VREDP2 #URDP2 0.0
+0012 LOGIC  .OR.   VREDP1 VRED
+                   VREDP2 VRED
+(
+0015 IMPORT PCCCNV        P_S1P1 #CNVX1 0.0
+0016 IMPORT PCCCNV        P_S2P1 #PS2P1 0.0
+0017 IMPORT PCCCNV        P_S1P2 #CNVX2 0.0
+0018 IMPORT PCCCNV        P_S2P2 #PS2P2 0.0
+0019 SOMA          P_S1P1 P_S1
+                   P_S1P2 P_S1
+0020 SOMA          P_S2P1 P_S2
+                   P_S2P2 P_S2
+0021 SELET2        P_S2   P_pu
+                   P_S1   P_pu
+                   Pdir   P_pu
+0022 GANHO         P_pu   BIPOW   2000.
+0023 SAIDA         BIPOW
+
+0024*COMPAR .GT.   P_S1   Pdir
+                   P_S2   Pdir
+(
+0025 ENTRAD               NFINIT
+DEFVAL        NFINIT #AVA_F
+0026 DESCID        FC_SUM X0026
+0027 LOGIC  .NOT.  X0026  X0027
+0028 ACUM          UM     FREMOV 1.0
+                   X0027  FREMOV
+                   ZEROO  FREMOV
+                   ZERO   FREMOV
+0029 SOMA          NFINIT AVAFIL
+                  -FREMOV AVAFIL
+0030 COMPAR .LT.   FC_SUM EXFILT
+                   AVAFIL EXFILT
+0031 SAIDA         EXFILT
+
+0032 ENTRAD               ZEROO
+DEFVAL        ZEROO  0.0
+DEFVAL        FREMOV 0.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+2000 IMPORT VOLT          UACS1  #UACS1 0.0
+2001 LEDLAG        UACS1  UAC100  500.  0.0  1.0   0.1
+2002 LEDLAG        UACS1  UAC10   500.  0.0  1.0   0.01
+2003 IMPORT ESTCNV        P1DBLK #CNVX1 0.0
+2004 IMPORT ESTCNV        P2DBLK #CNVX2 0.0
+1999 LOGIC  .XOR.  P1DBLK MONO
+                   P2DBLK MONO
+(
+2901 IMPORT QBSH          QBSHA  #FA    0.0
+2902 IMPORT QBSH          QBSHB  #FB    0.0
+2903 IMPORT QBSH          QBSHC  #FC    0.0
+2904 IMPORT QCCCNV        QCNV1p #CNVX1 0.0
+2914 GANHO         QCNV1p QCNV1  100.
+2905 IMPORT QCCCNV        QCNV2p #CNVX2 0.0
+2915 GANHO         QCNV2p QCNV2  100.
+2906 SOMA          QBSHA  QDCTAC
+                   QBSHB  QDCTAC
+                   QBSHC  QDCTAC
+                  -QCNV1  QDCTAC
+                  -QCNV2  QDCTAC
+2907 SAIDA         QDCTAC
+( Inicialização
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  40 IMPORT NUBSH         NFA0   #FA   0.0
+  41 SAIDA         NFA0
+  42 IMPORT NUBSH         NFB0   #FB   0.0
+  43 SAIDA         NFB0
+  44 IMPORT NUBSH         NFC0   #FC   0.0
+  45 SAIDA         NFC0
+(
+  46 COMPAR .LT.   NFA0   BC1
+                   UM     BC1
+  47 COMPAR .LT.   NFA0   BC3
+                   DOIS   BC3
+  48 COMPAR .LT.   NFA0   BC5
+                   TRES   BC5
+  49 COMPAR .LT.   NFB0   BC2
+                   UM     BC2
+  50 COMPAR .LT.   NFB0   BC4
+                   DOIS   BC4
+  51 COMPAR .LT.   NFB0   BC6
+                   TRES   BC6
+  52 COMPAR .LT.   NFC0   BC7
+                   UM     BC7
+  53 COMPAR .LT.   NFC0   BC8
+                   DOIS   BC8
+  54 COMPAR .LT.   NFC0   BC9
+                   TRES   BC9
+  60 SOMA          BC1    DUMMY
+                   BC2    DUMMY
+                   BC3    DUMMY
+                   BC4    DUMMY
+                   BC5    DUMMY
+                   BC6    DUMMY
+                   BC7    DUMMY
+                   BC8    DUMMY
+                   BC9    DUMMY
+  61 SAIDA         DUMMY
+(
+DEFVAL VAR    AZ1OIN BC1
+DEFVAL VAR    AZ2OIN BC2
+DEFVAL VAR    AZ3OIN BC3
+DEFVAL VAR    AZ4OIN BC4
+DEFVAL VAR    AZ5OIN BC5
+DEFVAL VAR    AZ6OIN BC6
+DEFVAL VAR    AZ7OIN BC7
+DEFVAL VAR    AZ8OIN BC8
+DEFVAL VAR    AZ9OIN BC9
+(
+8411 IMPORT TEMPO         TEMPO
+8412 IMPORT DT            DT
+8413 COMPAR .LE.   TEMPO  INIT
+                   DT     INIT
+8414 LOGIC  .NOT.  INIT   INIT2
+(
+( Q CONTROL
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1002 ENTRAD               Q_REF
+1003 ENTRAD               Q_DB
+1004 ENTRAD               QCMODE
+DEFVAL        Q_REF  #Q_REF
+DEFVAL        Q_DB   #Q_DB
+DEFVAL        QCMODE #CMOD
+1100 SOMA          Q_REF  X1100
+                  -QDCTAC X1100
+(
+1101 COMPAR .GT.   X1100  X1101
+                   Q_DB   X1101
+1102 SOMA          Q_DB   X1102
+                  -UM     X1102
+1103 COMPAR .LE.   X1100  X1103
+                   X1102  X1103
+1104 LOGIC  FFLOP1 X1103  X1104
+                   X1101  X1104
+DEFVAL VAR     X1104  X1101
+(
+1105 SOMA          QDCTAC X1105
+                  -Q_REF  X1105
+(
+1106 COMPAR .GT.   X1105  X1106
+                   Q_DB   X1106
+1107 SOMA          Q_DB   X1107
+                  -UM     X1107
+1108 COMPAR .LE.   X1105  X1108
+                   X1107  X1108
+1109 LOGIC  FFLOP1 X1108  X1109
+                   X1106  X1109
+DEFVAL VAR     X1109  X1106
+(
+1110 LOGIC  .AND.  QCMODE X1110
+                   X1104  X1110
+9110 SELET2        X1110  X9110
+                   ZERO   X9110
+                   INIT   X9110
+9006 DLAYON        X9110  INC_QC #QDLAY
+1111 LOGIC  .AND.  QCMODE X1111
+                   X1109  X1111
+9111 SELET2        X1111  X9111
+                   ZERO   X9111
+                   INIT   X9111
+9026 DLAYON        X9111  X1112  #QDLAY
+9047 DLAYOF        X1112  DEC_QC 5.0
+1113 SAIDA         INC_QC                                              INC_FILT_Q_CONTROL
+1114 SAIDA         DEC_QC                                              DEC_FILT_Q_CONTROL
+(
+( U CONTROL
+(
+2005 ENTRAD               U_REF
+2006 ENTRAD               U_DB
+2007 LOGIC  .NOT.  QCMODE UCMODE
+(DEFVAL VAR    U_REF  UAC100
+DEFVAL        U_REF  #U_REF
+DEFVAL        U_DB   #U_DB
+
+2100 SOMA          U_REF  X2100
+                  -UAC100 X2100
+(
+2101 COMPAR .GT.   X2100  X2101
+                   U_DB   X2101
+2102 SOMA          U_DB   X2102
+                  -UM     X2102
+2103 COMPAR .LE.   X2100  X2103
+                   X2102  X2103
+2104 LOGIC  FFLOP1 X2103  X2104
+                   X2101  X2104
+DEFVAL VAR     X2104  X2101
+(
+2105 SOMA          UAC100 X2105
+                  -U_REF  X2105
+(
+2106 COMPAR .GT.   X2105  X2106
+                   U_DB   X2106
+2107 SOMA          U_DB   X2107
+                  -UM     X2107
+2108 COMPAR .LE.   X2105  X2108
+                   X2107  X2108
+2109 LOGIC  FFLOP1 X2108  X2109
+                   X2106  X2109
+DEFVAL VAR     X2109  X2106
+(
+2110 LOGIC  .AND.  UCMODE X2110
+                   X2104  X2110
+9112 SELET2        X2110  X9112
+                   ZERO   X9112
+                   INIT   X9112
+9066 DLAYON        X9112  INC_UC #UDLAY
+2111 LOGIC  .AND.  UCMODE X2111
+                   X2109  X2111
+9113 SELET2        X2111  X9113
+                   ZERO   X9113
+                   INIT   X9113
+9086 DLAYON        X9113  DEC_UC #UDLAY
+2112 SAIDA         INC_UC                                              INC_FILT_U_CONTROL
+2113 SAIDA         DEC_UC                                              DEC_FILT_U_CONTROL
+(
+( UMAX/UMIN
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2200 ENTRAD                UMAX
+2201 ENTRAD                UMxEn
+2202 ENTRAD                UMIN
+2203 ENTRAD                UMnEn
+2204 ENTRAD                U_Hys
+DEFVAL        UMAX   #UMAX
+DEFVAL        UMxEn  #UMxEn
+DEFVAL        UMIN   #UMIN
+DEFVAL        UmnEn  #UmnEn
+DEFVAL        U_Hys  #U_Hys
+(
+2205 COMPAR .GT.   UAC100 X2205
+                   UMAX   X2205
+2206 SOMA          UMAX   X2206
+                  -U_Hys  X2206
+2207 COMPAR .LE.   UAC100 X2207
+                   X2206  X2207
+2208 LOGIC  FFLOP1 X2207  X2208
+                   X2205  X2208
+DEFVAL VAR     X2208  X2205
+(
+2209 COMPAR .GT.   UAC100 X2209
+                   UMxEn  X2209
+2210 SOMA          UMxEn  X2210
+                  -U_Hys  X2210
+2211 COMPAR .LE.   UAC100 X2211
+                   X2210  X2211
+2212 LOGIC  FFLOP1 X2211  X2212
+                   X2209  X2212
+DEFVAL VAR    X2212  X2209
+2213 LOGIC  .NOT.  X2212  X2213
+(
+2214 COMPAR .GT.   UMIN   X2214
+                   UAC100 X2214
+2215 SOMA          UAC100 X2215
+                  -U_Hys  X2215
+2216 COMPAR .LE.   UMIN   X2216
+                   X2215  X2216
+2217 LOGIC  FFLOP1 X2216  X2217
+                   X2214  X2217
+DEFVAL VAR     X2217  X2214
+(
+2218 COMPAR .GT.   UMnEn  X2218
+                   UAC100 X2218
+2219 SOMA          UAC100 X2219
+                  -U_Hys  X2219
+2220 COMPAR .LE.   UMnEn  X2220
+                   X2219  X2220
+2221 LOGIC  FFLOP1 X2220  X2221
+                   X2218  X2221
+DEFVAL VAR    X2221  X2218
+2222 LOGIC  .NOT.  X2221  X2222
+(
+2223 LOGIC  .OR.   P1DBLK X2223
+                   P2DBLK X2223
+9106 DLAYON        X2223  X2224  #UMXDL
+2225 LOGIC  .AND.  X2224  X2225
+                   X2208  X2225
+9126 DLAYON        X2225  DECUx  #UMXDL
+2226 LOGIC  .NOT.  X2224  X2226
+2227 LOGIC  .OR.   X2226  EnIUMx
+                   X2213  EnIUMx
+2228 LOGIC  .AND.  X2224  INCUM1
+                   X2217  INCUm1
+2234 DELAY         INCUm1 INCumn
+2229 LOGIC  .OR.   X2226  EnDUmn
+                   X2222  EnDUmn
+2230 SAIDA         DECUMx                                                    DEC_FILT_U_MAX
+2231 SAIDA         EnIUMx                                                    ENABLE_INC_U_MAX
+2232 SAIDA         INCUMn                                                    INC_FILT_U_MIN
+2233 SAIDA         EnDUmn                                                    ENABLE_DEC_U_MIN
+(
+( Q MAX
+(
+2299 ENTRAD               DEZK
+DEFVAL        DEZK   10000.
+2300 SOMA          Q_DB   X2300
+                   Q_REF  X2300
+2301 LOGIC  .NOR.  P1DBLK X2301
+                   P2DBLK X2301
+9141 GANHO         X2301  X2302  1.0
+(9141 MONEST        X2301  X2302  10.0
+2303 SELET2        DEZK   X2303
+                   X2300  X2303
+                   X2302  X2303
+2304 COMPAR .GT.   QDCTAC X2304
+                   X2303  X2304
+(
+2305 ENTRAD               QMXURF
+DEFVAL        QMXURF #QMXUR
+2306 COMPAR .GE.   UAC100 X2306
+                   QMXURF X2306
+9306 LOGIC  .AND.  X2306  X9306
+                   X2301  X9306
+2307 DLAYON        X9306  X2307  0.500
+2308 LOGIC  .AND.  X2304  DECQMx
+                   X2307  DECQMx
+(9166 DLAYON        X2304  DECQMx 0.500
+2309 SAIDA         DECQMx                                                    DEC_FILT_Q_MAX
+(
+( OVERVOLTAGE
+(
+2399 ENTRAD               ZP5
+DEFVAL        ZP5    0.5
+2400 ENTRAD               OV_EN
+2401 ENTRAD               OVSET1
+2402 ENTRAD               OVSET2
+2403 ENTRAD               OVSET3
+DEFVAL        OV_EN  #OV_EN
+DEFVAL        OVSET1 #OVST1
+DEFVAL        OVSET2 #OVST2
+DEFVAL        OVSET3 #OVST3
+(
+2404 COMPAR .GT.   UAC10  X2404
+                   OVSET1 X2404
+2405 SOMA          OVSET1 X2405
+                  -ZP5    X2405
+2406 COMPAR .LE.   UAC10  X2406
+                   X2405  X2406
+2407 LOGIC  FFLOP1 X2406  X2407
+                   X2404  X2407
+DEFVAL VAR    X2407  X2404
+(
+9186 DLAYON        X2407  OV_1   #T_OV1
+2408 COMPAR .GT.   UAC10  X2408
+                   OVSET2 X2408
+2409 SOMA          OVSET2 X2409
+                  -ZP5    X2409
+2410 COMPAR .LE.   UAC10  X2410
+                   X2409  X2410
+2411 LOGIC  FFLOP1 X2410  X2411
+                   X2408  X2411
+DEFVAL VAR     X2411  X2408
+(
+9206 DLAYON        X2411  OV_2   #T_OV2
+2412 COMPAR .GT.   UAC10  X2412
+                   OVSET3 X2412
+2413 SOMA          OVSET3 X2413
+                  -ZP5    X2413
+2414 COMPAR .LE.   UAC10  X2414
+                   X2413  X2414
+2415 LOGIC  FFLOP1 X2414  X2415
+                   X2412  X2415
+DEFVAL VAR    X2415  X2412
+(
+9226 DLAYON        X2415  OV_3   #T_OV3
+2416 DELAY         FC_SUM X2416
+2417 COMPAR .GT.   X2416  X2417
+                   FC_SUM X2417
+9241 MONEST        X2417  X9241  #I_OV1
+9341 LOGIC  .NOT.  X9241  X9341
+9242 MONEST        X2417  X9242  #I_OV2
+9342 LOGIC  .NOT.  X9242  X9342
+9243 MONEST        X2417  X9243  #I_OV3
+9343 LOGIC  .NOT.  X9243  X9343
+(
+2419 LOGIC  .AND.  X9341  X2419
+                   OV_1   X2419
+                   OV_EN  X2419
+2420 LOGIC  .AND.  X9342  X2420
+                   OV_2   X2420
+                   OV_EN  X2420
+2421 LOGIC  .AND.  X9343  X2421
+                   OV_3   X2421
+                   OV_EN  X2421
+2422 LOGIC  .OR.   X2419  DECFO1
+                   X2420  DECFO1
+                   X2421  DECFO1
+2424 LOGIC  .AND.  DECFO1 DECFOV
+                   EnDecM DECFOV
+2423 SAIDA         DECFOV                                              DEC_FILT_OV
+(
+( TRIP ALL
+(
+2500 ENTRAD               EnTAll
+DEFVAL        EnTAll #TripA
+2501 DESCID        P1DBLK X2502
+9261 MONEST        X2502  X2503  0.15
+2504 DESCID        P2DBLK X2505
+9281 MONEST        X2505  X2506  0.15
+2507 LOGIC  .OR.   X2503  X2507
+                   X2506  X2507
+2508 LOGIC  .NOT.  P1DBLK X2508
+2509 LOGIC  .NOT.  P2DBLK X2509
+2510 LOGIC  .AND.  X2508  BPBLK
+                   X2509  BPBLK
+2515 LOGIC  .NOT.  BPBLK  BPDBLK
+2511 LOGIC  .AND.  BPBLK  X2511
+                   X2507  X2511
+                   EnTAll X2511
+9301 MONEST        X2511  DAllF2 0.1
+2512 SAIDA         DAllF
+2513 ENTRAD               DAllFM
+DEFVAL        DAllFM 0.0
+2514 LOGIC  .OR.   DAllF2 DAllF
+                   DAllFM DAllF
+(
+( OUT
+(
+2599 DLAYON        INCUmn X2599  #UMNDL
+9326 DLAYON        INCFO  X2600  0.01
+DEFVAL        X2600  0.0
+9347 DLAYOF        X2600  X2601  #UMNIN
+2602 LOGIC  .NOT.  X2601  X2602
+2603 LOGIC  .AND.  X2602  X2603
+                   X2599  X2603
+2604 LOGIC  .OR.   INC_QC X2604
+                   INC_UC X2604
+(                   IMNFIL X2604
+(                   IABSMN X2604
+2605 LOGIC  .OR.   INCFO  X2605d
+                   DECFO  X2605d
+5605 DELAY         X2605d X2605
+(DELAY ON (0.01s) X2605 -> X2606
+2606 DLAYON        X2605  X2606   0.01
+5607 DLAYOF        X2606  X2607q #QINTR
+5608 DLAYOF        X2606  X2607u #UINTR
+5609 SELET2        X2607u X2607
+                   X2607q X2607
+                   QCMODE X2607
+2608 LOGIC  .NOT.  X2607  X2608
+2609 LOGIC  .OR.   P1DBLK X2609
+                   P2DBLK X2609
+9406 DLAYON        X2609  X2610  0.01
+9427 DLAYOF        X2610  X2611  1.0
+2612 LOGIC  .AND.  EnIUMx X2612
+                   X2604  X2612
+                   X2608  X2612
+                   X2611  X2612
+2613 LOGIC  .AND.  X2609  X2613
+                   AZ2OIN X2613
+                   AZ1OIN X2613
+2614 LOGIC  .OR.   X2603  INCFO1
+                   X2612  INCFO1
+                   X2613  INCFO1
+                   X7621  INCFO1
+                   X7626  INCFO1
+2616 LOGIC  .AND.  INCFO1 INCFO
+                   INIT2  INCFO
+                   EXFILT INCFO
+2615 SAIDA         INCFO
+(
+7616 LOGIC  .NOT.  DAllF  X7616
+7617 LOGIC  .AND.  X7616  X7617
+                   IABSMN X7617
+7618 DLAYON        X7617  X7618  #ABSDL
+7619 DLAYOF        X2606  X7619  #ABSIN
+7620 LOGIC  .NOT.  X7619  X7620
+7621 LOGIC  .AND.  X7620  X7621
+                   X7618  X7621
+(
+7622 LOGIC  .AND.  X7616  X7622
+                   IMNFIL X7622
+                   BPDBLK X7622
+                   EnIUMx X7622
+7623 DLAYON        X7622  X7623  #MNFDL
+7624 DLAYOF        X2606  X7624  #MNFIN
+7625 LOGIC  .NOT.  X7624  X7625
+7626 LOGIC  .AND.  X7625  X7626
+                   X7623  X7626
+(
+9441 MONEST        X2613  X2616  0.5
+2617 LOGIC  .NOT.  X2616  X2617
+2618 LOGIC  .NOT.  X2609  X2618
+2619 COMPAR .GT.   FC_SUM X2619
+                   DOIS   X2619
+2620 LOGIC  .OR.   X2618  X2620
+                   X2619  X2620
+2621 LOGIC  .AND.  X2617  X2621
+                   X2620  X2621
+2622 LOGIC  .OR.   DEC_QC X2622
+                   DEC_UC X2622
+2623 LOGIC  .AND.  X2622  X2623
+                   EnDUmn X2623
+(
+8737 DLAYOF        X2606  X2697  5.0
+DEFVAL        X2605  0.0
+2698 LOGIC  .NOT.  X2697  X2698
+(
+2624 LOGIC  .AND.  X2621  X2624
+                   X2611  X2624
+                   X2623  X2624
+                   X2698  X2624
+                   DABSMN X2624
+                   DMNFIL X2624
+9625 GANHO         DECUx  DECUmx #EnUmx
+2625 LOGIC  .OR.   DECQMx X2625a
+                   DECUMx X2625a
+9115 LOGIC  .AND.  X2625a X2625
+                   DABSMN X2625
+9114 SELET2        X2625  X9114
+                   ZERO   X9114
+                   INIT   X9114
+9466 DLAYON        X9114  X2626  0.01
+9486 DLAYON        DECFO  X2627  0.01
+DEFVAL        X2627  0.0
+9507 DLAYOF        X2627  X2628  #IUQMX
+2629 LOGIC  .NOT.  X2628  X2629
+2630 LOGIC  .AND.  X2626  X2630
+                   X2629  X2630
+2631 LOGIC  .OR.   X2624  DECO
+                   X2630  DECO
+2633 DELAY         DECO   DECFO
+2632 SAIDA         DECFO
+(===================================
+2700 ENTRAD               RPC_A
+DEFVAL        RPC_A  #RPC_A
+2701 LOGIC  .AND.  INCFO  X2701
+                   RPC_A  X2701
+9516 DLAYON        X2701  X2702  0.005
+9521 MONEST        X2702  X2703  0.01
+2704 LOGIC  .AND.  X2703  X2704
+                   AZ1OIN X2704
+9536 MONEST        X2704  CONDZ1 0.02
+9676 DLAYON        AZ1CIN  X2705 0.03
+2706 LOGIC  .AND.  X2703  X2706
+                   X2705  X2706
+                   AZ2OIN X2706
+9551 MONEST        X2706  CONDZ2 0.02
+9686 DLAYON        AZ2CIN  X2707 0.03
+2708 LOGIC  .AND.  X2703  X2708
+                   X2707  X2708
+                   AZ3OIN X2708
+9566 MONEST        X2708  CONDZ3 0.02
+9696 DLAYON        AZ3CIN  X2709 0.03
+2710 LOGIC  .AND.  X2703  X2710
+                   X2709  X2710
+                   AZ4OIN X2710
+9581 MONEST        X2710  CONDZ4 0.02
+9706 DLAYON        AZ4CIN  X2711 0.03
+2712 LOGIC  .AND.  X2703  X2712
+                   X2711  X2712
+                   AZ5OIN X2712
+9596 MONEST        X2712  CONDZ5 0.02
+9716 DLAYON        AZ5CIN  X2713 0.03
+2714 LOGIC  .AND.  X2703  X2714
+                   X2713  X2714
+                   AZ6OIN X2714
+9611 MONEST        X2714  CONDZ6 0.02
+9726 DLAYON        AZ6CIN  X2715 0.03
+2716 LOGIC  .AND.  X2703  X2716
+                   X2715  X2716
+                   AZ7OIN X2716
+9626 MONEST        X2716  CONDZ7 0.02
+9736 DLAYON        AZ7CIN  X2717 0.03
+2718 LOGIC  .AND.  X2703  X2718
+                   X2717  X2718
+                   AZ8OIN X2718
+9641 MONEST        X2718  CONDZ8 0.02
+9746 DLAYON        AZ8CIN  X2719 0.03
+2720 LOGIC  .AND.  X2703  X2720
+                   X2719  X2720
+                   AZ9OIN X2720
+9656 MONEST        X2720  CONDZ9 0.02
+(
+( DISCONNECTION
+(
+2800 LOGIC  .AND.  DECFO  X2800
+                   RPC_A  X2800
+9756 DLAYON        X2800  X2801  0.005
+9761 MONEST        X2801  X2802  0.01
+2803 LOGIC  .OR.   X2802  X2803
+                   DECFOV X2803
+(
+2804 LOGIC  .AND.  X2803  X2804
+                   AZ9CIN X2804
+2805 LOGIC  .OR.   X2804  X2805
+                   DAllF  X2805
+9776 MONEST        X2805  DISCZ9 0.02
+8506 DLAYON        AZ9OIN  X2806 0.03
+2807 LOGIC  .AND.  X2803  X2807
+                   X2806  X2807
+                   AZ8CIN X2807
+2808 LOGIC  .OR.   X2807  X2808
+                   DAllF  X2808
+9791 MONEST        X2808  DISCZ8 0.02
+8516 DLAYON        AZ8OIN  X2809 0.03
+2810 LOGIC  .AND.  X2803  X2810
+                   X2809  X2810
+                   AZ7CIN X2810
+2811 LOGIC  .OR.   X2810  X2811
+                   DAllF  X2811
+9806 MONEST        X2811  DISCZ7 0.02
+8526 DLAYON        AZ7OIN  X2812 0.03
+2813 LOGIC  .AND.  X2803  X2813
+                   X2812  X2813
+                   AZ6CIN X2813
+2814 LOGIC  .OR.   X2813  X2814
+                   DAllF  X2814
+9821 MONEST        X2814  DISCZ6 0.02
+8536 DLAYON        AZ6OIN  X2815 0.03
+2816 LOGIC  .AND.  X2803  X2816
+                   X2815  X2816
+                   AZ5CIN X2816
+2817 LOGIC  .OR.   X2816  X2817
+                   DAllF  X2817
+9836 MONEST        X2817  DISCZ5 0.02
+8546 DLAYON        AZ5OIN  X2818 0.03
+2819 LOGIC  .AND.  X2803  X2819
+                   X2818  X2819
+                   AZ4CIN X2819
+2820 LOGIC  .OR.   X2819  X2820
+                   DAllF  X2820
+9851 MONEST        X2820  DISCZ4 0.02
+8556 DLAYON        AZ4OIN  X2821 0.03
+2822 LOGIC  .AND.  X2803  X2822
+                   X2821  X2822
+                   AZ3CIN X2822
+2823 LOGIC  .OR.   X2822  X2823
+                   DAllF  X2823
+9866 MONEST        X2823  DISCZ3 0.02
+8566 DLAYON        AZ3OIN  X2824 0.03
+2825 LOGIC  .AND.  X2803  X2825
+                   X2824  X2825
+                   AZ2CIN X2825
+2826 LOGIC  .OR.   X2825  X2826
+                   DAllF  X2826
+9881 MONEST        X2826  DISCZ2 0.02
+8576 DLAYON        AZ2OIN  X2827 0.03
+2828 LOGIC  .AND.  X2803  X2828
+                   X2827  X2828
+                   AZ1CIN X2828
+2829 LOGIC  .OR.   X2828  X2829
+                   DAllF  X2829
+9896 MONEST        X2829  DISCZ1 0.02
+
+( MANUAL CONTROLS
+
+
+(SINAIS DE INTERESSE CDU 4001 (XINGÚ)
+(
+(BLOCO 8000 - AZ1MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+(BLOCO 8001 - AZ1MCL - ENTRAD PARA LIGAR O SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+(BLOCO 8002 - AZ2MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 2 (TIPO A) EM MODO MANUAL
+(BLOCO 8003 - AZ2MCL - ENTRAD PARA LIGAR O SUB-BANCO 2 (TIPO A) EM MODO MANUAL
+(BLOCO 8004 - AZ3MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 3 (TIPO B) EM MODO MANUAL
+(BLOCO 8005 - AZ3MCL - ENTRAD PARA LIGAR O SUB-BANCO 3 (TIPO B) EM MODO MANUAL
+(BLOCO 8006 - AZ4MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+(BLOCO 8007 - AZ4MCL - ENTRAD PARA LIGAR O SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+(BLOCO 8008 - AZ5MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 5 (TIPO C) EM MODO MANUAL
+(BLOCO 8009 - AZ5MCL - ENTRAD PARA LIGAR O SUB-BANCO 5 (TIPO C) EM MODO MANUAL
+(BLOCO 8010 - AZ6MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 6 (TIPO C) EM MODO MANUAL
+(BLOCO 8011 - AZ6MCL - ENTRAD PARA LIGAR O SUB-BANCO 6 (TIPO C) EM MODO MANUAL
+(BLOCO 8012 - AZ7MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 7 (TIPO A) EM MODO MANUAL
+(BLOCO 8013 - AZ7MCL - ENTRAD PARA LIGAR O SUB-BANCO 7 (TIPO A) EM MODO MANUAL
+(BLOCO 8014 - AZ8MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 8 (TIPO B) EM MODO MANUAL
+(BLOCO 8015 - AZ8MCL - ENTRAD PARA LIGAR O SUB-BANCO 8 (TIPO B) EM MODO MANUAL
+(BLOCO 8016 - AZ9MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 9 (TIPO C) EM MODO MANUAL
+(BLOCO 8017 - AZ9MCL - ENTRAD PARA LIGAR O SUB-BANCO 9 (TIPO C) EM MODO MANUAL
+(
+(SINAIS DE INTERESSE CDU 4002 (TERMINAL RIO)
+(
+(BLOCO 8000 - AZ1MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+(BLOCO 8001 - AZ1MCL - ENTRAD PARA LIGAR O SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+(BLOCO 8002 - AZ2MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 2 (TIPO A) EM MODO MANUAL
+(BLOCO 8003 - AZ2MCL - ENTRAD PARA LIGAR O SUB-BANCO 2 (TIPO A) EM MODO MANUAL
+(BLOCO 8004 - AZ3MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 3 (TIPO B) EM MODO MANUAL
+(BLOCO 8005 - AZ3MCL - ENTRAD PARA LIGAR O SUB-BANCO 3 (TIPO B) EM MODO MANUAL
+(BLOCO 8006 - AZ4MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+(BLOCO 8007 - AZ4MCL - ENTRAD PARA LIGAR O SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+(BLOCO 8008 - AZ5MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 5 (TIPO C) EM MODO MANUAL
+(BLOCO 8009 - AZ5MCL - ENTRAD PARA LIGAR O SUB-BANCO 5 (TIPO C) EM MODO MANUAL
+(BLOCO 8010 - AZ6MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 6 (TIPO C) EM MODO MANUAL
+(BLOCO 8011 - AZ6MCL - ENTRAD PARA LIGAR O SUB-BANCO 6 (TIPO C) EM MODO MANUAL
+(BLOCO 8012 - AZ7MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 7 (TIPO A) EM MODO MANUAL
+(BLOCO 8013 - AZ7MCL - ENTRAD PARA LIGAR O SUB-BANCO 7 (TIPO A) EM MODO MANUAL
+(BLOCO 8014 - AZ8MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 8 (TIPO B) EM MODO MANUAL
+(BLOCO 8015 - AZ8MCL - ENTRAD PARA LIGAR O SUB-BANCO 8 (TIPO B) EM MODO MANUAL
+(BLOCO 8016 - AZ9MOP - ENTRAD PARA DESLIGAR O SUB-BANCO 9 (TIPO C) EM MODO MANUAL
+(BLOCO 8017 - AZ9MCL - ENTRAD PARA LIGAR O SUB-BANCO 9 (TIPO C) EM MODO MANUAL
+(BLOCO 8018 - AZ10MO - ENTRAD PARA DESLIGAR O SUB-BANCO 10 (TIPO A) EM MODO MANUAL
+(BLOCO 8019 - AZ10MC - ENTRAD PARA LIGAR O SUB-BANCO 10 (TIPO A) EM MODO MANUAL
+(BLOCO 8020 - AZ11MO - ENTRAD PARA DESLIGAR O SUB-BANCO 11 (TIPO B) EM MODO MANUAL
+(BLOCO 8021 - AZ11MC - ENTRAD PARA LIGAR O SUB-BANCO 11 (TIPO B) EM MODO MANUAL
+(BLOCO 8022 - AZ12MO - ENTRAD PARA DESLIGAR O SUB-BANCO 12 (TIPO C) EM MODO MANUAL
+(BLOCO 8023 - AZ12MC - ENTRAD PARA LIGAR O SUB-BANCO 12 (TIPO C) EM MODO MANUAL
+8000 ENTRAD               AZ1MOP
+8001 ENTRAD               AZ1MCL
+8002 ENTRAD               AZ2MOP
+8003 ENTRAD               AZ2MCL
+8004 ENTRAD               AZ3MOP
+8005 ENTRAD               AZ3MCL
+8006 ENTRAD               AZ4MOP
+8007 ENTRAD               AZ4MCL
+8008 ENTRAD               AZ5MOP
+8009 ENTRAD               AZ5MCL
+8010 ENTRAD               AZ6MOP
+8011 ENTRAD               AZ6MCL
+8012 ENTRAD               AZ7MOP
+8013 ENTRAD               AZ7MCL
+8014 ENTRAD               AZ8MOP
+8015 ENTRAD               AZ8MCL
+8016 ENTRAD               AZ9MOP
+8017 ENTRAD               AZ9MCL
+DEFVAL        AZ1MOP 0.0
+DEFVAL        AZ1MCL 0.0
+DEFVAL        AZ2MOP 0.0
+DEFVAL        AZ2MCL 0.0
+DEFVAL        AZ3MOP 0.0
+DEFVAL        AZ3MCL 0.0
+DEFVAL        AZ4MOP 0.0
+DEFVAL        AZ4MCL 0.0
+DEFVAL        AZ5MOP 0.0
+DEFVAL        AZ5MCL 0.0
+DEFVAL        AZ6MOP 0.0
+DEFVAL        AZ6MCL 0.0
+DEFVAL        AZ7MOP 0.0
+DEFVAL        AZ7MCL 0.0
+DEFVAL        AZ8MOP 0.0
+DEFVAL        AZ8MCL 0.0
+DEFVAL        AZ9MOP 0.0
+DEFVAL        AZ9MCL 0.0
+8020 SOMA          AZ1CIN FC_SUM
+                   AZ2CIN FC_SUM
+                   AZ3CIN FC_SUM
+                   AZ4CIN FC_SUM
+                   AZ5CIN FC_SUM
+                   AZ6CIN FC_SUM
+                   AZ7CIN FC_SUM
+                   AZ8CIN FC_SUM
+                   AZ9CIN FC_SUM
+(
+3000 SELET2        AZ1MOP X3000
+                   DISCZ1 X3000
+                   RPC_A  X3000
+3001 SELET2        AZ1MCL X3001
+                   CONDZ1 X3001
+                   RPC_A  X3001
+3002 LOGIC  FFLOP1 X3001  AZ1OIN
+                   X3000  AZ1OIN
+3003 LOGIC  .NOT.  AZ1OIN AZ1CIN
+(
+3005 SELET2        AZ2MOP X3005
+                   DISCZ2 X3005
+                   RPC_A  X3005
+3006 SELET2        AZ2MCL X3006
+                   CONDZ2 X3006
+                   RPC_A  X3006
+3007 LOGIC  FFLOP1 X3006  AZ2OIN
+                   X3005  AZ2OIN
+3008 LOGIC  .NOT.  AZ2OIN AZ2CIN
+(
+3010 SELET2        AZ3MOP X3010
+                   DISCZ3 X3010
+                   RPC_A  X3010
+3011 SELET2        AZ3MCL X3011
+                   CONDZ3 X3011
+                   RPC_A  X3011
+3012 LOGIC  FFLOP1 X3011  AZ3OIN
+                   X3010  AZ3OIN
+3013 LOGIC  .NOT.  AZ3OIN AZ3CIN
+(
+3015 SELET2        AZ4MOP X3015
+                   DISCZ4 X3015
+                   RPC_A  X3015
+3016 SELET2        AZ4MCL X3016
+                   CONDZ4 X3016
+                   RPC_A  X3016
+3017 LOGIC  FFLOP1 X3016  AZ4OIN
+                   X3015  AZ4OIN
+3018 LOGIC  .NOT.  AZ4OIN AZ4CIN
+(
+3020 SELET2        AZ5MOP X3020
+                   DISCZ5 X3020
+                   RPC_A  X3020
+3021 SELET2        AZ5MCL X3021
+                   CONDZ5 X3021
+                   RPC_A  X3021
+3022 LOGIC  FFLOP1 X3021  AZ5OIN
+                   X3020  AZ5OIN
+3023 LOGIC  .NOT.  AZ5OIN AZ5CIN
+(
+3025 SELET2        AZ6MOP X3025
+                   DISCZ6 X3025
+                   RPC_A  X3025
+3026 SELET2        AZ6MCL X3026
+                   CONDZ6 X3026
+                   RPC_A  X3026
+3027 LOGIC  FFLOP1 X3026  AZ6OIN
+                   X3025  AZ6OIN
+3028 LOGIC  .NOT.  AZ6OIN AZ6CIN
+(
+3030 SELET2        AZ7MOP X3030
+                   DISCZ7 X3030
+                   RPC_A  X3030
+3031 SELET2        AZ7MCL X3031
+                   CONDZ7 X3031
+                   RPC_A  X3031
+3032 LOGIC  FFLOP1 X3031  AZ7OIN
+                   X3030  AZ7OIN
+3033 LOGIC  .NOT.  AZ7OIN AZ7CIN
+(
+3035 SELET2        AZ8MOP X3035
+                   DISCZ8 X3035
+                   RPC_A  X3035
+3036 SELET2        AZ8MCL X3036
+                   CONDZ8 X3036
+                   RPC_A  X3036
+3037 LOGIC  FFLOP1 X3036  AZ8OIN
+                   X3035  AZ8OIN
+3038 LOGIC  .NOT.  AZ8OIN AZ8CIN
+(
+3040 SELET2        AZ9MOP X3040
+                   DISCZ9 X3040
+                   RPC_A  X3040
+3041 SELET2        AZ9MCL X3041
+                   CONDZ9 X3041
+                   RPC_A  X3041
+3042 LOGIC  FFLOP1 X3041  AZ9OIN
+                   X3040  AZ9OIN
+3043 LOGIC  .NOT.  AZ9OIN AZ9CIN
+(
+( Min Filter - Bipolar Mode with reduced dc voltage
+6101 FUNCAO DEADB2 BIPOW  MFR1   -9999 0.0   #MFR1 1.0
+6102 FUNCAO DEADB2 BIPOW  MFR2   -9999 0.0   #MFR2 1.0
+6103 FUNCAO DEADB2 BIPOW  MFR3   -9999 0.0   #MFR3 1.0
+6104 FUNCAO DEADB2 BIPOW  MFR4   -9999 0.0   #MFR4 1.0
+6105 FUNCAO DEADB2 BIPOW  MFR5   -9999 0.0   #MFR5 1.0
+6106 FUNCAO DEADB2 BIPOW  MFR6   -9999 0.0   #MFR6 1.0
+6107 SOMA          UM     MFR
+                   MFR1   MFR
+                   MFR2   MFR
+                   MFR3   MFR
+                   MFR4   MFR
+                   MFR5   MFR
+                   MFR6   MFR
+6110 SAIDA         MFR
+(
+( Min Filter - Bipolar Mode with normal dc voltage
+6201 FUNCAO DEADB2 BIPOW  MFN1   -9999 0.0   #MFN1 1.0
+6202 FUNCAO DEADB2 BIPOW  MFN2   -9999 0.0   #MFN2 1.0
+6203 FUNCAO DEADB2 BIPOW  MFN3   -9999 0.0   #MFN3 1.0
+6204 FUNCAO DEADB2 BIPOW  MFN4   -9999 0.0   #MFN4 1.0
+6205 FUNCAO DEADB2 BIPOW  MFN5   -9999 0.0   #MFN5 1.0
+6206 FUNCAO DEADB2 BIPOW  MFN6   -9999 0.0   #MFN6 1.0
+6207 FUNCAO DEADB2 BIPOW  MFN7   -9999 0.0   #MFN7 1.0
+6208 SOMA          UM     MFN
+                   MFN1   MFN
+                   MFN2   MFN
+                   MFN3   MFN
+                   MFN4   MFN
+                   MFN5   MFN
+                   MFN6   MFN
+                   MFN7   MFN
+6210 SAIDA         MFN
+(
+( Min Filter - Monopolar Mode with reduced dc voltage
+
+6301 FUNCAO DEADB2 BIPOW  MFRM1   -9999 0.0  #MFRM1 1.0
+6302 FUNCAO DEADB2 BIPOW  MFRM2   -9999 0.0  #MFRM2 1.0
+6303 FUNCAO DEADB2 BIPOW  MFRM3   -9999 0.0  #MFRM3 1.0
+6304 FUNCAO DEADB2 BIPOW  MFRM4   -9999 0.0  #MFRM4 1.0
+6305 SOMA          UM     MFRM
+                   MFRM1  MFRM
+                   MFRM2  MFRM
+                   MFRM3  MFRM
+                   MFRM4  MFRM
+6310 SAIDA         MFRM
+(
+( Min Filter - Monopolar Mode with normal dc voltage
+6401 FUNCAO DEADB2 BIPOW  MFM1   -9999 0.0   #MFM1 1.0
+6402 FUNCAO DEADB2 BIPOW  MFM2   -9999 0.0   #MFM2 1.0
+6403 FUNCAO DEADB2 BIPOW  MFM3   -9999 0.0   #MFM3 1.0
+6404 FUNCAO DEADB2 BIPOW  MFM4   -9999 0.0   #MFM4 1.0
+6405 FUNCAO DEADB2 BIPOW  MFM5   -9999 0.0   #MFM5 1.0
+6406 SOMA          UM     MFM
+                   MFM1   MFM
+                   MFM2   MFM
+                   MFM3   MFM
+                   MFM4   MFM
+                   MFM5   MFM
+6410 SAIDA         MFM
+( Abs Min - Bipolar Mode with reduced dc voltage
+6501 FUNCAO DEADB2 BIPOW  AMR1   -9999 0.0   #AMR1 1.0
+6502 FUNCAO DEADB2 BIPOW  AMR2   -9999 0.0   #AMR2 1.0
+6503 FUNCAO DEADB2 BIPOW  AMR3   -9999 0.0   #AMR3 1.0
+6504 FUNCAO DEADB2 BIPOW  AMR4   -9999 0.0   #AMR4 1.0
+6505 FUNCAO DEADB2 BIPOW  AMR5   -9999 0.0   #AMR5 1.0
+6506 SOMA          UM     AMR
+                   AMR1   AMR
+                   AMR2   AMR
+                   AMR3   AMR
+                   AMR4   AMR
+                   AMR5   AMR
+6510 SAIDA         AMR
+(
+( Abs Min - Bipolar Mode with normal dc voltage
+6601 FUNCAO DEADB2 BIPOW  AMN1   -9999 0.0   #AMN1 1.0
+6602 FUNCAO DEADB2 BIPOW  AMN2   -9999 0.0   #AMN2 1.0
+6603 FUNCAO DEADB2 BIPOW  AMN3   -9999 0.0   #AMN3 1.0
+6604 FUNCAO DEADB2 BIPOW  AMN4   -9999 0.0   #AMN4 1.0
+6605 FUNCAO DEADB2 BIPOW  AMN5   -9999 0.0   #AMN5 1.0
+6606 FUNCAO DEADB2 BIPOW  AMN6   -9999 0.0   #AMN6 1.0
+6607 FUNCAO DEADB2 BIPOW  AMN7   -9999 0.0   #AMN7 1.0
+6608 SOMA          UM     AMN
+                   AMN1   AMN
+                   AMN2   AMN
+                   AMN3   AMN
+                   AMN4   AMN
+                   AMN5   AMN
+                   AMN6   AMN
+                   AMN7   AMN
+6610 SAIDA         AMN
+(
+( Abs Min - Monopolar Mode with reduced dc voltage
+
+6701 FUNCAO DEADB2 BIPOW  AMRM1   -9999 0.0  #AMRM1 1.0
+6702 FUNCAO DEADB2 BIPOW  AMRM2   -9999 0.0  #AMRM2 1.0
+6703 FUNCAO DEADB2 BIPOW  AMRM3   -9999 0.0  #AMRM3 1.0
+6704 SOMA          UM     AMRM
+                   AMRM1  AMRM
+                   AMRM2  AMRM
+                   AMRM3  AMRM
+6710 SAIDA         AMRM
+(
+( Abs Min - Monopolar Mode with normal dc voltage
+6801 FUNCAO DEADB2 BIPOW  AMM1   -9999 0.0   #AMM1 1.0
+6802 FUNCAO DEADB2 BIPOW  AMM2   -9999 0.0   #AMM2 1.0
+6803 FUNCAO DEADB2 BIPOW  AMM3   -9999 0.0   #AMM3 1.0
+6804 FUNCAO DEADB2 BIPOW  AMM4   -9999 0.0   #AMM4 1.0
+6805 FUNCAO DEADB2 BIPOW  AMM5   -9999 0.0   #AMM5 1.0
+6806 SOMA          UM     AMM
+                   AMM1   AMM
+                   AMM2   AMM
+                   AMM3   AMM
+                   AMM4   AMM
+                   AMM5   AMM
+6810 SAIDA         AMM
+
+(
+( Min Filter - Bipolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7101 FUNCAO DEADB2 BIPOW  MFR1R  -9999 0.0   #MFR1R 1.0
+7102 FUNCAO DEADB2 BIPOW  MFR2R  -9999 0.0   #MFR2R 1.0
+7103 FUNCAO DEADB2 BIPOW  MFR3R  -9999 0.0   #MFR3R 1.0
+7104 FUNCAO DEADB2 BIPOW  MFR4R  -9999 0.0   #MFR4R 1.0
+7105 FUNCAO DEADB2 BIPOW  MFR5R  -9999 0.0   #MFR5R 1.0
+7106 FUNCAO DEADB2 BIPOW  MFR6R  -9999 0.0   #MFR6R 1.0
+7107 SOMA          UM     MFRR
+                   MFR1R  MFRR
+                   MFR2R  MFRR
+                   MFR3R  MFRR
+                   MFR4R  MFRR
+                   MFR5R  MFRR
+                   MFR6R  MFRR
+7110 SAIDA         MFRR
+(
+( Min Filter - Bipolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7201 FUNCAO DEADB2 BIPOW  MFN1R  -9999 0.0   #MFN1R 1.0
+7202 FUNCAO DEADB2 BIPOW  MFN2R  -9999 0.0   #MFN2R 1.0
+7203 FUNCAO DEADB2 BIPOW  MFN3R  -9999 0.0   #MFN3R 1.0
+7204 FUNCAO DEADB2 BIPOW  MFN4R  -9999 0.0   #MFN4R 1.0
+7205 FUNCAO DEADB2 BIPOW  MFN5R  -9999 0.0   #MFN5R 1.0
+7206 FUNCAO DEADB2 BIPOW  MFN6R  -9999 0.0   #MFN6R 1.0
+7208 SOMA          UM     MFNR
+                   MFN1R  MFNR
+                   MFN2R  MFNR
+                   MFN3R  MFNR
+                   MFN4R  MFNR
+                   MFN5R  MFNR
+                   MFN6R  MFNR
+7210 SAIDA         MFNR
+(
+( Min Filter - Monopolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7301 FUNCAO DEADB2 BIPOW  MFRM1R  -9999 0.0  #MRM1R 1.0
+7302 FUNCAO DEADB2 BIPOW  MFRM2R  -9999 0.0  #MRM2R 1.0
+7303 FUNCAO DEADB2 BIPOW  MFRM3R  -9999 0.0  #MRM3R 1.0
+7304 SOMA          UM     MFRMR
+                   MFRM1R MFRMR
+                   MFRM2R MFRMR
+                   MFRM3R MFRMR
+7310 SAIDA         MFRMR
+(
+( Min Filter - Monopolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7401 FUNCAO DEADB2 BIPOW  MFM1R   -9999 0.0  #MFM1R 1.0
+7402 FUNCAO DEADB2 BIPOW  MFM2R   -9999 0.0  #MFM2R 1.0
+7403 FUNCAO DEADB2 BIPOW  MFM3R   -9999 0.0  #MFM3R 1.0
+7404 FUNCAO DEADB2 BIPOW  MFM4R   -9999 0.0  #MFM4R 1.0
+7406 SOMA          UM     MFMR
+                   MFM1R  MFMR
+                   MFM2R  MFMR
+                   MFM3R  MFMR
+                   MFM4R  MFMR
+7410 SAIDA         MFMR
+( Abs Min - Bipolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7501 FUNCAO DEADB2 BIPOW  AMR1R  -9999 0.0   #AMR1R 1.0
+7502 FUNCAO DEADB2 BIPOW  AMR2R  -9999 0.0   #AMR2R 1.0
+7503 FUNCAO DEADB2 BIPOW  AMR3R  -9999 0.0   #AMR3R 1.0
+7504 FUNCAO DEADB2 BIPOW  AMR4R  -9999 0.0   #AMR4R 1.0
+7505 FUNCAO DEADB2 BIPOW  AMR5R  -9999 0.0   #AMR5R 1.0
+7506 SOMA          UM     AMRR
+                   AMR1R  AMRR
+                   AMR2R  AMRR
+                   AMR3R  AMRR
+                   AMR4R  AMRR
+                   AMR5R  AMRR
+7510 SAIDA         AMRR
+(
+( Abs Min - Bipolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7601 FUNCAO DEADB2 BIPOW  AMN1R  -9999 0.0   #AMN1R 1.0
+7602 FUNCAO DEADB2 BIPOW  AMN2R  -9999 0.0   #AMN2R 1.0
+7603 FUNCAO DEADB2 BIPOW  AMN3R  -9999 0.0   #AMN3R 1.0
+7604 FUNCAO DEADB2 BIPOW  AMN4R  -9999 0.0   #AMN4R 1.0
+7605 FUNCAO DEADB2 BIPOW  AMN5R  -9999 0.0   #AMN5R 1.0
+7606 FUNCAO DEADB2 BIPOW  AMN6R  -9999 0.0   #AMN6R 1.0
+7608 SOMA          UM     AMNR
+                   AMN1R  AMNR
+                   AMN2R  AMNR
+                   AMN3R  AMNR
+                   AMN4R  AMNR
+                   AMN5R  AMNR
+                   AMN6R  AMNR
+7610 SAIDA         AMNR
+(
+( Abs Min - Monopolar Mode with reduced dc voltage
+
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7701 FUNCAO DEADB2 BIPOW  AMRM1R  -9999 0.0  #ARM1R 1.0
+7702 FUNCAO DEADB2 BIPOW  AMRM2R  -9999 0.0  #ARM2R 1.0
+7703 FUNCAO DEADB2 BIPOW  AMRM3R  -9999 0.0  #ARM3R 1.0
+7704 SOMA          UM     AMRMR
+                   AMRM1R AMRMR
+                   AMRM2R AMRMR
+                   AMRM3R AMRMR
+7710 SAIDA         AMRMR
+(
+( Abs Min - Monopolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7801 FUNCAO DEADB2 BIPOW  AMM1R  -9999 0.0   #AMM1R 1.0
+7802 FUNCAO DEADB2 BIPOW  AMM2R  -9999 0.0   #AMM2R 1.0
+7803 FUNCAO DEADB2 BIPOW  AMM3R  -9999 0.0   #AMM3R 1.0
+7806 SOMA          UM     AMMR
+                   AMM1R  AMMR
+                   AMM2R  AMMR
+                   AMM3R  AMMR
+7810 SAIDA         AMMR
+(
+7900 SELET2        MFN    X7900
+                   MFR    X7900
+                   VRED   X7900
+7901 SELET2        MFM    X7901
+                   MFRM   X7901
+                   VRED   X7901
+7902 SELET2        X7900  X7902
+                   X7901  X7902
+                   MONO   X7902
+7903 SELET2        MFNR   X7903
+                   MFRR   X7903
+                   VRED   X7903
+7904 SELET2        MFMR   X7904
+                   MFRMR  X7904
+                   VRED   X7904
+7905 SELET2        X7903  X7905
+                   X7904  X7905
+                   MONO   X7905
+7906 SELET2        X7905  MINFIL
+                   X7902  MINFIL
+                   PDIR   MINFIL
+4433 COMPAR .GT.   MINFIL X4433
+                   FC_SUM X4433
+4434 DLAYON        X4433  IMNFL  0.01
+9434 DLAYOF        IMNFL  IMNFIL 0.05                                            INC_FILT_MIN_FILT
+(
+4435 SOMA          FC_SUM X4435
+                  -MINFIL X4435
+4436 COMPAR .GT.   X4435  DMNFI                                                 ENB_DEC_MINFILT
+                   UM     DMNFI
+9437 SELET2        UM     DMNFIL
+                   DMNFI  DMNFIL
+                   BPDBLK DMNFIL
+(
+7910 SELET2        AMN    X7910
+                   AMR    X7910
+                   VRED   X7910
+7911 SELET2        AMM    X7911
+                   AMRM   X7911
+                   VRED   X7911
+7912 SELET2        X7910  X7912
+                   X7911  X7912
+                   MONO   X7912
+7913 SELET2        AMNR   X7913
+                   AMRR   X7913
+                   VRED   X7913
+7914 SELET2        AMMR   X7914
+                   AMRMR  X7914
+                   VRED   X7914
+7915 SELET2        X7913  X7915
+                   X7914  X7915
+                   MONO   X7915
+7916 SELET2        X7915  ABSMIN
+                   X7912  ABSMIN
+                   PDIR   ABSMIN
+4238 COMPAR .GT.   ABSMIN X4238
+                   FC_SUM X4238
+4239 DLAYON        X4238  IASMN  0.01
+9234 DLAYOF        IASMN  IABSMN 0.05                                            INC_FILT_ABS_MIN
+(
+4240 SOMA          FC_SUM X4240
+                  -ABSMIN X4240
+4241 COMPAR .GT.   X4240  DABSM                                                 ENB_DEC_ABSMIN
+                   UM     DABSM
+4242 SELET2        UM     DABSMN
+                   DABSM  DABSMN
+                   BPDBLK DABSMN
+
+(
+4300 COMPAR .GT.   FC_SUM EnDec
+                   DOIS   EnDec
+4301 SELET2        UM     EnDecM
+                   EnDec  EnDecM
+                   BPDBLK EnDecM
+(
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Rectifier
+3502 FUNCAO PONTOS FC_SUM XAMR   0.0   0.0   1.0   #AMR1
+                                 2.0   #AMR2 3.0   #AMR3
+                                 4.0   #AMR4 5.0   #AMR5
+( Abs Min - Bipolar Mode with normal dc voltage - Rectifier
+3503 FUNCAO PONTOS FC_SUM XAMN   0.0   0.0   1.0   #AMN1
+                                 2.0   #AMN2 3.0   #AMN3
+                                 4.0   #AMN4 5.0   #AMN5
+                                 6.0   #AMN6 7.0   #AMN7
+( Abs Min - Monopolar Mode with reduced dc voltage - Rectifier
+3504 FUNCAO PONTOS FC_SUM XAMRM  0.0   0.0   1.0   #AMRM1
+                                 2.0   #AMRM23.0   #AMRM3
+( Abs Min - Monopolar Mode with normal dc voltage - Rectifier
+3505 FUNCAO PONTOS FC_SUM XAMM   0.0   0.0   1.0   #AMM1
+                                 2.0   #AMM2 3.0   #AMM3
+                                 4.0   #AMM4 5.0   #AMM5
+( Abs Min - Bipolar Mode with reduced dc voltage - Inverter
+3506 FUNCAO PONTOS FC_SUM XAMRR  0.0   0.0   1.0   #AMR1R
+                                 2.0   #AMR2R3.0   #AMR3R
+                                 4.0   #AMR4R5.0   #AMR5R
+( Abs Min - Bipolar Mode with normal dc voltage - Inverter
+3507 FUNCAO PONTOS FC_SUM XAMNR  0.0   0.0   1.0   #AMN1R
+                                 2.0   #AMN2R3.0   #AMN3R
+                                 4.0   #AMN4R5.0   #AMN5R
+                                 6.0   #AMN6R
+( Abs Min - Monopolar Mode with reduced dc voltage - Inverter
+3508 FUNCAO PONTOS FC_SUM XARMRR 0.0   0.0   1.0   #ARM1R
+                                 2.0   #ARM2R3.0   #ARM3R
+( Abs Min - Monopolar Mode with normal dc voltage - Inverter
+3509 FUNCAO PONTOS FC_SUM XAMMR  0.0   0.0   1.0   #AMM1R
+                                 2.0   #AMM2R3.0   #AMM3R
+(
+3510 SELET2        XAMN   X3510
+                   XAMR   X3510
+                   VRED   X3510
+3511 SELET2        XAMM   X3511
+                   XAMRM  X3511
+                   VRED   X3511
+3512 SELET2        X3510  X3512
+                   X3511  X3512
+                   MONO   X3512
+(
+3513 SELET2        XAMNR  X3513
+                   XAMRR  X3513
+                   VRED   X3513
+3514 SELET2        XAMMR  X3514
+                   XARMRR X3514
+                   VRED   X3514
+3515 SELET2        X3513  X3515
+                   X3514  X3515
+                   MONO   X3515
+(
+3516 SELET2        X3515  MAXPOW
+                   X3512  MAXPOW
+                   PDIR   MAXPOW
+3517 SAIDA         MAXPOW
+
+3528 LOGIC  FFLOP1 ZERO   X3528
+                   X3521  X3528
+3529 MONEST        X3528  X3529  0.05
+3530 S/HOLD        BIPOW  PINIT
+                   X3529  PINIT
+DEFVAL VAR    PINIT  BIPOW
+DEFVAL VAR    X3528  X3521
+
+3520 COMPAR .LT.   FC_SUM X3520
+                   ABSMIN X3520
+3521 DLAYON        X3520  X3521  #DRBAM
+3522 MONEST        X3521  X3522  0.05
+3523 SOMA          PINIT  X3523
+                  -MAXPOW X3523
+3524 S/HOLD        X3523  RNBAK1
+                   X3522  RNBAK1
+3525 DELAY         RNBACK RNBAK2
+3526 MAX           RNBAK1 RNBACK
+                   RNBAK2 RNBACK
+3527 EXPORT CDU    RNBACK
+DEFVAL        RNBAK1 0.0
+DEFVAL        RNBAK2 0.0
+
+
+(=================================================
+9991 ENTRAD               UM
+DEFVAL        UM     1.0
+9994 ENTRAD               ZERO
+DEFVAL        ZERO   0.0
+9997 ENTRAD               DOIS
+DEFVAL        DOIS   2.0
+9998 ENTRAD               TRES
+DEFVAL        TRES   3.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5000 ALERTA        INC_QC         8420  8420
+5001 ALERTA        DEC_QC         8421  8421
+5002 ALERTA        INC_UC         8422  8422
+5003 ALERTA        DEC_UC         8423  8423
+5004 ALERTA        DECUMx         8424  8424
+5005 ALERTA        INCUMn         8425  8425
+5006 ALERTA        DECQMx         8426  8426
+5007 ALERTA        DECFOV         8427  8427
+5008 ALERTA        IABSMN         8428  8428
+5009 ALERTA        IMNFIL         8429  8429
+FIMCDU
+
+(ncdu) ( nome cdu )
+ 8402   RPC_S2
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #RPC_A 1.0                         # Control type (1: Automatic / 0: Manual )
+DEFPAR #CMOD  0.0                         # Automatic control mode (1: Q Control / 0: U Control)
+DEFPAR #REAUT 1.0                         # Automatic Reactor Control (1: Enable / 0: Disable)
+DEFPAR #REMOD 1.0                         # Automatic Reactor Control Mode (1: Q Control / 0: U-Control)
+(
+DEFPAR #UACS1 1970                        # Terminal Rio Bus
+DEFPAR #FA    1904                        # T.Rio Filter Bank A
+DEFPAR #FB    1905                        # T.Rio Filter Bank B
+DEFPAR #FC    1906                        # T.Rio Filter Bank C
+DEFPAR #R1    1907                        # T.Rio Reactor 1
+DEFPAR #R2    1908                        # T.Rio Reactor 2
+DEFPAR #R3    1909                        # T.Rio Reactor 3
+DEFPAR #R4    1910                        # T.Rio Reactor 4
+DEFPAR #CNVX1 1982                        # T.Rio Converter Pole 1
+DEFPAR #CNVX2 1984                        # T.Rio Converter Pole 2
+DEFPAR #PS1P1 1981                        # Xingu Converter Pole 1
+DEFPAR #PS1P2 1983                        # Xingu Converter Pole 2
+DEFPAR #URDP1 2227                        # Reduced Voltage Status on Pole 1
+DEFPAR #URDP2 2427                        # Reduced Voltage Status on Pole 2
+(
+DEFPAR #AVA_F 12.0                        # Number of available filters
+(
+( Q CONTROL
+DEFPAR #Q_REF 100.0                       # Reactive power reference [MVAr]
+DEFPAR #Q_DB  150.0                       # Reactive power deadband  [MVAr]
+DEFPAR #QDLAY   3.0                       # Delay for Q Control Switching
+DEFPAR #QINTR  10.0                       # Interval between filters
+(
+( U CONTROL
+DEFPAR #U_REF 537.0                       # Voltage reference [kV]                                   (520)
+DEFPAR #U_DB    9.0                       # Voltage deadband  [kV]
+DEFPAR #UDLAY   5.0                       # Delay for U Control Switching
+DEFPAR #UINTR   5.0                       # Interval between filters
+(
+( UMAX / UMIN
+DEFPAR #UMAX  550.0                       # Max voltage
+DEFPAR #UMxEn 545.0                       # Max voltage threshold (1.09pu)
+DEFPAR #UMXDL 3.0                         # Delay for UMax Switching
+DEFPAR #EnUmx 0.0                         # Umax Filter Switching (0: Disable 1: Enable)
+(
+DEFPAR #UMIN  495.0                       # Minimum voltage (0.99 pu)
+DEFPAR #UmnEn 510.0                       # Minimum voltage threshold (1.02 pu)
+DEFPAR #U_Hys 5.25                        # Voltage hysteresis
+DEFPAR #UMNDL 3.0                         # Delay for UMin Switching
+DEFPAR #UMNIN 5.0                         # Interval between filters
+(
+( OVERVOLTAGE
+DEFPAR #OV_EN 1.0                         # Overvoltage protection   (1: Enable / 0: Disble)
+DEFPAR #OVST1 588.                        # Over voltage set 1 [kV]  (1.176 pu)
+DEFPAR #OVST2 642.0                       # Over voltage set 2 [kV]  (1.284 pu)
+DEFPAR #OVST3 695.0                       # Over voltage set 3 [kV]  (1.390 pu)
+(
+DEFPAR #T_OV0 3.000                       # Over voltage time set 0 [s]
+DEFPAR #T_OV1 0.001                       # Over voltage time set 1 [s]
+DEFPAR #I_OV1 8.000                       # Interval between disconnections for set 1
+DEFPAR #T_OV2 0.001                       # Over voltage time set 2 [s]
+DEFPAR #I_OV2 1.000                       # Interval between disconnections for set 2
+DEFPAR #T_OV3 0.001                       # Over voltage time set 3 [s]
+DEFPAR #I_OV3 0.250                       # Interval between disconnections for set 3
+(
+( QMAX
+DEFPAR #QMXUR 535.0                       # Voltage Reference [kV] (1.070 pu)
+DEFPAR #IUQMX 0.5                         # Interval between QMAX/UMAX disconnections
+DEFPAR #TripA 0.0                         # Enable Trip All
+(
+( REACTOR CONTROL - REACTIVE POWER CONTROL
+DEFPAR #TCRRC   2.0                       # Time delay to connect reactors (Q Control)
+DEFPAR #ICRRC   2.0                       # Interval between reactor connections (Q Control)
+DEFPAR #TDRRC   2.0                       # Time delay to disconnect reactors (Q Control)
+DEFPAR #IDRRC   2.0                       # Interval between reactor disconnections (Q Control)
+(
+( REACTOR CONTROL - VOLTAGE CONTROL
+DEFPAR #RULOW 520.0                       # Voltage to remove reactors  [kV]
+DEFPAR #RUHIG 543.0                       # Voltage to connect reactors [kV]
+DEFPAR #TCRUC   5.0                       # Time delay to connect reactors (U Control)
+DEFPAR #ICRUC   5.0                       # Interval between reactor connections (U Control)
+DEFPAR #TDRUC   5.0                       # Time delay to disconnect reactors (U Control)
+DEFPAR #IDRUC   5.0                       # Interval between reactor disconnections (U Control)
+(
+( MIN FILTER
+DEFPAR #MNFDL 5.0                         # Delay for Min Filter Switching
+DEFPAR #MNFIN 5.0                         # Interval between filters
+(
+( ABS MIN FILTER
+DEFPAR #ABSDL 0.5                         # Delay for Abs Min Filter Switching
+DEFPAR #ABSIN 2.0                         # Interval between filters
+DEFPAR #DRBAM 10.0                        # Delay for Runback by Abs Min (30s on real equipment)
+(
+( Min Filter - Bipolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #MFR1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFR2  688.0              Maximum power with 2 filters (MW)
+DEFPAR #MFR3  957.0              Maximum power with 3 filters (MW)
+DEFPAR #MFR4  1868.0             Maximum power with 4 filters (MW)
+DEFPAR #MFR5  2612.0             Maximum power with 5 filters (MW)
+(
+( Min Filter - Bipolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #MFN1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFN2  988.0              Maximum power with 2 filters (MW)
+DEFPAR #MFN3  2143.0             Maximum power with 3 filters (MW)
+DEFPAR #MFN4  2521.0             Maximum power with 4 filters (MW)
+DEFPAR #MFN5  3265.0             Maximum power with 5 filters (MW)
+DEFPAR #MFN6  3813.0             Maximum power with 6 filters (MW)
+(
+( Min Filter - Monopolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #MFRM1 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFRM2 925.0              Maximum power with 2 filters (MW)
+DEFPAR #MFRM3 1344.0             Maximum power with 3 filters (MW)
+(
+( Min Filter - Monopolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #MFM1  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFM2  1308.0             Maximum power with 2 filters (MW) (1252.0 for earth return)
+DEFPAR #MFM3  1731.0             Maximum power with 3 filters (MW) (1798.0 for earth return)
+DEFPAR #MFM4  2044.0             Maximum power with 4 filters (MW) (2060.0 for earth return)
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #AMR1  278.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMR2  688.0              Maximum power with 2 filters (MW)
+DEFPAR #AMR3  957.0              Maximum power with 3 filters (MW)
+DEFPAR #AMR4  2612.0             Maximum power with 4 filters (MW)
+(
+( Abs Min - Bipolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMN1  398.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMN2  988.0              Maximum power with 2 filters (MW)
+DEFPAR #AMN3  2143.0             Maximum power with 3 filters (MW)
+DEFPAR #AMN4  3265.0             Maximum power with 4 filters (MW)
+DEFPAR #AMN5  3991.0             Maximum power with 5 filters (MW)
+DEFPAR #AMN6  4518.0             Maximum power with 6 filters (MW)
+DEFPAR #AMN7  4861.0             Maximum power with 7 filters (MW)
+DEFPAR #AMN8  5028.0             Maximum power with 8 filters (MW)
+(
+( Abs Min - Monopolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #AMRM1 139.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMRM2 1344.0             Maximum power with 2 filters (MW)
+(
+( Abs Min - Monopolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMM1  198.0              Maximum power with 1 filter  (MW) (199.0 for earth return)
+DEFPAR #AMM2  1731.0             Maximum power with 2 filters (MW) (1618.0 for earth return)
+DEFPAR #AMM3  2118.0             Maximum power with 3 filters (MW) (2145.0 for earth return)
+DEFPAR #AMM4  2260.0             Maximum power with 4 filters (MW) (2472.0 for earth return)
+(
+( Min Filter - Bipolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #MFR1R 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFR2R 700.0              Maximum power with 2 filters (MW)
+DEFPAR #MFR3R 980.0              Maximum power with 3 filters (MW)
+DEFPAR #MFR4R 1680.0             Maximum power with 4 filters (MW)
+DEFPAR #MFR5R 2380.0             Maximum power with 5 filters (MW)
+(
+( Min Filter - Bipolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #MFN1R  0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MFN2R  1000.0             Maximum power with 2 filters (MW)
+DEFPAR #MFN3R  1800.0             Maximum power with 3 filters (MW)
+DEFPAR #MFN4R  2200.0             Maximum power with 4 filters (MW)
+DEFPAR #MFN5R  2800.0             Maximum power with 5 filters (MW)
+DEFPAR #MFN6R  3400.0             Maximum power with 6 filters (MW)
+(
+( Min Filter - Monopolar Mode with reduced dc voltage - Rectifier
+(
+DEFPAR #MRM1R 0.0                Maximum power with 1 filter  (MW)
+DEFPAR #MRM2R 840.0              Maximum power with 2 filters (MW)
+DEFPAR #MRM3R 1190.0             Maximum power with 3 filters (MW)
+(
+( Min Filter - Monopolar Mode with normal dc voltage - Rectifier
+(
+DEFPAR #MFM1R  0.0               Maximum power with 1 filter  (MW)
+DEFPAR #MFM2R  1100.0            Maximum power with 2 filters (MW)
+DEFPAR #MFM3R  1600.0            Maximum power with 3 filters (MW)
+DEFPAR #MFM4R  2000.0            Maximum power with 4 filters (MW) (1700.0 for earth return)
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #AMR1R  278.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMR2R  553.0              Maximum power with 2 filters (MW)
+DEFPAR #AMR3R  688.0              Maximum power with 3 filters (MW)
+DEFPAR #AMR4R  1868.0             Maximum power with 4 filters (MW)
+DEFPAR #AMR5R  2244.0             Maximum power with 5 filters (MW)
+(
+( Abs Min - Bipolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMN1R  398.0              Maximum power with 1 filter  (MW)
+DEFPAR #AMN2R  988.0              Maximum power with 2 filters (MW)
+DEFPAR #AMN3R  1377.0             Maximum power with 3 filters (MW)
+DEFPAR #AMN4R  2143.0             Maximum power with 4 filters (MW)
+DEFPAR #AMN5R  3983.0             Maximum power with 5 filters (MW)
+DEFPAR #AMN6R  4160.0             Maximum power with 6 filters (MW)
+(
+( Abs Min - Monopolar Mode with reduced dc voltage - Inverter
+(
+DEFPAR #ARM1R 207.0              Maximum power with 1 filter  (MW)
+DEFPAR #ARM2R 925.0              Maximum power with 2 filters (MW)
+DEFPAR #ARM3R 1124.0             Maximum power with 3 filters (MW)
+(
+( Abs Min - Monopolar Mode with normal dc voltage - Inverter
+(
+DEFPAR #AMM1R  198.0              Maximum power with 1 filter  (MW) (198.0 for earth return)
+DEFPAR #AMM2R  1133.0             Maximum power with 2 filters (MW) (1159.0 for earth return)
+DEFPAR #AMM3R  1960.0             Maximum power with 3 filters (MW) (2052.0 for earth return)
+(
+(============================================================================
+   1 EXPORT STBSH  NFA           #FA
+   2 EXPORT STBSH  NFB           #FB
+   3 EXPORT STBSH  NFC           #FC
+   4 SOMA          AZ1CIN NFA
+                   AZ2CIN NFA
+                   AZ7CIN NFA
+   5 SOMA          AZ3CIN NFB
+                   AZ4CIN NFB
+                   AZ8CIN NFB
+   6 SOMA          AZ5CIN NFC
+                   AZ6CIN NFC
+                   AZ9CIN NFC
+                   AZ10CI NFC
+                   AZ11CI NFC
+                   AZ12CI NFC
+
+
+  64 EXPORT STBSH  AR1CI         #R1
+  65 EXPORT STBSH  AR2CI         #R2
+  66 EXPORT STBSH  AR3CI         #R3
+  67 EXPORT STBSH  AR4CI         #R4
+( Medições
+0010 IMPORT CDU           VREDP1 #URDP1 0.0
+0011 IMPORT CDU           VREDP2 #URDP2 0.0
+0012 LOGIC  .OR.   VREDP1 VRED
+                   VREDP2 VRED
+0015 IMPORT PCCCNV        P_S1P1 #PS1P1 0.0
+0016 IMPORT PCCCNV        P_S2P1 #CNVX1 0.0
+0017 IMPORT PCCCNV        P_S1P2 #PS1P2 0.0
+0018 IMPORT PCCCNV        P_S2P2 #CNVX2 0.0
+0019 SOMA          P_S1P1 P_S1
+                   P_S1P2 P_S1
+0020 SOMA          P_S2P1 P_S2
+                   P_S2P2 P_S2
+0021 SELET2        P_S2   P_pu
+                   P_S1   P_pu
+                   Pdir   P_pu
+0022 GANHO         P_pu   BIPOW   2000.
+0023 SAIDA         BIPOW
+
+0024*COMPAR .GT.   P_S1   Pdir
+                   P_S2   Pdir
+(
+0025 ENTRAD               NFINIT
+DEFVAL        NFINIT #AVA_F
+0026 DESCID        FC_SUM X0026
+0027 LOGIC  .NOT.  X0026  X0027
+0028 ACUM          UM     FREMOV 1.0
+                   X0027  FREMOV
+                   ZEROO  FREMOV
+                   ZERO   FREMOV
+0029 SOMA          NFINIT AVAFIL
+                  -FREMOV AVAFIL
+0030 COMPAR .LT.   FC_SUM EXFILT
+                   AVAFIL EXFILT
+0031 SAIDA         EXFILT
+
+0032 ENTRAD               ZEROO
+DEFVAL        ZEROO  0.0
+DEFVAL        FREMOV 0.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+2000 IMPORT VOLT          UACS1  #UACS1 0.0
+2001 LEDLAG        UACS1  UAC100  500.  0.0  1.0   0.1
+2002 LEDLAG        UACS1  UAC10   500.  0.0  1.0   0.01
+2003 IMPORT ESTCNV        P1DBLK #CNVX1 0.0
+2004 IMPORT ESTCNV        P2DBLK #CNVX2 0.0
+1999 LOGIC  .XOR.  P1DBLK MONO
+                   P2DBLK MONO
+( Inicialização
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2901 IMPORT QBSH          QBSHA  #FA     0.0
+2902 IMPORT QBSH          QBSHB  #FB     0.0
+2903 IMPORT QBSH          QBSHC  #FC     0.0
+2904 IMPORT QCCCNV        QCNV1p #CNVX1 0.0
+2914 GANHO         QCNV1p QCNV1  100.
+2905 IMPORT QCCCNV        QCNV2p #CNVX2 0.0
+2915 GANHO         QCNV2p QCNV2  100.
+2906 SOMA          QBSHA  QDCTAC
+                   QBSHB  QDCTAC
+                   QBSHC  QDCTAC
+                  -QCNV1  QDCTAC
+                  -QCNV2  QDCTAC
+2907 SAIDA         QDCTAC
+
+  40 IMPORT NUBSH         NFA0   #FA   0.0
+  41 SAIDA         NFA0
+  42 IMPORT NUBSH         NFB0   #FB   0.0
+  43 SAIDA         NFB0
+  44 IMPORT NUBSH         NFC0   #FC   0.0
+  45 SAIDA         NFC0
+(
+  46 COMPAR .LT.   NFA0   BC1
+                   UM     BC1
+  47 COMPAR .LT.   NFA0   BC2
+                   DOIS   BC2
+  48 COMPAR .LT.   NFA0   BC7
+                   TRES   BC7
+  50 COMPAR .LT.   NFB0   BC3
+                   UM     BC3
+  51 COMPAR .LT.   NFB0   BC4
+                   DOIS   BC4
+  52 COMPAR .LT.   NFB0   BC8
+                   TRES   BC8
+  54 COMPAR .LT.   NFC0   BC5
+                   UM     BC5
+  55 COMPAR .LT.   NFC0   BC6
+                   DOIS   BC6
+  56 COMPAR .LT.   NFC0   BC9
+                   TRES   BC9
+  49 COMPAR .LT.   NFC0   BC10
+                   QUATRO BC10
+  53 COMPAR .LT.   NFC0   BC11
+                   CINCO  BC11
+  57 COMPAR .LT.   NFC0   BC12
+                   SEIS   BC12
+  60 SOMA          BC1    DUMMY
+                   BC2    DUMMY
+                   BC3    DUMMY
+                   BC4    DUMMY
+                   BC5    DUMMY
+                   BC6    DUMMY
+                   BC7    DUMMY
+                   BC8    DUMMY
+                   BC9    DUMMY
+                   BC10   DUMMY
+                   BC11   DUMMY
+                   BC12   DUMMY
+  61 SAIDA         DUMMY
+(
+DEFVAL VAR    AZ1OIN BC1
+DEFVAL VAR    AZ2OIN BC2
+DEFVAL VAR    AZ3OIN BC3
+DEFVAL VAR    AZ4OIN BC4
+DEFVAL VAR    AZ5OIN BC5
+DEFVAL VAR    AZ6OIN BC6
+DEFVAL VAR    AZ7OIN BC7
+DEFVAL VAR    AZ8OIN BC8
+DEFVAL VAR    AZ9OIN BC9
+DEFVAL VAR    AZ10OI BC10
+DEFVAL VAR    AZ11OI BC11
+DEFVAL VAR    AZ12OI BC12
+(
+8411 IMPORT TEMPO         TEMPO
+8412 IMPORT DT            DT
+8413 COMPAR .LE.   TEMPO  INIT
+                   DT     INIT
+(
+( Q CONTROL
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1002 ENTRAD               Q_REF
+1003 ENTRAD               Q_DB
+1004 ENTRAD               QCMODE
+(DEFVAL VAR    Q_REF  QDCTAC
+DEFVAL        Q_REF  #Q_REF
+DEFVAL        Q_DB   #Q_DB
+DEFVAL        QCMODE #CMOD
+1100 SOMA          Q_REF  X1100
+                  -QDCTAC X1100
+(
+1101 COMPAR .GT.   X1100  X1101
+                   Q_DB   X1101
+1102 SOMA          Q_DB   X1102
+                  -UM     X1102
+1103 COMPAR .LE.   X1100  X1103
+                   X1102  X1103
+1104 LOGIC  FFLOP1 X1103  X1104
+                   X1101  X1104
+DEFVAL VAR    X1104  X1101
+(
+1105 SOMA          QDCTAC X1105
+                  -Q_REF  X1105
+(
+1106 COMPAR .GT.   X1105  X1106
+                   Q_DB   X1106
+1107 SOMA          Q_DB   X1107
+                  -UM     X1107
+1108 COMPAR .LE.   X1105  X1108
+                   X1107  X1108
+1109 LOGIC  FFLOP1 X1108  X1109
+                   X1106  X1109
+DEFVAL VAR    X1109  X1106
+(
+1110 LOGIC  .AND.  QCMODE X1110
+                   X1104  X1110
+9110 SELET2        X1110  X9110
+                   ZERO   X9110
+                   INIT   X9110
+9006 DLAYON        X9110  INC_QC #QDLAY
+1111 LOGIC  .AND.  QCMODE X1111
+                   X1109  X1111
+9111 SELET2        X1111  X9111
+                   ZERO   X9111
+                   INIT   X9111
+9026 DLAYON        X9111  X1112  #QDLAY
+9047 DLAYOF        X1112  DEC_QC 5.0
+1113 SAIDA         INC_QC                                              INC_FILT_Q_CONTROL
+1114 SAIDA         DEC_QC                                              DEC_FILT_Q_CONTROL
+(
+( U CONTROL
+(
+2005 ENTRAD               U_REF
+2006 ENTRAD               U_DB
+2007 LOGIC  .NOT.  QCMODE UCMODE
+(DEFVAL VAR    U_REF  UAC100
+DEFVAL        U_REF  #U_REF
+DEFVAL        U_DB   #U_DB
+
+2100 SOMA          U_REF  X2100
+                  -UAC100 X2100
+(
+2101 COMPAR .GT.   X2100  X2101
+                   U_DB   X2101
+2102 SOMA          U_DB   X2102
+                  -UM     X2102
+2103 COMPAR .LE.   X2100  X2103
+                   X2102  X2103
+2104 LOGIC  FFLOP1 X2103  X2104
+                   X2101  X2104
+DEFVAL VAR    X2104  X2101
+(
+2105 SOMA          UAC100 X2105
+                  -U_REF  X2105
+(
+2106 COMPAR .GT.   X2105  X2106
+                   U_DB   X2106
+2107 SOMA          U_DB   X2107
+                  -UM     X2107
+2108 COMPAR .LE.   X2105  X2108
+                   X2107  X2108
+2109 LOGIC  FFLOP1 X2108  X2109
+                   X2106  X2109
+DEFVAL VAR     X2109  X2106
+(
+2110 LOGIC  .AND.  UCMODE X2110
+                   X2104  X2110
+9112 SELET2        X2110  X9112
+                   ZERO   X9112
+                   INIT   X9112
+9066 DLAYON        X9112  INC_UC #UDLAY
+2111 LOGIC  .AND.  UCMODE X2111
+                   X2109  X2111
+9113 SELET2        X2111  X9113
+                   ZERO   X9113
+                   INIT   X9113
+9086 DLAYON        X9113  DEC_UC #UDLAY
+2112 SAIDA         INC_UC                                              INC_FILT_U_CONTROL
+2113 SAIDA         DEC_UC                                              DEC_FILT_U_CONTROL
+(
+( UMAX/UMIN
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2200 ENTRAD                UMAX
+2201 ENTRAD                UMxEn
+2202 ENTRAD                UMIN
+2203 ENTRAD                UMnEn
+2204 ENTRAD                U_Hys
+DEFVAL        UMAX   #UMAX
+DEFVAL        UMxEn  #UMxEn
+DEFVAL        UMIN   #UMIN
+DEFVAL        UmnEn  #UmnEn
+DEFVAL        U_Hys  #U_Hys
+(
+2205 COMPAR .GT.   UAC100 X2205
+                   UMAX   X2205
+2206 SOMA          UMAX   X2206
+                  -U_Hys  X2206
+2207 COMPAR .LE.   UAC100 X2207
+                   X2206  X2207
+2208 LOGIC  FFLOP1 X2207  X2208
+                   X2205  X2208
+DEFVAL VAR    X2208  X2205
+(
+2209 COMPAR .GT.   UAC100 X2209
+                   UMxEn  X2209
+2210 SOMA          UMxEn  X2210
+                  -U_Hys  X2210
+2211 COMPAR .LE.   UAC100 X2211
+                   X2210  X2211
+2212 LOGIC  FFLOP1 X2211  X2212
+                   X2209  X2212
+DEFVAL VAR     X2212  X2209
+2213 LOGIC  .NOT.  X2212  X2213
+(
+2214 COMPAR .GT.   UMIN   X2214
+                   UAC100 X2214
+2215 SOMA          UAC100 X2215
+                  -U_Hys  X2215
+2216 COMPAR .LE.   UMIN   X2216
+                   X2215  X2216
+2217 LOGIC  FFLOP1 X2216  X2217
+                   X2214  X2217
+DEFVAL VAR     X2217  X2214
+(
+2218 COMPAR .GT.   UMnEn  X2218
+                   UAC100 X2218
+2219 SOMA          UAC100 X2219
+                  -U_Hys  X2219
+2220 COMPAR .LE.   UMnEn  X2220
+                   X2219  X2220
+2221 LOGIC  FFLOP1 X2220  X2221
+                   X2218  X2221
+DEFVAL VAR    X2221  X2218
+2222 LOGIC  .NOT.  X2221  X2222
+(
+2223 LOGIC  .OR.   P1DBLK X2223
+                   P2DBLK X2223
+9106 DLAYON        X2223  X2224  #UMXDL
+2225 LOGIC  .AND.  X2224  X2225
+                   X2208  X2225
+9126 DLAYON        X2225  DECUx  #UMXDL
+2226 LOGIC  .NOT.  X2224  X2226
+2227 LOGIC  .OR.   X2226  EnIUMx
+                   X2213  EnIUMx
+2228 LOGIC  .AND.  X2224  INCUMn
+                   X2217  INCUmn
+2229 LOGIC  .OR.   X2226  EnDUmn
+                   X2222  EnDUmn
+2230 SAIDA         DECUMx                                                    DEC_FILT_U_MAX
+2231 SAIDA         EnIUMx                                                    ENABLE_INC_U_MAX
+2232 SAIDA         INCUMn                                                    INC_FILT_U_MIN
+2233 SAIDA         EnDUmn                                                    ENABLE_DEC_U_MIN
+(
+( Q MAX
+(
+2299 ENTRAD               DEZK
+DEFVAL        DEZK   10000.
+2300 SOMA          Q_DB   X2300
+                   Q_REF  X2300
+2301 LOGIC  .NOR.  P1DBLK X2301
+                   P2DBLK X2301
+9141 GANHO         X2301  X2302  1.0
+(9141 MONEST        X2301  X2302  5.0
+2303 SELET2        DEZK   X2303
+                   X2300  X2303
+                   X2302  X2303
+2304 COMPAR .GT.   QDCTAC X2304
+                   X2303  X2304
+(
+2305 ENTRAD               QMXURF
+DEFVAL        QMXURF #QMXUR
+2306 COMPAR .GE.   UAC100 X2306
+                   QMXURF X2306
+9306 LOGIC  .AND.  X2306  X9306
+                   X2301  X9306
+2307 DLAYON        X9306  X2307  0.500
+2308 LOGIC  .AND.  X2304  DECQMx
+                   X2307  DECQMx
+(9166 DLAYON        X2304  DECQMx 0.500
+2309 SAIDA         DECQMx                                                    DEC_FILT_Q_MAX
+(
+( OVERVOLTAGE
+(
+2399 ENTRAD               ZP5
+DEFVAL        ZP5    0.5
+2400 ENTRAD               OV_EN
+2401 ENTRAD               OVSET1
+2402 ENTRAD               OVSET2
+2403 ENTRAD               OVSET3
+DEFVAL        OV_EN  #OV_EN
+DEFVAL        OVSET1 #OVST1
+DEFVAL        OVSET2 #OVST2
+DEFVAL        OVSET3 #OVST3
+(
+2404 COMPAR .GT.   UAC10  X2404
+                   OVSET1 X2404
+2405 SOMA          OVSET1 X2405
+                  -ZP5    X2405
+2406 COMPAR .LE.   UAC10  X2406
+                   X2405  X2406
+2407 LOGIC  FFLOP1 X2406  X2407
+                   X2404  X2407
+DEFVAL VAR    X2407  X2404
+(
+9186 DLAYON        X2407  OV_1   #T_OV1
+2408 COMPAR .GT.   UAC10  X2408
+                   OVSET2 X2408
+2409 SOMA          OVSET2 X2409
+                  -ZP5    X2409
+2410 COMPAR .LE.   UAC10  X2410
+                   X2409  X2410
+2411 LOGIC  FFLOP1 X2410  X2411
+                   X2408  X2411
+DEFVAL VAR    X2411  X2408
+(
+9206 DLAYON        X2411  OV_2   #T_OV2
+2412 COMPAR .GT.   UAC10  X2412
+                   OVSET3 X2412
+2413 SOMA          OVSET3 X2413
+                  -ZP5    X2413
+2414 COMPAR .LE.   UAC10  X2414
+                   X2413  X2414
+2415 LOGIC  FFLOP1 X2414  X2415
+                   X2412  X2415
+DEFVAL VAR    X2415  X2412
+(
+9226 DLAYON        X2415  OV_3   #T_OV3
+(
+2419 LOGIC  .AND.  X3605  X2419
+                   OV_EN  X2419
+2420 LOGIC  .AND.  X3615  X2420
+                   OV_EN  X2420
+2421 LOGIC  .AND.  X3625  X2421
+                   OV_EN  X2421
+2422 LOGIC  .OR.   X2419  DECFO1
+                   X2420  DECFO1
+                   X2421  DECFO1
+2424 LOGIC  .AND.  DECFO1 DECFOV
+                   EnDecM DECFOV
+2423 SAIDA         DECFOV                                              DEC_FILT_OV
+(
+3599 LOGIC  .AND.  OV_1   X3599
+                   X3608  X3599
+3600 MONEST        X3599  X3600  0.01
+3601 ATRASO        X3599  X3601  0.05
+3602 MONEST        X3601  X3602  0.01
+3603 ATRASO        X3601  X3603  0.05
+3604 MONEST        X3603  X3604  0.01
+3605 SOMA          X3600  X3605
+                   X3602  X3605
+                   X3604  X3605
+3606 ATRASO        X3604  X3606  0.01
+3607 MONEST        X3606  X3607  #I_OV1
+3608 LOGIC  .NOT.  X3607  X3608
+DEFVAL        X3608  1.0
+(
+3609 LOGIC  .AND.  OV_2   X3609
+                   X3618  X3609
+3610 MONEST        X3609  X3610  0.01
+3611 ATRASO        X3609  X3611  0.05
+3612 MONEST        X3611  X3612  0.01
+3613 ATRASO        X3611  X3613  0.05
+3614 MONEST        X3613  X3614  0.01
+3615 SOMA          X3610  X3615
+                   X3612  X3615
+                   X3614  X3615
+3616 ATRASO        X3614  X3616  0.01
+3617 MONEST        X3616  X3617  #I_OV2
+3618 LOGIC  .NOT.  X3617  X3618
+DEFVAL        X3618  1.0
+(
+3619 LOGIC  .AND.  OV_3   X3619
+                   X3628  X3619
+3620 MONEST        X3619  X3620  0.01
+3621 ATRASO        X3619  X3621  0.05
+3622 MONEST        X3621  X3622  0.01
+3623 ATRASO        X3621  X3623  0.05
+3624 MONEST        X3623  X3624  0.01
+3625 SOMA          X3620  X3625
+                   X3622  X3625
+                   X3624  X3625
+3626 ATRASO        X3624  X3626  0.01
+3627 MONEST        X3626  X3627  #I_OV3
+3628 LOGIC  .NOT.  X3627  X3628
+DEFVAL        X3628  1.0
+(
+( TRIP ALL
+(
+2500 ENTRAD               EnTAll
+DEFVAL        EnTAll #TripA
+2501 DESCID        P1DBLK X2502
+9261 MONEST        X2502  X2503  0.15
+2504 DESCID        P2DBLK X2505
+9281 MONEST        X2505  X2506  0.15
+2507 LOGIC  .OR.   X2503  X2507
+                   X2506  X2507
+2508 LOGIC  .NOT.  P1DBLK X2508
+2509 LOGIC  .NOT.  P2DBLK X2509
+2510 LOGIC  .AND.  X2508  BPBLK
+                   X2509  BPBLK
+2515 LOGIC  .NOT.  BPBLK  BPDBLK
+2511 LOGIC  .AND.  BPBLK  X2511
+                   X2507  X2511
+                   EnTAll X2511
+9301 MONEST        X2511  DAllF2 0.1
+2512 SAIDA         DAllF
+2513 ENTRAD               DAllFM
+DEFVAL        DAllFM 0.0
+2514 LOGIC  .OR.   DAllF2 DAllF
+                   DAllFM DAllF
+(
+( OUT
+(
+2599 DLAYON        INCUmn X2599  #UMNDL
+9326 ATRASO        INCFO  X2600  0.01
+DEFVAL        X2600  0.0
+9347 DLAYOF        X2600  X2601  #UMNIN
+2602 LOGIC  .NOT.  X2601  X2602
+2603 LOGIC  .AND.  X2602  X2603
+                   X2599  X2603
+2604 LOGIC  .OR.   INC_QC X2604
+                   INC_UC X2604
+(                   IMNFIL X2604
+(                   IABSMN X2604
+2605 LOGIC  .OR.   INCFO  X2605d
+                   DECFO  X2605d
+5605 DELAY         X2605d X2605
+2606 DLAYON        X2605  X2606   0.01
+5607 DLAYOF        X2606  X2607q #QINTR
+5608 DLAYOF        X2606  X2607u #UINTR
+5609 SELET2        X2607u X2607
+                   X2607q X2607
+                   QCMODE X2607
+2608 LOGIC  .NOT.  X2607  X2608
+2609 LOGIC  .OR.   P1DBLK X2609
+                   P2DBLK X2609
+9406 DLAYON        X2609  X2610  0.01
+9427 DLAYOF        X2610  X2611  1.0
+2612 LOGIC  .AND.  EnIUMx X2612
+                   X2604  X2612
+                   X2608  X2612
+                   X2611  X2612
+2613 LOGIC  .AND.  X2609  X2613
+                   AZ2OIN X2613
+                   AZ1OIN X2613
+2614 LOGIC  .OR.   X2603  INCFO1
+                   X2612  INCFO1
+                   X2613  INCFO1
+                   X7621  INCFO1
+                   X7626  INCFO1
+2616 LOGIC  .AND.  INCFO1 INCFO
+                   EXFILT INCFO
+2615 SAIDA         INCFO
+7616 LOGIC  .NOT.  DAllF  X7616
+7617 LOGIC  .AND.  X7616  X7617
+                   IABSMN X7617
+                   BPDBLK X7617
+7618 DLAYON        X7617  X7618  #ABSDL
+7619 DLAYOF        X2606  X7619  #ABSIN
+7620 LOGIC  .NOT.  X7619  X7620
+7621 LOGIC  .AND.  X7620  X7621
+                   X7618  X7621
+(
+7622 LOGIC  .AND.  X7616  X7622
+                   IMNFIL X7622
+                   BPDBLK X7622
+                   EnIUMx X7622
+7623 DLAYON        X7622  X7623  #MNFDL
+7624 DLAYOF        X2606  X7624  #MNFIN
+7625 LOGIC  .NOT.  X7624  X7625
+7626 LOGIC  .AND.  X7625  X7626
+                   X7623  X7626
+(
+9441 MONEST        X2613  X2616  0.5
+2617 LOGIC  .NOT.  X2616  X2617
+2618 LOGIC  .NOT.  X2609  X2618
+2619 COMPAR .GT.   FC_SUM X2619
+                   DOIS   X2619
+2620 LOGIC  .OR.   X2618  X2620
+                   X2619  X2620
+2621 LOGIC  .AND.  X2617  X2621
+                   X2620  X2621
+2622 LOGIC  .OR.   DEC_QC X2622
+                   DEC_UC X2622
+2623 LOGIC  .AND.  X2622  X2623
+                   EnDUmn X2623
+(
+8737 DLAYOF        X2606  X2697  5.0
+DEFVAL        X2605  0.0
+2698 LOGIC  .NOT.  X2697  X2698
+(
+2624 LOGIC  .AND.  X2621  X2624
+                   X2611  X2624
+                   X2623  X2624
+                   X2698  X2624
+                   DABSMN X2624
+                   DMNFIL X2624
+9625 GANHO         DECUx  DECUmx #EnUmx
+2625 LOGIC  .OR.   DECQMx X2625a
+                   DECUMx X2625a
+9115 LOGIC  .AND.  X2625a X2625
+                   DABSMN X2625
+9114 SELET2        X2625  X9114
+                   ZERO   X9114
+                   INIT   X9114
+9466 DLAYON        X9114  X2626  0.01
+9486 DLAYON        DECFO  X2627  0.01
+DEFVAL        X2627  0.0
+9507 DLAYOF        X2627  X2628  #IUQMX
+2629 LOGIC  .NOT.  X2628  X2629
+2630 LOGIC  .AND.  X2626  X2630
+                   X2629  X2630
+2631 LOGIC  .OR.   X2624  DECO
+                   X2630  DECO
+2633 DELAY         DECO   DECFO
+
+2632 SAIDA         DECFO
+(===================================
+2700 ENTRAD               RPC_A
+DEFVAL        RPC_A  #RPC_A
+2701 LOGIC  .AND.  INCFO  X2701
+                   RPC_A  X2701
+9516 DLAYON        X2701  X2702  0.005
+9521 MONEST        X2702  X2703  0.01
+2704 LOGIC  .AND.  X2703  X2704
+                   AZ1OIN X2704
+9536 MONEST        X2704  CONDZ1 0.02
+9676 DLAYON        AZ1CIN  X2705 0.03
+2706 LOGIC  .AND.  X2703  X2706
+                   X2705  X2706
+                   AZ2OIN X2706
+9551 MONEST        X2706  CONDZ2 0.02
+9686 DLAYON        AZ2CIN  X2707 0.03
+2708 LOGIC  .AND.  X2703  X2708
+                   X2707  X2708
+                   AZ3OIN X2708
+9566 MONEST        X2708  CONDZ3 0.02
+9696 DLAYON        AZ3CIN  X2709 0.03
+2710 LOGIC  .AND.  X2703  X2710
+                   X2709  X2710
+                   AZ4OIN X2710
+9581 MONEST        X2710  CONDZ4 0.02
+9706 DLAYON        AZ4CIN  X2711 0.03
+2712 LOGIC  .AND.  X2703  X2712
+                   X2711  X2712
+                   AZ5OIN X2712
+9596 MONEST        X2712  CONDZ5 0.02
+9716 DLAYON        AZ5CIN  X2713 0.03
+2714 LOGIC  .AND.  X2703  X2714
+                   X2713  X2714
+                   AZ6OIN X2714
+9611 MONEST        X2714  CONDZ6 0.02
+9726 DLAYON        AZ6CIN  X2715 0.03
+2716 LOGIC  .AND.  X2703  X2716
+                   X2715  X2716
+                   AZ7OIN X2716
+9626 MONEST        X2716  CONDZ7 0.02
+9736 DLAYON        AZ7CIN  X2717 0.03
+2718 LOGIC  .AND.  X2703  X2718
+                   X2717  X2718
+                   AZ8OIN X2718
+9641 MONEST        X2718  CONDZ8 0.02
+9746 DLAYON        AZ8CIN  X2719 0.03
+2720 LOGIC  .AND.  X2703  X2720
+                   X2719  X2720
+                   AZ9OIN X2720
+9656 MONEST        X2720  CONDZ9 0.02
+8586 DLAYON        AZ9CIN  X2721 0.03
+
+2722 LOGIC  .AND.  X2703  X2722
+                   X2721  X2722
+                   AZ10OI X2722
+8641 MONEST        X2722  CONZ10 0.02
+8596 DLAYON        AZ10CI X2723  0.03
+2724 LOGIC  .AND.  X2703  X2724
+                   X2723  X2724
+                   AZ11OI X2724
+8656 MONEST        X2724  CONZ11 0.02
+8606 DLAYON        AZ11CI  X2725 0.03
+2726 LOGIC  .AND.  X2703  X2726
+                   X2725  X2726
+                   AZ12OI X2726
+8671 MONEST        X2726  CONZ12 0.02
+(
+( DISCONNECTION
+(
+2800 LOGIC  .AND.  DECFO  X2800
+                   RPC_A  X2800
+9756 DLAYON        X2800  X2801  0.005
+9761 MONEST        X2801  X2802  0.01
+2803 LOGIC  .OR.   X2802  X2803
+                   DECFOV X2803
+(
+2804 LOGIC  .AND.  X2803  X2804
+                   AZ12CI X2804
+2805 LOGIC  .OR.   X2804  X2805
+                   DAllF  X2805
+9776 MONEST        X2805  DISZ12 0.02
+8616 DLAYON        AZ12OI  X2830 0.03
+2831 LOGIC  .AND.  X2803  X2831
+                   X2830  X2831
+                   AZ11CI X2831
+2832 LOGIC  .OR.   X2831  X2832
+                   DAllF  X2832
+8686 MONEST        X2832  DISZ11 0.02
+8626 DLAYON        AZ11OI X2833  0.03
+2834 LOGIC  .AND.  X2803  X2834
+                   X2833  X2834
+                   AZ10CI X2834
+2835 LOGIC  .OR.   X2834  X2835
+                   DAllF  X2835
+8701 MONEST        X2835  DISZ10 0.02
+8636 DLAYON        AZ10OI X2836  0.03
+2837 LOGIC  .AND.  X2803  X2837
+                   X2836  X2837
+                   AZ9CIN X2837
+2838 LOGIC  .OR.   X2837  X2838
+                   DAllF  X2838
+8716 MONEST        X2838  DISCZ9 0.02
+8506 DLAYON        AZ9OIN  X2806 0.03
+2807 LOGIC  .AND.  X2803  X2807
+                   X2806  X2807
+                   AZ8CIN X2807
+2808 LOGIC  .OR.   X2807  X2808
+                   DAllF  X2808
+9791 MONEST        X2808  DISCZ8 0.02
+8516 DLAYON        AZ8OIN  X2809 0.03
+2810 LOGIC  .AND.  X2803  X2810
+                   X2809  X2810
+                   AZ7CIN X2810
+2811 LOGIC  .OR.   X2810  X2811
+                   DAllF  X2811
+9806 MONEST        X2811  DISCZ7 0.02
+8526 DLAYON        AZ7OIN  X2812 0.03
+2813 LOGIC  .AND.  X2803  X2813
+                   X2812  X2813
+                   AZ6CIN X2813
+2814 LOGIC  .OR.   X2813  X2814
+                   DAllF  X2814
+9821 MONEST        X2814  DISCZ6 0.02
+8536 DLAYON        AZ6OIN  X2815 0.03
+2816 LOGIC  .AND.  X2803  X2816
+                   X2815  X2816
+                   AZ5CIN X2816
+2817 LOGIC  .OR.   X2816  X2817
+                   DAllF  X2817
+9836 MONEST        X2817  DISCZ5 0.02
+8546 DLAYON        AZ5OIN  X2818 0.03
+2819 LOGIC  .AND.  X2803  X2819
+                   X2818  X2819
+                   AZ4CIN X2819
+2820 LOGIC  .OR.   X2819  X2820
+                   DAllF  X2820
+9851 MONEST        X2820  DISCZ4 0.02
+8556 DLAYON        AZ4OIN  X2821 0.03
+2822 LOGIC  .AND.  X2803  X2822
+                   X2821  X2822
+                   AZ3CIN X2822
+2823 LOGIC  .OR.   X2822  X2823
+                   DAllF  X2823
+9866 MONEST        X2823  DISCZ3 0.02
+8566 DLAYON        AZ3OIN  X2824 0.03
+2825 LOGIC  .AND.  X2803  X2825
+                   X2824  X2825
+                   AZ2CIN X2825
+2826 LOGIC  .OR.   X2825  X2826
+                   DAllF  X2826
+9881 MONEST        X2826  DISCZ2 0.02
+8576 DLAYON        AZ2OIN  X2827 0.03
+2828 LOGIC  .AND.  X2803  X2828
+                   X2827  X2828
+                   AZ1CIN X2828
+2829 LOGIC  .OR.   X2828  X2829
+                   DAllF  X2829
+9896 MONEST        X2829  DISCZ1 0.02
+
+( MANUAL CONTROLS
+8000 ENTRAD               AZ1MOP
+8001 ENTRAD               AZ1MCL
+8002 ENTRAD               AZ2MOP
+8003 ENTRAD               AZ2MCL
+8004 ENTRAD               AZ3MOP
+8005 ENTRAD               AZ3MCL
+8006 ENTRAD               AZ4MOP
+8007 ENTRAD               AZ4MCL
+8008 ENTRAD               AZ5MOP
+8009 ENTRAD               AZ5MCL
+8010 ENTRAD               AZ6MOP
+8011 ENTRAD               AZ6MCL
+8012 ENTRAD               AZ7MOP
+8013 ENTRAD               AZ7MCL
+8014 ENTRAD               AZ8MOP
+8015 ENTRAD               AZ8MCL
+8016 ENTRAD               AZ9MOP
+8017 ENTRAD               AZ9MCL
+8018 ENTRAD               AZ10MO
+8019 ENTRAD               AZ10MC
+8024 ENTRAD               AZ11MO
+8021 ENTRAD               AZ11MC
+8022 ENTRAD               AZ12MO
+8023 ENTRAD               AZ12MC
+DEFVAL        AZ1MOP 0.0
+DEFVAL        AZ1MCL 0.0
+DEFVAL        AZ2MOP 0.0
+DEFVAL        AZ2MCL 0.0
+DEFVAL        AZ3MOP 0.0
+DEFVAL        AZ3MCL 0.0
+DEFVAL        AZ4MOP 0.0
+DEFVAL        AZ4MCL 0.0
+DEFVAL        AZ5MOP 0.0
+DEFVAL        AZ5MCL 0.0
+DEFVAL        AZ6MOP 0.0
+DEFVAL        AZ6MCL 0.0
+DEFVAL        AZ7MOP 0.0
+DEFVAL        AZ7MCL 0.0
+DEFVAL        AZ8MOP 0.0
+DEFVAL        AZ8MCL 0.0
+DEFVAL        AZ9MOP 0.0
+DEFVAL        AZ9MCL 0.0
+DEFVAL        AZ10MO 0.0
+DEFVAL        AZ10MC 0.0
+DEFVAL        AZ11MO 0.0
+DEFVAL        AZ11MC 0.0
+DEFVAL        AZ12MO 0.0
+DEFVAL        AZ12MC 0.0
+8020 SOMA          AZ1CIN FC_SUM
+                   AZ2CIN FC_SUM
+                   AZ3CIN FC_SUM
+                   AZ4CIN FC_SUM
+                   AZ5CIN FC_SUM
+                   AZ6CIN FC_SUM
+                   AZ7CIN FC_SUM
+                   AZ8CIN FC_SUM
+                   AZ9CIN FC_SUM
+                   AZ10CI FC_SUM
+                   AZ11CI FC_SUM
+                   AZ12CI FC_SUM
+3000 SELET2        AZ1MOP X3000
+                   DISCZ1 X3000
+                   RPC_A  X3000
+3001 SELET2        AZ1MCL X3001
+                   CONDZ1 X3001
+                   RPC_A  X3001
+3002 LOGIC  FFLOP1 X3001  AZ1OIN
+                   X3000  AZ1OIN
+3003 LOGIC  .NOT.  AZ1OIN AZ1CIN
+(
+3005 SELET2        AZ2MOP X3005
+                   DISCZ2 X3005
+                   RPC_A  X3005
+3006 SELET2        AZ2MCL X3006
+                   CONDZ2 X3006
+                   RPC_A  X3006
+3007 LOGIC  FFLOP1 X3006  AZ2OIN
+                   X3005  AZ2OIN
+3008 LOGIC  .NOT.  AZ2OIN AZ2CIN
+(
+3010 SELET2        AZ3MOP X3010
+                   DISCZ3 X3010
+                   RPC_A  X3010
+3011 SELET2        AZ3MCL X3011
+                   CONDZ3 X3011
+                   RPC_A  X3011
+3012 LOGIC  FFLOP1 X3011  AZ3OIN
+                   X3010  AZ3OIN
+3013 LOGIC  .NOT.  AZ3OIN AZ3CIN
+(
+3015 SELET2        AZ4MOP X3015
+                   DISCZ4 X3015
+                   RPC_A  X3015
+3016 SELET2        AZ4MCL X3016
+                   CONDZ4 X3016
+                   RPC_A  X3016
+3017 LOGIC  FFLOP1 X3016  AZ4OIN
+                   X3015  AZ4OIN
+3018 LOGIC  .NOT.  AZ4OIN AZ4CIN
+(
+3020 SELET2        AZ5MOP X3020
+                   DISCZ5 X3020
+                   RPC_A  X3020
+3021 SELET2        AZ5MCL X3021
+                   CONDZ5 X3021
+                   RPC_A  X3021
+3022 LOGIC  FFLOP1 X3021  AZ5OIN
+                   X3020  AZ5OIN
+3023 LOGIC  .NOT.  AZ5OIN AZ5CIN
+(
+3025 SELET2        AZ6MOP X3025
+                   DISCZ6 X3025
+                   RPC_A  X3025
+3026 SELET2        AZ6MCL X3026
+                   CONDZ6 X3026
+                   RPC_A  X3026
+3027 LOGIC  FFLOP1 X3026  AZ6OIN
+                   X3025  AZ6OIN
+3028 LOGIC  .NOT.  AZ6OIN AZ6CIN
+(
+3030 SELET2        AZ7MOP X3030
+                   DISCZ7 X3030
+                   RPC_A  X3030
+3031 SELET2        AZ7MCL X3031
+                   CONDZ7 X3031
+                   RPC_A  X3031
+3032 LOGIC  FFLOP1 X3031  AZ7OIN
+                   X3030  AZ7OIN
+3033 LOGIC  .NOT.  AZ7OIN AZ7CIN
+(
+3035 SELET2        AZ8MOP X3035
+                   DISCZ8 X3035
+                   RPC_A  X3035
+3036 SELET2        AZ8MCL X3036
+                   CONDZ8 X3036
+                   RPC_A  X3036
+3037 LOGIC  FFLOP1 X3036  AZ8OIN
+                   X3035  AZ8OIN
+3038 LOGIC  .NOT.  AZ8OIN AZ8CIN
+(
+3040 SELET2        AZ9MOP X3040
+                   DISCZ9 X3040
+                   RPC_A  X3040
+3041 SELET2        AZ9MCL X3041
+                   CONDZ9 X3041
+                   RPC_A  X3041
+3042 LOGIC  FFLOP1 X3041  AZ9OIN
+                   X3040  AZ9OIN
+3043 LOGIC  .NOT.  AZ9OIN AZ9CIN
+(
+3045 SELET2        AZ10MO X3045
+                   DISZ10 X3045
+                   RPC_A  X3045
+3046 SELET2        AZ10MC X3046
+                   CONZ10 X3046
+                   RPC_A  X3046
+3047 LOGIC  FFLOP1 X3046  AZ10OI
+                   X3045  AZ10OI
+3048 LOGIC  .NOT.  AZ10OI AZ10CI
+(
+3050 SELET2        AZ11MO X3050
+                   DISZ11 X3050
+                   RPC_A  X3050
+3051 SELET2        AZ11MC X3051
+                   CONZ11 X3051
+                   RPC_A  X3051
+3052 LOGIC  FFLOP1 X3051  AZ11OI
+                   X3050  AZ11OI
+3053 LOGIC  .NOT.  AZ11OI AZ11CI
+(
+3055 SELET2        AZ12MO X3055
+                   DISZ12 X3055
+                   RPC_A  X3055
+3056 SELET2        AZ12MC X3056
+                   CONZ12 X3056
+                   RPC_A  X3056
+3057 LOGIC  FFLOP1 X3056  AZ12OI
+                   X3055  AZ12OI
+3058 LOGIC  .NOT.  AZ12OI AZ12CI
+
+(============ REACTOR CONTROL =========)
+4248 ENTRAD               REMODE
+DEFVAL        REMODE #REMOD
+4249 LOGIC  .NOT.  REMODE NREMOD
+(
+4250 ENTRAD               UACLOW
+4251 ENTRAD               UACHIG
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UACLOW #RULOW
+DEFVAL        UACHIG #RUHIG
+(
+4252 LOGIC  .OR.   P1DBLK ENERG
+                   P2DBLK ENERG
+4253 COMPAR .GE.   UACLOW X4253
+                   UAC100 X4253
+4254 COMPAR .GE.   UAC100 X4254
+                   UACHIG X4254
+4255 LOGIC  .AND.  ENERG  X4255
+                   X4253  X4255
+4256 DLAYON        X4255  DECRET #TDRUC                                          DEC_REACT_UAC_CONTROL
+4257 LOGIC  .AND.  ENERG  X4257
+                   X4254  X4257
+4258 DLAYON        X4257  INCRET #TCRUC                                          INC_REACT_UAC_CONTROL
+4259 DELAY         REATOT X4259
+4260 COMPAR .GT.   REATOT X4260
+                   X4259  X4260
+9260 MONEST        X4260  X4260a 0.02
+(4260 SUBIDA        REATOT X4260
+4261 DLAYOF        X4260a X4261  #ICRUC
+4262 LOGIC  .NOT.  X4261  X4262
+4263 LOGIC  .AND.  INCRET INCRAC                                                 INC_REACT_AC_ORD
+                   X4262  INCRAC
+4264 COMPAR .GT.   X4259  X4264
+                   REATOT X4264
+(4264 DESCID        REATOT X4264
+4265 DLAYOF        X4264  X4265  #IDRUC
+4266 LOGIC  .NOT.  X4265  X4266
+4267 LOGIC  .AND.  DECRET DECRAC                                                 DEC_REACT_AC_ORD
+                   X4266  DECRAC
+(
+(
+4268 ENTRAD               RETAUT
+DEFVAL        RETAUT #REAUT
+(
+4269 LOGIC  .AND.  INCRAC X4269
+                   RETAUT X4269
+4270 LOGIC  .AND.  X4269  X4270
+                   AR1OIN X4270
+4271 MONEST        X4270  CONDR1 0.02
+4272 DLAYON        AR1CIN X4272  0.03
+4273 LOGIC  .AND.  X4269  X4273
+                   AR2OIN X4273
+                   X4272  X4273
+4274 MONEST        X4273  CONDR2 0.02
+(
+4275 LOGIC  .AND.  DECRAC X4275
+                   RETAUT X4275
+4276 LOGIC  .AND.  X4275  X4276
+                   AR2CIN X4276
+4277 MONEST        X4276  DISCR2 0.02
+4278 DLAYON        AR2OIN X4278  0.03
+4279 LOGIC  .AND.  X4275  X4279
+                   AR1CIN X4279
+                   X4278  X4279
+4280 MONEST        X4279  DISCR1 0.02
+(
+4281 ENTRAD               AR1OPN
+4282 ENTRAD               AR1CLS
+4283 ENTRAD               AR2OPN
+4284 ENTRAD               AR2CLS
+DEFVAL        AR1OPN 0.0
+DEFVAL        AR1CLS 0.0
+DEFVAL        AR2OPN 0.0
+DEFVAL        AR2CLS 0.0
+(
+4285 SELET2        AR1OPN X4285
+                   DISCR1 X4285
+                   RETAUT X4285
+4286 SELET2        AR1CLS X4286
+                   CONDR1 X4286
+                   RETAUT X4286
+4287 LOGIC  FFLOP1 X4286  AR1OIN
+                   X4285  AR1OIN
+4288 LOGIC  .NOT.  AR1OIN AR1CIN
+4289 SELET2        AR2OPN X4289
+                   DISCR2 X4289
+                   RETAUT X4289
+4290 SELET2        AR2CLS X4290
+                   CONDR2 X4290
+                   RETAUT X4290
+4291 LOGIC  FFLOP1 X4290  AR2OIN
+                   X4289  AR2OIN
+4292 LOGIC  .NOT.  AR2OIN AR2CIN
+(
+4293 SOMA          AR1CIN REATOT                                                 REACT_TOT_SUM_CONN
+                   AR2CIN REATOT
+                   X4294  REATOT
+4294 MULTPL        RRCSUM X4294
+                   NREMOD X4294
+( REACTOR CONTROL - REACTIVE POWER CONTROL
+4400 COMPAR .LE.   FC_SUM X4400
+                   CINCO  X4400
+4401 DLAYON        X4400  INCRRC #TCRRC
+4402 COMPAR .GE.   FC_SUM X4402
+                   SEIS   X4402
+4403 DLAYON        X4402  DECRRC #TDRRC
+4404 DELAY         RRCSUM RRCSUA
+4405 COMPAR .GT.   RRCSUM X4405
+                   RRCSUA X4405
+4406 DLAYOF        X4405  X4406  #ICRRC
+4407 LOGIC  .NOT.  X4406  X4407
+4408 COMPAR .LT.   RRCSUM X4408
+                   RRCSUA X4408
+4409 DLAYOF        X4408  X4409  #IDRRC
+4410 LOGIC  .NOT.  X4409  X4410
+4411 LOGIC  .AND.  INCRRC IRCORD
+                   X4407  IRCORD
+                   REMODE IRCORD
+4412 LOGIC  .AND.  DECRRC DRCORD
+                   X4410  DRCORD
+                   REMODE DRCORD
+(
+9412 DLAYON        AR2CIN X9412  0.03
+9413 LOGIC  .AND.  INCRAC IRACUC
+                   X9412  IRACUC
+                   NREMOD IRACUC
+(
+4413 LOGIC  .AND.  IRCORD X4413
+                   RETAUT X4413
+9414 LOGIC  .OR.   X4413  X9414
+                   IRACUC X9414
+4414 LOGIC  .AND.  X9414  X4414
+                   AR3OIN X4414
+8414 SELET2        X4414  X8414
+                   ZERO   X8414
+                   INIT   X8414
+4415 MONEST        X8414  CONDR3 0.02
+4416 DLAYON        AR3CIN X4416  0.03
+4417 LOGIC  .AND.  X9414  X4417
+                   AR4OIN X4417
+                   X4416  X4417
+8417 SELET2        X4417  X8417
+                   ZERO   X8417
+                   INIT   X8417
+4418 MONEST        X8417  CONDR4 0.02
+(
+9418 DLAYON        AR2OIN X9418  0.03
+9419 LOGIC  .AND.  DECRAC DRACUC
+                   X9418  DRACUC
+                   NREMOD DRACUC
+(
+4419 LOGIC  .AND.  DRCORD X4419
+                   RETAUT X4419
+9420 LOGIC  .OR.   X4419  X9420
+                   DRACUC X9420
+4420 LOGIC  .AND.  X9420  X4420
+                   AR4CIN X4420
+8420 SELET2        X4420  X8420
+                   ZERO   X8420
+                   INIT   X8420
+4421 MONEST        X8420  DISCR4 0.02
+4422 DLAYON        AR4OIN X4422  0.03
+4423 LOGIC  .AND.  X9420  X4423
+                   AR3CIN X4423
+                   X4422  X4423
+8423 SELET2        X4423  X8423
+                   ZERO   X8423
+                   INIT   X8423
+4424 MONEST        X8423  DISCR3 0.02
+(
+4425 ENTRAD               AR3OPN
+4426 ENTRAD               AR3CLS
+4427 ENTRAD               AR4OPN
+4428 ENTRAD               AR4CLS
+DEFVAL        AR3OPN 0.0
+DEFVAL        AR3CLS 0.0
+DEFVAL        AR4OPN 0.0
+DEFVAL        AR4CLS 0.0
+(
+4429 SELET2        AR3OPN X4429
+                   DISCR3 X4429
+                   RETAUT X4429
+4430 SELET2        AR3CLS X4430
+                   CONDR3 X4430
+                   RETAUT X4430
+4431 LOGIC  FFLOP1 X4430  AR3OIN
+                   X4429  AR3OIN
+4432 LOGIC  .NOT.  AR3OIN AR3CIN
+4433 SELET2        AR4OPN X4433
+                   DISCR4 X4433
+                   RETAUT X4433
+4434 SELET2        AR4CLS X4434
+                   CONDR4 X4434
+                   RETAUT X4434
+4435 LOGIC  FFLOP1 X4434  AR4OIN
+                   X4433  AR4OIN
+4436 LOGIC  .NOT.  AR4OIN AR4CIN
+(
+4437 SOMA          AR3CIN RRCSUM                                                 REACT_TOT_SUM_CONN
+                   AR4CIN RRCSUM
+4442*IMPORT STBSH         AUXRE1 #R1
+4443*IMPORT STBSH         AUXRE2 #R2
+4444*IMPORT STBSH         AUXRE3 #R3
+4445*IMPORT STBSH         AUXRE4 #R4
+4446*SOMA          AUXRE1 AUXSU1
+                   AUXRE2 AUXSU1
+4447*SOMA          AUXRE3 AUXSU2
+                   AUXRE4 AUXSU2
+4448*SOMA          AUXSU1 AUXSU3
+                   AUXSU2 AUXSU3
+4449*SELET2        AUXSU3 RETOT
+                   AUXSU1 RETOT
+                   REMODE RETOT
+4456*SAIDA         RETOT
+DEFVAL VAR    REATOT RETOT
+DEFVAL VAR    RRCSUM AUXSU2
+
+4450*LOGIC  .NOT.  AUXRE1 AXRE1N
+4451*LOGIC  .NOT.  AUXRE2 AXRE2N
+4452*LOGIC  .NOT.  AUXRE3 AXRE3N
+4453*LOGIC  .NOT.  AUXRE4 AXRE4N
+4454*SOMA          AXRE1N NSUM
+                   AXRE2N NSUM
+                   AXRE3N NSUM
+                   AXRE4N NSUM
+4455*SAIDA         NSUM
+DEFVAL VAR    AR1OIN AXRE1N
+DEFVAL VAR    AR2OIN AXRE2N
+DEFVAL VAR    AR3OIN AXRE3N
+DEFVAL VAR    AR4OIN AXRE4N
+
+(
+( Min Filter - Bipolar Mode with reduced dc voltage
+6101 FUNCAO DEADB2 BIPOW  MFR1   -9999 0.0   #MFR1 1.0
+6102 FUNCAO DEADB2 BIPOW  MFR2   -9999 0.0   #MFR2 1.0
+6103 FUNCAO DEADB2 BIPOW  MFR3   -9999 0.0   #MFR3 1.0
+6104 FUNCAO DEADB2 BIPOW  MFR4   -9999 0.0   #MFR4 1.0
+6105 FUNCAO DEADB2 BIPOW  MFR5   -9999 0.0   #MFR5 1.0
+6106 SOMA          UM     MFR
+                   MFR1   MFR
+                   MFR2   MFR
+                   MFR3   MFR
+                   MFR4   MFR
+                   MFR5   MFR
+6110 SAIDA         MFR
+(
+( Min Filter - Bipolar Mode with normal dc voltage
+6201 FUNCAO DEADB2 BIPOW  MFN1   -9999 0.0   #MFN1 1.0
+6202 FUNCAO DEADB2 BIPOW  MFN2   -9999 0.0   #MFN2 1.0
+6203 FUNCAO DEADB2 BIPOW  MFN3   -9999 0.0   #MFN3 1.0
+6204 FUNCAO DEADB2 BIPOW  MFN4   -9999 0.0   #MFN4 1.0
+6205 FUNCAO DEADB2 BIPOW  MFN5   -9999 0.0   #MFN5 1.0
+6206 FUNCAO DEADB2 BIPOW  MFN6   -9999 0.0   #MFN6 1.0
+6208 SOMA          UM     MFN
+                   MFN1   MFN
+                   MFN2   MFN
+                   MFN3   MFN
+                   MFN4   MFN
+                   MFN5   MFN
+                   MFN6   MFN
+6210 SAIDA         MFN
+(
+( Min Filter - Monopolar Mode with reduced dc voltage
+
+6301 FUNCAO DEADB2 BIPOW  MFRM1   -9999 0.0  #MFRM1 1.0
+6302 FUNCAO DEADB2 BIPOW  MFRM2   -9999 0.0  #MFRM2 1.0
+6303 FUNCAO DEADB2 BIPOW  MFRM3   -9999 0.0  #MFRM3 1.0
+6304 SOMA          UM     MFRM
+                   MFRM1  MFRM
+                   MFRM2  MFRM
+                   MFRM3  MFRM
+6310 SAIDA         MFRM
+(
+( Min Filter - Monopolar Mode with normal dc voltage
+6401 FUNCAO DEADB2 BIPOW  MFM1   -9999 0.0   #MFM1 1.0
+6402 FUNCAO DEADB2 BIPOW  MFM2   -9999 0.0   #MFM2 1.0
+6403 FUNCAO DEADB2 BIPOW  MFM3   -9999 0.0   #MFM3 1.0
+6404 FUNCAO DEADB2 BIPOW  MFM4   -9999 0.0   #MFM4 1.0
+6406 SOMA          UM     MFM
+                   MFM1   MFM
+                   MFM2   MFM
+                   MFM3   MFM
+                   MFM4   MFM
+6410 SAIDA         MFM
+( Abs Min - Bipolar Mode with reduced dc voltage
+6501 FUNCAO DEADB2 BIPOW  AMR1   -9999 0.0   #AMR1 1.0
+6502 FUNCAO DEADB2 BIPOW  AMR2   -9999 0.0   #AMR2 1.0
+6503 FUNCAO DEADB2 BIPOW  AMR3   -9999 0.0   #AMR3 1.0
+6504 FUNCAO DEADB2 BIPOW  AMR4   -9999 0.0   #AMR4 1.0
+6506 SOMA          UM     AMR
+                   AMR1   AMR
+                   AMR2   AMR
+                   AMR3   AMR
+                   AMR4   AMR
+6510 SAIDA         AMR
+(
+( Abs Min - Bipolar Mode with normal dc voltage
+6601 FUNCAO DEADB2 BIPOW  AMN1   -9999 0.0   #AMN1 1.0
+6602 FUNCAO DEADB2 BIPOW  AMN2   -9999 0.0   #AMN2 1.0
+6603 FUNCAO DEADB2 BIPOW  AMN3   -9999 0.0   #AMN3 1.0
+6604 FUNCAO DEADB2 BIPOW  AMN4   -9999 0.0   #AMN4 1.0
+6605 FUNCAO DEADB2 BIPOW  AMN5   -9999 0.0   #AMN5 1.0
+6606 FUNCAO DEADB2 BIPOW  AMN6   -9999 0.0   #AMN6 1.0
+6607 FUNCAO DEADB2 BIPOW  AMN7   -9999 0.0   #AMN7 1.0
+6608 FUNCAO DEADB2 BIPOW  AMN8   -9999 0.0   #AMN8 1.0
+6609 SOMA          UM     AMN
+                   AMN1   AMN
+                   AMN2   AMN
+                   AMN3   AMN
+                   AMN4   AMN
+                   AMN5   AMN
+                   AMN6   AMN
+                   AMN7   AMN
+                   AMN8   AMN
+6610 SAIDA         AMN
+(
+( Abs Min - Monopolar Mode with reduced dc voltage
+
+6701 FUNCAO DEADB2 BIPOW  AMRM1   -9999 0.0  #AMRM1 1.0
+6702 FUNCAO DEADB2 BIPOW  AMRM2   -9999 0.0  #AMRM2 1.0
+6704 SOMA          UM     AMRM
+                   AMRM1  AMRM
+                   AMRM2  AMRM
+6710 SAIDA         AMRM
+(
+( Abs Min - Monopolar Mode with normal dc voltage
+6801 FUNCAO DEADB2 BIPOW  AMM1   -9999 0.0   #AMM1 1.0
+6802 FUNCAO DEADB2 BIPOW  AMM2   -9999 0.0   #AMM2 1.0
+6803 FUNCAO DEADB2 BIPOW  AMM3   -9999 0.0   #AMM3 1.0
+6804 FUNCAO DEADB2 BIPOW  AMM4   -9999 0.0   #AMM4 1.0
+6806 SOMA          UM     AMM
+                   AMM1   AMM
+                   AMM2   AMM
+                   AMM3   AMM
+                   AMM4   AMM
+6810 SAIDA         AMM
+(
+( Min Filter - Bipolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7101 FUNCAO DEADB2 BIPOW  MFR1R  -9999 0.0   #MFR1R 1.0
+7102 FUNCAO DEADB2 BIPOW  MFR2R  -9999 0.0   #MFR2R 1.0
+7103 FUNCAO DEADB2 BIPOW  MFR3R  -9999 0.0   #MFR3R 1.0
+7104 FUNCAO DEADB2 BIPOW  MFR4R  -9999 0.0   #MFR4R 1.0
+7105 FUNCAO DEADB2 BIPOW  MFR5R  -9999 0.0   #MFR5R 1.0
+7106 SOMA          UM     MFRR
+                   MFR1R  MFRR
+                   MFR2R  MFRR
+                   MFR3R  MFRR
+                   MFR4R  MFRR
+                   MFR5R  MFRR
+7110 SAIDA         MFRR
+(
+( Min Filter - Bipolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7201 FUNCAO DEADB2 BIPOW  MFN1R  -9999 0.0   #MFN1R 1.0
+7202 FUNCAO DEADB2 BIPOW  MFN2R  -9999 0.0   #MFN2R 1.0
+7203 FUNCAO DEADB2 BIPOW  MFN3R  -9999 0.0   #MFN3R 1.0
+7204 FUNCAO DEADB2 BIPOW  MFN4R  -9999 0.0   #MFN4R 1.0
+7205 FUNCAO DEADB2 BIPOW  MFN5R  -9999 0.0   #MFN5R 1.0
+7206 FUNCAO DEADB2 BIPOW  MFN6R  -9999 0.0   #MFN6R 1.0
+7208 SOMA          UM     MFNR
+                   MFN1R  MFNR
+                   MFN2R  MFNR
+                   MFN3R  MFNR
+                   MFN4R  MFNR
+                   MFN5R  MFNR
+                   MFN6R  MFNR
+7210 SAIDA         MFNR
+(
+( Min Filter - Monopolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7301 FUNCAO DEADB2 BIPOW  MFRM1R  -9999 0.0  #MRM1R 1.0
+7302 FUNCAO DEADB2 BIPOW  MFRM2R  -9999 0.0  #MRM2R 1.0
+7303 FUNCAO DEADB2 BIPOW  MFRM3R  -9999 0.0  #MRM3R 1.0
+7304 SOMA          UM     MFRMR
+                   MFRM1R MFRMR
+                   MFRM2R MFRMR
+                   MFRM3R MFRMR
+7310 SAIDA         MFRMR
+(
+( Min Filter - Monopolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7401 FUNCAO DEADB2 BIPOW  MFM1R   -9999 0.0  #MFM1R 1.0
+7402 FUNCAO DEADB2 BIPOW  MFM2R   -9999 0.0  #MFM2R 1.0
+7403 FUNCAO DEADB2 BIPOW  MFM3R   -9999 0.0  #MFM3R 1.0
+7404 FUNCAO DEADB2 BIPOW  MFM4R   -9999 0.0  #MFM4R 1.0
+7406 SOMA          UM     MFMR
+                   MFM1R  MFMR
+                   MFM2R  MFMR
+                   MFM3R  MFMR
+                   MFM4R  MFMR
+7410 SAIDA         MFMR
+( Abs Min - Bipolar Mode with reduced dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7501 FUNCAO DEADB2 BIPOW  AMR1R  -9999 0.0   #AMR1R 1.0
+7502 FUNCAO DEADB2 BIPOW  AMR2R  -9999 0.0   #AMR2R 1.0
+7503 FUNCAO DEADB2 BIPOW  AMR3R  -9999 0.0   #AMR3R 1.0
+7504 FUNCAO DEADB2 BIPOW  AMR4R  -9999 0.0   #AMR4R 1.0
+7505 FUNCAO DEADB2 BIPOW  AMR5R  -9999 0.0   #AMR5R 1.0
+7506 SOMA          UM     AMRR
+                   AMR1R  AMRR
+                   AMR2R  AMRR
+                   AMR3R  AMRR
+                   AMR4R  AMRR
+                   AMR5R  AMRR
+7510 SAIDA         AMRR
+(
+( Abs Min - Bipolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7601 FUNCAO DEADB2 BIPOW  AMN1R  -9999 0.0   #AMN1R 1.0
+7602 FUNCAO DEADB2 BIPOW  AMN2R  -9999 0.0   #AMN2R 1.0
+7603 FUNCAO DEADB2 BIPOW  AMN3R  -9999 0.0   #AMN3R 1.0
+7604 FUNCAO DEADB2 BIPOW  AMN4R  -9999 0.0   #AMN4R 1.0
+7605 FUNCAO DEADB2 BIPOW  AMN5R  -9999 0.0   #AMN5R 1.0
+7606 FUNCAO DEADB2 BIPOW  AMN6R  -9999 0.0   #AMN6R 1.0
+7608 SOMA          UM     AMNR
+                   AMN1R  AMNR
+                   AMN2R  AMNR
+                   AMN3R  AMNR
+                   AMN4R  AMNR
+                   AMN5R  AMNR
+                   AMN6R  AMNR
+7610 SAIDA         AMNR
+(
+( Abs Min - Monopolar Mode with reduced dc voltage
+
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7701 FUNCAO DEADB2 BIPOW  AMRM1R  -9999 0.0  #ARM1R 1.0
+7702 FUNCAO DEADB2 BIPOW  AMRM2R  -9999 0.0  #ARM2R 1.0
+7703 FUNCAO DEADB2 BIPOW  AMRM3R  -9999 0.0  #ARM3R 1.0
+7704 SOMA          UM     AMRMR
+                   AMRM1R AMRMR
+                   AMRM2R AMRMR
+                   AMRM3R AMRMR
+7710 SAIDA         AMRMR
+(
+( Abs Min - Monopolar Mode with normal dc voltage
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7801 FUNCAO DEADB2 BIPOW  AMM1R  -9999 0.0   #AMM1R 1.0
+7802 FUNCAO DEADB2 BIPOW  AMM2R  -9999 0.0   #AMM2R 1.0
+7803 FUNCAO DEADB2 BIPOW  AMM3R  -9999 0.0   #AMM3R 1.0
+7806 SOMA          UM     AMMR
+                   AMM1R  AMMR
+                   AMM2R  AMMR
+                   AMM3R  AMMR
+7810 SAIDA         AMMR
+(
+7900 SELET2        MFN    X7900
+                   MFR    X7900
+                   VRED   X7900
+7901 SELET2        MFM    X7901
+                   MFRM   X7901
+                   VRED   X7901
+7902 SELET2        X7900  X7902
+                   X7901  X7902
+                   MONO   X7902
+7903 SELET2        MFNR   X7903
+                   MFRR   X7903
+                   VRED   X7903
+7904 SELET2        MFMR   X7904
+                   MFRMR  X7904
+                   VRED   X7904
+7905 SELET2        X7903  X7905
+                   X7904  X7905
+                   MONO   X7905
+7906 SELET2        X7905  MINFIL
+                   X7902  MINFIL
+                   PDIR   MINFIL
+5433 COMPAR .GT.   MINFIL X5433
+                   FC_SUM X5433
+5434 LOGIC  .AND.  X5433  X5434
+                   EnIUMx X5434
+                   OVACT  X5434
+9434 DLAYON        X5434  IMNFL  0.01
+9435 DLAYOF        IMNFL  IMNFIL 0.05                                            INC_FILT_MIN_FILT
+(
+5435 SOMA          FC_SUM X5435
+                  -MINFIL X5435
+5436 COMPAR .GT.   X5435  DMNFI                                                 ENB_DEC_MINFILT
+                   UM     DMNFI
+9437 SELET2        UM     DMNFIL
+                   DMNFI  DMNFIL
+                   BPDBLK DMNFIL
+(
+7910 SELET2        AMN    X7910
+                   AMR    X7910
+                   VRED   X7910
+7911 SELET2        AMM    X7911
+                   AMRM   X7911
+                   VRED   X7911
+7912 SELET2        X7910  X7912
+                   X7911  X7912
+                   MONO   X7912
+7913 SELET2        AMNR   X7913
+                   AMRR   X7913
+                   VRED   X7913
+7914 SELET2        AMMR   X7914
+                   AMRMR  X7914
+                   VRED   X7914
+7915 SELET2        X7913  X7915
+                   X7914  X7915
+                   MONO   X7915
+7916 SELET2        X7915  ABSMIN
+                   X7912  ABSMIN
+                   PDIR   ABSMIN
+4238 COMPAR .GT.   ABSMIN X4238
+                   FC_SUM X4238
+9238 LOGIC  .AND.  X4238  X9238
+                   OVACT  X9238
+4239 DLAYON        X9238  IASMN  0.01
+9234 DLAYOF        IASMN  IABSMN 0.05                                            INC_FILT_ABS_MIN
+(
+4240 SOMA          FC_SUM X4240
+                  -ABSMIN X4240
+4241 COMPAR .GT.   X4240  DABSM                                                  ENB_DEC_ABSMIN
+                   UM     DABSM
+4242 SELET2        UM     DABSMN
+                   DABSM  DABSMN
+                   BPDBLK DABSMN
+(
+4300 COMPAR .GT.   FC_SUM EnDec
+                   DOIS   EnDec
+4301 SELET2        UM     EnDecM
+                   EnDec  EnDecM
+                   BPDBLK EnDecM
+(
+( Abs Min - Bipolar Mode with reduced dc voltage - Inverter
+3502 FUNCAO PONTOS FC_SUM XAMR   0.0   0.0   1.0   #AMR1
+                                 2.0   #AMR2 3.0   #AMR3
+                                 4.0   #AMR4
+( Abs Min - Bipolar Mode with normal dc voltage - Inverter
+3503 FUNCAO PONTOS FC_SUM XAMN   0.0   0.0   1.0   #AMN1
+                                 2.0   #AMN2 3.0   #AMN3
+                                 4.0   #AMN4 5.0   #AMN5
+                                 6.0   #AMN6 7.0   #AMN7
+                                 8.0   #AMN8
+( Abs Min - Monopolar Mode with reduced dc voltage - Inverter
+3504 FUNCAO PONTOS FC_SUM XAMRM  0.0   0.0   1.0   #AMRM1
+                                 2.0   #AMRM2
+( Abs Min - Monopolar Mode with normal dc voltage - Rectifier
+3505 FUNCAO PONTOS FC_SUM XAMM   0.0   0.0   1.0   #AMM1
+                                 2.0   #AMM2 3.0   #AMM3
+                                 4.0   #AMM4
+( Abs Min - Bipolar Mode with reduced dc voltage - Rectifier
+3506 FUNCAO PONTOS FC_SUM XAMRR  0.0   0.0   1.0   #AMR1R
+                                 2.0   #AMR2R3.0   #AMR3R
+                                 4.0   #AMR4R5.0   #AMR5R
+( Abs Min - Bipolar Mode with normal dc voltage - Rectifier
+3507 FUNCAO PONTOS FC_SUM XAMNR  0.0   0.0   1.0   #AMN1R
+                                 2.0   #AMN2R3.0   #AMN3R
+                                 4.0   #AMN4R5.0   #AMN5R
+                                 6.0   #AMN6R
+( Abs Min - Monopolar Mode with reduced dc voltage - Rectifier
+3508 FUNCAO PONTOS FC_SUM XARMRR 0.0   0.0   1.0   #ARM1R
+                                 2.0   #ARM2R3.0   #ARM3R
+( Abs Min - Monopolar Mode with normal dc voltage - Rectifier
+3509 FUNCAO PONTOS FC_SUM XAMMR  0.0   0.0   1.0   #AMM1R
+                                 2.0   #AMM2R3.0   #AMM3R
+(
+3510 SELET2        XAMN   X3510
+                   XAMR   X3510
+                   VRED   X3510
+3511 SELET2        XAMM   X3511
+                   XAMRM  X3511
+                   VRED   X3511
+3512 SELET2        X3510  X3512
+                   X3511  X3512
+                   MONO   X3512
+(
+3513 SELET2        XAMNR  X3513
+                   XAMRR  X3513
+                   VRED   X3513
+3514 SELET2        XAMMR  X3514
+                   XARMRR X3514
+                   VRED   X3514
+3515 SELET2        X3513  X3515
+                   X3514  X3515
+                   MONO   X3515
+(
+3516 SELET2        X3515  MAXPOW
+                   X3512  MAXPOW
+                   PDIR   MAXPOW
+3517 SAIDA         MAXPOW
+
+3528 LOGIC  FFLOP1 ZERO   X3528
+                   X3521  X3528
+3529 MONEST        X3528  X3529  0.05
+3530 S/HOLD        BIPOW  PINIT
+                   X3529  PINIT
+DEFVAL VAR    PINIT  BIPOW
+DEFVAL VAR    X3528  X3521
+
+3520 COMPAR .LT.   FC_SUM X3520
+                   ABSMIN X3520
+3521 DLAYON        X3520  X3521  #DRBAM
+3522 MONEST        X3521  X3522  0.05
+3523 SOMA          PINIT  X3523
+                  -MAXPOW X3523
+3524 S/HOLD        X3523  RNBAK1
+                   X3522  RNBAK1
+3525 DELAY         RNBACK RNBAK2
+3526 MAX           RNBAK1 RNBACK
+                   RNBAK2 RNBACK
+3527 EXPORT CDU    RNBACK
+DEFVAL        RNBAK1 0.0
+DEFVAL        RNBAK2 0.0
+
+(=======================================
+9100 LOGIC  .OR.   OV_1   OVA
+                   OV_2   OVA
+                   OV_3   OVA
+9101 LOGIC  .NOT.  OVA    OVACT
+
+9164 ENTRAD               TMPAR1
+9165 ENTRAD               TMPAR2
+9166 ENTRAD               TMPAR3
+9167 ENTRAD               TMPAR4
+9168 SELET2        AR1CIN AR1CI
+                   TMPAR1 AR1CI
+                   INIT   AR1CI
+9169 SELET2        AR2CIN AR2CI
+                   TMPAR2 AR2CI
+                   INIT   AR2CI
+9170 SELET2        AR3CIN AR3CI
+                   TMPAR3 AR3CI
+                   INIT   AR3CI
+9171 SELET2        AR4CIN AR4CI
+                   TMPAR4 AR4CI
+                   INIT   AR4CI
+
+9993 ENTRAD               UM
+DEFVAL        UM     1.0
+9994 ENTRAD               ZERO
+DEFVAL        ZERO   0.0
+9995 ENTRAD               DOIS
+DEFVAL        DOIS   2.0
+9996 ENTRAD               TRES
+DEFVAL        TRES   3.0
+9997 ENTRAD               QUATRO
+DEFVAL        QUATRO 4.0
+9998 ENTRAD               CINCO
+DEFVAL        CINCO  5.0
+9999 ENTRAD               SEIS
+DEFVAL        SEIS   6.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5000 ALERTA        INC_QC         8420  8420
+5001 ALERTA        DEC_QC         8421  8421
+5002 ALERTA        INC_UC         8422  8422
+5003 ALERTA        DEC_UC         8423  8423
+5004 ALERTA        DECUMx         8424  8424
+5005 ALERTA        INCUMn         8425  8425
+5006 ALERTA        DECQMx         8426  8426
+5007 ALERTA        DECFOV         8427  8427
+5008 ALERTA        IABSMN         8428  8428
+5009 ALERTA        IMNFIL         8429  8429
+FIMCDU
+999999

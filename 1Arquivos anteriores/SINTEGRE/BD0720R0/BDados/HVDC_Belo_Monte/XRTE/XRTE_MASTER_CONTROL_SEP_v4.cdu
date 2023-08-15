@@ -1,0 +1,2372 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_MASTER_CONTROL_SEP_V4.cdu                                                            |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 96000 - MASTER CONTROL E SISTEMA ESPECIAL DE PROTEÇÃO (SEP) DE BELO MONTE
+(
+( LÓGICAS REPRESENTADAS NO MODELO:
+(
+( * LÓGICA 1 - PERDA SIMPLES LT 500 KV XINGU-TUCURUI
+( * LÓGICA 2 - PERDA DUPLA LT 500 KV XINGU-TUCURUI
+( * LÓGICA 3 - PERDA DE BIPOLO
+( * LÓGICA 4 - CONTINGÊNCIAS NA INTERLIGAÇÃO N/SE
+( * LÓGICA 5 - PERDA DE GERAÇÃO NA UHE BELO MONTE
+( * TRANSFERÊNCIA DE POTÊNCIA ENTRE BIPOLOS PARA PERDA DE POLO
+(
+(----------------------------------------------------------------------
+( SINAIS DE INTERESSE:
+(
+( BLOCO 4000 - VARIÁVEL "L4RUP1" - ENTRAD PARA ATIVAR MANUALMENTE O "SINAL 1" DA LÓGICA 4 - O SINAL DEVE SER ATIVADO NO INSTANTE DA CONTINGÊNCIA
+( BLOCO 4010 - VARIÁVEL "L4RUP2" - ENTRAD PARA ATIVAR MANUALMENTE O "SINAL 2" DA LÓGICA 4 - O SINAL DEVE SER ATIVADO NO INSTANTE DA CONTINGÊNCIA
+( BLOCO 4020 - VARIÁVEL "L4RUP3" - ENTRAD PARA ATIVAR MANUALMENTE O "SINAL 3" DA LÓGICA 4 - O SINAL DEVE SER ATIVADO NO INSTANTE DA CONTINGÊNCIA
+(
+(----------------------------------------------------------------------
+(ncdu) ( nome cdu )
+ 96000 XRTE-SEP
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ON                     1         # SEP: LIGADO=1 / DESLIGADO=0
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #L1_ON                  1         # LÓGICA 1: LIGADA=1 / DESLIGADA=0
+DEFPAR #L2_ON                  1         # LÓGICA 2: LIGADA=1 / DESLIGADA=0
+DEFPAR #L3_ON                  1         # LÓGICA 3: LIGADA=1 / DESLIGADA=0
+DEFPAR #L4_ON                  1         # LÓGICA 4: LIGADA=1 / DESLIGADA=0
+DEFPAR #L5_ON                  1         # LÓGICA 5: LIGADA=1 / DESLIGADA=0
+(
+DEFPAR #TDROP               0.15         # TEMPO DE ATUAÇÃO DO SEP - CORTE DE UG (BM OU TUC), EM SEGUNDOS
+DEFPAR #TDPO                0.07         # TEMPO DE ATUAÇÃO DO SEP - RUNUP/RUNBACK/BLOCK, EM SEGUNDOS
+DEFPAR #TTRF                0.25         # TEMPO DE ATUAÇÃO DO SEP - ABERTURA DO TRAFO XINGU 500/230 KV PELA LÓGICA 2, EM SEGUNDOS
+DEFPAR #TL4                 0.40         # TEMPO ENTRE A CONTINGÊNCIA NA INTERLIGAÇÃO N/SE OU ATUAÇÃO DA PPS DA GURUPI-S.MESA C1 E A CHEGADA DO SINAL EM TUCURUI E XINGU
+DEFPAR #TL4TU               0.05         # TEMPO ENTRE A CHEGADA DO SINAL EM TUCURUI E O CORTE DE MÁQUINA
+(                                         => RUNUP PELA LOGICA 4 SERÁ EXECUTADO EM TL4+TDPO SEGUNDOS
+(                                         => CORTE DE UG EM B.MONTE PELA LOGICA 4 SERÁ EXECUTADO EM TL4+TDROP SEGUNDOS
+(                                         => CORTE DE UG EM TUCURUI PELA LOGICA 4 SERÁ EXECUTADO EM TL4+TL4TU SEGUNDOS
+(
+DEFPAR #TELC1                  1         # TELECOUNICAÇÃO ENTRE ESTAÇÕES - BIPOLO 1: DISPONÍVEL=1 / INDISPONÍVEL=0
+DEFPAR #TELC2                  1         # TELECOUNICAÇÃO ENTRE ESTAÇÕES - BIPOLO 2: DISPONÍVEL=1 / INDISPONÍVEL=0
+DEFPAR #TTLC                0.03         # TEMPO DE TELECOMUNICAÇÃO ENTRE ESTAÇÕES - BIPOLO 1 e 2, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TXDPO             14000.         # TAXA DE RUNUP/RUNBACK, EM MW/S
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #MX1XE               1.50         # SHORT-TIME MAX POWER CAPABILITY (X->E) - BIPOLO 1, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #CP1XE               1.33         # LONG-TERM MAX POWER CAPABILITY (X->E) - BIPOLO 1, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #MX1EX            1.22625         # SHORT-TIME MAX POWER CAPABILITY (E->X) - BIPOLO 1, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #CP1EX           1.087275         # LONG-TERM MAX POWER CAPABILITY (E->X) - BIPOLO 1, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #MX2XR               1.50         # SHORT-TIME MAX POWER CAPABILITY (X->E) - BIPOLO 2, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #CP2XR               1.33         # LONG-TERM MAX POWER CAPABILITY (X->E) - BIPOLO 2, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #MX2RX            1.22625         # SHORT-TIME MAX POWER CAPABILITY (E->X) - BIPOLO 2, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #CP2RX           1.087275         # LONG-TERM MAX POWER CAPABILITY (E->X) - BIPOLO 2, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+DEFPAR #MNPWR                0.1         # MIN POWER - BIPOLO 1 e 2, EM PU (BASE: BIPOLAR=4000 MW, MONOPOLAR=2000 MW)
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #ACMX1              9999.         # LIMITAÇÃO DO SISTEMA AC TERMINAL - BIPOLO 1, EM MW
+DEFPAR #ACMX2              9999.         # LIMITAÇÃO DO SISTEMA AC TERMINAL - BIPOLO 2, EM MW
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #CAPXT              2600.         # CAPACIDADE LT XINGU-TUCURUI, EM MW
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #FNSL1              1500.         # NÍVEL 1 DE FNS PARA LÓGICA 3
+DEFPAR #FNSL2              3000.         # NÍVEL 2 DE FNS PARA LÓGICA 3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #RUNP1              1000.         # LÓGICA 4 - RUNUP EXTERNO 1, EM MW (NORTE EXPORTADOR)
+DEFPAR #RUNP2              1000.         # LÓGICA 4 - RUNUP EXTERNO 2, EM MW (SUDESTE EXPORTADOR)
+DEFPAR #RUNP3              2100.         # LÓGICA 4 - RUNUP EXTERNO 3, EM MW (SUDESTE EXPORTADOR)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #BM_10               8410         # BELO MONTE GRUPO 10 - 9 x 611.1 MW
+DEFPAR #BM_20               8420         # BELO MONTE GRUPO 20 - 5 x 611.1 MW
+DEFPAR #BM_30               8430         # BELO MONTE GRUPO 30 - 4 x 611.1 MW
+DEFPAR #TUC_1               6419         # TUCURUI 1 - 5 x 350 MW
+DEFPAR #TUC_2               6420         # TUCURUI 2 - 3 x 350 MW
+DEFPAR #TUC_3               6422         # TUCURUI 3 - 4 x 350 MW
+DEFPAR #BMTRF               9557         # TRAFO ELEVADOR BELO MONTE
+DEFPAR #TUTR1               9558         # TRAFO ELEVADOR TUCURUI 1
+DEFPAR #TUTR2               9559         # TRAFO ELEVADOR TUCURUI 2
+DEFPAR #TUTR3               9956         # TRAFO ELEVADOR TUCURUI 3
+DEFPAR #LTXT1               9951         # LT XINGU-TUCURUI C1
+DEFPAR #LTXT2               9952         # LT XINGU-TUCURUI C2
+DEFPAR #CNVX1               9981         # CONVERSOR BP1 XINGU POLO 1
+DEFPAR #CNVE1               9982         # CONVERSOR BP1 ESTREITO POLO 1
+DEFPAR #CNVX2               9983         # CONVERSOR BP1 XINGU POLO 2
+DEFPAR #CNVE2               9984         # CONVERSOR BP1 ESTREITO POLO 2
+DEFPAR #CNVX3               1981         # CONVERSOR BP2 XINGU POLO 1
+DEFPAR #CNVR3               1982         # CONVERSOR BP2 T.RIO POLO 1
+DEFPAR #CNVX4               1983         # CONVERSOR BP2 XINGU POLO 2
+DEFPAR #CNVR4               1984         # CONVERSOR BP2 T.RIO POLO 2
+DEFPAR #NS1                 9953         # LT S.MESA 2 - PEIXE 2
+DEFPAR #NS2                 9954         # LT S.MESA - GURUPI C1
+DEFPAR #NS3                 9955         # LT S.MESA - GURUPI C2
+DEFPAR #TU765                 65         # CORTE DE MÁQUINA EM TUCURUI PELO SEP 765 KV
+DEFPAR #XITRF                200         # TRAFO XINGU 500/230 KV
+DEFPAR #MICO1               8953         # LT Miracema - Colinas C1
+DEFPAR #MICO2               8954         # LT Miracema - Colinas C2
+DEFPAR #MICO3               8955         # LT Miracema - Colinas C3
+DEFPAR #COIM1               8956         # LT Colinas - Imperatriz C1
+DEFPAR #COIM2               8957         # LT Colinas - Imperatriz C2
+DEFPAR #IMMA1               8958         # LT Imperatriz - Maraba C1
+DEFPAR #IMMA2               8959         # LT Imperatriz - Maraba C2
+DEFPAR #GUMI1               8960         # LT Gurupi - Miracema C1
+DEFPAR #GUMI2               8961         # LT Gurupi - Miracema C2
+DEFPAR #GUMI3               8962         # LT Gurupi - Miracema C3
+DEFPAR #GUSM1               8963         # LT Gurupi - S.Mesa C1
+DEFPAR #GUSM2               8964         # LT Gurupi - S.Mesa C2
+DEFPAR #GUPX1               8965         # LT Gurupi - S.Mesa/Peixe C1
+DEFPAR #GUPX2               8966         # LT Gurupi - S.Mesa/Peixe C2
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        QUATRO 4.0
+DEFVAL        INF    99999.
+DEFVAL        MINF   -99999
+DEFVAL        ZPZ1   0.01
+(
+(----------------------------------------------------------------------
+(
+( EXPORTS
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 EXPORT STGER  NGBMA         #BM_10
+   2 EXPORT STGER  NGBMB         #BM_20
+   3 EXPORT STGER  NGBMC         #BM_30
+   4 EXPORT STGER  NGTUA         #TUC_1
+   5 EXPORT STGER  NGTUB         #TUC_2
+  45 EXPORT STGER  NGTUC         #TUC_3
+   6 EXPORT CDU    DPOBP1
+8010 EXPORT CDU    DPOBP2
+8011 EXPORT CDU    DPOBP2
+8012 EXPORT CDU    DPOBP2
+8013 EXPORT CDU    DPOBP2
+7001 EXPORT CDU    BK1SEP
+7002 EXPORT CDU    BK1SEP
+7003 EXPORT CDU    BK1SEP
+7004 EXPORT CDU    BK1SEP
+(8030 EXPORT CDU    OP-2XT
+8014 EXPORT CDU    BK2SEP
+8015 EXPORT CDU    BK2SEP
+8016 EXPORT CDU    BK2SEP
+8017 EXPORT CDU    BK2SEP
+8020 EXPORT CDU    OP-2XT
+7005 EXPORT RTRF   RTBM          #BMTRF
+7006 EXPORT XTRF   XTBM          #BMTRF
+7007 EXPORT RTRF   RTTUA         #TUTR1
+7008 EXPORT XTRF   XTTUA         #TUTR1
+7009 EXPORT RTRF   RTTUB         #TUTR2
+7010 EXPORT XTRF   XTTUB         #TUTR2
+7011 EXPORT RTRF   RTTUC         #TUTR3
+7012 EXPORT XTRF   XTTUC         #TUTR3
+7700 EXPORT STLIND XITRF         #XITRF
+7710 EXPORT STLINP XITRF         #XITRF
+(
+( IMPORTS
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 IMPORT STCIRC        ST-XT1 #LTXT1    0.
+  11 IMPORT STCIRC        ST-XT2 #LTXT2    0.
+  12 IMPORT FLXA          PXT1pu #LTXT1    0.
+  13 IMPORT FLXA          PXT2pu #LTXT2    0.
+  14 IMPORT ESTCNV        ST-P1  #CNVX1    0.
+  15 IMPORT ESTCNV        ST-P2  #CNVX2    0.
+  43 IMPORT ESTCNV        ST-P3  #CNVX3    0.
+  44 IMPORT ESTCNV        ST-P4  #CNVX4    0.
+  16 IMPORT OPCNV         OP-X1  #CNVX1    0.
+  17 IMPORT OPCNV         OP-X2  #CNVX2    0.
+  46 IMPORT OPCNV         OP-X3  #CNVX3    0.
+  47 IMPORT OPCNV         OP-X4  #CNVX4    0.
+  18 IMPORT PCCCNV        PDC-X1 #CNVX1    0.
+  19 IMPORT PCCCNV        PDC-X2 #CNVX2    0.
+  48 IMPORT PCCCNV        PDC-X3 #CNVX3    0.
+  49 IMPORT PCCCNV        PDC-X4 #CNVX4    0.
+  20 IMPORT PCCCNV        PDC-E1 #CNVE1    0.
+  21 IMPORT PCCCNV        PDC-E2 #CNVE2    0.
+  50 IMPORT PCCCNV        PDC-R3 #CNVR3    0.
+  51 IMPORT PCCCNV        PDC-R4 #CNVR4    0.
+  22 IMPORT PTERM         PGBM_A #BM_10    0.
+  23 IMPORT PTERM         PGBM_B #BM_20    0.
+  24 IMPORT PTERM         PGBM_C #BM_30    0.
+  25 IMPORT PBGER         PBBM_A #BM_10    0.
+  26 IMPORT PBGER         PBBM_B #BM_20    0.
+  27 IMPORT PBGER         PBBM_C #BM_30    0.
+  28 IMPORT FLXA          PFNSC1 #NS1    -14.
+  29 IMPORT FLXA          PFNSC2 #NS2    -14.
+  30 IMPORT FLXA          PFNSC3 #NS3    -14.
+7715 IMPORT STCIRC        STXTRF #XITRF    0.
+(
+( ENTRADS
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  31 ENTRAD               ZERO
+  32 ENTRAD               HUM
+  33 ENTRAD               DOIS
+  34 ENTRAD               QUATRO
+  35 ENTRAD               INF
+  36 ENTRAD               MINF
+(
+( CAPACIDADE LT XINGU-TUCURUI
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  41 ENTRAD               CAPXT
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        CAPXT  #CAPXT
+(
+( TELECOMUNICAÇÃO ON/OFF
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7200 ENTRAD               TELC1
+7202 ENTRAD               TELC2
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        TELC1  #TELC1
+DEFVAL        TELC2  #TELC2
+(
+(=======================================================================
+(                    UHE BELO MONTE
+(=======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 180 IMPORT NUGER         NGBMAi #BM_10   0.0
+ 182 IMPORT NUGER         NGBMBi #BM_20   0.0
+ 184 IMPORT NUGER         NGBMCi #BM_30   0.0
+ 200 SOMA          NGBMAi NGBM
+                   NGBMBi NGBM
+                   NGBMCi NGBM
+(
+(=======================================================================
+(                    UHE TUCURUI
+(=======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 160 IMPORT NUGER         NGTUAi #TUC_1   0.0
+ 165 IMPORT NUGER         NGTUBi #TUC_2   0.0
+ 167 IMPORT NUGER         NGTUCi #TUC_3   0.0
+ 168 SOMA          NGTUAi NGTU
+                   NGTUBi NGTU
+                   NGTUCi NGTU
+ 169 SAIDA         NGTU
+(
+(=======================================================================
+(       MAXIMUM/MINIMUM POWER CAPABILITY / AC SYSTEM LIMITATION
+(=======================================================================
+(
+( MONOPOLE/BIPOLE - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 560 LOGIC  .XOR.  ST-P1  MONOP1
+                   ST-P2  MONOP1
+(
+( MONOPOLE/BIPOLE - BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 558 LOGIC  .XOR.  ST-P3  MONOP2
+                   ST-P4  MONOP2
+(
+( NOMINAL DC POWER - BIPOLAR/MONOPOLAR - BIPOLE 1 e 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 583 ENTRAD               P_BIP
+ 580 GANHO         P_BIP  P_MONO 0.5
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        P_BIP  4000.
+(
+( NOMINAL DC POWER - BIPOLAR/MONOPOLAR - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 582 SELET2        P_BIP  X582
+                   P_MONO X582
+                   MONOP1 X582
+ 584 SOMA          ST-P1  ST-BP1
+                   ST-P2  ST-BP1
+ 585 SELET2        ZERO   PNOM1
+                   X582   PNOM1
+                   ST-BP1 PNOM1
+(
+( NOMINAL DC POWER - BIPOLAR/MONOPOLAR - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 576 SELET2        P_BIP  X576
+                   P_MONO X576
+                   MONOP2 X576
+ 577 SOMA          ST-P3  ST-BP2
+                   ST-P4  ST-BP2
+ 578 SELET2        ZERO   PNOM2
+                   X576   PNOM2
+                   ST-BP2 PNOM2
+(
+( MAX POWER CAPABILITY - BIPOLE 1 (BIPOLAR, MONOPOLAR OU BLOQUEADO) (X->E e E->X)
+(
+( SHORT-TIME (5s)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 586 GANHO         PNOM1  MXP1XE #MX1XE
+ 587 GANHO         PNOM1  MXP1EX #MX1EX
+ 588 SELET2        MXP1EX MXP1MW
+                   MXP1XE MXP1MW
+                   DIR-XE MXP1MW
+(
+( LONG-TERM (30min)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 510 GANHO         PNOM1  CAP1XE #CP1XE
+ 511 GANHO         PNOM1  CAP1EX #CP1EX
+ 512 SELET2        CAP1EX CAP1MW
+                   CAP1XE CAP1MW
+                   DIR-XE CAP1MW
+(
+( MAX POWER CAPABILITY - BIPOLE 2 (BIPOLAR, MONOPOLAR OU BLOQUEADO) (X->TR e TR->X)
+(
+( SHORT-TIME (5s)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 579 GANHO         PNOM2  MXP2XR #MX2XR
+ 581 GANHO         PNOM2  MXP2RX #MX2RX
+ 589 SELET2        MXP2RX MXP2MW
+                   MXP2XR MXP2MW
+                   DIR-XR MXP2MW
+(
+( LONG-TERM (30min)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 513 GANHO         PNOM2  CAP2XR #CP2XR
+ 514 GANHO         PNOM2  CAP2RX #CP2RX
+ 515 SELET2        CAP2RX CAP2MW
+                   CAP2XR CAP2MW
+                   DIR-XE CAP2MW
+(
+( MIN POWER - BIPOLE 1 e 2 (BIPOLAR, MONOPOLAR OU BLOQUEADO)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 590 GANHO         PNOM1  MNP1MW #MNPWR
+ 591 GANHO         PNOM2  MNP2MW #MNPWR
+ 594 SOMA          MNP1MW PMIN
+                   MNP2MW PMIN
+(
+( LIMITAÇÃO DO SISTEMA AC TERMINAL - BIPOLO 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 592 ENTRAD               ACMX1
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        ACMX1  #ACMX1
+(
+( LIMITAÇÃO DO SISTEMA AC TERMINAL - BIPOLO 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 593 ENTRAD               ACMX2
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        ACMX2  #ACMX2
+(
+(=======================================================================
+(                         MEASUREMENTS
+(=======================================================================
+(
+( NUMERO DE GERADORES E GERAÇÃO MÉDIA POR UG EM BELO MONTE (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 205 ENTRAD               NGBMpr
+ 268 ENTRAD               PTBMpr
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 250 MULTPL        PGBM_A PTBM_A
+                   PBBM_A PTBM_A
+                   NGBMAi PTBM_A
+ 255 MULTPL        PGBM_B PTBM_B
+                   PBBM_B PTBM_B
+                   NGBMBi PTBM_B
+ 260 MULTPL        PGBM_C PTBM_C
+                   PBBM_C PTBM_C
+                   NGBMCi PTBM_C
+ 265 SOMA          PTBM_A PTBM
+                   PTBM_B PTBM
+                   PTBM_C PTBM
+ 266 SAIDA         PTBM
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 269 LIMITA        NGBMpr NGBMpl                           HUM   INF
+ 270 DIVSAO        PTBMpr PMEDUG
+                   NGBMpl PMEDUG
+ 271 LIMITA        PMEDUG PMEDUL                           HUM   INF
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    NGBMpr NGBM
+DEFVAL VAR    PTBMpr PTBM
+
+(
+( POWER FLOW XINGU-TUCURUI (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 535 ENTRAD               PXTpre
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 520 SOMA          PXT1pu PXTpu
+                   PXT2pu PXTpu
+ 525 GANHO         PXTpu  PXT    100.
+ 526 SAIDA         PXT
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    PXTpre PXT
+(
+( POWER FLOW DIRECTION XINGU-TUCURUI (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 550 FUNCAO SINAL  PXTpre DIR-XT
+ 557 LOGIC  .NOT.  DIR-XT DIR-TX
+(
+( POWER FLOW DIRECTION - BIPOLE 1 (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 570 LOGIC  .OR.   OP-X1  DIR-XE
+                   OP-X2  DIR-XE
+ 575 LOGIC  .NOT.  DIR-XE DIR-EX
+(
+( POWER FLOW DIRECTION - BIPOLE 2 (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 572 LOGIC  .OR.   OP-X3  DIR-XR
+                   OP-X4  DIR-XR
+ 573 LOGIC  .NOT.  DIR-XR DIR-RX
+(
+( POWER FLOW DIRECTION - BIPOLE 1 or BIPOLE 2 (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 654 LOGIC  .OR.   DIR-XE DIR-NS
+                   DIR-XR DIR-NS
+ 655 LOGIC  .OR.   DIR-EX DIR-SN
+                   DIR-RX DIR-SN
+(
+( POWER FLOW BIPOLE - BIPOLE 1 (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 620 ENTRAD               PDCpr1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 SELET2        PDC-E1 PDC-P1
+                   PDC-X1 PDC-P1
+                   OP-X1  PDC-P1
+ 605 SELET2        PDC-E2 PDC-P2
+                   PDC-X2 PDC-P2
+                   OP-X2  PDC-P2
+ 610 SOMA          PDC-P1 PDC1pu
+                   PDC-P2 PDC1pu
+ 615 MULTPL        PDC1pu PDCBP1
+                   P_MONO PDCBP1
+ 616 SAIDA         PDCBP1
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    PDCpr1 PDCBP1
+(
+( POWER FLOW BIPOLE - BIPOLE 2 (PRE-FAULT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 621 ENTRAD               PDCpr2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 622 SELET2        PDC-R3 PDC-P3
+                   PDC-X3 PDC-P3
+                   OP-X3  PDC-P3
+ 623 SELET2        PDC-R4 PDC-P4
+                   PDC-X4 PDC-P4
+                   OP-X4  PDC-P4
+ 624 SOMA          PDC-P3 PDC2pu
+                   PDC-P4 PDC2pu
+ 625 MULTPL        PDC2pu PDCBP2
+                   P_MONO PDCBP2
+ 626 SAIDA         PDCBP2
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    PDCpr2 PDCBP2
+(
+( FLUXO NORTE-SUL (FNS)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 665 ENTRAD               FNS
+(
+ 650 SOMA         -PFNSC1 PFNSpu
+                  -PFNSC2 PFNSpu
+                  -PFNSC3 PFNSpu
+ 652 GANHO         PFNSpu PFNS   100.
+ 653 SAIDA         PFNS
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FNS    PFNS
+(
+(=======================================================================
+(          DETECÇÃO DE CONTINGÊNCIAS (TRIGGER DO SEP)
+(=======================================================================
+(
+( OPEN LTXT C1 E C2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 500 LOGIC  .NOT.  ST-XT1 OP-XT1
+ 505 LOGIC  .NOT.  ST-XT2 OP-XT2
+(
+( DETECTA CONTINGÊNCIA SIMPLES XINGU-TUCURUI
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 680 LOGIC  .XOR.  OP-XT1 OP-XT
+                   OP-XT2 OP-XT
+ 685 DELAY         OP-XT  OP-XTD
+ 686 SOMA          OP-XT  CTG1XT
+                  -OP-XTD CTG1XT
+(
+( DETECTA CONTINGÊNCIA DUPLA XINGU-TUCURUI
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 690 LOGIC  .AND.  OP-XT1 OP-2XT
+                   OP-XT2 OP-2XT
+ 692 ATRASO        OP-2XT OP-XTA 10.
+ 695 DELAY         OP-2XT OP2XTD
+ 696 SOMA          OP-2XT CTG2XT
+                  -OP2XTD CTG2XT
+(
+( DETECTA BLOQUEIO DO BIPOLO OU DO ÚLTIMO POLO - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 720 LOGIC  .NOT.  ST-P1  BLK-P1
+ 721 SUBIDA        BLK-P1 TRIPP1
+(
+ 722 LOGIC  .NOT.  ST-P2  BLK-P2
+ 723 SUBIDA        BLK-P2 TRIPP2
+(
+ 724 LOGIC  .AND.  BLK-P2 X724
+                   TRIPP1 X724
+ 725 LOGIC  .AND.  BLK-P1 X725
+                   TRIPP2 X725
+ 726 LOGIC  .AND.  TRIPP1 X726
+                   TRIPP2 X726
+ 727 LOGIC  .OR.   X724   CTGBP1
+                   X725   CTGBP1
+                   X726   CTGBP1
+(
+( DETECTA BLOQUEIO DO BIPOLO OU DO ÚLTIMO POLO - BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 728 LOGIC  .NOT.  ST-P3  BLK-P3
+ 729 SUBIDA        BLK-P3 TRIPP3
+(
+ 730 LOGIC  .NOT.  ST-P4  BLK-P4
+ 731 SUBIDA        BLK-P4 TRIPP4
+(
+ 732 LOGIC  .AND.  BLK-P4 X732
+                   TRIPP3 X732
+ 733 LOGIC  .AND.  BLK-P3 X733
+                   TRIPP4 X733
+ 734 LOGIC  .AND.  TRIPP3 X734
+                   TRIPP4 X734
+ 735 LOGIC  .OR.   X732   CTGBP2
+                   X733   CTGBP2
+                   X734   CTGBP2
+(
+(=======================================================================
+(             MARGEM DE RUNUP EM CADA BIPOLO
+(=======================================================================
+(
+( MARGEM DE RUNUP - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7204 MIN           MXP1MW X7204
+                   ACMX1  X7204
+7206 SELET2        PDCpr1 BP1LIM
+                   X7204  BP1LIM
+                   TELC1  BP1LIM
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7208 SOMA          BP1LIM X7208
+                  -PDCpr1 X7208
+7210 LIMITA        X7208  RUM3B1                          ZERO   INF        % MARGEM DE RUNUP DO BP1 - LÓGICA 3
+7212 MIN           BP1LIM X7212
+                   CAP1MW X7212
+7214 SOMA          X7212  X7214
+                  -PDCpr1 X7214
+7216 LIMITA        X7214  RUM1B1                          ZERO   INF        % MARGEM DE RUNUP DO BP1 - LÓGICAS 1, 2 e 4
+(
+( MAX POWER - BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7217 MIN           MXP2MW X7217
+                   ACMX2  X7217
+7218 GANHO         PDCpr2 X7218  -0.75
+7220 FUNCAO OFFSET X7218  X7220  3850
+7222 LIMITA        X7220  X7222                           MINF    C1
+7224 SOMA          PDCpr2 X7224
+                   X7222  X7224
+7226 SELET2        X7224  X7226
+                   X7217  X7226
+                   DIR-RX X7226
+7227 MIN           X7226  X7227
+                   X7217  X7227
+7228 SELET2        PDCpr2 BP2LIM
+                   X7227  BP2LIM
+                   TELC2  BP2LIM
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        C1     2900
+(
+( MARGEM DE RUNUP - BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7230 SOMA          BP2LIM X7230
+                  -PDCpr2 X7230
+7232 LIMITA        X7230  RUM3B2                          ZERO   INF        % MARGEM DE RUNUP DO BP2 - LÓGICA 3
+7234 MIN           BP2LIM X7234
+                   CAP2MW X7234
+7236 SOMA          X7234  X7236
+                  -PDCpr2 X7236
+7238 LIMITA        X7236  RUM1B2                          ZERO   INF        % MARGEM DE RUNUP DO BP2 - LÓGICAS 1, 2 e 4
+(
+( MARGEM DE RUNUP - TOTAL
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7240 SOMA          RUM1B1 X7240
+                   RUM1B2 X7240
+7242 LIMITA        X7240  RUMTOT                          ZPZ1   INF        % MARGEM DE RUNUP TOTAL - LÓGICAS 1, 2 e 4
+(
+(=======================================================================
+(             MARGEM DE RUNBACK EM CADA BIPOLO
+(=======================================================================
+(
+( MARGEM DE RUNBACK - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7250 SOMA          PDCpr1 X7250
+                  -MNP1MW X7250
+7252 SELET2        ZERO   RBMBP1
+                   X7250  RBMBP1
+                   TELC1  RBMBP1                                            % MARGEM DE RUNBACK DO BP1
+(
+( MARGEM DE RUNBACK - BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7254 SOMA          PDCpr2 X7254
+                  -MNP2MW X7254
+7256 SELET2        ZERO   X7256
+                   X7254  X7256
+                   TELC2  X7256
+7257 SELET2        X7256  RBMBP2
+                   ZERO   RBMBP2                                           % MARGEM DE RUNBACK DO BP2
+                   X2070  RBMBP2                                           (se Lógica 2A2 decidir fazer Runback no BP1 e block no BP2 (var X2078), precisa forçar margem runback BP2=0)
+(
+( MARGEM DE RUNBACK - TOTAL
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7258 SOMA          RBMBP1 X7258
+                   RBMBP2 X7258
+7259 LIMITA        X7258  RBMTOT                          ZPZ1   INF        % MARGEM DE RUNBACK TOTAL
+(
+(=======================================================================
+(                           LOGICA 1
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 736 ENTRAD               L1_ON
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L1_ON  #L1_ON
+(
+(=======================================================================
+(  LOGICA 1.A.1
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 700 LOGIC  .AND.  CTG1XT X700
+                   DIR-XT X700
+                   DIR-NS X700
+                   L1_ON  X700
+ 705 DELAY         X700   EXL1A1
+(
+( OVERLOAD TO BE RELIEVED ON THE REAINING CIRCUIT (OL)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 750 SOMA          PXTpre X750
+                  -CAPXT  X750
+ 755 LIMITA        X750   OL1A1                           ZERO   INF
+(
+( DELTA POWER ORDER (DPO) RUNUP BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 800 COMPAR .GE.   RUMTOT X800
+                   OL1A1  X800
+ 805 SELET2        RUMTOT X805
+                   OL1A1  X805
+                   X800   X805
+ 810 S/HOLD        X805   DPB1A1
+                   EXL1A1 DPB1A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB1A1 0.0
+(
+( DELTA POWER ORDER (DPO) TRIP GENERATORS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 850 SOMA          OL1A1  X850
+                  -RUMTOT X850
+ 855 SELET2        X850   X855
+                   ZERO   X855
+                   X800   X855
+ 860 S/HOLD        X855   DPG1A1
+                   EXL1A1 DPG1A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPG1A1 0.0
+(
+( GENERATION DROP CALCULATION - "OVERT-TRIP"
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 900 DIVSAO        DPG1A1 X900
+                   PMEDUL X900
+ 905 FUNCAO TRUNC  X900   X905
+ 910 SOMA          X900   X910
+                  -X905   X910
+ 915 COMPAR  .GT.  X910   X915
+                   ZERO   X915
+ 920 SELET2        ZERO   X920
+                   HUM    X920
+                   X915   X920
+ 925 SOMA          X905   X925
+                   X920   X925
+ 930 DELAY         EXL1A1 X930
+ 935 S/HOLD        X925   TBM1A1
+                   X930   TBM1A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBM1A1 0.0
+(
+(=======================================================================
+(  LOGICA 1.A.2
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1005 LOGIC  .AND.  CTG1XT X1005
+                   DIR-TX X1005
+                   DIR-NS X1005
+                   L1_ON  X1005
+1010 DELAY         X1005  EXL1A2
+(
+( OVERLOAD TO BE RELIEVED ON THE REAINING CIRCUIT (OL)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1100 SOMA         -PXTpre X1100
+                  -CAPXT  X1100
+1105 LIMITA        X1100  OL1A2                           ZERO   INF
+(
+( DELTA POWER ORDER (DPO) RUNBACK BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1200 COMPAR .GE.   RBMTOT X1200
+                   OL1A2  X1200
+1205 SELET2        RBMTOT X1205
+                   OL1A2  X1205
+                   X1200  X1205
+1210 S/HOLD        X1205  DPB1A2
+                   EXL1A2 DPB1A2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB1A2 0.0
+(
+(=======================================================================
+(  LOGICA 1.B.1
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1505 LOGIC  .AND.  CTG1XT X1505
+                   DIR-EX X1505
+                   L1_ON  X1505
+1510 DELAY         X1505  EXL1B1
+(
+( OVERLOAD TO BE RELIEVED ON THE REAINING CIRCUIT (OL)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1600 SOMA          PXTpre X1600
+                  -CAPXT  X1600
+1605 LIMITA        X1600  OL1B1                           ZERO   INF
+(
+( DELTA POWER ORDER (DPO) RUNBACK BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1700 COMPAR .GE.   RBMTOT X1700
+                   OL1B1  X1700
+1720 SELET2        RBMTOT X1720
+                   OL1B1  X1720
+                   X1700  X1720
+1725 S/HOLD        X1720  DPB1B1
+                   EXL1B1 DPB1B1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB1B1 0.0
+(
+(=======================================================================
+(                           LOGICA 2
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1795 ENTRAD               L2_ON
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L2_ON  #L2_ON
+(
+(=======================================================================
+(  LOGICA 2.A.1
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1800 LOGIC  .AND.  CTG2XT X1800
+                   DIR-XT X1800
+                   DIR-NS X1800
+                   L2_ON  X1800
+1805 DELAY         X1800  EXL2A1
+(
+( DELTA POWER ORDER (DPO) RUNUP BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1850 COMPAR .GE.   RUMTOT X1850
+                   PXTpre X1850
+1855 SELET2        RUMTOT X1855
+                   PXTpre X1855
+                   X1850  X1855
+1860 S/HOLD        X1855  DPB2A1
+                   EXL2A1 DPB2A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB2A1 0.0
+(
+( DELTA POWER ORDER (DPO) TRIP GENERATORS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1900 SOMA          PXTpre X1900
+                  -RUMTOT X1900
+1905 SELET2        X1900  X1905
+                   ZERO   X1905
+                   X1850  X1905
+1910 S/HOLD        X1905  DPG2A1
+                   EXL2A1 DPG2A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPG2A1 0.0
+(
+( GENERATION DROP CALCULATION - "UNDER-TRIP"
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1950 DIVSAO        DPG2A1 X1950
+                   PMEDUL X1950
+1955 FUNCAO TRUNC  X1950  X1955
+1960 DELAY         EXL2A1 X1960
+1965 S/HOLD        X1955  TBM2A1
+                   X1960  TBM2A1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBM2A1 0.0
+(
+(=======================================================================
+(  LOGICA 2.A.2
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2000 LOGIC  .AND.  CTG2XT X2000
+                   DIR-TX X2000
+                   DIR-NS X2000
+                   L2_ON  X2000
+2005 DELAY         X2000  EXL2A2
+(
+( CALCULA (PBP1+PBP2-PXT)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2051 FUNCAO ABS    PXTpre PXTprM
+2052 SOMA          PDCpr1 PBP-XT
+                   PDCpr2 PBP-XT
+                  -PXTprM PBP-XT
+(
+( OP.1: RUNBACK BP1 E BP2 SE PMIN(BP1+BP2)<=(PBP1+PBP2)-PXT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2053 COMPAR .LE.   PMIN   X2053
+                   PBP-XT X2053
+2054 SELET2        ZERO   X2054
+                   PXTprM X2054
+                   X2053  X2054
+2056 S/HOLD        X2054  DPB2A2
+                   EXL2A2 DPB2A2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB2A2 0.0
+(
+( OP.2: RUNBACK BP1 / BLOCK BP2 SE PMIN(BP1+BP2)>(PBP1+PBP2)-PXT
+(
+(Runback BP1
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2070 COMPAR .GT.   PMIN   X2070
+                   PBP-XT X2070
+2072 SOMA          PXTprM X2072
+                  -PDCpr2 X2072
+2074 SELET2        ZERO   X2074
+                   X2072  X2074
+                   X2070  X2074
+2076 S/HOLD        X2074  DP12A2
+                   EXL2A2 DP12A2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DP12A2 0.0
+(
+(Block BP2
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2057 LOGIC  .AND.  EXL2A2 BK2_2
+                   X2070  BK2_2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        BK2_2  0.0
+(
+( OP.3: BLOCK BP1+BP2 SE PMIN(BP1)>(PBP1+PBP2)-PXT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2078 COMPAR .GT.   MNP1MW X2078
+                   PBP-XT X2078
+2080 LOGIC  .AND.  EXL2A2 BK2_1
+                   X2078  BK2_1
+2082 LOGIC  .AND.  EXL2A2 BK1_1
+                   X2078  BK1_1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        BK2_1  0.0
+DEFVAL        BK1_1  0.0
+(
+( COMBINA BLOCKS LÓGICA 2A2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2090 LOGIC  .OR.   BK2_1  BK22A2
+                   BK2_2  BK22A2
+2092 LOGIC  .OR.   BK1_1  BK12A2
+(
+( GENERATOR DROP TUCURUI - 2UG OU 4UG
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2105 FUNCAO PULSO  PXTprM X2105  600.  1.0   99999.1.0
+2115 FUNCAO PULSO  PXTprM X2115  1000. 1.0   99999.1.0
+2120 LOGIC  .NOT.  X2115  X2120
+2125 LOGIC  .AND.  X2105  X2125
+                   X2120  X2125
+                   EXL2A2 X2125
+2130 MULTPL        DOIS   T2GTU
+                   X2125  T2GTU
+2135 LOGIC  .AND.  X2115  X2135
+                   EXL2A2 X2135
+2140 MULTPL        QUATRO T4GTU
+                   X2135  T4GTU
+(
+( INIBE A LÓGICA 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2145 LOGIC  .OR.   X2070  X2145
+                   X2078  X2145
+2146 LOGIC  .AND.  X2145  IL32A2
+                   EXL2A2 IL32A2
+(
+(=======================================================================
+(  LOGICA 2.B.1
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2500 LOGIC  .AND.  CTG2XT X2500
+                   DIR-XT X2500
+                   DIR-SN X2500
+                   L2_ON  X2500
+2505 DELAY         X2500  EXL2B1
+(
+( OP.1: RUNBACK BP1 E BP2 SE PMIN(BP1+BP2)<=(PBP1+PBP2)-PXT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2553 COMPAR .LE.   PMIN   X2553
+                   PBP-XT X2553
+2554 SELET2        ZERO   X2554
+                   PXTprM X2554
+                   X2553  X2554
+2556 S/HOLD        X2554  DPB2B1
+                   EXL2B1 DPB2B1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB2B1 0.0
+(
+( OP.2: RUNBACK BP1 / BLOCK BP2 SE PMIN(BP1+BP2)>(PBP1+PBP2)-PXT
+(
+(Runback BP1
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2570 COMPAR .GT.   PMIN   X2570
+                   PBP-XT X2570
+2572 SOMA          PXTprM X2572
+                  -PDCpr2 X2572
+2574 SELET2        ZERO   X2574
+                   X2572  X2574
+                   X2570  X2574
+2576 S/HOLD        X2574  DP12B1
+                   EXL2B1 DP12B1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DP12B1 0.0
+(
+(Block BP2
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2557 LOGIC  .AND.  EXL2B1 BK2_3
+                   X2570  BK2_3
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        BK2_3  0.0
+(
+( OP.3: BLOCK BP1+BP2 SE PMIN(BP1)>(PBP1+PBP2)-PXT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2578 COMPAR .GT.   MNP1MW X2578
+                   PBP-XT X2578
+2580 LOGIC  .AND.  EXL2B1 BK2_4
+                   X2578  BK2_4
+2582 LOGIC  .AND.  EXL2B1 BK1_2
+                   X2578  BK1_2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        BK2_4  0.0
+DEFVAL        BK1_2  0.0
+(
+( COMBINA BLOCKS LÓGICA 2B1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2590 LOGIC  .OR.   BK2_3  BK22B1
+                   BK2_4  BK22B1
+2592 LOGIC  .OR.   BK1_2  BK12B1
+(
+( INIBE A LÓGICA 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2593 LOGIC  .OR.   X2570  X2593
+                   X2578  X2593
+2594 LOGIC  .AND.  X2593  IL32B1
+                   EXL2B1 IL32B1
+(
+(=======================================================================
+(  LOGICA 2.B.2
+(=======================================================================
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2600 LOGIC  .AND.  CTG2XT X2600
+                   DIR-TX X2600
+                   DIR-SN X2600
+                   L2_ON  X2600
+2605 DELAY         X2600  EXL2B2
+(
+( DELTA POWER ORDER (DPO) RUNUP BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2610 S/HOLD        PXTprM DPB2B2
+                   EXL2B2 DPB2B2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB2B2 0.0
+(
+(=======================================================================
+(      TRIP DO TRANSFORMADOR DE XINGU 500/230 KV PELA LÓGICA 2
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7745 ATRASO        OP-2XT X7745  #TTRF
+7746 GANHO         X7745  X7746  #ON
+7747 LOGIC  .NOT.  X7746  TRIPL2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7750 MULTPL        STXTRF XITRF
+                   TRIPL2 XITRF
+(
+(=======================================================================
+(                           LOGICA 3
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3050 ENTRAD               L3_ON
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L3_ON  #L3_ON
+(
+( PELO MENOS UM CIRCUITO LT XI-TUC EM OPERAÇÃO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3300 LOGIC  .NOT.  OP-XTA OP2XTN
+(
+( EXECUTE DPO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3302 LOGIC  .OR.   CTGBP1 X3302
+                   CTGBP2 X3302
+3313 LOGIC  .AND.  X3302  X3313
+                   L3_ON  X3313
+3301 DELAY         X3313  EXL3DP
+9302 ALERTA        EXL3DP        8452  8452
+(
+( EXECUTE GENERATION DROP
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3304 LOGIC  .AND.  X3302  X3304
+                   DIR-NS X3304
+                   L3_ON  X3304
+3303 LOGIC  .OR.   IL32A2 IL3
+                   IL32B1 IL3
+3307 MONEST        IL3    INHL3  1.0
+3309 LOGIC  .NOT.  INHL3  NINHL3
+3311 LOGIC  .AND.  X3304  X3311
+                   NINHL3 X3311
+3305 DELAY         X3311  EXL3
+(
+( CÁLCULO DA POTÊNCIA DC PERDIDA
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3002 ENTRAD               MIL500
+3000 MIN           RUM3B1 X3000
+                   MIL500 X3000
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        MIL500 1500.
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3004 SOMA          PDCpr2 X3004
+                  -X3000  X3004
+3006 S/HOLD        X3004  LOSTB2
+                   CTGBP2 LOSTB2
+3008 SOMA          PDCpr1 X3008
+                  -RUM3B2 X3008
+3010 S/HOLD        X3008  LOSTB1
+                   CTGBP1 LOSTB1
+3012 SOMA          LOSTB1 LOSTDC
+                   LOSTB2 LOSTDC
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        LOSTB1 0.0
+DEFVAL        LOSTB2 0.0
+(
+( TRANSFERÊNCIA DE POTÊNCIA ENTRE BIPOLOS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3020 MIN           X3000  X3020
+                   PDCpr2 X3020
+3021 MULTPL        X3020  X3021
+                   NINHL3 X3021
+3022 S/HOLD        X3021  DPB1L3
+                   CTGBP2 DPB1L3
+3023 MIN           PDCpr1 X3023
+                   RUM3B2 X3023
+3025 MULTPL        X3023  X3025
+                   NINHL3 X3025
+3024 S/HOLD        X3025  DPB2L3
+                   CTGBP1 DPB2L3
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DPB1L3 0.0
+DEFVAL        DPB2L3 0.0
+(
+( PATAMARES DE FNS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3055 ENTRAD               FNS_L1
+3060 ENTRAD               FNS_L2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        FNS_L1 #FNSL1
+DEFVAL        FNS_L2 #FNSL2
+(
+( SELEÇÃO DA COLUNA DA TABELA: COL1 (FNS<1500), COL2 (1500<FNS<3000), COL3 (FNS>3000)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3100 COMPAR .LE.   FNS    CH1
+                   FNS_L1 CH1
+3105 COMPAR .LE.   FNS    CH2
+                   FNS_L2 CH2
+3110 COMPAR .EQ.   CH1    X3110
+                   HUM    X3110
+3115 COMPAR .EQ.   CH2    X3115
+                   HUM    X3115
+3120 LOGIC  .AND.  X3110  COL1
+                   X3115  COL1
+3125 COMPAR .EQ.   CH1    X3125
+                   ZERO   X3125
+3130 COMPAR .EQ.   CH2    X3130
+                   HUM    X3130
+3135 LOGIC  .AND.  X3125  COL2
+                   X3130  COL2
+3140 COMPAR .EQ.   CH1    X3140
+                   ZERO   X3140
+3145 COMPAR .EQ.   CH2    X3145
+                   ZERO   X3145
+3150 LOGIC  .AND.  X3140  COL3
+                   X3145  COL3
+(
+( TABELA CORTE DE GERAÇÃO X POTÊNCIA DC PERDIDA
+(
+( Coluna 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3200 FUNCAO PULSO  LOSTDC X3200   -9999     0     0   0.0
+3201 FUNCAO PULSO  LOSTDC X3201       0     0    50   0.0
+3202 FUNCAO PULSO  LOSTDC X3202      50     0   100   0.0
+3203 FUNCAO PULSO  LOSTDC X3203     100     0   250   0.0
+3204 FUNCAO PULSO  LOSTDC X3204     250     0   400   0.0
+3205 FUNCAO PULSO  LOSTDC X3205     400     0   600   0.0
+3206 FUNCAO PULSO  LOSTDC X3206     600   540   800   0.0
+3207 FUNCAO PULSO  LOSTDC X3207     800   540  1000   0.0
+3208 FUNCAO PULSO  LOSTDC X3208    1000  1080  1200   0.0
+3209 FUNCAO PULSO  LOSTDC X3209    1200  1620  1600   0.0
+3210 FUNCAO PULSO  LOSTDC X3210    1600  2160  2000   0.0
+3211 FUNCAO PULSO  LOSTDC X3211    2000  2700  2400   0.0
+3212 FUNCAO PULSO  LOSTDC X3212    2400  3240  2800   0.0
+3213 FUNCAO PULSO  LOSTDC X3213    2800  3780  9999   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3219 SOMA          X3200  DPG31
+                   X3201  DPG31
+                   X3202  DPG31
+                   X3203  DPG31
+                   X3204  DPG31
+                   X3205  DPG31
+                   X3206  DPG31
+                   X3207  DPG31
+                   X3208  DPG31
+                   X3209  DPG31
+                   X3210  DPG31
+                   X3211  DPG31
+                   X3212  DPG31
+                   X3213  DPG31
+(
+( Coluna 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3220 FUNCAO PULSO  LOSTDC X3220   -9999   540     0   0.0
+3221 FUNCAO PULSO  LOSTDC X3221       0  1080    50   0.0
+3222 FUNCAO PULSO  LOSTDC X3222      50  1080   100   0.0
+3223 FUNCAO PULSO  LOSTDC X3223     100  1620   250   0.0
+3224 FUNCAO PULSO  LOSTDC X3224     250  2160   400   0.0
+3225 FUNCAO PULSO  LOSTDC X3225     400  2160   600   0.0
+3226 FUNCAO PULSO  LOSTDC X3226     600  2700   800   0.0
+3227 FUNCAO PULSO  LOSTDC X3227     800  3240  1000   0.0
+3228 FUNCAO PULSO  LOSTDC X3228    1000  3780  1200   0.0
+3229 FUNCAO PULSO  LOSTDC X3229    1200  3780  1600   0.0
+3230 FUNCAO PULSO  LOSTDC X3230    1600  3780  2000   0.0
+3231 FUNCAO PULSO  LOSTDC X3231    2000  3780  2400   0.0
+3232 FUNCAO PULSO  LOSTDC X3232    2400  3780  2800   0.0
+3233 FUNCAO PULSO  LOSTDC X3233    2800  3780  9999   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3239 SOMA          X3220  DPG32
+                   X3221  DPG32
+                   X3222  DPG32
+                   X3223  DPG32
+                   X3224  DPG32
+                   X3225  DPG32
+                   X3226  DPG32
+                   X3227  DPG32
+                   X3228  DPG32
+                   X3229  DPG32
+                   X3230  DPG32
+                   X3231  DPG32
+                   X3232  DPG32
+                   X3233  DPG32
+(
+( Coluna 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3240 FUNCAO PULSO  LOSTDC X3240   -9999   540     0   0.0
+3241 FUNCAO PULSO  LOSTDC X3241       0  1080    50   0.0
+3242 FUNCAO PULSO  LOSTDC X3242      50  1620   100   0.0
+3243 FUNCAO PULSO  LOSTDC X3243     100  2160   250   0.0
+3244 FUNCAO PULSO  LOSTDC X3244     250  2160   400   0.0
+3245 FUNCAO PULSO  LOSTDC X3245     400  3240   600   0.0
+3246 FUNCAO PULSO  LOSTDC X3246     600  3240   800   0.0
+3247 FUNCAO PULSO  LOSTDC X3247     800  3780  1000   0.0
+3248 FUNCAO PULSO  LOSTDC X3248    1000  3780  1200   0.0
+3249 FUNCAO PULSO  LOSTDC X3249    1200  3780  1600   0.0
+3250 FUNCAO PULSO  LOSTDC X3250    1600  3780  2000   0.0
+3251 FUNCAO PULSO  LOSTDC X3251    2000  3780  2400   0.0
+3252 FUNCAO PULSO  LOSTDC X3252    2400  3780  2800   0.0
+3253 FUNCAO PULSO  LOSTDC X3253    2800  3780  9999   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3259 SOMA          X3240  DPG33
+                   X3241  DPG33
+                   X3242  DPG33
+                   X3243  DPG33
+                   X3244  DPG33
+                   X3245  DPG33
+                   X3246  DPG33
+                   X3247  DPG33
+                   X3248  DPG33
+                   X3249  DPG33
+                   X3250  DPG33
+                   X3251  DPG33
+                   X3252  DPG33
+                   X3253  DPG33
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3260 SELET2        ZERO   X3260
+                   DPG31  X3260
+                   COL1   X3260
+3265 SELET2        X3260  X3265
+                   DPG32  X3265
+                   COL2   X3265
+3270 SELET2        X3265  DPG3
+                   DPG33  DPG3
+                   COL3   DPG3
+(
+( EXECUTAR CORTE DE GERAÇÃO 1 BELO MONTE ("OVER-TRIP") - LT XINGU-TUCURUI EM OPERAÇÃO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3271 LOGIC  .AND.  EXL3   EXL3_1
+                   OP2XTN EXL3_1
+3272 S/HOLD        DPG3   DPG3_1
+                   EXL3_1 DPG3_1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPG3_1 0.0
+(
+( GENERATION DROP CALCULATION 1 - "OVERT-TRIP"
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3274 DIVSAO        DPG3_1 X3274
+                   PMEDUL X3274
+3276 FUNCAO TRUNC  X3274  X3276
+3278 SOMA          X3274  X3278
+                  -X3276  X3278
+3280 COMPAR  .GT.  X3278  X3280
+                   ZERO   X3280
+3282 SELET2        ZERO   X3282
+                   HUM    X3282
+                   X3280  X3282
+3284 SOMA          X3276  X3284
+                   X3282  X3284
+3286 DELAY         EXL3_1 X3286
+3288 S/HOLD        X3284  TBML31
+                   X3286  TBML31
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBML31 0.0
+(
+( EXECUTAR CORTE DE GERAÇÃO 2 BELO MONTE ("UNDER-TRIP") - LT XINGU-TUCURUI FORA DE OPERAÇÃO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3290 LOGIC  .AND.  EXL3   EXL3_2
+                   OP-XTA EXL3_2
+3292 S/HOLD        LOSTDC DPG3_2
+                   EXL3_2 DPG3_2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPG3_2 0.0
+(
+( GENERATION DROP CALCULATION 1 - "UNDER-TRIP"
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3295 DIVSAO        DPG3_2 X3295
+                   PMEDUL X3295
+3296 FUNCAO TRUNC  X3295  X3296
+3297 DELAY         EXL3_2 X3297
+3298 S/HOLD        X3296  TBML32
+                   X3297  TBML32
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBML32 0.0
+(
+(
+( GENERATOR DROP TUCURUI - 2UG OU 4UG
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3362 SOMA          DPG3_1 DPG3BM
+                   DPG3_2 DPG3BM
+3364 SOMA          DPG3BM DPGTL3
+                  -PTBMpr DPGTL3
+3365 FUNCAO PULSO  DPGTL3 X3365      0      2   600     0
+3366 FUNCAO PULSO  DPGTL3 X3366    600      4 99999     0
+3368 MULTPL        X3365  T2GTL3
+                   EXL3   T2GTL3
+3379 MULTPL        X3366  T4GTL3
+                   EXL3   T4GTL3
+(
+( INIBE SINAL 1 DA LÓGICA 4
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3380 MONEST        EXL3_1 X3380  10.
+3381 LOGIC  .NOT.  X3380  INL4S1
+(
+( INIBE CORTE DE 4 UG EM TUCURUI PELO SEP DA N/SE E N/NE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3382 MONEST        EXL3_1 IN4TNS 10.
+3383 SAIDA         IN4TNS
+(
+( INIBE ATUAÇÃO DA LÓGICA 5
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3384 MONEST        EXL3   X3384  10.
+3385 LOGIC  .NOT.  X3384  NIL3L5
+(
+(=======================================================================
+(                           LOGICA 5
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3505 ENTRAD               L5_ON
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L5_ON  #L5_ON
+(
+( NÚMERO DE MÁQUINAS DESLIGADAS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3600 DELAY         NGBM   NGBMD
+3605 SOMA          NGBMD  TRIPL5
+                  -NGBM   TRIPL5
+(
+( MW LOSS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3650 MULTPL        TRIPL5 X3650
+                   PMEDUL X3650
+3645 DELAY         X3650  MWLOSS
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        MWLOSS 0.0
+(
+( TRIGGER LOGICA 5 - FLUXO X->E / X->TR
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3610 LOGIC  .AND.  TRIPL5 X3610
+                   DIR-NS X3610
+                   OP-XTA X3610
+                   L5_ON  X3610
+                   NIL3L5 X3610
+3615 DELAY         X3610  EXL5_1
+(
+( DELTA POWER ORDER (DPO) RUNBACK - FLUXO X->E / X->TR
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3655 MULTPL        EXL5_1 X3655
+                   MWLOSS X3655
+3657 DELAY         X3655  X3657
+3660 ACUM          X3657  DPB1L5 1.0
+                   ZERO   DPB1L5
+                   ZERO   DPB1L5
+                   ZERO   DPB1L5
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB1L5 0.0
+(
+( TRIGGER LOGICA 5 - FLUXO E->X / TR->X
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3612 LOGIC  .AND.  TRIPL5 X3612
+                   DIR-SN X3612
+                   OP-XTA X3612
+                   L5_ON  X3612
+                   NIL3L5 X3612
+3614 DELAY         X3612  EXL5_2
+(
+( DELTA POWER ORDER (DPO) RUNUP - FLUXO E->X / TR->X
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3656 MULTPL        EXL5_2 X3656
+                   MWLOSS X3656
+3658 DELAY         X3656  X3658
+3659 ACUM          X3658  DPB2L5 1.0
+                   ZERO   DPB2L5
+                   ZERO   DPB2L5
+                   ZERO   DPB2L5
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPB2L5 0.0
+(
+(=======================================================================
+(                           LOGICA 4
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4005 ENTRAD               L4_ON
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L4_ON  #L4_ON
+(
+( ATUAÇÃO PPS LT GURUPI - S.MESA C1
+(
+(resistência e reatância aparente vista pela PPS
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7800 IMPORT RESI          RGUSM1 #GUSM1 9999.
+7805 IMPORT REAT          XGUSM1 #GUSM1 9999.
+(entrada na caracteristica externa
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7810 FUNCAO PULSO  RGUSM1 REXIN     0.0   1.0 0.065   0.0
+7815 FUNCAO PULSO  XGUSM1 XEXIN  -0.065   1.0 0.065   0.0
+7820 LOGIC  .AND.  REXIN  EXIN
+                   XEXIN  EXIN
+(entrada na caracteristica interna
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7830 FUNCAO PULSO  RGUSM1 RININ     0.0   1.0 0.060   0.0
+7835 FUNCAO PULSO  XGUSM1 XININ  -0.060   1.0 0.060   0.0
+7840 LOGIC  .AND.  RININ  ININ
+                   XININ  ININ
+(tempo de discriminação = 30ms
+(se o tempo para cruzar da caracteristica externa para a interna for <30ms, não atua (pois caracteriza um curto-circuito)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7845 DLAYON        EXIN   X7845    0.03
+7850 SUBIDA        X7845  EXIN30
+7855 LOGIC  .NOT.  ININ   NININ
+7860 LOGIC  .AND.  EXIN30 L4_PPS
+                   NININ  L4_PPS
+(
+( FLUXO MIRACEMA-COLINAS (FMICO)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7900 IMPORT FLXA          X7900  #MICO1   10.
+7901 IMPORT FLXA          X7901  #MICO2   10.
+7902 IMPORT FLXA          X7902  #MICO3   10.
+7904 GANHO         X7900  FMICO1 100.
+7905 GANHO         X7901  FMICO2 100.
+7906 GANHO         X7902  FMICO3 100.
+7908 SOMA          FMICO1 FMICO
+                   FMICO2 FMICO
+                   FMICO3 FMICO
+7910 ENTRAD               FMICOi
+7912 SAIDA         FMICO
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FMICOi FMICO
+(
+( PATAMARES DE FMICO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7914 FUNCAO PULSO  FMICOi F>2900  2900.  1.0 9999.    1.0
+7916 FUNCAO PULSO  FMICOi F<2900  1900.  1.0 2900.    0.0
+(
+( PERDA DUPLA MIRACEMA - COLINAS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7920 IMPORT STCIRC        MICO1  #MICO1    0.
+7922 IMPORT STCIRC        MICO2  #MICO2    0.
+7924 IMPORT STCIRC        MICO3  #MICO3    0.
+7926 LOGIC  .NOR.  MICO1  X7926
+                   MICO2  X7926
+7927 SUBIDA        X7926  MICO12
+7928 LOGIC  .NOR.  MICO1  X7928
+                   MICO3  X7928
+7929 SUBIDA        X7928  MICO13
+7930 LOGIC  .NOR.  MICO2  X7930
+                   MICO3  X7930
+7932 SUBIDA        X7930  MICO23
+7934 LOGIC  .OR.   MICO12 PDMICO
+                   MICO13 PDMICO
+                   MICO23 PDMICO
+(
+( PERDA DUPLA COLINAS - IMPERATRIZ
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7940 IMPORT STCIRC        COIM1  #COIM1    0.
+7942 IMPORT STCIRC        COIM2  #COIM2    0.
+7943 LOGIC  .NOR.  COIM1  X7943
+                   COIM2  X7943
+7944 SUBIDA        X7943  PDCOIM
+(
+( PERDA DUPLA IMPERATRIZ - MARABÁ
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7960 IMPORT STCIRC        IMMA1  #IMMA1    0.
+7962 IMPORT STCIRC        IMMA2  #IMMA2    0.
+7963 LOGIC  .NOR.  IMMA1  X7963
+                   IMMA2  X7963
+7964 SUBIDA        X7963  PDIMMA
+(
+( PERDA DUPLA GURUPI - MIRACEMA
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7980 IMPORT STCIRC        GUMI1  #GUMI1    0.
+7982 IMPORT STCIRC        GUMI2  #GUMI2    0.
+7984 IMPORT STCIRC        GUMI3  #GUMI3    0.
+7986 LOGIC  .NOR.  GUMI1  X7986
+                   GUMI2  X7986
+7987 SUBIDA        X7986  GUMI12
+7988 LOGIC  .NOR.  GUMI1  X7988
+                   GUMI3  X7988
+7989 SUBIDA        X7988  GUMI13
+7990 LOGIC  .NOR.  GUMI2  X7990
+                   GUMI3  X7990
+7992 SUBIDA        X7990  GUMI23
+7994 LOGIC  .OR.   GUMI12 PDGUMI
+                   GUMI13 PDGUMI
+                   GUMI23 PDGUMI
+(
+( PERDA DUPLA GURUPI - S.MESA
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8200 IMPORT STCIRC        GUSM1  #GUSM1    0.
+8202 IMPORT STCIRC        GUSM2  #GUSM2    0.
+8203 LOGIC  .NOR.  GUSM1  X8203
+                   GUSM2  X8203
+8204 SUBIDA        X8203  PDGUSM
+(
+( PERDA DUPLA GURUPI - S.MESA/PEIXE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8220 IMPORT STCIRC        GUPX1  #GUPX1    0.
+8222 IMPORT STCIRC        GUPX2  #GUPX2    0.
+8223 LOGIC  .NOR.  GUPX1  X8223
+                   GUPX2  X8223
+8224 SUBIDA        X8223  PDGUPX
+(
+( COMBINA PERDAS DUPLAS NA NORTE-SUDESTE (OR)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8250 LOGIC  .OR.   PDMICO PD-NS
+                   PDCOIM PD-NS
+                   PDIMMA PD-NS
+                   PDGUMI PD-NS
+                   PDGUSM PD-NS
+                   PDGUPX PD-NS
+(
+( ATIVAÇÃO MANUAL DOS SINAIS EXTERNOS 1, 2 E 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4000 ENTRAD               L4RUP1
+4010 ENTRAD               L4RUP2
+4020 ENTRAD               L4RUP3
+(
+(Sinal 1 ativado pela PPS ou pelo SEP da Norte-Sudeste
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4052 LOGIC  .OR.   L4_PPS S1_ACT
+                   L4RUP1 S1_ACT
+4050 LOGIC  FFLOP1 ZERO   SINAL1
+                   S1_ACT SINAL1
+(
+(Sinal 2 ativado por perdas duplas na interligação N/SE e 1900<FMCO<2900
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4057 LOGIC  .OR.   PD-NS  X4057
+                   L4RUP2 X4057
+4056 LOGIC  .AND.  X4057  S2_ACT
+                   F<2900 S2_ACT
+4055 LOGIC  FFLOP1 ZERO   SINAL2
+                   S2_ACT SINAL2
+(
+(Sinal 3 ativado por perdas duplas na interligação N/SE e FMCO>2900
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4062 LOGIC  .OR.   PD-NS  X4062
+                   L4RUP3 X4062
+4061 LOGIC  .AND.  X4062  S3_ACT
+                   F>2900 S3_ACT
+4060 LOGIC  FFLOP1 ZERO   SINAL3
+                   S3_ACT SINAL3
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L4RUP1 0.0
+DEFVAL        L4RUP2 0.0
+DEFVAL        L4RUP3 0.0
+DEFVAL        SINAL1 0.0
+DEFVAL        SINAL2 0.0
+DEFVAL        SINAL3 0.0
+(
+( HABILITAÇÃO SINAL 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4070 LOGIC  .AND.  SINAL1 EXRUP1
+                   OP2XTN EXRUP1
+                   L4_ON  EXRUP1
+                   INL4S1 EXRUP1
+(
+( HABILITAÇÃO SINAL 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4075 LOGIC  .AND.  SINAL2 EXRUP2
+                   OP2XTN EXRUP2
+                   L4_ON  EXRUP2
+(
+( HABILITAÇÃO SINAL 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4080 LOGIC  .AND.  SINAL3 EXRUP3
+                   OP2XTN EXRUP3
+                   L4_ON  EXRUP3
+(
+( RUNUP DOS SINAIS 1, 2 E 3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4085 GANHO         EXRUP1 DPORU1 #RUNP1
+4090 GANHO         EXRUP2 DPORU2 #RUNP2
+4095 GANHO         EXRUP3 DPORU3 #RUNP3
+4097 MAX           DPORU1 X4097
+                   DPORU2 X4097
+                   DPORU3 X4097
+4093 GANHO         X4097  X4093  #L4_ON
+4098 GANHO         X4093  X4098  #ON
+4092 ATRASO        X4098  DPO_L4  #TL4
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4045 SUBIDA        DPO_L4 EXL4
+(
+(DELTA POWER ORDER (DPO) RUNUP BIPOLE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4200 COMPAR .GE.   DPO_L4 X4200
+                   RUMTOT X4200
+4205 SELET2        DPO_L4 X4205
+                   RUMTOT X4205
+                   X4200  X4205
+4210 S/HOLD        X4205  DPBL4
+                   EXL4   DPBL4
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPBL4  0.0
+(
+(DELTA POWER ORDER (DPO) TRIP GENERATORS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4250 SOMA          DPO_L4 X4250
+                  -RUMTOT X4250
+4252 LOGIC  .AND.  X4200  X4252
+                   SINAL1 X4252
+4255 SELET2        ZERO   X4255
+                   X4250  X4255
+                   X4252  X4255
+4260 S/HOLD        X4255  DPG_L4
+                   EXL4   DPG_L4
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DPG_L4 0.0
+(
+(GENERATION DROP CALCULATION - "OVERT-TRIP"
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4500 DIVSAO        DPG_L4 X4500
+                   PMEDUL X4500
+4505 FUNCAO TRUNC  X4500  X4505
+4510 SOMA          X4500  X4510
+                  -X4505  X4510
+4515 COMPAR  .GT.  X4510  X4515
+                   ZERO   X4515
+4520 SELET2        ZERO   X4520
+                   HUM    X4520
+                   X4515  X4520
+4525 SOMA          X4505  X4525
+                   X4520  X4525
+4530 DELAY         EXL4   X4530
+4535 S/HOLD        X4525  TBM_L4
+                   X4530  TBM_L4
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TBM_L4 0.0
+(
+( CORTE DE 4 UG EM TUCURUI
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4548 GANHO         SINAL1 X4548  #L4_ON
+4547 GANHO         X4548  X4547  #ON
+4542 ATRASO        X4547  X4542  #TL4
+4541 ATRASO        X4542  X4541  #TL4TU
+4540 LOGIC  .AND.  X4541  X4540
+                   INL4S1 X4540
+4545 SUBIDA        X4540  X4545
+4546 GANHO         X4545  T4GTL4 4.0
+(
+(=======================================================================
+(              EXECUTE RUNUP/RUNBACK
+(=======================================================================
+(
+( EXECUTE DPO (RUNUP / RUNBACK / GENERATION DROP)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5000 LOGIC  .OR.   EXL1A1 EXEDPO
+                   EXL1A2 EXEDPO
+                   EXL1B1 EXEDPO
+                   EXL2A1 EXEDPO
+                   EXL2A2 EXEDPO
+                   EXL2B1 EXEDPO
+                   EXL2B2 EXEDPO
+                   EXL3DP EXEDPO
+                   EXL4   EXEDPO
+                   EXL5_1 EXEDPO
+                   EXL5_2 EXEDPO
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        EXEDPO 0.0
+(
+( COMBINE DELTA POWER ORDER BIPOLE (RUNUP / RUNBACK) FROM DIFFERENT LOGICS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5010 SOMA         +DPB1A1 DPO_BP
+                  -DPB1A2 DPO_BP
+                  -DPB1B1 DPO_BP
+                  +DPB2A1 DPO_BP
+                  -DPB2A2 DPO_BP
+                  -DPB2B1 DPO_BP
+                  +DPB2B2 DPO_BP
+                  +DPB1L3 DPO_BP
+                  +DPB2L3 DPO_BP
+                  +DPBL4  DPO_BP
+                  -DPB1L5 DPO_BP
+                  +DPB2L5 DPO_BP
+(
+( TEMPO DE ATUAÇÃO DPO / SE S->N, SOMA-SE AO TEMPO TOTAL O ATRASO DE COMUNICAÇÃO ENTRE XINGU E ESTREITO/T.RIO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6000 ATRASO        EXEDPO X6000  #TDPO
+6001 ATRASO        X6000  X6001  #TTLC
+6003 SELET2        X6000  X6003
+                   X6001  X6003
+                   DIR-SN X6003
+6002 GANHO         X6003  X6002  #ON
+6005 S/HOLD        DPO_BP DPOBPH
+                   X6002  DPOBPH
+(
+( TAXA DO DPO (RUNUP / RUNBACK)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6008 ENTRAD               TXDPO
+6009 FUNCAO MENOS  TXDPO  MTXDPO
+(
+(Todas as lógicas, exceto 2A2 e 2B1
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6010 RATELM        DPOBPH DPO                             MTXDPO TXDPO              % DPO TOTAL
+(
+( AS LÓGICAS 2A2 e 2B1 SÃO TRATADAS SEPARADAMENTE QUANDO É FEITO RUNBACK NO BP1 E BLOCK NO BP2, PARA O DPO NÃO PASSAR PELA REPARTIÇÃO DO RUNBACK ENTRE BIPOLOS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6011 SOMA         -DP12A2 X6011
+                  -DP12B1 X6011
+6012 S/HOLD        X6011  X6012
+                   X6002  X6012
+6013 RATELM        X6012  DP_BP1                          MTXDPO TXDPO              % DPO RUNBACK PARA BP1 SEM PASSAR PELA REPARTIÇÃO ENTRE BIPOLOS (LÓGICAS 2A2 e 2B1)
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        TXDPO  #TXDPO
+DEFVAL        DPOBPH 0.0
+DEFVAL        DPO    0.0
+DEFVAL        DP_BP1 0.0
+(
+(=======================================================================
+(              REPARTIÇÃO DE RUNUP/RUNBACK
+(=======================================================================
+(
+( IDENTIFICA SE É RUNUP (+1) OU RUNBACK (-1)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6020 FUNCAO SINAL  DPO_BP UPBACK
+(
+( DPO BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6022 DIVSAO        RUM1B1 FRU1
+                   RUMTOT FRU1
+6024 MULTPL        FRU1   RUBP1
+                   DPO    RUBP1                                                     % RUNUP BP1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6026 DIVSAO        RBMBP1 FRB1
+                   RBMTOT FRB1
+6028 MULTPL        FRB1   RBBP1                                                     % RUNBACK BP1
+                   DPO    RBBP1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6030 SELET2        RBBP1  X6030
+                   RUBP1  X6030
+                   UPBACK X6030
+6031 SOMA          X6030  DPOBP1                                                    % DPO BP1
+                   DP_BP1 DPOBP1
+                   B2->B1 DPOBP1
+(
+( DPO BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6032 DIVSAO        RUM1B2 FRU2
+                   RUMTOT FRU2
+6034 MULTPL        FRU2   RUBP2
+                   DPO    RUBP2                                                     % RUNUP BP2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6036 DIVSAO        RBMBP2 FRB2
+                   RBMTOT FRB2
+6038 MULTPL        FRB2   RBBP2
+                   DPO    RBBP2                                                     % RUNBACK BP2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6040 SELET2        RBBP2  X6040
+                   RUBP2  X6040
+                   UPBACK X6040
+6041 SOMA          X6040  DPOBP2                                                    % DPO BP2
+                   B1->B2 DPOBP2
+(
+(=======================================================================
+(                 BLOCK BIPOLE 1 AND 2
+(=======================================================================
+(
+( BLOCK BIPOLE 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6194 SOMA          BK12A2 X6194
+                   BK12B1 X6194
+6196 ATRASO        X6194  X6196  #TDPO
+6197 GANHO         X6196  BK1SEP #ON
+(
+( BLOCK BIPOLE 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6190 SOMA          BK22A2 X6190
+                   BK22B1 X6190
+6195 ATRASO        X6190  X6195  #TDPO
+6200 GANHO         X6195  BK2SEP #ON
+(
+(=======================================================================
+(              EXECUTE GENERATION DROP AT BELO MONTE
+(=======================================================================
+(
+( COMBINE GENERATOR DROP IN BELO MONTE FROM DIFFERENT LOGICS - MAXIMO CORTE = 7 UG
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5050 DELAY         EXL1A1 X5050
+5051 MULTPL        TBM1A1 X5051
+                   X5050  X5051
+5052 DELAY         EXL2A1 X5052
+5053 MULTPL        TBM2A1 X5053
+                   X5052  X5053
+5054 DELAY         EXL3_1 X5054
+5055 MULTPL        TBML31 X5055
+                   X5054  X5055
+5058 DELAY         EXL3_2 X5058
+5059 MULTPL        TBML32 X5059
+                   X5058  X5059
+5056 DELAY         EXL4   X5056
+5057 MULTPL        TBM_L4 X5057
+                   X5056  X5057
+(
+5060 SOMA          X5051  X5060
+                   X5053  X5060
+                   X5055  X5060
+                   X5059  X5060
+                   X5057  X5060
+5061 LIMITA        X5060  X5061                           ZERO   SETE
+5062 GANHO         X5061  TBMH   #ON
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        SETE   7.0
+(
+( TEMPO DE ATUAÇÃO DO SEP
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5100 ATRASO        TBMH   DUGBM  #TDROP
+(
+5105 COMPAR .GT.   DUGBM  TRIGGB
+                   ZERO   TRIGGB
+5110 MULTPL        NGBMAi NBMAi
+                   TRIGGB NBMAi
+5115 MULTPL        NGBMBi NBMBi
+                   TRIGGB NBMBi
+5120 MULTPL        NGBMCi NBMCi
+                   TRIGGB NBMCi
+(
+( CALCULA NOVO NUMERO DE UGs EM BELO MONTE A
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6605 SOMA          DUGBM  X6605
+                  -NBMAi  X6605
+6610 COMPAR .LE.   X6605  X6610
+                   ZERO   X6610
+6612 SELET2        NBMAi  DUGBMA
+                   DUGBM  DUGBMA
+                   X6610  DUGBMA
+6615 SOMA          NGBMAi NGBMA
+                  -DUGBMA NGBMA
+(
+( CALCULA NOVO NUMERO DE UGs EM BELO MONTE B
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6621 SOMA          DUGBM  X6621
+                  -NBMAi  X6621
+6620 LIMITA        X6621  X6620                           ZERO   INF
+6622 SOMA          X6620  X6622
+                  -NBMBi  X6622
+6625 COMPAR .LE.   X6622  X6625
+                   ZERO   X6625
+6627 SELET2        NBMBi  DUGBMB
+                   X6620  DUGBMB
+                   X6625  DUGBMB
+6630 SOMA          NGBMBi NGBMB
+                  -DUGBMB NGBMB
+(
+( CALCULA NOVO NUMERO DE UGs EM BELO MONTE C
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6651 SOMA          DUGBM  X6651
+                  -NBMAi  X6651
+                  -NBMBi  X6651
+6650 LIMITA        X6651  X6650                           ZERO   INF
+6652 SOMA          X6650  X6652
+                  -NBMCi  X6652
+6655 COMPAR .LE.   X6652  X6655
+                   ZERO   X6655
+6657 SELET2        NBMCi  DUGBMC
+                   X6650  DUGBMC
+                   X6655  DUGBMC
+6660 SOMA          NGBMCi NGBMC
+                  -DUGBMC NGBMC
+(
+(CORRIGE A IMPEDÂNCIA DO TRANSFORMADOR ELEVADOR BELO MONTE
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6700 ENTRAD               RTBM1
+6705 ENTRAD               XTBM1
+6750 LIMITA        NGBM   NGBML                           HUM    INF
+6760 DIVSAO        RTBM1  RTBM
+                   NGBML  RTBM
+6765 DIVSAO        XTBM1  XTBM
+                   NGBML  XTBM
+(
+6770 IMPORT RTRF          RTBM0  #BMTRF 0.0
+6775 SAIDA         RTBM0
+6780 IMPORT XTRF          XTBM0  #BMTRF 0.0
+6785 SAIDA         XTBM0
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    RTBM   RTBM0
+DEFVAL VAR    XTBM   XTBM0
+(
+(=======================================================================
+(              EXECUTE GENERATION DROP AT TUCURUI
+(=======================================================================
+(
+( CORTE DE MÁQUINAS EM TUCURUI PELO SEP 765 KV
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5530 IMPORT CDU           DUG765 #TU765   0.0
+5532 SUBIDA        DUG765  X5532
+5534 MULTPL        X5532  X5534
+                   DUG765 X5534
+5535 DELAY         X5534  TU765
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DUG765 0.0
+(
+( COMBINE GENERATOR DROP IN TUCURUI FROM DIFFERENT LOGICS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5500 SOMA          T2GTU  TTU
+                   T4GTU  TTU
+                   T2GTL3 TTU
+                   T4GTL3 TTU
+(
+( TOTAL NUMBER OF GENERATORS TO TRIP IN TUCURUI
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5505 DELAY         TTU    TTUD
+(
+( TEMPO DE ATUAÇÃO DO SEP
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5600 ATRASO        TTUD   X5600  #TDROP
+5601 SOMA          X5600  X5601
+                   TU765  X5601
+                   T4GTL4 X5601
+5508 LIMITA        X5601  X5508                           ZERO   QUATRO                  % CORTE MÁXIMO DE 4 UG EM TUCURUI
+5507 GANHO         X5508  DUGTU  #ON
+(
+5510 COMPAR .GT.   DUGTU  TRIGGT
+                   ZERO   TRIGGT
+5515 MULTPL        NGTUAi NTUAi
+                   TRIGGT NTUAi
+5520 MULTPL        NGTUBi NTUBi
+                   TRIGGT NTUBi
+5525 MULTPL        NGTUCi NTUCi
+                   TRIGGT NTUCi
+(
+( CALCULA NOVO NUMERO DE UGs EM TUCURUI A
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5605 SOMA          DUGTU  X5605
+                  -NTUAi  X5605
+5607 COMPAR .LE.   X5605  X5607
+                   ZERO   X5607
+5610 SELET2        NTUAi  DUGTUA
+                   DUGTU  DUGTUA
+                   X5607  DUGTUA
+5615 SOMA          NGTUAi X5615
+                  -DUGTUA X5615
+5616 DELAY         X5615  NGTUA
+(
+( CALCULA NOVO NUMERO DE UGs EM TUCURUI B
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5620 SOMA          DUGTU  X5620
+                  -NTUAi  X5620
+5625 LIMITA        X5620  X5625                           ZERO   INF
+5630 SOMA          X5625  X5630
+                  -NTUBi  X5630
+5635 COMPAR .LE.   X5630  X5635
+                   ZERO   X5635
+5640 SELET2        NTUBi  DUGTUB
+                   X5625  DUGTUB
+                   X5635  DUGTUB
+5645 SOMA          NGTUBi X5645
+                  -DUGTUB X5645
+5646 DELAY         X5645  NGTUB
+(
+( CALCULA NOVO NUMERO DE UGs EM TUCURUI C
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5650 SOMA          DUGTU  X5650
+                  -NTUAi  X5650
+                  -NTUBi  X5650
+5655 LIMITA        X5650  X5655                           ZERO   INF
+5660 SOMA          X5655  X5660
+                  -NTUCi  X5660
+5665 COMPAR .LE.   X5660  X5665
+                   ZERO   X5665
+5670 SELET2        NTUCi  DUGTUC
+                   X5655  DUGTUC
+                   X5665  DUGTUC
+5675 SOMA          NGTUCi X5675
+                  -DUGTUC X5675
+5676 DELAY         X5675  NGTUC
+(
+(CORRIGE A IMPEDÂNCIA DO TRANSFORMADOR ELEVADOR TUCURUI A
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5700 ENTRAD               RTTUA1
+5705 ENTRAD               XTTUA1
+5750 LIMITA        NGTUA  NGTUAL                          HUM    INF
+5760 DIVSAO        RTTUA1 RTTUA
+                   NGTUAL RTTUA
+5765 DIVSAO        XTTUA1 XTTUA
+                   NGTUAL XTTUA
+(
+5770 IMPORT RTRF          RTTUA0 #TUTR1 0.0
+5775 SAIDA         RTTUA0
+5780 IMPORT XTRF          XTTUA0 #TUTR1 0.0
+5785 SAIDA         XTTUA0
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    RTTUA  RTTUA0
+DEFVAL VAR    XTTUA  XTTUA0
+(
+(CORRIGE A IMPEDÂNCIA DO TRANSFORMADOR ELEVADOR TUCURUI B
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4700 ENTRAD               RTTUB1
+4705 ENTRAD               XTTUB1
+4750 LIMITA        NGTUB  NGTUBL                          HUM    INF
+4760 DIVSAO        RTTUB1 RTTUB
+                   NGTUBL RTTUB
+4765 MULTPL        XTTUB1 XTTUB
+                   NGTUBL XTTUB
+(
+4770 IMPORT RTRF          RTTUB0 #TUTR2 0.0
+4775 SAIDA         RTTUB0
+4780 IMPORT XTRF          XTTUB0 #TUTR2 0.0
+4785 SAIDA         XTTUB0
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    RTTUB  RTTUB0
+DEFVAL VAR    XTTUB  XTTUB0
+(
+(CORRIGE A IMPEDÂNCIA DO TRANSFORMADOR ELEVADOR TUCURUI C
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4900 ENTRAD               RTTUC1
+4905 ENTRAD               XTTUC1
+4950 LIMITA        NGTUC  NGTUCL                          HUM    INF
+4960 DIVSAO        RTTUC1 RTTUC
+                   NGTUCL RTTUC
+4965 DIVSAO        XTTUC1 XTTUC
+                   NGTUCL XTTUC
+(
+4970 IMPORT RTRF          RTTUC0 #TUTR3 0.0
+4975 SAIDA         RTTUC0
+4980 IMPORT XTRF          XTTUC0 #TUTR3 0.0
+4985 SAIDA         XTTUC0
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    RTTUC  RTTUC0
+DEFVAL VAR    XTTUC  XTTUC0
+(
+(=======================================================================
+(         TRANSFERÊNCIA DE POTÊNCIA PARA PERDA DE POLO
+(=======================================================================
+(
+( TENSÃO DC NOMINAL
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7310 ENTRAD               VDCNOM
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        VDCNOM 0.8
+(
+( TENSÃO DC PRÉ-FALTA DE CADA POLO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7300 IMPORT VCNV          VDCP1X #CNVX1
+7302 IMPORT VCNV          VDCP1E #CNVE1
+7304 SELET2        VDCP1E VDC-P1
+                   VDCP1X VDC-P1
+                   OP-X1  VDC-P1
+7305 SAIDA         VDC-P1
+(
+7306 ENTRAD               VDCpr1
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    VDCpr1 VDC-P1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7013 IMPORT VCNV          VDCP2X #CNVX2
+7017 IMPORT VCNV          VDCP2E #CNVE2
+7014 SELET2        VDCP2E VDC-P2
+                   VDCP2X VDC-P2
+                   OP-X2  VDC-P2
+7015 SAIDA         VDC-P2
+(
+7016 ENTRAD               VDCpr2
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    VDCpr2 VDC-P2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7020 IMPORT VCNV          VDCP3X #CNVX3
+7022 IMPORT VCNV          VDCP3R #CNVR3
+7024 SELET2        VDCP3R VDC-P3
+                   VDCP3X VDC-P3
+                   OP-X3  VDC-P3
+7025 SAIDA         VDC-P3
+(
+7026 ENTRAD               VDCpr3
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    VDCpr3 VDC-P3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7030 IMPORT VCNV          VDCP4X #CNVX4
+7032 IMPORT VCNV          VDCP4R #CNVR4
+7034 SELET2        VDCP4R VDC-P4
+                   VDCP4X VDC-P4
+                   OP-X4  VDC-P4
+7035 SAIDA         VDC-P4
+(
+7036 ENTRAD               VDCpr4
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    VDCpr4 VDC-P4
+(
+( LIMITE DE POTÊNCIA DC DE CADA POLO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7040 IMPORT CDU           IMX_P1 9564  1.5
+7042 MULTPL        IMX_P1 PMX_P1
+                   VDCpr1 PMX_P1
+                   P_MONO PMX_P1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7050 IMPORT CDU           IMX_P2 9566  1.5
+7052 MULTPL        IMX_P2 PMX_P2
+                   VDCpr2 PMX_P2
+                   P_MONO PMX_P2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7060 IMPORT CDU           IMX_P3 2126  3978.8
+7062 MULTPL        IMX_P3 PMX_P3
+                   VDCpr3 PMX_P3
+                   VDCNOM PMX_P3
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7070 IMPORT CDU           IMX_P4 2326  3978.8
+7072 MULTPL        IMX_P4 PMX_P4
+                   VDCpr4 PMX_P4
+                   VDCNOM PMX_P4
+(
+( DETECTA BLOQUEIO DE POLO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7100 LOGIC  .AND.  TRIPP1 X7100
+                   ST-P2  X7100
+7101 LOGIC  FFLOP1 ZERO   CTG_P1
+                   X7100  CTG_P1
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        CTG_P1 0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7102 LOGIC  .AND.  TRIPP2 X7102
+                   ST-P1  X7102
+7103 LOGIC  FFLOP1 ZERO   CTG_P2
+                   X7102  CTG_P2
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        CTG_P2 0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7104 LOGIC  .AND.  TRIPP3 X7104
+                   ST-P4  X7104
+7105 LOGIC  FFLOP1 ZERO   CTG_P3
+                   X7104  CTG_P3
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        CTG_P3 0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7106 LOGIC  .AND.  TRIPP4 X7106
+                   ST-P3  X7106
+7107 LOGIC  FFLOP1 ZERO   CTG_P4
+                   X7106  CTG_P4
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        CTG_P4 0.0
+(
+( PERDA DO POLO 1 - DPO PARA O BP2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7150 SOMA          PDCpr1 X7150
+                  -PMX_P2 X7150
+7151 LIMITA        X7150  X7151                           ZERO   INF
+7152 MULTPL        X7151  P1->B2
+                   CTG_P1 P1->B2
+(
+( PERDA DO POLO 2 - DPO PARA O BP2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7160 SOMA          PDCpr1 X7160
+                  -PMX_P1 X7160
+7161 LIMITA        X7160  X7161                           ZERO   INF
+7162 MULTPL        X7161  P2->B2
+                   CTG_P2 P2->B2
+(
+( PERDA DO POLO 3 - DPO PARA O BP1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7170 SOMA          PDCpr2 X7170
+                  -PMX_P4 X7170
+7171 LIMITA        X7170  X7171                           ZERO   INF
+7172 MULTPL        X7171  P3->B1
+                   CTG_P3 P3->B1
+(
+( PERDA DO POLO 4 - DPO PARA O BP1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7180 SOMA          PDCpr2 X7180
+                  -PMX_P3 X7180
+7181 LIMITA        X7180  X7181                           ZERO   INF
+7182 MULTPL        X7181  P4->B1
+                   CTG_P4 P4->B1
+(
+( DPO DOS POLOS DO BIPOLO 2 PARA O BIPOLO 1
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7600 SOMA          P3->B1 X7600
+                   P4->B1 X7600
+7602 ATRASO        X7600  X7602  #TDPO
+7604 ATRASO        X7602  X7604  #TTLC
+7606 SELET2        X7602  X7606
+                   X7604  X7606
+                   DIR-SN X7606
+7608 RATELM        X7606  X7608                           MTXDPO TXDPO
+7610 LIMITA        X7608  X7610                           ZERO   RUM3B1
+7612 GANHO         X7610  B2->B1 #ON
+
+(
+( DPO DOS POLOS DO BIPOLO 1 PARA O BIPOLO 2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7650 SOMA          P1->B2 X7650
+                   P2->B2 X7650
+7652 ATRASO        X7650  X7652  #TDPO
+7654 ATRASO        X7652  X7654  #TTLC
+7656 SELET2        X7652  X7656
+                   X7654  X7656
+                   DIR-SN X7656
+7658 RATELM        X7656  X7658                           MTXDPO TXDPO
+7660 LIMITA        X7658  X7660                           ZERO   RUM3B2
+7662 GANHO         X7660  B1->B2 #ON
+(
+FIMCDU
+(
+999999
+(
+FIM

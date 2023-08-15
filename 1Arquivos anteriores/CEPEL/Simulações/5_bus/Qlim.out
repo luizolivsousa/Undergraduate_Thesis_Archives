@@ -1,0 +1,375 @@
+Relatorio de Geracao de Potencia Reativa - Fluxo de Potencia Continuado
+Barras em ordem crescente de reserva disponivel de Q
+Sistema : Caso Sistema Teste 5 Barras                                                     
+ 
+ 
+Numero do incremento de carga:   1
+Carregamento do sistema =     5.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     24.45   9999.00    0.2445       
+     2 Maq2          -9999.00     11.37   9999.00    0.1137       
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =    10.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #03
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     25.77   9999.00    0.2578       
+     2 Maq2          -9999.00     12.70   9999.00    0.1270       
+ 
+ 
+Numero do incremento de carga:   3
+Carregamento do sistema =    15.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #04
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     27.25   9999.00    0.2726       
+     2 Maq2          -9999.00     14.14   9999.00    0.1414       
+ 
+ 
+Numero do incremento de carga:   4
+Carregamento do sistema =    20.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #05
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     28.89   9999.00    0.2889       
+     2 Maq2          -9999.00     15.69   9999.00    0.1570       
+ 
+ 
+Numero do incremento de carga:   5
+Carregamento do sistema =    25.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #06
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     30.68   9999.00    0.3068       
+     2 Maq2          -9999.00     17.38   9999.00    0.1738       
+ 
+ 
+Numero do incremento de carga:   6
+Carregamento do sistema =    30.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #07
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     32.64   9999.00    0.3264       
+     2 Maq2          -9999.00     19.19   9999.00    0.1919       
+ 
+ 
+Numero do incremento de carga:   7
+Carregamento do sistema =    35.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #08
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     34.77   9999.00    0.3477       
+     2 Maq2          -9999.00     21.13   9999.00    0.2114       
+ 
+ 
+Numero do incremento de carga:   8
+Carregamento do sistema =    40.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #09
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     37.07   9999.00    0.3708       
+     2 Maq2          -9999.00     23.22   9999.00    0.2323       
+ 
+ 
+Numero do incremento de carga:   9
+Carregamento do sistema =    45.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #10
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     39.56   9999.00    0.3957       
+     2 Maq2          -9999.00     25.47   9999.00    0.2547       
+ 
+ 
+Numero do incremento de carga:  10
+Carregamento do sistema =    50.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #11
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     42.25   9999.00    0.4225       
+     2 Maq2          -9999.00     27.87   9999.00    0.2787       
+ 
+ 
+Numero do incremento de carga:  11
+Carregamento do sistema =    55.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #12
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     45.14   9999.00    0.4514       
+     2 Maq2          -9999.00     30.45   9999.00    0.3045       
+ 
+ 
+Numero do incremento de carga:  12
+Carregamento do sistema =    60.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #13
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     48.24   9999.00    0.4825       
+     2 Maq2          -9999.00     33.21   9999.00    0.3321       
+ 
+ 
+Numero do incremento de carga:  13
+Carregamento do sistema =    65.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #14
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     51.58   9999.00    0.5158       
+     2 Maq2          -9999.00     36.17   9999.00    0.3618       
+ 
+ 
+Numero do incremento de carga:  14
+Carregamento do sistema =    70.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #15
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     55.15   9999.00    0.5516       
+     2 Maq2          -9999.00     39.36   9999.00    0.3936       
+ 
+ 
+Numero do incremento de carga:  15
+Carregamento do sistema =    75.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #16
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     59.00   9999.00    0.5900       
+     2 Maq2          -9999.00     42.79   9999.00    0.4279       
+ 
+ 
+Numero do incremento de carga:  16
+Carregamento do sistema =    80.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #17
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     63.13   9999.00    0.6313       
+     2 Maq2          -9999.00     46.49   9999.00    0.4649       
+ 
+ 
+Numero do incremento de carga:  17
+Carregamento do sistema =    85.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #18
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     67.57   9999.00    0.6758       
+     2 Maq2          -9999.00     50.49   9999.00    0.5050       
+ 
+ 
+Numero do incremento de carga:  18
+Carregamento do sistema =    90.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #19
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     72.37   9999.00    0.7237       
+     2 Maq2          -9999.00     54.84   9999.00    0.5485       
+ 
+ 
+Numero do incremento de carga:  19
+Carregamento do sistema =    95.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #20
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     77.56   9999.00    0.7757       
+     2 Maq2          -9999.00     59.59   9999.00    0.5960       
+ 
+ 
+Numero do incremento de carga:  20
+Carregamento do sistema =   100.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #21
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     83.20   9999.00    0.8321       
+     2 Maq2          -9999.00     64.81   9999.00    0.6482       
+ 
+ 
+Numero do incremento de carga:  21
+Carregamento do sistema =   105.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #22
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     89.38   9999.00    0.8939       
+     2 Maq2          -9999.00     70.61   9999.00    0.7061       
+ 
+ 
+Numero do incremento de carga:  22
+Carregamento do sistema =   110.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #23
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00     96.21   9999.00    0.9622       
+     2 Maq2          -9999.00     77.11   9999.00    0.7712       
+ 
+ 
+Numero do incremento de carga:  23
+Carregamento do sistema =   115.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #24
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    103.86   9999.00    1.0387       
+     2 Maq2          -9999.00     84.55   9999.00    0.8455       
+ 
+ 
+Numero do incremento de carga:  24
+Carregamento do sistema =   120.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #25
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    112.63   9999.00    1.1264       
+     2 Maq2          -9999.00     93.28   9999.00    0.9329       
+ 
+ 
+Numero do incremento de carga:  25
+Carregamento do sistema =   125.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #26
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    123.06   9999.00    1.2307       
+     2 Maq2          -9999.00    104.03   9999.00    1.0404       
+ 
+ 
+Numero do incremento de carga:  26
+Carregamento do sistema =   130.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #27
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    136.65   9999.00    1.3666       
+     2 Maq2          -9999.00    118.71   9999.00    1.1872       
+ 
+ 
+Numero do incremento de carga:  28
+Carregamento do sistema =   132.5000
+Arquivo Historico: CONT_001.SAV          
+Caso #28
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    146.25   9999.00    1.4626       
+     2 Maq2          -9999.00    129.65   9999.00    1.2967       
+ 
+ 
+Numero do incremento de carga:  30
+Carregamento do sistema =   133.7500
+Arquivo Historico: CONT_001.SAV          
+Caso #29
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    153.21   9999.00    1.5322       
+     2 Maq2          -9999.00    137.95   9999.00    1.3796       
+ 
+ 
+Numero do incremento de carga:  32
+Carregamento do sistema =   134.3750
+Arquivo Historico: CONT_001.SAV          
+Caso #30
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    158.63   9999.00    1.5865       
+     2 Maq2          -9999.00    144.65   9999.00    1.4467       
+ 
+ 
+Numero do incremento de carga:  34
+Carregamento do sistema =   134.6875
+Arquivo Historico: CONT_001.SAV          
+Caso #31
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    164.73   9999.00    1.6474       
+     2 Maq2          -9999.00    152.48   9999.00    1.5249       
+ 
+ 
+Numero do incremento de carga:  42
+Carregamento do sistema =   134.6875
+Arquivo Historico: CONT_001.SAV          
+Caso #32
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 Maq1          -9999.00    164.73   9999.00    1.6474       
+     2 Maq2          -9999.00    152.48   9999.00    1.5249       

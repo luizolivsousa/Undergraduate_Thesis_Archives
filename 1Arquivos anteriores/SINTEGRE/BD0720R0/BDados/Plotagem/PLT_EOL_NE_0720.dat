@@ -1,0 +1,494 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_EOL_NE_0720.dat                                                                       |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Plotagem de VOLT, PTFNT e QTFNT para todos os parques eólicos da região Nordeste          |
+( |                 *Para os parques modelados através do cartão DDFM, foi utilizado o fluxo nas linhas       |
+( |                  de conexão para plotar a geração de potência ativa e reativa                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P  (              Nome da Variável                )
+PTFNT  5901            10                                                                          PTFNT - VACREIIEOL09
+QTFNT  5901            10                                                                          QTFNT - VACREIIEOL09
+PTFNT  6042            10                                                                          PTFNT - ABMT-BEOL013
+QTFNT  6042            10                                                                          QTFNT - ABMT-BEOL013
+PTFNT  8080            10                                                                          PTFNT - ALVORAEOL024
+QTFNT  8080            10                                                                          QTFNT - ALVORAEOL024
+PTFNT  6057            10                                                                          PTFNT - AMAZONEOL031
+PTFNT  6642            10                                                                          PTFNT - AMAZONEOL033
+QTFNT  6057            10                                                                          QTFNT - AMAZONEOL031
+QTFNT  6642            10                                                                          QTFNT - AMAZONEOL033
+PTFNT  6675            10                                                                          PTFNT - ARA3A-EOL041
+QTFNT  6675            10                                                                          QTFNT - ARA3A-EOL041
+PTFNT  6674            10                                                                          PTFNT - ARA3B-EOL037
+QTFNT  6674            10                                                                          QTFNT - ARA3B-EOL037
+PTFNT  6672            10                                                                          PTFNT - ARA3C-EOL041
+QTFNT  6672            10                                                                          QTFNT - ARA3C-EOL041
+PTFNT  6673            10                                                                          PTFNT - ARA3D-EOL037
+QTFNT  6673            10                                                                          QTFNT - ARA3D-EOL037
+PTFNT  6379            10                                                                          PTFNT - ARACASEOL100
+QTFNT  6379            10                                                                          QTFNT - ARACASEOL100
+PTFNT  6165            10                                                                          PTFNT - ASABRAEOL060
+QTFNT  6165            10                                                                          QTFNT - ASABRAEOL060
+PTFNT  6638            10                                                                          PTFNT - AUGUSTEOL067
+QTFNT  6638            10                                                                          QTFNT - AUGUSTEOL067
+PTFNT  6644            10                                                                          PTFNT - AVENTUEOL000
+QTFNT  6644            10                                                                          QTFNT - AVENTUEOL000
+PTFNT  6109            10                                                                          PTFNT - BABIL1EOL039
+QTFNT  6109            10                                                                          QTFNT - BABIL1EOL039
+PTFNT  5048            10                                                                          PTFNT - BABIL2EOL026
+QTFNT  5048            10                                                                          QTFNT - BABIL2EOL026
+PTFNT  6310            10                                                                          PTFNT - BARAU1EOL014
+QTFNT  6310            10                                                                          QTFNT - BARAU1EOL014
+PTFNT  6742            10                                                                          PTFNT - BDF12-EOL030
+QTFNT  6742            10                                                                          QTFNT - BDF12-EOL030
+PTFNT  6129            10                                                                          PTFNT - BDF34-EOL030
+QTFNT  6129            10                                                                          QTFNT - BDF34-EOL030
+PTFNT  6629            10                                                                          PTFNT - BRIGB1EOL051
+QTFNT  6629            10                                                                          QTFNT - BRIGB1EOL051
+PTFNT  5124            10                                                                          PTFNT - BSULB1EOL021
+QTFNT  5124            10                                                                          QTFNT - BSULB1EOL021
+PTFNT  6114            10                                                                          PTFNT - BURITIEOL124
+QTFNT  6114            10                                                                          QTFNT - BURITIEOL124
+PTFNT  6144            10                                                                          PTFNT - BWG1B1EOL032
+QTFNT  6144            10                                                                          QTFNT - BWG1B1EOL032
+PTFNT  5985            10                                                                          PTFNT - BWG2B1EOL028
+QTFNT  5985            10                                                                          QTFNT - BWG2B1EOL028
+PTFNT  6052            10                                                                          PTFNT - CABPRAEOL035
+QTFNT  6052            10                                                                          QTFNT - CABPRAEOL035
+PTFNT  5127            10                                                                          PTFNT - CABPRBEOL035
+QTFNT  5127            10                                                                          QTFNT - CABPRBEOL035
+PTFNT  6550            10                                                                          PTFNT - CACIA-EOL024
+QTFNT  6550            10                                                                          QTFNT - CACIA-EOL024
+PTFNT  6618            10                                                                          PTFNT - CACIMBEOL017
+QTFNT  6618            10                                                                          QTFNT - CACIMBEOL017
+PTFNT  6266            10                                                                          PTFNT - CAEABCEOL032
+QTFNT  6266            10                                                                          QTFNT - CAEABCEOL032
+PTFNT  5067            10                                                                          PTFNT - CAETB1EOL018
+QTFNT  5067            10                                                                          QTFNT - CAETB1EOL018
+PTFNT  6065            10                                                                          PTFNT - CALAN3EOL042
+QTFNT  6065            10                                                                          QTFNT - CALAN3EOL042
+PTFNT  6653            10                                                                          PTFNT - CARCAREOL030
+QTFNT  6653            10                                                                          QTFNT - CARCAREOL030
+PTFNT  6105            10                                                                          PTFNT - CARNAUEOL036
+QTFNT  6105            10                                                                          QTFNT - CARNAUEOL036
+PTFNT  5320            10                                                                          PTFNT - CATAVEEOL014
+QTFNT  5320            10                                                                          QTFNT - CATAVEEOL014
+PTFNT  6135            10                                                                          PTFNT - CDVENTEOL024
+QTFNT  6135            10                                                                          QTFNT - CDVENTEOL024
+PTFNT  6229            10                                                                          PTFNT - CFORM1EOL045
+QTFNT  6229            10                                                                          QTFNT - CFORM1EOL045
+PTFNT  6637            10                                                                          PTFNT - CFORM2EOL045
+QTFNT  6637            10                                                                          QTFNT - CFORM2EOL045
+PTFNT  6630            10                                                                          PTFNT - CHAP1AEOL060
+QTFNT  6630            10                                                                          QTFNT - CHAP1AEOL060
+PTFNT  5600            10                                                                          PTFNT - CHAP1BEOL045
+QTFNT  5600            10                                                                          QTFNT - CHAP1BEOL045
+PTFNT  5622            10                                                                          PTFNT - CHAP3BEOL065
+QTFNT  5622            10                                                                          QTFNT - CHAP3BEOL065
+PTFNT  6020            10                                                                          PTFNT - CLEMNTEOL-60
+PTFNT  6014            10                                                                          PTFNT - CLEMNTEOL-66
+QTFNT  6020            10                                                                          QTFNT - CLEMNTEOL-60
+QTFNT  6014            10                                                                          QTFNT - CLEMNTEOL-66
+PTFNT  5744            10                                                                          PTFNT - CNOVA-EOL026
+QTFNT  5744            10                                                                          QTFNT - CNOVA-EOL026
+PTFNT  6648            10                                                                          PTFNT - CP21.7EOL051
+QTFNT  6648            10                                                                          QTFNT - CP21.7EOL051
+PTFNT  6647            10                                                                          PTFNT - CP21.8EOL064
+QTFNT  6647            10                                                                          QTFNT - CP21.8EOL064
+PTFNT  6292            10                                                                          PTFNT - CRISTAEOL020
+QTFNT  6292            10                                                                          QTFNT - CRISTAEOL020
+PTFNT  5294            10                                                                          PTFNT - CRLANDEOL045
+QTFNT  5294            10                                                                          QTFNT - CRLANDEOL045
+PTFNT  5044            10                                                                          PTFNT - CUTIAAEOL047
+QTFNT  5044            10                                                                          QTFNT - CUTIAAEOL047
+PTFNT  5078            10                                                                          PTFNT - CUTIABEOL050
+QTFNT  5078            10                                                                          QTFNT - CUTIABEOL050
+PTFNT  5126            10                                                                          PTFNT - CUTIACEOL052
+QTFNT  5126            10                                                                          QTFNT - CUTIACEOL052
+PTFNT  6166            10                                                                          PTFNT - CVENT1EOL027
+PTFNT  6166            20                                                                          PTFNT - CVENT1EOL027
+PTFNT  6166            30                                                                          PTFNT - CVENT1EOL027
+PTFNT  6166            40                                                                          PTFNT - CVENT1EOL027
+QTFNT  6166            10                                                                          QTFNT - CVENT1EOL027
+QTFNT  6166            20                                                                          QTFNT - CVENT1EOL027
+QTFNT  6166            30                                                                          QTFNT - CVENT1EOL027
+QTFNT  6166            40                                                                          QTFNT - CVENT1EOL027
+PTFNT  6232            10                                                                          PTFNT - DELFI1EOL052
+QTFNT  6232            10                                                                          QTFNT - DELFI1EOL052
+PTFNT  6719            10                                                                          PTFNT - DELFI2EOL052
+QTFNT  6719            10                                                                          QTFNT - DELFI2EOL052
+PTFNT  6711            10                                                                          PTFNT - DELT3AEOL024
+QTFNT  6711            10                                                                          QTFNT - DELT3AEOL024
+PTFNT  8013            10                                                                          PTFNT - DELT3BEOL036
+QTFNT  8013            10                                                                          QTFNT - DELT3BEOL036
+PTFNT  8014            10                                                                          PTFNT - DELT3CEOL036
+QTFNT  8014            10                                                                          QTFNT - DELT3CEOL036
+PTFNT  8015            10                                                                          PTFNT - DELTA5EOL010
+QTFNT  8015            10                                                                          QTFNT - DELTA5EOL010
+PTFNT  5899            10                                                                          PTFNT - DLT5-6EOL030
+QTFNT  5899            10                                                                          QTFNT - DLT5-6EOL030
+PTFNT  8312            10                                                                          PTFNT - DLT7-8EOL036
+QTFNT  8312            10                                                                          QTFNT - DLT7-8EOL036
+PTFNT  6209            10                                                                          PTFNT - DRIDAMEOL030
+QTFNT  6209            10                                                                          QTFNT - DRIDAMEOL030
+PTFNT  6136            10                                                                          PTFNT - EUR1.5EOL008
+QTFNT  6136            10                                                                          QTFNT - EUR1.5EOL008
+PTFNT  6781            10                                                                          PTFNT - FAISAAEOL040
+QTFNT  6781            10                                                                          QTFNT - FAISAAEOL040
+PTFNT  6782            10                                                                          PTFNT - FAISABEOL038
+QTFNT  6782            10                                                                          QTFNT - FAISABEOL038
+PTFNT  6731            10                                                                          PTFNT - G.OUR1EOL060
+PTFNT  6732            10                                                                          PTFNT - G.OUR1EOL022
+PTFNT  6244            10                                                                          PTFNT - G.OUR1EOL049
+QTFNT  6731            10                                                                          QTFNT - G.OUR1EOL060
+QTFNT  6732            10                                                                          QTFNT - G.OUR1EOL022
+QTFNT  6244            10                                                                          QTFNT - G.OUR1EOL049
+PTFNT  8701            10                                                                          PTFNT - GARGA-EOL000
+QTFNT  8701            10                                                                          QTFNT - GARGA-EOL000
+PTFNT  6624            10                                                                          PTFNT - GPEXPAEOL028
+PTFNT  6626            10                                                                          PTFNT - GPEXPAEOL027
+QTFNT  6624            10                                                                          QTFNT - GPEXPAEOL028
+QTFNT  6626            10                                                                          QTFNT - GPEXPAEOL027
+PTFNT  8077            10                                                                          PTFNT - GUIRAPEOL033
+QTFNT  8077            10                                                                          QTFNT - GUIRAPEOL033
+PTFNT  6768            10                                                                          PTFNT - ICARAIEOL031
+QTFNT  6768            10                                                                          QTFNT - ICARAIEOL031
+PTFNT  6659            10                                                                          PTFNT - INACI-EOL000
+QTFNT  6659            10                                                                          QTFNT - INACI-EOL000
+PTFNT  6636            10                                                                          PTFNT - ITAREMEOL000
+PTFNT  6066            10                                                                          PTFNT - ITAREMEOL032
+QTFNT  6636            10                                                                          QTFNT - ITAREMEOL000
+QTFNT  6066            10                                                                          QTFNT - ITAREMEOL032
+PTFNT  8099            10                                                                          PTFNT - LANCHIEOL014
+QTFNT  8099            10                                                                          QTFNT - LANCHIEOL014
+PTFNT  6072            10                                                                          PTFNT - LARANJEOL020
+QTFNT  6072            10                                                                          QTFNT - LARANJEOL020
+PTFNT  5322            10                                                                          PTFNT - LBARR1EOL029
+QTFNT  5322            10                                                                          QTFNT - LBARR1EOL029
+PTFNT  5040            10                                                                          PTFNT - LBARR2EOL036
+QTFNT  5040            10                                                                          QTFNT - LBARR2EOL036
+PTFNT  8074            10                                                                          PTFNT - LICALMEOL046
+QTFNT  8074            10                                                                          QTFNT - LICALMEOL046
+PTFNT  6167            10                                                                          PTFNT - MACAC1EOL016
+QTFNT  6167            10                                                                          QTFNT - MACAC1EOL016
+PTFNT  8113            10                                                                          PTFNT - MACAM2EOL009
+QTFNT  8113            10                                                                          QTFNT - MACAM2EOL009
+PTFNT  8098            10                                                                          PTFNT - MACAMBEOL009
+QTFNT  8098            10                                                                          QTFNT - MACAMBEOL009
+PTFNT  6016            10                                                                          PTFNT - MALHADEOL011
+QTFNT  6016            10                                                                          QTFNT - MALHADEOL011
+PTFNT  6242            10                                                                          PTFNT - MANESPEOL029
+QTFNT  6242            10                                                                          QTFNT - MANESPEOL029
+PTFNT  6074            10                                                                          PTFNT - MCSUL1EOL043
+QTFNT  6074            10                                                                          QTFNT - MCSUL1EOL043
+PTFNT  6741            10                                                                          PTFNT - MCSUL2EOL043
+QTFNT  6741            10                                                                          QTFNT - MCSUL2EOL043
+PTFNT  6215            10                                                                          PTFNT - MODELOEOL024
+QTFNT  6215            10                                                                          QTFNT - MODELOEOL024
+PTFNT  6030            10                                                                          PTFNT - MSECO1EOL013
+QTFNT  6030            10                                                                          QTFNT - MSECO1EOL013
+PTFNT  6127            10                                                                          PTFNT - MVENT2EOL048
+QTFNT  6127            10                                                                          QTFNT - MVENT2EOL048
+PTFNT  6160            10                                                                          PTFNT - MVENTOEOL091
+QTFNT  6160            10                                                                          QTFNT - MVENTOEOL091
+PTFNT  8071            10                                                                          PTFNT - NSCONCEOL048
+QTFNT  8071            10                                                                          QTFNT - NSCONCEOL048
+PTFNT  6775            10                                                                          PTFNT - ODAGUAEOL047
+QTFNT  6775            10                                                                          QTFNT - ODAGUAEOL047
+PTFNT  5472            10                                                                          PTFNT - P.MORGEOL019
+QTFNT  5472            10                                                                          QTFNT - P.MORGEOL019
+PTFNT  6693            10                                                                          PTFNT - PCHEIREOL023
+QTFNT  6693            10                                                                          QTFNT - PCHEIREOL023
+PTFNT  6304            10                                                                          PTFNT - PEDBR1EOL040
+QTFNT  6304            10                                                                          QTFNT - PEDBR1EOL040
+PTFNT  6308            10                                                                          PTFNT - PEDBR2EOL053
+QTFNT  6308            10                                                                          QTFNT - PEDBR2EOL053
+PTFNT  8114            10                                                                          PTFNT - PEDRAJEOL020
+QTFNT  8114            10                                                                          QTFNT - PEDRAJEOL020
+PTFNT  6227            10                                                                          PTFNT - PELOUREOL025
+QTFNT  6227            10                                                                          QTFNT - PELOUREOL025
+PTFNT  6106            10                                                                          PTFNT - PITOMBEOL047
+QTFNT  6106            10                                                                          QTFNT - PITOMBEOL047
+PTFNT  6387            10                                                                          PTFNT - PLANALEOL033
+QTFNT  6387            10                                                                          QTFNT - PLANALEOL033
+PTFNT  6164            10                                                                          PTFNT - RENASCEOL075
+QTFNT  6164            10                                                                          QTFNT - RENASCEOL075
+PTFNT  6382            10                                                                          PTFNT - RENOV2EOL070
+QTFNT  6382            10                                                                          QTFNT - RENOV2EOL070
+PTFNT  6763            10                                                                          PTFNT - RNASCVEOL015
+QTFNT  6763            10                                                                          QTFNT - RNASCVEOL015
+PTFNT  6051            10                                                                          PTFNT - S.ROS1EOL045
+QTFNT  6051            10                                                                          QTFNT - S.ROS1EOL045
+PTFNT  6320            10                                                                          PTFNT - SBABILEOL047
+PTFNT  6785            10                                                                          PTFNT - SBABILEOL048
+QTFNT  6320            10                                                                          QTFNT - SBABILEOL047
+QTFNT  6785            10                                                                          QTFNT - SBABILEOL048
+PTFNT  6145            10                                                                          PTFNT - SCLAR1EOL030
+QTFNT  6145            10                                                                          QTFNT - SCLAR1EOL030
+PTFNT  6108            10                                                                          PTFNT - SS3PELEOL025
+QTFNT  6108            10                                                                          QTFNT - SS3PELEOL025
+PTFNT  5079            10                                                                          PTFNT - SSAN12EOL025
+QTFNT  5079            10                                                                          QTFNT - SSAN12EOL025
+PTFNT  6634            10                                                                          PTFNT - SVACASEOL043
+PTFNT  5729            10                                                                          PTFNT - SVACASEOL022
+PTFNT  6654            10                                                                          PTFNT - SVACASEOL010
+QTFNT  6634            10                                                                          QTFNT - SVACASEOL043
+QTFNT  5729            10                                                                          QTFNT - SVACASEOL022
+QTFNT  6654            10                                                                          QTFNT - SVACASEOL010
+PTFNT  6678            10                                                                          PTFNT - TACARAEOL034
+QTFNT  6678            10                                                                          QTFNT - TACARAEOL034
+PTFNT  6777            10                                                                          PTFNT - TAIBA-EOL027
+QTFNT  6777            10                                                                          QTFNT - TAIBA-EOL027
+PTFNT  6386            10                                                                          PTFNT - TRAIT1EOL026
+QTFNT  6386            10                                                                          QTFNT - TRAIT1EOL026
+PTFNT  8085            10                                                                          PTFNT - UBN-B2EOL047
+QTFNT  8085            10                                                                          QTFNT - UBN-B2EOL047
+PTFNT  8086            10                                                                          PTFNT - UBN-B3EOL050
+QTFNT  8086            10                                                                          QTFNT - UBN-B3EOL050
+PTFNT  6068            10                                                                          PTFNT - UMBUR1EOL000
+QTFNT  6068            10                                                                          QTFNT - UMBUR1EOL000
+PTFNT  6213            10                                                                          PTFNT - UVENT1EOL025
+QTFNT  6213            10                                                                          QTFNT - UVENT1EOL025
+PTFNT  6214            10                                                                          PTFNT - UVENT2EOL081
+PTFNT  6619            10                                                                          PTFNT - UVENT2EOL000
+QTFNT  6214            10                                                                          QTFNT - UVENT2EOL081
+QTFNT  6619            10                                                                          QTFNT - UVENT2EOL000
+PTFNT  8309            10                                                                          PTFNT - UVENT-EOL023
+QTFNT  8309            10                                                                          QTFNT - UVENT-EOL023
+PTFNT  6688            10                                                                          PTFNT - VACREIEOL013
+QTFNT  6688            10                                                                          QTFNT - VACREIEOL013
+PTFNT  6372            10                                                                          PTFNT - VBAHI2EOL053
+QTFNT  6372            10                                                                          QTFNT - VBAHI2EOL053
+PTFNT  6714            10                                                                          PTFNT - VBAHIAEOL022
+QTFNT  6714            10                                                                          QTFNT - VBAHIAEOL022
+PTFNT  6708            10                                                                          PTFNT - VSVB1-EOL042
+QTFNT  6708            10                                                                          QTFNT - VSVB1-EOL042
+PTFNT  6709            10                                                                          PTFNT - VSVB2-EOL056
+QTFNT  6709            10                                                                          QTFNT - VSVB2-EOL056
+PTFNT  5433            10                                                                          PTFNT - RUSSAS-CE069
+QTFNT  5433            10                                                                          QTFNT - RUSSAS-CE069
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P  (                                                              Nome da Variável                )
+(
+VOLT   5433                                                                                        VOLT - RUSSAS-CE069
+VOLT   6708                                                                                        VOLT - VSVB1-EOL042
+VOLT   6709                                                                                        VOLT - VSVB2-EOL056
+VOLT   5672                                                                                        VOLT - VERONIEOL033
+VOLT   6372                                                                                        VOLT - VBAHI2EOL053
+VOLT   6714                                                                                        VOLT - VBAHIAEOL022
+VOLT   6688                                                                                        VOLT - VACREIEOL013
+VOLT   8309                                                                                        VOLT - UVENT-EOL023
+VOLT   6213                                                                                        VOLT - UVENT1EOL025
+VOLT   6214                                                                                        VOLT - UVENT2EOL081
+VOLT   6619                                                                                        VOLT - UVENT2EOL000
+VOLT   6068                                                                                        VOLT - UMBUR1EOL000
+VOLT   8085                                                                                        VOLT - UBN-B2EOL047
+VOLT   8086                                                                                        VOLT - UBN-B3EOL050
+VOLT   6386                                                                                        VOLT - TRAIT1EOL026
+VOLT   5612                                                                                        VOLT - TRAIT3EOL036
+VOLT   6777                                                                                        VOLT - TAIBA-EOL027
+VOLT   6678                                                                                        VOLT - TACARAEOL034
+VOLT   5729                                                                                        VOLT - SVACASEOL022
+VOLT   6634                                                                                        VOLT - SVACASEOL043
+VOLT   6654                                                                                        VOLT - SVACASEOL010
+VOLT   5079                                                                                        VOLT - SSAN12EOL025
+VOLT   6108                                                                                        VOLT - SS3PELEOL025
+VOLT   6145                                                                                        VOLT - SCLAR1EOL030
+VOLT   6320                                                                                        VOLT - SBABILEOL047
+VOLT   6785                                                                                        VOLT - SBABILEOL048
+VOLT   6051                                                                                        VOLT - S.ROS1EOL045
+VOLT   6763                                                                                        VOLT - RNASCVEOL015
+VOLT   6150                                                                                        VOLT - RIACHAEOL054
+VOLT   6164                                                                                        VOLT - RENASCEOL075
+VOLT   6382                                                                                        VOLT - RENOV2EOL070
+VOLT   6387                                                                                        VOLT - PLANALEOL033
+VOLT   6106                                                                                        VOLT - PITOMBEOL047
+VOLT   6227                                                                                        VOLT - PELOUREOL025
+VOLT   6304                                                                                        VOLT - PEDBR1EOL040
+VOLT   6308                                                                                        VOLT - PEDBR2EOL053
+VOLT   8114                                                                                        VOLT - PEDRAJEOL020
+VOLT   6693                                                                                        VOLT - PCHEIREOL023
+VOLT   5472                                                                                        VOLT - P.MORGEOL019
+VOLT   6775                                                                                        VOLT - ODAGUAEOL047
+VOLT   8071                                                                                        VOLT - NSCONCEOL048
+VOLT   6127                                                                                        VOLT - MVENT2EOL048
+VOLT   6160                                                                                        VOLT - MVENTOEOL091
+VOLT   6030                                                                                        VOLT - MSECO1EOL013
+VOLT   6215                                                                                        VOLT - MODELOEOL024
+VOLT   6074                                                                                        VOLT - MCSUL1EOL043
+VOLT   6741                                                                                        VOLT - MCSUL2EOL043
+VOLT   6242                                                                                        VOLT - MANESPEOL029
+VOLT   6016                                                                                        VOLT - MALHADEOL011
+VOLT   6167                                                                                        VOLT - MACAC1EOL016
+VOLT   8113                                                                                        VOLT - MACAM2EOL009
+VOLT   8098                                                                                        VOLT - MACAMBEOL009
+VOLT   8074                                                                                        VOLT - LICALMEOL046
+VOLT   5322                                                                                        VOLT - LBARR1EOL029
+VOLT   5040                                                                                        VOLT - LBARR2EOL036
+VOLT   6072                                                                                        VOLT - LARANJEOL020
+VOLT   8099                                                                                        VOLT - LANCHIEOL014
+VOLT   6066                                                                                        VOLT - ITAREMEOL032
+VOLT   6636                                                                                        VOLT - ITAREMEOL000
+VOLT   6659                                                                                        VOLT - INACI-EOL000
+VOLT   6768                                                                                        VOLT - ICARAIEOL031
+VOLT   8077                                                                                        VOLT - GUIRAPEOL033
+VOLT   6624                                                                                        VOLT - GPEXPAEOL028
+VOLT   6626                                                                                        VOLT - GPEXPAEOL027
+VOLT   8701                                                                                        VOLT - GARGA-EOL000
+VOLT   6244                                                                                        VOLT - G.OUR1EOL049
+VOLT   6731                                                                                        VOLT - G.OUR1EOL060
+VOLT   6732                                                                                        VOLT - G.OUR1EOL022
+VOLT   6781                                                                                        VOLT - FAISAAEOL040
+VOLT   6782                                                                                        VOLT - FAISABEOL038
+VOLT   6136                                                                                        VOLT - EUR1.5EOL008
+VOLT   6019                                                                                        VOLT - EDWIGEEOL044
+VOLT   6209                                                                                        VOLT - DRIDAMEOL030
+VOLT   5899                                                                                        VOLT - DLT5-6EOL030
+VOLT   8312                                                                                        VOLT - DLT7-8EOL036
+VOLT   6232                                                                                        VOLT - DELFI1EOL052
+VOLT   6719                                                                                        VOLT - DELFI2EOL052
+VOLT   6711                                                                                        VOLT - DELT3AEOL024
+VOLT   8013                                                                                        VOLT - DELT3BEOL036
+VOLT   8014                                                                                        VOLT - DELT3CEOL036
+VOLT   8015                                                                                        VOLT - DELTA5EOL010
+VOLT   6166                                                                                        VOLT - CVENT1EOL027
+VOLT   6166                                                                                        VOLT - CVENT1EOL027
+VOLT   6166                                                                                        VOLT - CVENT1EOL027
+VOLT   6166                                                                                        VOLT - CVENT1EOL027
+VOLT   5044                                                                                        VOLT - CUTIAAEOL047
+VOLT   5078                                                                                        VOLT - CUTIABEOL050
+VOLT   5126                                                                                        VOLT - CUTIACEOL052
+VOLT   5294                                                                                        VOLT - CRLANDEOL045
+VOLT   6292                                                                                        VOLT - CRISTAEOL020
+VOLT   6648                                                                                        VOLT - CP21.7EOL051
+VOLT   6647                                                                                        VOLT - CP21.8EOL064
+VOLT   5744                                                                                        VOLT - CNOVA-EOL026
+VOLT   6014                                                                                        VOLT - CLEMNTEOL-66
+VOLT   6020                                                                                        VOLT - CLEMNTEOL-60
+VOLT   6073                                                                                        VOLT - CLARG1EOL066
+VOLT   6756                                                                                        VOLT - CLARG2EOL055
+VOLT   6630                                                                                        VOLT - CHAP1AEOL060
+VOLT   5600                                                                                        VOLT - CHAP1BEOL045
+VOLT   5622                                                                                        VOLT - CHAP3BEOL065
+VOLT   6229                                                                                        VOLT - CFORM1EOL045
+VOLT   6637                                                                                        VOLT - CFORM2EOL045
+VOLT   6135                                                                                        VOLT - CDVENTEOL024
+VOLT   5320                                                                                        VOLT - CATAVEEOL014
+VOLT   6653                                                                                        VOLT - CARCAREOL030
+VOLT   6105                                                                                        VOLT - CARNAUEOL036
+VOLT   6065                                                                                        VOLT - CALAN3EOL042
+VOLT   6266                                                                                        VOLT - CAEABCEOL032
+VOLT   5067                                                                                        VOLT - CAETB1EOL018
+VOLT   6550                                                                                        VOLT - CACIA-EOL024
+VOLT   6618                                                                                        VOLT - CACIMBEOL017
+VOLT   6052                                                                                        VOLT - CABPRAEOL035
+VOLT   5127                                                                                        VOLT - CABPRBEOL035
+VOLT   6144                                                                                        VOLT - BWG1B1EOL032
+VOLT   5985                                                                                        VOLT - BWG2B1EOL028
+VOLT   6114                                                                                        VOLT - BURITIEOL124
+VOLT   5124                                                                                        VOLT - BSULB1EOL021
+VOLT   6629                                                                                        VOLT - BRIGB1EOL051
+VOLT   6776                                                                                        VOLT - BPOTB1EOL020
+VOLT   6742                                                                                        VOLT - BDF12-EOL030
+VOLT   6129                                                                                        VOLT - BDF34-EOL030
+VOLT   6793                                                                                        VOLT - BCIGRIEOL028
+VOLT   6310                                                                                        VOLT - BARAU1EOL014
+VOLT   6109                                                                                        VOLT - BABIL1EOL039
+VOLT   5048                                                                                        VOLT - BABIL2EOL026
+VOLT   6644                                                                                        VOLT - AVENTUEOL000
+VOLT   6638                                                                                        VOLT - AUGUSTEOL067
+VOLT   6165                                                                                        VOLT - ASABRAEOL060
+VOLT   6675                                                                                        VOLT - ARA3A-EOL041
+VOLT   6674                                                                                        VOLT - ARA3B-EOL037
+VOLT   6672                                                                                        VOLT - ARA3C-EOL041
+VOLT   6673                                                                                        VOLT - ARA3D-EOL037
+VOLT   6379                                                                                        VOLT - ARACASEOL100
+VOLT   6057                                                                                        VOLT - AMAZONEOL031
+VOLT   6642                                                                                        VOLT - AMAZONEOL033
+VOLT   8080                                                                                        VOLT - ALVORAEOL024
+VOLT   6042                                                                                        VOLT - ABMT-BEOL013
+( Potência ativa dos parques
+(
+( Conj. Icaraí
+FLXA     6793  6792  1
+( Conj. Riachão
+FLXA     6150  6149  1
+( Conj. São Basílio
+FLXA     6019  5632  1
+FLXA     5672  5670  1
+FLXA     5298  6018  1
+( Conj. Brisa Potiguar
+FLXA     6776  5169  1
+( Conj. Trairi
+FLXA     5612  6779  1
+( Conj. Campo Largo
+FLXA     6073  6757  1
+FLXA     6756  6758  1
+(
+(( Conj. Brotas de Macaúbas
+(FLXA     6370  6336  1
+(( EOL Rei dos Ventos I
+(FLXA     6035  6033  1
+(( EOL Rei dos Ventos III
+(FLXA     6036  6034  1
+(( EOL Miassaba 3
+(FLXA     6031  5477  1
+(( EOL Praia Formosa
+(FLXA     6037  5448  1
+(( EOL Icaraizinho
+(FLXA     6038  5536  1
+(( Conj. Aracati II
+(FLXA     5439  5438  1
+(( Conj. Areia Branca
+(FLXA     6043  6041  1
+(
+( Potência reativa dos parques
+(
+( Conj. Icaraí
+FLXR     6793  6792  1
+( Conj. Riachão
+FLXR     6150  6149  1
+( Conj. São Basílio
+FLXR     6019  5632  1
+FLXR     5672  5670  1
+FLXR     5298  6018  1
+( Conj. Brisa Potiguar
+FLXR     6776  5169  1
+( Conj. Trairi
+FLXR     5612  6779  1
+( Conj. Campo Largo
+FLXR     6073  6757  1
+FLXR     6756  6758  1
+(
+(( Conj. Brotas de Macaúbas
+(FLXR     6370  6336  1
+(( EOL Rei dos Ventos I
+(FLXR     6035  6033  1
+(( EOL Rei dos Ventos III
+(FLXR     6036  6034  1
+(( EOL Miassaba 3
+(FLXR     6031  5477  1
+(( EOL Praia Formosa
+(FLXR     6037  5448  1
+(( EOL Icaraizinho
+(FLXR     6038  5536  1
+(( Conj. Aracati II
+(FLXR     5439  5438  1
+(( Conj. Areia Branca
+(FLXR     6043  6041  1
+(
+(
+999999
+(
+FIM

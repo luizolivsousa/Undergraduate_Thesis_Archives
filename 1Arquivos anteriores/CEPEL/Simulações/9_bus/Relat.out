@@ -1,0 +1,21 @@
+Relatorio de Curvas PxV - Fluxo de Potencia Continuado
+Sistema :                                                                                 
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =     0.0138
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+     9 bus9-load5       1.461     0.000
+     7 bus7-load3       1.476     0.000
+     4 bus4             1.518     0.000
+     2 bus2             1.559     0.000
+     6 bus6-load2       1.497     0.000
+     5 bus5-load1       1.446     0.000
+     8 bus8-load4       1.467     0.000
+     3 bus3             1.460     0.000
+     1 bus1             1.470     0.000

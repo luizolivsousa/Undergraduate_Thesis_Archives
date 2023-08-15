@@ -1,0 +1,20 @@
+TITU
+Caso Sistema Teste 5 Barras                                                     
+DBAR
+(Num)OETGb(   nome   )Gl( V)( A)( Pg)( Qg)( Qn)( Qm)(Bc  )( Pl)( Ql)( Sh)Are(Vf)
+    1 L2  Maq1          1017  0.  30.6.522-99999999.    30                 11000 
+    2 L1  Maq2          10253.66  90.19.56-99999999.    30                 11000 
+   10 L   Barra_Term_1  1006-3.4                                           11000 
+   20 L   Barra_Term_2  1014 .18                                           11000 
+   30 L   Barra_PQ      1000-9.5                           120.   0.       11000 
+99999
+DLIN
+(De )d O d(Pa )NcEP ( R% )( X% )(Mvar)(Tap)(Tmn)(Tmx)(Phs)(Bc  )(Cn)(Ce)Ns
+    1        10 1       .1   20.                                          
+    2        20 1       .1    7.                                          
+   10        20 1       .1   14.       1.02                               
+   10        20 2       .1   14.         .9                               
+   10        30 1       .1   18.                                          
+   10        30 2       .1   18.                                          
+99999
+FIM

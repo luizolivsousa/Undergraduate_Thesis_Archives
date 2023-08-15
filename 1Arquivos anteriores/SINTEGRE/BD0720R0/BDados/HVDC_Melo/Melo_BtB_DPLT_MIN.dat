@@ -1,0 +1,137 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_DPLT_MIN.dat                                                                     |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( BASE DE DADOS PARA PLOTAGEM DA C.F.MELO
+(
+DPLT IMPR IERR
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+(
+( BARRAS CA
+(
+VOLT     9787                                     Tensão 525 kV Melo-BR - pu
+VOLT    90018                                     Tensão 500 kV Melo-UR - pu
+(
+( CONVERSOR BRASIL
+(
+PCNV     4201                                     Potência ativa CC - MW
+CCNV     4201                                     Corrente CC       - pu
+VCNV     4201                                     Tensão   CC       - pu
+ALFA     4201                                     Ângulo disparo      - graus (RET)
+COMU     4201                                     Ângulo de comutação - graus
+GAMA     4201                                     Ângulo de extinção  - graus (INV)
+(
+( CONVERSOR URUGUAI
+(
+PCNV     4202                                     Potência ativa CC - MW
+CCNV     4202                                     Corrente CC       - pu
+VCNV     4202                                     Tensão   CC       - pu
+ALFA     4202                                     Ângulo disparo      - graus (RET)
+COMU     4202                                     Ângulo de comutação - graus
+GAMA     4202                                     Ângulo de extinção  - graus (INV)
+(
+( CONTROLE DE POTÊNCIA - VSC / RUN-BACK / RPC POWER LIMIT / SELEÇÃO MODO DE CONTROLE P/I
+(
+CDU      9335                            0710     PMAX - RPC      - pu (base 508 MW)
+CDU      9335                            3060     Run-back        - pu (base 508 MW)
+CDU      9335                            0187     VSC             - pu (base 508 MW)
+(
+( CONTROLE DE DISPARO - BRASIL - VDCOL / LOOPS / PLO / POWER TRIM
+(
+CDU      9091                             180     VDCOL                     - IOLTDR
+CDU      9091                             215     DC Current LOOP 1         - ERR1
+CDU      9091                             485     GAMMA - LOOP 3            - ERR3
+CDU      9091                             605     AC VOLTAGE - LOOP 4       - ERR4
+CDU      9091                             655     ALPHA MAX - LOOP 5        - ERR5
+CDU      9091                             745     GAMMA OTHER SIDE - LOOP 6 - ERR6
+CDU      9091                             845     DC VOLTAGE - LOOP 7       - ERR7
+CDU      9091                             905     ALPHA MIN - LOOP 8        - ERR8
+CDU      9091                             940     LOOP SELECTION AND PLO    - RINTIN
+CDU      9091                             960     LOOP SELECTION AND PLO    - ERR_R
+CDU      9091                             964     LOOP SELECTION AND PLO    - ALFAR (rd)
+CDU      9091                            1260     LOOP SELECTION AND PLO    - LICr
+(
+( CONTROLE DE DISPARO - URUGUAI - VDCOL / LOOPS / PLO / POWER TRIM
+(
+CDU      9092                            2080     VDCOL                     - IOLTDI
+CDU      9092                            2120     DC Current LOOP 1         - ERR1
+CDU      9092                            2180     DC VOLTAGE - LOOP 2       - ERR2
+CDU      9092                            2560     GAMMA - LOOP 3            - ERR3
+CDU      9092                            2650     AC VOLTAGE - LOOP 4       - ERR4
+CDU      9092                            3030     ALPHA MAX - LOOP 5        - ERR6
+CDU      9092                            3250     DC VOLTAGE - LOOP 7       - ERR7
+CDU      9092                            3320     ALPHA MIN - LOOP 8        - ERR8
+CDU      9092                            3350     LOOP SELECTION AND PLO    - IINTIN
+CDU      9092                            3360     LOOP SELECTION AND PLO    - ERR_I
+CDU      9092                            3400     LOOP SELECTION AND PLO    - ALFAI
+CDU      9092                            3630     LOOP SELECTION AND PLO    - LICi
+(
+( TAP-CHANGER CONTROL - URUGUAI
+(
+CDU      9094                            0137     TAP em curso (0 ou 1)
+CDU      9094                            0190     TAP    - pu
+CDU      9094                            0200     TAPAUT - pu
+(
+( TAP-CHANGER CONTROL - BRASIL
+(
+CDU      9093                            0137     TAP em curso
+CDU      9093                            0190     TAP    - pu
+CDU      9093                            0200     TAPAUT - pu
+(
+( OLRP / TOV - URUGUAI - OLRPC / TOV - RFR - RPC POWER LIMIT
+(
+CDU      9395                            0010     NFILT
+CDU      9395                            0020     REATOR
+CDU      9395                            0940     NFREQ - OLRPC
+CDU      9395                            1270     MNOL  - OLRPC
+CDU      9395                            1430     MXOL  - OLRPV
+CDU      9395                            1650     PLIMU - RPC
+(
+( OLRP / TOV - BRASIL - OLRPC / TOV - RFR - RPC POWER LIMIT
+(
+CDU      9396                            0010     NFILT
+CDU      9396                            0025     FCAND
+CDU      9396                            0940     NFREQ - OLRPC
+CDU      9396                            1270     MNOL  - OLRPC
+CDU      9396                            1430     MXOL  - OLRPV
+CDU      9396                            1650     PLIMB - RPC
+(
+( RPC - RPEM / ACVCM
+(
+CDU      9920                            0130     VWVFB  - pu
+CDU      9920                            0140     VWVMXB - pu
+CDU      9920                            0150     VWVMNB - pu
+CDU      9920                            0090     VWVFU  - pu
+CDU      9920                            0160     VWVMXU - pu
+CDU      9920                            0170     VWVMNU - pu
+CDU      9920                            0310     QexchU - pu
+CDU      9920                            0380     QexmxU - pu
+CDU      9920                            0390     QexmnU - pu
+CDU      9920                            0360     QexchB - pu
+CDU      9920                            0400     QexmxB - pu
+CDU      9920                            0410     QexmnB - pu
+CDU      9920                            0840     VDMAX  - pu
+CDU      9920                            0850     VDMIV  - pu
+CDU      9920                            0890     VDORD  - pu
+CDU      9920                            3130     RT_12 - RPC
+CDU      9920                            4010     DVORD - OLRPC - pu
+999999
+(
+FIM

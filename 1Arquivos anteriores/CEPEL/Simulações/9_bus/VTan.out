@@ -1,0 +1,21 @@
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =     0.0138
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+Parametro de Continuacao: Carregamento do Sistema
+Inverso da norma do vetor tangente:    2000.    
+X------------------X-----------------------X
+      Barra               Vetor Tangente    
+ Num.      Nome        Tensao      Angulo   
+X-----X------------X-----------X-----------X
+     9 bus9-load5    0.2848      0.9416E-02
+     7 bus7-load3    0.2813      0.1285E-02
+     4 bus4          0.2745     -0.3688E-01
+     2 bus2          0.2701     -0.7152E-01
+     6 bus6-load2    0.2656     -0.3660E-01
+     5 bus5-load1    0.2573      0.7224E-02
+     8 bus8-load4    0.2467     -0.5340E-01
+     3 bus3          0.2303     -0.1484E-01
+     1 bus1          0.2136     -0.1332E-14

@@ -1,0 +1,87 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       UFV_SIN_PEL_0720.dat                                                                      |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Associação de modelos (CDU) e dados de localização remota (DLOC)                          |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\Fotovoltaicas\UFV_DADOS.cdu
+999999
+(
+DFNT
+(
+( SUDESTE
+(
+(GE_LV5_1
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 4370   10 I  100   100  132  92607u                         - GE LV5 1.125 1511-SLR - Conj. Paracatu - UFV Paracatu 1 a 4 - SE 138 kV Paracatu 4 - 4 x 33 x 1.0 = 132 MW - Célula: BYD 325P6D-36
+(GE_LV5E_SUNF
+ 4348   10 I  100   100   81  92606u                         - GE LV5 1.05 1510-SLR - Conj. Pirapora - UFV Vazantes 1, 2 e 3 - SE 138 kV Pirapora 2 - 3 x 27 = 81 x 1.0 = 81 MW - Célula: Canadian Solar CS6U-320P/CS6U-325P/CS6U-330P
+ 4366   10 I  100   100  155  92600u                         - GE LV5 1.05 1510-SLR - Conj. Pirapora - UFV Pirapora 5, 6, 7, 9 e 10 - SE 138 kV Pirapora 2 - 5 x 31 = 155 x 0.9677 = 150 MW - Célula: Canadian Solar CS6X-315P/CS6X-320P/CS6X-325P
+ 7446   10 I  100   100   93  92601u                         - GE LV5 1.05 1510-SLR - Conj. Pirapora - UFV Pirapora 2, 3 e 4 - SE 138 kV Pirapora 2 - 3 x 31 = 93 x 0.9677 = 90 MW - Célula: Canadian Solar CS6X-315P/CS6X-320P/CS6X-325P
+(INGECON_1690TL_B650
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 7630   10 I  100   100   50  92614u                         - INGECOM 1690TL B650 - Conj. Água Vermelha - UFV A. Vermelha 4 a 6 - SE 138 kV A. Vermelha - 50 x 1.52 = 76 MW
+(INGECOM_1165TL_B420
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+  409   10 I  100   100  110  92605u                         - INGECOM 1165TL B420 - Conj. Guaimbê - UFV Guaimbê 1 a 5 - SE 138 kV Getulina - 5 x 22 = 110 x 1.364 = 150 MW - Célula: BYD320P6K-36/BYD325P6K-36
+(SG_3125HV SunGrow
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 7614   10 I  100   100   24  92602u                         - SunGrow SG_3125HV - Conj. Dracena 1 - UFV Dracena 1 2 4 - SE 138 kV Dracena - 3 x 8 x 3.375 = 75 MW
+(FIRMER_0
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 7629   10 I  100   100   76  92615u                         - FIMER R11015TL (MODELO TÍPICO) - Conj. Boa Hora - UFV Boa Hora 1 a 3 - SE 138 kV A. Vermelha - 24 x 53 x 0.06 =  76.32 MW
+(
+( NORDESTE
+(
+(FIRMER_0
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 6746   10 I  100.  100. 112  91267u                         - FIMER R11015TL - Conj. Nova Olinda - UFV N. Olinda 8 a 11    - SE 500 kV S. J. Piauí - [(3 x 32) + 16] x 0.9375 = 105 MW - Célula: Jinko Solar JKM315PP-72-V
+ 6747   10 I  100.  100. 112  91268u                         - FIMER R11015TL - Conj. Nova Olinda - UFV N. Olinda 12 a 14   - SE 500 kV S. J. Piauí - [(3 x 32) + 16] x 0.9375 = 105 MW - Célula: Jinko Solar JKM315PP-72-V
+ 6577   10 I  100.  100.  64  90401u                         - FIMER R11015TL - Conj. Lapa - UFV Lapa 2 e 3                 - SE 230 kV B. J. Lapa  - 2 x 32 = 64 x 0.9375 = 60 MW - Célula: Jinko Solar JKM315PP-72-V
+ 6090   10 I  100.  100.  64  90400u                         - FIMER R11015TL - Conj. Bom Jesus - UFV B. J. Lapa I e II - SE  69 kV B. J. Lapa  - 2 x 32 = 64 x 0.9375 = 60 MW - Célula: Jinko Solar JKM315PP-72-V
+ 7151   10 I  100   100   10  91011u                         - FIMER R11015TL - UFV Fonte Solar I e II - SE 230 kV Tacarutu - 10 x 1.0 MW
+ 5818   10 I  100   100  144  91501u                         - FIMER R11015TL (MODELO TÍPICO) - UFV S. Gonçalo  - SE 500 kV Gilbués - 144 x 1 MW = 144 MW
+ 8329   10 I  100   100  144  91502u                         - FIMER R11015TL (MODELO TÍPICO) - UFV S. Gonçalo  - SE 500 kV Gilbués - 144 x 1 MW = 144 MW
+ 8372   10 I  100   100  144  91503u                         - FIMER R11015TL (MODELO TÍPICO) - UFV S. Gonçalo  - SE 500 kV Gilbués - 144 x 1 MW = 144 MW
+ 8373   10 I  100   100  144  91504u                         - FIMER R11015TL (MODELO TÍPICO) - UFV S. Gonçalo  - SE 500 kV Gilbués - 144 x 1 MW = 144 MW
+(FIRMER_1
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 6102   10 I  100   100   76  90144u                         - FIMER R11015TL - Conj. Horizonte - Horizonte MP1, MP2 e MP11 - SE 230 kV T. B. Velho - 28 + 28 = 56 x 1.025 + 20 x 1.0 = 77.4 MW - Célula: Jinko Solar JKM315PP-72-V
+(GE_LV5
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 5299   10 I  100.  100.  86  91554u                         - GE LV5 1.050 1510-SLR - Conj. Floresta - UFV Floresta I, II e III- SE 230 kV Mossoró - 32 + 32 + 22 = 86 x 1.0 = 86 MW - Célula: BYD P6C-36-DG
+ 6084   10 I  100.  100.  40  90143u                         - GE LV5 1.050 1510-SLR - Conj. B. J. Lapa - UFV B. J. Lapa 4 e 11 - SE  69 kV B. J. Lapa  - 2 x 20 = 40 x 1.0 = 40 MW - Célula: Trina Solar TSMPD14A
+ 6786   10 I  100.  100.  54  90150u                         - GE LV5 1.050 1510-SLR - Conj. São Pedro - UFV S. Pedro II e IV - SE  69 kV B. J. Lapa - 2 x 27 = 54 x 1.0 = 54 MW - Célula: Jinko Solar JKM325PP-72-V/JKM330PP-72-V
+(GE_LV5_1
+ 5702   10 I  100.  100.  72  90530u                         - GE LV5 1.125 1511-SLR - Conj. Steelcons Sol do Futuro - UFV I a III - SE  69 kV Aquiraz - 3 x 24 = 72 x 1.125 = 81 MW - Célula: Jinko Solar JKM330PP-72-V
+(GE_LV5E_SUNF
+ 5805   10 I  100.  100.  30  91559u                         - GE LV5 1510-SLR 1.05 - Conj. Assú V - UFV Assú V - SE 138 kV Açu II - 30 x 1.0 = 30 MW - Célula: First Solar FS-4112-3/FS-4115-3/FS-4117-3
+ 5170   10 I  100.  100. 136  90529u                         - GE LV5 1511-SLR 1.1 - Conj. Calcário - UFV Apodi I a IV - SE 230 kV Quixeré - 4 x 34 = 136 x 0.971 = 132 MW - Célula: BYD P6D-36 séries 4BB
+ 6269   10 I  100.  100  120  90133u                         - GE LV5 1510-SLR 1.05 - Conj. Juazeiro Solar - UFV Juaz. Solar I a IV - SE 230 kV Juaz. Bahia - 4 x 30 x 1.0 = 120 MW - Célula: Jinko Solar JKM325PP-72-V/JKM330PP-72-V
+(INGECON_1690TL_B650
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 6750   10 I  100   100   56  92611u                         - INGECON_1690TL_B650 - UFV Sertão Solar Barreiras I a VII - SE 69 kV Barreiras - 56 x 1.690 = 94.64 MW
+ 5957   10 I  100   100  128  91280u                         - INGECON_1690TL_B650 - Conj. FV São João do Piauí - UFV São João do Piauí 17 a 22 - SE 500 kV São João do Piauí - 128 x 1.462 = 187,12 MW
+(SMA_SUNNY
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 6686   10 I  100.  100.  98  90402u                         - SMA SUNNY SC2200 - Conj. Ituverava - UFV Ituverava 1 a 7 - SE 230 kV Tabocas do Brejo Velho - 14 x 7 = 98 x 2 = 196 MW - Célula: JA Solar JAP672-320/3BB
+(WEG_SIW700
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 5315   10 I  100.  100.  48  91200u                         - WEG SIW700 - Conj. Rio Alto - UFV Coremas I, II e III - SE 230 kV Coremas - 3 x 16 x 1.6875 = 81 MW - Célula: Canadian Solar CS6X-320P
+999999

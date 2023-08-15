@@ -1,0 +1,347 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_PowerCtrl_V12.cdu                                                                |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------------)
+( LISTA DE CDU's NESTE ARQUIVO:                                              )
+(                                                                            )
+( CDU 9335 - CONTROLE DE POTENCIA                                            )
+(----------------------------------------------------------------------------)
+(
+DCDU
+(ncdu) ( nome cdu )
+  9335 POWER-CTRL
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #RAMPA                 50     # RAMP RATE, EM MW/MIN -> RAMPA NA ORDEM DE POTÊNCIA - FAIXA: 5 A 50 MW/MIN
+DEFPAR #P/I                    1     # 1 -> POWER CONTROL / 0 -> CURRENT CONTROL
+DEFPAR #TXRBK                100     # RAMP RATE, EM MW/s -> RUNBACK
+DEFPAR #VSC                    1     # 1 - LIGA VSC / 0 - DESLIGA VSC
+DEFPAR #GiVSC                1.0     # GANHO PROPORCIONAL DO VSC
+DEFPAR #TiVSC                1.0     # CONSTANTE DE TEMPO INTEGRAL DO VSC
+DEFPAR #VBORD                0.9     # REFERÊNCIA TENSÃO AC DO VSC
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CNVBR               3101     # DLOC CONVERSOR BRASIL
+DEFPAR #CNVUR               3102     # DLOC CONVERSOR URUGUAI
+DEFPAR #ACBR                3191     # DLOC BARRA AC BRASIL
+DEFPAR #ACUR                3192     # DLOC BARRA AC URUGUAI
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        RAMPA  #RAMPA
+DEFVAL        VBORD  #VBORD
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DP     0.0
+DEFVAL        ERRP   0.0
+DEFVAL        RB_ORD 0.0
+DEFVAL        RUNBCK 0.0
+DEFVAL        DP_VSC 0.0
+DEFVAL        RT_10  0.0
+(
+( CONTROLE DE POTÊNCIA / FUNÇÃO "POWER TRIM"
+(EFPAR (npar) (     valpar     )
+DEFPAR #TF                  0.01
+DEFPAR #TP                   1.0
+DEFPAR #KI                  0.05  (1/Ttrim)
+DEFPAR #Lmx                 0.03
+DEFPAR #Lmn                -0.03
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        Vdcmin 0.50
+DEFVAL        X390   0.0
+DEFVAL        X490   1.0
+DEFVAL  VAR   VORD   VDC
+(
+( POWER/CURRENT CONTROL
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    IOCTR  IDC
+DEFVAL VAR    IOP    IDC
+DEFVAL        IMAX   1.4
+(
+( POWER/CURRENT CONTROL
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        P/I    #P/I
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        MHUM   -1.0
+(
+DEFVAL        PORDMX 1.1
+DEFVAL        PORDMN 0.1
+DEFVAL        PLIMU  9999.
+DEFVAL        PLIMB  9999.
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(
+( -----------------------------------------------------------------------------
+(     EXPORTS
+( -----------------------------------------------------------------------------
+(
+0182 EXPORT CDU    PORD
+0183 EXPORT CDU    PORD
+0281 EXPORT CDU    PORD
+0282 EXPORT CDU    PORD
+0283 EXPORT CDU    PORD
+(
+0184 EXPORT CDU    UPDOWN
+(
+( -----------------------------------------------------------------------------
+(    ENTRADS
+( -----------------------------------------------------------------------------
+(
+0010 ENTRAD               ZERO
+0020 ENTRAD               HUM
+0030 ENTRAD               MHUM
+(
+0032 ENTRAD               PORDMX
+0035 ENTRAD               PORDMN
+(
+( -----------------------------------------------------------------------------
+(     MEDIÇÃO E FILTRAGEM
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0040 IMPORT VCNV          VDC1   #CNVBR 0.0
+0060 IMPORT CCNV          IDC1   #CNVBR 0.0
+0045 IMPORT VCNV          VDC2   #CNVUR 0.0
+0065 IMPORT CCNV          IDC2   #CNVUR 0.0
+(
+4020 IMPORT*VOLT          VB_BRA #ACBR
+4024 IMPORT*VOLT          VB_URU #ACUR
+(
+0041 IMPORT*OPCNV         RETINV #CNVBR
+0044 IMPORT*ESTCNV        DEBLCK #CNVBR
+(
+0042 SELET2        VDC2   VDC
+                   VDC1   VDC
+                   RETINV VDC
+(
+0043 SELET2        IDC2   IDC
+                   IDC1   IDC
+                   RETINV IDC
+(
+( -----------------------------------------------------------------------------
+(     RAMPA DE ORDEM DE POTÊNCIA
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0080 ENTRAD               MPD
+0085 LIMITA        MPD    MPDL                            PORDMN PMAXMW
+0090 ENTRAD               RAMPA
+0100 ENTRAD               DP
+0110 SOMA          MPDL   ERRP
+                  -X160   ERRP
+0120 FUNCAO DEADB2 ERRP   X120   -0.01 -1.0  0.01  1.0
+0130 FRACAO        RAMPA  X130   1.0         60.0
+0140 MULTPL        X120   X140
+                   X130   X140
+0150 PROINT        X140   PORDMW 1.0         1.0
+0160 DELAY         PORDMW X160
+0170 FRACAO        PORDMW PORDpu 1.0         508.
+0180 SOMA          PORDpu PORD1
+                   DP     PORD1
+                   RUNBCK PORD1
+0186 LIMITA        PORD1  PORD2                           PORDMN PMAX
+0188 MULTPL        PORD2  PORD3
+                   DEBLCK PORD3
+(
+( -----------------------------------------------------------------------------
+(     RPC POWER LIMITS
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0700 IMPORT CDU           PLIMU  5295   0.0
+0705 IMPORT CDU           PLIMB  5296   0.0
+0710 MIN           PORDMX PMAX
+                   PLIMU  PMAX
+                   PLIMB  PMAX
+0715 GANHO         PMAX   PMAXMW 508.
+(
+( -----------------------------------------------------------------------------
+(     RUNBACK
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3001 ENTRAD               RB_ORD
+(
+3005 FRACAO        RB_ORD RBO_PU 1.0   0.0   508.  0.0
+3010 SOMA          RBO_PU X3010
+                  -X3060   X3010
+3020 FUNCAO DEADB2 X3010  X3020   -.001 -1.0 .001  1.0
+3025 FRACAO        X3020  X3025  1.0   0.0   508.  0.0
+3030 GANHO         X3025  X3030  #TXRBK
+3040 PROINT        X3030  RUNBCK 1.0   0.0   1.0
+3060 DELAY         RUNBCK X3060
+(
+( -----------------------------------------------------------------------------
+(     VOLTAGE STABILITY CONTROL (VSC)
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4010 ENTRAD               VBORD
+(
+4023 SELET2        VB_URU VB
+                   VB_BRA VB
+                   RETINV VB
+(
+4025 SOMA          VBORD  VBERR
+                  -VB     VBERR
+4030 FUNCAO DEADB1 VBERR  RT_70  -0.02 0.0   1.0   1.0
+4040 FUNCAO PULSO  RT_70  SEL    0.05  1.0   1.0   1.0
+(
+( DELAY ON
+4050 LOGIC  .NOT.  SEL    X4050
+4060 LOGIC  .AND.  SEL    X4060
+                   X4130  X4060
+4070 LOGIC  FFLOP1 X4140  X4070
+                   X4060  X4070
+4080 FRACAO        X4070  X4080  1.0   0.0   1.0   0.0
+4090 INTRES        X4080  X4090  1.0                      ZERO   HUM
+                   X4050  X4090
+                   ZERO   X4090
+4100 LIMITA        X4090  X4100                           ZERO   HUM
+4110 COMPAR .GE.   X4100  X4110
+                   HUM    X4110
+4120 DELAY         X4110  X4120
+4130 LOGIC  .NOT.  X4120  X4130
+4140 LOGIC  .OR.   X4050  X4140
+                   X4120  X4140
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X4090  0.0
+(
+4150 MULTPL        X4110  RT_71
+                   RT_70  RT_71
+4155 SELET2        RT_70  RT_7
+                   RT_71  RT_7
+                   SEL    RT_7
+4160 PROINT        RT_7   RT_10  #GiVSC 0.0  #TiVSC       ZERO   HUM
+4175 GANHO         RT_10  VSC    #VSC
+(
+0063 MULTPL        VSC    DP_VSC
+                  -PORD3  DP_VSC
+(
+0185 SOMA          PORD3  PORD4
+                   DP_VSC PORD4
+0187 LIMITA        PORD4  PORD                            PORDMN PORDMX
+(
+( -----------------------------------------------------------------------------
+(     SINAL UPDOWN
+( -----------------------------------------------------------------------------
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+195  DELAY         PORD   PORDD
+196  SOMA          PORD   DPORD
+                  -PORDD  DPORD
+197  FUNCAO MENOS  DPORD  MDPORD
+198  LOGIC  FFLOP1 MDPORD UPDOWN
+                   DPORD  UPDOWN
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UPDOWN 1.0
+(
+( -----------------------------------------------------------------------------
+(     CONTROLE DE POTÊNCIA / FUNÇÃO "POWER TRIM"
+( -----------------------------------------------------------------------------
+(
+0190 IMPORT CDU            VORD   2030  0.0
+(
+( Cálculo da ordem de corrente IORD=PORD/VORD
+0250 DIVSAO        PORD   IORD0
+                   VORD   IORD0
+(
+( Função Power Trim
+0260 LEDLAG        VDC    VDCF   1.0   0.0   1.0   #TF
+0270 MULTPL        IDC    PDCF
+                   VDCF   PDCF
+0280 SOMA          PORD   PERR
+                  -PDCF   PERR
+0290 GANHO         PERR   PERRG  #KI
+0300 PROINT        PERRG  TRIM   1.0   0.0   #TP          LWlim  UPlim
+0310 LIMITA        TRIM   TRIML                           LWlim  UPlim
+(
+0320 SOMA          IORD0  IOPP
+                   TRIML  IOPP
+0330 LIMITA        IOPP   IOP                             ZERO   IMAX
+0340 SAIDA         IOP
+(
+( Desabilta a função TRIM por 1 segundo quando Vdc<0.5 (fecha os limites LOWlim e UPlim)
+0350 ENTRAD               Vdcmin
+(
+1360 DELAY         VDC    VDCT-1
+2360 COMPAR .LT.   VDC    X2360
+                   Vdcmin X2360
+3360 COMPAR .GE.   VDCT-1 X3360
+                   Vdcmin X3360
+0360 LOGIC  .AND.  X2360  X360
+                   X3360  X360
+(
+0370 LOGIC  .AND.  X450   X370
+                   X360   X370
+0380 LOGIC  FFLOP1 RES    X380
+                   X370   X380
+0390 INTRES        X380   X390   1.0
+                   RES    X390
+                   ZERO   X390
+0400 COMPAR .GE.   X390   X400
+                   HUM    X400
+0410 DELAY         X400   RES
+0420 DELAY         X360   X420
+0430 LOGIC  .NOT.  X420   X430
+0440 LOGIC  FFLOP1 X430   X440
+                   RES    X440
+0450 LOGIC  .NOT.  X440   X450
+0460 LOGIC  .NOT.  X380   X460
+0470 LEDLAG        X460   X470   1.0   0.    1.0   0.5
+0480 COMPAR .LT.   X470   X480
+                   X460   X480
+0490 INTRES        X460   X490   2.0                      ZERO   HUM
+                   RES    X490
+                   ZERO   X490
+0500 LEDLAG        X460   X500   1.0   0.    1.0   0.001
+0510 SELET2        X500   X510
+                   X490   X510
+                   X480   X510
+0520 LIMITA        X510   X520                            MHUM   HUM
+0530 GANHO         X520   UPlim  #Lmx
+0540 GANHO         X520   LWlim  #Lmn
+(
+( -----------------------------------------------------------------------------
+(       POWER/CURRENT CONTROL
+( -----------------------------------------------------------------------------
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0550 ENTRAD               IOCTR
+0560 ENTRAD               P/I
+0570 SELET2        IOCTR  IORD
+                   IOP    IORD
+                   P/I    IORD
+(
+0600 EXPORT CDU    IORD
+0610 EXPORT CDU    IORD
+(
+FIMCDU
+(
+999999
+(
+FIM

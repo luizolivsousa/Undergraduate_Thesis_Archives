@@ -1,0 +1,1366 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       SEP_SUL_1219.dat                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   SEPs DA REGIÃO SUL MODELADOS COMO CONTROLADORES DEFINIDOS PELO USUÁRIO                    |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | NESTE ARQUIVO ESTÃO MODELADOS OS SEGUINTES SEPS DO SUL DO BRASIL:                                         |
+( |                                                                                                           |
+( |- RS-2.99.01: CORTE DE GRAÇÃO NA UHE FOZ DO CHAPECÓ EM CONTINGÊNCIA DUPLA DA LT 230KV FCO - XNX C1 E C2    |
+( |- RS-2.03.01: CONTROLE DE EMERGÊNCIA DO RS QUE CORTA CARGA EM SUBTENSÃO NA SE 525KV GRAVATAI               |
+( |- 525-2.15.115: ANTI-ILHAMENTO DA UTE PAMPA SUL COM A CONVERSORA MELO                                      |
+( |- 525-2.50.03: BLOQUEIO DAS CONVERSORAS GARABI I/II EM CONTINGÊNCIA DUPLA DA LT 525KV ITÁ /STO C1 E C2     |
+( |- 525-2.15.92: BLOQUEIO DA CONVERSORA DE MELO POR DIMINUIÇÃO DO NÍVEL DE CURTO-CIRCUITO NO SUL DO RS       |
+( |- 525-2.15.106: CONTROLE DE EMERGÊNCIA NO SUL DO RS EM CONTINGÊNCIA DA LT 525KV NSR/PNVO                   |
+( |- 525-SOBREFRE: CORTE DE GERAÇÃO EM OCORRÊNCIA DE SOBREFERÊNCIA NO SUL DO BRASIL                           |
+( |                                                                                                           |
+( | EM ACRÉSCIMO, VISANDO EVITAR PROBLEMAS NUMÉRICOS, O DESLIGAMENTO DA CONVERSORA DE MELO ESTÁ               |
+( | CONENTRADO NO CDU 10007 COM O NOME: DESLIGA-MELO                                                          |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+( |-------------------------------------------------------------------------------------------------------|
+( |  RS-2.99.01 - CORTE DE GERAÇÃO NA UHE FOZ CHAPECÓ                                                     |
+( |-------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10000 RS-2.99.01
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC1                0804 LT 1 230KV FOZ CHAPECÓ - XANXERÉ
+DEFPAR #LOC2                0805 LT 2 230KV FOZ CHAPECÓ - XANXERÉ
+DEFPAR #LOC3                0806 UHE FOZ CHAPECÓ
+DEFPAR #LOC4                0807 LT 230KV FOZ CHAPECÓ - GUARITA
+DEFPAR #TEMP                0.02 TEMPORIZAÇÃO NA MEDIÇÃO DO FLUXO NO TRAFO ELEVADOR
+DEFPAR #GMAX                 6.6 660 MW EM PU (FXLA)
+DEFPAR #Tpers                0.1 Variável auxiliar
+DEFPAR #X38                    3 Variável auxiliar
+DEFPAR #LOC5                0808 FLUXO NO TRAFO ELEVADOR DA UHE FOZ CHAPECÓ
+DEFPAR #ATRA              0.0001 Variável auxiliar
+DEFPAR #ATRA2               0.02 Atraso de 20ms para atuação
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0002 IMPORT STLIND        X2     #LOC1     0
+0004 IMPORT STLIND        X4     #LOC2     0
+0011 LOGIC  .AND.  X12    X11
+                   X13    X11
+0012 LOGIC  .NOT.  X45    X12
+0013 LOGIC  .NOT.  X46    X13
+0014 LOGIC  .AND.  X48    X14
+                   X11    X14
+0024 DISMAX        X39    X24    #GMAX #TEMP #Tpers
+0025 LOGIC  .NOT.  X14    X25
+0027 IMPORT STGER         X27    #LOC3    0
+0035 EXPORT STGER  X52           #LOC3
+0036 SELET2        X38    X36
+                   X27    X36
+                   X25    X36
+0038 ENTRAD               X38
+0039 IMPORT FLXA          X39    #LOC5    0
+0041 IMPORT STLINP        X41    #LOC1    0
+0044 IMPORT STLINP        X44    #LOC2    0
+0045 LOGIC  .AND.  X4     X45
+                   X44    X45
+0046 LOGIC  .AND.  X2     X46
+                   X41    X46
+0048 ATRASO        X24    X48    #ATRA
+0052 ATRASO        X36    X52    #ATRA2
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL           X38   #X38
+FIMCDU
+(
+( |-------------------------------------------------------------------------------------------------------|
+( |  RS-2.03.01 - CONTROLE DE EMERGÊNCIA DO RIO GRANDE DO SUL                                             |
+( |-------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10001 RS-2.03.01
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC2                0811
+DEFPAR #LOC3                0812
+DEFPAR #LOC4                0813
+DEFPAR #LOC5                0814
+DEFPAR #LOC6                0815
+DEFPAR #LOC7                0816
+DEFPAR #LOC8                0817
+DEFPAR #LOC9                0818
+DEFPAR #LOC10               0819
+DEFPAR #LOC11               0820
+DEFPAR #LOC12               0821
+DEFPAR #LOC13               0822
+DEFPAR #LOC14               0823
+DEFPAR #LOC15               0824
+DEFPAR #LOC16               0825
+DEFPAR #LOC17               0826
+DEFPAR #LOC18               0827
+DEFPAR #LOC19               0828
+DEFPAR #LOC20               0829
+DEFPAR #LOC21               0830
+DEFPAR #LOC22               0831
+DEFPAR #LOC23               0832
+DEFPAR #LOC24               0833
+DEFPAR #LOC25               0834
+DEFPAR #LOC26               0835
+DEFPAR #LOC27               0836
+DEFPAR #LOC30               0837
+DEFPAR #LOC31               0838
+DEFPAR #LOC32               0839
+DEFPAR #LOC40               0841
+DEFPAR #LOC41               0842
+DEFPAR #LOC50               0843
+DEFPAR #LOC51               0844
+DEFPAR #LOC52               0845
+DEFPAR #LOC53               0846
+DEFPAR #LOC54               1804
+DEFPAR #LOC60               1805
+DEFPAR #LOC61               1806
+DEFPAR #LOC62               1807
+DEFPAR #LOC63               1808
+DEFPAR #LOC64               1809
+DEFPAR #X41                  100 70 80 100 110 100-MULTIPLICA POTENCIA PU POR 100
+DEFPAR #X43                 3000
+DEFPAR #X45                 3600
+DEFPAR #X47                 4500
+DEFPAR #X52                 5000
+DEFPAR #X158                   0
+DEFPAR #X180                   0
+(
+DEFPAR #TEMP1                  6 -> TEMP PARA PRIMEIRO CORTE DA LÓGICA 2
+DEFPAR #GMAX1              0.876
+DEFPAR #Tper1              99999
+(
+DEFPAR #TEMP2                6.4 -> TEMP PARA SEGUND0O CORTE DA LÓGICA 2
+DEFPAR #GMAX2              0.876
+DEFPAR #Tper2              99999
+(
+DEFPAR #TEMP3                6.8 -> TEMP PARA TERCEIRO CORTE DA LÓGICA 2
+DEFPAR #GMAX3              0.876
+DEFPAR #Tper3              99999
+(
+DEFPAR #TEMP4                7.2
+DEFPAR #GMAX4              0.876 -> TEMP PARA QUARTO CORTE DA LÓGICA 2
+DEFPAR #Tper4              99999
+(
+DEFPAR #TEMP5                0.2 -> TEMP PARA A LÓGICA 1
+DEFPAR #GMAX5              0.876
+DEFPAR #Tper5              99999
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0006 IMPORT FLXA          X6     #LOC2     0
+0004 IMPORT STLIND        X4     #LOC22    0
+0007 IMPORT FLXA          X7     #LOC3     0
+0008 IMPORT FLXA          X8     #LOC4     0
+0011 LOGIC  .AND.  X12    X11
+                   X13    X11
+0009 IMPORT FLXA          X9     #LOC5     0
+0012 LOGIC  .NOT.  X69    X12
+0010 IMPORT FLXA          X10    #LOC6     0
+0013 LOGIC  .NOT.  X70    X13
+0015 IMPORT FLXA          X15    #LOC7     0
+0016 IMPORT FLXA          X16    #LOC8     0
+0017 IMPORT FLXA          X17    #LOC9     0
+0018 IMPORT FLXA          X18    #LOC10    0
+0019 IMPORT FLXA          X19    #LOC11    0
+0020 IMPORT FLXA          X20    #LOC12    0
+0021 IMPORT FLXA          X21    #LOC13    0
+0022 IMPORT FLXA          X22    #LOC14    0
+0023 IMPORT FLXA          X23    #LOC15    0
+0026 IMPORT FLXA          X26    #LOC16    0
+0028 IMPORT FLXA          X28    #LOC17    0
+0029 IMPORT FLXA          X29    #LOC18    0
+0030 IMPORT FLXA          X30    #LOC19    0
+0031 IMPORT FLXA          X31    #LOC20    0
+0032 IMPORT FLXA          X32    #LOC21    0
+0033 SOMA         -X6     X33
+                  -X7     X33
+                  -X8     X33
+                  -X9     X33
+                  -X10    X33
+                  -X15    X33
+                  -X16    X33
+                  -X17    X33
+                  -X18    X33
+                  +X19    X33
+                  -X20    X33
+                  -X21    X33
+                  -X22    X33
+                  -X23    X33
+                  -X26    X33
+                  -X28    X33
+                  +X29    X33
+                  +X30    X33
+                  +X31    X33
+                  +X32    X33
+0040 MULTPL        X41    X40
+                   X33    X40
+0041 ENTRAD               X41
+0042 COMPAR .GT.   X40    X42
+                   X43    X42
+0043 ENTRAD               X43
+0044 COMPAR .GT.   X40    X44
+                   X45    X44
+0045 ENTRAD               X45
+0046 COMPAR .GT.   X40    X46
+                   X47    X46
+0047 ENTRAD               X47
+0051 COMPAR .GT.   X40    X51
+                   X52    X51
+0052 ENTRAD               X52
+0054 DISMIN        X137   X54    #GMAX1#TEMP1#Tper1
+0055 LOGIC  .AND.  X42    X55
+                   X156   X55
+0056 LOGIC  .AND.  X44    X56
+                   X156   X56
+0057 LOGIC  .AND.  X46    X57
+                   X156   X57
+0058 LOGIC  .AND.  X51    X58
+                   X156   X58
+0059 DISMIN        X137   X59    #GMAX2#TEMP2#Tper2
+0060 DISMIN        X137   X60    #GMAX3#TEMP3#Tper3
+0061 DISMIN        X137   X61    #GMAX4#TEMP4#Tper4
+0062 SAIDA         X139
+0063 SAIDA         X140
+0064 SAIDA         X141
+0065 SAIDA         X142
+0069 LOGIC  .AND.  X4     X69
+                   X80    X69
+0070 LOGIC  .AND.  X81    X70
+                   X82    X70
+0073 LOGIC  .AND.  X74    X73
+                   X75    X73
+0074 LOGIC  .NOT.  X78    X74
+0075 LOGIC  .NOT.  X79    X75
+0078 LOGIC  .AND.  X83    X78
+                   X84    X78
+0079 LOGIC  .AND.  X85    X79
+                   X86    X79
+0080 IMPORT STLINP        X80    #LOC22   0
+0081 IMPORT STLIND        X81    #LOC23   0
+0082 IMPORT STLINP        X82    #LOC23   0
+0083 IMPORT STLIND        X83    #LOC22   0
+0084 IMPORT STLINP        X84    #LOC22   0
+0085 IMPORT STLIND        X85    #LOC24   0
+0086 IMPORT STLINP        X86    #LOC24   0
+0087 IMPORT STLIND        X87    #LOC22   0
+0088 LOGIC  .AND.  X89    X88
+                   X90    X88
+0089 LOGIC  .NOT.  X91    X89
+0090 LOGIC  .NOT.  X92    X90
+0091 LOGIC  .AND.  X87    X91
+                   X98    X91
+0092 LOGIC  .AND.  X99    X92
+                   X100   X92
+0093 LOGIC  .AND.  X94    X93
+                   X95    X93
+0094 LOGIC  .NOT.  X96    X94
+0095 LOGIC  .NOT.  X97    X95
+0096 LOGIC  .AND.  X101   X96
+                   X102   X96
+0097 LOGIC  .AND.  X103   X97
+                   X104   X97
+0098 IMPORT STLINP        X98    #LOC22   0
+0099 IMPORT STLIND        X99    #LOC25   0
+0100 IMPORT STLINP        X100   #LOC25   0
+0101 IMPORT STLIND        X101   #LOC24   0
+0102 IMPORT STLINP        X102   #LOC24   0
+0103 IMPORT STLIND        X103   #LOC25   0
+0104 IMPORT STLINP        X104   #LOC25   0
+0105 IMPORT STLIND        X105   #LOC26   0
+0106 LOGIC  .AND.  X107   X106
+                   X108   X106
+0107 LOGIC  .NOT.  X109   X107
+0108 LOGIC  .NOT.  X110   X108
+0109 LOGIC  .AND.  X105   X109
+                   X116   X109
+0110 LOGIC  .AND.  X117   X110
+                   X118   X110
+0116 IMPORT STLINP        X116   #LOC26   0
+0117 IMPORT STLIND        X117   #LOC24   0
+0118 IMPORT STLINP        X118   #LOC24   0
+0123 IMPORT STLIND        X123   #LOC26   0
+0124 LOGIC  .AND.  X125   X124
+                   X126   X124
+0125 LOGIC  .NOT.  X127   X125
+0126 LOGIC  .NOT.  X128   X126
+0127 LOGIC  .AND.  X123   X127
+                   X129   X127
+0128 LOGIC  .AND.  X130   X128
+                   X131   X128
+0129 IMPORT STLINP        X129   #LOC26   0
+0130 IMPORT STLIND        X130   #LOC25   0
+0131 IMPORT STLINP        X131   #LOC25   0
+0137 IMPORT VOLT          X137   #LOC27   0
+0138 DISMIN        X137   X138   #GMAX5#TEMP5#Tper5
+0139 LOGIC  .OR.   X54    X139
+                   X143   X139
+0140 LOGIC  .OR.   X59    X140
+                   X144   X140
+0141 LOGIC  .OR.   X60    X141
+                   X145   X141
+0142 LOGIC  .OR.   X61    X142
+                   X146   X142
+0143 LOGIC  .AND.  X138   X143
+                   X55    X143
+0144 LOGIC  .AND.  X138   X144
+                   X56    X144
+0145 LOGIC  .AND.  X138   X145
+                   X57    X145
+0146 LOGIC  .AND.  X138   X146
+                   X58    X146
+0147 IMPORT STLIND        X147   #LOC23  0
+0148 LOGIC  .AND.  X149   X148
+                   X150   X148
+0149 LOGIC  .NOT.  X151   X149
+0150 LOGIC  .NOT.  X152   X150
+0151 LOGIC  .AND.  X147   X151
+                   X153   X151
+0152 LOGIC  .AND.  X154   X152
+                   X155   X152
+0153 IMPORT STLINP        X153   #LOC23  0
+0154 IMPORT STLIND        X154   #LOC26  0
+0155 IMPORT STLINP        X155   #LOC26  0
+0156 LOGIC  .OR.   X73    X156
+                   X88    X156
+                   X93    X156
+                   X106   X156
+                   X124   X156
+                   X148   X156
+                   X11    X156
+0157 IMPORT STCIRC        X157   #LOC30   0
+0158 ENTRAD               X158
+0159 SELET2        X157   X159
+                   X158   X159
+                   X139   X159
+0160 EXPORT STLIND X159          #LOC30
+0162 SELET2        X173   X162
+                   X158   X162
+                   X140   X162
+0166 SELET2        X174   X166
+                   X158   X166
+                   X141   X166
+0169 SELET2        X175   X169
+                   X158   X169
+                   X142   X169
+0173 IMPORT STCIRC        X173   #LOC40    0
+0174 IMPORT STCIRC        X174   #LOC50    0
+0175 IMPORT STCIRC        X175   #LOC60    0
+0176 EXPORT STLIND X159          #LOC31
+0177 EXPORT STLIND X159          #LOC32
+0179 EXPORT STLINP X159          #LOC30
+0180 EXPORT STLINP X159          #LOC31
+0181 EXPORT STLINP X159          #LOC32
+0183 EXPORT STLIND X162          #LOC40
+0184 EXPORT STLIND X166          #LOC50
+0185 EXPORT STLIND X169          #LOC60
+0186 EXPORT STLINP X162          #LOC40
+0187 EXPORT STLINP X166          #LOC50
+0188 EXPORT STLINP X169          #LOC60
+0189 EXPORT STLINP X169          #LOC61
+0190 EXPORT STLINP X169          #LOC62
+0191 EXPORT STLINP X169          #LOC63
+0192 EXPORT STLINP X169          #LOC64
+0193 EXPORT STLIND X169          #LOC61
+0194 EXPORT STLIND X169          #LOC62
+0195 EXPORT STLIND X169          #LOC63
+0196 EXPORT STLIND X169          #LOC64
+0197 EXPORT STLIND X162          #LOC41
+0198 EXPORT STLINP X162          #LOC41
+0199 EXPORT STLIND X166          #LOC51
+0200 EXPORT STLINP X166          #LOC51
+0201 EXPORT STLIND X166          #LOC52
+0202 EXPORT STLINP X166          #LOC52
+0203 EXPORT STLIND X166          #LOC53
+0204 EXPORT STLINP X166          #LOC53
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(---------------------------------------------------------------------
+0205 ENTRAD               X180
+0206 IMPORT STLDM         X181   #LOC54   0
+0208 SELET2        X181   X183
+                   X210   X183
+                   X141   X183
+0209 EXPORT STLDM  X183          #LOC54
+0210 MULTPL        X180   X210
+                   X181   X210
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        X41    #X41
+DEFVAL        X43    #X43          USADO PARA VERIFICAR SE FRS É MAIOR QUE 3000
+DEFVAL        X45    #X45          USADO PARA VERIFICAR SE FRS É MAIOR QUE 3600
+DEFVAL        X47    #X47          USADO PARA VERIFICAR SE FRS É MAIOR QUE 4500
+DEFVAL        X52    #X52          USADO PARA VERIFICAR SE FRS É MAIOR QUE 5000
+DEFVAL        X158   #X158
+DEFVAL        X180   #X180
+FIMCDU
+(
+( |----------------------------------------------------------------------------------------------------------|
+( |  525-2.15.115 - ANTI-ILHAMENTO DA UTE PAMPA SUL COM A CONVERSORA MELO                                    |
+( |----------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10002 525-2.15.115
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC1                1813  LT 230 KV PMEDICI - CANDIOTA
+DEFPAR #LOC2                2832  MELO
+DEFPAR #LOC3                2812  MAQUINA DE PAMPA SUL
+DEFPAR #LOC4                1815  LT 525 KV PAMPA SUL - CANDIOTA
+DEFPAR #X24                    0
+DEFPAR #X26                    0
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 IMPORT STLIND        X1     #LOC1 0.
+0002 IMPORT STLINP        X2     #LOC1 0.
+0003*IMPORT ESTCNV        X3     #LOC2 0.
+0004 IMPORT STGER         X4     #LOC3 0.
+0005 LOGIC  .AND.  X3     X5
+                   X4     X5
+0006 LOGIC  .NOT.  X7     X6
+0007 LOGIC  .AND.  X1     X7
+                   X2     X7
+0009 EXPORT STLIND X22           #LOC4
+0010 EXPORT STLINP X22           #LOC4
+0020 EXPORT CDU    X23
+0021 LOGIC  .AND.  X6     X21
+                   X5     X21
+0022 SELET2        X25    X22
+                   X24    X22
+                   X21    X22
+0023 SELET2        X27    X23
+                   X26    X23
+                   X21    X23
+0024 ENTRAD               X24
+0025 IMPORT STCIRC        X25    #LOC4 0.
+0026 ENTRAD               X26
+0027*IMPORT ESTCNV        X27    #LOC2 0.
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        X24    #X24
+DEFVAL        X26    #X26
+(
+FIMCDU
+( |--------------------------------------------------------------------------------------------------------------|
+( |525-2.50.03 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2|
+( |--------------------------------------------------------------------------------------------------------------|
+( | Este SEP está dividido em 6 casos distintos de acordo com a configuração de polos no caso base, sendo eles:  |
+( | - Caso 1: 1 Polo em Garabi 1 e 0 Polos em Garabi 2                                                           |
+( | - Caso 2: 2 Polos em Garabi 1 e 0 Polos em Garabi 2                                                          |
+( | - Caso 3: 1 Polo em Garabi 1 e 1 Polos em Garabi 2                                                           |
+( | - Caso 4: 2 Polo em Garabi 1 e 2 Polos em Garabi 2                                                           |
+( | - Caso 5: 0 Polos em Garabi 1 e 1 Polos em Garabi 2                                                          |
+( | - Caso 6: 0 Polos em Garabi 1 e 2 Polos em Garabi 2                                                          |
+( |--------------------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( |525-2.50.03 - CASO 1 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2 |
+( |------------------------------------------------------------------------------------------------------------------------|
+((ncdu) ( nome cdu )
+( 10003  525-2.50.03    CASO 01: 1 POLO EM GARABI 1
+((----------------------------------------------------------------------
+((EFPAR (npar) (     valpar     )
+((----------------------------------------------------------------------
+((
+(DEFPAR #LOC1                1817 Circuito monitorado 1
+(DEFPAR #LOC2                1818 Circuito monitorado 2
+(DEFPAR #LOC3                1819 Circuito operado 1
+(DEFPAR #LOC4                1820 Circuito operado 2
+(DEFPAR #LOC7                1821 Circuito operado 2
+(DEFPAR #LOC8                1822 Circuito operado 2
+((
+((----------------------------------------------------------------------
+((nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+((----------------------------------------------------------------------
+((
+((Bloco 01 - Verifica se as Lts estão desligadas:
+(0001 IMPORT STCIRC        stlc1  #LOC3   0
+(0002 IMPORT STCIRC        stlc2  #LOC4   0
+(0003 LOGIC  .AND.  X10    sep
+(                   X11    sep
+((Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+(0007 EXPORT ESTCNV X12           #LOC7
+(0008 EXPORT ESTCNV X12           #LOC8
+(0010 LOGIC  .NOT.  stlc1  X10
+(0011 LOGIC  .NOT.  stlc2  X11
+(0012 LOGIC  .NOT.  sep    X12
+((FIMCDU
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( |525-2.50.03 - CASO 2 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2 |
+( |------------------------------------------------------------------------------------------------------------------------|
+(((ncdu) ( nome cdu )
+((10003  525-2.50.03     CASO 02: 2 POLO EM GARABI 1
+(((----------------------------------------------------------------------
+(((EFPAR (npar) (     valpar     )
+(((----------------------------------------------------------------------
+(((
+((DEFPAR #LOC1                1817 Circuito monitorado 1
+((DEFPAR #LOC2                1818 Circuito monitorado 2
+((DEFPAR #LOC3                1819 Circuito operado 1
+((DEFPAR #LOC4                1820 Circuito operado 2
+((DEFPAR #LOC7                1821 Circuito operado 2
+((DEFPAR #LOC8                1822 Circuito operado 2
+((DEFPAR #LOC9                1823 Circuito operado 2
+((DEFPAR #LOC10               1824 Circuito operado 2
+(((
+(((----------------------------------------------------------------------
+(((nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(((----------------------------------------------------------------------
+(((
+(((Bloco 01 - Verifica se as Lts estão desligadas:
+((0001 IMPORT STCIRC        stlc1  #LOC3   0
+((0002 IMPORT STCIRC        stlc2  #LOC4   0
+((0003 LOGIC  .AND.  X10    sep
+((                   X11    sep
+(((Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+((0007 EXPORT ESTCNV X12           #LOC7
+((0008 EXPORT ESTCNV X12           #LOC8
+((0009 EXPORT ESTCNV X12           #LOC9
+((0010 EXPORT ESTCNV X12           #LOC10
+((0013 LOGIC  .NOT.  stlc1  X10
+((0014 LOGIC  .NOT.  stlc2  X11
+((0015 LOGIC  .NOT.  sep    X12
+((FIMCDU
+(((
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( |525-2.50.034 - CASO 3 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2|
+( |------------------------------------------------------------------------------------------------------------------------|
+(((ncdu) ( nome cdu )
+((10003  525-2.50.03   CASO 03: 1 POLO EM GARABI 1 E 1 POLO EM GARABI 2
+(((----------------------------------------------------------------------
+(((EFPAR (npar) (     valpar     )
+(((----------------------------------------------------------------------
+(((
+((DEFPAR #LOC1                1817 Circuito monitorado 1
+((DEFPAR #LOC2                1818 Circuito monitorado 2
+((DEFPAR #LOC3                1819 Circuito operado 1
+((DEFPAR #LOC4                1820 Circuito operado 2
+((DEFPAR #LOC7                1821 Circuito operado 2
+((DEFPAR #LOC8                1822 Circuito operado 2
+((DEFPAR #LOC9                1823 Circuito operado 2
+((DEFPAR #LOC10               1824 Circuito operado 2
+(((
+(((----------------------------------------------------------------------
+(((nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(((----------------------------------------------------------------------
+(((
+(((Bloco 01 - Verifica se as Lts estão desligadas:
+((0001 IMPORT STCIRC        stlc1  #LOC3  0
+((0002 IMPORT STCIRC        stlc2  #LOC4  0
+((0003 LOGIC  .AND.  X10    sep
+((                   X11    sep
+(((Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+((0007 EXPORT ESTCNV X12           #LOC7
+((0008 EXPORT ESTCNV X12           #LOC8
+((0009 EXPORT ESTCNV X12           #LOC9
+((0010 EXPORT ESTCNV X12           #LOC10
+((0013 LOGIC  .NOT.  stlc1  X10
+((0014 LOGIC  .NOT.  stlc2  X11
+((0015 LOGIC  .NOT.  sep    X12
+((FIMCDU
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( | 525-2.50.03 - CASO 4 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2|
+( |------------------------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10003 525-2.50.03    CASO 04: 2 POLOS EM GARABI 1 E 2 POLOS EM GARABI 2
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+(
+DEFPAR #LOC1                1817 Circuito monitorado 1
+DEFPAR #LOC2                1818 Circuito monitorado 2
+DEFPAR #LOC3                1819 Circuito operado 1
+DEFPAR #LOC4                1820 Circuito operado 2
+DEFPAR #LOC7                1821 Circuito operado 2
+DEFPAR #LOC8                1822 Circuito operado 2
+DEFPAR #LOC9                1823 Circuito operado 2
+DEFPAR #LOC10               1824 Circuito operado 2
+DEFPAR #LOC11               1825 Circuito operado 2
+DEFPAR #LOC12               1826 Circuito operado 2
+DEFPAR #LOC13               1827 Circuito operado 2
+DEFPAR #LOC14               1828 Circuito operado 2
+(
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(
+(Bloco 01 - Verifica se as Lts estão desligadas:
+0001 IMPORT STCIRC        stlc1  #LOC3    0
+0002 IMPORT STCIRC        stlc2  #LOC4    0
+0003 LOGIC  .AND.  X10    sep
+                   X11    sep
+(Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+0007 EXPORT ESTCNV X12           #LOC7
+0008 EXPORT ESTCNV X12           #LOC8
+0009 EXPORT ESTCNV X12           #LOC9
+0010 EXPORT ESTCNV X12           #LOC10
+0011 EXPORT ESTCNV X12           #LOC11
+0012 EXPORT ESTCNV X12           #LOC12
+0013 EXPORT ESTCNV X12           #LOC13
+0014 EXPORT ESTCNV X12           #LOC14
+0015 LOGIC  .NOT.  stlc1  X10
+0016 LOGIC  .NOT.  stlc2  X11
+0017 LOGIC  .NOT.  sep    X12
+FIMCDU
+(((
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( | 525-2.50.03 - CASO 5 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2|
+( |------------------------------------------------------------------------------------------------------------------------|
+(((ncdu) ( nome cdu )
+(( 10003 525-2.50.03   CASO 05: 1 POLO EM GARABI 2
+(((----------------------------------------------------------------------
+(((EFPAR (npar) (     valpar     )
+(((----------------------------------------------------------------------
+(((
+((DEFPAR #LOC1                5804 Circuito monitorado 1
+((DEFPAR #LOC2                5805 Circuito monitorado 2
+((DEFPAR #LOC3                5806 Circuito operado 1
+((DEFPAR #LOC4                5807 Circuito operado 2
+((DEFPAR #LOC7                5812 Circuito operado 2
+((DEFPAR #LOC8                5813 Circuito operado 2
+(((
+(((----------------------------------------------------------------------
+(((nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(((----------------------------------------------------------------------
+(((
+(((Bloco 01 - Verifica se as Lts estão desligadas:
+((0001 IMPORT STCIRC        stlc1  #LOC3   0
+((0002 IMPORT STCIRC        stlc2  #LOC4   0
+((0003 LOGIC  .AND.  X10    sep
+((                   X11    sep
+(((Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+((0007 EXPORT ESTCNV X12           #LOC7
+((0008 EXPORT ESTCNV X12           #LOC8
+((0010 LOGIC  .NOT.  stlc1  X10
+((0011 LOGIC  .NOT.  stlc2  X11
+((0012 LOGIC  .NOT.  sep    X12
+((FIMCDU
+(((
+(
+( |------------------------------------------------------------------------------------------------------------------------|
+( | 525-2.50.03 - CASO 6 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2|
+( |------------------------------------------------------------------------------------------------------------------------|
+(((ncdu) ( nome cdu )
+(( 10003 525-2.50.03  CASO 06: 2 POLOS EM GARABI 2
+(((----------------------------------------------------------------------
+(((EFPAR (npar) (     valpar     )
+(((----------------------------------------------------------------------
+(((
+((DEFPAR #LOC1                5804 Circuito monitorado 1
+((DEFPAR #LOC2                5805 Circuito monitorado 2
+((DEFPAR #LOC3                5806 Circuito operado 1
+((DEFPAR #LOC4                5807 Circuito operado 2
+((DEFPAR #LOC7                5812 Circuito operado 2
+((DEFPAR #LOC8                5813 Circuito operado 2
+((DEFPAR #LOC9                5814 Circuito operado 2
+((DEFPAR #LOC10               5815 Circuito operado 2
+(((
+(((----------------------------------------------------------------------
+(((nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(((----------------------------------------------------------------------
+(((
+(((Bloco 01 - Verifica se as Lts estão desligadas:
+((0001 IMPORT STCIRC        stlc1  #LOC3   0
+((0002 IMPORT STCIRC        stlc2  #LOC4   0
+((0003 LOGIC  .AND.  X10    sep
+((                   X11    sep
+(((Bloco 02 - Envia sinal de bloqueio para a conversora de garabi
+((0007 EXPORT ESTCNV X12           #LOC7
+((0008 EXPORT ESTCNV X12           #LOC8
+((0009 EXPORT ESTCNV X12           #LOC9
+((0010 EXPORT ESTCNV X12           #LOC10
+((0013 LOGIC  .NOT.  stlc1  X10
+((0014 LOGIC  .NOT.  stlc2  X11
+((0015 LOGIC  .NOT.  sep    X12
+((FIMCDU
+(
+( |--------------------------------------------------------------------------------------------------------|
+( |  525-2.15.92 - BLOQUEIO DO CONVERSOR DE FREQUÊNCIA DA SE CONVERSORA MELO                               |
+( |--------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10004 525-2.15.92
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC2                1831 CANDIOTA - PAMPA SUL - TROCAR PARA MÁQUINA DE PAMPA SUL
+DEFPAR #LOC4                2832 MELO
+DEFPAR #LOC7                1832 CANDIOTA - PMEDICI  - TROCAR PARA MÁQUINA CANDIOTA
+DEFPAR #X24                 0.01
+DEFPAR #X21                 0.01
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0007 LOGIC  .OR.   X23    sep1
+                   X20    sep1
+0018 IMPORT FLXA          X18    #LOC2    0
+0020 COMPAR .GT.   vsaid  X20
+                   X21    X20
+0021 ENTRAD               X21
+0022 IMPORT FLXA          X22    #LOC7   0
+0023 COMPAR .GT.   X22    X23
+                   X24    X23
+0024 ENTRAD               X24
+0025 EXPORT CDU    sep
+0026*IMPORT ESTCNV        X26    #LOC4     0
+0029 LOGIC  .AND.  sep1   sep
+                   X26    sep
+0035 LDLAG2        x18    vsaid   3000 .00001 3000  1                  FILTRA SINAL DE FLUXO NA LT PAMA SUL - CANDIOTA PARA NÃO ATUAR SEP DE FORMA ERRADA QUANDO OCORRER FALHA DE COMUTAÇÃO EM MELO
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        X24    #X24
+DEFVAL        X21    #X21
+FIMCDU
+(
+( |------------------------------------------------------------------------------------------------------------------------------|
+( | 525-2.15.106 - CONTROLE DE EMERGÊNCIA NO SUL DO RIO GRANDE DO SUL PARA CONTINGÊNCIA DA LT 525 KV NOVA SANTA RITA / POVO NOVO |
+( |------------------------------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10005 525-2.15.106
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC1                1835 LT 525 kV NOVA SANTA RITA / POVO NOVO
+((DESLIGAMENTOS
+DEFPAR #LOC11               1836 LT 138 kV MANGUEIRA 1 / MARMELEIRO 2
+DEFPAR #LOC12               1837 LT 138 kV CHUÍ / SANTA VITÓRIA DO PALMAR 2
+DEFPAR #LOC13               1838 LT 138 kV HERMENEGILDO / SANTA VITÓRIA DO PALMAR 2
+DEFPAR #LOC14               1839 LT 230 kV CANDIOTA / PRESIDENTE MÉDICI
+((TOPOLOGIA
+DEFPAR #LOC15               1840
+DEFPAR #LOC16               1841
+DEFPAR #LOC17               1842
+DEFPAR #LOC18               1843
+DEFPAR #LOC19               1844
+DEFPAR #LOC20               1845
+DEFPAR #LOC21               1846
+DEFPAR #LOC22               2804
+DEFPAR #LOC23               2805
+DEFPAR #LOC24               2806
+DEFPAR #LOC25               2807
+DEFPAR #LOC26               2808
+DEFPAR #LOC27               2809
+DEFPAR #LOC28               2810
+DEFPAR #LOC29               2811
+DEFPAR #LOC30               2812
+DEFPAR #LOC50               2813
+DEFPAR #LOC51               2814
+DEFPAR #LOC52               2815
+DEFPAR #LOC53               2831
+DEFPAR #LOC54               2832
+DEFPAR #LOC55               2833
+DEFPAR #LOC63               2816
+DEFPAR #LOC64               2817
+DEFPAR #LOC65               2818
+DEFPAR #LOC90               2835
+DEFPAR #X18                  0.2  FLUXO ATIVO 20 MW
+DEFPAR #X21                  0.2  FLUXO ATIVO 20 MW
+DEFPAR #X73                  0.2  FLUXO ATIVO 20 MW PARA MELO
+DEFPAR #fmax1               5.60      5.60 560 MW por 10 s
+DEFPAR #fmax2               3.30      3.30 330 MW por 10 s
+DEFPAR #fmax3               5.05      5.05 505 MW por 10 s
+DEFPAR #fmax4               3.00      3.00 300 MW por 10 s
+DEFPAR #tvio1                10 segundos
+DEFPAR #tvio2                10 segundos
+DEFPAR #tvio3                10 segundos
+DEFPAR #tvio4                10 segundos
+DEFPAR #Tper1                30 Desabilita se deixa de romper o limite durante 30 segundos
+DEFPAR #Tper2                30 Desabilita se deixa de romper o limite durante 30 segundos
+DEFPAR #Tper3                30 Desabilita se deixa de romper o limite durante 30 segundos
+DEFPAR #Tper4                30 Desabilita se deixa de romper o limite durante 30 segundos
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(GRUPO 1 -------------------------------
+0001 IMPORT STCIRC        X1     #LOC15  0
+0002 IMPORT STCIRC        X2     #LOC16  0
+0003 IMPORT STGER         X3     #LOC17  0
+0004 LOGIC  .AND.  X1     X4
+                   X2     X4
+                   X3     X4
+(SAÍDA DO G1 É X4
+(GRUPO 2 -------------------------------
+0005 IMPORT STCIRC        X5     #LOC18  0
+0006 IMPORT STCIRC        X6     #LOC19  0
+0007 IMPORT STCIRC        X7     #LOC20  0
+0008 IMPORT STCIRC        X8     #LOC21  0
+0009 IMPORT STCIRC        X9     #LOC22  0
+0010 IMPORT STCIRC        X10    #LOC23  0
+0011 IMPORT STCIRC        X11    #LOC24  0
+0012 IMPORT STCIRC        X12    #LOC25  0
+0013 LOGIC  .AND.  X5     X13
+                   X6     X13
+                   X7     X13
+                   X8     X13
+                   X9     X13
+                   X10    X13
+                   X11    X13
+                   X12    X13
+(SAÍDA DO G2 É X13
+(GRUPO 3 -------------------------------
+0014 IMPORT STCIRC        X14    #LOC26  0
+0015 IMPORT STCIRC        X15    #LOC27  0
+0016 IMPORT STCIRC        X16    #LOC28  0
+0017 IMPORT NUGER         X17    #LOC29  0
+0018 ENTRAD               X18
+0019 COMPAR .GE.   X17    X19
+                   X18    X19
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(--------------------------------------------------------------------
+0020 IMPORT NUGER         X20    #LOC30    0
+0021 ENTRAD               X21
+0022 COMPAR .GE.   X20    X22
+                   X21    X22
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0024 LOGIC  .OR.   X22    X24
+                   X19    X24
+0025 LOGIC  .AND.  X14    X25
+                   X15    X25
+                   X16    X25
+                   X24    X25
+(SAÍDA DO G3 É X25
+0026 LOGIC  .AND.  X4     X26
+                   X13    X26
+                   X25    X26
+0027 SAIDA         X26
+(X26 É SAIDA DO AND G1 G2 E G3
+(GRUPO 4 -------------------------------
+0028 LOGIC  .AND.  X1     X28
+                   X2     X28
+                   X3     X28
+                   X9     X28
+(X28 É SAIDA DO G4
+0029 LOGIC  .AND.  X5     X29
+                   X6     X29
+                   X7     X29
+                   X8     X29
+                   X10    X29
+                   X11    X29
+                   X12    X29
+                   X14    X29
+                   X15    X29
+                   X16    X29
+(X29 É SAIDA DO G5
+(GRUPO 5 -------------------------------
+0030 LOGIC  .AND.  X28    X30
+                   X29    X30
+(SAÍDA DO AND G4 E G5
+0031 SAIDA         X30
+(LOGICA 1 ------------------------------
+0046 IMPORT FLXA          X46    #LOC1 0
+0047 DISMAX        X46    X47    #fmax1#tvio1#Tper1
+0048 IMPORT STLINP        X48    #LOC1 0
+0049 LOGIC  .NOT.  X48    X49
+0050 LOGIC  .AND.  X49    X50
+                   X47    X50
+0051 LOGIC  .NOT.  X63    X97
+(DESLIGAMENTO DE LOGICA 1---------------
+0052 EXPORT STLIND X51           #LOC11
+0053 EXPORT STLINP X51           #LOC11
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(--------------------------------------------------------------------
+0054 IMPORT ESTFNT        X54    #LOC50    0
+0055 MULTPL        X51    X55
+                   X54    X55
+0056 IMPORT ESTFNT        X56    #LOC51    0
+0057 MULTPL        X51    X57
+                   X56    X57
+0058 IMPORT ESTFNT        X58    #LOC52    0
+0059 MULTPL        X51    X59
+                   X58    X59
+0060 EXPORT ESTFNT X55           #LOC50
+0061 EXPORT ESTFNT X57           #LOC51
+0062 EXPORT ESTFNT X59           #LOC52
+0063 LOGIC  .AND.  X50    X63
+                   X26    X63
+0071*IMPORT FLXA          X71    #LOC53   0
+0072 COMPAR .GE.   X71    X72
+                   X73    X72
+0073 ENTRAD               X73
+0074 SAIDA         X72
+( LOGICA 2 ------------------------------
+0076 IMPORT FLXA          X76    #LOC1    0
+0077 DISMAX        X76    X77    #fmax2#tvio2#Tper2
+0078 IMPORT STLINP        X78    #LOC1    0
+0079 LOGIC  .NOT.  X78    X79
+0080 LOGIC  .AND.  X79    X80
+                   X77    X80
+0082 SAIDA         X80
+(LOGICA 2 - DESLIGAMENTO DE MARMELEIRO
+0083 LOGIC  .NOT.  X26    X81
+0084 LOGIC  .AND.  X81    X82
+                   X80    X82
+0085 LOGIC  .NOT.  X82    X83
+0086 SAIDA         X83
+(LOGICA 2 - CHAVE A
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0087 LOGIC  .NOT.  X72    X84
+0088 LOGIC  .NOT.  X4     X85
+0089 LOGIC  .AND.  X84    X89
+                   X85    X89
+(--------------------------------------------
+0090 LOGIC  .NOT.  X72    X86
+0091 LOGIC  .NOT.  X13    X87
+0092 LOGIC  .AND.  X87    X90
+                   X86    X90
+(--------------------------------------------
+0093 LOGIC  .NOT.  X28    X88
+0094 LOGIC  .AND.  X72    X91
+                   X88    X91
+0095 LOGIC  .OR.   X89    X92
+                   X90    X92
+                   X91    X92
+0096 LOGIC  .AND.  X80    X93
+                   X92    X93
+0097 LOGIC  .NOT.  X93    X94
+0098 SAIDA         X94
+(LOGICA 2 - CHAVE B
+0099 LOGIC  .AND.  X80    X95
+                   X89    X95
+0100 LOGIC  .NOT.  X95    X96
+0101 SAIDA         X96
+(DESLIGAMENTO LOGICA 1 E 2  LT 138 kV MANGUEIRA 1 / MARMELEIRO 2
+0102 LOGIC  .AND.  X97    X51
+                   X83    X51
+(LOGICA 2 - DESLIGAMENTOS - CHAVE A (X94)
+0103 EXPORT STLIND X94           #LOC12
+0104 EXPORT STLINP X94           #LOC12
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(--------------------------------------------------------------------
+0105 IMPORT ESTFNT        X98    #LOC63     0
+0106 MULTPL        X98    X99
+                   X94    X99
+0107 EXPORT ESTFNT X99           #LOC63
+0108 IMPORT ESTFNT        X100   #LOC64    0
+0109 MULTPL        X100   X101
+                   X94    X101
+0110 EXPORT ESTFNT X101          #LOC64
+(LOGICA 2 - DESLIGAMENTOS - CHAVE B (X96)
+0111 EXPORT STLIND X96           #LOC13
+0112 EXPORT STLINP X96           #LOC13
+0113 IMPORT ESTFNT        X102   #LOC65    0
+0114 MULTPL        X102   X103
+                   X96    X103
+0115 EXPORT ESTFNT X103          #LOC65
+(
+( LOGICA 3 ------------------------------
+0116 IMPORT FLXA          X106   #LOC1  0
+0117 DISMAX        X106   X107   #fmax3#tvio3#Tper3
+0118 IMPORT STLINP        X104   #LOC1  0
+0119 LOGIC  .NOT.  X104   X105
+0120 LOGIC  .AND.  X105   X108
+                   X107   X108
+0121 LOGIC  .AND.  X108   X109
+                   X72    X109
+                   X26    X109
+0122 LOGIC  .NOT.  X109   X110
+0123 SAIDA         X110
+( LOGICA 4 ---------------------------------
+0130 IMPORT FLXA          X117   #LOC1  0
+0131 DISMAX        X117   X118   #fmax4#tvio4#Tper4
+0132 IMPORT STLINP        X115   #LOC1  0
+0133 LOGIC  .NOT.  X115   X116
+0134 LOGIC  .AND.  X116   X119
+                   X118   X119
+0135 LOGIC  .NOT.  X30    X120
+0136 LOGIC  .NOT.  X24    X150
+0137 LOGIC  .AND.  X150   X151
+                   X72    X151
+0138 LOGIC  .OR.   X151   X152
+                   X120   X152
+0139 LOGIC  .AND.   X72   X121
+                   X119   X121
+                   X152   X121
+0140 LOGIC  .NOT.  X121   X122
+0141 SAIDA         X122
+(CORTE DE MELO - LOGICA 3 E 4
+(----------------------------------------
+(( DESLIGAMENTOS LÓGICA 3 E 4
+0142 LOGIC  .AND.  X110   X123
+                   X122   X123
+0143 LOGIC  .AND.  X110   X124
+                   X122   X124
+0145 EXPORT STLIND X123          #LOC14
+0150 EXPORT STLINP X123          #LOC14
+0175 EXPORT CDU    X124
+( CONSTANTES
+DEFVAL        X18     #X18
+DEFVAL        X21     #X21
+DEFVAL        X73     #X73
+FIMCDU
+(
+( |-------------------------------------------------------------------------------------------------------|
+( | 525-SOBREFRE - CORTE DE GERAÇÃO POR SOBREFREQUÊNCIA                                                   |
+( |-------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10006 525-SOBREFRE
+( |-------------------------------------------------------------------------------------------------------|
+( | O 525-SOBREFRE REPRESENTA OS SEPS:                                                                    |
+( | - 2.12.06: Corte de geração na UHE GBM                                                                |
+( | - 2.12.08: Corte de geração na UHE José Richa                                                         |
+( | - 2.46.06: Corte de geração na UHE Salto Santiago                                                     |
+( | - 2.46.08: Corte de geração na UHE Machadinho                                                         |
+( |-------------------------------------------------------------------------------------------------------|
+(
+(A definição de quais maquinas serão desligadas por este SEP depende de condições em tempo real, nesta modelagem foi decidido pelo desligamento sempre igual das máquinas:
+( - 1 Máquina de José Richa
+( - 1 Máquina de Salto Santiago
+( - 1 Máquina de GBM
+( - 1 Máquina de Ney Braga
+(
+(----------------------------------------------------------------------
+(DEFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #LOC1                2821 MAQUINA DE RICHA
+DEFPAR #LOC2                2822 MAQUINA DE SALTO SANTIAGO
+DEFPAR #LOC3                2823 MAQUINA DE GBM
+DEFPAR #LOC4                2824 MAQUINA DE NEY BRAGA
+DEFPAR #LOC5                2825 MEDIÇÃO DE FREQ
+DEFPAR #X7                  62.5 LIMITE DE FREQUÊNCIA PARA ATUAÇÃO DO SEP
+DEFPAR #X8                    -1 AUXÍLIO PARA CORTE DE GERAÇÃO
+DEFPAR #X9                    60 AUXÍLIO PARA CORTE DE GERAÇÃO
+DEFPAR #Pmax                 0.5
+DEFPAR #Tviol             0.0002
+DEFPAR #Tpers              99999
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 SOMA          X3     X1
+                   X8     X1
+0002 EXPORT STGER  X6            #LOC1
+0003*IMPORT NUGER         X3     #LOC1  0
+0004 IMPORT FREQ          X4     #LOC5  60
+0005 COMPAR .GE.   X10    X5
+                   X7     X5
+0006 SELET2        X3     X6
+                   X1     X6
+                   X11    X6
+0007 ENTRAD               X7
+0008 ENTRAD               X8
+0009 ENTRAD               X9
+0010 MULTPL        X4     X10
+                   X9     X10
+0011 DISMAX        X5     X11    #Pmax #Tviol#Tpers
+0012 SOMA          X14    X12
+                   X8     X12
+0013 EXPORT STGER  X15           #LOC2
+0014*IMPORT NUGER         X14    #LOC2  0
+0015 SELET2        X14    X15
+                   X12    X15
+                   X11    X15
+0017 SOMA          X19    X17
+                   X8     X17
+0018 EXPORT STGER  X20           #LOC3
+0019*IMPORT NUGER         X19    #LOC3  0
+0020 SELET2        X19    X20
+                   X17    X20
+                   X11    X20
+0021 SOMA          X23    X21
+                   X8     X21
+0022 EXPORT STGER  X24           #LOC4
+0023*IMPORT NUGER         X23    #LOC4  0
+0024 SELET2        X23    X24
+                   X21    X24
+                   X11    X24
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        X7     #X7           -1 PARA RETIRADA DE UMA MÁQUINA
+DEFVAL        X8     #X8
+DEFVAL        X9     #X9
+FIMCDU
+(
+( |-------------------------------------------------------------------------------------------------------|
+( | DESLIGA-MELO - DESLIGAMENTO DE MELO E DA LT 525 KV MELO - CANDIOTA                                    |
+( |-------------------------------------------------------------------------------------------------------|
+( |Este CDU faz o desligamento de Melo na atuação dos SEPs:                                               |
+( |- 525-2.15.115: ANTI-ILHAMENTO DA UTE PAMPA SUL COM A CONVERSORA DE MELO                               |
+( |- 525-2.15.92: BLOQUEIO DA CONVERSORA DE MELO POR DIMINUIÇÃO DO NÍVEL DE CURTO-CIRCUITO DO SUL DO RS   |
+( |- 525-2.15.106: CONTROLE DE EMERGÊNCIA NO SUL DO RS EM CONTINGÊNCIA DA LT 525KV NSR/PNVO               |
+( |-------------------------------------------------------------------------------------------------------|
+(ncdu) ( nome cdu )
+ 10007 DESLIGA-MELO   CDU PARA DESLIGAMENTO UNICO DE MELO DOS SEPS-SUL-3-5-7
+(ncdu) ( nome cdu )
+DEFPAR #LOC1                2832 MELO 1
+DEFPAR #LOC2                2833 MELO 2
+DEFPAR #LOC3                2831 LT 525 KV MELO - CANDIOTA
+DEFPAR #LOC4                3830 LT 525 KV MELO - CANDIOTA
+DEFPAR #LOC90               2834 EXPORT SEP-SUL-3
+DEFPAR #LOC95               2835 EXPORT SEP-SUL-5
+DEFPAR #LOC99               2836 EXPORT SEP-SUL-7
+DEFPAR #X8                   0.1
+DEFPAR #X33                    0
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 IMPORT CDU           X1     #LOC90   1                                 DLOC EXPORT - SEP-SUL-3
+0002 IMPORT CDU           X2     #LOC95   1                                 DLOC EXPORT - SEP-SUL-5
+0003 IMPORT CDU           X3     #LOC99   1                                 DLOC EXPORT - SEP-SUL-7
+0004 LOGIC  .AND.  X1     X4
+                   X2     X4
+                   X3     X4
+0005 EXPORT ESTCNV X32           #LOC1                                        MELO
+0006 EXPORT ESTCNV X32           #LOC2
+0007*IMPORT ESTCNV        X7     #LOC1   0                                  DLOC EXPORT - SEP-SUL-7
+0008 ENTRAD               X8
+0009 IMPORT ESTCNV        X9     #LOC1   0                                  DLOC EXPORT - SEP-SUL-7
+0011 COMPAR .GT.   X7     X11
+                   X8     X11
+0012 COMPAR .GT.   X9     X12
+                   X8     X12
+0013 LOGIC  .AND.  X11    X13
+                   X12    X13
+0031 IMPORT TEMPO         X31
+0014 LOGIC  .AND.  X16    X14
+                   X17    X14
+0032 SELET2        X11    X32
+                   X4     X32
+                   X34    X32
+0033 ENTRAD               X33
+0016 LOGIC  .NOT.  X11    X16
+0034 COMPAR .GT.   X31    X34
+                   X33    X34
+0017 LOGIC  .NOT.  X12    X17
+0018 LOGIC  .OR.   X13    X18
+                   X14    X18
+0019 EXPORT STLINP X18           #LOC3
+0020 EXPORT STLIND X18           #LOC3
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+DEFVAL        X8     #X8
+DEFVAL        X33    #X33
+FIMCDU
+999999
+(
+( |-------------------------------------------------------------------------------------------------------|
+( |                                                                                                       |
+( | DADOS DE LOCALIZAÇÃO REMOTA DE SINAIS PARA CDU                                                        |
+( |                                                                                                       |
+( |-------------------------------------------------------------------------------------------------------|
+(
+DLOC
+( |-------------------------------------------------------------------------------------------------------|
+( | REGIÃO: RIO GRANDE DO SUL                                                                             |
+( |-------------------------------------------------------------------------------------------------------|
+(
+( |--------------------------------------------------------------------------------------------------------|
+( |  RS-2.99.01 - CORTE DE GERAÇÃO NA UHE FOZ CHAPECÓ                                                      |
+( |--------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+0804   CIRCAC 1071  1069 1
+0805   CIRCAC 1071  1069 2
+0806   MAQ    1070             10
+0807   CIRCAC 1071  1213 1
+0808   CIRCAC 1070  1071 1
+( |--------------------------------------------------------------------------------------------------------|
+(   RS-2.03.01 - CONTROLE DE EMERGÊNCIA DO RIO GRANDE DO SUL                                               |
+( |--------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)       (Fictício - circuitos utilizados para calculo de FRS
+(TR 1, 2, 3 e 4 525/230 Nova Santa Rita
+0811   CIRCAC  980 41301 1
+0812   CIRCAC  980 41302 2
+0813   CIRCAC  980 41303 3
+0814   CIRCAC  980 41304 4
+(TR 2, 3 e 4 525/230 S. Angelo
+0817   CIRCAC 1046 41356 1
+0815   CIRCAC 1046 41354 2
+0816   CIRCAC 1046 41355 3
+(LT 230 kV P. Fundo - Xanxere
+0818   CIRCAC 1041  1069 1
+0819   CIRCAC 1041  1069 2
+(LT 230 Forquilhinha - Lajeado Grande
+0820   CIRCAC  961  1163 1
+(TR 1, 2 e 3 525/230 Caxias
+0821   CIRCAC  965 41229 1
+0822   CIRCAC  965 41230 2
+0823   CIRCAC  965 41231 3
+(TR 1, 2 e 3 525/230 Gravatai
+0824   CIRCAC 1210 41271 1
+0825   CIRCAC 1210 41272 2
+0826   CIRCAC 1210 41273 3
+(LT 230 kV B. Grande - Lagoa Vermelha
+0827   CIRCAC  936  1325 1
+(LT 138kV F. Chapecó - Planalto (Carga da RGE)
+0828   CIRCAC 1062  9549 1
+(LT 525 kV Nova Santa Rita - Povo Novo
+0829   CIRCAC  979  9818 1
+(LT 230 kV F. Chapecó - Guarita
+0830   CIRCAC 1071  1213 1
+(Circuitos utilizados para monitoramento de perda dupla
+0831   CIRCAC  955   979 1
+0832   CIRCAC  955   964 1
+0833   CIRCAC  995   979 1
+0834   CIRCAC  995   979 2
+0835   CIRCAC  995   964 1
+(BARRA QUE É MONITORADA A TENSÃO - GRAVATAI 525 kV
+0836   BARRAC  976
+(PRIMEIRO BLOCO DE CORTE (BLOCO 1)
+0837   CIRCAC 1209 9232 1            GRAVATAI 2 69 KV - ALVORADA 69 KV
+0838   CIRCAC 1209 9273 1            GRAVATAI 2 69 KV - VONPA1TAP069
+0839   CIRCAC 1210 1264 1            GRAVATAI 2 230 KV - PAL 8 230 KV
+(0840   CIRCAC 1271 10054 1
+(SEGUNDO BLOCO DE CORTE (BLOCO 10)
+0841   CIRCAC 1262  9967 1
+0842   CIRCAC 1262  9392 1
+(TERCEIRO BLOCO DE CORTE (BLOCO 7)
+0843   CIRCAC 2094  2092 1           TAQUARA 138KV - TRAROBÉ 138 KV
+0844   CIRCAC 1198 41232 1           TRAFO 1 DE CAMPO BOM
+0845   CIRCAC 1198 41233 2           TRAFO 2 DE CAMPO BOM
+0846   CIRCAC 1198 41234 7           TRAFO 3 DE CAMPO BOM
+1804   BARRAC 2094                   BARRA 138KV DE TAQUARA
+(QUARTO BLOCO DE CORTE  (BLOCO 9)
+1805   CIRCAC 1266  1272 1
+1806   CIRCAC 1266  9236 1
+1807   CIRCAC 9556  9236 1
+1808   CIRCAC 1267 41236 1
+1809   CIRCAC 1263  1270 1
+(
+( |-------------------------------------------------------------------------------------------------------|
+( | REGIÃO: 525 kV - REGIÃO SUL DO BRASIL                                                                 |
+( |-------------------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------------------|
+( |  525-2.15.115 - ANTI-ILHAMENTO DA UTE PAMPA SUL COM A CONVERSORA MELO                                    |
+( |----------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1813   CIRCAC 1239  9785 1
+(1814   CIRCAC 9785  9786 1
+1815   CIRCAC  997  9786 1
+(2842   CIRCAC 9787  9786 1
+( |----------------------------------------------------------------------------------------------------------------|
+( | 525-2.50.03 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2 |
+( |----------------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1817   CIRCAC  972  1045                 Conversora Garabi I
+1818   CIRCAC  973  1045                 Conversora Garabi II
+1819   CIRCAC  995  1045 1           LT 525 kV Itá / Santo Ângelo 1
+1820   CIRCAC  995  1045 2           LT 525 kV Itá / Santo Ângelo 2
+1821   CONVER  09                    CF GARABI 1 - RETIFICADOR - POLO 1
+1822   CONVER  10                    CF GARABI 1 - INVERSOR    - POLO 1
+1823   CONVER  11                    CF GARABI 1 - RETIFICADOR - POLO 2
+1824   CONVER  12                    CF GARABI 1 - INVERSOR    - POLO 2
+1825   CONVER  13                    CF GARABI 2 - RETIFICADOR - POLO 1
+1826   CONVER  14                    CF GARABI 2 - INVERSOR    - POLO 1
+1827   CONVER  15                    CF GARABI 2 - RETIFICADOR - POLO 2
+1828   CONVER  16                    CF GARABI 2 - INVERSOR    - POLO 2
+( |---------------------------------------------------------------------------------------------------------|
+( |  525-2.15.92 - BLOQUEIO DO CONVERSOR DE FREQUÊNCIA DA SE CONVERSORA MELO                                |
+( |---------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1831   CIRCAC  997 9786 1            LT 525 kV Candiota / Pampa Sul
+(4805   CIRCAC 9786 9787 1            LT 525 kV Candiota / C.F. Melo
+1832   CIRCAC 1174 1239 1             UTE CANDIOTA III
+( |------------------------------------------------------------------------------------------------------------------------------|
+( | 525-2.15.106 - CONTROLE DE EMERGÊNCIA NO SUL DO RIO GRANDE DO SUL PARA CONTINGÊNCIA DA LT 525 KV NOVA SANTA RITA / POVO NOVO |
+( |------------------------------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1835   CIRCAC  979  9818 1 9818      LT 525 kV NOVA SANTA RITA / POVO NOVO
+1836   CIRCAC 9177  9176 1           LT 138 kV MANGUEIRA 1 / MARMELEIRO 2
+1837   CIRCAC 9877  9873 1           LT 138 kV CHUÍ / SANTA VITÓRIA DO PALMAR 2
+1838   CIRCAC 9963  9894 1           LT 138 kV HERMENEGILDO / SANTA VITÓRIA DO PALMAR 2
+1839   CIRCAC 9785  1239 1           LT 230 kV CANDIOTA / PRESIDENTE MÉDICI
+(BLOCO 1
+1840   CIRCAC  9819 1246 1           LT 230 KV POVO NOVO/ QUINTA
+1841   CIRCAC  982041297 1           TF1 MARMELEIRO
+1842   MAQ     9824            10    CS 1 e 2 DE MARMELEIRO
+(
+(BLOCO 2
+1843   CIRCAC  1186 1230 1           LT 230 KV ALEGRETE 2 / LIVRAMENTO 2
+1844   CIRCAC  9569 1199 1           LT 230 KV CAMAQUA 3 / GUAIBA
+1845   CIRCAC  9569  980 1           LT 230 KV CAMAQUA 3 / NOVA SANTA RITA
+1846   CIRCAC  9569 1236 1           LT 230 KV CAMAQUA 3 / PELOTAS 3
+2804   CIRCAC  9569 9819 1           LT 230 KV CAMAQUA 3 / POVO NOVO
+2805   CIRCAC  1236 1246 1           LT 230 KV PELOTAS 3 / QUINTA
+2806   CIRCAC  1239 1246 1           LT 230 KV P.MEDICI / QUINTA
+2807   CIRCAC  1239 1256 1           LT 230 KV P. MEDICI / SANTA CRUZ 1
+(BLOCO 3
+2808   CIRCAC  1188 1230 1           LT 230 KV BAGÉ 2 / LIVRAMENTO 2
+2809   CIRCAC  1188 1239 1           LT 230 KV BAGÉ 2 / P.MEDICI
+2810   CIRCAC  1236 1239 1           LT 230 KV PELOTAS 3 / P. MEDICI
+2811   MAQ     1173            10    UTE CANDIOTA
+2812   MAQ      998            10    UTE PAMPA SUL
+(DLOC DAS EÓLICAS PARA AUXÍLIO NO DESLIGAMENTO
+2813   FNT    10017            10    EOL MARMELEIRO
+2814   FNT    10018            10    EOL MARMELEIRO
+2815   FNT    10019            10    EOL MARMELEIRO
+(EOLICAS XUÍ E HERMENEGILDO
+2816   FNT     9900            10    EOL CHUÍ
+2817   FNT    10012            10    EOL CHUÍ
+2818   FNT    10011            10    EOL HERMENEGILDO
+( |-------------------------------------------------------------------------------------------------------|
+( | 525-SOBREFRE - CORTE DE GERAÇÃO POR SOBREFREQUÊNCIA                                                   |
+( |-------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+2821   MAQ     808             10    MAQUINA DE RICHA
+2822   MAQ     925             20    MAQUINA DE SALTO SANTIAGO
+2823   MAQ     800             10    MAQUINA DDE GBM
+2824   MAQ     810             10    MAQUINA NEY BRAGA
+2825   BARRAC  925                   MEDIÇÃO DE FREQ NA BARRA DE SALTO SANTIAGO
+( |-------------------------------------------------------------------------------------------------------------|
+( | DESLIGA-MELO - CDU PARA CONCENTRAR AÇÕES DE DESLIGAMENTO DE MELO E DA LT 525 KV MELO - CANDIOTA             |
+( |-------------------------------------------------------------------------------------------------------------|
+( | AUXÍLIO PARA OS SEPS: 525-2.15.115; 525-2.15.92 E 525-2.15.106                                              |
+( |-------------------------------------------------------------------------------------------------------------|
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+2831   CIRCAC 9787  9786 1           LT 525 KV CFMELO - CANDIO
+2832   CONVER 4201                   CONVERSORA DE MELO
+2833   CONVER 4202                   CONVERSORA DE MELO
+(DLOC PARA IMPORTAÇÕES DE SEP-SUL-3-5-7
+2834   CDU    10002              0020 DLOC DE SAÍDA DA LOGICA SEP-SUL-3
+2835   CDU    10004              0025 DLOC DE SAÍDA DA LOGICA SEP-SUL-5
+2836   CDU    10005              0175 DLOC DE SAÍDA DA LOGICA SEP-SUL-7
+999999
+(
+( |-------------------------------------------------------------------------------------------------------|
+( |                                                                                                       |
+( | ASSOCIAÇÃO DE CONTROLADORES AOS MODELOS                                                               |
+( |                                                                                                       |
+( |-------------------------------------------------------------------------------------------------------|
+(
+DCNE
+( |-------------------------------------------------------------------------------------------------------|
+( | REGIÃO: RIO GRANDE DO SUL                                                                             |
+( |-------------------------------------------------------------------------------------------------------|
+(Nc)   ( Mc )u
+0940    10000u  RS-2.99.01 - CORTE DE GERAÇÃO NA UHE FOZ CHAPECÓ
+0941    10001u  RS-2.03.01 - CONTROLE DE EMERGÊNCIA DO RIO GRANDE DO SUL
+( |-------------------------------------------------------------------------------------------------------|
+( | REGIÃO: 525 kV  - REGIÃO SUL DO BRASIL                                                                |
+( |-------------------------------------------------------------------------------------------------------|
+(Nc)   ( Mc )u
+0942    10002u  525-2.15.115 - ANTI-ILHAMENTO DA UTE PAMPA SUL COM A CONVERSORA MELO
+0943    10003u  525-2.50.03 - BLOQUEIO DAS CONVERSORAS GARABI I E II PELO DESLIGAMENTO DA LT 525 KV ITÁ / SANTO ÂNGELO C1 E C2
+0944    10004u  525-2.15.92 - BLOQUEIO DO CONVERSOR DE FREQUÊNCIA DA SE CONVERSORA MELO
+0945    10005u  525-2.15.106 - CONTROLE DE EMERGÊNCIA NO SUL DO RIO GRANDE DO SUL PARA CONTINGÊNCIA DA LT 525 KV NOVA SANTA RITA / POVO NOVO
+1940    10006u  525-SOBREFRE - CORTE DE GERAÇÃO DA UHE JOSÉ RICHA; UHE NEY BRAGA; UHE GBM; E UHE SALTO SANTIAGO POR SOBREFREQUÊNCIA
+1941    10007u  DESLIGA-MELO - CDU PARA CONCENTRAR AÇÕES DE DESLIGAMENTO DE MELO E DA LT 525 KV MELO - CANDIOTA
+999999
+FIM

@@ -1,0 +1,554 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       HVDC_0720.dat                                                                             |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Associação de modelos de HVDC                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |    DADOS DE ENTRADA                                                                                       |
+( |                                                                                                           |
+( |    1. HVDC MADEIRA    - Escoamento da Geracao das UHE Santo Antonio e Jirau                               |
+( |    2. ELO CC FURNAS   - Escoamento da Geracao da UHE Itaipu 50 Hz                                         |
+( |    3. HVDC GARABI     - Interligacao BRASIL - ARGENTINA                                                   |
+( |    4. HVDC BELO MONTE - Escoamento da Geracao do Complexo Belo Monte                                      |
+( |    5. HVDC MELO       - Interligacao BRASIL - URUGUAI                                                     |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 1. HVDC MADEIRA                                                                                           |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+( Configuracao - 2 Back-to-Back e Bipolo 1 ABB
+(Tipo) (C) ( Nome do Arquivo
+(  CDU     .\BDados\HVDC_Madeira\2BtB+BP1_V5.cdu
+(
+( Configuracao - Ate 2 Back-to-Back, Bipolo 1 ABB e Bipolo 2 Alstom
+(Tipo) (C) ( Nome do Arquivo
+(   CDU     .\BDados\HVDC_Madeira\2BtB+2BP_V5.cdu
+(
+( Configuracao - Ate 2 Back-to-Back, Bipolo 1 ABB e Bipolo 2 Alstom na operacao monopolar
+(Tipo) (C) ( Nome do Arquivo
+(  CDU     .\BDados\HVDC_Madeira\2BtB+2BP_BP2_MONO_V5.cdu
+(
+( Bipolo 1 + Master Control (Eletronorte)
+(
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\HVDC_Madeira\Eletronorte\2BtB+2BP_ELN_V8.6.1.cdu
+(
+( Bipolo 2 (IE Madeira)
+(
+(Tipo) (C) ( Nome do Arquivo
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_BP_CONTROL.cdu
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_FILT_MEDICAO.cdu
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_POLE_CONTROL.cdu
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_TAP_CONTROL.cdu
+(CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_FILTER_CONTROL.cdu
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_DCLF.cdu
+CDU         .\BDados\HVDC_Madeira\IEMadeira\MADEIRA_BP2_DLOC.cdu
+(
+999999
+(
+DCNV
+(
+( Back-To-Back ABB CCC
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+2201                         9321u
+2202          95.            9322u
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+2203                         9323u
+2204          95.            9324u
+(
+( Bipolo #1 - ABB
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+1201           5. 163.        101   9301u
+1202          90.       17.   102
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+1203           5. 163.        101   9303u
+1204          90.       17.   102
+(
+( Bipolo #2 - Alstom
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+1205           5. 163.       9009u                              9203u
+1206          90.       13.  9010u                              9204u
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+1207           5. 163.       9011u                              9205u
+1208          90.       13.  9012u                              9206u
+(
+999999
+(
+(===============================================================================
+( INDUTANCIAS DE LINHAS CC
+(===============================================================================
+DCLI
+(===============================================================================
+(  BACK-TO-BACK
+(===============================================================================
+(De)    (Pa)Nc         ( L  )
+(2101    2102 1          80.00
+(2105    2106 1          80.00
+(===============================================================================
+( ELO CC MADEIRA
+(===============================================================================
+(De)    (Pa)Nc         ( L  )
+1101    1102 1         2646.0
+1105    1106 1         2646.0
+(
+(  MADEIRA - INDUTANCIA DO BIPOLO 2
+(  REATOR DE ALISAMENTO ALSTOM = 2x315 mH
+(  INDUTANCIA TOTAL DA LT = 1915 mH
+(  COMPRIMENTO DA LT: 2375 km
+(
+(  MONOPOLAR COM RETORNO METALICO
+(  VALOR DE CADA LT x2 + 2 REATORES DE ALISAMENTO = 4460.0 mH
+(
+(De)    (Pa)Nc         ( L  )
+1109    1110 1         2545.0
+1113    1114 1         2545.0
+999999
+(
+(===============================================================================
+( DADOS DE MODELOS DE ELOS CCAT
+(===============================================================================
+DMEL MD01
+(
+(Nm)   C (Tbp)
+   1   P       Controle de potencia
+   2   C       Controle de corrente
+(
+999999
+(
+(===============================================================================
+( DADOS ASSOCIACAO DE ELO CC AOS CONTROLES
+( OBS: Usar modelo 10 para controle de potencia e modelo 20 para controle de corrente
+(===============================================================================
+DELO
+(
+( ELO CC DO MADEIRA
+(
+(Ne)   ( M+ )u( M- )u
+1001        1
+1002        1
+(1003        1
+(1004        1
+(
+999999
+(
+(===============================================================================
+( CONTROLADORES NAO ESPECIFICOS
+(===============================================================================
+DCNE
+( Controle Mestre dos Bipolos e Back-to-Back
+(Nc)   ( Mc )u
+9000     9300u    Master Control
+(
+( Bipolo 2 - Alstom
+(Nc)   ( Mc )u
+9315     9315u    Bipole/Pole power control
+9999     9999u    Filtragem de medicao
+9001     9201u    Line fault protection pole 3
+9002     9202u    Line fault protection pole 4
+(9007     9319u    Controle de filtros da barra de Porto Velho do Bipolo 2
+(9008     9320u    Controle de filtros da barra de Araraquara do Bipolo 2
+999999
+(
+(==============================================================================
+(DADOS DE FALHA DE COMUTAÇÃO DO BIPOLO
+(TEMPO DE FALHA DE COMUTAÇÃO NUMA FALTA NO INVERSOR
+(==============================================================================
+DFCM
+(Nm) (Vfc) (Gfc) (Thd)
+1202        14.1 0.016       Inv polo 1
+1204        14.1 0.016       Inv polo 2
+1206        12.0 0.016       Inv polo 3
+1208        12.0 0.016       Inv polo 4
+999999
+(
+(==============================================================================
+(DADOS DE FALHA DE COMUTAÇÃO DO BACK-TO-BACK
+(TEMPO DE FALHA DE COMUTAÇÃO NUMA FALTA NO INVERSOR
+(==============================================================================
+DFCM
+(Nm) (Vfc) (Gfc) (Thd)
+2202        14.1 0.016       Inv BtB 1
+2204        14.1 0.016       Inv BtB 2
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 2. ELO CC FURNAS                                                                                          |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_CMESTRE_V16.cdu
+   CDU     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_POLE_CONTROL_V11.cdu
+   CDU     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_DCLF_PROT_V11.cdu
+   CDU     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_TAP_CONTROL_V6.cdu
+   CDU     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_DLOC.dat
+999999
+(
+DCNV
+( ***** POLO 1 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+   1                         8001u                              9021u
+   2                         8002u                              9022u
+(
+( ***** POLO 2 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+   3                         8003u                              9023u
+   4                         8004u                              9024u
+(
+( ***** POLO 3 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+   5                         8005u                              9025u
+   6                         8006u                              9026u
+(
+( ***** POLO 4 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+   7                         8007u                              9027u
+   8                         8008u                              9028u
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | DETECCAO AUTOMATICA DE FALHA DE COMUTACAO                                                                 |
+( |-----------------------------------------------------------------------------------------------------------|
+DFCM
+(Nm) (Vfc) (Gfc) (Thd)
+   2        14.1  .040
+   4        14.1  .040
+   6        14.1  .040
+   8        14.1  .040
+999999
+( |-----------------------------------------------------------------------------------------------------------|
+( | INDUTANCIAS DE LINHAS CC                                                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+DCLI
+(De)    (Pa)Nc         ( L  )
+  10      20 1         1231.9
+  50      60 1         1231.9
+  90     100 1         1231.9
+ 130     140 1         1231.9
+999999
+( |-----------------------------------------------------------------------------------------------------------|
+( | CONTROLADORES NAO ESPECIFICOS                                                                             |
+( |-----------------------------------------------------------------------------------------------------------|
+DCNE
+(Nc)   ( Mc )u
+(Master Control
+9990     9990u
+(DC line fault Protection
+9013     9013u
+9014     9014u
+9015     9015u
+9016     9016u
+999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( |                                                                                                           |
+(( | 3. Conversora de Frequencia de Garabi - Back-to-Back CCC                                                  |
+(( |    Garabi I (5 e 6) e Garabi II (7 e 8)                                                                   |
+(( |                                                                                                           |
+(( |-----------------------------------------------------------------------------------------------------------|
+((
+(DARQ
+((Tipo) (C) ( Nome do Arquivo
+(   CDU     .\BDados\HVDC_Garabi\HVDC_Garabi_BtB_CCC.cdu
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | SENTIDO ARGENTINA -> BRASIL                                                                               |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DCNV
+(( *** POLO 5 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(   9         -8.6 165.       9001u
+(  10         100.       17.  9002u
+((
+(( *** POLO 6 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  11         -8.6 165.       9003u
+(  12         100.       17.  9004u
+((
+(( *** POLO 7 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  13         -8.6 165.       9005u
+(  14         100.       17.  9006u
+((
+(( *** POLO 8 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  15         -8.6 165.       9007u
+(  16         100.       17.  9008u
+((
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | SENTIDO BRASIL -> ARGENTINA                                                                               |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DCNV
+(( ***** POLO 5 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  09         100.       17.  9002u
+(  10         -8.6 165.       9001u
+((
+(( ***** POLO 6 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  11         100.       17.  9004u
+(  12         -8.6 165.       9003u
+((
+(( *** POLO 7 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  13         100.      17.0  9006u
+(  14         -8.6 165.       9005u
+((
+(( *** POLO 8 ***** )
+((No)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u
+(  15         100.      17.0  9008u
+(  16         -8.6 165.       9007u
+((
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | DETECCAO AUTOMATICA DE FALHA DE COMUTACAO                                                                 |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DFCM BASE
+((Nm) (Vfc) (Gfc) (Thd)
+(   9  0.80  12.0  .040
+(  10  0.80  12.0  .040
+(  11  0.80  12.0  .040
+(  12  0.80  12.0  .040
+(  13  0.80  12.0  .040
+(  14  0.80  12.0  .040
+(  15  0.80  12.0  .040
+(  16  0.80  12.0  .040
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | LOCAIS REMOTOS DE MEDICAO                                                                                 |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DLOC
+((Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(1044   CDU     9001               251
+(2044   CDU     9003               251
+(3044   CDU     9005               251
+(4044   CDU     9007               251
+(999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 4. HVDC BELO MONTE                                                                                        |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | BIPOLO 1 - XINGU-ESTREITO                                                                                 |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_BP1_ACFC_V12.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_BP1_DCLFRS_V9.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_BP1_POLE_CONTROL_V15.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_BP1_STATION_CONTROL_V6.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_BP1_TAP_CONTROL_V2.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\BMTE\BMTE_DLOC.cdu
+999999
+(
+DCNV
+( ***** POLO 1 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+3201                        97761u                              9110u
+3202                        97762u                              9120u
+(
+( ***** POLO 2 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+3203                        97763u                              9130u
+3204                        97764u                              9140u
+(
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | DETECCAO AUTOMATICA DE FALHA DE COMUTACAO                                                                 |
+( |-----------------------------------------------------------------------------------------------------------|
+DFCM BASE
+( POLO 1 )
+(Nm) (Vfc) (Gfc) (Thd)
+3201        12.0 0.040
+3202        12.0 0.040
+( POLO 2 )
+(Nc) (Vfc) (Gfc) (Thd)
+3203        12.0 0.040
+3204        12.0 0.040
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | INDUTANCIAS DE LINHAS CC                                                                                  |
+( |-----------------------------------------------------------------------------------------------------------|
+DCLI
+(De)    (Pa)Nc         ( L  )
+3101    3102 1         2332.6
+3105    3106 1         2332.6
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | CONTROLADORES NAO ESPECIFICOS                                                                             |
+( |-----------------------------------------------------------------------------------------------------------|
+DCNE
+( Station Control
+(Nc)   ( Mc )u
+9991    95000u
+( DC Line Fault Protection P1
+(Nc)   ( Mc )u
+9010    97010u
+( DC Line Fault Protection P1
+(Nc)   ( Mc )u
+9020    97020u
+( AC Filter Control Xingu
+(Nc)   ( Mc )u
+9210     9210u
+( AC Filter Control Estreito
+(Nc)   ( Mc )u
+9220     9220u
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | BIPOLO 2 - XINGU-TERMINAL RIO                                                                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_MASTER_CONTROL_SEP_v4.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_MAINCONTROL_V16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_POLECONTROL_V16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_RPC_V16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_TCC_V16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_DCLF_v16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_MSGS_V16.cdu
+   CDU     .\BDados\HVDC_Belo_Monte\XRTE\XRTE_DLOC_V16.cdu
+999999
+(
+DCNV
+( ***** POLO 1 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+3205                         8411u                              8421u
+3206                         8412u                              8422u
+( ***** POLO 2 ***** )
+(Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(tap )u
+3207                         8413u                              8423u
+3208                         8414u                              8424u
+999999
+(
+DCLI
+(
+( |------------------------------------------------------------------------------------------------------|
+( | INDUTANCIAS DE LINHAS CC                                                                                  |
+( |------------------------------------------------------------------------------------------------------|
+(De)    (Pa)Nc         ( L  )
+3109    3110 1         2332.6
+3113    3114 1         2332.6
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | CONTROLADORES NAO ESPECIFICOS                                                                             |
+( |-----------------------------------------------------------------------------------------------------------|
+DCNE
+(Nc)   ( Mc )u
+8000     8000u      Main Control
+8401     8401u      RPC_S1 - SE Xingu
+8402     8402u      RPC_S2 - SE Terminal Rio
+8431     8431u      DCLF Pole 1
+8432     8432u      DCLF Pole 2
+9992    96000u      Master Control
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | DETECCAO AUTOMATICA DE FALHA DE COMUTACAO                                                                 |
+( |-----------------------------------------------------------------------------------------------------------|
+DFCM BASE
+( POLO 3 )
+(Nm) (Vfc) (Gfc) (Thd)
+3205        14.1 0.040
+3206        14.1 0.040
+( POLO 4 )
+(Nm) (Vfc) (Gfc) (Thd)
+3207        14.1 0.040
+3208        14.1 0.040
+999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( |                                                                                                           |
+(( | 5. HVDC MELO                                                                                              |
+(( |                                                                                                           |
+(( |-----------------------------------------------------------------------------------------------------------|
+((
+(DARQ
+((Tipo) (C) ( Nome do Arquivo
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_PowerCtrl_V12.cdu
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_PhaseCtrl_V10.cdu
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_RPC_V12_LIG.cdu
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_Tap_Control_V7_AUT.cdu
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_OLRPC_TOV_V8.cdu
+(   CDU     .\BDados\HVDC_Melo\Melo_BtB_DLOC.dat
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | CONTROLE DOS CONVERSORES / LTC                                                                            |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DCNV
+((Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+(4201                         9091u                              9093u
+(4202                         9092u                              9094u
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | INDUTANCIAS DE LINHAS CC                                                                                  |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DCLI
+((De)    (Pa)Nc         ( L  )( C  )
+(4101    4102 1          100.
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | DADOS DE FALHA AUTOMATICA DE COMUTACAO                                                                    |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DFCM BASE
+((Nm) (Vfc) (Gfc) (Thd)
+(4201         8.0 0.016
+(4202         8.0 0.020
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | CONTROLADORES NAO ESPECIFICOS                                                                             |
+(( |-----------------------------------------------------------------------------------------------------------|
+(DCNE
+((Nc)   ( Mc )u
+((Power Control
+(9335     9335u
+((OLRPC / TOV Control - URUGUAI
+(9395     9395u
+((OLRPC / TOV Control - BRASIL
+(9396     9396u
+((Reactive Power Control (RPC)
+(9920     9920u
+(999999
+(
+FIM

@@ -1,0 +1,118 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_EOL_SUL_0720.dat                                                                      |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Plotagem de VOLT, PTFNT e QTFNT para todos os parques eólicos da região Sul               |
+( |                 *Para os parques modelados através do cartão DDFM, foi utilizado o fluxo nas linhas       |
+( |                  de conexão para plotar a geração de potência ativa e reativa                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P  (              Nome da Variável                )
+PTFNT  10120           10                                                                          PTFNT - ADOCE-EOL034
+QTFNT  10120           10                                                                          QTFNT - ADOCE-EOL034
+PTFNT  10119           10                                                                          PTFNT - ATLANTEOL012
+QTFNT  10119           10                                                                          QTFNT - ATLANTEOL012
+PTFNT  10124           10                                                                          PTFNT - BOMJAREOL034
+QTFNT  10124           10                                                                          QTFNT - BOMJAREOL034
+PTFNT  9732            10                                                                          PTFNT - CERCH1EOL034
+QTFNT  9732            10                                                                          QTFNT - CERCH1EOL034
+PTFNT  9733            10                                                                          PTFNT - CERCH2EOL034
+QTFNT  9733            10                                                                          QTFNT - CERCH2EOL034
+PTFNT  9734            10                                                                          PTFNT - CERCH3EOL034
+QTFNT  9734            10                                                                          QTFNT - CERCH3EOL034
+PTFNT  9900            10                                                                          PTFNT - CHUI9-EOL034
+QTFNT  9900            10                                                                          QTFNT - CHUI9-EOL034
+PTFNT  1347            10                                                                          PTFNT - CIDREIEOL034
+QTFNT  1347            10                                                                          QTFNT - CIDREIEOL034
+PTFNT  9948            10                                                                          PTFNT - CINGLEEOL034
+QTFNT  9948            10                                                                          QTFNT - CINGLEEOL034
+PTFNT  10012           10                                                                          PTFNT - COLCHUEOL034
+QTFNT  10012           10                                                                          QTFNT - COLCHUEOL034
+PTFNT  9949            10                                                                          PTFNT - COXSECEOL034
+QTFNT  9949            10                                                                          QTFNT - COXSECEOL034
+PTFNT  9950            10                                                                          PTFNT - GALPOEEOL034
+QTFNT  9950            10                                                                          QTFNT - GALPOEEOL034
+PTFNT  10112           10                                                                          PTFNT - GERIB1EOL034
+QTFNT  10112           10                                                                          QTFNT - GERIB1EOL034
+PTFNT  10113           10                                                                          PTFNT - GERIB2EOL034
+QTFNT  10113           10                                                                          QTFNT - GERIB2EOL034
+PTFNT  10011           10                                                                          PTFNT - HERMENEOL034
+QTFNT  10011           10                                                                          QTFNT - HERMENEOL034
+PTFNT  9853            10                                                                          PTFNT - IBIRAPEOL034
+QTFNT  9853            10                                                                          QTFNT - IBIRAPEOL034
+PTFNT  10110           10                                                                          PTFNT - INDI23EOL034
+QTFNT  10110           10                                                                          QTFNT - INDI23EOL034
+PTFNT  1371            10                                                                          PTFNT - INDIOSEOL034
+QTFNT  1371            10                                                                          QTFNT - INDIOSEOL034
+PTFNT  10017           10                                                                          PTFNT - MARM2AEOL012
+QTFNT  10017           10                                                                          QTFNT - MARM2AEOL012
+PTFNT  10018           10                                                                          PTFNT - MARM2BEOL012
+QTFNT  10018           10                                                                          QTFNT - MARM2BEOL012
+PTFNT  10019           10                                                                          PTFNT - MARM2CEOL012
+QTFNT  10019           10                                                                          QTFNT - MARM2CEOL012
+PTFNT  10109           10                                                                          PTFNT - OSOR23EOL034
+QTFNT  10109           10                                                                          QTFNT - OSOR23EOL034
+PTFNT  1369            10                                                                          PTFNT - OSORIOEOL034
+QTFNT  1369            10                                                                          QTFNT - OSORIOEOL034
+PTFNT  9868            10                                                                          PTFNT - PO2A3BEOL034
+QTFNT  9868            10                                                                          QTFNT - PO2A3BEOL034
+PTFNT  9867            10                                                                          PTFNT - PONT2BEOL034
+QTFNT  9867            10                                                                          QTFNT - PONT2BEOL034
+PTFNT  10114           10                                                                          PTFNT - REBCASEOL034
+QTFNT  10114           10                                                                          QTFNT - REBCASEOL034
+PTFNT  10108           10                                                                          PTFNT - SANG23EOL034
+QTFNT  10108           10                                                                          QTFNT - SANG23EOL034
+PTFNT  1370            10                                                                          PTFNT - SANGRAEOL034
+QTFNT  1370            10                                                                          QTFNT - SANGRAEOL034
+PTFNT  9183            10                                                                          PTFNT - XANGRIEOL034
+QTFNT  9183            10                                                                          QTFNT - XANGRIEOL034
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P  (              Nome da Variável                )
+
+VOLT   9183                                                                                        VOLT - XANGRIEOL034
+VOLT   10121                                                                                       VOLT - SENANDEOL034
+VOLT   10108                                                                                       VOLT - SANG23EOL034
+VOLT   1370                                                                                        VOLT - SANGRAEOL034
+VOLT   10114                                                                                       VOLT - REBCASEOL034
+VOLT   9867                                                                                        VOLT - PONT2BEOL034
+VOLT   9868                                                                                        VOLT - PO2A3BEOL034
+VOLT   10109                                                                                       VOLT - OSOR23EOL034
+VOLT   1369                                                                                        VOLT - OSORIOEOL034
+VOLT   10017                                                                                       VOLT - MARM2AEOL012
+VOLT   10018                                                                                       VOLT - MARM2BEOL012
+VOLT   10019                                                                                       VOLT - MARM2CEOL012
+VOLT   10110                                                                                       VOLT - INDI23EOL034
+VOLT   1371                                                                                        VOLT - INDIOSEOL034
+VOLT   9853                                                                                        VOLT - IBIRAPEOL034
+VOLT   10011                                                                                       VOLT - HERMENEOL034
+VOLT   10112                                                                                       VOLT - GERIB1EOL034
+VOLT   10113                                                                                       VOLT - GERIB2EOL034
+VOLT   9950                                                                                        VOLT - GALPOEEOL034
+VOLT   9949                                                                                        VOLT - COXSECEOL034
+VOLT   10012                                                                                       VOLT - COLCHUEOL034
+VOLT   9948                                                                                        VOLT - CINGLEEOL034
+VOLT   1347                                                                                        VOLT - CIDREIEOL034
+VOLT   9900                                                                                        VOLT - CHUI9-EOL034
+VOLT   9732                                                                                        VOLT - CERCH1EOL034
+VOLT   9733                                                                                        VOLT - CERCH2EOL034
+VOLT   9734                                                                                        VOLT - CERCH3EOL034
+VOLT   10124                                                                                       VOLT - BOMJAREOL034
+VOLT   10119                                                                                       VOLT - ATLANTEOL012
+VOLT   10121
+( Potencia ativa dos parques
+FLXA    10121  9860  1
+( Potencia reativa dos parques
+FLXR    10121  9860  1
+999999
+(
+FIM

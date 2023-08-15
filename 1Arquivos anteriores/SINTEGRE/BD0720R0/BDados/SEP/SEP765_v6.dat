@@ -1,0 +1,2075 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       SEP765_V6.dat                                                                             |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( MODELO DO SEP DO SISTEMA DE TRANSMISSÃO 765 KV ASSOCIADO A USINA DE ITAIPU 60 HZ
+( 
+( OBS.: O MODELO SÓ DEVE SER UTILIZADO PARA CONFIGURAÇÃO "COMPLETA" DO TRONCO 765 KV
+(
+( LÓGICAS REPRESENTADAS NO MODELO:
+(
+( * LÓGICA 2.1 - PERDA SIMPLES IA-TP
+( * LÓGICA 2.2 - PERDA SIMPLES IA-IV
+( * LÓGICA 5   - PERDA SIMPLES FI-IV OU FI-CO
+( * LÓGICA 7   - PERDA TRIPLA FI-IV COM SOBRETENSÃO EM IPU500
+( * LÓGICA 8   - PERDA TRIPLA IA-IV OU IA-TP
+( * LÓGICA 10  - DESLIGA REATOR DE IVAIPORÃ SE FIV>REF E VT<REF
+( * LÓGICA 14  - PERDA DUPLA FI-IV
+( * LÓGICA 15  - PERDA DUPLA IA-IV OU IA-TP
+( * LÓGICA 16  - PERDA TOTAL DA TRANSFORMAÇÃO IVAIPORÃ
+( * LÓGICA 18  - PERDA DUPLA IN-BC
+( * LÓGICA 19  - CORTE DE UG TUCURUI SE O SEP TRIP >=3UG EM ITAIPU E FNS>REF
+( * LÓGICA 21  - PERDA TRIPLA FI-IV - CORTE DE UG TUCURUI SE FNS>REF
+( * LÓGICA 22  - PERDA TRIPLA FI-IV - TRIP DA LT FI-CO
+( * LÓGICA 24  - PERDA TRIPLA FI-IV - CORTE 2 UG ADICIONAL EM ITAIPU
+(
+( LÓGICAS NÃO REPRESENTADAS NO MODELO:
+(
+( * LÓGICA 1      - SOBRECARGA TRAFO FI (TRIP UG)
+( * LÓGICA 4      - DESLIGA FI-IV C1, C2 E C3 POR SOBREFREQUÊNCIA
+( * LÓGICA 6 E 6' - SOBRECARGA TRAFO IV (TRIP UG) 
+( * LÓGICA 9 E 9' - SOBRECARGA TRAFO TP (TRIP UG)  ]
+( * LÓGICA 11     - ATUAÇÃO DO LIMITADOR DE MÁXIMA CORRENTE DE CAMPO DE ITAIPU
+( * LÓGICA 12     - PERDA DUPLA SÉRIE IA-IV E IA-TP
+( * LÓGICA 13     - PERDA DUPLA SÉRIE FI-IV E IA-IV 
+( * LÓGICA 20     - DESLIGA ITAIPU 60 POR SOBREFREQUÊNCIA
+( * LÓGICA 23     - SOBRECARGA TRAFO FI (RAMPA GERAÇÃO)
+(
+(**********************************************************************************************************
+(
+(
+DCDU
+(
+(ncdu) ( nome cdu )
+   765 SEP-765
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ON                     1         # HABILITA SEP: LIGADO=1 (DEFAULT) / DESLIGADO=0
+DEFPAR #L18ON                  0         # HABILITA LÓGICA 18: LIGADO=1 / DESLIGADO=0 (DEFAULT)
+DEFPAR #L22ON                  0         # HABILITA LÓGICA 22: LIGADO=1 / DESLIGADO=0 (DEFAULT)
+DEFPAR #L24ON                  0         # HABILITA LÓGICA 24: LIGADO=1 / DESLIGADO=0 (DEFAULT)  
+DEFPAR #TSEP               0.200         # TEMPO DE ATUAÇÃO DO SEP, EM SEGUNDOS
+DEFPAR #TL24               0.200         # TEMPO DE ATUAÇÃO DA LÓGICA 24, EM SEGUNDOS
+DEFPAR #TTUC               0.400         # TEMPO DE ATUAÇÃO CORTE DE MÁQUINA EM TUCURUÍ, EM SEGUNDOS
+(
+( LÓGICA 14 - PERDA DUPLA FI-IV OU FI-IV + FI-CO
+(EFPAR (nome) (     valor      )                                                  
+DEFPAR #L1G1  4400                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=10
+DEFPAR #L1G2  4900                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=10
+DEFPAR #L1G3  5200                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=10
+DEFPAR #L1G4  5600                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=10
+DEFPAR #L1G5  4500                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=10
+DEFPAR #L1G6  4900                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=10
+DEFPAR #L1G7  5000                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=10
+DEFPAR #L1G8  5800                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=10
+DEFPAR #L1G9  4200                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=9
+DEFPAR #L1G10 4800                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=9
+DEFPAR #L1G11 5000                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=9
+DEFPAR #L1G12 5500                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=9
+DEFPAR #L1G13 4400                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=9
+DEFPAR #L1G14 4800                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=9
+DEFPAR #L1G15 4900                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=9
+DEFPAR #L1G16 5500                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=9
+DEFPAR #L1G17 4000                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=8
+DEFPAR #L1G18 4600                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=8
+DEFPAR #L1G19 4800                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=8
+DEFPAR #L1G20 5400                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=8
+DEFPAR #L1G21 4300                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=8
+DEFPAR #L1G22 4800                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=8
+DEFPAR #L1G23 4900                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=8
+DEFPAR #L1G24 5100                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=8
+DEFPAR #L1G25 1500                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=7
+DEFPAR #L1G26 1600                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=7
+DEFPAR #L1G27 1700                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=7
+DEFPAR #L1G28 4300                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=7
+DEFPAR #L1G29 4700                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=7
+DEFPAR #L1G30 4800                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=7
+DEFPAR #L1G31 1500                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=6
+DEFPAR #L1G32 1600                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=6
+DEFPAR #L1G33 4100                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=6
+DEFPAR #L1G34 4700                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=6
+DEFPAR #L1G35 1500                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=5
+DEFPAR #L1G36 3900                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=5
+(
+( LÓGICA 15 - PERDA DUPLA IA-IV OU IA-TP
+(EFPAR (nome) (     valor      )                                                  
+DEFPAR #L2G1  9999                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=10
+DEFPAR #L2G2  5000                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=10
+DEFPAR #L2G3  5900                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=10
+DEFPAR #L2G4  6500                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=10
+DEFPAR #L2G5  9999                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=10
+DEFPAR #L2G6  4100                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=10
+DEFPAR #L2G7  5000                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=10
+DEFPAR #L2G8  5800                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=10
+DEFPAR #L2G9  9999                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=9
+DEFPAR #L2G10 5000                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=9
+DEFPAR #L2G11 5900                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=9
+DEFPAR #L2G12 6500                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=9
+DEFPAR #L2G13 9999                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=9
+DEFPAR #L2G14 4100                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=9
+DEFPAR #L2G15 5000                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=9
+DEFPAR #L2G16 5800                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=9
+DEFPAR #L2G17 9999                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=8
+DEFPAR #L2G18 4800                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=8
+DEFPAR #L2G19 5600                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=8
+DEFPAR #L2G20 5800                       # REFERÊNCIA FIV - CORTE DE 4 UG - NG=8
+DEFPAR #L2G21 9999                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=8
+DEFPAR #L2G22 4100                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=8
+DEFPAR #L2G23 5000                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=8
+DEFPAR #L2G24 5500                       # REFERÊNCIA FSE - CORTE DE 4 UG - NG=8
+DEFPAR #L2G25 9999                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=7
+DEFPAR #L2G26 4600                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=7
+DEFPAR #L2G27 5200                       # REFERÊNCIA FIV - CORTE DE 3 UG - NG=7
+DEFPAR #L2G28 9999                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=7
+DEFPAR #L2G29 3900                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=7
+DEFPAR #L2G30 4600                       # REFERÊNCIA FSE - CORTE DE 3 UG - NG=7
+DEFPAR #L2G31 9999                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=6
+DEFPAR #L2G32 4100                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=6
+DEFPAR #L2G33 9999                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=6
+DEFPAR #L2G34 3900                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=6
+DEFPAR #L2G35 3500                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=5
+DEFPAR #L2G36 3700                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=5
+(
+( LÓGICA 2.1 - PERDA SIMPLES IA-TP
+(EFPAR (nome) (     valor      )                                                  
+DEFPAR #L3G1  6500                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=10
+DEFPAR #L3G2  9999                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=10
+DEFPAR #L3G3  7000                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=10
+DEFPAR #L3G4  9999                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=10
+DEFPAR #L3G5  6100                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=9
+DEFPAR #L3G6  6500                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=9
+DEFPAR #L3G7  6900                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=9
+DEFPAR #L3G8  7100                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=9
+DEFPAR #L3G9  5700                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=8
+DEFPAR #L3G10 9999                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=8
+DEFPAR #L3G11 7100                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=8
+DEFPAR #L3G12 9999                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=8
+DEFPAR #L3G13 5000                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=7
+DEFPAR #L3G14 9999                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=7
+DEFPAR #L3G15 6900                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=7
+DEFPAR #L3G16 9999                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=7
+(
+( LÓGICA 2.2 - PERDA SIMPLES IA-IV
+(EFPAR (nome) (     valor      )                                                  
+DEFPAR #L4G1  6600                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=10
+DEFPAR #L4G2  9999                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=10
+DEFPAR #L4G3  7300                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=10
+DEFPAR #L4G4  9999                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=10
+DEFPAR #L4G5  6300                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=9
+DEFPAR #L4G6  6500                       # REFERÊNCIA FIV - CORTE DE 2 UG - NG=9
+DEFPAR #L4G7  7200                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=9
+DEFPAR #L4G8  7300                       # REFERÊNCIA FSE - CORTE DE 2 UG - NG=9
+(
+( LÓGICA 5 - PERDA SIMPLES FI-IV OU FI-CO
+(EFPAR (nome) (     valor      )                                                  
+DEFPAR #L5G1  6300                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=10
+DEFPAR #L5G2  7100                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=10
+DEFPAR #L5G3  5900                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=9
+DEFPAR #L5G4  7100                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=9
+DEFPAR #L5G5  5400                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=8
+DEFPAR #L5G6  7100                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=8
+DEFPAR #L5G7  5000                       # REFERÊNCIA FIV - CORTE DE 1 UG - NG=7
+DEFPAR #L5G8  7000                       # REFERÊNCIA FSE - CORTE DE 1 UG - NG=7
+(
+( LÓGICA 18 - PERDA DUPLA IN-BC
+(EFPAR (nome) (     valor      )
+DEFPAR #L18G1 6000                       # REFERÊNCIA FIV - CORTE DE 1 UG
+DEFPAR #L18G2 800                        # REFERÊNCIA DE CORRENTE NA LT INBC (POR CIRCUITO), EM AMPERES
+(
+( LÓGICA 7 - PERDA TRIPLA FI-IV COM SOBRETENSÃO EM ITAIPU 500 KV
+(EFPAR (nome) (     valor      )
+DEFPAR #L7V1  1.2                        # LIMITE DE SOBRETENSÃO, EM PU
+DEFPAR #L7V2  0.25                       # DURAÇÃO DA SOBRETENSÃO, EM SEGUNDOS
+(
+(LÓGICA 8 - CORTE DE UG PARA ABERTURA TOTAL DO TRONCO ENTRE IV-IA-TP   
+(EFPAR (nome) (     valor      )
+DEFPAR #L8G1  900                        # REFERÊNCIA FSE PARA PRÉ-HABILITAR A LÓGICA
+(
+( LÓGICAS 19 E 21 - CORTE DE UG EM TUCURUI
+(EFPAR (nome) (     valor      )
+DEFPAR #L19G1 2000                       # REFERÊNCIA FNS (HABILITA CHAVE 43 EM IMPERATRIZ)
+(
+( LÓGICA 10 - DESLIGA REATOR DE IVAIPORÃ SE FIV>REF E VT<REF
+(EFPAR (nome) (     valor      )
+DEFPAR #L10G1 5900                       # REFERÊNCIA DE FIV PARA PRÉ-HABILITAR A LÓGICA
+(
+( LÓGICA 16 - ABERTURA TOTAL TRANSFORMAÇÃO IVAIPORÃ
+(EFPAR (nome) (     valor      )
+DEFPAR #L16G1 3700                       # REFERÊNCIA FIV - CORTE DE 1 UG
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #MINUG 4                          # NÚMERO MÍNIMO DE UG EM ITAIPU 60
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IP500                 37         # Barra Itaipu 500 kV
+DEFPAR #VTC1                  10         # Barra VT C1
+DEFPAR #VTC2                  11         # Barra VT C2
+DEFPAR #VTC3                  12         # Barra VT C3
+DEFPAR #IPU60                 21         # USINA ITAIPU 60 
+DEFPAR #I6FI1                 13         # LT 500 kV I6-FI C1
+DEFPAR #I6FI2                 14         # LT 500 kV I6-FI C2
+DEFPAR #I6FI3                 15         # LT 500 kV I6-FI C3
+DEFPAR #I6FI4                 16         # LT 500 kV I6-FI C4
+DEFPAR #FIIV1                 17         # LT 765 kV FIIV C1
+DEFPAR #FIIV2                 18         # LT 765 kV FIIV C2
+DEFPAR #FIIV3                 19         # LT 765 kV FIIV C3
+DEFPAR #FICO                  20         # LT 525 kV FICO
+DEFPAR #IAIV1                 22         # LT 765 kV IAIV C1
+DEFPAR #IAIV2                 23         # LT 765 kV IAIV C2
+DEFPAR #IAIV3                 24         # LT 765 kV IAIV C3
+DEFPAR #IATP1                 25         # LT 765 kV IATP C1
+DEFPAR #IATP2                 26         # LT 765 kV IATP C2
+DEFPAR #IATP3                 27         # LT 765 kV IATP C3
+DEFPAR #INBC1                 56         # LT 500 kV INBC C1
+DEFPAR #INBC2                 57         # LT 500 kV INBC C2
+DEFPAR #NS1                   66         # LT Peixe Angical 2 - S.Mesa 2
+DEFPAR #NS2                   67         # LT Gurupi - S.Mesa C1        
+DEFPAR #NS3                   68         # LT Gurupi - S.Mesa C2        
+DEFPAR #TRIPU                 64         # Trafo elevador de Itaipu 60 Hz
+DEFPAR #TRIV1                 46         # Trafo 765/500 kV Ivaiporã C1
+DEFPAR #TRIV2                 47         # Trafo 765/500 kV Ivaiporã C2 
+DEFPAR #TRIV3                 48         # Trafo 765/500 kV Ivaiporã C3 
+DEFPAR #RTIV                  69         # Reator de Ivaiporã 765 kV - 330 Mvar
+DEFPAR #TUC_1               6419         # TUCURUI 1 - 5 x 350 MW
+DEFPAR #TUC_2               6420         # TUCURUI 2 - 3 x 350 MW
+DEFPAR #TUC_3               6422         # TUCURUI 3 - 4 x 350 MW
+DEFPAR #TUTR1               9558         # TRAFO ELEVADOR TUCURUI 1
+DEFPAR #TUTR2               9559         # TRAFO ELEVADOR TUCURUI 2
+DEFPAR #TUTR3               9956         # TRAFO ELEVADOR TUCURUI 3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IB500             115.47         # BASE DE CORRENTE NO 500 KV, EM AMPERES
+(
+(=======================================================================
+(                    EXPORTS
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   9 EXPORT STGER  NGIPU         #IPU60
+  16 EXPORT XTRF   XTIPU         #TRIPU
+   1 EXPORT STLIND I6FIC1        #I6FI1
+  19 EXPORT STLINP I6FIC1        #I6FI1
+   2 EXPORT STLIND I6FIC2        #I6FI2
+  20 EXPORT STLINP I6FIC2        #I6FI2   
+   3 EXPORT STLIND I6FIC3        #I6FI3
+  21 EXPORT STLINP I6FIC3        #I6FI3
+   4 EXPORT STLIND I6FIC4        #I6FI4
+  22 EXPORT STLINP I6FIC4        #I6FI4
+   5 EXPORT STLIND FICOE         #FICO
+   6 EXPORT STLINP FICOE         #FICO
+   7 EXPORT STBSH  RT_IV         #RTIV
+  18 EXPORT CDU    DUGTU 
+(
+(=======================================================================
+(                    ENTRADS
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  26 ENTRAD               INF
+  27 ENTRAD               ZERO
+  28 ENTRAD               HUM
+  30 ENTRAD               TRES 
+  32 ENTRAD               CINCO
+  33 ENTRAD               SEIS  
+  34 ENTRAD               SETE
+  35 ENTRAD               OITO
+  36 ENTRAD               NOVE
+  37 ENTRAD               DEZ
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        ZERO   0.0      
+DEFVAL        HUM    1.0
+DEFVAL        TRES   3.0
+DEFVAL        CINCO  5.0
+DEFVAL        SEIS   6.0
+DEFVAL        SETE   7.0
+DEFVAL        OITO   8.0
+DEFVAL        NOVE   9.0
+DEFVAL        DEZ    10.0
+DEFVAL        INF    9999
+DEFVAL        MINUG0 #MINUG
+(
+(=======================================================================
+(                    IMPORTS
+(=======================================================================
+(
+(Import status
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  50 IMPORT STCIRC        FIIV1  #FIIV1   0.0
+  56 IMPORT STCIRC        FIIV2  #FIIV2   0.0
+  62 IMPORT STCIRC        FIIV3  #FIIV3   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  68 IMPORT STCIRC        FICO   #FICO    0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  71 IMPORT STCIRC        IAIV1  #IAIV1   0.0
+  74 IMPORT STCIRC        IAIV2  #IAIV2   0.0
+  77 IMPORT STCIRC        IAIV3  #IAIV3   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  80 IMPORT STCIRC        IATP1  #IATP1   0.0
+  83 IMPORT STCIRC        IATP2  #IATP2   0.0
+  86 IMPORT STCIRC        IATP3  #IATP3   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 116 IMPORT STCIRC        INBC1  #INBC1   0.0
+ 119 IMPORT STCIRC        INBC2  #INBC2   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 137 IMPORT STCIRC        I6FI1  #I6FI1   0.0
+ 138 IMPORT STCIRC        I6FI2  #I6FI2   0.0
+ 139 IMPORT STCIRC        I6FI3  #I6FI3   0.0
+ 140 IMPORT STCIRC        I6FI4  #I6FI4   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 141 IMPORT STCIRC        TRIV1  #TRIV1   0.0
+ 142 IMPORT STCIRC        TRIV2  #TRIV2   0.0
+ 143 IMPORT STCIRC        TRIV3  #TRIV3   0.0
+(
+(Import shunt
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 144 IMPORT NUBSH         RTIV   #RTIV    0.0 
+(
+(Import tensões
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 250 IMPORT VOLT          VTC1    #VTC1   1.0
+ 255 IMPORT VOLT          VTC2    #VTC2   1.0
+ 260 IMPORT VOLT          VTC3    #VTC3   1.0
+ 263 MIN           VTC1   VT
+                   VTC2   VT
+                   VTC3   VT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 355 IMPORT VOLT          VIP500 #IP500   1.0
+(
+(Import fluxos
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 265 IMPORT FLXA          FFIIV1 #FIIV1   0.0
+ 270 IMPORT FLXA          FFIIV2 #FIIV2   0.0
+ 275 IMPORT FLXA          FFIIV3 #FIIV3   0.0
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 310 IMPORT FLXA          FIAIV1 #IAIV1   0.0
+ 320 IMPORT FLXA          FIAIV2 #IAIV2   0.0
+ 330 IMPORT FLXA          FIAIV3 #IAIV3   0.0
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 455 IMPORT ILIN          IINPU1 #INBC1   0.0
+ 682 GANHO         IINPU1 IINBC1 #IB500
+ 460 IMPORT ILIN          IINPU2 #INBC2   0.0
+ 686 GANHO         IINPU2 IINBC2 #IB500
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 472 IMPORT FLXA          PFNSC1 #NS1    -10.
+ 473 IMPORT FLXA          PFNSC2 #NS2    -10.
+ 474 IMPORT FLXA          PFNSC3 #NS3    -10.
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 475 IMPORT FLXA          FTRIV1 #TRIV1   0.0
+ 476 IMPORT FLXA          FTRIV2 #TRIV2   0.0
+ 477 IMPORT FLXA          FTRIV3 #TRIV3   0.0
+(
+(=======================================================================
+(                    UHE ITAIPU 60
+(=======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax) 
+ 478 IMPORT NUGER         NGIPUi #IPU60   0.0
+(
+(=======================================================================
+(       MENSAGEM DE ALERTA DE ATUAÇÃO DO SEP PARA ARQUIVO LOG
+(=======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9800 LOGIC  .OR.   L14AC1 X9800
+                   L14AC2 X9800
+                   L14AC3 X9800
+                   L14AC4 X9800
+9801 DELAY         X9800  X9801
+9802 ALERTA        X9801         14  
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9803 LOGIC  .OR.   L15AC1 X9803
+                   L15AC2 X9803
+                   L15AC3 X9803
+                   L15AC4 X9803
+9804 DELAY         X9803  X9804
+9805 ALERTA        X9804         15  
+(
+(=======================================================================
+(       LÓGICA DE CORTE DE UNIDADES GERADORAS EM ITAIPU 60
+(=======================================================================
+(
+( COMBINA CORTE DE MÁQUINA DE DIFERENTES LÓGICAS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 500 DELAY         L14AC1 X500
+ 501 DELAY         L14AC2 X501
+ 502 DELAY         L14AC3 X502
+ 503 DELAY         L14AC4 X503
+ 504 DELAY         L15AC1 X504
+ 505 DELAY         L15AC2 X505
+ 506 DELAY         L15AC3 X506
+ 507 DELAY         L15AC4 X507
+ 508 DELAY         L18AC1 X508
+ 509 DELAY         L3AC1  X509
+ 510 DELAY         L3AC2  X510
+ 511 DELAY         L4AC1  X511
+ 512 DELAY         L4AC2  X512
+ 513 DELAY         L5AC1  X513
+ 514 DELAY         L8AC   X514
+ 515 DELAY         L16AC1 X515
+(
+ 550 MAX           X500   X550
+                   X501   X550
+                   X502   X550
+                   X503   X550
+                   X504   X550
+                   X505   X550
+                   X506   X550
+                   X507   X550
+                   X508   X550
+                   X509   X550
+                   X510   X550
+                   X511   X550
+                   X512   X550
+                   X513   X550
+                   X514   X550
+                   X515   X550
+(
+ 555 GANHO         X550   DUG    #ON
+(
+( CALCULA NÚMERO MINIMO DE UNIDADES GERADORAS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3091 ENTRAD               MINUG0
+3092 COMPAR .LT.   NGIPUi X3092
+                   MINUG0 X3092
+3093 SELET2        MINUG0 MINUG
+                   NGIPUi MINUG
+                   X3092  MINUG
+(
+( TEMPO DE ATUAÇÃO DO SEP
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3050 ATRASO        DUG    DUGIPU #TSEP
+3052 ATRASO        DUGL24 DUG24  #TL24
+(
+( CALCULA NOVO NÚMERO DE UGs EM ITAIPU 60
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3055 SOMA          NGIPUi X3055
+                  -DUGIPU X3055
+3060 LIMITA        X3055  X3060                           MINUG  INF
+3065 SOMA          X3060  NGIPU
+                  -DUG24  NGIPU
+(
+( SINAIS LÓGICOS RELATIVOS AO NÚMERO DE UG EM OPERAÇÃO
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3070 COMPAR .EQ.   NGIPUi NG=10
+                   DEZ    NG=10
+3075 COMPAR .EQ.   NGIPUi NG=9
+                   NOVE   NG=9
+3080 COMPAR .EQ.   NGIPUi NG=8
+                   OITO   NG=8
+3085 COMPAR .EQ.   NGIPUi NG=7
+                   SETE   NG=7
+3090 COMPAR .EQ.   NGIPUi NG=6
+                   SEIS   NG=6
+3097 COMPAR .EQ.   NGIPUi NG=5
+                   CINCO  NG=5
+3095 COMPAR .GE.   NGIPUi NG>=6
+                   SEIS   NG>=6
+(
+( CORRIGE IMPEDÂNCIA DO TRANSFORMADOR ELEVADOR DE ITAIPU 60
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 580 ENTRAD               XTIPU1
+ 585 LIMITA        NGIPU  NGIPUL                          HUM    INF
+ 590 DIVSAO        XTIPU1 XTIPU
+                   NGIPUL XTIPU
+(
+(=======================================================================
+(           LÓGICA DE TRIP DE LINHAS DE TRANSMISSÃO
+(=======================================================================
+(
+(LT 500 kV Itaipu - Foz C1, C2, C3 e C4 (abertura da barra de Itaipu 500 kV)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3220 MULTPL        I6FI1  I6FIC1
+                   TRIP18 I6FIC1
+3225 MULTPL        I6FI2  I6FIC2
+                   TRIP18 I6FIC2       
+3230 MULTPL        I6FI3  I6FIC3
+                   TRIP18 I6FIC3
+3235 MULTPL        I6FI4  I6FIC4
+                   TRIP18 I6FIC4
+(
+(LT 500 kV Foz - Cascavel
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3240 MULTPL        FICO   FICOE
+                   TRIP22 FICOE
+(
+(=======================================================================
+(           LÓGICA DE TRIP DE REATOR
+(=======================================================================
+(
+(Reator de Ivaiporã 765 kV - 330 Mvar
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3245 MULTPL        RTIV   RT_IV
+                   TRIP10 RT_IV
+(
+(=======================================================================
+(       FLUXOS NECESSÁRIOS PARA PRE-HABILITAR AS LÓGICAS
+(=======================================================================
+(
+(divide os fluxos por 0.95 se VT<1.02
+ 615 FUNCAO DEADB2 VT     VTLOW  1.02  1.0   999.  0.0
+(
+( ------------------------------------------------------------------------
+(                            FIV
+( ------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 SOMA          FFIIV1 FIVpu
+                   FFIIV2 FIVpu
+                   FFIIV3 FIVpu
+ 605 GANHO         FIVpu  FIVMW  100.
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 620 FRACAO        FIVMW  FIV095 1.0         0.95
+ 625 SELET2        FIVMW  FIV
+                   FIV095 FIV
+                   VTLOW  FIV
+ 630 SAIDA         FIV
+(
+ 635 ENTRAD               FIVi
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FIVi   FIV
+(
+( ------------------------------------------------------------------------
+(                            FSE
+( ------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 650 SOMA          FIAIV1 FSEpu
+                   FIAIV2 FSEpu
+                   FIAIV3 FSEpu
+ 655 GANHO         FSEpu  FSEMW  100.
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 660 FRACAO        FSEMW  FSE095 1.0         0.95
+ 665 SELET2        FSEMW  FSE
+                   FSE095 FSE
+                   VTLOW  FSE
+ 670 SAIDA         FSE
+(
+ 675 ENTRAD               FSEi
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FSEi   FSE 
+(
+( ------------------------------------------------------------------------
+(                            FTRIV
+( ------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 680 SOMA          FTRIV1 FTRVpu
+                   FTRIV2 FTRVpu
+                   FTRIV3 FTRVpu
+ 683 GANHO         FTRVpu FTRVMW 100.
+ 684 SAIDA         FTRVMW
+(
+ 685 ENTRAD               FTRIVi
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FTRIVi FTRVMW
+(
+( ------------------------------------------------------------------------
+(                            FNS
+( ------------------------------------------------------------------------
+(                  
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 690 SOMA         -PFNSC1 FNSpu
+                  -PFNSC2 FNSpu
+                  -PFNSC3 FNSpu
+ 692 GANHO         FNSpu  FNS    100.  
+ 693 SAIDA         FNS
+(
+ 694 ENTRAD               FNSi
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    FNSi   FNS
+(
+(=======================================================================
+(       LÓGICAS DE PERDAS NO TRECHO FI-IV E CO
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+(perda simples LT FI-CO
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 700 LOGIC  .NOT.  FICO   FICO1C
+(
+(perda simples LT FI-IV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 705 LOGIC  .NOT.  FIIV1  FIIV1A
+ 710 LOGIC  .NOT.  FIIV2  FIIV2A
+ 715 LOGIC  .NOT.  FIIV3  FIIV3A
+ 720 LOGIC  .XOR.  FIIV1A FIIV1C
+                   FIIV2A FIIV1C
+                   FIIV3A FIIV1C
+(
+(perda dupla FIIV+FICO
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 725 LOGIC  .AND.  FIIV1C FIVFCO
+                   FICO1C FIVFCO
+(
+(perda dupla LT FI-IV ou FIIV+FICO
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 730 LOGIC  .AND.  FIIV1A FIIV12
+                   FIIV2A FIIV12
+                   FIIV3  FIIV12
+ 735 LOGIC  .AND.  FIIV1A FIIV13
+                   FIIV2  FIIV13
+                   FIIV3A FIIV13
+ 740 LOGIC  .AND.  FIIV1  FIIV23
+                   FIIV2A FIIV23
+                   FIIV3A FIIV23
+(
+ 745 LOGIC  .OR.   FIIV12 FIIV2C
+                   FIIV13 FIIV2C
+                   FIIV23 FIIV2C
+                   FIVFCO FIIV2C
+(
+(perda tripla LT FI-IV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 760 LOGIC  .NOR.  FIIV1  FIIV3C
+                   FIIV2  FIIV3C
+                   FIIV3  FIIV3C
+(
+(=======================================================================
+(       LÓGICAS DE PERDAS NO TRECHO IV-IA
+(=======================================================================
+(
+(perda simples LT IA-IV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 800 LOGIC  .NOT.  IAIV1  IAIV1A
+ 805 LOGIC  .NOT.  IAIV2  IAIV2A
+ 810 LOGIC  .NOT.  IAIV3  IAIV3A
+ 820 LOGIC  .XOR.  IAIV1A IAIV1C
+                   IAIV2A IAIV1C
+                   IAIV3A IAIV1C
+(
+(perda dupla LT IA-IV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 830 LOGIC  .AND.  IAIV1A IAIV12
+                   IAIV2A IAIV12
+                   IAIV3  IAIV12
+ 835 LOGIC  .AND.  IAIV1A IAIV13
+                   IAIV2  IAIV13
+                   IAIV3A IAIV13
+ 840 LOGIC  .AND.  IAIV1  IAIV23
+                   IAIV2A IAIV23
+                   IAIV3A IAIV23
+(
+ 845 LOGIC  .OR.   IAIV12 IAIV2C
+                   IAIV13 IAIV2C
+                   IAIV23 IAIV2C
+(
+(perda tripla LT IA-IV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 860 LOGIC  .NOR.  IAIV1  IAIV3C
+                   IAIV2  IAIV3C
+                   IAIV3  IAIV3C
+(
+(=======================================================================
+(       LÓGICAS DE PERDAS NO TRECHO IA-TP
+(=======================================================================
+(
+(perda simples LT IA-TP
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 900 LOGIC  .NOT.  IATP1  IATP1A
+ 905 LOGIC  .NOT.  IATP2  IATP2A
+ 910 LOGIC  .NOT.  IATP3  IATP3A
+ 920 LOGIC  .XOR.  IATP1A IATP1C
+                   IATP2A IATP1C
+                   IATP3A IATP1C
+(
+(perda dupla LT IA-TP
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 930 LOGIC  .AND.  IATP1A IATP12
+                   IATP2A IATP12
+                   IATP3  IATP12
+ 935 LOGIC  .AND.  IATP1A IATP13
+                   IATP2  IATP13
+                   IATP3A IATP13
+ 940 LOGIC  .AND.  IATP1  IATP23
+                   IATP2A IATP23
+                   IATP3A IATP23
+(
+ 945 LOGIC  .OR.   IATP12 IATP2C
+                   IATP13 IATP2C
+                   IATP23 IATP2C
+(
+(perda tripla LT IA-TP
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 960 LOGIC  .NOR.  IATP1  IATP3C
+                   IATP2  IATP3C
+                   IATP3  IATP3C
+(
+(=======================================================================
+(       LÓGICA DE PERDA DUPLA IBIUNA-BATEIAS
+(=======================================================================
+(
+((nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 965 LOGIC  .NOR.  INBC1  INBC2C
+                   INBC2  INBC2C
+(
+(=======================================================================
+(           LÓGICA 14 - PERDA DUPLA FI-IV OU FI-IV+FI-CO
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4010 LOGIC  .OR.   FIIV2C X4010
+                   FIIV3C X4010
+4012 SUBIDA        X4010  L14ACT
+(
+(CORTE DE UG - NG=10
+(
+4075 FUNCAO PULSO  FIVi   X4075  #L1G1 1.0   1E6   1.0
+4080 FUNCAO PULSO  FIVi   X4080  #L1G2 1.0   1E6   1.0
+4085 FUNCAO PULSO  FIVi   X4085  #L1G3 1.0   1E6   1.0
+4090 FUNCAO PULSO  FIVi   X4090  #L1G4 1.0   1E6   1.0
+4095 LOGIC  .NOT.  X4080  X4095
+4100 LOGIC  .NOT.  X4085  X4100
+4105 LOGIC  .NOT.  X4090  X4105
+(
+4015 FUNCAO PULSO  FSEi   X4015  #L1G5 1.0   1E6   1.0
+4020 FUNCAO PULSO  FSEi   X4020  #L1G6 1.0   1E6   1.0
+4025 FUNCAO PULSO  FSEi   X4025  #L1G7 1.0   1E6   1.0
+4030 FUNCAO PULSO  FSEi   X4030  #L1G8 1.0   1E6   1.0
+4035 LOGIC  .NOT.  X4020  X4035
+4040 LOGIC  .NOT.  X4025  X4040
+4045 LOGIC  .NOT.  X4030  X4045
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4110 LOGIC  .AND.  L14ACT X4110
+                   NG=10  X4110
+                   X4075  X4110
+                   X4095  X4110
+                   X4100  X4110
+                   X4105  X4110
+(
+4112 LOGIC  .AND.  L14ACT X4112
+                   NG=10  X4112
+                   X4015  X4112
+                   X4035  X4112
+                   X4040  X4112
+                   X4045  X4112
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4115 LOGIC  .AND.  L14ACT X4115
+                   NG=10  X4115
+                   X4080  X4115
+                   X4100  X4115
+                   X4105  X4115
+(
+4117 LOGIC  .AND.  L14ACT X4117
+                   NG=10  X4117
+                   X4020  X4117
+                   X4040  X4117
+                   X4045  X4117
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4120 LOGIC  .AND.  L14ACT X4120
+                   NG=10  X4120
+                   X4085  X4120
+                   X4105  X4120
+(
+4122 LOGIC  .AND.  L14ACT X4122
+                   NG=10  X4122
+                   X4025  X4122
+                   X4045  X4122
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4125 LOGIC  .AND.  L14ACT X4125
+                   NG=10  X4125
+                   X4090  X4125
+(
+4127 LOGIC  .AND.  L14ACT X4127
+                   NG=10  X4127
+                   X4030  X4127
+(
+(CORTE DE UG - NG=9
+(
+4175 FUNCAO PULSO  FIVi   X4175  #L1G9 1.0   1E6   1.0
+4180 FUNCAO PULSO  FIVi   X4180  #L1G101.0   1E6   1.0
+4185 FUNCAO PULSO  FIVi   X4185  #L1G111.0   1E6   1.0
+4190 FUNCAO PULSO  FIVi   X4190  #L1G121.0   1E6   1.0
+4195 LOGIC  .NOT.  X4180  X4195
+4200 LOGIC  .NOT.  X4185  X4200
+4205 LOGIC  .NOT.  X4190  X4205
+(
+4135 FUNCAO PULSO  FSEi   X4135  #L1G131.0   1E6   1.0
+4140 FUNCAO PULSO  FSEi   X4140  #L1G141.0   1E6   1.0
+4145 FUNCAO PULSO  FSEi   X4145  #L1G151.0   1E6   1.0
+4150 FUNCAO PULSO  FSEi   X4150  #L1G161.0   1E6   1.0
+4155 LOGIC  .NOT.  X4140  X4155
+4260 LOGIC  .NOT.  X4145  X4260
+4265 LOGIC  .NOT.  X4150  X4265
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4210 LOGIC  .AND.  L14ACT X4210
+                   NG=9   X4210
+                   X4175  X4210
+                   X4195  X4210
+                   X4200  X4210
+                   X4205  X4210
+(
+4212 LOGIC  .AND.  L14ACT X4212
+                   NG=9   X4212
+                   X4135  X4212
+                   X4155  X4212
+                   X4260  X4212
+                   X4265  X4212
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4215 LOGIC  .AND.  L14ACT X4215
+                   NG=9   X4215
+                   X4180  X4215
+                   X4200  X4215
+                   X4205  X4215
+(
+4217 LOGIC  .AND.  L14ACT X4217
+                   NG=9   X4217
+                   X4140  X4217
+                   X4260  X4217
+                   X4265  X4217
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4220 LOGIC  .AND.  L14ACT X4220
+                   NG=9   X4220
+                   X4185  X4220
+                   X4205  X4220
+(
+4222 LOGIC  .AND.  L14ACT X4222
+                   NG=9   X4222
+                   X4145  X4222
+                   X4265  X4222
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4225 LOGIC  .AND.  L14ACT X4225
+                   NG=9   X4225
+                   X4190  X4225
+(
+4227 LOGIC  .AND.  L14ACT X4227
+                   NG=9   X4227
+                   X4150  X4227
+(
+(CORTE DE UG - NG=8
+(
+4275 FUNCAO PULSO  FIVi   X4275  #L1G171.0   1E6   1.0
+4280 FUNCAO PULSO  FIVi   X4280  #L1G181.0   1E6   1.0
+4285 FUNCAO PULSO  FIVi   X4285  #L1G191.0   1E6   1.0
+4290 FUNCAO PULSO  FIVi   X4290  #L1G201.0   1E6   1.0
+4295 LOGIC  .NOT.  X4280  X4295
+4300 LOGIC  .NOT.  X4285  X4300
+4305 LOGIC  .NOT.  X4290  X4305
+(
+4235 FUNCAO PULSO  FSEi   X4235  #L1G211.0   1E6   1.0
+4240 FUNCAO PULSO  FSEi   X4240  #L1G221.0   1E6   1.0
+4245 FUNCAO PULSO  FSEi   X4245  #L1G231.0   1E6   1.0
+4250 FUNCAO PULSO  FSEi   X4250  #L1G241.0   1E6   1.0
+4255 LOGIC  .NOT.  X4240  X4255
+4360 LOGIC  .NOT.  X4245  X4360
+4365 LOGIC  .NOT.  X4250  X4365
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4310 LOGIC  .AND.  L14ACT X4310
+                   NG=8   X4310
+                   X4275  X4310
+                   X4295  X4310
+                   X4300  X4310
+                   X4305  X4310
+(
+4312 LOGIC  .AND.  L14ACT X4312
+                   NG=8   X4312
+                   X4235  X4312
+                   X4255  X4312
+                   X4360  X4312
+                   X4365  X4312
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4315 LOGIC  .AND.  L14ACT X4315
+                   NG=8   X4315
+                   X4280  X4315
+                   X4300  X4315
+                   X4305  X4315
+(
+4317 LOGIC  .AND.  L14ACT X4317
+                   NG=8   X4317
+                   X4240  X4317
+                   X4360  X4317
+                   X4365  X4317
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4320 LOGIC  .AND.  L14ACT X4320
+                   NG=8   X4320
+                   X4285  X4320
+                   X4305  X4320
+(
+4322 LOGIC  .AND.  L14ACT X4322
+                   NG=8   X4322
+                   X4245  X4322
+                   X4365  X4322
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4325 LOGIC  .AND.  L14ACT X4325
+                   NG=8   X4325
+                   X4290  X4325
+(
+4327 LOGIC  .AND.  L14ACT X4327
+                   NG=8   X4327
+                   X4250  X4327
+(
+(CORTE DE UG - NG=7
+(
+4375 FUNCAO PULSO  FIVi   X4375  #L1G251.0   1E6   1.0
+4380 FUNCAO PULSO  FIVi   X4380  #L1G261.0   1E6   1.0
+4385 FUNCAO PULSO  FIVi   X4385  #L1G271.0   1E6   1.0
+4395 LOGIC  .NOT.  X4380  X4395
+4400 LOGIC  .NOT.  X4385  X4400
+(
+4335 FUNCAO PULSO  FSEi   X4335  #L1G281.0   1E6   1.0
+4340 FUNCAO PULSO  FSEi   X4340  #L1G291.0   1E6   1.0
+4345 FUNCAO PULSO  FSEi   X4345  #L1G301.0   1E6   1.0
+4355 LOGIC  .NOT.  X4340  X4355
+4460 LOGIC  .NOT.  X4345  X4460
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4410 LOGIC  .AND.  L14ACT X4410
+                   NG=7   X4410
+                   X4375  X4410
+                   X4395  X4410
+                   X4400  X4410
+(
+4412 LOGIC  .AND.  L14ACT X4412
+                   NG=7   X4412
+                   X4335  X4412
+                   X4355  X4412
+                   X4460  X4412
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4415 LOGIC  .AND.  L14ACT X4415
+                   NG=7   X4415
+                   X4380  X4415
+                   X4400  X4415
+(
+4417 LOGIC  .AND.  L14ACT X4417
+                   NG=7   X4417
+                   X4340  X4417
+                   X4460  X4417
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4420 LOGIC  .AND.  L14ACT X4420
+                   NG=7   X4420
+                   X4385  X4420
+(
+4422 LOGIC  .AND.  L14ACT X4422
+                   NG=7   X4422
+                   X4345  X4422
+(
+(CORTE DE UG - NG=6
+(
+4475 FUNCAO PULSO  FIVi   X4475  #L1G311.0   1E6   1.0
+4480 FUNCAO PULSO  FIVi   X4480  #L1G321.0   1E6   1.0
+4485 LOGIC  .NOT.  X4480  X4485
+(
+4435 FUNCAO PULSO  FSEi   X4435  #L1G331.0   1E6   1.0
+4430 FUNCAO PULSO  FSEi   X4440  #L1G341.0   1E6   1.0
+4445 LOGIC  .NOT.  X4440  X4445
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4510 LOGIC  .AND.  L14ACT X4510
+                   NG=6   X4510
+                   X4475  X4510
+                   X4485  X4510
+(
+4512 LOGIC  .AND.  L14ACT X4512
+                   NG=6   X4512
+                   X4435  X4512
+                   X4445  X4512
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4515 LOGIC  .AND.  L14ACT X4515
+                   NG=6   X4515
+                   X4480  X4515
+(
+4517 LOGIC  .AND.  L14ACT X4517
+                   NG=6   X4517
+                   X4440  X4517
+(
+(CORTE DE UG - NG=5
+(
+4520 FUNCAO PULSO  FIVi   X4520  #L1G351.0   1E6   1.0
+(
+4522 FUNCAO PULSO  FSEi   X4521  #L1G361.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4524 LOGIC  .AND.  L14ACT X4524
+                   NG=5   X4524
+                   X4520  X4524
+(
+4526 LOGIC  .AND.  L14ACT X4526
+                   NG=5   X4526
+                   X4521  X4526
+
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4550 LOGIC  .OR.   X4110  X4550
+                   X4112  X4550
+                   X4210  X4550
+                   X4212  X4550
+                   X4310  X4550
+                   X4312  X4550
+                   X4410  X4550
+                   X4412  X4550
+                   X4510  X4550
+                   X4512  X4550
+                   X4524  X4550
+                   X4526  X4550
+(
+4555 LOGIC  .OR.   X4115  X4555
+                   X4117  X4555
+                   X4215  X4555
+                   X4217  X4555
+                   X4315  X4555
+                   X4317  X4555                   
+                   X4415  X4555
+                   X4417  X4555
+                   X4515  X4555 
+                   X4517  X4555 
+(
+4560 LOGIC  .OR.   X4120  X4560
+                   X4122  X4560
+                   X4220  X4560
+                   X4222  X4560
+                   X4320  X4560
+                   X4322  X4560
+                   X4420  X4560
+                   X4422  X4560
+(
+4565 LOGIC  .OR.   X4125  X4565
+                   X4127  X4565
+                   X4225  X4565
+                   X4227  X4565
+                   X4325  X4565
+                   X4327  X4565
+(
+4570 GANHO         X4550  L14AC1 1.0
+4575 GANHO         X4555  L14AC2 2.0
+4580 GANHO         X4560  L14AC3 3.0
+4585 GANHO         X4565  L14AC4 4.0
+(
+(=======================================================================
+(             LÓGICA 15 - PERDA DUPLA IA-IV OU IA-TP
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7010 LOGIC  .OR.   IAIV2C X7010
+                   IAIV3C X7010
+                   IATP2C X7010
+                   IATP3C X7010
+7012 SUBIDA        X7010  L15ACT
+(
+(CORTE DE UG - NG=10
+(
+7075 FUNCAO PULSO  FIVi   X7075  #L2G1 1.0   1E6   1.0
+7080 FUNCAO PULSO  FIVi   X7080  #L2G2 1.0   1E6   1.0
+7085 FUNCAO PULSO  FIVi   X7085  #L2G3 1.0   1E6   1.0
+7090 FUNCAO PULSO  FIVi   X7090  #L2G4 1.0   1E6   1.0
+7095 LOGIC  .NOT.  X7080  X7095
+7100 LOGIC  .NOT.  X7085  X7100
+7105 LOGIC  .NOT.  X7090  X7105
+(
+7035 FUNCAO PULSO  FSEi   X7035  #L2G5 1.0   1E6   1.0
+7040 FUNCAO PULSO  FSEi   X7040  #L2G6 1.0   1E6   1.0
+7045 FUNCAO PULSO  FSEi   X7045  #L2G7 1.0   1E6   1.0
+7050 FUNCAO PULSO  FSEi   X7050  #L2G8 1.0   1E6   1.0
+7055 LOGIC  .NOT.  X7040  X7055
+7060 LOGIC  .NOT.  X7045  X7060
+7065 LOGIC  .NOT.  X7050  X7065
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7110 LOGIC  .AND.  L15ACT X7110
+                   NG=10  X7110
+                   X7075  X7110
+                   X7095  X7110
+                   X7100  X7110
+                   X7105  X7110
+(
+7112 LOGIC  .AND.  L15ACT X7112
+                   NG=10  X7112
+                   X7035  X7112
+                   X7055  X7112
+                   X7060  X7112
+                   X7065  X7112
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7115 LOGIC  .AND.  L15ACT X7115
+                   NG=10  X7115
+                   X7080  X7115
+                   X7100  X7115
+                   X7105  X7115
+(
+7117 LOGIC  .AND.  L15ACT X7117
+                   NG=10  X7117
+                   X7040  X7117
+                   X7060  X7117
+                   X7065  X7117
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7120 LOGIC  .AND.  L15ACT X7120
+                   NG=10  X7120
+                   X7085  X7120
+                   X7105  X7120
+(
+7122 LOGIC  .AND.  L15ACT X7122
+                   NG=10  X7122
+                   X7045  X7122
+                   X7065  X7122
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7125 LOGIC  .AND.  L15ACT X7125
+                   NG=10  X7125
+                   X7090  X7125
+(
+7127 LOGIC  .AND.  L15ACT X7127
+                   NG=10  X7127
+                   X7050  X7127
+(
+(CORTE DE UG - NG=9
+(
+7175 FUNCAO PULSO  FIVi   X7175  #L2G9 1.0   1E6   1.0
+7180 FUNCAO PULSO  FIVi   X7180  #L2G101.0   1E6   1.0
+7185 FUNCAO PULSO  FIVi   X7185  #L2G111.0   1E6   1.0
+7190 FUNCAO PULSO  FIVi   X7190  #L2G121.0   1E6   1.0
+7195 LOGIC  .NOT.  X7180  X7195
+7200 LOGIC  .NOT.  X7185  X7200
+7205 LOGIC  .NOT.  X7190  X7205
+(
+7135 FUNCAO PULSO  FSEi   X7135  #L2G131.0   1E6   1.0
+7140 FUNCAO PULSO  FSEi   X7140  #L2G141.0   1E6   1.0
+7145 FUNCAO PULSO  FSEi   X7145  #L2G151.0   1E6   1.0
+7150 FUNCAO PULSO  FSEi   X7150  #L2G161.0   1E6   1.0
+7155 LOGIC  .NOT.  X7140  X7155
+7160 LOGIC  .NOT.  X7145  X7160
+7165 LOGIC  .NOT.  X7150  X7165
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7210 LOGIC  .AND.  L15ACT X7210
+                   NG=9   X7210
+                   X7175  X7210
+                   X7195  X7210
+                   X7200  X7210
+                   X7205  X7210
+(
+7212 LOGIC  .AND.  L15ACT X7212
+                   NG=9   X7212
+                   X7135  X7212
+                   X7155  X7212
+                   X7160  X7212
+                   X7165  X7212
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7215 LOGIC  .AND.  L15ACT X7215
+                   NG=9   X7215
+                   X7180  X7215
+                   X7200  X7215
+                   X7205  X7215
+(
+7217 LOGIC  .AND.  L15ACT X7217
+                   NG=9   X7217
+                   X7140  X7217
+                   X7160  X7217
+                   X7165  X7217
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7220 LOGIC  .AND.  L15ACT X7220
+                   NG=9   X7220
+                   X7185  X7220
+                   X7205  X7220
+(
+7222 LOGIC  .AND.  L15ACT X7222
+                   NG=9   X7222
+                   X7145  X7222
+                   X7165  X7222
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7225 LOGIC  .AND.  L15ACT X7225
+                   NG=9   X7225
+                   X7190  X7225
+(
+7227 LOGIC  .AND.  L15ACT X7227
+                   NG=9   X7227
+                   X7150  X7227
+(
+(CORTE DE UG - NG=8
+(
+7275 FUNCAO PULSO  FIVi   X7275  #L2G171.0   1E6   1.0
+7280 FUNCAO PULSO  FIVi   X7280  #L2G181.0   1E6   1.0
+7285 FUNCAO PULSO  FIVi   X7285  #L2G191.0   1E6   1.0
+7290 FUNCAO PULSO  FIVi   X7290  #L2G201.0   1E6   1.0
+7295 LOGIC  .NOT.  X7280  X7295
+7300 LOGIC  .NOT.  X7285  X7300
+7305 LOGIC  .NOT.  X7290  X7305
+(
+7235 FUNCAO PULSO  FSEi   X7235  #L2G211.0   1E6   1.0
+7240 FUNCAO PULSO  FSEi   X7240  #L2G221.0   1E6   1.0
+7245 FUNCAO PULSO  FSEi   X7245  #L2G231.0   1E6   1.0
+7250 FUNCAO PULSO  FSEi   X7250  #L2G241.0   1E6   1.0
+7255 LOGIC  .NOT.  X7240  X7255
+7260 LOGIC  .NOT.  X7245  X7260
+7265 LOGIC  .NOT.  X7250  X7265
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7310 LOGIC  .AND.  L15ACT X7310
+                   NG=8   X7310
+                   X7275  X7310
+                   X7295  X7310
+                   X7300  X7310
+                   X7305  X7310
+(
+7312 LOGIC  .AND.  L15ACT X7312
+                   NG=8   X7312
+                   X7235  X7312
+                   X7255  X7312
+                   X7260  X7312
+                   X7265  X7312
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7315 LOGIC  .AND.  L15ACT X7315
+                   NG=8   X7315
+                   X7280  X7315
+                   X7300  X7315
+                   X7305  X7315
+(
+7317 LOGIC  .AND.  L15ACT X7317
+                   NG=8   X7317
+                   X7240  X7317
+                   X7260  X7317
+                   X7265  X7317
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7320 LOGIC  .AND.  L15ACT X7320
+                   NG=8   X7320
+                   X7285  X7320
+                   X7305  X7320
+(
+7322 LOGIC  .AND.  L15ACT X7322
+                   NG=8   X7322
+                   X7245  X7322
+                   X7265  X7322
+(
+(corte de 4 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7325 LOGIC  .AND.  L15ACT X7325
+                   NG=8   X7325
+                   X7290  X7325
+(
+7327 LOGIC  .AND.  L15ACT X7327
+                   NG=8   X7327
+                   X7250  X7327
+(
+(CORTE DE UG - NG=7
+(
+7375 FUNCAO PULSO  FIVi   X7375  #L2G251.0   1E6   1.0
+7380 FUNCAO PULSO  FIVi   X7380  #L2G261.0   1E6   1.0
+7385 FUNCAO PULSO  FIVi   X7385  #L2G271.0   1E6   1.0
+7395 LOGIC  .NOT.  X7380  X7395
+7400 LOGIC  .NOT.  X7385  X7400
+(
+7335 FUNCAO PULSO  FSEi   X7335  #L2G281.0   1E6   1.0
+7340 FUNCAO PULSO  FSEi   X7340  #L2G291.0   1E6   1.0
+7345 FUNCAO PULSO  FSEi   X7345  #L2G301.0   1E6   1.0
+7355 LOGIC  .NOT.  X7340  X7355
+7360 LOGIC  .NOT.  X7345  X7360
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7410 LOGIC  .AND.  L15ACT X7410
+                   NG=7   X7410
+                   X7375  X7410
+                   X7395  X7410
+                   X7400  X7410
+(
+7412 LOGIC  .AND.  L15ACT X7412
+                   NG=7   X7412
+                   X7335  X7412
+                   X7355  X7412
+                   X7360  X7412
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7415 LOGIC  .AND.  L15ACT X7415
+                   NG=7   X7415
+                   X7380  X7415
+                   X7400  X7415
+(
+7417 LOGIC  .AND.  L15ACT X7417
+                   NG=7   X7417
+                   X7340  X7417
+                   X7360  X7417
+(
+(corte de 3 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7420 LOGIC  .AND.  L15ACT X7420
+                   NG=7   X7420
+                   X7385  X7420
+(
+7422 LOGIC  .AND.  L15ACT X7422
+                   NG=7   X7422
+                   X7345  X7422
+(
+(CORTE DE UG - NG=6
+(
+7475 FUNCAO PULSO  FIVi   X7475  #L2G311.0   1E6   1.0
+7480 FUNCAO PULSO  FIVi   X7480  #L2G321.0   1E6   1.0
+7485 LOGIC  .NOT.  X7480  X7485
+(
+7435 FUNCAO PULSO  FSEi   X7435  #L2G331.0   1E6   1.0
+7440 FUNCAO PULSO  FSEi   X7440  #L2G341.0   1E6   1.0
+7445 LOGIC  .NOT.  X7480  X7445
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7510 LOGIC  .AND.  L15ACT X7510
+                   NG=6   X7510
+                   X7475  X7510
+                   X7485  X7510
+(
+7512 LOGIC  .AND.  L15ACT X7512
+                   NG=6   X7512
+                   X7435  X7512
+                   X7445  X7512
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7515 LOGIC  .AND.  L15ACT X7515
+                   NG=6   X7515
+                   X7480  X7515
+(
+7517 LOGIC  .AND.  L15ACT X7517
+                   NG=6   X7517
+                   X7440  X7517
+(
+(CORTE DE UG - NG=5
+(
+7520 FUNCAO PULSO  FIVi   X7520  #L2G351.0   1E6   1.0
+(
+7522 FUNCAO PULSO  FSEi   X7521  #L2G361.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7524 LOGIC  .AND.  L15ACT X7524
+                   NG=5   X7524
+                   X7520  X7524
+(
+7526 LOGIC  .AND.  L15ACT X7526
+                   NG=5   X7526
+                   X7521  X7526
+
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7550 LOGIC  .OR.   X7110  X7550
+                   X7112  X7550
+                   X7210  X7550
+                   X7212  X7550
+                   X7310  X7550
+                   X7312  X7550
+                   X7410  X7550
+                   X7412  X7550
+                   X7510  X7550
+                   X7512  X7550
+                   X7524  X7550
+                   X7526  X7550
+(
+7555 LOGIC  .OR.   X7115  X7555
+                   X7117  X7555
+                   X7215  X7555
+                   X7217  X7555
+                   X7315  X7555
+                   X7317  X7555
+                   X7415  X7555
+                   X7417  X7555
+                   X7515  X7555 
+                   X7517  X7555 
+(
+7560 LOGIC  .OR.   X7120  X7560
+                   X7122  X7560
+                   X7220  X7560
+                   X7222  X7560
+                   X7320  X7560
+                   X7322  X7560
+                   X7420  X7560
+                   X7422  X7560
+(
+7565 LOGIC  .OR.   X7125  X7565
+                   X7127  X7565
+                   X7225  X7565
+                   X7227  X7565
+                   X7325  X7565
+                   X7327  X7565
+(
+7570 GANHO         X7550  L15AC1 1.0
+7575 GANHO         X7555  L15AC2 2.0
+7580 GANHO         X7560  L15AC3 3.0
+7585 GANHO         X7565  L15AC4 4.0
+(
+(=======================================================================
+(           LÓGICA 2.1 - PERDA SIMPLES IA-TP
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5010 LOGIC  .OR.   IATP1C X5010
+                   IATP2C X5010
+                   IATP3C X5010
+5012 SUBIDA        X5010  L3ACT
+(
+(CORTE DE UG - NG=10
+(
+5075 FUNCAO PULSO  FIVi   X5075  #L3G1 1.0   1E6   1.0
+5080 FUNCAO PULSO  FIVi   X5080  #L3G2 1.0   1E6   1.0
+5095 LOGIC  .NOT.  X5080  X5095
+(
+5015 FUNCAO PULSO  FSEi   X5015  #L3G3 1.0   1E6   1.0
+5020 FUNCAO PULSO  FSEi   X5020  #L3G4 1.0   1E6   1.0
+5035 LOGIC  .NOT.  X5020  X5035
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5110 LOGIC  .AND.  L3ACT  X5110
+                   NG=10  X5110
+                   X5075  X5110
+                   X5095  X5110
+(
+5112 LOGIC  .AND.  L3ACT  X5112
+                   NG=10  X5112
+                   X5015  X5112
+                   X5035  X5112
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5115 LOGIC  .AND.  L3ACT  X5115
+                   NG=10  X5115
+                   X5080  X5115
+(
+5117 LOGIC  .AND.  L3ACT  X5117
+                   NG=10  X5117
+                   X5020  X5117
+(
+(CORTE DE UG - NG=9
+(
+5175 FUNCAO PULSO  FIVi   X5175  #L3G5 1.0   1E6   1.0
+5180 FUNCAO PULSO  FIVi   X5180  #L3G6 1.0   1E6   1.0
+5195 LOGIC  .NOT.  X5180  X5195
+(
+5135 FUNCAO PULSO  FSEi   X5135  #L3G7 1.0   1E6   1.0
+5140 FUNCAO PULSO  FSEi   X5140  #L3G8 1.0   1E6   1.0
+5155 LOGIC  .NOT.  X5140  X5155
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5210 LOGIC  .AND.  L3ACT  X5210
+                   NG=9   X5210
+                   X5175  X5210
+                   X5195  X5210
+(
+5212 LOGIC  .AND.  L3ACT  X5212
+                   NG=9   X5212
+                   X5135  X5212
+                   X5155  X5212
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5215 LOGIC  .AND.  L3ACT  X5215
+                   NG=9   X5215
+                   X5180  X5215
+(
+5217 LOGIC  .AND.  L3ACT  X5217
+                   NG=9   X5217
+                   X5140  X5217
+(
+(CORTE DE UG - NG=8
+(
+5275 FUNCAO PULSO  FIVi   X5275  #L3G9 1.0   1E6   1.0
+5280 FUNCAO PULSO  FIVi   X5280  #L3G101.0   1E6   1.0
+5295 LOGIC  .NOT.  X5280  X5295
+(
+5235 FUNCAO PULSO  FSEi   X5235  #L3G111.0   1E6   1.0
+5240 FUNCAO PULSO  FSEi   X5240  #L3G121.0   1E6   1.0
+5255 LOGIC  .NOT.  X5240  X5255
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5310 LOGIC  .AND.  L3ACT  X5310
+                   NG=8   X5310
+                   X5275  X5310
+                   X5295  X5310
+(
+5312 LOGIC  .AND.  L3ACT  X5312
+                   NG=8   X5312
+                   X5235  X5312
+                   X5255  X5312
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5315 LOGIC  .AND.  L3ACT  X5315
+                   NG=8   X5315
+                   X5280  X5315
+(
+5317 LOGIC  .AND.  L3ACT  X5317
+                   NG=8   X5317
+                   X5240  X5317
+(
+(CORTE DE UG - NG=7
+(
+5375 FUNCAO PULSO  FIVi   X5375  #L1G131.0   1E6   1.0
+5380 FUNCAO PULSO  FIVi   X5380  #L1G141.0   1E6   1.0
+5395 LOGIC  .NOT.  X5380  X5395
+(
+5335 FUNCAO PULSO  FSEi   X5335  #L1G151.0   1E6   1.0
+5340 FUNCAO PULSO  FSEi   X5340  #L1G161.0   1E6   1.0
+5355 LOGIC  .NOT.  X5340  X5355
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5410 LOGIC  .AND.  L3ACT  X5410
+                   NG=7   X5410
+                   X5375  X5410
+                   X5395  X5410
+(
+5412 LOGIC  .AND.  L3ACT  X5412
+                   NG=7   X5412
+                   X5335  X5412
+                   X5355  X5412
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5415 LOGIC  .AND.  L3ACT  X5415
+                   NG=7   X5415
+                   X4380  X5415
+(
+5417 LOGIC  .AND.  L3ACT  X5417
+                   NG=7   X5417
+                   X5340  X5417
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5550 LOGIC  .OR.   X5110  X5550
+                   X5112  X5550
+                   X5210  X5550
+                   X5212  X5550
+                   X5310  X5550
+                   X5312  X5550
+                   X5410  X5550
+                   X5412  X5550
+(
+5555 LOGIC  .OR.   X5115  X5555
+                   X5117  X5555
+                   X5215  X5555
+                   X5217  X5555
+                   X5315  X5555
+                   X5317  X5555                   
+                   X5415  X5555
+                   X5417  X5555
+(
+5570 GANHO         X5550  L3AC1  1.0
+5575 GANHO         X5555  L3AC2  2.0
+(
+(=======================================================================
+(           LÓGICA 2.2 - PERDA SIMPLES IA-IV
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6010 LOGIC  .OR.   IAIV1C X6010
+                   IAIV2C X6010
+                   IAIV3C X6010
+6012 SUBIDA        X6010  L4ACT
+(
+(CORTE DE UG - NG=10
+(
+6075 FUNCAO PULSO  FIVi   X6075  #L4G1 1.0   1E6   1.0
+6080 FUNCAO PULSO  FIVi   X6080  #L4G2 1.0   1E6   1.0
+6095 LOGIC  .NOT.  X6080  X6095
+(
+6015 FUNCAO PULSO  FSEi   X6015  #L4G3 1.0   1E6   1.0
+6020 FUNCAO PULSO  FSEi   X6020  #L4G4 1.0   1E6   1.0
+6035 LOGIC  .NOT.  X6020  X6035
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6110 LOGIC  .AND.  L4ACT  X6110
+                   NG=10  X6110
+                   X6075  X6110
+                   X6095  X6110
+(
+6112 LOGIC  .AND.  L4ACT  X6112
+                   NG=10  X6112
+                   X6015  X6112
+                   X6035  X6112
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6115 LOGIC  .AND.  L4ACT  X6115
+                   NG=10  X6115
+                   X5080  X6115
+(
+6117 LOGIC  .AND.  L4ACT  X6117
+                   NG=10  X6117
+                   X6020  X6117
+(
+(CORTE DE UG - NG=9
+(
+6175 FUNCAO PULSO  FIVi   X6175  #L4G5 1.0   1E6   1.0
+6180 FUNCAO PULSO  FIVi   X6180  #L4G6 1.0   1E6   1.0
+6195 LOGIC  .NOT.  X6180  X6195
+(
+6135 FUNCAO PULSO  FSEi   X6135  #L4G7 1.0   1E6   1.0
+6140 FUNCAO PULSO  FSEi   X6140  #L4G8 1.0   1E6   1.0
+6155 LOGIC  .NOT.  X6140  X6155
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6210 LOGIC  .AND.  L4ACT  X6210
+                   NG=9   X6210
+                   X6175  X6210
+                   X6195  X6210
+(
+6212 LOGIC  .AND.  L4ACT  X6212
+                   NG=9   X6212
+                   X6135  X6212
+                   X6155  X6212
+(
+(corte de 2 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6215 LOGIC  .AND.  L4ACT  X6215
+                   NG=9   X6215
+                   X6180  X6215
+(
+6217 LOGIC  .AND.  L4ACT  X6217
+                   NG=9   X6217
+                   X6140  X6217
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6550 LOGIC  .OR.   X6110  X6550
+                   X6112  X6550
+                   X6210  X6550
+                   X6212  X6550
+(
+6555 LOGIC  .OR.   X6115  X6555
+                   X6117  X6555
+                   X6215  X6555
+                   X6217  X6555
+(
+6570 GANHO         X6550  L4AC1  1.0
+6575 GANHO         X6555  L4AC2  2.0
+(
+(=======================================================================
+(           LÓGICA 5 - PERDA SIMPLES FI-IV OU FI-CO
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8010 LOGIC  .OR.   FIIV1C X8010
+                   FIIV2C X8010
+                   FIIV3C X8010
+                   FICO1C X8010
+8012 SUBIDA        X8010  L5ACT
+(
+(CORTE DE UG - NG=10
+(
+8075 FUNCAO PULSO  FIVi   X8075  #L5G1 1.0   1E6   1.0
+(
+8015 FUNCAO PULSO  FSEi   X8015  #L5G2 1.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8110 LOGIC  .AND.  L5ACT  X8110
+                   NG=10  X8110
+                   X8075  X8110
+(
+8112 LOGIC  .AND.  L5ACT  X8112
+                   NG=10  X8112
+                   X8015  X8112
+(
+(CORTE DE UG - NG=9
+(
+8175 FUNCAO PULSO  FIVi   X8175  #L5G3 1.0   1E6   1.0
+(
+8135 FUNCAO PULSO  FSEi   X8135  #L5G4 1.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8210 LOGIC  .AND.  L5ACT  X8210
+                   NG=9   X8210
+                   X8175  X8210
+(
+8212 LOGIC  .AND.  L5ACT  X8212
+                   NG=9   X8212
+                   X8135  X8212
+(
+(CORTE DE UG - NG=8
+(
+8275 FUNCAO PULSO  FIVi   X8275  #L5G5 1.0   1E6   1.0
+(
+8235 FUNCAO PULSO  FSEi   X8235  #L5G6 1.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8310 LOGIC  .AND.  L5ACT  X8310
+                   NG=8   X8310
+                   X8275  X8310
+(
+8312 LOGIC  .AND.  L5ACT  X8312
+                   NG=8   X8312
+                   X8235  X8312
+(
+(CORTE DE UG - NG=7
+(
+8375 FUNCAO PULSO  FIVi   X8375  #L5G7 1.0   1E6   1.0
+(
+8335 FUNCAO PULSO  FSEi   X8335  #L5G8 1.0   1E6   1.0
+(
+(corte de 1 UG
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8410 LOGIC  .AND.  L5ACT  X8410
+                   NG=7   X8410
+                   X8375  X8410
+(
+8412 LOGIC  .AND.  L5ACT  X8412
+                   NG=7   X8412
+                   X8335  X8412
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8550 LOGIC  .OR.   X8110  X8550
+                   X8112  X8550
+                   X8210  X8550
+                   X8212  X8550
+                   X8310  X8550
+                   X8312  X8550
+                   X8410  X8550
+                   X8412  X8550
+(
+8570 GANHO         X8550  L5AC1  1.0
+(
+(=======================================================================
+(             LÓGICA L18 - PERDA DUPLA IBIUNA-BATEIAS
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3950 SUBIDA        INBC2C L18ACT
+(
+3955 FUNCAO PULSO  FIVi   X3955  #L18G1 1.0  1E6   1.0
+3960 FUNCAO PULSO  IINBC1 X3960  #L18G2 1.0  1E6   1.0
+3961 DLAYOF        X3960  I1>800 5.0
+3965 FUNCAO PULSO  IINBC2 X3965  #L18G2 1.0  1E6   1.0
+3966 DLAYOF        X3965  I2>800 5.0
+(
+3975 LOGIC  .AND.  L18ACT X3975
+                   X3955  X3975
+                   I1>800 X3975
+                   I2>800 X3975
+(
+3976 DELAY         X3975  X3976
+3977 ATRASO        X3976  X3977  3.0
+2978 GANHO         X3977  X3978  #L18ON
+(
+3980 GANHO         X3978  L18AC1 1.0
+(
+(=======================================================================
+(  LÓGICA 7 - ABRE BARRA IPU500 NA PERDA TRIPLA FI-IV E SOBRETENSÃO IPU500
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4800 FUNCAO PULSO  VIP500 VIPUH  #L7V1    1.0   1E6
+4805 DLAYON        VIPUH  F59IPU #L7V2
+4810 LOGIC  .AND.  FIIV3C X4810
+                   F59IPU X4810
+4812 GANHO         X4810  X4812  #ON 
+4815 LOGIC  .NOT.  X4812  X4815
+4820 ATRASO        X4815  TRIP18 #TSEP
+(
+(=======================================================================
+(    LÓGICA 22 -  ABERTURA DA LT FOZ-CASCAVEL NA PERDA TRIPLA FI-IV
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3850 SUBIDA        FIIV3C L22ACT
+3855 DELAY         L22ACT X3855
+3860 GANHO         X3855  X3860  #L22ON
+3862 GANHO         X3860  X3862  #ON 
+3865 LOGIC  .NOT.  X3862  X3865
+3870 ATRASO        X3865  TRIP22 #TSEP
+(
+(=======================================================================
+(      LÓGICA 24 -  CORTE DE 2UG ADICIONAIS NA PERDA TRIPLA FI-IV
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3800 SUBIDA        FIIV3C L24ACT
+3805 DELAY         L24ACT X3805
+3810 GANHO         X3805  X3810  #L24ON
+3812 GANHO         X3810  X3812  #ON  
+3815 GANHO         X3812  DUGL24 2.0
+(
+(=======================================================================
+(             LÓGICA 19 E 21 - CORTE DE UG EM TUCURUI
+(=======================================================================
+(
+(desligamento de 3 ou mais UG em Itaipu 60 pelo SEP - Lógica 19 (via CLP)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9400 COMPAR .GE.   DUG    L19ACT
+                   TRES   L19ACT
+(
+(Perda tripla FI-IV - Lógica 21 (fora do CLP)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9405 SUBIDA        FIIV3C L21ACT
+(
+(Chave 43 em Imperatriz - habilita se FNS>REF (FNS>2000)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9410 FUNCAO PULSO  FNSi   FNS>RF #L19G11.0   1E6   1.0
+(
+(Corte de 2 UG em Tucurui
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9412 LOGIC  .OR.   L19ACT X9412
+                   L21ACT X9412
+9415 LOGIC  .AND.  X9412  X9415
+                   FNS>RF X9415
+9417 DELAY         X9415  X9417
+9420 ATRASO        X9417  X9420  #TTUC
+9422 GANHO         X9420  X9422  2.0
+9424 GANHO         X9422  DUGTU  #ON
+(
+(=======================================================================
+(  LÓGICA 8 - CORTE DE UG PARA ABERTURA TOTAL DO TRONCO ENTRE IV-IA-TP
+(=======================================================================
+(
+(perda tripla entre ivaiporã e itaberá
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9450 LOGIC  .OR.   IAIV3C X9450
+                   IATP3C X9450
+9452 SUBIDA        X9450  X9452
+(
+(pelo menos um trafo de ivaiporã e moperação
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9454 LOGIC  .OR.   TRIV1  TRIV
+                   TRIV2  TRIV
+                   TRIV3  TRIV
+(
+(FSE>REF
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9456 FUNCAO PULSO  FSEi   FSE>RF  #L8G1 1.0   1E6   1.0                   
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9458 LOGIC  .AND.  X9452  L8ACT
+                   TRIV   L8ACT
+                   FSE>RF L8ACT
+(
+(FTRIV<500
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9460 FUNCAO PULSO  FTRIVi FTR<RF -1E6  1.0   500.  0.0 
+(
+(Três circuitos entre Foz e Ivaiporã em operação
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9462 LOGIC  .AND.  FIIV1  FIIV
+                   FIIV2  FIIV
+                   FIIV3  FIIV
+(
+(Condição lógica para selecionar Equação 1
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9464 LOGIC  .AND.  FTR<RF EQ1
+                   FIIV   EQ1
+(
+(Equaçâo 1 - número de UG para corte
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9466 FUNCAO OFFSET FTRIVi X9466  2400
+9468 DIVSAO        X9466  X9468
+                   FIVi   X9468
+9470 MULTPL        X9468  X9470
+                   NGIPUi X9470
+9472 FUNCAO TRUNC  X9470  X9472
+9474 SOMA          NGIPUi NGEQ1
+                  -X9472  NGEQ1
+(
+(Equaçâo 2 - número de UG para corte
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9476 FUNCAO OFFSET FTRIVi X9476  900
+9478 DIVSAO        X9476  X9478
+                   FIVi   X9478
+9480 MULTPL        X9478  X9480
+                   NGIPUi X9480
+9482 FUNCAO TRUNC  X9480  X9482
+9484 SOMA          NGIPUi NGEQ2
+                  -X9482  NGEQ2
+(
+(seleciona Eq1 or Eq2
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9486 SELET2        NGEQ2  NGL8
+                   NGEQ1  NGL8
+                   EQ1    NGL8
+(
+(corte de NGL8 máquinas
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9488 MULTPL        L8ACT  L8AC
+                   NGL8   L8AC 
+(
+(=======================================================================
+(    LÓGICA 10 - DESLIGA REATOR DE IVAIPORÃ SE FIV>REF E VT<REF
+(=======================================================================
+(
+(FIV>REF
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9490 FUNCAO PULSO  FIVMW  FIV>RF #L10G1 1.0  1E6   1.0
+(
+(VT<REF P/ 2s
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9492 FUNCAO PULSO  VT     X9492  -1E6  1.0   0.98  0.0 
+9494 DLAYON        X9492  VT<RF  2.0
+(
+(Desliga reator
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9496 LOGIC  .AND.  FIV>RF L10ACT
+                   VT<RF  L10ACT
+9497 GANHO         L10ACT X9497  #ON
+9498 LOGIC  FFLOP1 X9497  TRIP10
+                   ZERO   TRIP10
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    TRIP10 RTIV
+(
+(=======================================================================
+(             LÓGICA 16 - PERDA TRANSFORMAÇÃO IVAIPORÃ
+(=======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9500 LOGIC  .NOR.  TRIV1  TRIVOF
+                   TRIV2  TRIVOF
+                   TRIV3  TRIVOF 
+9502 SUBIDA        TRIVOF L16ACT
+(
+9504 FUNCAO PULSO  FIVi   X9504  #L16G1 1.0  1E6   1.0
+(
+9506 LOGIC  .AND.  L16ACT X9506
+                   X9504  X9506
+                   NG>=6  X9506
+(
+9508 GANHO         X9506  L16AC1 1.0
+(
+FIMCDU
+(
+999999
+(
+DLOC
+(
+(Barras AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  10   BARRAC    62                    Barra Vt C1
+  11   BARRAC    63                    Barra Vt C2
+  12   BARRAC    64                    Barra Vt C3
+  37   BARRAC  1106                    Itaipu 500 kV
+(
+(Linhas AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  13   CIRCAC    61 1106 1             LT 500 kV I6-FI C1
+  14   CIRCAC    61 1106 2             LT 500 kV I6-FI C2
+  15   CIRCAC    61 1106 3             LT 500 kV I6-FI C3
+  16   CIRCAC    61 1106 4             LT 500 kV I6-FI C4
+  17   CIRCAC    60   62 1             LT 765 kV FIIV C1
+  18   CIRCAC    60   63 2             LT 765 kV FIIV C2
+  19   CIRCAC    60   64 3             LT 765 kV FIIV C3
+  20   CIRCAC  9435  896 1             LT 500 kV FICO 
+  22   CIRCAC    69   72 1             LT 765 kV IAIV C1
+  23   CIRCAC    70   72 2             LT 765 kV IAIV C2
+  24   CIRCAC    71   72 3             LT 765 kV IAIV C3
+  25   CIRCAC    73   76 1             LT 765 kV IATP C1
+  26   CIRCAC    74   76 2             LT 765 kV IATP C2
+  27   CIRCAC    75   76 3             LT 765 kV IATP C3
+  56   CIRCAC   125  112 1             LT 500 kV INBC C1
+  57   CIRCAC   130  113 2             LT 500 kV INBC C2
+  66   CIRCAC  299  7238 1             LT Peixe Angical 2 - S.Mesa 2
+  67   CIRCAC 7236  7101 1             LT Gurupi - S.Mesa C1
+  68   CIRCAC 7237  7103 2             LT Gurupi - S.Mesa C2
+(
+( Transformador
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  64   CIRCAC  1106 1107 1             Trafo elevador Itaipu 60 Hz
+  46   CIRCAC    65   68 1             Trafo Ivaiporã 765/500 kV C1
+  47   CIRCAC    65   58 2             Trafo Ivaiporã 765/500 kV C2
+  48   CIRCAC    65   59 3             Trafo Ivaiporã 765/500 kV C3
+(
+( Reator
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  69   BSH   65                10      Reator de Ivaiporã 765 kV - 330 Mvar
+(
+(Máquinas
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  21   MAQ   1107              10      Itaipu 60 Hz
+(
+(CDU
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+  65   CDU      765                18  Trip Tucurui para CDU do Master Control Belo Monte
+(
+999999
+(
+DCNE
+(Nc)   ( Mc )u
+ 765      765u     SEP 765
+999999
+(
+DMSG
+(Id)   ( Numero da mensagem                                                                                                  )
+  14   Atuação Lógica 14 do SEP 765 kV - CDU %ncdu% ("%nome_do_cdu%")
+  15   Atuação Lógica 15 do SEP 765 kV - CDU %ncdu% ("%nome_do_cdu%")
+999999
+(
+FIM

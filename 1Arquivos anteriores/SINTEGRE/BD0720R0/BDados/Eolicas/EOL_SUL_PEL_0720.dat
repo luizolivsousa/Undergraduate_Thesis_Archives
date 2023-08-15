@@ -1,0 +1,417 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       EOL_SUL_0720.dat                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Associação de barras a modelos de aerogeradores                                           |
+( |                 Associação dos controladores não específicos aos modelos de controle de parques eólicos   |
+( |                 Usinas em operação no Subsistema Sul                                                      |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ENERCON                                                                        |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR ENERCON - Modelos E70T, E82 e E92                                               |
+( |  TOPOLOGIA - 94200                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Ventos do Sul (ENERFIN) - Conjunto Lagoa dos Barros                                      |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Osório            (25)   Enercon       E-70T   2.0       FC       94200       1369          |
+( |  Sangradouro       (25)   Enercon       E-70T   2.0       FC       94201       1370          |
+( |  dos Índios        (25)   Enercon       E-70T   2.0       FC       94202       1371          |
+( |                                                                                              |
+( |  ** Ventos da lagoa (ENERFIN) - Conjunto Lagoa dos Barros                                    |
+( |                                                                                              |
+( |  Parques            UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Sangradouro 2     (13)   Enercon       E-82    2.3       FC       90128      10108          |
+( |  Sangradouro 3     (12)   Enercon       E-82    2.3       FC                                 |
+( |                                                                                              |
+( |  ** Ventos do Litoral (ENERFIN) - Conjunto Lagoa dos Barros                                  |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Osório 2          (12)   Enercon       E-82    2.3       FC       90126      10109          |
+( |  Osório 3          (13)   Enercon       E-82    2.3       FC                                 |
+( |                                                                                              |
+( |  ** Ventos dos Índios (ENERFIN) - Conjunto Lagoa dos Barros                                  |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  dos Índios 2      (13)   Enercon       E-92    2.3       FC       90002      10110          |
+( |  dos Índios 3      (10)   Enercon       E-92    2.3       FC                                 |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR ENERCON - Modelo 82F1                                                           |
+( |  TOPOLOGIA - 91522                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Cidreira EDP Renováveis                                                                  |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Cidreira        (27+4)   Enercon       E-82F1  2.3/2     FC       90114       1347          |
+( |                                                                                              |
+( |  ** Cerro Chato (ELETROSUL) - Conjunto Livramento 2                                          |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Cerro Chato 1     (15)   Enercon       E-82F1  2.0       FC       90115       9732          |
+( |  Cerro Chato 2     (15)   Enercon       E-82F1  2.0       FC       90116       9733          |
+( |  Cerro Chato 3     (15)   Enercon       E-82F1  2.0       FC       90117       9734          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - IMPSA                                                                          |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR IMPSA - Modelo IWP-110                                                          |
+( |  TOPOLOGIA - 4206                                                                            |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Cerro Chato 4, 5 e 6 / Cerro dos Trindade (ELETROSUL) - Conjunto Livramento 2            |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Cerro Chato 4      (5)   IMPSA         IWP-100 2.0       FC        4209      10118          |
+( |  Cerro Chato 5      (6)   IMPSA         IWP-100 2.0       FC                                 |
+( |  C. Trindade        (4)   IMPSA         IWP-100 2.0       FC                                 |
+( |                                                                                              |
+( |  Cerro Chato 6     (12)   IMPSA         IWP-100 2.0       FC        4206       9854          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - WEG                                                                            |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR WEG - Modelo AWG-110                                                            |
+( |  TOPOLOGIA - 90522                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ==============================================                                              |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Ibirapuitã (ELETROSUL) - Conunto Livramento 2                                            |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Ibirapuitã        (12)   WEG           AWG-110/2.1       FC        4205       9853          |
+( |                                                                                              |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - VENSYS                                                                         |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR VENSYS - Modelo VS77 1.5 MW                                                     |
+( |  TOPOLOGIA - 90507                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Conjunto Bom Jardim (IMPSA)                                                              |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Púlpito           (20)   VENSYS        VS77    1.5       FC       94206      10124          |
+( |  Bom Jardim        (20)   VENSYS        VS77    1.5       FC                                 |
+( |  S. Antônio         (2)   VENSYS        VS77    1.5       FC                                 |
+( |  Rio do Ouro       (20)   VENSYS        VS77    1.5       FC                                 |
+( |                                                                                              |
+( |  ** Conjunto Água Doce (IMPSA)                                                               |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Aquibatã          (20)   VENSYS        VS77    1.5       FC       94210      10120          |
+( |  C. Belo            (7)   VENSYS        VS77    1.5       FC                                 |
+( |  Cascata            (4)   VENSYS        VS77    1.5       FC                                 |
+( |  Cruz Alta         (20)   VENSYS        VS77    1.5       FC                                 |
+( |  Salto             (20)   VENSYS        VS77    1.5       FC                                 |
+( |  Âmparo            (15)   VENSYS        VS77    1.5       FC                                 |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ACCIONA                                                                        |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR ACCIONA - Modelo AW116 - DFIG                                                   |
+( |  TOPOLOGIA - 90136                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Conjunto Atlântica (CPFL Energias Renováveis)                                            |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Atlântica 1       (10)   ACCIONA       AW116/ 3000      DFIG      90136      10119          |
+( |  Atlântica 2       (10)   ACCIONA       AW116/ 3000      DFIG                                |
+( |  Atlântica 4       (10)   ACCIONA       AW116/ 3000      DFIG                                |
+( |  Atlântica 5       (10)   ACCIONA       AW116/ 3000      DFIG                                |
+( |                                                                                              |
+( |  ** Aura Mangueira e Aura Mirim (S. V. do Palmar Energias Renováveis) - Conj. Marmeleiro 2   |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo / MW      Tipo       ACDU      Barra          |
+( |  Marmeleiro 2A     (32)   ACCIONA       AW125 / 3000     DFIG      90140      10017          |
+( |  Marmeleiro 2B     (16)   ACCIONA       AW125 / 3000     DFIG      90141      10018          |
+( |  Marmeleiro 2C     (21)   ACCIONA       AW125 / 3000     DFIG      90142      10019          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - VESTAS                                                                         |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR VESTAS - Modelo V112 - Full Converter                                           |
+( |  TOPOLOGIA - 90013                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Xangri-Lá (HONDA)                                                                        |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Xangri-lá          (9)   VESTAS        V112    3.0       FC       90100       9183          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - GAMESA                                                                         |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR GAMESA - Modelo G97/G114 - DFIG                                                 |
+( |  TOPOLOGIA - 90021                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Geribatu (ELETROSUL) - Conjunto Santa Vitória do Palmar                                  |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Verace 1          (10)   GAMESA        G97     2.0      DFIG     900143      10112          |
+( |  Verace 2          (10)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 3          (13)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 4          (15)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 5          (15)   GAMESA        G97     2.0      DFIG                                |
+( |                                                                     ACDU      Barra          |
+( |  Verace 6           (9)   GAMESA        G97     2.0      DFIG      900142     10113          |
+( |  Verace 7          (15)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 8          (13)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 9          (15)   GAMESA        G97     2.0      DFIG                                |
+( |  Verace 10         (14)   GAMESA        G97     2.0      DFIG                                |
+( |                                                                                              |
+( |  ** Chuí (ELETROSUL) - Conjunto Santa Vitória do Palmar                                      |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Chuí 1            (12)   GAMESA        G97     2.0      DFIG     900151      10012          |
+( |  Chuí 2            (11)   GAMESA        G97     2.0      DFIG                                |
+( |  Chuí 4            (11)   GAMESA        G97     2.0      DFIG                                |
+( |  Chuí 5            (15)   GAMESA        G97     2.0      DFIG                                |
+( |  Minuano 1         (11)   GAMESA        G97     2.0      DFIG                                |
+( |  Minuano 2         (12)   GAMESA        G97     2.0      DFIG                                |
+( |                                                                                              |
+( |  ** REB Cassino (REB Empreendimentos) - Conjunto Quinta 69 kV                                |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Cassino 1         (11)   GAMESA        G97     2.0      DFIG     900144      10114          |
+( |  Cassino 2         (10)   GAMESA        G97     2.0      DFIG                                |
+( |  Cassino 3         (11)   GAMESA        G97     2.0      DFIG                                |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Conjunto Livramento 2 (ELETROSUL)                                                        |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Capão Inglês       (5)   GAMESA        G114    2.0      DFIG     900118       9948          |
+( |  Coxilha Seca      (15)   GAMESA        G114    2.0      DFIG     900119       9949          |
+( |  Galpões            (4)   GAMESA        G114    2.0      DFIG     900120       9950          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - GE                                                                             |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR GE - Modelo GE/1.6-100 - DFIG                                                   |
+( |  TOPOLOGIA - 90120                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Pontal 2B - Conjunto Viamão 3                                                            |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo / MW      Tipo       ACDU      Barra          |
+( |  Pontal 2B          (7)   GE            GE/ 1.6-100      DFIG      90120       9867          |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR GE - Modelo GE/1.79-100 - DFIG                                                  |
+( |  TOPOLOGIA - 900131                                                                          |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** Hermenegildo (ELETROSUL) - Conjunto Santa Vitória do Palmar                              |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo / MW      Tipo       ACDU      Barra          |
+( |  Chuí IX           (10)   GE            GE/ 1.79-100     DFIG     900132       9900          |
+( |                                                                                              |
+( |  Verace 24 a 31 +  (91)   GE            GE/ 1.79-100     DFIG     900131      10011          |
+( |         34 a 36                                                                              |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ALSTOM/GE                                                                      |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR ALSTOM/GE - Modelo ECO122 - DFIG                                                |
+( |  TOPOLOGIA - 90121                                                                           |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** ENERPLAN - Conjunto Viamão 3                                                             |
+( |                                                                                              |
+( |  Parque             UN    Fabricante    Modelo   MW      Tipo       ACDU      Barra          |
+( |  Pontal 2A          (8)   ALSTOM/GE     ECO-122 2.7      DFIG      90121       9868          |
+( |  Pontal 3B         (10)   ALSTOM/GE     ECO-122 2.7      DFIG                                |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |----------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ALSTOM                                                                         |
+( |----------------------------------------------------------------------------------------------|
+( |                                                                                              |
+( |  AEROGERADOR ALSTOM Modelo ECO-122                                                           |
+( |  TURBINA - TOPOLOGIA 90146                                                                   |
+( |  CONVERSOR - TOPOLOGIA 90145                                                                 |
+( |                                                                                              |
+( |  PARQUES EM OPERAÇÃO                                                                         |
+( |  ===================                                                                         |
+( |                                                                                              |
+( |                                                                                              |
+( |  ** C. Senandes / V. Aragano (Odebrecht Energia) - Conjunto Quinta 138 kV                    |
+( |                                                                     ACDU                     |
+( |  Parque             UN    Fabricante Modelo   MW  Tipo   Ctrl/Turb/Slip/TopSlip    Barra     |
+( |  C. Senandes 2      (8)   ALSTOM     EC0-122 2.7  DFIG 90122/91122/999014/999100   10121     |
+( |  C. Senandes 3     (10)                                                                      |
+( |  C. Senandes 4     (11)                                                                      |
+( |  V. Aragano  1     (11)                                                                      |
+( |                                                                                              |
+( |----------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS EM OPERAÇÃO                                                                             |
+( |------------------------------------------------------------------------------------------------|
+(
+DDFM
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mc )u(Xvd )(Nbc) ( Slip )uR I
+10121   10 100 100  40     17  91122u 90122u              999014u2 2     Alstom ECO122 2.7    - Conj. Quinta 138 kV - EOL Corredor dos Senandes e Vento Aragano
+999999
+(
+( ---------------------------------------------------------------------
+( TIPO 16 - RELÉ DE SUB/SOBREFREQUÊNCIA P/ DESLIG. DE GER. EÓLICA DFIG
+( ---------------------------------------------------------------------
+DREL MD16
+( Nb) NgH(Fmn) (Fmx) (Tre) (Tdj) M
+10121 10  .63  1.430  0.5   0.10 A
+999999
+(
+( ---------------------------------------------------------------------
+( TIPO 6 - RELÉ DE SOBRETENSÃO PARA ABERTURA DE CIRCUITO CA
+( ---------------------------------------------------------------------
+DREL MD06
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+10121   9860   1 1.10        10.    0.10 A
+10121   9860   1 1.15        1.0    0.10 A
+10121   9860   1 1.20        0.2    0.10 A
+999999
+( ---------------------------------------------------------------------
+( TIPO 10 - RELÉ DE SUBTENSÃO PARA ABERTURA DE CIRCUITO CA
+( ---------------------------------------------------------------------
+DREL MD10
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+10121    9860  1 0.90         182.  0.10 A
+10121    9860  1 0.85         12.   0.10 A
+10121    9860  1 0.50         2.0   0.10 A
+999999
+(
+DFNT
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 1369   10 I  100.  100.  25  94200u                                     Enercon E70T 2.0     - Conj. Lagoa dos Barros - EOL Osório 1
+ 1370   10 I  100.  100.  25  94201u                                     Enercon E70T 2.0     - Conj. Lagoa dos Barros - EOL Sangradouro 1
+ 1371   10 I  100.  100.  25  94202u                                     Enercon E70T 2.0     - Conj. Lagoa dos Barros - EOL dos Índios 1
+(
+ 9732   10 I  100.  100.  15  90115u                                     Enercon E82F1 2.0    - Conj. Livramento 2 - EOL Cerro Chato 1
+ 9733   10 I  100.  100.  15  90116u                                     Enercon E82F1 2.0    - Conj. Livramento 2 - EOL Cerro Chato 2
+ 9734   10 I  100.  100.  15  90117u                                     Enercon E82F1 2.0    - Conj. Livramento 2 - EOL Cerro Chato 3
+(
+ 1347   10 I  100.  100.  31  90114u                                     Enercon E82F1 2/2.3  - EOL Cidreira
+(
+10109   10 I  100.  100.  25  90126u                                     Enercon E82F1 2.3    - Conj. Lagoa dos Barros - EOL Osório 2 e 3
+10108   10 I  100.  100.  25  90128u                                     Enercon E82F1 2.3    - Conj. Lagoa dos Barros - EOL Sangradouro 2 e 3
+(
+10110   10 I  100.  100.  23  90002u                                     Enercon E92 2.3      - Conj. Lagoa dos Barros - EOL Índios 2 e 3
+(
+10124   10 I  100.  100.  62  94206u                                     Vensys VS77 1.5      - Conj. Bom Jardim - EOL Púlpito + B.Jardim + S.Antônio + Rio do Ouro
+10120   10 I  100.  100.  86  94210u                                     Vensys VS77 1.5      - Conj. Água Doce - EOL Aquibatã + C.Belo + Cascata + C.Alta + Salto + Âmparo
+(
+( 9854   10 I  100.  100.  12   4206u                                     IMPSA IWP100 2.0     - Conj. Livramento 2 - EOL Cerro Chato VI
+(10118   10 I  100.  100.  15   4209u                                     IMPSA IWP100 2.0     - Conj. Livramento 2 - EOL Cerro Chato IV e V e Cerro dos Trindade
+(
+ 9853   10 I  100.  100.  12   4205u                                     WEG AWG110 2.1       - Conj. Livramento 2 - EOL Ibirapuitã
+(
+10119   10 I  100.  100.  40  90136u                                     Acciona AW116 3.0    - Conj. Atlântica - EOL Atlântica I, II, IV e V
+(
+10017   10 I  100.  100.  32  90140u                                     Acciona AW125 3.0    - Conj. Marmeleiro 2 - EOL A. Mangueira VII, XI e XV e A. Mirim II e IV
+10018   10 I  100.  100.  16  90141u                                     Acciona AW125 3.0    - Conj. Marmeleiro 2 - EOL A. Mangueira XII e XIII e A. Mirim VI e VIII
+10019   10 I  100.  100.  21  90142u                                     Acciona AW125 3.0    - Conj. Marmeleiro 2 - EOL A. Mangueira IV, VI e e XVII
+(
+ 9183   10 I  100.  100.   9  90100u                                     Vestas V112 3.0      - EOL Xangri-lá
+(
+10114   10 I  100.  100.  32 900144u                      2.0            Gamesa G97 2.0       - Conj. Quinta 69 kV - EOL Cassino 1, 2 e 3
+(
+10112   10 I  100.  100.  63 900143u                      2.0            Gamesa G97 2.0       - Conj. S. V. do Palmar - EOL Verace 1 a 5
+10113   10 I  100.  100.  66 900142u                      2.0            Gamesa G97 2.0       - Conj. S. V. do Palmar - EOL Verace 6 a 10
+10012   10 I  100.  100.  72 900151u                      2.0            Gamesa G97 2.0       - Conj. S. V. do Palmar - EOL Chuí 1 a 4 e Minuano 1 e 2
+(
+ 9948   10 I  100.  100.   5 900118u                      2.0            Gamesa G114          - Conj. Livramento 2 - EOL Capão do Inglês
+ 9949   10 I  100.  100.  15 900119u                      2.0            Gamesa G114          - Conj. Livramento 2 - EOL Coxilha Seca
+ 9950   10 I  100.  100.   4 900120u                      2.0            Gamesa G114          - Conj. Livramento 2 - EOL Galpões
+(
+10011   10 I  100.  100.  91 900131u            -2.491                   GE 1.79              - Conj. S. V. do Palmar - EOL Verace 25 a 31 e 34 a 36
+ 9900   10 I  100.  100.  10 900132u            -2.491                   GE 1.79              - Conj. S. V. do Palmar - EOL Chuí IX
+(
+ 9867   10 I  100.  100.   7  90120u             -6.40                   GE 1.6               - Conj. Viamão 3 - EOL Pontal 2B
+(
+ 9868   10 I  100.  100.  18  90121u                                     GE/ALSTOM ECO122 2.7 - Conj. Viamão 3 - EOL Pontal 3B e 2A
+(
+999999
+(
+FIM

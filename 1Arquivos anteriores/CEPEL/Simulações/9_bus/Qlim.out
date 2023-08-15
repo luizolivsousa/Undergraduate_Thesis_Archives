@@ -1,0 +1,15 @@
+Relatorio de Geracao de Potencia Reativa - Fluxo de Potencia Continuado
+Barras em ordem crescente de reserva disponivel de Q
+Sistema :                                                                                 
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =     0.0138
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+     1 bus1            122.00    122.00    122.00  100.0000 Lim. S
+     2 bus2             96.00     96.00     96.00  100.0000 Lim. S

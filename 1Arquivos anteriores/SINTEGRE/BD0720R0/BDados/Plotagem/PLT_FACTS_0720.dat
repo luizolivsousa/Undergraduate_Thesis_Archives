@@ -1,0 +1,279 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_FACTS_0720.dat                                                                        |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Arquivo para plotagem de todos os CER e TCSC presentes na simulação                       |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+(
+( CER
+(
+QCES       42           1
+BCES       42           1
+ICES       42           1
+VCES       42           1
+(
+QCES       43           2
+BCES       43           2
+ICES       43           2
+VCES       43           2
+(
+QCES       46           3
+BCES       46           3
+ICES       46           3
+VCES       46           3
+(
+QCES       55           4
+BCES       55           4
+ICES       55           4
+VCES       55           4
+(
+QCES      389          10
+BCES      389          10
+ICES      389          10
+VCES      389          10
+(
+QCES      499          10
+BCES      499          10
+ICES      499          10
+VCES      499          10
+(
+QCES      567           1
+BCES      567           1
+ICES      567           1
+VCES      567           1
+(
+QCES      597          10
+BCES      597          10
+ICES      597          10
+VCES      597          10
+(
+QCES      944           1
+BCES      944           1
+ICES      944           1
+VCES      944           1
+(
+QCES      966          10
+BCES      966          10
+ICES      966          10
+VCES      966          10
+(
+QCES     1078           1
+BCES     1078           1
+ICES     1078           1
+VCES     1078           1
+(
+QCES     1490          10
+BCES     1490          10
+ICES     1490          10
+VCES     1490          10
+(
+QCES     1889           1
+BCES     1889           1
+ICES     1889           1
+VCES     1889           1
+(
+QCES     3026           1
+BCES     3026           1
+ICES     3026           1
+VCES     3026           1
+(
+QCES     3053          90
+BCES     3053          90
+ICES     3053          90
+VCES     3053          90
+(
+QCES     3344          10
+BCES     3344          10
+ICES     3344          10
+VCES     3344          10
+(
+QCES     4093          10
+BCES     4093          10
+ICES     4093          10
+VCES     4093          10
+(
+QCES     4375          10
+BCES     4375          10
+ICES     4375          10
+VCES     4375          10
+(
+QCES     4530          10
+BCES     4530          10
+ICES     4530          10
+VCES     4530          10
+(
+QCES     4582          10
+BCES     4582          10
+ICES     4582          10
+VCES     4582          10
+(
+QCES     4665          10
+BCES     4665          10
+ICES     4665          10
+VCES     4665          10
+(
+QCES     4677          10
+BCES     4677          10
+ICES     4677          10
+VCES     4677          10
+(
+QCES     5239          10
+BCES     5239          10
+ICES     5239          10
+VCES     5239          10
+(
+QCES     5410          10
+BCES     5410          10
+ICES     5410          10
+VCES     5410          10
+(
+QCES     5450          10
+BCES     5450          10
+ICES     5450          10
+VCES     5450          10
+(
+QCES     5480          10
+BCES     5480          10
+ICES     5480          10
+VCES     5480          10
+(
+QCES     5551          10
+BCES     5551          10
+ICES     5551          10
+VCES     5551          10
+(
+QCES     5551          20
+BCES     5551          20
+ICES     5551          20
+VCES     5551          20
+(
+QCES     5611          10
+BCES     5611          10
+ICES     5611          10
+VCES     5611          10
+(
+QCES     5679          90
+BCES     5679          90
+ICES     5679          90
+VCES     5679          90
+(
+QCES     5681          10
+BCES     5681          10
+ICES     5681          10
+VCES     5681          10
+(
+QCES     5902          10
+BCES     5902          10
+ICES     5902          10
+VCES     5902          10
+(
+QCES     5929          10
+BCES     5929          10
+ICES     5929          10
+VCES     5929          10
+(
+QCES     6060          10
+BCES     6060          10
+ICES     6060          10
+VCES     6060          10
+(
+QCES     6131          10
+BCES     6131          10
+ICES     6131          10
+VCES     6131          10
+(
+QCES     6132          10
+BCES     6132          10
+ICES     6132          10
+VCES     6132          10
+(
+QCES     6290          10
+BCES     6290          10
+ICES     6290          10
+VCES     6290          10
+(
+QCES     6349          10
+BCES     6349          10
+ICES     6349          10
+VCES     6349          10
+(
+QCES     6368          10
+BCES     6368          10
+ICES     6368          10
+VCES     6368          10
+(
+QCES     6565          10
+BCES     6565          10
+ICES     6565          10
+VCES     6565          10
+(
+QCES     6609           1
+BCES     6609           1
+ICES     6609           1
+VCES     6609           1
+(
+QCES     6800          10
+BCES     6800          10
+ICES     6800          10
+VCES     6800          10
+(
+QCES     6950          10
+BCES     6950          10
+ICES     6950          10
+VCES     6950          10
+(
+QCES     8265          10
+BCES     8265          10
+ICES     8265          10
+VCES     8265          10
+(
+QCES     8285          10
+BCES     8285          10
+ICES     8285          10
+VCES     8285          10
+(
+QCES     8365          10
+BCES     8365          10
+ICES     8365          10
+VCES     8365          10
+(
+QCES     8465          10
+BCES     8465          10
+ICES     8465          10
+VCES     8465          10
+(
+(
+QCES     8851          10
+BCES     8851          10
+ICES     8851          10
+VCES     8851          10
+(
+( TCSC
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+XCSC     5590  7592  1
+BCSC     5590  7592  1
+ICSC     5590  7592  1
+VSCS     5590  7592  1
+(
+XCSC     5590  7594  2
+BCSC     5590  7594  2
+ICSC     5590  7594  2
+VSCS     5590  7594  2
+(
+999999
+(
+FIM

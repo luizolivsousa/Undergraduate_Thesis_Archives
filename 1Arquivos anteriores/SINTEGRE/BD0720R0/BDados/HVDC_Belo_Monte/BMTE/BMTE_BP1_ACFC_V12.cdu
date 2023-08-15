@@ -1,0 +1,2040 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_BP1_AVFC_V12.cdu                                                                     |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(
+(----------------------------------------------------------------------
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 9210 - AC FILTER CONTROL - XINGU
+( CDU 9220 - AC FILTER CONTROL - ESTREITO
+(
+(----------------------------------------------------------------------
+( SINAIS DE INTERESSE CDU 9210 (XINGU):
+(
+( BLOCO 10 - F01_M - ENTRAD PARA MANOBRA DO SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+( BLOCO 11 - F02_M - ENTRAD PARA MANOBRA DO SUB-BANCO 2 (TIPO B) EM MODO MANUAL
+( BLOCO 12 - F03_M - ENTRAD PARA MANOBRA DO SUB-BANCO 3 (TIPO A) EM MODO MANUAL
+( BLOCO 13 - F04_M - ENTRAD PARA MANOBRA DO SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+( BLOCO 14 - F05_M - ENTRAD PARA MANOBRA DO SUB-BANCO 5 (TIPO A) EM MODO MANUAL
+( BLOCO 15 - F06_M - ENTRAD PARA MANOBRA DO SUB-BANCO 6 (TIPO B) EM MODO MANUAL
+( BLOCO 16 - F07_M - ENTRAD PARA MANOBRA DO SUB-BANCO 7 (TIPO C) EM MODO MANUAL
+( BLOCO 17 - F08_M - ENTRAD PARA MANOBRA DO SUB-BANCO 8 (TIPO C) EM MODO MANUAL
+(
+( SINAIS DE INTERESSE CDU 9220 (ESTREITO):
+(
+( BLOCO   10 - F01_M - ENTRAD PARA MANOBRA DO SUB-BANCO 1 (TIPO A) EM MODO MANUAL
+( BLOCO   11 - F02_M - ENTRAD PARA MANOBRA DO SUB-BANCO 2 (TIPO B) EM MODO MANUAL
+( BLOCO   12 - F03_M - ENTRAD PARA MANOBRA DO SUB-BANCO 3 (TIPO A) EM MODO MANUAL
+( BLOCO   13 - F04_M - ENTRAD PARA MANOBRA DO SUB-BANCO 4 (TIPO B) EM MODO MANUAL
+( BLOCO   14 - F05_M - ENTRAD PARA MANOBRA DO SUB-BANCO 5 (TIPO A) EM MODO MANUAL
+( BLOCO   15 - F06_M - ENTRAD PARA MANOBRA DO SUB-BANCO 6 (TIPO B) EM MODO MANUAL
+( BLOCO   16 - F07_M - ENTRAD PARA MANOBRA DO SUB-BANCO 7 (TIPO C) EM MODO MANUAL
+( BLOCO   17 - F08_M - ENTRAD PARA MANOBRA DO SUB-BANCO 8 (TIPO C) EM MODO MANUAL
+( BLOCO 1017 - F09_M - ENTRAD PARA MANOBRA DO SUB-BANCO 9 (TIPO C) EM MODO MANUAL
+( BLOCO 2017 - F10_M - ENTRAD PARA MANOBRA DO SUB-BANCO 10 (TIPO C) EM MODO MANUAL
+( BLOCO 3017 - F11_M - ENTRAD PARA MANOBRA DO SUB-BANCO 11 (TIPO C) EM MODO MANUAL
+( BLOCO 4017 - F12_M - ENTRAD PARA MANOBRA DO SUB-BANCO 12 (TIPO C) EM MODO MANUAL
+(
+(----------------------------------------------------------------------
+(ncdu) ( nome cdu )
+  9210 BM-ACFC-X
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #AUTO                   1         # AUTO=1 / MANUAL=0
+DEFPAR #Q/U                    0         # 0-> UAC-CONTROL / 1-> Q-CONTROL
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #MXFLT                  8         # NUMERO MAXIMO DE FILTROS
+DEFPAR #MNFLT                  2         # NUMERO MINIMO DE FILTROS
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CNVX1               9981         # CONVERSOR XINGU POLO 1
+DEFPAR #CNVX2               9983         # CONVERSOR XINGU POLO 2
+DEFPAR #CNVE1               9982         # CONVERSOR ESTREITO POLO 1
+DEFPAR #CNVE2               9984         # CONVERSOR ESTREITO POLO 2
+DEFPAR #ACBUS               9971         # BARRA AC XINGU
+DEFPAR #FA                  9901         # FILTRO XINGU TIPO A (TT 3/11/50) - 220 MVAR
+DEFPAR #FB                  9902         # FILTRO XINGU TIPO B (TT 13/24/36) - 180 MVAR
+DEFPAR #FC                  9903         # FILTRO XINGU TIPO C (ST 58) - 200 MVAR
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #REDV1               9560         # REDUCED VOLTAGE FROM DC LINE FAULT P1 (CDU 97010 - SINAL REDV)
+DEFPAR #REDV2               9562         # REDUCED VOLTAGE FROM DC LINE FAULT P2 (CDU 97020 - SINAL REDV)
+(
+(Q-CONTROL
+DEFPAR #QREF                 390         # REFERÊNCIA DE POTÊNCIA REATIVA EM Q-CONTROL, EM MVAR
+(                                        # RETIFICADOR: -424 <= QREF <= 390  (DEFAULT: 390 MVAR)
+(                                        # INVERSOR: -79 <= QREF <= 390  (DEFAULT: 390 MVAR)
+DEFPAR #QMARG                 50         # MARGEM DE POTÊNCIA REATIVA, EM MVAR
+DEFPAR #QNEXT                220         # POTÊNCIA REATIVA DO MAIOR SUB-BANCO, EM MVAR
+DEFPAR #TDQ                  3.0         # TEMPO DE ATRASO Q-CONTROL, EM SEGUNDOS
+DEFPAR #TSWQ                 3.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO Q-CONTROL
+DEFPAR #TSBLK               0.20         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS APÓS BLOQUEIO
+(
+(U-CONTROL
+(EFPAR (nome) (     valor      )
+DEFPAR #UREF                525.         # REFERÊNCIA DE TENSÃO AC EM UAC-CONTROL, EM KV
+DEFPAR #UBAND                50.         # BANDWIDTH DO UAC-CONTROL, EM KV
+DEFPAR #TAXAU            0.16667         # TAXA PARA RAMPA DA REFERÊNCIA DE TENSÃO AC EM UAC-CONTROL, EM KV/SEG
+DEFPAR #TDUAC                4.5         # TEMPO DE ATRASO UAC-CONTROL, EM SEGUNDOS
+DEFPAR #TSWU                 5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO UAC-CONTROL
+(
+(HARMONIC PERFORMANCE CONTROL (HPC)
+DEFPAR #TDHPC                1.5         # TEMPO DE ATRASO HARMONIC PERFORMANCE CONTROL (HPC), EM SEGUNDOS
+DEFPAR #TSHPC                1.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO HPC
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #HP1B1               0.30         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B2               0.37         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B3               0.72         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B4               0.84         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B5               0.95         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B6               1.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B7               1.05         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #HP7B1               0.21         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B2               0.29         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B3               0.64         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B4               0.86         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B5               0.90         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B6               1.20         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B7               1.24         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 70% DE VDC, EM PU
+(
+DEFPAR #HP1M1               0.55         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M2               0.70         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M3               0.85         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M4               1.13         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M5               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M6               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M7               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #HP7M1               0.64         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M2               1.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M3               1.21         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M4               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M5               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M6               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M7               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 70% DE VDC, EM PU
+(
+(AC FILTER RATING CURRENT LIMIT (RPC LIMIT)
+(EFPAR (nome) (     valor      )
+DEFPAR #CL1B1               0.30         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B2               0.40         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B3               0.76         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B4               0.93         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B5               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #CL7B1               0.21         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B2               0.29         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B3               0.64         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B4               0.86         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B5               0.90         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 70% DE VDC, EM PU
+(
+DEFPAR #CL1M1               0.82         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M2               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M3               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M4               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M5               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #CL7M1               0.71         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M2               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M3               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M4               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M5               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 70% DE VDC, EM PU
+(
+(VOLTAGE LIMTATION CONTROL (VLC)
+(EFPAR (nome) (     valor      )
+DEFPAR #TFV                 0.02         # CONSTANTE DE TEMPO DE MEDIÇÃO DA TENSÃO AC PARA VLC, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #CONL                0.93         # CONNECT LEVEL VLC, EM PU
+DEFPAR #ISOIL               0.97         # ISOLATE INHIBIT LEVEL VLC, EM PU
+DEFPAR #CONIL               1.10         # CONNECT INHIBIT LEVEL VLC, EM PU
+DEFPAR #ISOL0              1.104         # ISOLATE LEVEL 0 VLC, EM PU
+DEFPAR #ISOL1               1.15         # ISOLATE LEVEL 1 VLC, EM PU
+DEFPAR #ISOL2               1.20         # ISOLATE LEVEL 2 VLC, EM PU
+DEFPAR #ISOL3               1.27         # ISOLATE LEVEL 3 VLC, EM PU
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TCONV                5.0         # TEMPO DE ATRASO CONNECT VLC, EM SEGUNDOS
+DEFPAR #TISO0               10.0         # TEMPO DE ATRASO ISOLATE LEVEL 0 VLC, EM SEGUNDOS (original = 90 segundos)
+DEFPAR #TISO1                2.0         # TEMPO DE ATRASO ISOLATE LEVEL 1 VLC, EM SEGUNDOS
+DEFPAR #TISO2              0.310         # TEMPO DE ATRASO ISOLATE LEVEL 2 VLC, EM SEGUNDOS
+DEFPAR #TISO3              0.210         # TEMPO DE ATRASO ISOLATE LEVEL 3 VLC, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TSWVC                5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - CONNECT
+DEFPAR #TSWV0                5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 0
+DEFPAR #TSWV1                0.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 1
+DEFPAR #TSWV2               0.15         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 2
+DEFPAR #TSWV3               0.15         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TBRK               0.120         # TEMPO ASSOCIADO À COMUNICAÇÃO, PROCESSAMENTO NA BCU E OPERAÇÃO DO DISJUNTOR, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #VACMN                0.7         # TENSÃO AC MÍNIMA PARA DETECÇÃO DE FALTA AC, EM PU
+DEFPAR #TDVDT                65.         # DV/DT PARA DETECÇÃO DE FALTA AC, EM PU/SEGUNDO
+DEFPAR #TACF                 15.         # TEMPO DURANTE O QUAL CHAVEAMENTOS PELO Q-CONTROL FICA INIBIDO APÓS UMA FALTA AC
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TXDN                -250         # TAXA RUNBACK AC FILTER RATING CURRENT LIMIT (RPC LIMIT), EM A/S - APPLICATION
+DEFPAR #TXUP                4000         # TAXA RUNBACK AC FILTER RATING CURRENT LIMIT (RPC LIMIT), EM A/S - RELEASE
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TSWQ   #TSWQ
+DEFVAL        TSWUAC #TSWU
+DEFVAL        TSWHPC #TSHPC
+DEFVAL        TSWVC  #TSWVC
+DEFVAL        TSWVI0 #TSWV0
+DEFVAL        TSWVI1 #TSWV1
+DEFVAL        TSWVI2 #TSWV2
+DEFVAL        TSWVI3 #TSWV3
+DEFVAL        TSWBLK #TSBLK
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        AUTO   #AUTO
+DEFVAL        QMARG  #QMARG
+DEFVAL        QREF   #QREF
+DEFVAL        QNEXT  #QNEXT
+DEFVAL        MXFLT  #MXFLT
+DEFVAL        MNFLT  #MNFLT
+DEFVAL        Q/U    #Q/U
+DEFVAL        UREF   #UREF
+DEFVAL        UBANDW #UBAND
+DEFVAL VAR    UREFL  UREF  *
+DEFVAL        VACMN  #VACMN
+DEFVAL        TXDVDT #TDVDT
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    NFA    NFA0  *
+DEFVAL VAR    NFB    NFB0  *
+DEFVAL VAR    NFC    NFC0  *
+DEFVAL VAR    NFREQ  NF    *
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    F01_M  F01_0 *
+DEFVAL VAR    F02_M  F02_0 *
+DEFVAL VAR    F03_M  F03_0 *
+DEFVAL VAR    F04_M  F04_0 *
+DEFVAL VAR    F05_M  F05_0 *
+DEFVAL VAR    F06_M  F06_0 *
+DEFVAL VAR    F07_M  F07_0 *
+DEFVAL VAR    F08_M  F08_0 *
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CON    0.0
+DEFVAL        ISOL   0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CONL   #CONL
+DEFVAL        ISOIL  #ISOIL
+DEFVAL        CONIL  #CONIL
+DEFVAL        ISOL0  #ISOL0
+DEFVAL        ISOL1  #ISOL1
+DEFVAL        ISOL2  #ISOL2
+DEFVAL        ISOL3  #ISOL3
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TXUP   #TXUP
+DEFVAL        TXDN   #TXDN
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        TRES   3.0
+DEFVAL        QUATRO 4.0
+DEFVAL        CINCO  5.0
+DEFVAL        SEIS   6.0
+DEFVAL        SETE   7.0
+DEFVAL        OITO   8.0
+DEFVAL        INF    9999.
+(
+(----------------------------------------------------------------------
+(
+(Exports
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 EXPORT STBSH  NFA           #FA
+   2 EXPORT STBSH  NFB           #FB
+   3 EXPORT STBSH  NFC           #FC
+  51 EXPORT CDU    RPCLIM
+  52 EXPORT CDU    RPCLIM
+  53 EXPORT CDU    RPCLIM
+  54 EXPORT CDU    RPCLIM
+(
+(Entrads
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   4 ENTRAD               AUTO
+   5 ENTRAD               ZERO
+   6 ENTRAD               HUM
+  91 ENTRAD               DOIS
+  92 ENTRAD               TRES
+  94 ENTRAD               QUATRO
+  95 ENTRAD               CINCO
+  96 ENTRAD               SEIS
+  97 ENTRAD               SETE
+  98 ENTRAD               OITO
+   7 ENTRAD               QMARG
+   8 ENTRAD               QREF
+   9 ENTRAD               QNEXT
+  19 ENTRAD               MNFLT
+(
+(Chaveamento manual dos filtros por sub-banco
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 ENTRAD               F01_M
+  11 ENTRAD               F02_M
+  12 ENTRAD               F03_M
+  13 ENTRAD               F04_M
+  14 ENTRAD               F05_M
+  15 ENTRAD               F06_M
+  16 ENTRAD               F07_M
+  17 ENTRAD               F08_M
+(
+(Status inicial de cada sub-banco
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  21 LIMITA        NFA    F01_0                           ZERO   HUM
+  22 FUNCAO RETA   NFA    X22     1.0  -1.0
+  23 LIMITA        X22    F03_0                           ZERO   HUM
+  24 FUNCAO RETA   NFA    X24     1.0  -2.0
+  25 LIMITA        X24    F05_0                           ZERO   HUM
+(
+  26 LIMITA        NFB    F02_0                           ZERO   HUM
+  27 FUNCAO RETA   NFB    X27     1.0  -1.0
+  28 LIMITA        X27    F04_0                           ZERO   HUM
+  29 FUNCAO RETA   NFB    X29     1.0  -2.0
+  30 LIMITA        X29    F06_0                           ZERO   HUM
+(
+  31 LIMITA        NFC    F07_0                           ZERO   HUM
+  32 FUNCAO RETA   NFC    X32     1.0  -1.0
+  33 LIMITA        X32    F08_0                           ZERO   HUM
+(
+  34 SOMA          F01_0  NF_0
+                   F02_0  NF_0
+                   F03_0  NF_0
+                   F04_0  NF_0
+                   F05_0  NF_0
+                   F06_0  NF_0
+                   F07_0  NF_0
+                   F08_0  NF_0
+  35 SAIDA         NF_0
+(
+(Numero inicial de filtros por tipo
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  40 IMPORT NUBSH         NFA0   #FA       0.
+  41 SAIDA         NFA0
+  42 IMPORT NUBSH         NFB0   #FB       0.
+  43 SAIDA         NFB0
+  44 IMPORT NUBSH         NFC0   #FC       0.
+  45 SAIDA         NFC0
+(
+(Potência reativa consumida pelos conversores
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  50 IMPORT QCCCNV        QCNV-1 #CNVX1    0.
+  55 IMPORT QCCCNV        QCNV-2 #CNVX2    0.
+  60 SOMA          QCNV-1 QCNVPU
+                   QCNV-2 QCNVPU
+  65 GANHO         QCNVPU QCNV   100.
+(
+(Potência reativa gerada pelos filtros
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  70 IMPORT QBSH          QFA    #FA       0.
+  75 IMPORT QBSH          QFB    #FB       0.
+  80 IMPORT QBSH          QFC    #FC       0.
+  85 SOMA          QFA    QF
+                   QFB    QF
+                   QFC    QF
+(
+(Numero total de filtros conectados
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  88 SOMA          NFA    NF
+                   NFB    NF
+                   NFC    NF
+  89 SAIDA         NF
+(
+(Intercâmbio de potência reativa com o sistema AC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  90 SOMA          QF     QEXCH
+                  -QCNV   QEXCH
+(
+(Seleção do filtro a ser chaveado por sub-banco - manual/auto
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 100 FUNCAO RETA   NFREQ  REQ01  1.0   -1.0
+ 105 FUNCAO RETA   NFREQ  REQ02  1.0   -2.0
+ 110 FUNCAO RETA   NFREQ  REQ03  1.0   -3.0
+ 115 FUNCAO RETA   NFREQ  REQ04  1.0   -4.0
+ 120 FUNCAO RETA   NFREQ  REQ05  1.0   -5.0
+ 125 FUNCAO RETA   NFREQ  REQ06  1.0   -6.0
+ 130 FUNCAO RETA   NFREQ  REQ07  1.0   -7.0
+ 135 FUNCAO RETA   NFREQ  REQ08  1.0   -8.0
+(
+ 140 COMPAR .GE.   REQ01  F01_A
+                   ZERO   F01_A
+ 145 COMPAR .GE.   REQ02  F02_A
+                   ZERO   F02_A
+ 150 COMPAR .GE.   REQ03  F03_A
+                   ZERO   F03_A
+ 155 COMPAR .GE.   REQ04  F04_A
+                   ZERO   F04_A
+ 160 COMPAR .GE.   REQ05  F05_A
+                   ZERO   F05_A
+ 165 COMPAR .GE.   REQ06  F06_A
+                   ZERO   F06_A
+ 170 COMPAR .GE.   REQ07  F07_A
+                   ZERO   F07_A
+ 175 COMPAR .GE.   REQ08  F08_A
+                   ZERO   F08_A
+(
+ 180 SELET2        F01_M  F01
+                   F01_A  F01
+                   AUTO   F01
+ 185 SELET2        F02_M  F02
+                   F02_A  F02
+                   AUTO   F02
+ 190 SELET2        F03_M  F03
+                   F03_A  F03
+                   AUTO   F03
+ 195 SELET2        F04_M  F04
+                   F04_A  F04
+                   AUTO   F04
+ 200 SELET2        F05_M  F05
+                   F05_A  F05
+                   AUTO   F05
+ 205 SELET2        F06_M  F06
+                   F06_A  F06
+                   AUTO   F06
+ 210 SELET2        F07_M  F07
+                   F07_A  F07
+                   AUTO   F07
+ 215 SELET2        F08_M  F08
+                   F08_A  F08
+                   AUTO   F08
+(
+ 220 SOMA          F01    NFA
+                   F03    NFA
+                   F05    NFA
+ 225 SOMA          F02    NFB
+                   F04    NFB
+                   F06    NFB
+ 230 SOMA          F07    NFC
+                   F08    NFC
+(
+(Ultimo conversor bloqueado
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 IMPORT ESTCNV        EST-1  #CNVX1    0.
+ 301 LOGIC  .NOT.  EST-1  BLK-P1
+ 305 IMPORT ESTCNV        EST-2  #CNVX2    0.
+ 306 LOGIC  .NOT.  EST-2  BLK-P2
+ 313 LOGIC  .AND.  BLK-P1 ESOFBP
+                   BLK-P2 ESOFBP
+(
+(Coordenação das ações do VLC, Q-Control e HPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+ 395 ENTRAD               Q/U
+(
+(connect
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 400 LOGIC  .NOT.  ESOFBP NTESOF
+ 402 LOGIC  .NOT.  INHACF NOTACF
+ 405 LOGIC  .AND.  QCON   X405
+                   NTESOF X405
+                   NOTACF X405
+ 410 SELET2        UACCON RPCCON
+                   X405   RPCCON
+                   Q/U    RPCCON
+ 415 LOGIC  .AND.  HPCCON X415
+                   NTESOF X415
+ 420 LOGIC  .OR.   RPCCON X420
+                   VCON   X420
+                   X415   X420
+ 425 LOGIC  .AND.  X420   CON
+                   NINHIC CON
+                   NOTMAX CON
+                   SWINT  CON
+(
+(isolate
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 430 LOGIC  .AND.  QISO   X430
+                   NTESOF X430
+                   NOTACF X430
+ 435 SELET2        UACISO X435
+                   X430   X435
+                   Q/U    X435
+ 440 COMPAR .GT.   NFREQ  NINHPC
+                   MNHPC  NINHPC
+ 445 LOGIC  .AND.  X435   RPCISO
+                   NINHPC RPCISO
+ 450 SELET2        ZERO   ESOFQ
+                   ESOFBP ESOFQ
+                   Q/U    ESOFQ
+ 455 LOGIC  .OR.   RPCISO X455
+                   VISO0  X455
+                   VISO1  X455
+                   VISO2  X455
+                   VISO3  X455
+                   ESOFQ  X455
+ 460 LOGIC  .OR.   NOTMIN X460
+                   ESOFBP X460
+ 465 LOGIC  .AND.  X455   ISOL
+                   NINHIS ISOL
+                   X460   ISOL
+                   SWINT  ISOL
+(
+(inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 475 LOGIC  .OR.   CON    SWITCH
+                   ISOL   SWITCH
+ 480 LOGIC  .NOT.  X1060  X480
+ 485 DELAY         X480   SWINT
+(
+(monostable - switching interval - inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa (monostable foi modificado para não permitir que TSWINT varie durante a contagem de tempo)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1020 COMPAR .LE.   X1080  TRACK
+                   ZERO   TRACK
+1030 T/HOLD        TSWINT TSINT
+                   TRACK  TSINT
+(
+1050 LOGIC  .AND.  SWITCH X1050
+                   X1150  X1050
+1060 LOGIC  FFLOP1 RESET1 X1060
+                   X1050  X1060
+1070 DIVSAO        X1060  X1070
+                   TSINT  X1070
+1080 INTRES        X1070  X1080  1.0                      ZERO   HUM
+                   RES1   X1080
+                   ZERO   X1080
+1090 LIMITA        X1080  X1090                           ZERO   HUM
+1100 COMPAR .GE.   X1090  X1100
+                   HUM    X1100
+1110 DELAY         X1100  RESET1
+1120 DELAY         SWITCH X1120
+1130 LOGIC  .NOT.  X1120  X1130
+1140 LOGIC  FFLOP1 X1130  X1140
+                   RESET1 X1140
+1150 LOGIC  .NOT.  X1140  X1150
+1160 SOMA          SWITCH X1160
+                  -X1120  X1160
+1170 LOGIC  .OR.   RESET1 RES1
+                   X1160  RES1
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        X1080  0.0
+(
+(seleção do intervalo TSWINT entre chaveamentos
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 800 ENTRAD               TSWQ
+ 801 ENTRAD               TSWUAC
+ 802 ENTRAD               TSWHPC
+ 805 ENTRAD               TSWVC
+ 807 ENTRAD               TSWVI0
+ 810 ENTRAD               TSWVI1
+ 815 ENTRAD               TSWVI2
+ 820 ENTRAD               TSWVI3
+ 825 ENTRAD               TSWBLK
+(
+ 845 SELET2        TSWUAC X845
+                   TSWQ   X845
+                   Q/U    X845
+ 848 SELET2        X845   X848
+                   TSWHPC X848
+                   HHIGH  X848
+ 850 SELET2        X848   X850
+                   TSWBLK X850
+                   ESOFQ  X850
+ 855 SELET2        X850   X855
+                   TSWVC  X855
+                   VLOW   X855
+ 857 SELET2        X855   X857
+                   TSWVI0 X857
+                   VHIGH0 X857
+ 860 SELET2        X857   X860
+                   TSWVI1 X860
+                   VHIGH1 X860
+ 865 SELET2        X860   X865
+                   TSWVI2 X865
+                   VHIGH2 X865
+ 870 SELET2        X865   TSWINT
+                   TSWVI3 TSWINT
+                   VHIGH3 TSWINT
+(
+(inibe novos chaveamentos por 15 segundos após uma falta AC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1600 ENTRAD               TXDVDT
+ 880 ENTRAD               VACMN
+1605 IMPORT DT            DT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2907 LAGNL         VB     VACF     1.0 0.003  0.01
+2902 DELAY         VACF   VBD
+2903 SOMA          VBD    DVB
+                  -VACF   DVB
+2904 DIVSAO        DVB    DVDT
+                   DT     DVDT
+2906 COMPAR .GT.   DVDT   DVDTH
+                   TXDVDT DVDTH
+9560 MONEST        DVDTH  DVDTA    0.25
+(
+1610 COMPAR .LE.   VACF   VBLOW
+                   VACMN  VBLOW
+ 885 LOGIC  .AND.  DVDTA  ACFLT
+                   VBLOW  ACFLT
+(
+8310 DLAYON        ACFLT  X8310    0.05
+(
+8560 MONEST        X8310  INHACF  #TACF
+(
+(atraso no chaveamento dos filtros devido a comunicação, tempo de processamento na BCU e tempo de operação do disjuntor
+(
+(connection 120ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2560 MONEST        CON    X2560   #TBRK
+(
+(monostable - isolate 120ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3560 MONEST        ISOL   X3560   #TBRK
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2800 DELAY         X2560  X2800
+2805 SOMA          X2800  X2805
+                  -X2560  X2805
+2810 LIMITA        X2805  COND                            ZERO   HUM
+(
+2900 DELAY         X3560  X2900
+2905 SOMA          X2900  X2905
+                  -X3560  X2905
+2910 LIMITA        X2905  ISOLD                           ZERO   HUM
+(
+(Contador do número de filtros solicitados
+(incluido delay na saída do bloco ACUM para desvincular o cálculo do pulso da solução pós-impacto da rede
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 520 SOMA          COND   X520
+                  -ISOLD  X520
+ 523 ACUM          X520   X523   1.0
+                   ZERO   X523
+                   ZERO   X523
+                   ZERO   X523
+ 524 DELAY         X523   X524
+ 525 LIMITA        X524   NFREQ                           ZERO   MXFLT
+(
+(Verifica se o número de filtros está nos limites
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 550 COMPAR .LT.   NFREQ  NOTMAX
+                   MXFLT  NOTMAX
+ 555 COMPAR .GT.   NFREQ  NOTMIN
+                   MNFLT  NOTMIN
+(
+(Quando um filtro é desligado, o mesmo fica indisponível por 10 min (MXFLT=MXFLT-1)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 560 COMPAR .GT.   X524   X560
+                   X523   X560
+ 565 ACUM          X560   X565   -1.0
+                   ZERO   X565
+                   ZERO   X565
+                   ZERO   X565
+ 570 LIMITA        X565   X570                            MNFLT   INF
+ 575 DELAY         X570   MAXF
+(
+(Quando "connect inhibit" está ativo, MXFLT = NF
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 577 DELAY         NF     NFD
+ 579 SELET2        NFD    MXFLT
+                   MAXF   MXFLT
+                   NINHIC MXFLT
+(
+(======================================================================
+(           Reactive Power Controller (RPC) - Q-control
+(======================================================================
+(
+(conecta filtros (3 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 SOMA          QREF   QMIN
+                  -QMARG  QMIN
+                  -QNEXT  QMIN
+ 605 COMPAR .LT.   QEXCH  QLOW
+                   QMIN   QLOW
+2110 DLAYON        QLOW   QCON     #TDQ
+(
+(deconecta filtros (3 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 610 COMPAR .GT.   QEXCH  QHIGH
+                   QREF   QHIGH
+3110 DLAYON        QHIGH  QISO     #TDQ
+(
+(======================================================================
+(           AC Voltage Control - Uac-control
+(======================================================================
+(rampa de Uref
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1500 ENTRAD               UREF
+1505 SOMA          UREF   X1505
+                  -X1520  X1505
+1510 FUNCAO DEADB2 X1505  X1510  -.001 -1.0  .001  1.0
+1515 PROINT        X1510  UREFL  #TAXAU      1.0          ZERO   INF
+1520 DELAY         UREFL  X1520
+(
+1525 ENTRAD               UBANDW
+1528 GANHO         UBANDW UBW/2  0.5
+1530 SOMA          UREFL  UREFMN
+                  -UBW/2  UREFMN
+1535 FRACAO        UREFMN URMNPU 1.0         500.
+1540 SOMA          UREFL  UREFMX
+                  +UBW/2  UREFMX
+1545 FRACAO        UREFMX URMXPU 1.0         500.
+(
+(conecta filtros (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1550 COMPAR .LT.   VBF    UACLOW
+                   URMNPU UACLOW
+9110 DLAYON        UACLOW UACCON #TDUAC
+(
+(deconecta filtros  (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1555 COMPAR .GT.   VBF    UACHGH
+                   URMXPU UACHGH
+9310 DLAYON        UACHGH UACISO #TDUAC
+(
+(======================================================================
+(                  Voltage Limitation Control (VLC)
+(======================================================================
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 700 IMPORT*VOLT          VB     #ACBUS
+ 705 LEDLAG        VB     VBF    1.0         1.0   #TFV
+ 710 ENTRAD               CONL
+ 715 ENTRAD               ISOIL
+ 720 ENTRAD               CONIL
+ 722 ENTRAD               ISOL0
+ 725 ENTRAD               ISOL1
+ 730 ENTRAD               ISOL2
+ 735 ENTRAD               ISOL3
+(
+(VLC connect (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 740 COMPAR .LE.   VBF    VLOW
+                   CONL   VLOW
+4110 DLAYON        VLOW   VCON   #TCONV
+(
+(VLC isolate inhibit
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 750 COMPAR .GT.   VBF    NINHIS
+                   ISOIL  NINHIS
+(
+(VLC connection inhibit
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 755 COMPAR .LE.   VBF    NINHIC
+                   CONIL  NINHIC
+(
+(VLC isolate 0
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 757 COMPAR .GT.   VBF    VHIGH0
+                   ISOL0  VHIGH0
+5115 DLAYON        VHIGH0 VISO0  #TISO0
+(
+(VLC isolate 1
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 760 COMPAR .GT.   VBF    VHIGH1
+                   ISOL1  VHIGH1
+5110 DLAYON        VHIGH1 VISO1  #TISO1
+(
+(VLC isolate 2
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 765 COMPAR .GT.   VBF    VHIGH2
+                   ISOL2  VHIGH2
+6110 DLAYON        VHIGH2 VISO2  #TISO2
+(
+(VLC isolate 3
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 770 COMPAR .GT.   VBF    VHIGH3
+                   ISOL3  VHIGH3
+7110 DLAYON        VHIGH3 VISO3  #TISO3
+(
+(======================================================================
+(           Harmonic Performance Control (HPC)
+(======================================================================
+(bipolar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 310 SOMA          EST-1  EST-BP
+                   EST-2  EST-BP
+ 900 COMPAR .EQ.   EST-BP MONO
+                   HUM    MONO
+(
+(corrente DC (média dos dois polos)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 905 IMPORT CCNV          IDC-1  #CNVX1    0.
+ 906 IMPORT CCNV          IDC-2  #CNVX2    0.
+ 907 SOMA          IDC-1  X907
+                   IDC-2  X907
+ 908 GANHO         X907   X908    0.5
+ 909 SELET2        X908   IDC
+                   X907   IDC
+                   MONO   IDC
+(
+(tensão normal/reduzida
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 350 IMPORT VCNV          VDCX1  #CNVX1    0.
+ 351 IMPORT VCNV          VDCX2  #CNVX2    0.
+ 352 IMPORT VCNV          VDCE1  #CNVE1    0.
+ 353 IMPORT VCNV          VDCE2  #CNVE2    0.
+ 354 IMPORT OPCNV         OP-X1  #CNVX1    0.
+ 355 IMPORT OPCNV         OP-X2  #CNVX2    0.
+(
+ 356 SELET2         VDCE1 VDCR1
+                    VDCX1 VDCR1
+                    OP-X1 VDCR1
+ 357 SELET2         VDCE2 VDCR2
+                    VDCX2 VDCR2
+                    OP-X2 VDCR2
+ 358 SOMA           VDCR1 X358
+                    VDCR2 X358
+ 359 GANHO          X358  X359   0.5
+ 360 SELET2         X359  VDCR
+                    X358  VDCR
+                    MONO  VDCR
+ 361 LEDLAG         VDCR  VDCRF  1.0         1.0   0.05
+(
+(Interpolação dos pontos de chaveaento entre 70% e 100% de tensão DC
+(bipolar
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1200 FUNCAO RAMPA  VDCRF  HPC1B  0.7   #HP7B1 1.0  #HP1B1
+1205 FUNCAO RAMPA  VDCRF  HPC2B  0.7   #HP7B2 1.0  #HP1B2
+1210 FUNCAO RAMPA  VDCRF  HPC3B  0.7   #HP7B3 1.0  #HP1B3
+1215 FUNCAO RAMPA  VDCRF  HPC4B  0.7   #HP7B4 1.0  #HP1B4
+1220 FUNCAO RAMPA  VDCRF  HPC5B  0.7   #HP7B5 1.0  #HP1B5
+1225 FUNCAO RAMPA  VDCRF  HPC6B  0.7   #HP7B6 1.0  #HP1B6
+1226 FUNCAO RAMPA  VDCRF  HPC7B  0.7   #HP7B7 1.0  #HP1B7
+(monopolar
+1230 FUNCAO RAMPA  VDCRF  HPC1M  0.7   #HP7M1 1.0  #HP1M1
+1235 FUNCAO RAMPA  VDCRF  HPC2M  0.7   #HP7M2 1.0  #HP1M2
+1240 FUNCAO RAMPA  VDCRF  HPC3M  0.7   #HP7M3 1.0  #HP1M3
+1245 FUNCAO RAMPA  VDCRF  HPC4M  0.7   #HP7M4 1.0  #HP1M4
+1250 FUNCAO RAMPA  VDCRF  HPC5M  0.7   #HP7M5 1.0  #HP1M5
+1255 FUNCAO RAMPA  VDCRF  HPC6M  0.7   #HP7M6 1.0  #HP1M6
+1256 FUNCAO RAMPA  VDCRF  HPC7M  0.7   #HP7M7 1.0  #HP1M7
+(
+(seleção bipoloar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 930 SELET2        HPC1B  HPCL1
+                   HPC1M  HPCL1
+                   MONO   HPCL1
+ 931 SELET2        HPC2B  HPCL2
+                   HPC2M  HPCL2
+                   MONO   HPCL2
+ 932 SELET2        HPC3B  HPCL3
+                   HPC3M  HPCL3
+                   MONO   HPCL3
+ 933 SELET2        HPC4B  HPCL4
+                   HPC4M  HPCL4
+                   MONO   HPCL4
+ 934 SELET2        HPC5B  HPCL5
+                   HPC5M  HPCL5
+                   MONO   HPCL5
+ 935 SELET2        HPC6B  HPCL6
+                   HPC6M  HPCL6
+                   MONO   HPCL6
+ 936 SELET2        HPC7B  HPCL7
+                   HPC7M  HPCL7
+                   MONO   HPCL7
+(
+(número mínimo de filtros em função de IDC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 940 COMPAR .LT.   IDC    X940
+                   HPCL1  X940
+ 941 GANHO         X940   MNHPC2 2.0
+ 942 COMPAR .GE.   IDC    X942
+                   HPCL1  X942
+ 943 GANHO         X942   MNHPC3 3.0
+ 944 COMPAR .GE.   IDC    X944
+                   HPCL2  X944
+ 945 GANHO         X944   MNHPC4 4.0
+ 946 COMPAR .GE.   IDC    X946
+                   HPCL3  X946
+ 947 GANHO         X946   MNHPC5 5.0
+ 948 COMPAR .GE.   IDC    X948
+                   HPCL4  X948
+ 949 GANHO         X948   MNHPC6 6.0
+ 950 COMPAR .GE.   IDC    X950
+                   HPCL5  X950
+ 951 GANHO         X950   MNHPC7 7.0
+ 952 COMPAR .GE.   IDC    X952
+                   HPCL6  X952
+ 953 GANHO         X952   MNHPC8 8.0
+ 954 COMPAR .GE.   IDC    X954
+                   HPCL7  X954
+ 955 GANHO         X954   MNHPC9 9.0
+(
+ 960 MAX           MNHPC2 MNHPC
+                   MNHPC3 MNHPC
+                   MNHPC4 MNHPC
+                   MNHPC5 MNHPC
+                   MNHPC6 MNHPC
+                   MNHPC7 MNHPC
+                   MNHPC8 MNHPC
+                   MNHPC9 MNHPC
+(
+(conecta filtros pelo HPC (1.5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 970 COMPAR .GT.   MNHPC  HHIGH
+                   NFREQ  HHIGH
+8110 DLAYON        HHIGH  HPCCON #TDHPC
+(
+(======================================================================
+(           AC Filter Rating Current Limit (RPC Limit)
+(======================================================================
+(Interpolação dos pontos de chaveaento entre 70% e 100% de tensão DC
+(bipolar
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4200 FUNCAO RAMPA  VDCRF  CL1B   0.7   #CL7B1 1.0  #CL1B1
+4205 FUNCAO RAMPA  VDCRF  CL2B   0.7   #CL7B2 1.0  #CL1B2
+4210 FUNCAO RAMPA  VDCRF  CL3B   0.7   #CL7B3 1.0  #CL1B3
+4215 FUNCAO RAMPA  VDCRF  CL4B   0.7   #CL7B4 1.0  #CL1B4
+4220 FUNCAO RAMPA  VDCRF  CL5B   0.7   #CL7B5 1.0  #CL1B5
+4225 FUNCAO RAMPA  VDCRF  CL6B   0.7   #CL7B6 1.0  #CL1B6
+4226 FUNCAO RAMPA  VDCRF  CL7B   0.7   #CL7B7 1.0  #CL1B7
+(monopolar
+4230 FUNCAO RAMPA  VDCRF  CL1M   0.7   #HP7M1 1.0  #HP1M1
+4235 FUNCAO RAMPA  VDCRF  CL2M   0.7   #HP7M2 1.0  #HP1M2
+4240 FUNCAO RAMPA  VDCRF  CL3M   0.7   #HP7M3 1.0  #HP1M3
+4245 FUNCAO RAMPA  VDCRF  CL4M   0.7   #HP7M4 1.0  #HP1M4
+4250 FUNCAO RAMPA  VDCRF  CL5M   0.7   #HP7M5 1.0  #HP1M5
+4255 FUNCAO RAMPA  VDCRF  CL6M   0.7   #HP7M6 1.0  #HP1M6
+4256 FUNCAO RAMPA  VDCRF  CL7M   0.7   #HP7M7 1.0  #HP1M7
+(
+(seleção bipoloar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4930 SELET2        CL1B   ACFR1
+                   CL1M   ACFR1
+                   MONO   ACFR1
+4931 SELET2        CL2B   ACFR2
+                   CL2M   ACFR2
+                   MONO   ACFR2
+4932 SELET2        CL3B   ACFR3
+                   CL3M   ACFR3
+                   MONO   ACFR3
+4933 SELET2        CL4B   ACFR4
+                   CL4M   ACFR4
+                   MONO   ACFR4
+4934 SELET2        CL5B   ACFR5
+                   CL5M   ACFR5
+                   MONO   ACFR5
+4935 SELET2        CL6B   ACFR6
+                   CL6M   ACFR6
+                   MONO   ACFR6
+4936 SELET2        CL7B   ACFR7
+                   CL7M   ACFR7
+                   MONO   ACFR7
+(
+(Seleção do limite
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4300 COMPAR .EQ.   MXFLT  X4300
+                   DOIS   X4300
+4302 SELET2        DOIS   X4302
+                   ACFR1  X4302
+                   X4300  X4302
+4304 COMPAR .EQ.   MXFLT  X4304
+                   TRES   X4304
+4306 SELET2        X4302  X4306
+                   ACFR2  X4306
+                   X4304  X4306
+4308 COMPAR .EQ.   MXFLT  X4308
+                   QUATRO X4308
+4310 SELET2        X4306  X4310
+                   ACFR3  X4310
+                   X4308  X4310
+4312 COMPAR .EQ.   MXFLT  X4312
+                   CINCO  X4312
+4314 SELET2        X4310  X4314
+                   ACFR4  X4314
+                   X4312  X4314
+4316 COMPAR .EQ.   MXFLT  X4316
+                   SEIS   X4316
+4318 SELET2        X4314  X4318
+                   ACFR5  X4318
+                   X4316  X4318
+4320 COMPAR .EQ.   MXFLT  X4320
+                   SETE   X4320
+4322 SELET2        X4318  X4322
+                   ACFR6  X4322
+                   X4320  X4322
+4324 COMPAR .GE.   MXFLT  X4324
+                   OITO   X4324
+4326 SELET2        X4322  ACFR
+                   ACFR7  ACFR
+                   X4324  ACFR
+(
+(Taxa Runback por limite RPC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4400 ENTRAD               TXUP
+4402 ENTRAD               TXDN
+4406 GANHO         TXUP   TXUPPU 0.0004
+4408 GANHO         TXDN   TXDNPU 0.0004
+4410 RATELM        ACFR   X4410                           TXDNPU TXUPPU
+(
+(Artifício para inicialização (rampa)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4412 SOMA          X4410  X4412
+                  -X4420  X4412
+4414 FUNCAO DEADB2 X4412  X4414  -.001 -1.0  .001  1.0
+4416 GANHO         X4414  X4416  1.
+4418 PROINT        X4416  RPCLIM 1.0   0.0   1.0
+4420 DELAY         RPCLIM X4420
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        RPCLIM 2.0
+(
+FIMCDU
+(
+(ncdu) ( nome cdu )
+  9220 BM-ACFC-E
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #AUTO                   1         # AUTO=1 / MANUAL=0
+DEFPAR #Q/U                    0         # 0-> UAC-CONTROL / 1-> Q-CONTROL
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #MXFLT                 12         # NUMERO MAXIMO DE FILTROS
+DEFPAR #MNFLT                  2         # NUMERO MINIMO DE FILTROS
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CNVX1               9981         # CONVERSOR XINGU POLO 1
+DEFPAR #CNVX2               9983         # CONVERSOR XINGU POLO 2
+DEFPAR #CNVE1               9982         # CONVERSOR ESTREITO POLO 1
+DEFPAR #CNVE2               9984         # CONVERSOR ESTREITO POLO 2
+DEFPAR #ACBUS               9970         # BARRA AC ESTREITO
+DEFPAR #FA                  9801         # FILTRO ESTREITO TIPO A (TT 3/11/50) - 220 MVAR
+DEFPAR #FB                  9802         # FILTRO ESTREITO TIPO B (TT 13/24/36) - 180 MVAR
+DEFPAR #FC                  9803         # FILTRO ESTREITO TIPO C (ST 58) - 275 MVAR
+(
+(Q-CONTROL
+DEFPAR #QREF                 350         # REFERÊNCIA DE POTÊNCIA REATIVA EM Q-CONTROL, EM MVAR
+(                                        # RANGE: 343 <= QREF <= 350  (DEFAULT: 350 MVAR)
+DEFPAR #QMARG                 40         # MARGEM DE POTÊNCIA REATIVA, EM MVAR
+DEFPAR #QNEXT                275         # POTÊNCIA REATIVA DO MAIOR SUB-BANCO, EM MVAR
+DEFPAR #TDQ                  3.0         # TEMPO DE ATRASO Q-CONTROL, EM SEGUNDOS
+DEFPAR #TSWQ                 3.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO Q-CONTROL
+DEFPAR #TSBLK               0.20         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS APÓS BLOQUEIO
+(
+(U-CONTROL
+(EFPAR (nome) (     valor      )
+DEFPAR #UREF                525.         # REFERÊNCIA DE TENSÃO AC EM UAC-CONTROL, EM KV
+DEFPAR #UBAND                50.         # BANDWIDTH DO UAC-CONTROL, EM KV
+DEFPAR #TAXAU            0.16667         # TAXA PARA RAMPA DA REFERÊNCIA DE TENSÃO AC EM UAC-CONTROL, EM KV/SEG
+DEFPAR #TDUAC                5.0         # TEMPO DE ATRASO UAC-CONTROL, EM SEGUNDOS
+DEFPAR #TSWU                 5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO UAC-CONTROL
+(
+(HARMONIC PERFORMACE CONTROL (HPC)
+DEFPAR #TDHPC                1.5         # TEMPO DE ATRASO HARMONIC PERFORMANCE CONTROL (HPC), EM SEGUNDOS
+DEFPAR #TSHPC                1.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO HPC
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #HP1B1               0.30         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B2               0.35         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B3               0.87         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B4               0.95         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B5               1.05         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B6               1.10         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B7               1.25         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1B8               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 9 FILTROS BIPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #HP7B1               0.14         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B2               0.29         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B3               0.64         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B4               0.79         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B5               0.90         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B6               1.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B7               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7B8               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 9 FILTROS BIPOLAR 70% DE VDC, EM PU
+(
+DEFPAR #HP1M1               0.63         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M2               1.15         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M3               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M4               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M5               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M6               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M7               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #HP1M8               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 9 FILTROS MONOPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #HP7M1               0.64         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M2               1.33         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M3               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M4               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M5               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M6               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M7               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #HP7M8               2.00         # HARMONIC PERFORMANCE CONTROL (HPC) -> NÍVEL MÁXIMO IDC COM 9 FILTROS MONOPOLAR 70% DE VDC, EM PU
+(
+(AC FILTER RATING CURRENT LIMIT (RPC LIMIT)
+(EFPAR (nome) (     valor      )
+DEFPAR #CL1B1               0.30         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B2               0.35         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B3               0.87         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B4               0.95         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B5               1.05         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B6               1.15         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B7               1.25         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1B8               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 9 FILTROS BIPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #CL7B1               0.14         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B2               0.29         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B3               0.64         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B4               0.79         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B5               0.90         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B6               1.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS BIPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7B8               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 9 FILTROS BIPOLAR 70% DE VDC, EM PU
+(
+DEFPAR #CL1M1               0.76         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M2               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M3               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M4               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M5               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 100% DE VDC, EM PU
+DEFPAR #CL1M8               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 9 FILTROS MONOPOLAR 100% DE VDC, EM PU
+(
+DEFPAR #CL7M1               0.71         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 2 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M2               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 3 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M3               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 4 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M4               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 5 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M5               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 6 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M6               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 7 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M7               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 8 FILTROS MONOPOLAR 70% DE VDC, EM PU
+DEFPAR #CL7M8               2.00         # CURRENT LIMIT BY AC FILTER RATING (CLIM)-> NÍVEL MÁXIMO IDC COM 9 FILTROS MONOPOLAR 70% DE VDC, EM PU
+(
+(VOLTAGE LIMITATION CONTROL (VLC)
+(EFPAR (nome) (     valor      )
+DEFPAR #TFV                 0.02         # CONSTANTE DE TEMPO DE MEDIÇÃO DA TENSÃO AC PARA VLC, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #CONL                0.93         # CONNECT LEVEL VLC, EM PU
+DEFPAR #ISOIL              0.962         # ISOLATE INHIBIT LEVEL VLC, EM PU
+DEFPAR #CONIL               1.10         # CONNECT INHIBIT LEVEL VLC, EM PU
+DEFPAR #ISOL0              1.104         # ISOLATE LEVEL 0 VLC, EM PU
+DEFPAR #ISOL1               1.15         # ISOLATE LEVEL 1 VLC, EM PU
+DEFPAR #ISOL2               1.20         # ISOLATE LEVEL 2 VLC, EM PU
+DEFPAR #ISOL3               1.27         # ISOLATE LEVEL 3 VLC, EM PU
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TCONV                5.0         # TEMPO DE ATRASO CONNECT VLC, EM SEGUNDOS
+DEFPAR #TISO0               10.0         # TEMPO DE ATRASO ISOLATE LEVEL 0 VLC, EM SEGUNDOS (original = 90 segundos)
+DEFPAR #TISO1                2.0         # TEMPO DE ATRASO ISOLATE LEVEL 1 VLC, EM SEGUNDOS
+DEFPAR #TISO2              0.335         # TEMPO DE ATRASO ISOLATE LEVEL 2 VLC, EM SEGUNDOS
+DEFPAR #TISO3              0.235         # TEMPO DE ATRASO ISOLATE LEVEL 3 VLC, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TSWVC                5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - CONNECT
+DEFPAR #TSWV0                5.0         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 0
+DEFPAR #TSWV1                0.5         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 1
+DEFPAR #TSWV2               0.15         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 2
+DEFPAR #TSWV3               0.15         # INTERVALO ENTRE CHAVEAMENTOS CONSECUTIVOS PELO VLC - ISOLATE 3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TBRK               0.120         # TEMPO ASSOCIADO À COMUNICAÇÃO, PROCESSAMENTO NA BCU E OPERAÇÃO DO DISJUNTOR, EM SEGUNDOS
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #VACMN                0.7         # TENSÃO AC MÍNIMA PARA DETECÇÃO DE FALTA AC, EM PU
+DEFPAR #TDVDT                65.         # DV/DT PARA DETECÇÃO DE FALTA AC, EM PU/SEGUNDO
+DEFPAR #TACF                 15.         # TEMPO DURANTE O QUAL CHAVEAMENTOS PELO Q-CONTROL FICA INIBIDO APÓS UMA FALTA AC
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TXDN                -250         # TAXA RUNBACK AC FILTER RATING CURRENT LIMIT (RPC LIMIT), EM A/S - APPLICATION
+DEFPAR #TXUP                4000         # TAXA RUNBACK AC FILTER RATING CURRENT LIMIT (RPC LIMIT), EM A/S - RELEASE
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TSWQ   #TSWQ
+DEFVAL        TSWUAC #TSWU
+DEFVAL        TSWHPC #TSHPC
+DEFVAL        TSWVC  #TSWVC
+DEFVAL        TSWVI0 #TSWV0
+DEFVAL        TSWVI1 #TSWV1
+DEFVAL        TSWVI2 #TSWV2
+DEFVAL        TSWVI3 #TSWV3
+DEFVAL        TSWBLK #TSBLK
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        AUTO   #AUTO
+DEFVAL        QMARG  #QMARG
+DEFVAL        QREF   #QREF
+DEFVAL        QNEXT  #QNEXT
+DEFVAL        MXFLT  #MXFLT
+DEFVAL        MNFLT  #MNFLT
+DEFVAL        Q/U    #Q/U
+DEFVAL        UREF   #UREF
+DEFVAL        UBANDW #UBAND
+DEFVAL VAR    UREFL  UREF  *
+DEFVAL        VACMN  #VACMN
+DEFVAL        TXDVDT #TDVDT
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    NFA    NFA0  *
+DEFVAL VAR    NFB    NFB0  *
+DEFVAL VAR    NFC    NFC0  *
+DEFVAL VAR    NFREQ  NF    *
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    F01_M  F01_0 *
+DEFVAL VAR    F02_M  F02_0 *
+DEFVAL VAR    F03_M  F03_0 *
+DEFVAL VAR    F04_M  F04_0 *
+DEFVAL VAR    F05_M  F05_0 *
+DEFVAL VAR    F06_M  F06_0 *
+DEFVAL VAR    F07_M  F07_0 *
+DEFVAL VAR    F08_M  F08_0 *
+DEFVAL VAR    F09_M  F09_0 *
+DEFVAL VAR    F10_M  F10_0 *
+DEFVAL VAR    F11_M  F11_0 *
+DEFVAL VAR    F12_M  F12_0 *
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CON    0.0
+DEFVAL        ISOL   0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        CONL   #CONL
+DEFVAL        ISOIL  #ISOIL
+DEFVAL        CONIL  #CONIL
+DEFVAL        ISOL0  #ISOL0
+DEFVAL        ISOL1  #ISOL1
+DEFVAL        ISOL2  #ISOL2
+DEFVAL        ISOL3  #ISOL3
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TXUP   #TXUP
+DEFVAL        TXDN   #TXDN
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        X1080  0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        TRES   3.0
+DEFVAL        QUATRO 4.0
+DEFVAL        CINCO  5.0
+DEFVAL        SEIS   6.0
+DEFVAL        SETE   7.0
+DEFVAL        OITO   8.0
+DEFVAL        NOVE   9.0
+DEFVAL        INF    9999.
+(
+(----------------------------------------------------------------------
+(
+(Exports
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 EXPORT STBSH  NFA           #FA
+   2 EXPORT STBSH  NFB           #FB
+   3 EXPORT STBSH  NFC           #FC
+  51 EXPORT CDU    RPCLIM
+  52 EXPORT CDU    RPCLIM
+  53 EXPORT CDU    RPCLIM
+  54 EXPORT CDU    RPCLIM
+(
+(Entrads
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   4 ENTRAD               AUTO
+   5 ENTRAD               ZERO
+   6 ENTRAD               HUM
+  91 ENTRAD               DOIS
+  92 ENTRAD               TRES
+  94 ENTRAD               QUATRO
+  95 ENTRAD               CINCO
+  96 ENTRAD               SEIS
+  97 ENTRAD               SETE
+  98 ENTRAD               OITO
+  99 ENTRAD               NOVE
+   7 ENTRAD               QMARG
+   8 ENTRAD               QREF
+   9 ENTRAD               QNEXT
+  19 ENTRAD               MNFLT
+(
+(Chaveamento manual dos filtros por sub-banco
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 ENTRAD               F01_M
+  11 ENTRAD               F02_M
+  12 ENTRAD               F03_M
+  13 ENTRAD               F04_M
+  14 ENTRAD               F05_M
+  15 ENTRAD               F06_M
+  16 ENTRAD               F07_M
+  17 ENTRAD               F08_M
+1017 ENTRAD               F09_M
+2017 ENTRAD               F10_M
+3017 ENTRAD               F11_M
+4017 ENTRAD               F12_M
+(
+(Status inicial de cada sub-banco
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  21 LIMITA        NFA    F01_0                           ZERO   HUM
+  22 FUNCAO RETA   NFA    X22     1.0  -1.0
+  23 LIMITA        X22    F03_0                           ZERO   HUM
+  24 FUNCAO RETA   NFA    X24     1.0  -2.0
+  25 LIMITA        X24    F05_0                           ZERO   HUM
+(
+  26 LIMITA        NFB    F02_0                           ZERO   HUM
+  27 FUNCAO RETA   NFB    X27     1.0  -1.0
+  28 LIMITA        X27    F04_0                           ZERO   HUM
+  29 FUNCAO RETA   NFB    X29     1.0  -2.0
+  30 LIMITA        X29    F06_0                           ZERO   HUM
+(
+  31 LIMITA        NFC    F07_0                           ZERO   HUM
+  32 FUNCAO RETA   NFC    X32     1.0  -1.0
+  33 LIMITA        X32    F08_0                           ZERO   HUM
+  34 FUNCAO RETA   NFC    X34     1.0  -2.0
+  35 LIMITA        X34    F09_0                           ZERO   HUM
+  36 FUNCAO RETA   NFC    X36     1.0  -3.0
+  37 LIMITA        X36    F10_0                           ZERO   HUM
+  38 FUNCAO RETA   NFC    X38     1.0  -4.0
+  39 LIMITA        X38    F11_0                           ZERO   HUM
+  40 FUNCAO RETA   NFC    X40     1.0  -5.0
+  41 LIMITA        X40    F12_0                           ZERO   HUM
+(
+  42 SOMA          F01_0  NF_0
+                   F02_0  NF_0
+                   F03_0  NF_0
+                   F04_0  NF_0
+                   F05_0  NF_0
+                   F06_0  NF_0
+                   F07_0  NF_0
+                   F08_0  NF_0
+                   F09_0  NF_0
+                   F10_0  NF_0
+                   F11_0  NF_0
+                   F12_0  NF_0
+  43 SAIDA         NF_0
+(
+(Numero inicial de filtros por tipo
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  44 IMPORT NUBSH         NFA0   #FA       0.
+  45 SAIDA         NFA0
+  46 IMPORT NUBSH         NFB0   #FB       0.
+  47 SAIDA         NFB0
+  48 IMPORT NUBSH         NFC0   #FC       0.
+  49 SAIDA         NFC0
+(
+(Potência reativa consumida pelos conversores
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  50 IMPORT QCCCNV        QCNV-1 #CNVE1    0.
+  55 IMPORT QCCCNV        QCNV-2 #CNVE2    0.
+  60 SOMA          QCNV-1 QCNVPU
+                   QCNV-2 QCNVPU
+  65 GANHO         QCNVPU QCNV   100.
+(
+(Potência reativa gerada pelos filtros
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  70 IMPORT QBSH          QFA    #FA       0.
+  75 IMPORT QBSH          QFB    #FB       0.
+  80 IMPORT QBSH          QFC    #FC       0.
+  85 SOMA          QFA    QF
+                   QFB    QF
+                   QFC    QF
+(
+(Numero total de filtros conectados
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  88 SOMA          NFA    NF
+                   NFB    NF
+                   NFC    NF
+  89 SAIDA         NF
+(
+(Intercâmbio de potência reativa com o sistema AC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  90 SOMA          QF     QEXCH
+                  -QCNV   QEXCH
+(
+(Seleção do filtro a ser chaveado por sub-banco - manual/auto
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 100 FUNCAO RETA   NFREQ  REQ01  1.0   -1.0
+ 105 FUNCAO RETA   NFREQ  REQ02  1.0   -2.0
+ 110 FUNCAO RETA   NFREQ  REQ03  1.0   -3.0
+ 115 FUNCAO RETA   NFREQ  REQ04  1.0   -4.0
+ 120 FUNCAO RETA   NFREQ  REQ05  1.0   -5.0
+ 125 FUNCAO RETA   NFREQ  REQ06  1.0   -6.0
+ 130 FUNCAO RETA   NFREQ  REQ07  1.0   -7.0
+ 135 FUNCAO RETA   NFREQ  REQ08  1.0   -8.0
+ 136 FUNCAO RETA   NFREQ  REQ09  1.0   -9.0
+ 137 FUNCAO RETA   NFREQ  REQ10  1.0   -10.0
+ 138 FUNCAO RETA   NFREQ  REQ11  1.0   -11.0
+ 139 FUNCAO RETA   NFREQ  REQ12  1.0   -12.0
+(
+ 140 COMPAR .GE.   REQ01  F01_A
+                   ZERO   F01_A
+ 145 COMPAR .GE.   REQ02  F02_A
+                   ZERO   F02_A
+ 150 COMPAR .GE.   REQ03  F03_A
+                   ZERO   F03_A
+ 155 COMPAR .GE.   REQ04  F04_A
+                   ZERO   F04_A
+ 160 COMPAR .GE.   REQ05  F05_A
+                   ZERO   F05_A
+ 165 COMPAR .GE.   REQ06  F06_A
+                   ZERO   F06_A
+ 170 COMPAR .GE.   REQ07  F07_A
+                   ZERO   F07_A
+ 175 COMPAR .GE.   REQ08  F08_A
+                   ZERO   F08_A
+ 176 COMPAR .GE.   REQ09  F09_A
+                   ZERO   F09_A
+ 177 COMPAR .GE.   REQ10  F10_A
+                   ZERO   F10_A
+ 178 COMPAR .GE.   REQ11  F11_A
+                   ZERO   F11_A
+ 179 COMPAR .GE.   REQ12  F12_A
+                   ZERO   F12_A
+(
+ 180 SELET2        F01_M  F01
+                   F01_A  F01
+                   AUTO   F01
+ 185 SELET2        F02_M  F02
+                   F02_A  F02
+                   AUTO   F02
+ 190 SELET2        F03_M  F03
+                   F03_A  F03
+                   AUTO   F03
+ 195 SELET2        F04_M  F04
+                   F04_A  F04
+                   AUTO   F04
+ 200 SELET2        F05_M  F05
+                   F05_A  F05
+                   AUTO   F05
+ 205 SELET2        F06_M  F06
+                   F06_A  F06
+                   AUTO   F06
+ 210 SELET2        F07_M  F07
+                   F07_A  F07
+                   AUTO   F07
+ 215 SELET2        F08_M  F08
+                   F08_A  F08
+                   AUTO   F08
+ 216 SELET2        F09_M  F09
+                   F09_A  F09
+                   AUTO   F09
+ 217 SELET2        F10_M  F10
+                   F10_A  F10
+                   AUTO   F10
+ 218 SELET2        F11_M  F11
+                   F11_A  F11
+                   AUTO   F11
+ 219 SELET2        F12_M  F12
+                   F12_A  F12
+                   AUTO   F12
+(
+ 220 SOMA          F01    NFA
+                   F03    NFA
+                   F05    NFA
+ 225 SOMA          F02    NFB
+                   F04    NFB
+                   F06    NFB
+ 230 SOMA          F07    NFC
+                   F08    NFC
+                   F09    NFC
+                   F10    NFC
+                   F11    NFC
+                   F12    NFC
+(
+(Ultimo conversor bloqueado (ESOF_HMI_P1P2 or BLOCK FROM DCLF or BLOCK FROM LOW SCL)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 IMPORT ESTCNV        EST-1  #CNVE1    0.
+ 301 LOGIC  .NOT.  EST-1  BLK-P1
+ 305 IMPORT ESTCNV        EST-2  #CNVE2    0.
+ 306 LOGIC  .NOT.  EST-2  BLK-P2
+ 313 LOGIC  .AND.  BLK-P1 ESOFBP
+                   BLK-P2 ESOFBP
+(
+(Coordenação das ações do VLC, Q-Control e HPC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+ 395 ENTRAD               Q/U
+(
+(connect
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 400 LOGIC  .NOT.  ESOFBP NTESOF
+ 402 LOGIC  .NOT.  INHACF NOTACF
+ 405 LOGIC  .AND.  QCON   X405
+                   NTESOF X405
+                   NOTACF X405
+ 410 SELET2        UACCON RPCCON
+                   X405   RPCCON
+                   Q/U    RPCCON
+ 415 LOGIC  .AND.  HPCCON X415
+                   NTESOF X415
+ 420 LOGIC  .OR.   RPCCON X420
+                   VCON   X420
+                   X415   X420
+ 425 LOGIC  .AND.  X420   CON
+                   NINHIC CON
+                   NOTMAX CON
+                   SWINT  CON
+(
+(isolate
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 430 LOGIC  .AND.  QISO   X430
+                   NTESOF X430
+                   NOTACF X430
+ 435 SELET2        UACISO X435
+                   X430   X435
+                   Q/U    X435
+ 440 COMPAR .GT.   NFREQ  NINHPC
+                   MNHPC  NINHPC
+ 445 LOGIC  .AND.  X435   RPCISO
+                   NINHPC RPCISO
+ 450 SELET2        ZERO   ESOFQ
+                   ESOFBP ESOFQ
+                   Q/U    ESOFQ
+ 455 LOGIC  .OR.   RPCISO X455
+                   VISO0  X455
+                   VISO1  X455
+                   VISO2  X455
+                   VISO3  X455
+                   ESOFQ  X455
+ 460 LOGIC  .OR.   NOTMIN X460
+                   ESOFBP X460
+ 465 LOGIC  .AND.  X455   ISOL
+                   NINHIS ISOL
+                   X460   ISOL
+                   SWINT  ISOL
+(
+(inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa
+ 475 LOGIC  .OR.   CON    SWITCH
+                   ISOL   SWITCH
+ 480 LOGIC  .NOT.  X1060  X480
+ 485 DELAY         X480   SWINT
+(
+(monostable - switching interval - inibe novos chaveamentos no intervalos TSWINT de acordo com a função ativa (monostable foi modificado para não permitir que TSWINT varie durante a contagem de tempo)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1020 COMPAR .LE.   X1080  TRACK
+                   ZERO   TRACK
+1030 T/HOLD        TSWINT TSINT
+                   TRACK  TSINT
+(
+1050 LOGIC  .AND.  SWITCH X1050
+                   X1150  X1050
+1060 LOGIC  FFLOP1 RESET1 X1060
+                   X1050  X1060
+1070 DIVSAO        X1060  X1070
+                   TSINT  X1070
+1080 INTRES        X1070  X1080  1.0                      ZERO   HUM
+                   RES1   X1080
+                   ZERO   X1080
+1090 LIMITA        X1080  X1090                           ZERO   HUM
+1100 COMPAR .GE.   X1090  X1100
+                   HUM    X1100
+1110 DELAY         X1100  RESET1
+1120 DELAY         SWITCH X1120
+1130 LOGIC  .NOT.  X1120  X1130
+1140 LOGIC  FFLOP1 X1130  X1140
+                   RESET1 X1140
+1150 LOGIC  .NOT.  X1140  X1150
+1160 SOMA          SWITCH X1160
+                  -X1120  X1160
+1170 LOGIC  .OR.   RESET1 RES1
+                   X1160  RES1
+(
+(seleção do intervalo TSWINT entre chaveamentos
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 800 ENTRAD               TSWQ
+ 801 ENTRAD               TSWUAC
+ 802 ENTRAD               TSWHPC
+ 805 ENTRAD               TSWVC
+ 807 ENTRAD               TSWVI0
+ 810 ENTRAD               TSWVI1
+ 815 ENTRAD               TSWVI2
+ 820 ENTRAD               TSWVI3
+ 825 ENTRAD               TSWBLK
+(
+ 845 SELET2        TSWUAC X845
+                   TSWQ   X845
+                   Q/U    X845
+ 848 SELET2        X845   X848
+                   TSWHPC X848
+                   HHIGH  X848
+ 850 SELET2        X848   X850
+                   TSWBLK X850
+                   ESOFQ  X850
+ 855 SELET2        X850   X855
+                   TSWVC  X855
+                   VLOW   X855
+ 857 SELET2        X855   X857
+                   TSWVI0 X857
+                   VHIGH0 X857
+ 860 SELET2        X857   X860
+                   TSWVI1 X860
+                   VHIGH1 X860
+ 865 SELET2        X860   X865
+                   TSWVI2 X865
+                   VHIGH2 X865
+ 870 SELET2        X865   TSWINT
+                   TSWVI3 TSWINT
+                   VHIGH3 TSWINT
+(
+(inibe novos chaveamentos por 15 segundos após uma falta AC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1600 ENTRAD               TXDVDT
+ 880 ENTRAD               VACMN
+1605 IMPORT DT            DT
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2907 LAGNL         VB     VACF     1.0 0.003  0.01
+2902 DELAY         VACF   VBD
+2903 SOMA          VBD    DVB
+                  -VACF   DVB
+2904 DIVSAO        DVB    DVDT
+                   DT     DVDT
+2906 COMPAR .GT.   DVDT   DVDTH
+                   TXDVDT DVDTH
+9560 MONEST        DVDTH  DVDTA    0.25
+(
+1610 COMPAR .LE.   VACF   VBLOW
+                   VACMN  VBLOW
+ 885 LOGIC  .AND.  DVDTA  ACFLT
+                   VBLOW  ACFLT
+8310 DLAYON        ACFLT  X8310    0.05
+(
+8560 MONEST        X8310  INHACF  #TACF
+(
+(atraso no chaveamento dos filtros devido a comunicação, tempo de processamento na BCU e tempo de operação do disjuntor
+(
+(connection 120ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2560 MONEST        CON    X2560   #TBRK
+(
+(monostable - isolate 120ms
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3560 MONEST        ISOL   X3560   #TBRK
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2800 DELAY         X2560  X2800
+2805 SOMA          X2800  X2805
+                  -X2560  X2805
+2810 LIMITA        X2805  COND                            ZERO   HUM
+(
+2900 DELAY         X3560  X2900
+2905 SOMA          X2900  X2905
+                  -X3560  X2905
+2910 LIMITA        X2905  ISOLD                           ZERO   HUM
+(
+(Contador do número de filtros solicitados
+(incluido delay na saída do bloco ACUM para desvincular o cálculo do pulso da solução pós-impacto da rede
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 520 SOMA          COND   X520
+                  -ISOLD  X520
+ 523 ACUM          X520   X523   1.0
+                   ZERO   X523
+                   ZERO   X523
+                   ZERO   X523
+ 524 DELAY         X523   X524
+ 525 LIMITA        X524   NFREQ                           ZERO   MXFLT
+(
+(Verifica se o número de filtros está nos limites
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 550 COMPAR .LT.   NFREQ  NOTMAX
+                   MXFLT  NOTMAX
+ 555 COMPAR .GT.   NFREQ  NOTMIN
+                   MNFLT  NOTMIN
+(
+(Quando um filtro é desligado, o mesmo fica indisponível por 10 min (MXFLT=MXFLT-1)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 560 COMPAR .GT.   X524   X560
+                   X523   X560
+ 565 ACUM          X560   X565   -1.0
+                   ZERO   X565
+                   ZERO   X565
+                   ZERO   X565
+ 570 LIMITA        X565   X570                            MNFLT   INF
+ 575 DELAY         X570   MAXF
+(
+(Quando "connect inhibit" está ativo, MXFLT = NF
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 577 DELAY         NF     NFD
+ 579 SELET2        NFD    MXFLT
+                   MAXF   MXFLT
+                   NINHIC MXFLT
+(
+(======================================================================
+(           Reactive Power Controller (RPC) - Q-control
+(======================================================================
+(
+(conecta filtros (3 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 SOMA          QREF   QMIN
+                  -QMARG  QMIN
+                  -QNEXT  QMIN
+ 605 COMPAR .LT.   QEXCH  QLOW
+                   QMIN   QLOW
+2110 DLAYON        QLOW   QCON     #TDQ
+(
+(deconecta filtros (3 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 610 COMPAR .GT.   QEXCH  QHIGH
+                   QREF   QHIGH
+3110 DLAYON        QHIGH  QISO     #TDQ
+(
+(======================================================================
+(           AC Voltage Control - Uac-control
+(======================================================================
+(rampa de Uref
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1500 ENTRAD               UREF
+1505 SOMA          UREF   X1505
+                  -X1520  X1505
+1510 FUNCAO DEADB2 X1505  X1510  -.001 -1.0  .001  1.0
+1515 PROINT        X1510  UREFL  #TAXAU      1.0          ZERO   INF
+1520 DELAY         UREFL  X1520
+(
+1525 ENTRAD               UBANDW
+1528 GANHO         UBANDW UBW/2  0.5
+1530 SOMA          UREFL  UREFMN
+                  -UBW/2  UREFMN
+1535 FRACAO        UREFMN URMNPU 1.0         500.
+1540 SOMA          UREFL  UREFMX
+                  +UBW/2  UREFMX
+1545 FRACAO        UREFMX URMXPU 1.0         500.
+(
+(conecta filtros (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1550 COMPAR .LT.   VBF    UACLOW
+                   URMNPU UACLOW
+9110 DLAYON        UACLOW UACCON #TDUAC
+(
+(deconecta filtros  (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1555 COMPAR .GT.   VBF    UACHGH
+                   URMXPU UACHGH
+9310 DLAYON        UACHGH UACISO #TDUAC
+(
+(======================================================================
+(                  Voltage Limitation Control (VLC)
+(======================================================================
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 700 IMPORT*VOLT          VB     #ACBUS
+ 705 LEDLAG        VB     VBF    1.0         1.0   #TFV
+ 710 ENTRAD               CONL
+ 715 ENTRAD               ISOIL
+ 720 ENTRAD               CONIL
+ 722 ENTRAD               ISOL0
+ 725 ENTRAD               ISOL1
+ 730 ENTRAD               ISOL2
+ 735 ENTRAD               ISOL3
+(
+(VLC connect (5 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 740 COMPAR .LE.   VBF    VLOW
+                   CONL   VLOW
+4110 DLAYON        VLOW   VCON   #TCONV
+(
+(VLC isolate inhibit
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 750 COMPAR .GT.   VBF    NINHIS
+                   ISOIL  NINHIS
+(
+(VLC connection inhibit
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 755 COMPAR .LE.   VBF    NINHIC
+                   CONIL  NINHIC
+(
+(VLC isolate 0
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 757 COMPAR .GT.   VBF    VHIGH0
+                   ISOL0  VHIGH0
+5115 DLAYON        VHIGH0 VISO0  #TISO0
+(
+(VLC isolate 1 (1 seg)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 760 COMPAR .GT.   VBF    VHIGH1
+                   ISOL1  VHIGH1
+5110 DLAYON        VHIGH1 VISO1  #TISO1
+(
+(VLC isolate 2 (285 ms)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 765 COMPAR .GT.   VBF    VHIGH2
+                   ISOL2  VHIGH2
+6110 DLAYON        VHIGH2 VISO2  #TISO2
+(
+(VLC isolate 3 (185 ms)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 770 COMPAR .GT.   VBF    VHIGH3
+                   ISOL3  VHIGH3
+7110 DLAYON        VHIGH3 VISO3  #TISO3
+(
+(======================================================================
+(           Harmonic Performance Control (HPC)
+(======================================================================
+(bipolar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 310 SOMA          EST-1  EST-BP
+                   EST-2  EST-BP
+ 900 COMPAR .EQ.   EST-BP MONO
+                   HUM    MONO
+(
+(corrente DC (média dos dois polos)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 905 IMPORT CCNV          IDC-1  #CNVE1    0.
+ 906 IMPORT CCNV          IDC-2  #CNVE2    0.
+ 907 SOMA          IDC-1  X907
+                   IDC-2  X907
+ 908 GANHO         X907   X908    0.5
+ 909 SELET2        X908   IDC
+                   X907   IDC
+                   MONO   IDC
+(
+(tensão normal/reduzida
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 350 IMPORT VCNV          VDCX1  #CNVX1    0.
+ 351 IMPORT VCNV          VDCX2  #CNVX2    0.
+ 352 IMPORT VCNV          VDCE1  #CNVE1    0.
+ 353 IMPORT VCNV          VDCE2  #CNVE2    0.
+ 354 IMPORT OPCNV         OP-X1  #CNVX1    0.
+ 355 IMPORT OPCNV         OP-X2  #CNVX2    0.
+(
+ 356 SELET2         VDCE1 VDCR1
+                    VDCX1 VDCR1
+                    OP-X1 VDCR1
+ 357 SELET2         VDCE2 VDCR2
+                    VDCX2 VDCR2
+                    OP-X2 VDCR2
+ 358 SOMA           VDCR1 X358
+                    VDCR2 X358
+ 359 GANHO          X358  X359   0.5
+ 360 SELET2         X359  VDCR
+                    X358  VDCR
+                    MONO  VDCR
+ 361 LEDLAG         VDCR  VDCRF  1.0         1.0   0.05
+(
+(Interpolação dos pontos de chaveaento entre 70% e 100% de tensão DC
+(bipolar
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1200 FUNCAO RAMPA  VDCRF  HPC1B  0.7   #HP7B1 1.0  #HP1B1
+1205 FUNCAO RAMPA  VDCRF  HPC2B  0.7   #HP7B2 1.0  #HP1B2
+1210 FUNCAO RAMPA  VDCRF  HPC3B  0.7   #HP7B3 1.0  #HP1B3
+1215 FUNCAO RAMPA  VDCRF  HPC4B  0.7   #HP7B4 1.0  #HP1B4
+1220 FUNCAO RAMPA  VDCRF  HPC5B  0.7   #HP7B5 1.0  #HP1B5
+1225 FUNCAO RAMPA  VDCRF  HPC6B  0.7   #HP7B6 1.0  #HP1B6
+1226 FUNCAO RAMPA  VDCRF  HPC7B  0.7   #HP7B7 1.0  #HP1B7
+1227 FUNCAO RAMPA  VDCRF  HPC8B  0.7   #HP7B8 1.0  #HP1B8
+(monopolar
+1230 FUNCAO RAMPA  VDCRF  HPC1M  0.7   #HP7M1 1.0  #HP1M1
+1235 FUNCAO RAMPA  VDCRF  HPC2M  0.7   #HP7M2 1.0  #HP1M2
+1240 FUNCAO RAMPA  VDCRF  HPC3M  0.7   #HP7M3 1.0  #HP1M3
+1245 FUNCAO RAMPA  VDCRF  HPC4M  0.7   #HP7M4 1.0  #HP1M4
+1250 FUNCAO RAMPA  VDCRF  HPC5M  0.7   #HP7M5 1.0  #HP1M5
+1255 FUNCAO RAMPA  VDCRF  HPC6M  0.7   #HP7M6 1.0  #HP1M6
+1256 FUNCAO RAMPA  VDCRF  HPC7M  0.7   #HP7M7 1.0  #HP1M7
+1257 FUNCAO RAMPA  VDCRF  HPC8M  0.7   #HP7M8 1.0  #HP1M8
+(
+(seleção bipoloar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 930 SELET2        HPC1B  HPCL1
+                   HPC1M  HPCL1
+                   MONO   HPCL1
+ 931 SELET2        HPC2B  HPCL2
+                   HPC2M  HPCL2
+                   MONO   HPCL2
+ 932 SELET2        HPC3B  HPCL3
+                   HPC3M  HPCL3
+                   MONO   HPCL3
+ 933 SELET2        HPC4B  HPCL4
+                   HPC4M  HPCL4
+                   MONO   HPCL4
+ 934 SELET2        HPC5B  HPCL5
+                   HPC5M  HPCL5
+                   MONO   HPCL5
+ 935 SELET2        HPC6B  HPCL6
+                   HPC6M  HPCL6
+                   MONO   HPCL6
+ 936 SELET2        HPC7B  HPCL7
+                   HPC7M  HPCL7
+                   MONO   HPCL7
+ 937 SELET2        HPC8B  HPCL8
+                   HPC8M  HPCL8
+                   MONO   HPCL8
+(
+(número mínimo de filtros em função de IDC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 940 COMPAR .LT.   IDC    X940
+                   HPCL1  X940
+ 941 GANHO         X940   MNHPC2 2.0
+ 942 COMPAR .GE.   IDC    X942
+                   HPCL1  X942
+ 943 GANHO         X942   MNHPC3 3.0
+ 944 COMPAR .GE.   IDC    X944
+                   HPCL2  X944
+ 945 GANHO         X944   MNHPC4 4.0
+ 946 COMPAR .GE.   IDC    X946
+                   HPCL3  X946
+ 947 GANHO         X946   MNHPC5 5.0
+ 948 COMPAR .GE.   IDC    X948
+                   HPCL4  X948
+ 949 GANHO         X948   MNHPC6 6.0
+ 950 COMPAR .GE.   IDC    X950
+                   HPCL5  X950
+ 951 GANHO         X950   MNHPC7 7.0
+ 952 COMPAR .GE.   IDC    X952
+                   HPCL6  X952
+ 953 GANHO         X952   MNHPC8 8.0
+ 954 COMPAR .GE.   IDC    X954
+                   HPCL7  X954
+ 955 GANHO         X954   MNHPC9 9.0
+ 956 COMPAR .GE.   IDC    X956
+                   HPCL8  X956
+ 957 GANHO         X956   MNHP10 10.0
+(
+ 960 MAX           MNHPC2 MNHPC
+                   MNHPC3 MNHPC
+                   MNHPC4 MNHPC
+                   MNHPC5 MNHPC
+                   MNHPC6 MNHPC
+                   MNHPC7 MNHPC
+                   MNHPC8 MNHPC
+                   MNHPC9 MNHPC
+                   MNHP10 MNHPC
+(
+(conecta filtros pelo HPC (1.5 s)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 970 COMPAR .GT.   MNHPC  HHIGH
+                   NFREQ  HHIGH
+8110 DLAYON        HHIGH  HPCCON #TDHPC
+(
+(======================================================================
+(           AC Filter Rating Current Limit (RPC Limit)
+(======================================================================
+(Interpolação dos pontos de chaveaento entre 70% e 100% de tensão DC
+(bipolar
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4200 FUNCAO RAMPA  VDCRF  CL1B   0.7   #CL7B1 1.0  #CL1B1
+4205 FUNCAO RAMPA  VDCRF  CL2B   0.7   #CL7B2 1.0  #CL1B2
+4210 FUNCAO RAMPA  VDCRF  CL3B   0.7   #CL7B3 1.0  #CL1B3
+4215 FUNCAO RAMPA  VDCRF  CL4B   0.7   #CL7B4 1.0  #CL1B4
+4220 FUNCAO RAMPA  VDCRF  CL5B   0.7   #CL7B5 1.0  #CL1B5
+4225 FUNCAO RAMPA  VDCRF  CL6B   0.7   #CL7B6 1.0  #CL1B6
+4226 FUNCAO RAMPA  VDCRF  CL7B   0.7   #CL7B7 1.0  #CL1B7
+4227 FUNCAO RAMPA  VDCRF  CL8B   0.7   #CL7B8 1.0  #CL1B8
+(monopolar
+4230 FUNCAO RAMPA  VDCRF  CL1M   0.7   #HP7M1 1.0  #HP1M1
+4235 FUNCAO RAMPA  VDCRF  CL2M   0.7   #HP7M2 1.0  #HP1M2
+4240 FUNCAO RAMPA  VDCRF  CL3M   0.7   #HP7M3 1.0  #HP1M3
+4245 FUNCAO RAMPA  VDCRF  CL4M   0.7   #HP7M4 1.0  #HP1M4
+4250 FUNCAO RAMPA  VDCRF  CL5M   0.7   #HP7M5 1.0  #HP1M5
+4255 FUNCAO RAMPA  VDCRF  CL6M   0.7   #HP7M6 1.0  #HP1M6
+4256 FUNCAO RAMPA  VDCRF  CL7M   0.7   #HP7M7 1.0  #HP1M7
+4257 FUNCAO RAMPA  VDCRF  CL8M   0.7   #HP7M8 1.0  #HP1M8
+(
+(seleção bipoloar/monopolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4930 SELET2        CL1B   ACFR1
+                   CL1M   ACFR1
+                   MONO   ACFR1
+4931 SELET2        CL2B   ACFR2
+                   CL2M   ACFR2
+                   MONO   ACFR2
+4932 SELET2        CL3B   ACFR3
+                   CL3M   ACFR3
+                   MONO   ACFR3
+4933 SELET2        CL4B   ACFR4
+                   CL4M   ACFR4
+                   MONO   ACFR4
+4934 SELET2        CL5B   ACFR5
+                   CL5M   ACFR5
+                   MONO   ACFR5
+4935 SELET2        CL6B   ACFR6
+                   CL6M   ACFR6
+                   MONO   ACFR6
+4936 SELET2        CL7B   ACFR7
+                   CL7M   ACFR7
+                   MONO   ACFR7
+4937 SELET2        CL8B   ACFR8
+                   CL8M   ACFR8
+                   MONO   ACFR8
+(
+(Seleção do limite
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4300 COMPAR .EQ.   MXFLT  X4300
+                   DOIS   X4300
+4302 SELET2        DOIS   X4302
+                   ACFR1  X4302
+                   X4300  X4302
+4304 COMPAR .EQ.   MXFLT  X4304
+                   TRES   X4304
+4306 SELET2        X4302  X4306
+                   ACFR2  X4306
+                   X4304  X4306
+4308 COMPAR .EQ.   MXFLT  X4308
+                   QUATRO X4308
+4310 SELET2        X4306  X4310
+                   ACFR3  X4310
+                   X4308  X4310
+4312 COMPAR .EQ.   MXFLT  X4312
+                   CINCO  X4312
+4314 SELET2        X4310  X4314
+                   ACFR4  X4314
+                   X4312  X4314
+4316 COMPAR .EQ.   MXFLT  X4316
+                   SEIS   X4316
+4318 SELET2        X4314  X4318
+                   ACFR5  X4318
+                   X4316  X4318
+4320 COMPAR .EQ.   MXFLT  X4320
+                   SETE   X4320
+4322 SELET2        X4318  X4322
+                   ACFR6  X4322
+                   X4320  X4322
+4324 COMPAR .EQ.   MXFLT  X4324
+                   OITO   X4324
+4326 SELET2        X4322  X4326
+                   ACFR7  X4326
+                   X4324  X4326
+4328 COMPAR .GE.   MXFLT  X4328
+                   NOVE   X4328
+4330 SELET2        X4326  ACFR
+                   ACFR8  ACFR
+                   X4328  ACFR
+(
+(Taxa Runback por limite RPC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4400 ENTRAD               TXUP
+4402 ENTRAD               TXDN
+4406 GANHO         TXUP   TXUPPU 0.0004
+4408 GANHO         TXDN   TXDNPU 0.0004
+4410 RATELM        ACFR   X4410                           TXDNPU TXUPPU
+(
+(Artifício para inicialização (rampa)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4412 SOMA          X4410  X4412
+                  -X4420  X4412
+4414 FUNCAO DEADB2 X4412  X4414  -.001 -1.0  .001  1.0
+4416 GANHO         X4414  X4416  1.
+4418 PROINT        X4416  RPCLIM 1.0   0.0   1.0
+4420 DELAY         RPCLIM X4420
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        RPCLIM 2.0
+(
+FIMCDU
+(
+999999
+(
+FIM

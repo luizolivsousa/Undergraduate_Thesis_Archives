@@ -1,0 +1,725 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       HVDC_FOZ_IBIUNA_CMESTRE_V16.cdu                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(
+(ncdu) ( nome cdu )
+  9990 CM_HVDC_FCE
+(
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #TM1                0.500
+DEFPAR #TM2                0.500
+DEFPAR #TM3                0.500
+DEFPAR #TM4                0.500
+(
+DEFPAR #RET-1               7981
+DEFPAR #RET-2               7983
+DEFPAR #RET-3               7985
+DEFPAR #RET-4               7987
+(
+DEFPAR #RAMP                  10 MW/s
+(
+DEFPAR #P1FLT                 95         #DLOC - POLE 1 UNDER DC LINE FAULT
+DEFPAR #P2FLT                 96         #DLOC - POLE 2 UNDER DC LINE FAULT
+DEFPAR #P3FLT                 97         #DLOC - POLE 3 UNDER DC LINE FAULT
+DEFPAR #P4FLT                 98         #DLOC - POLE 4 UNDER DC LINE FAULT
+(
+(----------------------------------------------------------------------
+(                    STAB50
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #K1                  32.0
+DEFPAR #K2                5400.0
+DEFPAR #LocM                3637
+DEFPAR #PBelo             1566.0
+DEFPAR #T2                   1.0
+DEFPAR #T3                   5.0
+DEFPAR #Tmed                 0.1
+DEFPAR #Vmax               200.0
+DEFPAR #Vmin             -2000.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        STAB50 0.0
+DEFVAL        Vmax   #Vmax
+DEFVAL        Vmin   #Vmin
+DEFVAL        VDMN   0.975
+DEFVAL        VDMAX  1.10
+DEFVAL        VBPMN  0.01
+DEFVAL        VBPMX  2.20
+DEFVAL        DPMIN  0.0            -1.0
+DEFVAL        DPMAX  2.0             0.5
+(
+(----------------------------------------------------------------------
+(                 HOLD UD/CMR
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #UDCMN               0.45
+DEFPAR #TAX1                60.    18.60 - ALTERADO PARA NÃO ATUAR NOS POLOS SÃOS QUANDO BLOQUEIA UM POLO
+(
+(----------------------------------------------------------------------
+(                     STOL
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #T1MAX                1.0
+DEFPAR #AMAX                4.51
+DEFPAR #G1MAX             .05142
+DEFPAR #STMAX               1.40
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        YALIM  1.00
+DEFVAL        BIG    9999.
+(
+( POLO 1
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        STOL1  1.40
+DEFVAL        ST4-1   0.0
+DEFVAL VAR    IORD1  IDC-1
+DEFVAL VAR    I00r-1 IDC-1
+DEFVAL VAR    I00i-1 IDC-1
+DEFVAL VAR    STI01  IDC-1
+(
+( POLO 2
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        STOL2  1.40
+DEFVAL        ST4-2   0.0
+DEFVAL VAR    IORD2  IDC-2
+DEFVAL VAR    I00r-2 IDC-2
+DEFVAL VAR    I00i-2 IDC-2
+(
+( POLO 3
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        STOL3  1.40
+DEFVAL        ST4-3   0.0
+DEFVAL VAR    IORD3  IDC-3
+DEFVAL VAR    I00r-3 IDC-3
+DEFVAL VAR    I00i-3 IDC-3
+(
+( POLO 4
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        STOL4  1.40
+DEFVAL        ST4-4   0.0
+DEFVAL VAR    IORD4  IDC-4
+DEFVAL VAR    I00r-4 IDC-4
+DEFVAL VAR    I00i-4 IDC-4
+(
+( DEGRAU EM IORD
+DEFVAL        DEGRAU 0.0
+(
+( TELECOM
+DEFPAR #TELCM              0.066
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        PMAX   3445.2       % 1.1 pu de 3132 MW
+(
+( REFERENCIA DE POTENCIA BIPOLO 1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    PREFB1 PDCBP1
+DEFVAL VAR    PBP1MW PDCBP1
+(
+( REFERENCIA DE POTENCIA BIPOLO 2
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    PREFB2 PDCBP2
+DEFVAL VAR    PBP2MW PDCBP2
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        IMAX    2.0           1.4
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DP1F    0.0
+DEFVAL        DP2F    0.0
+DEFVAL        DP3F    0.0
+DEFVAL        DP4F    0.0
+DEFVAL        DPOBP1  0.0
+DEFVAL        DPOBP2  0.0
+DEFVAL        DPBIP1  0.0
+DEFVAL        DPBIP2  0.0
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        ZERO   0.0
+(
+( VREF
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        V100P1   1.0
+DEFVAL        V100P2   1.0
+DEFVAL        V100P3   1.0
+DEFVAL        V100P4   1.0
+DEFVAL        V75P1    0.75
+DEFVAL        V75P2    0.75
+DEFVAL        V75P3    0.75
+DEFVAL        V75P4    0.75
+DEFVAL        RVOP1    0.0
+DEFVAL        RVOP2    0.0
+DEFVAL        RVOP3    0.0
+DEFVAL        RVOP4    0.0
+DEFVAL        P1FLT    0.0
+DEFVAL        P2FLT    0.0
+DEFVAL        P3FLT    0.0
+DEFVAL        P4FLT    0.0
+(
+(----------------------------------------------------------------------
+(             ENTRADS E IMPORTS
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3000 ENTRAD               ZERO
+3002 IMPORT CDU           RVOP1  9885  0.0
+3003 IMPORT CDU           RVOP2  9886  0.0
+3009 IMPORT CDU           RVOP3  7885  0.0
+3010 IMPORT CDU           RVOP4  7886  0.0
+3004 ENTRAD               VDMN
+3005 ENTRAD               V100P1
+3006 ENTRAD               V100P2
+3011 ENTRAD               V100P3
+3012 ENTRAD               V100P4
+3007 ENTRAD               V75P1
+3008 ENTRAD               V75P2
+3013 ENTRAD               V75P3
+3014 ENTRAD               V75P4
+3015 IMPORT CDU           P1FLT  #P1FLT   0.0
+3016 IMPORT CDU           P2FLT  #P2FLT   0.0
+3017 IMPORT CDU           P3FLT  #P3FLT   0.0
+3018 IMPORT CDU           P4FLT  #P4FLT   0.0
+(
+(----------------------------------------------------------------------
+(              MEDIÇÃO DAS CORRENTES E TENSÕES CC
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9992 IMPORT VCNV          VBDC1  #RET-1   0.0
+9993 IMPORT VCNV          VBDC2  #RET-2   0.0
+9994 IMPORT VCNV          VBDC3  #RET-3   0.0
+9995 IMPORT VCNV          VBDC4  #RET-4   0.0
+(
+9996 IMPORT CCNV          IDC-1  #RET-1   0.0
+9997 IMPORT CCNV          IDC-2  #RET-2   0.0
+9998 IMPORT CCNV          IDC-3  #RET-3   0.0
+9999 IMPORT CCNV          IDC-4  #RET-4   0.0
+(
+8992 IMPORT PCCCNV        PDCPU1 #RET-1   0.0
+8993 IMPORT PCCCNV        PDCPU2 #RET-2   0.0
+8994 IMPORT PCCCNV        PDCPU3 #RET-3   0.0
+8995 IMPORT PCCCNV        PDCPU4 #RET-4   0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8996 SOMA          PDCPU1 PDCPU
+                   PDCPU2 PDCPU
+                   PDCPU3 PDCPU
+                   PDCPU4 PDCPU
+8997 GANHO         PDCPU  PDCTOT #PBelo
+8998 SAIDA         PDCTOT
+(
+5000 SOMA          PDCPU1 X5000
+                   PDCPU2 X5000
+5010 GANHO         X5000  PDCBP1 #PBelo
+5015 SAIDA         PDCBP1
+(
+5020 SOMA          PDCPU3 X5020
+                   PDCPU4 X5020
+5030 GANHO         X5020  PDCBP2 #PBelo
+5035 SAIDA         PDCBP2
+(
+(----------------------------------------------------------------------
+(                   STATUS DOS CONVERSORES
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9914 IMPORT CONDCC        P1-CON #RET-1   0.0
+9915 IMPORT CONDCC        P2-CON #RET-2   0.0
+9916 IMPORT CONDCC        P3-CON #RET-3   0.0
+9917 IMPORT CONDCC        P4-CON #RET-4   0.0
+(
+9910 LOGIC  .NOT.  P1-CON P1-EST
+9911 LOGIC  .NOT.  P2-CON P2-EST
+9912 LOGIC  .NOT.  P3-CON P3-EST
+9913 LOGIC  .NOT.  P4-CON P4-EST
+(
+9905 IMPORT ESTCNV        P1-ON  #RET-1   0.0
+9906 IMPORT ESTCNV        P2-ON  #RET-2   0.0
+9907 IMPORT ESTCNV        P3-ON  #RET-3   0.0
+9908 IMPORT ESTCNV        P4-ON  #RET-4   0.0
+(
+9918 LOGIC  .NOT.  P1FLT  P1NOTF
+9919 LOGIC  .NOT.  P2FLT  P2NOTF
+9920 LOGIC  .NOT.  P3FLT  P3NOTF
+9921 LOGIC  .NOT.  P4FLT  P4NOTF
+(
+(----------------------------------------------------------------------
+(                         STATUS DOS BIPOLOS
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0019 SOMA          P1-EST B1-EST
+                   P2-EST B1-EST
+(
+0068 SOMA          P3-EST B2-EST
+                   P4-EST B2-EST
+(
+(----------------------------------------------------------------------
+(            REFERENCIA DE POTENCIA DO BIPOLO 1
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               PREFB1
+0002 SOMA          PREFB1 ERRPB1
+                  -PBIPD1 ERRPB1
+0003 FUNCAO DEADB2 ERRPB1 Y--PB1 -.001 -1.0  .001  1.0
+0004 PROINT        Y--PB1 PBP1MW #RAMP  0.0  1.0          ZERO   PMAX
+0005 DELAY         PBP1MW PBIPD1
+0006 FRACAO        PBP1MW PBIP-1   1.0       #PBelo
+(
+(----------------------------------------------------------------------
+(             CONTROLE DE POTENCIA DO BIPOLO 1
+(----------------------------------------------------------------------
+0023 SOMA          PBIP-1 PORD1
+                   DP3F   PORD1
+                   DP4F   PORD1
+                   DPOBP1 PORD1
+                   STAB50 PORD1
+(
+(----------------------------------------------------------------------
+( PERDA DO POLO 3 DO BIPOLO 2 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 1
+(----------------------------------------------------------------------
+0370 SOMA          IORD3  DI3
+                  -STI03  DI3
+0371 MULTPL        DI3    DP3
+                   VDCC3  DP3
+0372 ATRASO        DP3    DP3A   0.200
+1372 LIMITA        DP3A   DP3F                            DPMIN  DPMAX
+(
+(----------------------------------------------------------------------
+( PERDA DO POLO 4 DO BIPOLO 2 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 1
+(----------------------------------------------------------------------
+0470 SOMA          IORD4  DI4
+                  -STI04  DI4
+0471 MULTPL        DI4    DP4
+                   VDCC4  DP4
+0472 ATRASO        DP4    DP4A   0.200
+1472 LIMITA        DP4A   DP4F                            DPMIN  DPMAX
+(
+(----------------------------------------------------------------------
+(    PERDA D0 BIPOLO 2 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 1
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1072 SELET2        PBIP-2 DPBIP1
+                   ZERO   DPBIP1
+                   B2-EST DPBIP1
+1074 ATRASO        DPBIP1 DPOB1   0.200
+1023 LEDLAG        DPOB1  DPOBP1  1.0        1.0   0.010
+(
+(----------------------------------------------------------------------
+(       MEDICAO DA TENSAO DO POLO 1 - CONVERSOR 1 (HOLD UD/CMR)
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0026 FUNCAO PULSO  VBDC1  X26    0.0   0.0   #UDCMN 1.0
+0028 DERIVA        VBDC1  X28
+0029 FUNCAO MENOS  X28    X29
+0030 FUNCAO PULSO  X29    X30    1.0   0.0   #TAX1  1.0
+0032 LOGIC  .AND.  X30    X32
+                   X31    X32
+0031 DELAY         X38    X31
+0035 MONEST        X32    X35    2.0
+0038 LOGIC  .NOT.  X35    X38
+0039 LOGIC  .AND.  X26    TRACK1
+                   X38    TRACK1
+(
+1040 SELET2        V100P1 VREFP1
+                   V75P1  VREFP1
+                   RVOP1  VREFP1
+2040 MULTPL        VREFP1 VDMIN1
+                   VDMN   VDMIN1
+(
+0040 LEDLAG        VBDC1  VDC1F       1     0     1#TM1
+0041 LIMITA        VDC1F  VDC1L                           VDMIN1 VDMAX
+(
+0042 T/HOLD        VDC1L  VDC1
+                   TRACK1 VDC1
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VDC1   VDC1L
+DEFVAL        X32    0.0
+(
+(----------------------------------------------------------------------
+(       MEDICAO DA TENSAO DO POLO 2 - CONVERSOR 3 (HOLD UD/CMR)
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0045 FUNCAO PULSO  VBDC2  X45    0.0   0.0   #UDCMN 1.0
+0046 DERIVA        VBDC2  X46
+0047 FUNCAO MENOS  X46    X47
+0048 FUNCAO PULSO  X47    X48    1.0   0.0   #TAX1  1.0
+0049 LOGIC  .AND.  X48    X49
+                   X50    X49
+0050 DELAY         X52    X50
+0051 MONEST        X49    X51    2.0
+0052 LOGIC  .NOT.  X51    X52
+0053 LOGIC  .AND.  X45    TRACK2
+                   X52    TRACK2
+(
+1059 SELET2        V100P2 VREFP2
+                   V75P2  VREFP2
+                   RVOP2  VREFP2
+2059 MULTPL        VREFP2 VDMIN2
+                   VDMN   VDMIN2
+(
+0059 LEDLAG        VBDC2  VDC2F       1     0     1#TM2
+0060 LIMITA        VDC2F  VDC2L                           VDMIN2 VDMAX
+(
+0061 T/HOLD        VDC2L  VDC2
+                   TRACK2 VDC2
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VDC2   VDC2L
+DEFVAL        X49    0.0
+(
+(----------------------------------------------------------------------
+(            ORDEM DE CORRENTE DO BIPOLO 1
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1062 MULTPL        VDC1   VBDCC1
+                   P1-ON  VBDCC1
+                   P1NOTF VBDCC1
+0062 LEDLAG        VBDCC1 VDCC1  1.0         1.0    0.01
+1063 MULTPL        VDC2   VBDCC2
+                   P2-ON  VBDCC2
+                   P2NOTF VBDCC2
+0063 LEDLAG        VBDCC2 VDCC2  1.0         1.0    0.01
+0064 SOMA          VDCC1  VDC_B1
+                   VDCC2  VDC_B1
+0065 LEDLAG        VDC_B1 VDCBP1  1.0   0.0   1.0  0.010  VBPMN  VBPMX
+0066 DIVSAO        PORD1  I0-1
+                   VDCBP1 I0-1
+(
+(----------------------------------------------------------------------
+(            REFERENCIA DE POTENCIA DO BIPOLO 2
+(----------------------------------------------------------------------
+0010 ENTRAD               PREFB2
+0011 SOMA          PREFB2 ERRPB2
+                  -PBIPD2 ERRPB2
+0012 FUNCAO DEADB2 ERRPB2 Y--PB2 -.001 -1.0  .001  1.0
+0013 PROINT        Y--PB2 PBP2MW #RAMP  0.0  1.0          ZERO   PMAX
+0014 DELAY         PBP2MW PBIPD2
+0015 FRACAO        PBP2MW PBIP-2   1.0       #PBelo
+(
+(---------------------------------------------------------------------
+(           CONTROLE DE POTENCIA DO BIPOLO 2
+(---------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0072 SOMA          PBIP-2 PORD2
+                   DP1F   PORD2
+                   DP2F   PORD2
+                   DPOBP2 PORD2
+                   STAB50 PORD2
+(
+(----------------------------------------------------------------------
+( PERDA DO POLO 1 DO BIPOLO 1 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 2
+(----------------------------------------------------------------------
+0170 SOMA          IORD1  DI1
+                  -STI01  DI1
+0171 MULTPL        DI1    DP1
+                   VDCC1  DP1
+0172 ATRASO        DP1    DP1A   0.200
+1172 LIMITA        DP1A   DP1F                             DPMIN  DPMAX
+(
+(----------------------------------------------------------------------
+( PERDA DO POLO 2 DO BIPOLO 1 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 2
+(----------------------------------------------------------------------
+0270 SOMA          IORD2  DI2
+                  -STI02  DI2
+0271 MULTPL        DI2    DP2
+                   VDCC2  DP2
+0272 ATRASO        DP2    DP2A   0.200
+1272 LIMITA        DP2A   DP2F                             DPMIN  DPMAX
+(
+(----------------------------------------------------------------------
+(    PERDA DO BIPOLO 1 - TRANSFERENCIA DE POTENCIA PARA O BIPOLO 2
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1024 SELET2        PBIP-1 DPBIP2
+                   ZERO   DPBIP2
+                   B1-EST DPBIP2
+1026 ATRASO        DPBIP2 DPOB2   0.200
+1025 LEDLAG        DPOB2  DPOBP2  1.0        1.0   0.010
+(
+(----------------------------------------------------------------------
+(       MEDICAO DA TENSAO DO POLO 3 - CONVERSOR 5 (HOLD UD/CMR)
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0073 FUNCAO PULSO  VBDC3  X73    0.0   0.0   #UDCMN 1.0
+0074 DERIVA        VBDC3  X74
+0075 FUNCAO MENOS  X74    X75
+0076 FUNCAO PULSO  X75    X76    1.0   0.0   #TAX1  1.0
+0077 LOGIC  .AND.  X76    X77
+                   X78    X77
+0078 DELAY         X80    X78
+0079 MONEST        X77    X79    2.0
+0080 LOGIC  .NOT.  X79    X80
+0081 LOGIC  .AND.  X73    TRACK3
+                   X80    TRACK3
+(
+3040 SELET2        V100P3 VREFP3
+                   V75P3  VREFP3
+                   RVOP3  VREFP3
+4040 MULTPL        VREFP3 VDMIN3
+                   VDMN   VDMIN3
+(
+0087 LEDLAG        VBDC3  VDC3F       1     0     1#TM3
+0088 LIMITA        VDC3F  VDC3L                           VDMIN3 VDMAX
+(
+0089 T/HOLD        VDC3L  VDC3
+                   TRACK3 VDC3
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VDC3   VDC3L
+DEFVAL        X77    0.0
+(
+(----------------------------------------------------------------------
+(       MEDICAO DA TENSAO DO POLO 4 - CONVERSOR 7 (HOLD UD/CMR)
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0092 FUNCAO PULSO  VBDC4  X92    0.0   0.0   #UDCMN 1.0
+0093 DERIVA        VBDC4  X93
+0094 FUNCAO MENOS  X93    X94
+0095 FUNCAO PULSO  X94    X95    1.0   0.0   #TAX1  1.0
+0096 LOGIC  .AND.  X95    X96
+                   X97    X96
+0097 DELAY         X99    X97
+0098 MONEST        X96    X98    2.0
+0099 LOGIC  .NOT.  X98    X99
+0100 LOGIC  .AND.  X92    TRACK4
+                   X99    TRACK4
+(
+5040 SELET2        V100P4 VREFP4
+                   V75P4  VREFP4
+                   RVOP4  VREFP4
+6040 MULTPL        VREFP4 VDMIN4
+                   VDMN   VDMIN4
+(
+0106 LEDLAG        VBDC4  VDC4F       1     0     1#TM4
+0107 LIMITA        VDC4F  VDC4L                           VDMIN4 VDMAX
+(
+0108 T/HOLD        VDC4L  VDC4
+                   TRACK4 VDC4
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VDC4   VDC4L
+DEFVAL        X96    0.0
+(
+(----------------------------------------------------------------------
+(     ORDEM DE CORRENTE DO BIPOLO 2
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1110 MULTPL        VDC3   VBDCC3
+                   P3-ON  VBDCC3
+                   P3NOTF VBDCC3
+0110 LEDLAG        VBDCC3 VDCC3  1.0         1.0    0.01
+1111 MULTPL        VDC4   VBDCC4
+                   P4-ON  VBDCC4
+                   P4NOTF VBDCC4
+0111 LEDLAG        VBDCC4 VDCC4  1.0         1.0    0.01
+0112 SOMA          VDCC3  VDC_B2
+                   VDCC4  VDC_B2
+0113 LEDLAG        VDC_B2 VDCBP2  1.0   0.0   1.0  0.010  VBPMN  VBPMX
+0114 DIVSAO        PORD2  I0-2
+                   VDCBP2 I0-2
+(
+(----------------------------------------------------------------------
+(     INICIALIZA COM ZERO SE O POLO ESTÁ DESLIGADO
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0115 SELET2        ZERO   X115
+                   I0-1   X115
+                   P1-ON  X115
+1120 ENTRAD               IERRO1
+2120 SOMA          X115   X2120
+                   IERRO1 X2120
+0120 LIMITA        X2120  IORD1                           ZERO   IMAX
+(
+0116 SELET2        ZERO   X116
+                   I0-1   X116
+                   P2-ON  X116
+1121 ENTRAD               IERRO2
+2121 SOMA          X116   X2121
+                   IERRO2 X2121
+0121 LIMITA        X2121  IORD2                           ZERO   IMAX
+(
+0117 SELET2        ZERO   X117
+                   I0-2   X117
+                   P3-ON  X117
+1122 ENTRAD               IERRO3
+2122 SOMA          X117   X2122
+                   IERRO3 X2122
+0122 LIMITA        X2122  IORD3                           ZERO   IMAX
+(
+0118 SELET2        ZERO   X118
+                   I0-2   X118
+                   P4-ON  X118
+1123 ENTRAD               IERRO4
+2123 SOMA          X118   X2123
+                   IERRO4 X2123
+0123 LIMITA        X2123  IORD4                           ZERO   IMAX
+(
+(----------------------------------------------------------------------
+(                          STAB50
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2001 IMPORT DWMAQ         Df     #LocM    0.0
+2002 GANHO         Df     DfHZ     50.0
+2003 LEDLAG        DfHZ   XS1       1.0         1.0#Tmed
+2004 FUNCAO DEADB1 XS1    XS3      -0.2 9999.   1.0   0.0
+2005 GANHO         XS3    XS4    #K2
+2006 GANHO         XS1    XS5    #K1
+2007 LEDLAG        XS4    XS6       1.0#T2      1.0#T3
+2008 SOMA          XS5    XS7
+                   XS6    XS7
+2009 LIMITA        XS7    XS8                             Vmin   Vmax
+2010 FRACAO        XS8    STAB50    1.0      #PBelo
+(
+(
+0140 ENTRAD               YALIM
+(----------------------------------------------------------------------
+(                   STOL - POLO 1
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0142 SOMA         -YALIM  ST1-1
+                   IDC-1  ST1-1
+0143 SOMA          YALIM  ST2-1
+                   IDC-1  ST2-1
+0144 MULTPL        ST1-1  ST3-1
+                   ST2-1  ST3-1
+0145 PROINT        ST3-1  ST4-1  1.0   0.0   #T1MAX       ZERO   BIG
+0146 FUNCAO RETA   ST4-1  ST5-1  1.0   -#AMAX
+0147 GANHO         ST5-1  ST6-1  #G1MAX
+0148 LIMITA        ST6-1  ST7-1                           ZERO   BIG
+0149 FUNCAO RETA   ST7-1  ST8-1  -1.0  #STMAX
+0150 LIMITA        ST8-1  STOL1                           YALIM  BIG
+0151 MIN           STOL1  STI011
+                   IORD1  STI011
+(
+( Degrau em Iord Polo - teste no campo de 13/12/2015
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1151 ENTRAD               DEGRAU
+1152 SOMA          STI011 STI01
+                   DEGRAU STI01
+(
+(----------------------------------------------------------------------
+(                TELECOM - POLO 1
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0154 ATRASO        STI01  I00i-1 #TELCM
+0155 ATRASO        I00i-1 TL1    #TELCM
+0156 MAX           STI01  I00r-1
+                   TL1    I00r-1
+(
+0175 EXPORT CDU    I00r-1
+0176 EXPORT CDU    I00i-1
+(
+(----------------------------------------------------------------------
+(                   STOL - POLO 2
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0242 SOMA         -YALIM  ST1-2
+                   IDC-2  ST1-2
+0243 SOMA          YALIM  ST2-2
+                   IDC-2  ST2-2
+0244 MULTPL        ST1-2  ST3-2
+                   ST2-2  ST3-2
+0245 PROINT        ST3-2  ST4-2  1.0   0.0   #T1MAX       ZERO   BIG
+0246 FUNCAO RETA   ST4-2  ST5-2  1.0   -#AMAX
+0247 GANHO         ST5-2  ST6-2  #G1MAX
+0248 LIMITA        ST6-2  ST7-2                           ZERO   BIG
+0249 FUNCAO RETA   ST7-2  ST8-2  -1.0  #STMAX
+0250 LIMITA        ST8-2  STOL2                           YALIM  BIG
+0251 MIN           STOL2  STI02
+                   IORD2  STI02
+(
+(----------------------------------------------------------------------
+(                TELECOM - POLO 2
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0254 ATRASO        STI02  I00i-2 #TELCM
+0255 ATRASO        I00i-2 TL2    #TELCM
+0256 MAX           STI02  I00r-2
+                   TL2    I00r-2
+(
+0275 EXPORT CDU    I00r-2
+0276 EXPORT CDU    I00i-2
+(
+(----------------------------------------------------------------------
+(                   STOL - POLO 3
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0342 SOMA         -YALIM  ST1-3
+                   IDC-3  ST1-3
+0343 SOMA          YALIM  ST2-3
+                   IDC-3  ST2-3
+0344 MULTPL        ST1-3  ST3-3
+                   ST2-3  ST3-3
+0345 PROINT        ST3-3  ST4-3  1.0   0.0   #T1MAX       ZERO   BIG
+0346 FUNCAO RETA   ST4-3  ST5-3  1.0   -#AMAX
+0347 GANHO         ST5-3  ST6-3  #G1MAX
+0348 LIMITA        ST6-3  ST7-3                           ZERO   BIG
+0349 FUNCAO RETA   ST7-3  ST8-3  -1.0  #STMAX
+0350 LIMITA        ST8-3  STOL3                           YALIM  BIG
+0351 MIN           STOL3  STI03
+                   IORD3  STI03
+(
+(----------------------------------------------------------------------
+(                 TELECOM - POLO 3
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0354 ATRASO        STI03  I00i-3 #TELCM
+0355 ATRASO        I00i-3 TL3    #TELCM
+0356 MAX           STI03  I00r-3
+                   TL3    I00r-3
+(
+0375 EXPORT CDU    I00r-3
+0376 EXPORT CDU    I00i-3
+(
+(----------------------------------------------------------------------
+(                  STOL - POLO 4
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0442 SOMA         -YALIM  ST1-4
+                   IDC-4  ST1-4
+0443 SOMA          YALIM  ST2-4
+                   IDC-4  ST2-4
+0444 MULTPL        ST1-4  ST3-4
+                   ST2-4  ST3-4
+0445 PROINT        ST3-4  ST4-4  1.0   0.0   #T1MAX       ZERO   BIG
+0446 FUNCAO RETA   ST4-4  ST5-4  1.0   -#AMAX
+0447 GANHO         ST5-4  ST6-4  #G1MAX
+0448 LIMITA        ST6-4  ST7-4                           ZERO   BIG
+0449 FUNCAO RETA   ST7-4  ST8-4  -1.0  #STMAX
+0450 LIMITA        ST8-4  STOL4                           YALIM  BIG
+0451 MIN           STOL4  STI04
+                   IORD4  STI04
+(
+(----------------------------------------------------------------------
+(                 TELECOM - POLO 4
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0454 ATRASO        STI04  I00i-4 #TELCM
+0455 ATRASO        I00i-4 TL4    #TELCM
+0456 MAX           STI04  I00r-4
+                   TL4    I00r-4
+(
+0475 EXPORT CDU    I00r-4
+0476 EXPORT CDU    I00i-4
+(
+FIMCDU
+(
+999999
+(
+FIM

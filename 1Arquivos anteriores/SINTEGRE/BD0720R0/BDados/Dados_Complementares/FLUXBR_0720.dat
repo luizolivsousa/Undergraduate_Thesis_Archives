@@ -1,0 +1,716 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       FLUXBR_0720.dat                                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Dados de fluxos entre áreas e intercâmbios do SIN                                         |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | DADOS PARA CONTABILIZAÇÃO DE FLUXOS DE ÁREA E INTERCÂMBIOS                                                |
+( |                                                                                                           |
+( |         10       RNE (Recebimento pela região Nordeste)                                                   |
+( |         20       EXPN_CA (Exportação pela região Norte)                                                   |
+( |         30       EXPN_TOT (Exp Total pela região Norte)                                                   |
+( |         40       FXGTC (Fluxo Xingu/Tucuruí)                                                              |
+( |         50       FXGJP (Fluxo Xingu/Jurupari)                                                             |
+( |         60       FJPXG (Fluxo Jurupari/Xingu)                                                             |
+( |         70       FSilvLech (Fluxo Silves/Lechuga)                                                         |
+( |         80       FNE (Fluxo Norte / Nordeste)                                                             |
+( |         90       FNS (Fluxo Norte / Sudeste)                                                              |
+( |        100       EXPSE (Exportação SE/CO p/ N/NE)                                                         |
+( |        110       FMCCO (Fluxo Miracema / Colinas)                                                         |
+( |        120       FSENE (Fluxo Sudeste / Nordeste)                                                         |
+( |        130       F_IGAIBI (Fluxo Igaporã/Ibicoara)                                                        |
+( |        140       RSECO (Recebimento do SE/CO)                                                             |
+( |        150       FSECO (Fornecimento do SE/CO)                                                            |
+( |        160       RSUL (Recebimento pela região Sul)                                                       |
+( |        170       RSE (Recebimento pela região Sudeste)                                                    |
+( |        180       FIV (Fluxo Foz para Ivaiporã)                                                            |
+( |        190       F-TR.IV (Fluxo TRs Ivaiporã 765/525kV )                                                  |
+( |        200       FSE (Fluxo para o Sudeste)                                                               |
+( |        210       FRJ (Fluxo para o Rio Janeiro)                                                           |
+( |        220       FMT (Fluxo do Mato Grosso)                                                               |
+( |        230       FJAURU                                                                                   |
+( |        240       FACRO (Fluxo Acre-Rondônia)                                                              |
+( |        250       RACRO (Recebimento Acre-Rondônia)                                                        |
+( |        260       FSMAR (Fluxo Samuel/Ariquemes)                                                           |
+( |        270       FMG (Fluxo para Minas Gerais)                                                            |
+( |        280       FCOSE (Intecâmbio CO => SE)                                                              |
+( |        290       PR500kV                                                                                  |
+( |        300       ELO50 (Fluxo no Elo CC de Itapu )                                                        |
+( |        310       Madeira                                                                                  |
+( |        320       BtB (Fluxo na LT 500 kV Coletora BtB - C.P.Velho)                                        |
+( |        330       Xingu                                                                                    |
+( |        340       Estreito (Fluxo Xingu/Estreito)                                                          |
+( |        350       T.Rio (Fluxo Xingu/Terminal Rio)                                                         |
+( |        360       FINBA (Fluxo Ibiúna/Bateias)                                                             |
+( |        370       FBAIN (Fluxo Bateias/Ibiúna)                                                             |
+( |        380       FRS-GER+GAR (FRS - Som Ger + Garabi)                                                     |
+( |        390       ASSIS-LOND (Fluxo Assis/Londrina)                                                        |
+( |        400       F_FZ-CO (Fluxo Foz do Iguaçu/Cvel Oeste)                                                 |
+( |        410       P-DUTRA                                                                                  |
+( |        420       COLINAS (Fluxo Colinas/Rib. Goncalves)                                                   |
+( |        430       BACABEIRA (Flux Bacabeira/Parnaíba III)                                                  |
+( |        440       IT-CO (Fluxo Itacaiunas/Colinas)                                                         |
+( |        450       MA-AC-IM                                                                                 |
+( |        460       IM-COL (Fluxo Imperatriz/Colinas)                                                        |
+( |        470       FBTA (Fluxo Bateias)                                                                     |
+( |        480       FITBA (Fluxo Itatiba/Bateias)                                                            |
+( |        490       GARABI_C (Interc. CF Garabi (BR>AR))                                                     |
+( |        500       MELO_C (Interc. CF Melo (BR>UR))                                                         |
+( |        510       RIVERA_C (Interc. CF Rivera (BR>UR))                                                     |
+( |        520       URUG_C (Interc. CF Uruguaiana (BR>AR))                                                   |
+( |        530       FRS (Fluxo para o Rio Grande do Sul)                                                     |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DFLA
+(NA) (        ID        )
+  10 RNE
+(De ) (Pa ) NC ( Ex )
+ 5580  5500  8 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5500  9 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5510  7 5580     LT 500kV Presidente Dutra (*) - Boa Esperança
+ 7300  5437  1 7300     LT 500kV Colinas (*) - BCS1Ribeiro Goncalves
+ 7300  5575  2 7300     LT 500kV Colinas (*) - BCS2Ribeiro Goncalves
+ 5391  5430  1 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+( 5391  5430  2 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+ 5525  5501  1 5525     LT 230 kV Coelho Neto (*) - Teresina
+ 5684  5679  1 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+ 5684  5679  2 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+( 7200  7190  1 7200     LT 500kV Miracema (*) - Gilbués
+( 7227  6315  1 7227     LT 230 kV Dianópolis (*) - Barreira
+  299  6444  1 299      LT 500kV Serra da MesaII (*) - Rio das Eguas
+ 3007  3050  1 3007     LT 500 kV Luziânia (*) - BCSRio das Éguas
+( 4349  6444  1 4349     LT 500kV Arinos 2 (*) - Rio das Éguas
+( 4350  6349  1 4350     LT 500kV Janaúba 3 (*) - Bom Jesus da Lapa
+( 4350  6220  1 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4350  6220  2 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4351  5860  1 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 4351  5860  2 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 3034  8888  1 3034     LT 500 kV João Neiva (*) - Medeiros Neto
+FIMFLA
+(NA) (        ID        )
+  20 EXPN_CA
+(De ) (Pa ) NC ( Ex )
+ 5580  5500  8 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5500  9 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5510  7 5580     LT 500kV Presidente Dutra (*) - Boa Esperança
+ 7300  5437  1 7300     LT 500kV Colinas (*) - BCS1Ribeiro Goncalves
+ 7300  5575  2 7300     LT 500kV Colinas (*) - BCS2Ribeiro Goncalves
+ 5391  5430  1 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+( 5391  5430  2 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+ 5525  5501  1 5525     LT 230 kV Coelho Neto (*) - Teresina
+ 5684  5679  1 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+ 5684  5679  2 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+ 7200  7201  1 7200     LT 500kV Miracema (*) - BCS1Gurupi
+ 7200  7203  2 7200     LT 500kV Miracema (*) - BCS2Gurupi
+ 7200  7209  3 7200     LT 500kV Miracema (*) - BCS3Gurupi
+ 7200  7204  1 7200     LT 500kV Miracema (*) - Lajeado
+ 7200  7204  2 7200     LT 500kV Miracema (*) - Lajeado
+( 7200  7190  1 7200     LT 500kV Miracema (*) - Gilbués
+ 7221  7207  1 7221     LT 230kV Palmas (*) - Lajeado
+ 7221  7207  2 7221     LT 230kV Palmas (*) - Lajeado
+( 7227  6315  1 7227     LT 230kV Dianópolis (*) - Barreira
+( 7227  7106  1 7227     LT 230kV Dianópolis (*) - Gurupi
+( 6755  7708  1 6755     LT 138kV Santana do Araguaia (*) - Vila Rica
+( 6755  7708  2 6755     LT 138kV Santana do Araguaia (*) - Vila Rica
+FIMFLA
+(NA) (        ID        )
+  30 EXPN_TOT
+(De ) (Pa ) NC ( Ex )
+ 5580  5500  8 5580     CA - LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5500  9 5580     CA - LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5510  7 5580     CA - LT 500kV Presidente Dutra (*) - Boa Esperança
+ 7300  5437  1 7300     CA - LT 500kV Colinas (*) - BCS1Ribeiro Goncalves
+ 7300  5575  2 7300     CA - LT 500kV Colinas (*) - BCS2Ribeiro Goncalves
+ 5391  5430  1 5391     CA - LT 230 kV Balsas - Ribeiro Gonçalves
+( 5391  5430  2 5391     CA - LT 230 kV Balsas (*) - Ribeiro Gonçalves
+ 5525  5501  1 5525     CA - LT 230 kV Coelho Neto (*) - Teresina
+ 5684  5679  1 5684     CA - LT 500 kV Bacabeira (*) - Parnaíba III
+ 5684  5679  2 5684     CA - LT 500 kV Bacabeira (*) - Parnaíba III
+ 7200  7201  1 7200     CA - LT 500kV Miracema (*) - BCS1Gurupi
+ 7200  7203  2 7200     CA - LT 500kV Miracema (*) - BCS2Gurupi
+ 7200  7209  3 7200     CA - LT 500kV Miracema (*) - BCS3Gurupi
+ 7200  7204  1 7200     CA - LT 500kV Miracema (*) - Lajeado
+ 7200  7204  2 7200     CA - LT 500kV Miracema (*) - Lajeado
+( 7200  7190  1 7200     CA - LT 500kV Miracema (*) - Gilbués
+ 7221  7207  1 7221     CA - LT 230kV Palmas (*) - Lajeado
+ 7221  7207  2 7221     CA - LT 230kV Palmas (*) - Lajeado
+( 7227  6315  1 7227     CA - LT 230kV Dianópolis (*) - Barreira
+( 7227  7106  1 7227     CA - LT 230kV Dianópolis (*) - Gurupi
+( 6755  7708  1 6755     CA - LT 138kV Santana do Araguaia (*) - Vila Rica
+( 6755  7708  2 6755     CA - LT 138kV Santana do Araguaia (*) - Vila Rica
+ 8100  6730  1 -8100    CC - LT 500 kV Xingu - Belo Monte C1
+ 8100  6730  2 -8100    CC - LT 500 kV Xingu - Belo Monte C2
+ 8100  6730  3 -8100    CC - LT 500 kV Xingu - Belo Monte C3
+ 8100  6730  4 -8100    CC - LT 500 kV Xingu - Belo Monte C4
+ 8100  6730  5 -8100    CC - LT 500 kV Xingu - Belo Monte C5
+ 8100  8101  1 -8100    CC - LT 500 kV Xingu - Tucurui 2 C1
+ 8100  8102  2 -8100    CC - LT 500 kV Xingu - Tucurui 2 C2
+ 8100  8103  1 -8100    CC - LT 500 kV Xingu - Jurupari C1
+ 8100  8104  2 -8100    CC - LT 500 kV Xingu - Jurupari C2
+ 8100 43970  1 -8100    CC - TR 500/230 kV Xingu
+( 8100  6754  1 -8100    CC - LT 500 kV Xingu - Serra Pelada C1
+( 8100  6754  2 -8100    CC - LT 500 kV Xingu - Serra Pelada C2
+FIMFLA
+(NA) (        ID        )
+  40 FXGTC
+(De ) (Pa ) NC ( Ex )
+ 8100  8101  1 8100     LT 500 kV Xingu - Tucuruí C1
+ 8100  8102  2 8100     LT 500 kV Xingu - Tucuruí C2
+FIMFLA
+(NA) (        ID        )
+  50 FXGJP
+(De ) (Pa ) NC ( Ex )
+ 8100  8103  1 8100     LT 500 kV Xingu - Jurupari C1
+ 8100  8104  2 8100     LT 500 kV Xingu - Jurupari C2
+FIMFLA
+(NA) (        ID        )
+  60 FJPXG
+(De ) (Pa ) NC ( Ex )
+ 8200  8201  1 8200     LT 500 kV Jurupari - Xingu C1
+ 8200  8202  2 8200     LT 500 kV Jurupari - Xingu C2
+FIMFLA
+(NA) (        ID        )
+  70 FSilvLech
+(De ) (Pa ) NC ( Ex )
+ 8400  8403  1 8400     LT 500 kV Silves - Lechuga C1
+ 8400  8404  2 8400     LT 500 kV Silves - Lechuga C2
+FIMFLA
+(NA) (        ID        )
+  80 FNE
+(De ) (Pa ) NC ( Ex )
+ 5580  5500  8 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5500  9 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5510  7 5580     LT 500kV Presidente Dutra (*) - Boa Esperança
+ 7300  5437  1 7300     LT 500kV Colinas (*) - BCS1Ribeiro Goncalves
+ 7300  5575  2 7300     LT 500kV Colinas (*) - BCS2Ribeiro Goncalves
+ 5391  5430  1 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+( 5391  5430  2 5391     LT 230 kV Balsas (*) - Ribeiro Gonçalves
+ 5525  5501  1 5525     LT 230 kV Coelho Neto (*) - Teresina
+ 5684  5679  1 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+ 5684  5679  2 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+( 7200  7190  1 7200     LT 500kV Miracema-Gilbués
+( 7227  6315  1 7227     LT 230 kV Dianópolis (*) - Barreira
+FIMFLA
+(NA) (        ID        )
+  90 FNS
+(De ) (Pa ) NC ( Ex )
+ 7236  7101  1 -7236    LT 500 kV Gurupi - Serra da Mesa (*) C1
+ 7237  7103  2 -7237    LT 500 kV Gurupi - Serra da Mesa (*) C2
+  299  7238  1 -299     LT 500 kV Peixe Angical 2 - Serra da Mesa 2 (*)
+FIMFLA
+(NA) (        ID        )
+ 100 EXPSE
+(De ) (Pa ) NC ( Ex )
+  299  6444  1 299      LT 500kV Serra da Mesa 2 (*) - Rio das Eguas
+ 3007  3050  1 3007     LT 500 kV Luziânia (*) - BCSRio das Éguas
+( 4349  6444  1 4349     LT 500kV Arinos 2 (*) - Rio das Éguas
+( 4350  6349  1 4350     LT 500kV Janaúba 3 (*) - Bom Jesus da Lapa II
+( 4350  6220  1 4350     LT 500kV Janaúba 3 (*) - Igaporã III
+( 4350  6220  2 4350     LT 500kV Janaúba 3 (*) - Igaporã III
+( 4351  5860  1 4351     LT 500kV Padre Paraíso 2 (*) - Poções II
+( 4351  5860  2 4351     LT 500kV Padre Paraíso 2 (*) - Poções II
+ 7200  7201  1 -7200    LT 500kV BCS1Gurupi - Miracema (*)
+ 7200  7203  2 -7200    LT 500kV BCS2Gurupi - Miracema (*)
+ 7200  7209  3 -7200    LT 500kV BCS3Gurupi - Miracema (*)
+ 7200  7204  1 -7200    LT 500kV Lajeado - Miracema (*)
+ 7200  7204  2 -7200    LT 500kV Lajeado - Miracema (*)
+ 7221  7207  1 -7221    LT 230kV Lajeado - Palmas (*)
+ 7221  7207  2 -7221    LT 230kV Lajeado - Palmas (*)
+( 7227  7106  1 -7227    LT 230kV Gurupi - Dianópolis (*)
+( 6755  7708  1 -6755    LT 138kV Vila Rica - Santana do Araguaia (*)
+( 6755  7708  2 -6755    LT 138kV Vila Rica - Santana do Araguaia (*)
+( 3034  8888  1 3034     LT 500 kV João Neiva (*) - Medeiros Neto
+FIMFLA
+(NA) (        ID        )
+ 110 FMCCO
+(De ) (Pa ) NC ( Ex )
+ 7200  7301  1 7200     LT 500 kV Miracema - BCS Colinas C1
+ 7200  7303  2 7200     LT 500 kV Miracema - BCS Colinas C2
+ 7200  7305  3 7200     LT 500 kV Miracema - BCS Colinas C3
+FIMFLA
+(NA) (        ID        )
+ 120 FSENE
+(De ) (Pa ) NC ( Ex )
+  299  6444  1 299      LT 500kV Serra da MesaII (*) - Rio das Eguas
+ 3007  3050  1 3007     LT 500 kV Luziânia (*) - BCS Rio das Éguas
+( 4349  6444  1 4349     LT 500kV Arinos 2 (*) - Rio das Éguas
+( 4350  6349  1 4350     LT 500kV Janaúba 3 (*) - Bom Jesus da Lapa
+( 4350  6220  1 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4350  6220  2 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4351  5860  1 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 4351  5860  2 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 3034  8888  1 3034     LT 500 kV João Neiva (*) - Medeiros Neto
+FIMFLA
+(NA) (        ID        )
+ 130 F_IGAIBI
+(De ) (Pa ) NC ( Ex )
+ 6220  6359  4 6220     LT 500 kV Igaporã - Ibicoara
+FIMFLA
+(NA) (        ID        )
+ 140 RSECO
+(De ) (Pa ) NC ( Ex )
+   36   235  1 36       UHE Serra da Mesa
+ 3964  3965  1 3964     UHE Cana Brava
+ 3968  3967  1 3968     UHE São Salvador
+  235  7236  1 -235     Serra da Mesa - Gurupi C1
+  235  7237  2 -235     Serra da Mesa - Gurupi C2
+  299  7238  1 -299     Serra da Mesa 2 - Peixe Angical 2
+  299  6444  1 -299     LT 500kV Serra da MesaII-Rio das Eguas
+ 3007  3050  1 -3007    LT 500 kV Luziânia - BCS Rio das Éguas
+( 4349  6444  1 -4349    LT 500kV Arinos 2 (*) - Rio das Éguas
+( 4350  6349  1 -4350    LT 500kV Janaúba 3 (*) - Bom Jesus da Lapa
+( 4350  6220  1 -4350    LT 500kV Janaúba 3 (*) - Igaporã
+( 4350  6220  2 -4350    LT 500kV Janaúba 3 (*) - Igaporã
+( 4351  5860  1 -4351    LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 4351  5860  2 -4351    LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 3034  8888  1 -3034    LT 500 kV João Neiva (*) - Medeiros Neto
+FIMFLA
+(NA) (        ID        )
+ 150 FSECO
+(De ) (Pa ) NC ( Ex )
+   36   235  1 -36      UHE Serra da Mesa
+ 3964  3965  1 -3964    UHE Cana Brava
+ 3968  3967  1 -3968    UHE São Salvador
+  235  7236  1 235      Serra da Mesa - Gurupi C1
+  235  7237  2 235      Serra da Mesa - Gurupi C2
+  299  7238  1 299      Serra da Mesa 2 - Peixe Angical 2
+  299  6444  1 299      LT 500kV Serra da MesaII-Rio das Eguas
+ 3007  3050  1 3007     LT 500 kV Luziânia - BCS Rio das Éguas
+( 4349  6444  1 4349     LT 500kV Arinos 2 (*) - Rio das Éguas
+( 4350  6349  1 4350     LT 500kV Janaúba 3 (*) - Bom Jesus da Lapa
+( 4350  6220  1 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4350  6220  2 4350     LT 500kV Janaúba 3 (*) - Igaporã
+( 4351  5860  1 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 4351  5860  2 4351     LT 500kV Padre Paraíso 2 (*) - Poções 2
+( 3034  8888  1 3034     LT 500 kV João Neiva (*) - Medeiros Neto
+FIMFLA
+(NA) (        ID        )
+ 160 RSUL
+(De ) (Pa ) NC ( Ex )
+   66   999  1 66       LT 500 kV Ivaiporã (Furnas) (*) - Ivaiporã (Eletrosul) C1
+41415   999  2 41415    LT 500 kV Ivaiporã (Furnas) (*) - Ivaiporã (Eletrosul) C2
+41416   999  3 41416    LT 500 kV Ivaiporã (Furnas) (*) - Ivaiporã (Eletrosul) C3
+ 9435   896  1 9435     LT 525kV Foz do Iguaçu (*) - Cascavel Oeste
+  122   125  1 122      LT 500kV Bateias - Ibiúna (*) C1 e C2  
+  122   130  2 122      LT 500kV Bateias - Ibiúna (*) C1 e C2  
+  556  1027  1 556      LT 525kV Assis (*) - Londrina C1
+  556  1027  2 556      LT 525kV Assis (*) - Londrina C2
+ 6609   115  1 6609     LT 500kV Itatiba (*) - Bateias
+( 9435   873  1 9435     LT 525kV Foz (*) - Guaíra C1 e C2
+( 9435   873  2 9435     LT 525kV Foz (*) - Guaíra C1 e C2
+  551  1028  1 551      LT 230kV Assis (*) - Londrina (Eletrosul)  
+  551   889  1 551      LT 230kV Assis (*) - Londrina (Copel)  
+(  551   889  2 551      LT 230kV Assis (*) - Londrina (Eletrosul)
+  615   884  1 615      LT 230kV Chavantes (*) - Figueira 
+ 1086   978  1 1086     LT 230kV Dourados (*) - Guaíra 
+  627   827  1 627      LT 230KV Itararé 2 (*) - Jaguariaíva
+(  546   865  1 546      LT 138kV Rosana (*) - Loanda
+  534   865  1 534      LT 138kV Rosana (*) - Loanda
+(  546   870  1 546      LT 138kV Rosana (*) - Paranavai  
+  534   870  1 534      LT 138kV Rosana (*) - Paranavai  
+(  613   876  1 613      LT 88kV Salto Grande (*) - Andirá C1 e C2
+(  613   876  2 613      LT 88kV Salto Grande (*) - Andirá C1 e C2
+  551  9892  1 551      LT 230kV Assis (*) - Andirá Leste
+  612  9892  1 612      LT 230kV Salto Grande (*) - Andirá Leste
+FIMFLA
+(NA) (        ID        )
+ 170 RSE
+(De ) (Pa ) NC ( Ex )
+   60    62  1 60       LT 765 kV Foz do Iguaçu (*) - Ivaiporã C1
+   60    63  2 60       LT 765 kV Foz do Iguaçu (*) - Ivaiporã C2
+   60    64  3 60       LT 765 kV Foz do Iguaçu (*) - Ivaiporã C3
+   65    68  1 -65      TR 765(*)/500 kV Ivaiporã C1
+   65    58  2 -65      TR 765(*)/500 kV Ivaiporã C2
+   65    59  3 -65      TR 765(*)/500 kV Ivaiporã C3
+  122   125  1 -122     LT 500kV Bateias - Ibiúna (*) C1 e C2  
+  122   130  2 -122     LT 500kV Bateias - Ibiúna (*) C1 e C2  
+  556  1027  1 -556     LT 525kV Assis (*) - Londrina C1
+  556  1027  2 -556     LT 525kV Assis (*) - Londrina C2
+ 6609   115  1 -6609    LT 500kV Itatiba (*) - Bateias
+  551  1028  1 -551     LT 230kV Assis (*) - Londrina (Eletrosul)  
+  551   889  1 -551     LT 230kV Assis (*) - Londrina (Copel)  
+(  551   889  2 -551     LT 230kV Assis (*) - Londrina (Eletrosul)
+  615   884  1 -615     LT 230kV Chavantes (*) - Figueira 
+ 1086   978  1 -1086    LT 230kV Dourados (*) - Guaíra 
+  627   827  1 -627     LT 230KV Itararé 2 (*) - Jaguariaíva
+(  546   865  1 -546     LT 138kV Rosana (*) - Loanda
+  534   865  1 -534     LT 138kV Rosana (*) - Loanda
+(  546   870  1 -546     LT 138kV Rosana (*) - Paranavai  
+  534   870  1 -534     LT 138kV Rosana (*) - Paranavai  
+(  613   876  1 -613     LT 88kV Salto Grande (*) - Andirá C1 e C2
+(  613   876  2 -613     LT 88kV Salto Grande (*) - Andirá C1 e C2
+  551  9892  1 -551     LT 230kV Assis (*) - Andirá Leste
+  612  9892  1 -612     LT 230kV Salto Grande (*) - Andirá Leste
+FIMFLA
+(NA) (        ID        )
+ 180 FIV
+(De ) (Pa ) NC ( Ex )
+   60    62  1 60       LT 765 kV Foz do Iguaçu - Ivaiporã C1
+   60    63  2 60       LT 765 kV Foz do Iguaçu - Ivaiporã C2
+   60    64  3 60       LT 765 kV Foz do Iguaçu - Ivaiporã C3
+FIMFLA
+(NA) (        ID        )
+ 190 F-TR.IV
+(De ) (Pa ) NC ( Ex )
+   65    68  1 65       TRs 1, 2 e 3 de Ivaiporã 765(*)/525kV 
+   65    58  2 65       TRs 1, 2 e 3 de Ivaiporã 765(*)/525kV 
+   65    59  3 65       TRs 1, 2 e 3 de Ivaiporã 765(*)/525kV 
+FIMFLA
+(NA) (        ID        )
+ 200 FSE
+(De ) (Pa ) NC ( Ex )
+   65    69  1 65       LT 765 kV Ivaiporã(*) - Itaberá C1
+   65    70  2 65       LT 765 kV Ivaiporã(*) - Itaberá C2
+   65    71  3 65       LT 765 kV Ivaiporã(*) - Itaberá C3
+FIMFLA
+(NA) (        ID        )
+ 210 FRJ
+(De ) (Pa ) NC ( Ex )
+  106  9605  1 -106     LT 500 kV Terminal Rio - Adrianópolis
+  106  9605  2 -106     LT 500 kV Terminal Rio - Adrianópolis
+ 9608  9605  1 -9608    LT 500 kV Terminal Rio - Nova Iguaçu
+ 9608  9605  2 -9608    LT 500 kV Terminal Rio - Nova Iguaçu
+  109  9626  1 -109     LT 500 kV Baixada Fluminense - Adrianópolis
+  183 41664 57 -183     TR 500/138 kV Cachoeira Paulista
+  183 41666 59 -183     TR 500/138 kV Cachoeira Paulista
+ 9608   598  1 -9608    LT 500 kV Taubaté - Nova Iguaçu
+ 9608   105  1 -9608    LT 500 kV Angra - Nova Iguaçu
+ 9601   105  1 -9601    LT 500 kV Angra - Zona Oeste
+  185   181  1 -185     TR Defasador 500/138 kV Angra
+ 3021   344  1 -3021    LT 500 kV Mesquita - Viana 2 
+  140   138  1 -140     LT 345 kV Itutinga - Adrianópolis
+  140   138  2 -140     LT 345 kV Itutinga - Adrianópolis
+  149  3344  1 -149     LT 345 kV Padre Fialho - Vitória
+ 2654  4043  1 -2654    LT 230 kV Aimorés - Mascarenhas
+ 2654  4043  2 -2654    LT 230 kV Aimorés - Mascarenhas
+  251   252 32 -251     TR 230/138 kV Nilo Peçanha
+(  106   104  1 -106     LT 500 kV Cachoeira Paulista - Adrianópolis
+(  106    87  2 -106     LT 500 kV Cachoeira Paulista - Resende - Adrianópolis
+( 3061  4353  1 -3061    LT 500 kV Mutum - Rio Novo do Sul
+( 3021  4353  1 -3021    LT 500 kV Mutum - Viana 2
+( 3034   344  1 -3034    LT 500 kV Mesquita - João Neiva 2
+FIMFLA
+(NA) (        ID        )
+ 220 FMT
+(De ) (Pa ) NC ( Ex )
+43672  4531  1 43672    LT 500 kV Ribeirãozinho - Rio Verde Norte C1
+43673  4531  2 43673    LT 500 kV Ribeirãozinho - Rio Verde Norte C2
+ 4588  4531  3 4588     LT 500 kV Ribeirãozinho - Rio Verde Norte C3
+ 4510   231  1 4510     LT 230 kV Barra do Peixe - Rio Verde C1
+ 4511   231  2 4511     LT 230 kV Barra do Peixe - Rio Verde C2
+ 4512   231  1 4512     LT 230 kV Couto Magalhães - Rio Verde
+( 3501   231  1 3501     LT 230 kV Rio Claro 2 - Rio Verde
+FIMFLA
+(NA) (        ID        )
+ 230 FJAURU
+(De ) (Pa ) NC ( Ex )
+ 4700  4514  1 4700     LT 500 kV Jauru - Cuiabá
+ 4700  4514  2 4700     LT 500 kV Jauru - Cuiabá
+ 4862  4711  1 4862     LT 230 kV Jauru - Coxipó
+ 4862  4711  2 4862     LT 500 kV Jauru - Coxipó
+FIMFLA
+(NA) (        ID        )
+ 240 FACRO
+(De ) (Pa ) NC ( Ex )
+ 6800 43797  1 6800     LT 230 kV Vilhena - Jauru C1
+ 6800 43798  2 6800     LT 230 kV Vilhena - Jauru C2
+ 6800 43799  3 6800     LT 230 kV Vilhena - Jauru C3
+FIMFLA
+(NA) (        ID        )
+ 250 RACRO
+(De ) (Pa ) NC ( Ex )
+ 4862  6898  1 4862     LT 230 kV Jauru - Vilhena C1
+ 4862  6899  2 4862     LT 230 kV Jauru - Vilhena C2
+ 4862  6934  3 4862     LT 230 kV Jauru - Vilhena C3
+FIMFLA
+(NA) (        ID        )
+ 260 FSMAR
+(De ) (Pa ) NC ( Ex )
+ 6890  6880  1 6890     Samuel - Ariquemes C1
+ 6890  6880  2 6890     Samuel - Ariquemes C2
+ 6890  6880  3 6890     Samuel - Ariquemes C3
+ 6890  6880  4 6890     Samuel - Ariquemes C4
+FIMFLA
+(NA) (        ID        )
+ 270 FMG
+(De ) (Pa ) NC ( Ex )
+  325  4050  1 325      LT 500kV Jaguara -> Bom Despacho 3 C1
+  325  4050  2 325      LT 500kV Jaguara -> Bom Despacho 3 C2
+  320   390  1 320      LT 500kV Emborcação -> São Gotardo 2
+  360   390  1 360      LT 500kV Nova Ponte -> São Gotardo 2
+ 3008  4049  1 3008     LT 500kV Paracatu 4 -> Pirapora 2
+ 3007  4049  1 3007     LT 500kV Luziânia -> Pirapora 2
+  326   367  1 326      LT 345kV Jaguara -> Pimenta C1
+  326   367  2 326      LT 345kV Jaguara -> Pimenta C2
+  136   367  1 136      LT 345kV Furnas -> Pimenta C1
+  136   367  2 136      LT 345kV Furnas -> Pimenta C2
+  138   331  1 138      LT 345kV Itutinga -> Juiz de Fora 1
+ 1519  1588  1 1519     LT 138kV Coromandel -> Vazante -> Paracatu 4
+  323  1514  1 323      LT 138kV Itutinga -> São João Del Rei 1 tape Bozel
+ 1538  1572  1 1538     LT 138kV UH Itutinga -> São João Del Rei 1
+ 3008 42026  1 3008     TR Paracatu 4 500kV -> 138kV C1
+ 3008 42028  2 3008     TR Paracatu 4 500kV -> 138kV C2
+FIMFLA
+(NA) (        ID        )
+ 280 FCOSE
+(De ) (Pa ) NC ( Ex )
+  210   233  1 -210     LT 500kV Itumbiara -> Samambaia
+  320   233  1 -320     LT 500kV Emborcação -> Samambaia
+  210 42010 49 -210     TR Itumbiara 500kV -> 345kV
+  210 42012 50 -210     TR Itumbiara 500kV -> 345kV
+  210 42014 53 -210     TR Itumbiara 500kV -> 345kV
+  210  4531  1 -210     LT 500kV Itumbiara -> Rio Verde Norte
+  320 42078  6 -320     TR Emborcação 138kV -> 500kV
+  320 42080  7 -320     TR Emborcação 138kV -> 500kV
+  320 42082 10 -320     TR Emborcação 138kV -> 500kV
+ 3008  3007  1 -3008    LT 500kV Paracatu 4 -> Luziânia
+ 4049  3007  1 -4049    LT 500kV Pirapora 2 -> Luziânia
+FIMFLA
+(NA) (        ID        )
+ 290 PR500kV
+(De ) (Pa ) NC ( Ex )
+  302   360  1 302      UHE Nova Ponte -> Nova Ponte 500kV
+  303   370  1 303      UHE São Simão -> São Simão 500kV
+  300   320  1 300      UHE Emborcação -> Emborcação 500kV
+   18   210  1 18       UHE Itumbiara -> Itumbiara 500kV 
+  370  9440  1 -370     LT 500kV Itaguaçu -> São Simão medido em São Simão
+FIMFLA
+(NA) (        ID        )
+ 300 ELO50
+(De ) (Pa ) NC ( Ex )
+   85  1103  1 -85      LT 500 kV Foz - Margem Direita C1
+   85  1103  2 -85      LT 500 kV Foz - Margem Direita C2
+   85  1103  3 -85      LT 500 kV Foz - Margem Direita C3
+   85  1103  4 -85      LT 500 kV Foz - Margem Direita C4
+FIMFLA
+(NA) (        ID        )
+ 310 Madeira
+(De ) (Pa ) NC ( Ex )
+ 7055  7059  1 -7055    LT 500 kV Coletora P.Velho - C.BtB
+ 7055  7053  1 -7055    LT 500 kV Coletora P.Velho - SAntonio MD
+ 7055  7063  2 -7055    LT 500 kV Coletora P.Velho - SAntonio LR
+ 7055  7065  3 -7055    LT 500 kV Coletora P.Velho - SAntonio ME C1
+ 7055  7065  4 -7055    LT 500 kV Coletora P.Velho - SAntonio ME C2
+ 7055  7056  1 -7055    LT 500 kV Coletora P.Velho - Jirau C1
+ 7055  7056  2 -7055    LT 500 kV Coletora P.Velho - Jirau C2
+ 7055  7060  3 -7055    LT 500 kV Coletora P.Velho - Jirau ME
+FIMFLA
+(NA) (        ID        )
+ 320 BtB
+(De ) (Pa ) NC ( Ex )
+ 7059  7055  1 -7059    LT 500 kV Coletora BtB - C.P.Velho
+FIMFLA
+(NA) (        ID        )
+ 330 Xingu
+(De ) (Pa ) NC ( Ex )
+ 8100  6730  1 -8100    LT 500 kV Xingu - Belo Monte C1
+ 8100  6730  2 -8100    LT 500 kV Xingu - Belo Monte C2
+ 8100  6730  3 -8100    LT 500 kV Xingu - Belo Monte C3
+ 8100  6730  4 -8100    LT 500 kV Xingu - Belo Monte C4
+ 8100  6730  5 -8100    LT 500 kV Xingu - Belo Monte C5
+ 8100  8101  1 -8100    LT 500 kV Xingu - Tucurui 2 C1
+ 8100  8102  2 -8100    LT 500 kV Xingu - Tucurui 2 C2
+ 8100  8103  1 -8100    LT 500 kV Xingu - Jurupari C1
+ 8100  8104  2 -8100    LT 500 kV Xingu - Jurupari C2
+ 8100 43970  1 -8100    TR 500/230 kV Xingu
+( 8100  6754  1 -8100    LT 500 kV Xingu - Serra Pelada C1
+( 8100  6754  2 -8100    LT 500 kV Xingu - Serra Pelada C2
+FIMFLA
+(NA) (        ID        )
+ 340 Estreito
+(De ) (Pa ) NC ( Ex )
+( 3010   104  1 -3010    LT 500 kV Estreito - Cachoeira Paulista C1
+( 3010   104  2 -3010    LT 500 kV Estreito - Cachoeira Paulista C2
+ 3010   325  1 -3010    LT 500 kV Estreito - Jaguara
+ 3010   360  1 -3010    LT 500 kV Estreito - Nova Ponte
+ 3010   609  1 -3010    LT 500 kV Estreito - Fernão Dias C1
+ 3010   609  2 -3010    LT 500 kV Estreito - Fernão Dias C2
+ 3010  3011  1 -3010    LT 500 kV Estreito - Riberão Preto
+ 3010 42030  1 -3010    TR1 500/345 kV Estreito
+ 3010 42032  2 -3010    TR2 500/345 kV Estreito
+FIMFLA
+(NA) (        ID        )
+ 350 T.Rio
+(De ) (Pa ) NC ( Ex )
+ 9605    87  1 -9605    LT 500 kV Terminal Rio - Resende
+ 9605   104  1 -9605    LT 500 kV Terminal Rio - Cachoeira Paulista
+ 9605   106  1 -9605    LT 500 kV Terminal Rio - Adrianópolis C1
+ 9605   106  2 -9605    LT 500 kV Terminal Rio - Adrianópolis C2
+( 9605   609  1 -9605    LT 500 kV Terminal Rio - Fernão Dias
+( 9605  9509  1 -9605    LT 500 kV Terminal Rio - Lagos C1
+( 9605  9509  2 -9605    LT 500 kV Terminal Rio - Lagos C2
+ 9605  9608  1 -9605    LT 500 kV Terminal Rio - Nova Iguaçu C1
+ 9605  9608  2 -9605    LT 500 kV Terminal Rio - Nova Iguaçu C2
+FIMFLA
+(NA) (        ID        )
+ 360 FINBA
+(De ) (Pa ) NC ( Ex )
+  122   125  1 122      LT 500kV Ibiúna(*) - Bateias C1 e C2  
+  122   130  2 122      LT 500kV Ibiúna(*) - Bateias C1 e C2  
+FIMFLA
+(NA) (        ID        )
+ 370 FBAIN
+(De ) (Pa ) NC ( Ex )
+  122   125  1 -122     LT 500kV Ibiúna(*) - Bateias C1 e C2  
+  122   130  2 -122     LT 500kV Ibiúna(*) - Bateias C1 e C2  
+FIMFLA
+(NA) (        ID        )
+ 380 FRS-GER+GAR
+(De ) (Pa ) NC ( Ex )
+  980 41301  1 -980     TR 525/230 Nova Santa Rita
+  980 41302  2 -980     TR 525/230 Nova Santa Rita
+  980 41303  3 -980     TR 525/230 Nova Santa Rita
+  980 41304  4 -980     TR 525/230 Nova Santa Rita
+ 1046 41354  2 -1046    TR 525/230 S. Angelo
+ 1046 41355  3 -1046    TR 525/230 S. Angelo
+ 1046 41356  1 -1046    TR 525/230 S. Angelo (Previsto para o PEL 2017 circ 1 ou 4)
+( 1046  1045  4 -1046    TR 525/230 S. Angelo (Previsto para o PEL 2017 circ 1 ou 4)
+ 1041  1069  1 -1041    LT 230 kV P. Fundo - Xanxere                   
+ 1041  1069  2 -1041    LT 230 kV P. Fundo - Xanxere                   
+  961  1163  1 961      LT 230 Forquilhinha - Lajeado Grande           
+  965 41229  1 -965     TR 525/230 Caxias
+  965 41230  2 -965     TR 525/230 Caxias
+  965 41231  3 -965     TR 525/230 Caxias
+ 1210 41271  1 -1210    TR 525/230 Gravatai
+ 1210 41272  2 -1210    TR 525/230 Gravatai
+ 1210 41273  3 -1210    TR 525/230 Gravatai
+  936  1325  1 936      LT 230 kV B. Grande - Lagoa Vermelha           
+ 1062  9549  1 1062     LT 138kV F. Chapecó - Planalto (Carga da RGE)  
+  979  9818  1 979      LT 525 kV Nova Santa Rita - Povo Novo          
+ 1071  1213  1 1071     LT 230 kV F. Chapecó - Guarita                 
+  904   996  1 -904     UHE Itá       
+  915  1030  1 -915     UHE Machadinho
+ 1070  1071  1 -1070    UHE F. Chapecó
+ 1150   936  1 -1150    UHE B.Grande  
+ 1157   953  1 -1157    UHE C. Novos  
+ 9735  9737  1 -9735    UHE Garibaldi 
+ 2836  2838  1 -2836    UHE Q. Queixo 
+  972  1045  1 -972     CF Garabi I   
+  973  1045  1 -973     CF Garabi II  
+FIMFLA
+(NA) (        ID        )
+ 390 ASSIS-LOND
+(De ) (Pa ) NC ( Ex )
+  556  1027  1 556      Assis - Londrina C1
+  556  1027  2 556      Assis - Londrina C2
+FIMFLA
+(NA) (        ID        )
+ 400 F_FZ-CO
+(De ) (Pa ) NC ( Ex )
+ 9435   896  1 9435     LT 525kV Foz do Iguaçu (*) - Cascavel Oeste
+FIMFLA
+(NA) (        ID        )
+ 410 P-DUTRA
+(De ) (Pa ) NC ( Ex )
+ 5580  5500  8 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5500  9 5580     LT 500kV Presidente Dutra(*) - TeresinaII
+ 5580  5510  7 5580     LT 500kV Presidente Dutra (*) - Boa Esperança
+FIMFLA
+(NA) (        ID        )
+ 420 COLINAS
+(De ) (Pa ) NC ( Ex )
+ 7300  5437  1 7300     LT 500kV Colinas (*) - BCS1Ribeiro Goncalves
+ 7300  5575  2 7300     LT 500kV Colinas (*) - BCS2Ribeiro Goncalves
+FIMFLA
+(NA) (        ID        )
+ 430 BACABEIRA
+(De ) (Pa ) NC ( Ex )
+ 5684  5679  1 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+ 5684  5679  2 5684     LT 500 kV Bacabeira (*) - Parnaíba III
+FIMFLA
+(NA) (        ID        )
+ 440 IT-CO
+(De ) (Pa ) NC ( Ex )
+ 7306  7300  1 7306     LT 500kV Itacaiunas - Colinas
+FIMFLA
+(NA) (        ID        )
+ 450 MA-AC-IM
+(De ) (Pa ) NC ( Ex )
+ 6400  5590  1 6400     LT 500kV Marabá (*) - Imperatriz
+ 6400  5590  2 6400     LT 500kV Marabá (*) - Imperatriz
+ 6400  6703  2 6400     LT 500kV Marabá (*) - Açailândia
+ 6400  6701  1 6400     LT 500kV Marabá (*) - Açailândia
+FIMFLA
+(NA) (        ID        )
+ 460 IM-COL
+(De ) (Pa ) NC ( Ex )
+ 7593  7304  2 7593     LT 500kV Imperatriz (*) - Colinas
+ 7591  7302  1 7591     LT 500kV Imperatriz (*) - Colinas
+FIMFLA
+(NA) (        ID        )
+ 470 FBTA
+(De ) (Pa ) NC ( Ex )
+ 6609   115  1 6609     LT 525kV Itatiba - Bateias
+  122   125  1 122      LT 525kV Ibiuna - Bateias C1
+  122   130  2 122      LT 525kV Ibiuna - Bateias C2
+FIMFLA
+(NA) (        ID        )
+ 480 FITBA
+(De ) (Pa ) NC ( Ex )
+ 6609   115  1 6609     LT 525kV Itatiba - Bateias
+FIMFLA
+(NA) (        ID        )
+ 490 GARABI_C
+(De ) (Pa ) NC ( Ex )
+ 1045   972  1 1045     
+ 1045   973  1 1045     
+FIMFLA
+(NA) (        ID        )
+ 500 MELO_C
+(De ) (Pa ) NC ( Ex )
+ 9786  9787  1 9786     
+FIMFLA
+(NA) (        ID        )
+ 510 RIVERA_C
+(De ) (Pa ) NC ( Ex )
+ 1230  1043  1 1230     
+FIMFLA
+(NA) (        ID        )
+ 520 URUGUAIANA_C
+(De ) (Pa ) NC ( Ex )
+ 1296  1068  1 1296     
+FIMFLA
+(NA) (        ID        )
+ 530 FRS
+(De ) (Pa ) NC ( Ex )
+  980 41301  1 -980     TR 525/230 Nova Santa Rita
+  980 41302  2 -980     TR 525/230 Nova Santa Rita
+  980 41303  3 -980     TR 525/230 Nova Santa Rita
+  980 41304  4 -980     TR 525/230 Nova Santa Rita
+ 1046 41354  2 -1046    TR 525/230 S. Angelo
+ 1046 41355  3 -1046    TR 525/230 S. Angelo
+ 1046 41356  1 -1046    TR 525/230 S. Angelo
+ 1041  1069  1 -1041    LT 230 kV P. Fundo - Xanxere
+ 1041  1069  2 -1041    LT 230 kV P. Fundo - Xanxere
+  961  1163  1 961      LT 230 Forquilhinha - Lajeado Grande
+  965 41229  1 -965     TR 525/230 Caxias
+  965 41230  2 -965     TR 525/230 Caxias
+  965 41231  3 -965     TR 525/230 Caxias
+ 1210 41271  1 -1210    TR 525/230 Gravatai
+ 1210 41272  2 -1210    TR 525/230 Gravatai
+ 1210 41273  3 -1210    TR 525/230 Gravatai
+  936  1325  1 936      LT 230 kV B. Grande - Lagoa Vermelha
+ 1062  9549  1 1062     LT 138kV F. Chapecó - Planalto (Carga da RGE)
+  979  9818  1 979      LT 525 kV Nova Santa Rita - Povo Novo
+ 1071  1213  1 1071     LT 230 kV F. Chapecó - Guarita
+FIMFLA
+999999
+((
+FIM

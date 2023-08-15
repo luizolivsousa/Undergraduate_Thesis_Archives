@@ -1,0 +1,639 @@
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   1
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE PADRAO PARA OPCOES DE EXECUCAO
+
+ X------X------X------X------X------X------X------X------X------X------X
+  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO  OPCAO
+  NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E NOME E
+ X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X----X-X
+
+  QLIM L VLIM L CREM L CTAP L STEP L NEWT L RCVG L RMON L FILE L CONT L
+  CELO L MFCT L CPHS L IANG L
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   2
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10007 10304  1      5.037  25.78  8.841                                     172. 215. 172.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10007   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00227 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10007 10304  2      5.037  25.78  8.841                                     172. 215. 172.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10007   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00228 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10007 10577  1       .148  1.171   .703                                     335. 420. 335.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10007   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00229 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10110 10400  1        .19   1.31   4.77                                     435. 552. 494.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10110   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00230 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10110 10400  2        .19   1.31   4.77                                     435. 552. 494.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10110   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00231 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   3
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10110 10510  1      .1975 1.8512 7.6958                                     775. 922. 625.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10110   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00232 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10110 10510  2      .1975 1.8512 7.6958                                     775. 922. 625.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10110   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00233 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10110 10510  3      .1932 1.5941   6.46                                     775. 922. 625.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10110   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00234 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10111 10312  1      4.931  15.87  5.467                                     138. 160. 138.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10111   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00235 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10111 10313  1       .093   .802   .452                                     410. 530. 410.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10111   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00236 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   4
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10111 10313  2       .093   .802   .452                                     410. 530. 410.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10111   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00237 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10382 10385  1             43.22           1.                                7.5  7.5  7.5                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10382   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00292 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10382 10504  1             -1.22           1.                               150. 180. 150.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10382   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00293 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10383 10385  1             43.22           1.                                7.5  7.5  7.5                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10383   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00294 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10383 10504  1             -1.22           1.                               150. 180. 150.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10383   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00295 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   5
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10400 10755  1      .0214  .4803 42.671                                     741. 741. 494.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10755   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00307 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10405 10110  1        .05    .36   1.32                                     435. 552. 494.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10110   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00320 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10410 10110  1      1.596  10.35  42.02                                     435. 552. 494.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10110   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00324 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10410 10411  1 L F         20.75        1.025                                62.  62.  62. BALBIN-AM230 BALBI1UHE013  LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0210 Circ CA   10410 BALBIN-AM230 10411 BALBI1UHE013 Circ 01 ***
+ Numero do circuito repetido.
+
+ *** Verifique a linha 00326 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10410 10411  1 L F         20.75        1.025                                62.  62.  62. BALBIN-AM230 BALBI1UHE013  LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0210 Circ CA   10410 BALBIN-AM230 10411 BALBI1UHE013 Circ 01 ***
+ Numero do circuito repetido.
+
+ *** Verifique a linha 00327 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10410 10411  1 L F         20.75        1.025                                62.  62.  62. BALBIN-AM230 BALBI1UHE013  LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0210 Circ CA   10410 BALBIN-AM230 10411 BALBI1UHE013 Circ 01 ***
+ Numero do circuito repetido.
+
+ *** Verifique a linha 00328 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10410 10411  1 L F         20.75        1.025                                62.  62.  62. BALBIN-AM230 BALBI1UHE013  LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0210 Circ CA   10410 BALBIN-AM230 10411 BALBI1UHE013 Circ 01 ***
+ Numero do circuito repetido.
+
+ *** Verifique a linha 00329 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10416 10417  1      .8839 3.6224  .0735                                      74.  93.  74.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10417   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00330 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   6
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10416 10417  2      .8839 3.6224  .0735                                      74.  93.  74.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10417   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00331 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10417 10418  1               40.        .9955    .9   1.1 32       -10418    30.  36.  30.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10417   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00332 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10417 10418  2               40.        .9955    .9   1.1 32       -10418    30.  36.  30.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10417   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00333 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10500 10382  1             7.447        .9716    .9   1.1 17       -10504   150. 180. 150.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10382   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00365 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10500 10383  1             7.447        .9716    .9   1.1 17       -10504   150. 180. 150.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0170 Barra CA 10383   ***
+ Numero da barra PARA nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00366 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   7
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  10755 10500  1      .0258  .2176 1.1161                                     625. 781. 625.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10755   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00419 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10756 10330  1      .0076  .1676  15.17                                     612. 612. 612.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10756   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00420 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  10757 10330  1      .0076  .1676  15.17                                     612. 612. 612.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 10757   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00421 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  13550 10557  1             14.88         .998    .9   1.1 32       -10567   100. 120.  66.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 13550   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00422 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+  13550 10569  1             14.88         .998    .9   1.1 32       -10567   100. 120.  66.                            LIG.  LIG.   3   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 13550   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00423 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+
+CEPEL - CENTRO DE PESQUISAS DE ENERGIA ELETRICA - PROGRAMA DE ANALISE DE REDES - V11.07.00                                 PAG.   8
+
+ 25.0.2 TUCURUÍ 138 KV - 2025 - SEM OBRAS - MÉDIA                                
+ DADOS DE CIRCUITO CA
+
+ X-----------X------X-------------X------X-----------------------------------X--------------X-------------------------X-----------X---------------------------------------X
+     BARRA     CIRC  RESIST REATAN SUSCEP        TAP            ANG  BARRA        (MVA)            IDENTIFICACAO         ESTADO        A  G  R  E  G  A  D  O  R  E  S
+   DE   PARA  NC E P   (%)    (%)  (Mvar) ESPEC  MIN   MAX  NS DEFAS CONTR. M NORM EMER EQPT    DA BARRA   PARA BARRA   DE   PARA  AG1 AG2 AG3 AG4 AG5 AG6 AG7 AG8 AG9 A10
+ X-----X-----X--X-X-X------X------X------X-----X-----X-----X--X-----X------X-X----X----X----X------------X------------X-----X-----X---X---X---X---X---X---X---X---X---X---X
+  41958 10575  1      9.107  49.61 14.599                                     170. 213. 170.                            LIG.  LIG.  21   3                                 ADIC 
+ *** ERRO INPLIN-0160 Barra CA 41958   ***
+ Numero da barra DE nao definido nos dados de barra.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0310 ***
+ Indicador de definicao do estado operativo do circuito invalido.
+
+ *** ERRO INPLIN-0320 ***
+ Indicador da barra `a cuja area pertence o circuito invalido.
+
+ *** Verifique a linha 00424 do arquivo C:\USERS\LUIZSOUSA\DOCUMENTS\TCC\CEPEL\SIMULAçõES\MANAUS\MANAUS-SIN-ATT.PWF ***
+

@@ -1,0 +1,88 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Caso_PEL_0720.stb                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020                                                                                  |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(
+( ARQUIVOS DE SAIDA DA SIMULACAO
+(Tipo) (C) ( Nome do Arquivo
+   OUT
+   LOG
+   PLT
+(
+( ARQUIVO HISTORICO/REGISTRO DO CASO DE FLUXO DE POTENCIA
+(Tipo) (C) ( Nome do Arquivo
+   SAV  20 3Q2020_R2.sav
+(
+( ARQUIVOS DE MODELOS
+(Tipo) (C) ( Nome do Arquivo
+   BLT     .\BDados\BD_0720.blt
+   CDU     .\BDados\BD_0720.cdu
+(
+( ARQUIVOS DE ENTRADA DE DADOS
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\DMAQ_PEL_0720.dat
+   DAT     .\BDados\FACTS_PEL_0720.dat
+   DAT     .\BDados\HVDC_0720.dat
+   DAT     .\BDados\Eolicas\EOL_DADOS.dat
+   DAT     .\BDados\Eolicas\EOL_NE_PEL_0720.dat
+   DAT     .\BDados\Eolicas\EOL_SUL_PEL_0720.dat
+   DAT     .\BDados\Fotovoltaicas\UFV_PEL_0720.dat
+(
+( SEPs e ARQUIVOS DE DADOS COMPLEMENTARES
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\Dados_Complementares\DCAR_PEL_0720.dat
+   DAT     .\BDados\Dados_Complementares\DREL_PEL_0720.dat
+   DAT     .\BDados\Dados_Complementares\ERAC_PEL_0720.dat
+(  DAT     .\BDados\Dados_Complementares\SEP_0720.dat
+(  DAT     .\BDados\Dados_Complementares\DREL_MD04_PEL_0720.dat
+(  DAT     .\BDados\Dados_Complementares\LTCSSE_0720.dat
+(
+( ARQUIVOS DE PLOTAGEM
+(Tipo) (C) ( Nome do Arquivo
+(  DAT     .\BDados\Dados_Complementares\FLUXBR_0720.dat
+   DAT     .\BDados\Plotagem\PLT_MAQ_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_HVDC_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_EOL_SUL_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_EOL_NE_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_UFV_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_FACTS_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_FLUXBR_0720.dat
+(  DAT     .\BDados\Plotagem\PLT_USUARIO_0720.dat
+(
+999999
+(
+(
+( |---------------------------------------------------------------------------------------------|
+( | Eventos                                                                                     |
+( |---------------------------------------------------------------------------------------------|
+(
+DEVT IMPR
+(Tp) ( Tempo)( El )( Pa)Nc( Ex) ( % ) (ABS ) Gr Und         (Bl)P ( Rc ) ( Xc ) ( Bc ) (Defas)
+999999
+(
+( |---------------------------------------------------------------------------------------------|
+( | Dados de execucao da simulacao e intervalo de plotagem                                      |
+( |---------------------------------------------------------------------------------------------|
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+    30.0  .001    11
+EXSI DLCC DLCA OTMX
+(
+FIM

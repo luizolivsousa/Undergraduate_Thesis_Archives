@@ -1,0 +1,82 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_DLOC.dat                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DLOC
+(  CONVERSORES
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+3101   CONVER  4201                        Brasil
+3102   CONVER  4202                        Uruguai
+(
+(  BARRAS CA
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+3191   BARRAC  9787                        Brasil
+3192   BARRAC 90018                        Uruguai
+(
+(  SHUNT INDIVIDUALIZADO
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+3193   BSH     9787            90          Filtros Melo 60 Hz - Brasil
+3194   BSH    90018            90          Filtros Melo 50 Hz - Uruguai
+3195   BSH    90018            10          Reator Melo 50 Hz - Uruguai
+3196   BSH     9786 9787 19786 90          Filtro LT Candiota - Melo
+(
+(  CDU 9335 (POWER CTRL)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+2091   CDU     9335               600      IORD (CDU 9091) -> PHASE CONTROL BRASIL
+2092   CDU     9335               610      IORD (CDU 9092) -> PHASE CONTROL URUGUAI
+2017   CDU     9335               182      PORD (CDU 9920) -> RPC
+2018   CDU     9335               184      UPDOWN (CDU 9920) -> RPC
+2015   CDU     9335               183      PORD (CDU 9395) -> OLRPC/TOV URUGUAI
+2028   CDU     9335               283      PORD (CDU 9396) -> OLRPC/TOV BRASIL
+2025   CDU     9335               281      PORD (CDU 9093) -> TAP CTRL BRASIL
+2027   CDU     9335               282      PORD (CDU 9094) -> TAP CTRL URUGUAI
+(
+(  CDU 9920 (RPC-RPEM)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+2030   CDU     9920               890      VORD (CDU 9335) -> POWER CONTROL
+2012   CDU     9920               900      VORD (CDU 9091) -> PHASE CONTROL BRASIL
+2013   CDU     9920               910      VORD (CDU 9092) -> PHASE CONTROL URUGUAI
+5291   CDU     9920              1320      TUPB (CDU 9093) -> TAP CTRL BRASIL
+5292   CDU     9920              1780      TDWB (CDU 9093) -> TAP CTRL BRASIL
+5293   CDU     9920              1550      TUPU (CDU 9094) -> TAP CTRL URUGUAI
+5294   CDU     9920              2010      TDWU (CDU 9094) -> TAP CTRL URUGUAI
+(
+(  CDU 9093 (TAP CTRL BRA)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+5101   CDU     9093              1026      VWVMXB (CDU 9920) -> RPC
+5191   CDU     9093              1029      VWVMNB (CDU 9920) -> RPC
+5102   CDU     9093               137      TAP EM CURSO  (CDU 9920) -> RPC
+(
+(  CDU 9094 (TAP CTRL URU)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+6101   CDU     9094              1026      VWVMXU (CDU 9920) -> RPC
+6191   CDU     9094              1029      VWVMNU (CDU 9920) -> RPC
+6102   CDU     9094               137      TAP EM CURSO  (CDU 9920) -> RPC
+(
+(  CDU 9395 (OLRPC-TOV URU)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+5295   CDU     9395              1650      PLIMU -> POWER CONTROL
+(
+(  CDU 9396 (OLRPC-TOV BRA)
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+5296   CDU     9396              1650      PLIMB -> POWER CONTROL
+(
+999999
+(
+FIM

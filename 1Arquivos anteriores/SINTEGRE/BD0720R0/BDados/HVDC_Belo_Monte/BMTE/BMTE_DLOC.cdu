@@ -1,0 +1,158 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_DLOC.cdu                                                                             |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DLOC
+(
+(Barras AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9970   BARRAC  3010                    Estreito 500 kV
+9971   BARRAC  8100                    Xingu 500 kV            
+(
+(Linhas AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9951   CIRCAC  8101 6430 1             Linha Xingu-Tucurui C1
+9952   CIRCAC  8102 6430 2             Linha Xingu-Tucurui C2
+9953   CIRCAC  299  7238 1             Linha S.Mesa 2 - Peixe 2
+9954   CIRCAC  235  7236 1             Linha S.Mesa - Gurupi C1
+9955   CIRCAC  235  7237 2             Linha S.Mesa - Gurupi C2
+(
+(Máquinas
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+8410   MAQ   6729              10      Belo Monte Grupo 10 - 9 x 611.1 MW  
+8420   MAQ   6729              20      Belo Monte Grupo 20 - 5 x 611.1 MW
+8430   MAQ   6729              30      Belo Monte Grupo 30 - 4 x 611.1 MW
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+6419   MAQ   6419              10      Tucurui 1 Grupo 10 - 5 x 350 MW
+6420   MAQ   6420              10      Tucurui 2 Grupo 10 - 3 x 350 MW
+6422   MAQ   6422              10      Tucurui 3 Grupo 10 - 4 x 350 MW
+(
+(Transformador elevador de máquina
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9557   CIRCAC  6730 6729 1             Belo Monte
+9558   CIRCAC  6410 6419 1             Tucurui 1
+9559   CIRCAC  6410 6420 1             Tucurui 2
+9956   CIRCAC  6410 6422 1             Tucurui 3
+(
+(Conversores
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9981   CONVER  3201                    POLO 1 - XINGU 
+9982   CONVER  3202                    POLO 1 - ESTREITO
+9983   CONVER  3203                    POLO 2 - XINGU
+9984   CONVER  3204                    POLO 2 - ESTREITO
+(
+(Filtros AC Xingu
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9901   BSH     8100            20      Tipo A (3/11/50) - 3 x 220 Mvar
+9902   BSH     8100            30      Tipo B (13/24/36) - 3 x 180 Mvar
+9903   BSH     8100            40      Tipo C (58) - 2 x 200 Mvar
+(
+(Filtros AC Estreito
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9801   BSH     3010            10      Tipo A (3/11/50) - 3 x 220 Mvar
+9802   BSH     3010            20      Tipo B (13/24/36) - 3 x 180 Mvar
+9803   BSH     3010            30      Tipo C (58) - 6 x 200 Mvar
+(
+(CDU 95000 Station Control
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9960   CDU    95000                11  PREFDC -> P1 XINGU
+9961   CDU    95000                12  PREFDC -> P1 ESTREITO
+9962   CDU    95000                13  PREFDC -> P2 XINGU 
+9963   CDU    95000                14  PREFDC -> P2 ESTREITO
+(
+(CDU 97010 DC Line Fault - Pole 1
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+8501    CDU   97010                 2  DCLNFT -> P1 XINGU
+9502    CDU   97010                 3  UREFDC -> P1 XINGU
+9503    CDU   97010                 4  REDV -> P1 XINGU
+8504    CDU   97010                 5  BLOCK -> P1 XINGU
+9525    CDU   97010              8001  DCLNFT Other Pole -> P2 XINGU
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+8505    CDU   97010                 6  DCLNFT -> P1 ESTREITO
+9506    CDU   97010                 7  UREFDC -> P1 ESTREITO         
+9507    CDU   97010                 8  REDV -> P1 ESTREITO           
+9508    CDU   97010                 9  BLOCK -> P1 ESTREITO           
+9527    CDU   97010              8003  DCLNFT Other Pole -> P2 ESTREITO
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9510    CDU   97010              8005  DCLNFT Other Pole -> DCLFRS P2
+(
+(CDU 97020 DC Line Fault - Pole 2
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9511    CDU   97020                 2  DCLNFT -> P2 XINGU            
+9512    CDU   97020                 3  UREFDC -> P2 XINGU            
+9513    CDU   97020                 4  REDV -> P2 XINGU              
+9514    CDU   97020                 5  BLOCK -> P2 XINGU             
+9521    CDU   97020              8001  DCLNFT Other Pole -> P1 XINGU 
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9515    CDU   97020                 6  DCLNFT -> P2 ESTREITO           
+9516    CDU   97020                 7  UREFDC -> P2 ESTREITO           
+9517    CDU   97020                 8  REDV -> P2 ESTREITO             
+9518    CDU   97020                 9  BLOCK -> P2 ESTREITO            
+9523    CDU   97020              8003  DCLNFT Other Pole -> P1 ESTREITO
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9520    CDU   97020              8005  DCLNFT Other Pole -> DCLFRS P1
+(
+(CDU 97761 Pole Control P1 Xingu
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9560   CDU    97761              4850  Irefin -> P1 ESTREITO
+9564   CDU    97761              2504  I_MAX P1 XINGU -> SEP
+(
+(CDU 97762 Pole Control P1 Estreito
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9561   CDU    97762              4850  Irefin -> P1 XINGU
+9565   CDU    97762              2504  I_MAX P1 ESTREITO -> SEP
+(
+(CDU 97763 Pole Control P2 Xingu
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9562   CDU    97763              4850  Irefin -> P2 ESTREITO
+9566   CDU    97763              2504  I_MAX P2 XINGU -> SEP
+(
+(CDU 97764 Pole Control P2 Estreito
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9563   CDU    97764              4850  Irefin -> P2 XINGU
+9567   CDU    97764              2504  I_MAX P2 ESTREITO -> SEP
+(
+((CDU 96000 SEP
+((Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9542   CDU   96000                  6  DPO -> STATION CONTROL
+9543   CDU   96000               7001  Block by SEP -> P1 XINGU
+9544   CDU   96000               7002  Block by SEP -> P1 ESTREITO
+9545   CDU   96000               7003  Block by SEP -> P2 XINGU
+9546   CDU   96000               7004  Block by SEP -> P2 ESTREITO
+(
+(CDU 9210 AC Filter Control Xingu
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9891   CDU   9210                  51  RPC LIMIT -> P1 XINGU
+9892   CDU   9210                  52  RPC LIMIT -> P1 ESTREITO
+9893   CDU   9210                  53  RPC LIMIT -> P2 XINGU
+9894   CDU   9210                  54  RPC LIMIT -> P2 ESTREITO
+(
+(CDU 9220 AC Filter Control Estreito
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9895   CDU   9220                  51  RPC LIMIT -> P1 XINGU
+9896   CDU   9220                  52  RPC LIMIT -> P1 ESTREITO
+9897   CDU   9220                  53  RPC LIMIT -> P2 XINGU
+9898   CDU   9220                  54  RPC LIMIT -> P2 ESTREITO
+(
+999999

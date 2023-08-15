@@ -1,0 +1,87 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Caso_PEL_0320.stb                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DOPC
+(Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E (Op) E
+BASE L DCNI L ILHA L
+999999
+(
+DARQ
+(
+( ARQUIVOS DE SAIDA DA SIMULACAO
+(Tipo) (C) ( Nome do Arquivo
+   OUT
+   LOG
+   PLT
+(
+( ARQUIVO HISTORICO/REGISTRO DO CASO DE FLUXO DE POTENCIA
+(Tipo) (C) ( Nome do Arquivo
+   SAV  01
+(
+( ARQUIVOS DE MODELOS
+(Tipo) (C) ( Nome do Arquivo
+   BLT     ..\BDados\BD_0320R1.blt
+   CDU     ..\BDados\BD_0320R1.cdu
+(
+( ARQUIVOS DE ENTRADA DE DADOS
+(Tipo) (C) ( Nome do Arquivo
+   DAT     ..\BDados\SAGE\DMAQ.stb
+   DAT     ..\BDados\FACTS_PEL_0320.dat
+   DAT     ..\BDados\HVDC_0320.dat
+   DAT     ..\BDados\Eolicas\EOL_DADOS.dat
+   DAT     ..\BDados\Eolicas\EOL_NE_PEL_0320.dat
+   DAT     ..\BDados\Eolicas\EOL_SUL_PEL_0320.dat
+   DAT     ..\BDados\Fotovoltaicas\UFV_PEL_0320.dat
+(
+( SEPs e ARQUIVOS DE DADOS COMPLEMENTARES
+(Tipo) (C) ( Nome do Arquivo
+   DAT     ..\BDados\Dados_Complementares\DCAR_PEL_0320.dat
+   DAT     ..\BDados\Dados_Complementares\DREL_PEL_0320.dat
+   DAT     ..\BDados\Dados_Complementares\ERAC_PEL_0320.dat
+   DAT     ..\BDados\Dados_Complementares\SEP_0320.dat
+   DAT     ..\BDados\Dados_Complementares\DREL_MD04_PEL_0320.dat
+   DAT     ..\BDados\Dados_Complementares\FLUXBR_0320.dat
+(
+( ARQUIVOS DE PLOTAGEM
+(Tipo) (C) ( Nome do Arquivo
+   DAT     ..\BDados\Plotagem\PLT_MAQ_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_HVDC_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_EOL_SUL_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_EOL_NE_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_UFV_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_FACTS_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_FLUXBR_0320.dat
+   DAT     ..\BDados\Plotagem\PLT_USUARIO_0320.dat
+(
+( ARQUIVO DE ENTRADA DE EVENTOS
+(Tipo) (C) ( Nome do Arquivo
+(  DAT     DEVT.DAT
+(
+999999
+(
+( |---------------------------------------------------------------------------------------------|
+( | Dados de execucao da simulacao e intervalo de plotagem                                      |
+( |---------------------------------------------------------------------------------------------|
+(
+DSIM
+( Tmax ) (Stp) ( P ) ( I ) ( F )
+    30.0  .001    11
+EXSI DLCC DLCA SAD2 OTMX
+(
+FIM

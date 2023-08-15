@@ -1,0 +1,244 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       MADEIRA_BP2_TAP_CONTROL.cdu                                                               |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( **********************************************************************
+( *  OBSERVACOES (03/05/2019)                                          *
+( *  1. Atualização do controle de acordo com o modelo                 *
+( *     do PSCAD fornecido                                             *
+( *                                                                    *
+( *  REVISOES                                                          *
+( *  1. (03/06/2019) Atualização do controle de acordo com o modelo    *
+( *     do PSCAD fornecido                                             *
+( *  2. (07/06/2019) Atualização do controle de filtro                 *
+( *  3. (17/07/2019) Atualização do controle de filtro 2               *
+( *  4. (07/10/2019) Mudança do número do CDU FC_PORTOVELHO de 9321    *
+( *     para 9319, assim como mudanaça na numerção de alguns DLOCs     *
+( **********************************************************************
+(
+DTDU
+(--------------------------------------------------------
+(  CONTROLE COMUM DO TAP-CHANGER
+(      9900 - RETIFICADOR  
+(      9901 - INVERSOR     
+(--------------------------------------------------------
+(ncdu) ( nome cdu )
+  9900 TAP_CHANGER
+(----------------------------------------------------------------------   
+(                      [PARAMETROS]
+(----------------------------------------------------------------------
+DEFPAR #VORD                9306    
+DEFPAR #HI                 1.047   
+DEFPAR #LO                 0.738   
+DEFPAR #VHIST             0.0125   
+DEFPAR #TAPIN               0.0 
+(  
+DEFPAR #TWAIT                5.0
+DEFPAR #ALFMI               10.0
+DEFPAR #ALFMA               16.5
+(DEFPAR #GAMMN               17.5
+(DEFPAR #GAMMX               19.5
+DEFPAR #REC                 1.0 
+(
+(----------------------------------------------------------------------   
+(                         [IMPORTS]
+(----------------------------------------------------------------------   
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(9900 IMPORT GAMA          GAMA
+9901 IMPORT ALFA          ALFA        
+9902 IMPORT VCNV          VDCIN          
+9903 IMPORT CCNV          IDC          
+9904 IMPORT CDU           VORD   #VORD  
+(----------------------------------------------------------------------
+(                        [VARIAVEIS]
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 ENTRAD               HI
+0002 ENTRAD               LO
+0003 ENTRAD               VHIST
+(0004 ENTRAD               TAPIN
+(
+0010 ENTRAD               TWAIT
+0011 ENTRAD               ALFMIN
+0012 ENTRAD               ALFMAX
+(0013 ENTRAD               GAMMIN
+(0014 ENTRAD               GAMMAX
+(
+0015 ENTRAD               ZERO  
+0017 ENTRAD               REC
+0018 ENTRAD               CEM
+0019 ENTRAD               MCEM
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        HI     #HI
+DEFVAL        LO     #LO
+DEFVAL        VHIST  #VHIST
+(DEFVAL        TAPIN  #TAPIN
+DEFVAL        VORD      1.0
+(
+DEFVAL        ZERO      0.0
+DEFVAL        REC      #REC
+DEFVAL        CEM     100.0
+DEFVAL        MCEM   -100.0
+DEFVAL        DOIS      2.0
+DEFVAL        TWAIT  #TWAIT
+DEFVAL        ALFMIN #ALFMI
+DEFVAL        ALFMAX #ALFMA
+(DEFVAl        GAMMIN #GAMMN
+(DEFVAL        GAMMAX #GAMMX
+(----------------------------------------------------------------------
+(                       [INICIALIZAÇÃO]
+(----------------------------------------------------------------------
+DEFVAL        X1000     0.0
+DEFVAL        X1030     0.0
+(DEFVAL        X1080     0.0
+(----------------------------------------------------------------------
+(                     [MALHA DE CONTROLE]
+(----------------------------------------------------------------------            
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0029 FUNCAO DEGREE ALFA   ALPHA
+0030 LEDLAG        ALPHA  X0030   1.0        1.0   0.05     
+0040 COMPAR  .GT.  ALFMIN TUPRec                                                   
+                   X0030  TUPRec
+0050 COMPAR  .GT.  X0030  TDNRec                                                   
+                   ALFMAX TDNRec
+0060 FUNCAO   ABS  VDCIN  X0060
+0070 LEDLAG        IDC    X0070   1.0        1.0   0.15   ZERO   DOIS
+0080 GANHO         X0070  X0080   0.07
+0090 SOMA          X0060  VDCI
+                   X0080  VDCI
+0100 SOMA          VORD   VSETMX
+                   VHIST  VSETMX
+0110 SOMA          VORD   VSETMN
+                  -VHIST  VSETMN 
+0120 COMPAR  .GT.  VDCI   TDWVDC                                                 
+                   VSETMX TDWVDC
+0130 COMPAR  .GT.  VSETMN TUPVDC                                                 
+                   VDCI   TUPVDC                                                  
+0140 SELET2        TUPInv X0140
+                   TUPRec X0140
+                   REC    X0140
+0150 DLAYON        X0140  X0150   0.5
+0160 LOGIC  .AND.  X0140  TAPUP
+                   X0150  TAPUP
+0170 SELET2        TDNInv X0170
+                   TDNRec X0170                                   
+                   REC    X0170
+0180 DLAYON        X0170  X0180   0.5
+0190 LOGIC  .AND.  X0180  TAPDN
+                   X0170  TAPDN       
+(0200 FUNCAO DEGREE GAMA   GAMMA
+(0201 LEDLAG        GAMMA  X201   1.0   0.0   1.0   0.05
+(0202 COMPAR  .LT.  X201   TUPGAM
+(                   GAMMIN TUPGAM
+(0203 COMPAR  .GT.  X201   TDWGam
+(                   GAMMAX TDWGam
+(0204 LOGIC  .OR.   TUPGAM TUPInv                                      
+(                   TUPVDC TUPInv
+0204 GANHO         TUPVDC TUPInv  1.0                
+(0205 LOGIC  .OR.   TDWGam TDNInv
+(                   TDWVDC TDNInv
+0205 GANHO         TDWVDC TDNInv  1.0                                                     
+(0204 GANHO         TUPGAM TUPInv   1.0
+(0205 GANHO         TDWGam TDNInv   1.0
+(0206 SAIDA         TUPVDC
+(0207 SAIDA         TDWVDC
+
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1000 INTRES        TAPUP  X1000   1.0                      MCEM   CEM
+                   X1015  X1000
+                   ZERO   X1000
+1010 COMPAR  .GT.  X1000  X1010
+                   TWAIT  X1010
+1015 DELAY         X1010  X1015                    
+1020 MONEST        X1015  X1020  0.01           
+1030 INTRES        TAPDN  X1030  1.0                       MCEM   CEM
+                   X1045  X1030
+                   ZERO   X1030
+1040 COMPAR  .GT.  X1030  X1040
+                   TWAIT  X1040
+1045 DELAY         X1040  X1045                   
+1050 MONEST        X1045  X1050  0.01 
+1060 SOMA          X1020  X1060
+                  -X1050  X1060 
+1070 GANHO         X1060  X1070  1.25
+1080 PROINT        X1070  TRATIO 1.0    0.0   1.0         LO     HI
+(1090 SOMA          X1080  TRATIO
+(                   TAPIN  TRATIO
+(1091 FUNCAO INVRS  X1080   TAP                   
+1100 EXPORT CTAP   TRATIO
+
+(1110 SOMA         -TAPIN  HILIM
+(                   HI     HILIM
+(1120 SOMA         -TAPIN  LOLIM
+(                   LO     LOLIM                     
+
+FIMCDU
+999999
+ACDU
+(--------------------------------------------------------
+(  PARAMETROS DOS CONTROLES DE TAP 
+(      9203 - TAP-CHANGER CONTROL POLE 3 - RETIFICADOR
+(      9204 - TAP-CHANGER CONTROL POLE 3 - INVERSOR
+(      9205 - TAP-CHANGER CONTROL POLE 4 - RETIFICADOR
+(      9206 - TAP-CHANGER CONTROL POLE 4 - INVERSOR
+(-------------------------------------------------------
+(
+(ncdu) (ntop) ( nome cdu )  
+ 9203   9900  TAP-P3-RET
+(EFPAR (nome) (     valor      )
+DEFPAR #VORD                9601
+DEFPAR #HI                 1.047
+DEFPAR #LO                 0.738
+DEFPAR #VHIST             0.0125
+DEFPAR #TAPIN               0.95
+DEFPAR #REC                 1.0 
+FIMCDU
+(ncdu) (ntop) ( nome cdu ) 
+ 9204   9900  TAP-P3-INV
+(EFPAR (nome) (     valor      ) 
+DEFPAR #VORD                9602
+DEFPAR #HI                1.0695
+DEFPAR #LO                 0.749
+DEFPAR #VHIST           0.009375
+DEFPAR #TAPIN               0.91
+DEFPAR #REC                 0.0 
+FIMCDU
+(ncdu) (ntop) ( nome cdu )  
+ 9205   9900  TAP-P4-RET
+(EFPAR (nome) (     valor      )
+DEFPAR #VORD                9603
+DEFPAR #HI                 1.047
+DEFPAR #LO                 0.738
+DEFPAR #VHIST             0.0125
+DEFPAR #TAPIN               0.95
+DEFPAR #REC                 1.0 
+FIMCDU
+(ncdu) (ntop) ( nome cdu )   
+ 9206   9900  TAP-P4-INV
+(EFPAR (nome) (     valor      ) 
+DEFPAR #VORD                9604
+DEFPAR #HI                1.0695
+DEFPAR #LO                 0.749
+DEFPAR #VHIST           0.009375
+DEFPAR #TAPIN               0.91
+DEFPAR #REC                 0.0 
+FIMCDU
+999999

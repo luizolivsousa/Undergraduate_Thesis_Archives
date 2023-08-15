@@ -1,0 +1,190 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_DLOC_V16.cdu                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DLOC
+(Filtros AC Xingu
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1901   BSH    8100             50      Tipo A (3/11/50) - 3 x 220 Mvar
+1902   BSH    8100             60      Tipo B (13/24/36) - 3 x 180 Mvar
+1903   BSH    8100             70      Tipo C (58) - 2 x 200 Mvar
+(
+(Filtros AC Terminal Rio
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1904   BSH    9605             10
+1905   BSH    9605             20
+1906   BSH    9605             30
+(
+(Reatores Terminal Rio
+1907   BSH    9507             10
+1908   BSH    9507             20
+1909   BSH    9508             10
+1910   BSH    9508             20
+(
+(Barras AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1970   BARRAC  9605                    T.Rio 500 kV
+1971   BARRAC  8100                    Xingu 500 kV
+(
+(Linhas AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+8953   CIRCAC  7200 7301 1             Linha Miracema - Colinas C1
+8954   CIRCAC  7200 7303 2             Linha Miracema - Colinas C2
+8955   CIRCAC  7200 7305 3             Linha Miracema - Colinas C3
+8956   CIRCAC  7302 7591 1             Linha Colinas - Imperatriz C1
+8957   CIRCAC  7304 7593 2             Linha Colinas - Imperatriz C2
+8958   CIRCAC  5590 6400 1             Linha Imperatriz - Maraba C1
+8959   CIRCAC  5590 6400 2             Linha Imperatriz - Maraba C2
+8960   CIRCAC  7102 7201 1             Linha Gurupi - Miracema C1
+8961   CIRCAC  7104 7203 2             Linha Gurupi - Miracema C2
+8962   CIRCAC  7105 7209 3             Linha Gurupi - Miracema C3
+8963   CIRCAC  7101 7236 1             Linha Gurupi - S.Mesa C1
+8964   CIRCAC  7103 7237 2             Linha Gurupi - S.Mesa C2
+8965   CIRCAC  7235 7113 1             Linha Gurupi - S.Mesa/Peixe C1
+8966   CIRCAC  0299 7238 1             Linha Gurupi - S.Mesa/Peixe C2
+(
+(Transformador
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+ 200   CIRCAC 8100 43970 1             Trafo Xingu 500/230 kV
+(
+(Conversores
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+1981   CONVER  3205                    POLO 1 - XINGU
+1982   CONVER  3206                    POLO 1 - T.RIO
+1983   CONVER  3207                    POLO 2 - XINGU
+1984   CONVER  3208                    POLO 2 - T.RIO
+(
+(EXPORTS S1P1
+2106   CDU    8411               5006            URED_STAT
+2108   CDU    8411               5008            IO_CFC
+2109   CDU    8411               5009            UD_1
+2112   CDU    8411               5012            BC_ON
+2113   CDU    8411               5013            BC_ON_CONFIRMED
+2116   CDU    8411               5016            IO_PERFORMANCE
+2117   CDU    8411               5017            PPTS
+2121   CDU    8411               5021            UD_REF
+2125   CDU    8411               5050            RL_INIT_DOWN
+2126   CDU    8411               5070            IO_MAX
+2127   CDU    8411               5080            UrdSta
+2318   CDU    8411               5018            UdFlTKV
+(
+(EXPORTS S2P1
+2206   CDU    8412               5006            URED_STAT
+2208   CDU    8412               5008            IO_CFC
+2209   CDU    8412               5009            UD_1
+2212   CDU    8412               5012            BC_ON
+2213   CDU    8412               5013            BC_ON_CONFIRMED
+2216   CDU    8412               5016            IO_PERFORMANCE
+2217   CDU    8412               5017            PPTS
+9221   CDU    8412               5021            UD_REF
+2225   CDU    8412               5050            RL_INIT_DOWN
+2227   CDU    8412               5080            UrdSta
+2418   CDU    8412               5018            UdFlTKV
+(
+(EXPORTS S1P2
+2306   CDU    8413               5006            URED_STAT
+2308   CDU    8413               5008            IO_CFC
+2309   CDU    8413               5009            UD_1
+2312   CDU    8413               5012            BC_ON
+2313   CDU    8413               5013            BC_ON_CONFIRMED
+2316   CDU    8413               5016            IO_PERFORMANCE
+2317   CDU    8413               5017            PPTS
+2321   CDU    8413               5021            UD_REF
+2325   CDU    8413               5050            RL_INIT_DOWN
+2326   CDU    8413               5070            IO_MAX
+2327   CDU    8413               5080            UrdSta
+2118   CDU    8413               5018            UdFlTKV
+(
+(EXPORTS S2P2
+2406   CDU    8414               5006            URED_STAT
+2408   CDU    8414               5008            IO_CFC
+2409   CDU    8414               5009            UD_1
+2412   CDU    8414               5012            BC_ON
+2413   CDU    8414               5013            BC_ON_CONFIRMED
+2416   CDU    8414               5016            IO_PERFORMANCE
+2417   CDU    8414               5017            PPTS
+2421   CDU    8414               5021            UD_REF
+2425   CDU    8414               5050            RL_INIT_DOWN
+2427   CDU    8414               5080            UrdSta
+2218   CDU    8414               5018            UdFlTKV
+(
+(EXPORTS MAIN CONTROL
+3116   CDU    8000               0216            FCDAMP
+3117   CDU    8000               0217            FCDAMP
+3118   CDU    8000               0218            FCDAMP
+3119   CDU    8000               0219            FCDAMP
+(
+3120   CDU    8000               0220            DPDAMP
+3121   CDU    8000               0221            DPDAMP
+3122   CDU    8000               0222            DPDAMP
+3123   CDU    8000               0223            DPDAMP
+(
+3124   CDU    8000               0224            DPOWB2
+3125   CDU    8000               0225            DPOWB2
+3126   CDU    8000               0226            DPOWB2
+3127   CDU    8000               0227            DPOWB2
+(
+(EXPORTS SEP
+3200   CDU   96000               8010            RUNUP SIGNAL FROM SEP TO BP2 XINGU - P1
+3201   CDU   96000               8011            RUNUP SIGNAL FROM SEP TO BP2 T.RIO - P1
+3202   CDU   96000               8012            RUNUP SIGNAL FROM SEP TO BP2 XINGU - P2
+3203   CDU   96000               8013            RUNUP SIGNAL FROM SEP TO BP2 T.RIO - P2
+3204   CDU   96000               8014            BLOCK SIGNAL FROM SEP TO BP2 XINGU - P1
+3205   CDU   96000               8015            BLOCK SIGNAL FROM SEP TO BP2 T.RIO - P1
+3206   CDU   96000               8016            BLOCK SIGNAL FROM SEP TO BP2 XINGU - P2
+3207   CDU   96000               8017            BLOCK SIGNAL FROM SEP TO BP2 T.RIO - P2
+(
+(Conversores
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9985   CONVER  3205                    POLO 3 - XINGU
+9986   CONVER  3206                    POLO 3 - T.RIO
+9987   CONVER  3207                    POLO 4 - XINGU
+9988   CONVER  3208                    POLO 4 - T.RIO
+(
+(DCLF - POLE 1
+3251   CDU   8431                2250
+3252   CDU   8431                2251
+3253   CDU   8431                2252
+3254   CDU   8431                2253
+(
+3261   CDU   8431                2260
+3262   CDU   8431                2261
+3263   CDU   8431                2262
+3264   CDU   8431                2263
+(
+3265   CDU   8431                2264
+(
+(DCLF - POLE 2
+3271   CDU   8432                2250
+3272   CDU   8432                2251
+3273   CDU   8432                2252
+3274   CDU   8432                2253
+(
+3281   CDU   8432                2260
+3282   CDU   8432                2261
+3283   CDU   8432                2262
+3284   CDU   8432                2263
+(
+3285   CDU   8432                2264
+(
+(RPC
+3290   CDU   8401                3527     RNBACK S1
+3291   CDU   8402                3527     RNBACK S2
+(
+999999

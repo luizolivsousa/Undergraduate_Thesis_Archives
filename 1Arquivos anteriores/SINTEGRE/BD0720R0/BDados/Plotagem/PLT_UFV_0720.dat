@@ -1,0 +1,269 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_UFV_0720.dat                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Arquivo para plotagem de todas as Fotovoltaicas presentes na simulação                    |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(PAC
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT    4066                                      SE Paracatu4  138 kV
+VOLT    1569                                      SE Pirapora2  138 kV
+VOLT    3106                                      SE Getulina   138 kV
+VOLT    6743                                      SE N.Olinda   500 kV
+VOLT    5570                                      SE S.J.Piaui  500 kV
+VOLT    6351                                      SE B.J.Lapa   230 kV
+VOLT    6311                                      SE Juazeiro2  230 kV
+VOLT    5378                                      SE Tacaratu   230 kV
+VOLT    6748                                      SE Horizonte  230 kV
+VOLT    5441                                      SE Mossoro2   230 kV
+VOLT    5337                                      SE Quixere    230 kV
+VOLT    5621                                      SE Coremas    230 kV
+VOLT    5383                                      SE Aquiraz II  69 kV
+VOLT    5468                                      SE Açu2       138 kV
+VOLT    6353                                      SE B.J.Lapa    69 kV
+VOLT    6062                                      SE T.B.Velho  230 kV
+VOLT    6063                                      SE Ituverava   34 kV
+VOLT     639                                      SE Dracena1   138 kV
+VOLT    7628                                      SE Boa Hora   138 kV
+VOLT    7634                                      SE A.Vermelha 138 kV
+VOLT    6363                                      SE Barreiras   69 kV
+VOLT    8188                                      SE S.Gonçalo  500 kV
+VOLT    5402                                      SE B.Nome     138 kV
+VOLT    5936                                      SE Ban-Moss.2 230 kV
+VOLT    5651                                      SE Cauipe     230 kV
+VOLT    1488                                      SE Manga 3    138 kV
+VOLT    1481                                      SE Janauba 1  138 kV
+VOLT    4051                                      SE Pirapora2  345 kV
+VOLT    3389                                      SE Jaiba      230 kV
+VOLT    4391                                      SE Jaiba      138 kV
+VOLT    4350                                      SE Janauba 3  500 kV
+VOLT    8344                                      SE B.Nome-Mil.230 kV
+VOLT    8392                                      SE MilagresIcó230 kV
+VOLT    5571                                      SE S.J.Piauí  230 kV
+VOLT    5350                                      SE Açu3       500 kV
+(
+( FOTOVOLTAICAS em operação
+(
+( SUDESTE
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável                )
+( UFV Pirapora 2 a 4
+PTFNT    7446          10
+QTFNT    7446          10
+VOLT     7446
+( UFV Pirapora 5, 6, 7, 9 e 10
+PTFNT    4366          10
+QTFNT    4366          10
+VOLT     4366
+( UFV Vazante 1, 2 e 3
+PTFNT    4348          10
+QTFNT    4348          10
+VOLT     4348
+( UFV Guaimbê 1 a 5
+PTFNT     409          10
+QTFNT     409          10
+VOLT      409
+( UFV Paracatu 1 a 4
+PTFNT    4370          10
+QTFNT    4370          10
+VOLT     4370
+( UFV Água Vermelha 4 a 6
+PTFNT    7630          10
+QTFNT    7630          10
+VOLT     7630
+( UFV Dracena 1, 2 e 4
+PTFNT    7614          10
+QTFNT    7614          10
+VOLT     7614
+( UFV Boa Hora 1 a 3
+PTFNT    7629          10
+QTFNT    7629          10
+VOLT     7629
+(
+( NORDESTE
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável                )
+( UFV Nova Olinda 8 a 11
+PTFNT    6746          10
+QTFNT    6746          10
+VOLT     6746
+( UFV Nova Olinda 11 a 14
+PTFNT    6747          10
+QTFNT    6747          10
+VOLT     6747
+( UFV Lapa 2 e 3
+PTFNT    6577          10
+QTFNT    6577          10
+VOLT     6577
+( UFV Bom Jesus da Lapa I e II
+PTFNT    6090          10
+QTFNT    6090          10
+VOLT     6090
+( UFV Fonte Solar I e II
+PTFNT    7151          10
+QTFNT    7151          10
+VOLT     7151
+( UFV São João do Piauí 1 a 6
+PTFNT    5957          10
+QTFNT    5957          10
+VOLT     5957
+( UFV São Gonçalo A
+PTFNT    5818          10
+QTFNT    5818          10
+VOLT     5818
+( UFV São Gonçalo B
+PTFNT    8329          10
+QTFNT    8329          10
+VOLT     8329
+( UFV São Gonçalo C
+PTFNT    8372          10
+QTFNT    8372          10
+VOLT     8372
+( UFV São Gonçalo D
+PTFNT    8373          10
+QTFNT    8373          10
+VOLT     8373
+( UFV Horizonte MP1, MP2 e MP11
+PTFNT    6102          10
+QTFNT    6102          10
+VOLT     6102
+( UFV Floresta I, II e III
+PTFNT    5299          10
+QTFNT    5299          10
+VOLT     5299
+( UFV Bom Jesus da Lapa 4 e 11
+PTFNT    6084          10
+QTFNT    6084          10
+VOLT     6084
+( UFV São Pedro II e IV
+PTFNT    6786          10
+QTFNT    6786          10
+VOLT     6786
+( UFV Steelcons Sol do Futuro I a III
+PTFNT    5702          10
+QTFNT    5702          10
+VOLT     5702
+( UFV Assú V
+PTFNT    5805          10
+QTFNT    5805          10
+VOLT     5805
+( UFV Apodi I a IV
+PTFNT    5170          10
+QTFNT    5170          10
+VOLT     5170
+( UFV Juazeiro Solar I a IV
+PTFNT    6269          10
+QTFNT    6269          10
+VOLT     6269
+( UFV Sertão Solar Barreiras I a IV
+PTFNT    6750          10
+QTFNT    6750          10
+VOLT     6750
+( UFV Ituverava 1 a 7
+PTFNT    6686          10
+QTFNT    6686          10
+VOLT     6686
+(
+( FOTOVOLTAICAS futuras
+(
+( SUDESTE
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável                )
+( UFV Jaíba 3, 4, 9, SE1
+PTFNT    7441          10
+QTFNT    7441          10
+VOLT     7441
+( UFV Jaíba O, NO1, N, NE1
+PTFNT    7678          10
+QTFNT    7678          10
+VOLT     7678
+( UFV Léo Silveira 1 a 5
+PTFNT    7450          10
+QTFNT    7450          10
+VOLT     7450
+( UFV Léo Silveira 6 a 10
+PTFNT    7583          10
+QTFNT    7583          10
+VOLT     7583
+( UFV Janaúba 1 a 4
+PTFNT    7719          10
+QTFNT    7719          10
+VOLT     7719
+( UFV Janaúba 5 a 8
+PTFNT    7721          10
+QTFNT    7721          10
+VOLT     7721
+( UFV Janaúba 9 a 12
+PTFNT    7723          10
+QTFNT    7723          10
+VOLT     7723
+( UFV Janaúba 13 a 16
+PTFNT    7725          10
+QTFNT    7725          10
+VOLT     7725
+( UFV Janaúba 17 a 20
+PTFNT    7727          10
+QTFNT    7727          10
+VOLT     7727
+( UFV Aurora 7 a 10, 23
+PTFNT    7588          10
+QTFNT    7588          10
+VOLT     7588
+( UFV Aurora 3 a 6, 13
+PTFNT    7590          10
+QTFNT    7590          10
+VOLT     7590
+( UFV Aurora 21 a 23, 26, 28
+PTFNT    7671          10
+QTFNT    7671          10
+VOLT     7671
+( UFV Aurora 15, 17, 19, 20, 23
+PTFNT    7673          10
+QTFNT    7673          10
+VOLT     7673
+(
+( NORDESTE
+(
+( UFV Brígida I e II
+PTFNT    5840          10
+QTFNT    5840          10
+VOLT     5840
+( UFV Milagres 1 a 5
+PTFNT    8347          10
+QTFNT    8347          10
+VOLT     8347
+( UFV Gameleira 1 a 4
+PTFNT    8395          10
+QTFNT    8395          10
+VOLT     8395
+( UFV Graviola 1 a 4
+PTFNT    8411          10
+QTFNT    8411          10
+VOLT     8411
+( UFV Serra do Mel 1 e 2
+PTFNT    8414          10
+QTFNT    8414          10
+VOLT     8414
+( UFV Alex 1, 3 a 10
+PTFNT    5935          10
+QTFNT    5935          10
+VOLT     5935
+( UFV Lavras 1 a 5
+PTFNT    5938          10
+QTFNT    5938          10
+VOLT     5938
+999999
+(
+FIM

@@ -1,0 +1,131 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_FLUXBR_0720.dat                                                                       |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Arquivo para plotagem de todos os fluxos definidos no arquivo FLUXBR_0320.dat             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+FLXAA      10                                     FLXAA - RNE (Recebimento pela região Nordeste)
+FLXAA      20                                     FLXAA - EXPN_CA (Exportação pela região Norte)
+FLXAA      30                                     FLXAA - EXPN_TOT (Exp Total pela região Norte)
+FLXAA      40                                     FLXAA - FXGTC (Fluxo Xingu/Tucuruí)
+FLXAA      50                                     FLXAA - FXGJP (Fluxo Xingu/Jurupari)
+FLXAA      60                                     FLXAA - FJPXG (Fluxo Jurupari/Xingu)
+FLXAA      70                                     FLXAA - FSilvLech (Fluxo Silves/Lechuga)
+FLXAA      80                                     FLXAA - FNE (Fluxo Norte / Nordeste)
+FLXAA      90                                     FLXAA - FNS (Fluxo Norte / Sudeste)
+FLXAA     100                                     FLXAA - EXPSE (Exportação SE/CO p/ N/NE)
+FLXAA     110                                     FLXAA - FMCCO (Fluxo Miracema / Colinas)
+FLXAA     120                                     FLXAA - FSENE (Fluxo Sudeste / Nordeste)
+FLXAA     130                                     FLXAA - F_IGAIBI (Fluxo Igaporã/Ibicoara)
+FLXAA     140                                     FLXAA - RSECO (Recebimento do SE/CO)
+FLXAA     150                                     FLXAA - FSECO (Fornecimento do SE/CO)
+FLXAA     160                                     FLXAA - RSUL (Recebimento pela região Sul)
+FLXAA     170                                     FLXAA - RSE (Recebimento pela região Sudeste)
+FLXAA     180                                     FLXAA - FIV (Fluxo Foz para Ivaiporã)
+FLXAA     190                                     FLXAA - F-TR.IV (Fluxo TRs Ivaiporã 765/525kV )
+FLXAA     200                                     FLXAA - FSE (Fluxo para o Sudeste)
+FLXAA     210                                     FLXAA - FRJ (Fluxo para o Rio Janeiro)
+FLXAA     220                                     FLXAA - FMT (Fluxo do Mato Grosso)
+FLXAA     230                                     FLXAA - FJAURU
+FLXAA     240                                     FLXAA - FACRO (Fluxo Acre-Rondônia)
+FLXAA     250                                     FLXAA - RACRO (Recebimento Acre-Rondônia)
+FLXAA     260                                     FLXAA - FSMAR (Fluxo Samuel/Ariquemes)
+FLXAA     270                                     FLXAA - FMG (Fluxo para Minas Gerais)
+FLXAA     280                                     FLXAA - FCOSE (Intecâmbio CO => SE)
+FLXAA     290                                     FLXAA - PR500kV
+FLXAA     300                                     FLXAA - ELO50 (Fluxo no Elo CC de Itapu )
+FLXAA     310                                     FLXAA - Madeira
+FLXAA     320                                     FLXAA - BtB (Fluxo na LT 500 kV Coletora BtB -)
+FLXAA     330                                     FLXAA - Xingu
+FLXAA     340                                     FLXAA - Estreito (Fluxo Xingu/Estreito)
+FLXAA     350                                     FLXAA - T.Rio (Fluxo Xingu/Terminal Rio)
+FLXAA     360                                     FLXAA - FINBA (Fluxo Ibiúna/Bateias)
+FLXAA     370                                     FLXAA - FBAIN (Fluxo Bateias/Ibiúna)
+FLXAA     380                                     FLXAA - FRS-GER+GAR (FRS - Som Ger + Garabi)
+FLXAA     390                                     FLXAA - ASSIS-LOND (Fluxo Assis/Londrina)
+FLXAA     400                                     FLXAA - F_FZ-CO (Fluxo Foz do Iguaçu/Cvel Oest)
+FLXAA     410                                     FLXAA - P-DUTRA
+FLXAA     420                                     FLXAA - COLINAS (Fluxo Colinas/Rib. Goncalves)
+FLXAA     430                                     FLXAA - BACABEIRA (Flux Bacabeira/Parnaíba III)
+FLXAA     440                                     FLXAA - IT-CO (Fluxo Itacaiunas/Colinas)
+FLXAA     450                                     FLXAA - MA-AC-IM
+FLXAA     460                                     FLXAA - IM-COL (Fluxo Imperatriz/Colinas)
+FLXAA     470                                     FLXAA - FBTA (Fluxo Bateias)
+FLXAA     480                                     FLXAA - FITBA (Fluxo Itatiba/Bateias)
+FLXAA     490                                     FLXAA - GARABI_C (Interc. CF Garabi (BR>AR))
+FLXAA     500                                     FLXAA - MELO_C (Interc. CF Melo (BR>UR))
+FLXAA     510                                     FLXAA - RIVERA_C (Interc. CF Rivera (BR>UR))
+FLXAA     520                                     FLXAA - URUG_C (Interc. CF Uruguaiana (BR>AR))
+FLXAA     530                                     FLXAA - FRS (Fluxo para o Rio Grande do Sul)
+
+(
+FLXRA      10                                     FLXRA - RNE (Recebimento pela região Nordeste)
+FLXRA      20                                     FLXRA - EXPN_CA (Exportação pela região Norte)
+FLXRA      30                                     FLXRA - EXPN_TOT (Exp Total pela região Norte)
+FLXRA      40                                     FLXRA - FXGTC (Fluxo Xingu/Tucuruí)
+FLXRA      50                                     FLXRA - FXGJP (Fluxo Xingu/Jurupari)
+FLXRA      60                                     FLXRA - FJPXG (Fluxo Jurupari/Xingu)
+FLXRA      70                                     FLXRA - FSilvLech (Fluxo Silves/Lechuga)
+FLXRA      80                                     FLXRA - FNE (Fluxo Norte / Nordeste)
+FLXRA      90                                     FLXRA - FNS (Fluxo Norte / Sudeste)
+FLXRA     100                                     FLXRA - EXPSE (Exportação SE/CO p/ N/NE)
+FLXRA     110                                     FLXRA - FMCCO (Fluxo Miracema / Colinas)
+FLXRA     120                                     FLXRA - FSENE (Fluxo Sudeste / Nordeste)
+FLXRA     130                                     FLXRA - F_IGAIBI (Fluxo Igaporã/Ibicoara)
+FLXRA     140                                     FLXRA - RSECO (Recebimento do SE/CO)
+FLXRA     150                                     FLXRA - FSECO (Fornecimento do SE/CO)
+FLXRA     160                                     FLXRA - RSUL (Recebimento pela região Sul)
+FLXRA     170                                     FLXRA - RSE (Recebimento pela região Sudeste)
+FLXRA     180                                     FLXRA - FIV (Fluxo Foz para Ivaiporã)
+FLXRA     190                                     FLXRA - F-TR.IV (Fluxo TRs Ivaiporã 765/525kV )
+FLXRA     200                                     FLXRA - FSE (Fluxo para o Sudeste)
+FLXRA     210                                     FLXRA - FRJ (Fluxo para o Rio Janeiro)
+FLXRA     220                                     FLXRA - FMT (Fluxo do Mato Grosso)
+FLXRA     230                                     FLXRA - FJAURU
+FLXRA     240                                     FLXRA - FACRO (Fluxo Acre-Rondônia)
+FLXRA     250                                     FLXRA - RACRO (Recebimento Acre-Rondônia)
+FLXRA     260                                     FLXRA - FSMAR (Fluxo Samuel/Ariquemes)
+FLXRA     270                                     FLXRA - FMG (Fluxo para Minas Gerais)
+FLXRA     280                                     FLXRA - FCOSE (Intecâmbio CO => SE)
+FLXRA     290                                     FLXRA - PR500kV
+FLXRA     300                                     FLXRA - ELO50 (Fluxo no Elo CC de Itapu )
+FLXRA     310                                     FLXRA - Madeira
+FLXRA     320                                     FLXRA - BtB (Fluxo na LT 500 kV Coletora BtB -)
+FLXRA     330                                     FLXRA - Xingu
+FLXRA     340                                     FLXRA - Estreito (Fluxo Xingu/Estreito)
+FLXRA     350                                     FLXRA - T.Rio (Fluxo Xingu/Terminal Rio)
+FLXRA     360                                     FLXRA - FINBA (Fluxo Ibiúna/Bateias)
+FLXRA     370                                     FLXRA - FBAIN (Fluxo Bateias/Ibiúna)
+FLXRA     380                                     FLXRA - FRS-GER+GAR (FRS - Som Ger + Garabi)
+FLXRA     390                                     FLXRA - ASSIS-LOND (Fluxo Assis/Londrina)
+FLXRA     400                                     FLXRA - F_FZ-CO (Fluxo Foz do Iguaçu/Cvel Oest)
+FLXRA     410                                     FLXRA - P-DUTRA
+FLXRA     420                                     FLXRA - COLINAS (Fluxo Colinas/Rib. Goncalves)
+FLXRA     430                                     FLXRA - BACABEIRA (Flux Bacabeira/Parnaíba III)
+FLXRA     440                                     FLXRA - IT-CO (Fluxo Itacaiunas/Colinas)
+FLXRA     450                                     FLXRA - MA-AC-IM
+FLXRA     460                                     FLXRA - IM-COL (Fluxo Imperatriz/Colinas)
+FLXRA     470                                     FLXRA - FBTA (Fluxo Bateias)
+FLXRA     480                                     FLXRA - FITBA (Fluxo Itatiba/Bateias)
+FLXRA     490                                     FLXRA - GARABI_C (Interc. CF Garabi (BR>AR))
+FLXRA     500                                     FLXRA - MELO_C (Interc. CF Melo (BR>UR))
+FLXRA     510                                     FLXRA - RIVERA_C (Interc. CF Rivera (BR>UR))
+FLXRA     520                                     FLXRA - URUG_C (Interc. CF Uruguaiana (BR>AR))
+FLXRA     530                                     FLXRA - FRS (Fluxo para o Rio Grande do Sul)
+
+999999
+(
+FIM

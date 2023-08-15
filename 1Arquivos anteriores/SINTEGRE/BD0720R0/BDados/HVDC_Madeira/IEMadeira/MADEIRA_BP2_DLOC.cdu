@@ -1,0 +1,209 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       MADEIRA_BP2_DLOC.cdu                                                                      |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(-------------------------------------------------------------------------------
+(===============================================================================
+((===============================================================================
+((                         CONTROLES E MEDIÇÕES
+((===============================================================================
+(DARQ
+((Tipo) (C) ( Nome do Arquivo   
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_BP_CONTROL.cdu
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_FILT_MEDICAO.cdu
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_POLE_CONTROL.cdu
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_TAP_CONTROL.cdu
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_FILTER_CONTROL.cdu       
+(CDU         ..\BD0319R2\BDados\HVDC Madeira\MADEIRA_BP2_DCLF.cdu
+((PLTCDU    
+(999999 
+((===============================================================================
+((                        ASSOCIAÇÃO DE CONVERSORES CC
+((===============================================================================
+((DCNV
+(((
+((( Bipolo #2 - Alstom
+(((Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+((1205           5. 163.       9009u                              9203u
+((1206          90.       13.  9010u                              9204u
+(((Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+((1207           5. 163.       9011u                              9205u
+((1208          90.       13.  9012u                              9206u
+(((
+((999999
+(DCNV
+((
+(( Bipolo #2 - Alstom
+((Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+(1205           5. 163.       9009u                              9203u
+(1206          90.       13.  9010u 
+((Nc)   (Gkb)(Amn)(Amx)(Gmn)( Mc )u( S1 )u( S2 )u( S3 )u( S4 )u(Tap )u
+(1207           5. 163.       9011u                              9205u
+(1208          90.       13.  9012u 
+((
+(999999
+((===============================================================================
+((                        INDUTANCIAS DE LINHAS CC
+((===============================================================================
+(DCLI
+((  MADEIRA - INDUTANCIA DO BIPOLO 2
+((  REATOR DE ALISAMENTO ALSTOM = 2x315 mH
+((  INDUTANCIA TOTAL DA LT = 1915 mH
+((  COMPRIMENTO DA LT: 2375 km
+((
+((  MONOPOLAR COM RETORNO METALICO
+((  VALOR DE CADA LT x2 + 2 REATORES DE ALISAMENTO = 4460.0 mH
+((
+((De)    (Pa)Nc         ( L  )
+(1109    1110 1         2545.0
+(1113    1114 1         2545.0
+(999999
+((
+((===============================================================================
+((                       CONTROLADORES NAO ESPECIFICOS
+((===============================================================================
+(DCNE
+(( Bipolo 2 - Alstom
+((Nc)   ( Mc )u
+(9315     9315u    Bipole/Pole power control
+(9001     9201u    Line fault protection pole 3
+(9002     9202u    Line fault protection pole 4
+(9007     9319u    Controle de filtros da barra de Porto Velho do Bipolo 2
+(9008     9320u    Controle de filtros da barra de Araraquara do Bipolo 2
+(999999
+((
+((==============================================================================
+((                  DADOS DE FALHA DE COMUTAÇÃO DO BIPOLO
+((            TEMPO DE FALHA DE COMUTAÇÃO NUMA FALTA NO INVERSOR
+((==============================================================================
+(DFCM
+((Nm) (Vfc) (Gfc) (Thd)
+(1206        12.0 0.016       Inv polo 3
+(1208        12.0 0.016       Inv polo 4
+(999999
+(===============================================================================
+(                  LOCALIZAÇÃO REMOTA DE SINAIS PARA CDU
+(===============================================================================
+DLOC
+((
+(( Barras AC
+((Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(9197   BARRAC  7055                           Coletora Porto Velho 500 kV
+(9199   BARRAC  7057                           Araraquara 2 500 kV
+((
+( Filtros
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(9192   BSH    7055             30
+(9194   BSH    7057             20
+(9196   BSH    7057             40
+(
+( Master Control
+(9003   CDU     9300              4003         Ordem de potencia Polo 3 Alstom - Master -> Polo 3
+(9004   CDU     9300              4004         Ordem de potencia Polo 4 Alstom - Master -> Polo 4
+(9020   CDU     9300              XXXX         Ativação do Constant Frequency Control
+(9021   CDU     9300              XXXX          Ativação do controle de filtro automatico (Porto Velho)
+(9022   CDU     9300              XXXX          Ativação do controle de filtro automatico (Araraquara)
+(
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(9103   CONVER  1205                           Retificador Alstom Polo 3
+(9104   CONVER  1207                           Retificador Alstom Polo 4
+(9109   CONVER  1206                           Inversor    Alstom Polo 3   ATENCAO: MANTER 9109 - FURNAS USA 9107
+(9110   CONVER  1208                           Inversor    Alstom Polo 4   ATENCAO: MANTER 9110 - FURNAS USA 9108
+(
+(  FILTROS DE MEDICAO ALSTOM
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(5201   BARRAC  7055                           Coletora Porto Velho 500 kV
+(5202   BARRAC  7057                           Coletora Araraquara  500 kV
+(
+(1205   CONVER  1205                           Retificador Alstom Polo 1
+(1206   CONVER  1206                           Inversor    Alstom Polo 1
+(1207   CONVER  1207                           Retificador Alstom Polo 2
+(1208   CONVER  1208                           Inversor    Alstom Polo 2
+(
+(5501   CIRCAC  7053 7055 1 7055               Preat LT SAMD / CPV medido em CPV
+(5502   CIRCAC  7053 7055 1 7055               Preat LT SAMD / CPV medido em CPV
+(
+(  SINAIS DE SAIDA DO CDU 9315 COM O IORD PARA OS POLOS DA Alstom
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9301   CDU     9315              1410         Ordem de corrente retificador Alstom Polo 3
+9302   CDU     9315              1420         Ordem de corrente inversor    Alstom Polo 3
+9303   CDU     9315              1600         Ordem de corrente retificador Alstom Polo 4
+9304   CDU     9315              1610         Ordem de corrente inversor    Alstom Polo 4
+(
+(  SINAIS DE SAIDA DO CDU 9315 COM A ORDEM DE TENSÃO DC CORRIGIDA PELA POTÊNCIA
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9305   CDU     9315               440         Ordem de tensao Alstom Polo 3
+9306   CDU     9315               450         Ordem de tensao Alstom Polo 3
+9307   CDU     9315               970         Ordem de tensao Alstom Polo 4
+9308   CDU     9315               980         Ordem de tensao Alstom Polo 4
+(
+9601   CDU     9315              9460         Ordem de tensao Alstom Polo 3
+9602   CDU     9315              9465         Ordem de tensao Alstom Polo 3
+9603   CDU     9315              9990         Ordem de tensao Alstom Polo 4
+9604   CDU     9315              9995         Ordem de tensao Alstom Polo 4
+9605   CDU     9315              2007         Ordem de tensao 1 Alstom Polo 3
+9606   CDU     9315              2008         Ordem de tensao 1 Alstom Polo 3
+9607   CDU     9315              3007         Ordem de tensao 1 Alstom Polo 4
+9608   CDU     9315              3008         Ordem de tensao 1 Alstom Polo 4
+(
+(  INDICADOR DE FALTA NA LINHA CC POLO 3 e POLO 4 DA ALSTOM (RETIFICADOR, INVERSOR e CPOTENCIA) - DC LINE FAULT PROTECTION
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9309   CDU     9201                 2         DC Line fault Alstom Polo 3
+9310   CDU     9201                 3         DC Line fault Alstom Polo 3
+9317   CDU     9201                 4         DC Line fault Alstom Polo 3
+9311   CDU     9202                 2         DC Line fault Alstom Polo 4
+9312   CDU     9202                 3         DC Line fault Alstom Polo 4
+9318   CDU     9202                 4         DC Line fault Alstom Polo 4
+(
+(  SINAL FORCED RETARD - DC LINE FAULT PROTECTION
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9313   CDU     9201                 6         Forced retard Alstom Polo 3
+9314   CDU     9202                 6         Forced retard Alstom Polo 4
+(
+((  SINAL LAST FORCED RETARD (BLOCK) - DC LINE FAULT PROTECTION
+((Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+(9315   CDU     9201               420
+(9316   CDU     9202               420
+(
+(  SINAL POLO EM FALTA PARA PROTEÇÃO DO OUTRO POLO - DC LINE FAULT PROTECTION
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9315   CDU     9201               420
+9316   CDU     9202               420
+(
+(  SINAL QUE ATIVA O RELIGAMENTO COM TENSÃO REDUZIDA (REDV) - DC LINE FAULT PROTECTION
+((Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9319   CDU     9201                 5
+9320   CDU     9202                 5
+9321   CDU     9201              1005
+9322   CDU     9201              1006
+9323   CDU     9202              1005
+9324   CDU     9202              1006
+999999
+(
+(===============================================================================
+(                  PLOTS DE VARIAVEIS EL
+(===============================================================================
+(DPLT IMPR IERR  
+(BIPOLO 2 - C.P.VELHO - ARARAQUARA2)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Vari?el                )
+( CDU     9010                             * 
+(999999
+(===============================================================================
+(-------------------------------------------------------------------------------
+FIM

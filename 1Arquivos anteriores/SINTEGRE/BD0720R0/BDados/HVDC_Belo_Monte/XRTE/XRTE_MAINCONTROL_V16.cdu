@@ -1,0 +1,617 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_MAINCONTROL_V16.cdu                                                                  |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 8000 - MAIN CONTROL DO BP2
+(
+(----------------------------------------------------------------------
+( SINAIS DE INTERESSE:
+(
+( BLOCO 0900 - VARIÁVEL "UpDwLv" - ENTRAD PARA VALOR DE RAMPA DE POTÊNCIA (em MW)
+( BLOCO 0903 - VARIÁVEL "RnUpRt" - ENTRAD PARA VALOR DE TAXA DE SUBIDA DA RAMPA DE POTÊNCIA (em MW/s)
+( BLOCO 0904 - VARIÁVEL "RnUpRt" - ENTRAD PARA VALOR DE TAXA DE DESCIDA DA RAMPA DE POTÊNCIA (em MW/s)
+(
+(----------------------------------------------------------------------
+(ncdu) ( nome cdu )
+8000   XRTE Main Control
+(EFPAR (nome) (     valor      )
+DEFPAR #B_S1                1971     # Xingu Bus
+DEFPAR #B_S2                1970     # Terminal Rio Bus
+DEFPAR #PS1P1               1981     # Xingu Converter Pole 1
+DEFPAR #PS2P1               1982     # T.Rio Converter Pole 1
+DEFPAR #PS1P2               1983     # Xingu Converter Pole 2
+DEFPAR #PS2P2               1984     # T.Rio Converter Pole 2
+DEFPAR #LTXT1               9951     # LT XINGU-TUCURUI C1
+DEFPAR #LTXT2               9952     # LT XINGU-TUCURUI C2
+(
+(RUN-UP/BACK SETTINGS
+(EFPAR (nome) (     valor      )
+DEFPAR #RUpRt            14000.0     Run Up Rate [MW/s]
+DEFPAR #RDwRt           -14000.0     Run Down Rate [MW/s]
+DEFPAR #RBAM             14000.0     Runback by Abs Min Rate [|MW/s|]
+(
+(POD
+(EFPAR (nome) (     valor      )
+DEFPAR #PODON 1.0                    [1: ON, 0: OFF]
+DEFPAR #KPOD  2000.0                 POD Gain
+(
+(FREQUENCY CONTROLLER
+(EFPAR (nome) (     valor      )
+DEFPAR #FC_C1 1.0                    Frequency Controller [1: ON, 0: OFF]
+DEFPAR #FC_C2 0.0                    Local Frequency Controller [1: ON, 0: OFF]
+DEFPAR #FC_C3 1.0                    Station for LFC [1: Xingu, 0: T.Rio]
+(
+DEFPAR #TELEC 0.03                   Telecom Delay
+(
+(---------------------------------------------------------------------)
+(                              IMPORTS                                )
+(---------------------------------------------------------------------)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 IMPORT ESTCNV        EST1   #PS1P1
+0002 IMPORT ESTCNV        EST2   #PS1P2
+1002 LOGIC  .OR.   EST1   OPN
+                   EST2   OPN
+(
+0005 IMPORT PCCCNV        P_S1P1 #PS1P1 0.0
+0006 IMPORT PCCCNV        P_S2P1 #PS2P1 0.0
+0007 IMPORT PCCCNV        P_S1P2 #PS1P2 0.0
+0008 IMPORT PCCCNV        P_S2P2 #PS2P2 0.0
+0009 SOMA          P_S1P1 P_S1
+                   P_S1P2 P_S1
+0010 SOMA          P_S2P1 P_S2
+                   P_S2P2 P_S2
+0011 SELET2        P_S2   P_pu
+                   P_S1   P_pu
+                   Pdir   P_pu
+0012 GANHO         P_pu   P_MW   2000.
+0013 SAIDA         P_MW
+0014*COMPAR .GT.   P_S1   Pdir
+                   P_S2   Pdir
+(
+
+  15 IMPORT STCIRC        ST-XT1 #LTXT1    0.
+  16 IMPORT STCIRC        ST-XT2 #LTXT2    0.
+  17 LOGIC  .NAND. ST-XT1 OP2XT
+                   ST-XT2 OP2XT
+(
+DEFPAR #RB_S1 3290
+DEFPAR #RB_S2 3291
+0020 IMPORT CDU           RNBK1  #RB_S1 0.0
+0021 IMPORT CDU           RNBK2  #RB_S2 0.0
+0022 RATELM        RNBK1  RNBKS1                          MRTRRB RTRRB
+0023 RATELM        RNBK2  RNBKS2                          MRTRRB RTRRB
+DEFVAL        MRTRRB -#RBAM
+DEFVAL        RTRRB  #RBAM
+DEFVAL        RNBKS1 0.0
+DEFVAL        RNBKS2 0.0
+(
+5001 IMPORT FREQ          FRES1  #B_S1 0.0
+5002 IMPORT FREQ          FRES2  #B_S2 0.0
+(---------------------------------------------------------------------)
+(                        RUNUP AND RUNDOWN LOGICS                     )
+(---------------------------------------------------------------------)
+(EFPAR (nome) (     valor      )
+DEFPAR #K_MAN                1.0     K_MAN_SET
+DEFPAR #KBP1                 0.0     K for BP1
+DEFPAR #KBP2                 1.0     K for BP2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0900 ENTRAD               UpDwLv                                       UPDOWN_LEV
+0901 ENTRAD               RnUpDw                                       RUN_UP_DOWN
+0902 ENTRAD               KMANST                                       K_MANSET
+0903 ENTRAD               RnUpRt                                       RUNUP_RATE
+0904 ENTRAD               RnDwRt                                       RUNDOWN_RATE
+0905 ENTRAD               KBP1
+0906 ENTRAD               KBP2
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        UpDwLv 0.0
+DEFVAL        RnUpDw 1.0
+DEFVAL        KMANST #K_MAN
+DEFVAL        RnUpRt #RUpRt
+DEFVAL        RnDwRt #RDwRt
+DEFVAL        KBP1   #KBP1
+DEFVAL        KBP2   #KBP2
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1000 SELET2        DelPOW X1000
+                   UpDwLv X1000
+                   RnUpDw X1000
+1001 GANHO         X1000  DelPOW  1.0                                  DELTA_POW
+1009 RATELM        DelPOW X1009                           RnDwRt RnUpRt
+1011 SELET2        K1_DP  X1011
+                   KBP1   X1011
+                   KMANST X1011
+1012 SELET2        K2_DP  X1012
+                   KBP2   X1012
+                   KMANST X1012
+1013 MULTPL        X1011  DPOWB1                                       DELTA_POW_BP1
+                   X1009  DPOWB1
+1014 MULTPL        X1012  DPOWB2                                       DELTA_POW_BP2
+                   X1009  DPOWB2
+1015 GANHO         ZERO   X1015  1.0
+1016 LEDLAG        X1015  X1016  1.0   0.0   1.0   0.5
+1017 GANHO         X1016  BP1POW 2000.0                                BP1_POW
+1018 COMPAR .GT.   DelPOW RUNUP                                        RUNUP
+                   ZERO   RUNUP
+1019 SOMA          BP1POW XG_PW                                        XG_POW
+                   P_MW   XG_PW
+9019 LIMITA        XG_PW  XG_POW                          ZPZ1   INF
+1020 DIVSAO        BP1POW X1020
+                   XG_POW X1020
+1021 DIVSAO        P_MW   X1021
+                   XG_POW X1021
+1900 LOGIC  .NOT.  HOLD_K X1500
+1022 T/HOLD        X1020  X1022
+                   X1500  X1022
+1023 T/HOLD        X1021  X1023
+                   X1500  X1023
+1024 SELET2        X1022  K1_DP
+                   X1023  K1_DP
+                   RUNUP  K1_DP
+1025 SELET2        X1023  K2_DP
+                   X1022  K2_DP
+                   RUNUP  K2_DP
+1026 MONEST        RnUpDw HOLD_K 5.0                                   HOLD_K
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    X1022  X1020
+DEFVAL VAR    X1023  X1021
+(
+(---------------------------------------------------------------------)
+(                 OVERCURRENT OF GROUNDING-ELECTRODE                  )
+(---------------------------------------------------------------------)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1198 ENTRAD               S1Idel                                       S1_Idel
+1199 ENTRAD               AIDEL
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        S1Idel 0.0
+DEFVAL        AIDEL  0.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1200 FUNCAO ABS    S1Idel X1200
+1201 FUNCAO ABS    AIDEL  X1201
+1202 MAX           X1200  X1202
+                   X1201  X1202
+1203 SOMA          X1202  X1203
+                  -Tp365  X1203
+(===========  Histerese - Início =============)
+1204 COMPAR .GT.   X1202  X1204
+                   Tp365  X1204
+1205 SOMA          Tp365  X1205
+                  -ZpZZ1  X1205
+1206 COMPAR .LE.   X1202  X1206
+                   X1205  X1206
+1207 LOGIC  FFLOP1 X1206  X1207
+                   X1204  X1207
+(===========  Histerese - Fim ================)
+9020 DLAYON        X1207  X1208  7.0
+1209 SELET2        ZERO   X1209
+                   X1203  X1209
+                   X1208  X1209
+(========================== PI - Início ===========================)
+1210 GANHO         X1209  X1210  0.1
+1211 PROINT        X1209  X1211  1.0   0.0   2.0          ZERO   TMil
+1212 SOMA          X1210  X1212
+                   X1211  X1212
+(========================== PI - Fim ==============================)
+1213 GANHO         X1212  X1213  -0.5
+1214 GANHO         X1213  IdLmDP 800.0                                 IDEL_LIM_DP
+(
+1500 SAIDA         DPOWB1
+1501 SAIDA         DPOWB2
+1504 SAIDA         IDLMDP
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        X1000  0.0
+DEFVAL        X1211   0.0
+(
+(---------------------------------------------------------------------)
+(                        POWER DAMPING CONTROL                        )
+(---------------------------------------------------------------------)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5000 ENTRAD               POD_ON
+DEFVAL        POD_ON #PODON
+(
+5091 GANHO         FRES1  FRQS1  60.0
+5092 GANHO         FRES2  FRQS2  60.0
+
+5093 ATRASO        FRQS1  FRQS1D #TELEC
+5094 ATRASO        FRQS2  FRQS2D #TELEC
+5095 SELET2        FRQS1D FREQS1
+                   FRQS1  FREQS1
+                   Pdir   FREQS1
+5096 SELET2        FRQS2  FREQS2
+                   FRQS2D FREQS2
+                   Pdir   FREQS2
+5012 LOGIC  .AND.  FENPOD X5012
+                   POD_ON X5012
+                   EnPOD  X5012
+(                   X5011  X5012
+5013 SOMA          FREQS1 X5013
+                  -FREQS2 X5013
+5014 SELET2        ZERO   X5014
+                   X5013  X5014
+                   OPN    X5014
+5015 LIMITA        X5014  X5015                           MCINCO CINCO
+5016 LEDLAG        X5015  X5016  1.0   0.0   1.0   0.05
+5017 WSHOUT        X5016  X5017  1.0   1.0   1.0
+9017 FUNCAO MENOS  X5017  X9017
+5018 SELET2        X9017  X5018
+                   X5017  X5018
+                   PDIR   X5018
+5021 LIMITA        X5018  X5021                           MZP2   ZP2
+5022 GANHO         X5021  X5022  #KPOD
+5023 SELET2        ZERO   X5023
+                   UM     X5023
+                   X5012  X5023
+5024 RATELM        X5023  X5024                           MTX1   TX1
+DEFVAL        MTX1   -0.2
+DEFVAL        TX1    0.2
+5025 DESCID        X5012  X5025
+5026 MONEST        X5025  X5026  10.0  1.0
+5027 LOGIC  .NOT.  X5026  X5027
+5028 LOGIC  .OR.   X5027  X5028
+                   X5012  X5028
+5029 SELET2        X5030  X5029
+                   X5022  X5029
+                   X5028  X5029
+5030 DELAY         X5029  X5030
+5031 MULTPL        X5029  DPDAMP
+                   X5024  DPDAMP
+(
+5050 ENTRAD               RstPOD
+DEFVAL        RstPOD 0.0
+5051 LOGIC  FFLOP1 RstPOD DsPOD
+                   OP2XT  DsPOD
+DEFVAL VAR    DsPOD  OP2XT
+5052 LOGIC  .NOT.  DsPOD  EnPOD
+(
+5041 FUNCAO ABS    X5013  X5041
+5042 COMPAR .GE.   ZP1    X5042
+                   X5041  X5042
+5043 DLAYON        X5042  X5043  1.0
+5044 COMPAR .GE.   X5041  X5044
+                   UM     X5044
+5045 DLAYON        X5044  X5045  1.0
+5046 LOGIC  FFLOP1 X5045  FENPOD
+                   X5043  FENPOD
+(
+5047 SAIDA         DPDAMP
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DPDAMP 0.0
+(
+(---------------------------------------------------------------------)
+(                        FREQUENCY CONTROL                            )
+(---------------------------------------------------------------------)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5099 ENTRAD               FC_C1
+5100 ENTRAD               AUX_02
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        FC_C1  #FC_C1
+DEFVAL        AUX_02  1.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5101 LOGIC  .AND.  FC_C1  FC_AVA
+                   OPN    FC_AVA
+5102 SELET2        ZERO   FCSMOT
+                   UM     FCSMOT
+                   FC_AVA FCSMOT
+(
+5103 SOMA          FREQS1 X5103
+                  -FREQS2 X5103
+5104 SELET2        ZERO   X5104
+                   X5103  X5104
+                   FC_AVA X5104
+5105 LEDLAG        X5104  X5105  1.0   0.0   1.0   0.01
+9105 FUNCAO MENOS  X5105  X9105
+5106 SELET2        X9105  X5106
+                   X5105  X5106
+                    Pdir  X5106
+5107 FUNCAO DEADB1 X5106  X5107  -0.5   0.5   1.0   1.0
+5108 GANHO         X5107  X5108  666.0
+5109 LIMITA        X5108  X5109                           MDMIL  DMIL
+5110 MULTPL        X5109  X5110
+                   FCSMOT X5110
+5111 SELET2        ZERO   SFCDMP                                           FCDAMP
+                   X5110  SFCDMP
+                   AUX_02 SFCDMP
+5112 FUNCAO ABS    X5107  X5112
+(===========  Histerese - Início =============)
+5113 COMPAR .GT.   X5112  X5113
+                   ZPZZ3  X5113
+5114 SOMA          ZPZZ3  X5114
+                  -ZPZZ2  X5114
+5115 COMPAR .LE.   X5112  X5115
+                   X5114  X5115
+5116 LOGIC  FFLOP1 X5115  X5116
+                   X5113  X5116
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5117 COMPAR .GT.   X5106  X5117
+                   ZP5    X5117
+5118 SOMA          ZP5    X5118
+                  -ZPZ3   X5118
+5119 COMPAR .LE.   X5106  X5119
+                   X5118  X5119
+5120 LOGIC  FFLOP1 X5119  X5120
+                   X5117  X5120
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5121 COMPAR .GT.   X5106  X5121
+                   MZP5   X5121
+5122 SOMA          MZP5   X5122
+                  -ZPZ3   X5122
+5123 COMPAR .LE.   X5106  X5123
+                   X5122  X5123
+5124 LOGIC  FFLOP1 X5123  X5124
+                   X5121  X5124
+(===========  Histerese - Fim ================)
+5125 DLAYON        X5116  FCACT1 0.1
+5126 LOGIC  .OR.   X5120  FCACTV
+                   X5124  FCACTV
+(
+5127 SAIDA         SFCDMP
+5128 SAIDA         FCACT1
+5129 SAIDA         FCACTV
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        FCDAMP  0.0
+DEFVAL VAR    X5116  X5113
+DEFVAL VAR    X5120  X5117
+DEFVAL VAR    X5124  X5121
+(
+(---------------------------------------------------------------------)
+(                      LOCAL FREQUENCY CONTROL                        )
+(---------------------------------------------------------------------)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5200 ENTRAD               FREQNO
+5201 ENTRAD               FC_C3
+5203 ENTRAD               AUX_03
+5204 ENTRAD               AUX_04
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        FREQNO  60.0
+DEFVAL        AUX_03  0.0
+DEFVAL        AUX_04  0.0
+DEFVAL        FC_C3  #FC_C3
+5205 SELET2        ZERO   FCONS1
+                   UM     FCONS1
+                   FC_C3  FCONS1
+5206 LOGIC  .NOT.  FCONS1 FCONS2
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5210 LOGIC  .AND.  FCONS1 FCAVA1
+                   OPN    FCAVA1
+5211 SELET2        ZERO   FCSMO1
+                   UM     FCSMO1
+                   FCAVA1 FCSMO1
+5212 LOGIC  .AND.  FCONS2 FCAVA2
+                   OPN    FCAVA2
+5213 SELET2        ZERO   FCSMO2
+                   UM     FCSMO2
+                   FCAVA2 FCSMO2
+( Local Frequency Control - Xingu
+5214 SOMA          FREQNO X5214
+                  -FREQS1 X5214
+5215 SELET2        ZERO   X5215
+                   X5214  X5215
+                   FCAVA1 X5215
+5216 LEDLAG        X5215  X5216   1.0   0.0   1.0   0.01
+5217 GANHO         X5216  X5217  -1.0
+9217 SELET2        X5216  X9217
+                   X5217  X9217
+                   PDIR   X9217
+5218 FUNCAO DEADB1 X9217  X5218  -0.2   0.2   1.0   1.0
+5219 LEDLAG        X5218  X5219   1.0   0.0   1.0   0.5
+5220 SELET2        X5218  X5220
+                   X5219  X5220
+                   AUX_03 X5220
+5221 GANHO         X5220  X5221  666.0
+5222 LIMITA        X5221  X5222                           MDMIL  DMIL
+5223 MULTPL        X5222  FCS1D
+                   FCSMO1 FCS1D
+5224 FUNCAO ABS    X5218  X5224
+(===========  Histerese - Início =============)
+5225 COMPAR .GT.   X5224  X5225
+                   ZPZZ3  X5225
+5226 SOMA          ZPZZ3  X5226
+                  -ZPZZ2  X5226
+5227 COMPAR .LE.   X5224  X5227
+                   X5226  X5227
+5228 LOGIC  FFLOP1 X5227  X5228
+                   X5225  X5228
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5229 COMPAR .GT.   X5217  X5229
+                   ZP5    X5229
+5230 SOMA          ZP5    X5230
+                  -ZPZ3   X5230
+5231 COMPAR .LE.   X5217  X5231
+                   X5230  X5231
+5232 LOGIC  FFLOP1 X5231  X5232
+                   X5229  X5232
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5233 COMPAR .GT.   X5217  X5233
+                   MZP5   X5233
+5234 SOMA          MZP5   X5234
+                  -ZPZ3   X5234
+5235 COMPAR .LE.   X5217  X5235
+                   X5234  X5235
+5236 LOGIC  FFLOP1 X5235  X5236
+                   X5233  X5236
+(===========  Histerese - Fim ================)
+5237 DLAYON        X5228  F1ACT1 0.1
+5238 LOGIC  .OR.   X5232  F1ACTV
+                   X5236  F1ACTV
+( Local Frequency Control - T.Rio
+5244 SOMA          FREQNO X5244
+                  -FREQS2 X5244
+5245 SELET2        ZERO   X5245
+                   X5244  X5245
+                   FCAVA2 X5245
+5246 LEDLAG        X5245  X5246   1.0   0.0   1.0   0.01
+5247 FUNCAO MENOS  X5246  X5247
+9247 SELET2        X5247  X9247
+                   X5246  X9247
+                   PDIR   X9247
+5248 FUNCAO DEADB1 X9247  X5248  -0.2   0.2   1.0   1.0
+5249 LEDLAG        X5248  X5249   1.0   0.0   1.0   0.5
+5250 SELET2        X5248  X5250
+                   X5249  X5250
+                   AUX_04 X5250
+5251 GANHO         X5250  X5251  666.0
+5252 LIMITA        X5251  X5252                           MDMIL  DMIL
+5253 MULTPL        X5252  FCS2D
+                   FCSMO2 FCS2D
+5254 FUNCAO ABS    X5248  X5254
+(===========  Histerese - Início =============)
+5255 COMPAR .GT.   X5254  X5255
+                   ZPZZ3  X5255
+5256 SOMA          ZPZZ3  X5256
+                  -ZPZZ2  X5256
+5257 COMPAR .LE.   X5254  X5257
+                   X5256  X5257
+5258 LOGIC  FFLOP1 X5257  X5258
+                   X5255  X5258
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5259 COMPAR .GT.   X5247  X5259
+                   ZP5    X5259
+5260 SOMA          ZP5    X5260
+                  -ZPZ3   X5260
+5261 COMPAR .LE.   X5247  X5261
+                   X5260  X5261
+5262 LOGIC  FFLOP1 X5261  X5262
+                   X5259  X5262
+(===========  Histerese - Fim ================)
+(===========  Histerese - Início =============)
+5263 COMPAR .GT.   X5247  X5263
+                   MZP5   X5263
+5264 SOMA          MZP5   X5264
+                  -ZPZ3   X5264
+5265 COMPAR .LE.   X5247  X5265
+                   X5264  X5265
+5266 LOGIC  FFLOP1 X5265  X5266
+                   X5263  X5266
+(===========  Histerese - Fim ================)
+5267 DLAYON        X5258  F2ACT1 0.1
+5268 LOGIC  .OR.   X5262  F2ACTV
+                   X5266  F2ACTV
+(
+5269 SOMA          FCS1D  FCLDAP                                        LOCAL FC DAMP
+                   FCS2D  FCLDAP
+(
+5270 SAIDA         FCLDAP
+5271 SAIDA         F1ACT1
+5272 SAIDA         F1ACTV
+5273 SAIDA         F2ACT1
+5274 SAIDA         F2ACTV
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    X5228  X5225
+DEFVAL VAR    X5232  X5229
+DEFVAL VAR    X5236  X5233
+DEFVAL VAR    X5258  X5255
+DEFVAL VAR    X5262  X5259
+DEFVAL VAR    X5266  X5263
+(---------------------------------------------------------------------)
+(                FREQUENCY CONTROLER SELECTION LOGIC                  )
+(---------------------------------------------------------------------)
+5280 ENTRAD               FC_C2
+DEFVAL        FC_C2  #FC_C2
+
+5281 LOGIC  FFLOP1 ZERO   FRCLFC
+                   OP2XT  FRCLFC
+DEFVAL VAR    FRCLFC OP2XT
+5282 LOGIC  .OR.   FC_C2  LFC
+                   FRCLFC LFC
+5283 SELET2        SFCDMP FCDMP
+                   FCLDAP FCDMP
+                   LFC    FCDMP
+5284 MULTPL        FCDMP  FCDMP2
+                   FC_C1  FCDMP2
+
+5285 LOGIC  .NOT.  PDIR   TR-X
+5286 LOGIC  .AND.  LFC    LFCIN1
+                   PDIR   LFCIN1
+                   FCONS2 LFCIN1
+5287 LOGIC  .AND.  LFC    LFCIN2
+                   TR-X   LFCIN2
+                   FCONS1 LFCIN2
+5288 LOGIC  .OR.   LFCIN1 LFCINV
+                   LFCIN2 LFCINV
+5289 ATRASO        FCDMP2 FCDMPA #TELEC
+5290 SELET2        FCDMP2 FCDAMP
+                   FCDMPA FCDAMP
+                   LFCINV FCDAMP
+(
+(---------------------------------------------------------------------)
+(                              EXPORTS                                )
+(---------------------------------------------------------------------)
+0216 EXPORT CDU    FCDAMP
+0217 EXPORT CDU    FCDAMP
+0218 EXPORT CDU    FCDAMP
+0219 EXPORT CDU    FCDAMP
+(
+0220 EXPORT CDU    DPDAMP
+0221 EXPORT CDU    DPDAMP
+0222 EXPORT CDU    DPDAMP
+0223 EXPORT CDU    DPDAMP
+(
+
+9223 MAX           RNBKS1 RNBKS
+                   RNBKS2 RNBKS
+9224 SOMA          DPOWB2 DPWB2
+                  -RNBKS  DPWB2
+0224 EXPORT CDU    DPWB2
+0225 EXPORT CDU    DPWB2
+0226 EXPORT CDU    DPWB2
+0227 EXPORT CDU    DPWB2
+(---------------------------------------------------------------------)
+(                         NUMERICAL VALUES                            )
+(---------------------------------------------------------------------)
+0050 ENTRAD               MZP5
+0051 ENTRAD               ZERO
+0052 ENTRAD               ZpZZ1
+0053 ENTRAD               ZPZZ2
+0054 ENTRAD               ZPZZ3
+0056 ENTRAD               ZPZ3
+0057 ENTRAD               ZP1
+0058 ENTRAD               ZP5
+0059 ENTRAD               UM
+0060 ENTRAD               Tp365
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        MDMIL  -2000.
+DEFVAL        MCINCO -5.0
+DEFVAL        MZP5   -0.5
+DEFVAL        MZP2   -0.2
+DEFVAL        ZERO    0.0
+DEFVAL        ZpZZ1   0.001
+DEFVAL        ZPZZ2   0.002
+DEFVAL        ZPZZ3   0.003
+DEFVAL        ZPZ1    0.01
+DEFVAL        ZPZ3    0.03
+DEFVAL        ZP1     0.1
+DEFVAL        ZP2     0.2
+DEFVAL        ZP5     0.5
+DEFVAL        UM      1.0
+DEFVAL        Tp365   3.365
+DEFVAL        CINCO   5.0
+DEFVAL        TMil    3000.
+DEFVAL        DMIL    2000.
+DEFVAL        INF    999999
+FIMCDU
+999999
+FIM

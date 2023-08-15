@@ -1,0 +1,1053 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_RPC_V12_LIG.cdu                                                                  |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(ncdu) ( nome cdu )
+  9920 MELO-RPC
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #L/D   1                     # 1 - LIGA RPC / 0 - DESLIGA RPC
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        MODEB  2              # MODO BRAZIL:  1->OFF
+(                                                   2->RPEM
+(                                                   3->ACVCM
+(
+DEFVAL        MODEU  2              # MODO URUGUAY: 1->OFF
+(                                                   2->RPEM
+(                                                   3->ACVCM
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CNVBR               3101    # CONVERSOR BRAZIL
+DEFPAR #CNVUR               3102    # CONVERSOR URUGUAY
+DEFPAR #ACBR                3191    # BARRA AC BRAZIL
+DEFPAR #ACUR                3192    # BARRA AC URUGUAY
+DEFPAR #FILTB               3193    # FILTROS BRAZIL
+DEFPAR #FILTU               3194    # FILTROS URUGUAY
+DEFPAR #REATU               3195    # REATOR URUGUAY
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        ACVMXB   1.05         # TENSÃO MÁXIMA ACVCM - BRAZIL
+DEFVAL        ACVMNB   0.95         # TENSÃO MÍNIMA ACVCM - BRAZIL
+DEFVAL        ACVMXU   1.05         # TENSÃO MÁXIMA ACVCM - URUGUAY
+DEFVAL        ACVMNU   0.95         # TENSÃO MÍNIMA ACVCM - URUGUAY
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        VMAXB    1.07         # TENSÃO MÁXIMA (HARD LIMIT) - BRAZIL
+DEFVAL        VMINB    0.93         # TENSÃO MÍNIMA (HARD LIMIT) - BRAZIL
+DEFVAL        VMAXU    1.07         # TENSÃO MÁXIMA (HARD LIMIT) - URUGUAY
+DEFVAL        VMINU    0.93         # TENSÃO MÍNIMA (HARD LIMIT) - URUGUAY
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #DELAY 5.                    # TAP DELAY (SEGUNDOS)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #TQ    0.04                  # CONSTANTE DE TEMPO DE MEDIÇÃO Q, EM SEGUNDOS
+DEFPAR #G     -0.19685039370079     # MUDANÇA DE BASE DE pu = 100/508
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #Qedb1 -0.003937             # DEAD-BAND Q, EM PU = -2/508
+DEFPAR #Qedb2  0.003937             # DEAD-BAND Q, EM PU = +2/508
+(
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #TF     0.01                 # CONSTANTE DE TEMPO DE MEDIÇÃO VVW, EM SEGUNDOS
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #Ti     1.0                  # CONSTANTE DE TEMPO DO INTEGRADOR, EM SEGUNDOS
+(
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL VAR    VORD   VB
+(DEFVAL        UPDOWN 1.0
+(
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        TGVMAX 1.50           # TENSÃO MÁXIMA PARA ATIVAÇÃO CONGELAMENTO ERRO Q (TIME GUARD), EM PU
+DEFVAL        TGVMIN 0.60           # TENSÃO MÍNIMA PARA ATIVAÇÃO CONGELAMENTO ERRO Q (TIME GUARD), EM PU
+DEFVAL        TGUARD 0.8            # TEMPO DE CONGELAMENTO ERRO Q (TIME GUARD), EM SEGUNDOS
+(
+DEFVAL        X710   0.0
+DEFVAL        RESET  0.0
+(
+( TAP-CHANGER
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        DELAY  #DELAY
+DEFVAL        X1630  0.0
+DEFVAL        X1730  0.0
+DEFVAL        X1170  0.0
+DEFVAL        X1270  0.0
+DEFVAL        X1860  0.0
+DEFVAL        X1960  0.0
+DEFVAL        X1400  0.0
+DEFVAL        X1500  0.0
+(
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        TRES   3.0
+DEFVAL        LD     #L/D
+(
+(  ENTRADS
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0010 ENTRAD               ZERO
+0020 ENTRAD               HUM
+0030 ENTRAD               DOIS
+0035 ENTRAD               TRES
+0040 ENTRAD               DELAY
+0050 ENTRAD               LD
+0053 ENTRAD               MODEU
+0057 ENTRAD               MODEB
+(
+(  VALVE-WINDING VOLTAGES
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0060 IMPORT CTAP          TAPU   #CNVUR
+0070 IMPORT VOLT          VLWU   #ACUR
+0080 MULTPL        TAPU   VWVU
+                   VLWU   VWVU
+0090 LEDLAG        VWVU   VWVFU  1.0         1.0   #TF
+0091 LEDLAG        VLWU   VLWFU  1.0         1.0   #TF
+(
+0100 IMPORT CTAP          TAPB   #CNVBR
+0110 IMPORT VOLT          VLWB   #ACBR
+0120 MULTPL        TAPB   VWVB
+                   VLWB   VWVB
+0130 LEDLAG        VWVB   VWVFB  1.0         1.0   #TF
+0131 LEDLAG        VLWB   VLWFB  1.0         1.0   #TF
+(
+(  LIMITES DE VALVE-WINDING VOLTAGES
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0140 IMPORT CDU           VWVMXB 5101
+0150 IMPORT CDU           VWVMNB 5191
+0160 IMPORT CDU           VWVMXU 6101
+0170 IMPORT CDU           VWVMNU 6191
+(
+(  TENSÃO DC PARA INICIALIZAÇÃO DE VORD
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0180 IMPORT VCNV          VDC_UR #CNVUR
+0190 IMPORT VCNV          VDC_BR #CNVBR
+0200 SELET2        VDC_BR VB
+                   VDC_UR VB
+                   OPCNV  VB
+0210 SAIDA         VB
+(
+(  SINAIS DO POWER CONTROL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0220 IMPORT CDU           PORD   2017
+0230 IMPORT CDU           UPDOWN 2018
+0240 IMPORT OPCNV         OPCNV  3102
+(
+(  MEDIÇÃO DE INTERCÂMBIO DE POTÊNCIA REATIVA
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0250 IMPORT QBSH          QFTUF  #FILTU
+0260 IMPORT QBSH          QFTUR  #REATU
+0270 SOMA          QFTUF  QFTU
+                   QFTUR  QFTU
+0280 GANHO         QFTU   QFILTU 0.01
+0290 IMPORT QCCCNV        QCNVU  #CNVUR
+0300 SOMA          QFILTU QNETU
+                  -QCNVU  QNETU
+0310 LEDLAG        QNETU  QexchU #G    0.0   1.0   #TQ
+(
+0320 IMPORT QBSH          QFTB   #FILTB
+0330 GANHO         QFTB   QFILTB 0.01
+0340 IMPORT QCCCNV        QCNVB  #CNVBR
+0350 SOMA          QFILTB QNETB
+                  -QCNVB  QNETB
+0360 LEDLAG        QNETB  QexchB #G    0.0   1.0   #TQ
+(
+(  LIMITES DE INTERCÂMBIO DE POTÊNCIA REATIVA PARA O RPC-RPEM
+(
+0370 FUNCAO RETA   OPCNV  SENTD  2.0   1.0
+(
+(    OBS1: SENTD=2 URUG->BRAS ;  SENTD=0 BRAS->URUG
+(    OBS2: valores variaveis em funcao de PORD e do sentido da transmissão de potência
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0380 SELET2        QMXUI  QexmxU
+                   QMXUR  QexmxU
+                   OPCNV  QexmxU
+(
+0390 SELET2        QMNUI  QexmnU
+                   QMNUR  QexmnU
+                   OPCNV  QexmnU
+(
+0400 SELET2        QMXBR  QexmxB
+                   QMXBI  QexmxB
+                   OPCNV  QexmxB
+(
+0410 SELET2        QMNBR  QexmnB
+                   QMNBI  QexmnB
+                   OPCNV  QexmnB
+(
+(  DETERMINAÇÃO DO ERRO DE Q (MODO RPEM) - LADO URUGUAY
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0420 COMPAR .GE.   QexchU X420
+                   QexmxU X420
+0430 SOMA          QexchU X430
+                  -QexmxU X430
+0440 MULTPL        X420   X440
+                   X430   X440
+0450 COMPAR .LE.   QexchU X450
+                   QexmnU X450
+0460 SOMA          QexchU X460
+                  -QexmnU X460
+0470 MULTPL        X450   X470
+                   X460   X470
+0480 SOMA          X440   X480
+                   X470   X480
+0485 MULTPL        X480   eQaU
+                   NVOUTU eQaU
+(
+(  DETERMINAÇÃO DO ERRO DE Q (MODO RPEM) - LADO BRAZIL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0490 COMPAR .GE.   QexchB X490
+                   QexmxB X490
+0500 SOMA          QexchB X500
+                  -QexmxB X500
+0510 MULTPL        X490   X510
+                   X500   X510
+0520 COMPAR .LE.   QexchB X520
+                   QexmnB X520
+0530 SOMA          QexchB X530
+                  -QexmnB X530
+0540 MULTPL        X520   X540
+                   X530   X540
+0550 SOMA          X510   X550
+                   X540   X550
+0555 MULTPL        X550   eQbB
+                   NVOUTB eQbB
+(
+(  3-WAY SELECTOR - SELEÇÃO DE ERRO Q (RPEM)
+(
+(MODEU=2 (RPEM) AND MODEB=2 (RPEM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3700 MULTPL        eQaU   X3700
+                   NCURSU X3700
+3705 MULTPL        eQbB   X3705
+                   NCURSB X3705
+3710 SOMA          X3700  X3710
+                   X3705  X3710
+(
+3715 COMPAR .EQ.   MODEU  X3715
+                   DOIS   X3715
+3720 COMPAR .EQ.   MODEB  X3720
+                   DOIS   X3720
+3725 LOGIC  .AND.  X3715  X3725
+                   X3720  X3725
+3730 SELET2        ZERO   QERR1
+                   X3710  QERR1
+                   X3725  QERR1
+(
+(MODEU=2 (RPEM) AND MODEB~=2 (NOT RPEM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3750 COMPAR .EQ.   MODEU  X3750
+                   DOIS   X3750
+3755 COMPAR .NE.   MODEB  X3755
+                   DOIS   X3755
+3760 LOGIC  .AND.  X3750  X3760
+                   X3755  X3760
+3765 SELET2        ZERO   QERR2
+                   eQaU   QERR2
+                   X3760  QERR2
+(
+(MODEU~=2 (NOT RPREM) AND MODEB=2 (RPEM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3800 COMPAR .EQ.   MODEB  X3800
+                   DOIS   X3800
+3805 COMPAR .NE.   MODEU  X3805
+                   DOIS   X3805
+3810 LOGIC  .AND.  X3800  X3810
+                   X3805  X3810
+3815 SELET2        ZERO   QERR3
+                   eQbB   QERR3
+                   X3810  QERR3
+(
+0600 SOMA          QERR1  X600
+                   QERR2  X600
+                   QERR3  X600
+(
+(  Q DEAD-BAND
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0610 FUNCAO DEADB1 X600   QerrDB #Qedb1#Qedb21.0   1.0
+(
+(  TIME GUARD: VLWB OU VLWU < TGVMIN OU >TGVMAX =>  CONGELA Qerr por t=TGUARD
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0620 ENTRAD               TGUARD
+0630 ENTRAD               TGVMIN
+0640 ENTRAD               TGVMAX
+0650 COMPAR .GT.   VLWB   X650
+                   TGVMAX X650
+0660 COMPAR .GT.   VLWB   X660
+                   TGVMAX X660
+0670 COMPAR .LT.   VLWB   X670
+                   TGVMIN X670
+0680 COMPAR .LT.   VLWU   X680
+                   TGVMIN X680
+0690 LOGIC  .OR.   X670   X690
+                   X680   X690
+                   X650   X690
+                   X660   X690
+0700 LOGIC  FFLOP1 RESET  X700
+                   X690   X700
+0710 INTRES        X700   X710   1.0
+                   RESET  X710
+                   ZERO   X710
+0720 COMPAR .GE.   X710   X720
+                   TGUARD X720
+0730 DELAY         X720   RESET
+0740 LOGIC  .NOT.  X700   TRACK
+0750 T/HOLD        QerrDB Qerr
+                   TRACK  Qerr
+(
+(  LIMITES DE TENSÃO AC PARA O RPC-ACVCM
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0411 ENTRAD               ACVMXB
+0412 ENTRAD               ACVMNB
+0413 ENTRAD               ACVMXU
+0414 ENTRAD               ACVMNU
+(
+(  DETERMINAÇÃO DO ERRO DE V (MODO ACVCM) - LADO BRAZIL
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2600 SOMA          ACVMXB X2600
+                  -VLWFB  X2600
+2605 MULTPL        X2500  X2605
+                   X2600  X2605
+2610 SELET2        ZERO   X2610
+                   X2605  X2610
+                   X2500  X2610
+2615 SOMA          ACVMNB X2615
+                  -VLWFB  X2615
+2620 MULTPL        X2505  X2620
+                   X2615  X2620
+2625 SELET2        X2610  VDIFFB
+                   X2620  VDIFFB
+                   X2505  VDIFFB
+2626 SAIDA         VDIFFB
+(
+(  DETERMINAÇÃO DO ERRO DE V (MODO ACVCM) - LADO URUGUAY
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2650 SOMA          ACVMXU X2650
+                  -VLWFU  X2650
+2655 MULTPL        X2550  X2655
+                   X2650  X2655
+2660 SELET2        ZERO   X2660
+                   X2655  X2660
+                   X2550  X2660
+2665 SOMA          ACVMNU X2665
+                  -VLWFU  X2665
+2670 MULTPL        X2555  X2670
+                   X2665  X2670
+2675 SELET2        X2660  VDIFFU
+                   X2670  VDIFFU
+                   X2555  VDIFFU
+2676 SAIDA         VDIFFU
+(
+(  LIMITES DE VORD PARA O RPC
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+(    OBS3: UPDOWN -> SENTIDO DA RAMPA DE PORD
+(
+(          RAMPA CRESCENTE UPDOWN=1
+(          RAMPA DECRESCENTE UPDOWN=0
+(          SEM RAMPA UPDOWN=UPDOWN(t-1)
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0800 SELET2        VMXUBD VMXUB
+                   VMXUBU VMXUB
+                   UPDOWN VMXUB
+(
+0810 SELET2        VMNUBD VMNUB
+                   VMNUBU VMNUB
+                   UPDOWN VMNUB
+(
+0820 SELET2        VMXBUD VMXBU
+                   VMXBUU VMXBU
+                   UPDOWN VMXBU
+(
+0830 SELET2        VMNBUD VMNBU
+                   VMNBUU VMNBU
+                   UPDOWN VMNBU
+(
+0840 SELET2        VMXBU  Vdmax
+                   VMXUB  Vdmax
+                   SENTD  Vdmax
+(
+0850 SELET2        VMNBU  Vdmin
+                   VMNUB  Vdmin
+                   SENTD  Vdmin
+(
+(
+0860 SELET2        DOIS   Vdmax2
+                   Vdmax  Vdmax2
+                   LD     Vdmax2
+(
+0870 SELET2        ZERO   Vdmin2
+                   Vdmin  Vdmin2
+                   LD     Vdmin2
+(
+(
+(  VAC OUTSIDE HARD LIMITS
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3500 ENTRAD               VMAXB
+3505 ENTRAD               VMINB
+3510 ENTRAD               VMAXU
+3515 ENTRAD               VMINU
+(
+3520 COMPAR .GE.   VLWFB  X3520
+                   VMAXB  X3520
+3525 COMPAR .LE.   VLWFB  X3525
+                   VMINB  X3525
+3530 LOGIC  .OR.   X3520  VOUTB
+                   X3525  VOUTB
+(
+3535 COMPAR .GE.   VLWFU  X3535
+                   VMAXU  X3535
+3540 COMPAR .LE.   VLWFU  X3540
+                   VMINU  X3540
+3545 LOGIC  .OR.   X3535  VOUTU
+                   X3540  VOUTU
+(
+(  SELEÇÃO DO ERRO  (ERROR PRIORITY LOGIC)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3002 COMPAR .EQ.   MODEU  MODEU1
+                   HUM    MODEU1
+3004 COMPAR .EQ.   MODEB  MODEB1
+                   HUM    MODEB1
+3000 COMPAR .EQ.   MODEU  MODEU2
+                   DOIS   MODEU2
+3005 COMPAR .EQ.   MODEB  MODEB2
+                   DOIS   MODEB2
+3010 COMPAR .EQ.   MODEU  MODEU3
+                   TRES   MODEU3
+3015 COMPAR .EQ.   MODEB  MODEB3
+                   TRES   MODEB3
+(
+(RPEM x RPEM OU RPEM x OLRPC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3020 LOGIC  .OR.   MODEU2 X3020
+                   MODEB2 X3020
+3025 LOGIC  .NOR.  MODEU3 X3025
+                   MODEB3 X3025
+3030 LOGIC  .AND.  X3020  X3030
+                   X3025  X3030
+3035 SELET2        ZERO   ERR1
+                   Qerr   ERR1
+                   X3030  ERR1
+(
+(MODEU=2 (RPEM) AND MODEB=3 (ACVCM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3050 LOGIC  .AND.  MODEU2 X3050
+                   MODEB3 X3050
+(
+3055 LOGIC  .NOT.  VOUTB  NVOUTB
+3060 FUNCAO PULSO  VDIFFB X3060  -0.001   1.0 0.001   0.0
+3065 LOGIC  .AND.  NVOUTB X3065
+                   X3060  X3065
+3070 SELET2        VDIFFB X3070
+                   Qerr   X3070
+                   X3065  X3070
+3075 SELET2        ZERO   ERR2
+                   X3070  ERR2
+                   X3050  ERR2
+(
+(MODEU=3 (ACVCM) AND MODEB=2 (RPEM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3100 LOGIC  .AND.  MODEU3 X3100
+                   MODEB2 X3100
+(
+3105 LOGIC  .NOT.  VOUTU  NVOUTU
+3110 FUNCAO PULSO  VDIFFU X3110  -0.001   1.0 0.001   0.0
+3115 LOGIC  .AND.  NVOUTU X3115
+                   X3110  X3115
+3120 SELET2        VDIFFU X3120
+                   Qerr   X3120
+                   X3115  X3120
+3125 SELET2        ZERO   ERR3
+                   X3120  ERR3
+                   X3100  ERR3
+(
+(MODEU=1 (OLRPC) AND MODEB=3 (ACVCM)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3080 LOGIC  .AND.  MODEU1 X3080
+                   MODEB3 X3080
+(
+3085 SELET2        VDIFFB X3085
+                   ZERO   X3085
+                   X3065  X3085
+3087 SELET2        ZERO   ERR4
+                   X3085  ERR4
+                   X3080  ERR4
+(
+(MODEU=3 (ACVCM) AND MODEB=1 (OLRPC)
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3088 LOGIC  .AND.  MODEU3 X3088
+                   MODEB1 X3088
+(
+3095 SELET2        VDIFFU X3095
+                   ZERO   X3095
+                   X3115  X3095
+3090 SELET2        ZERO   ERR5
+                   X3095  ERR5
+                   X3088  ERR5
+(
+3130 SOMA          ERR1   RT_12
+                   ERR2   RT_12
+                   ERR3   RT_12
+                   ERR4   RT_12
+                   ERR5   RT_12
+(
+(  LIGA/DESLIGA RPC
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0760 GANHO         RT_12  RT_12a #L/D
+(
+(  INTEGRADOR
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0880 PROINT        RT_12a X880   1.0   0.0   #Ti
+(
+(  AUTOMATIC DC VOLTAGE STEP IN FILTER SWITCHING (OLRPC)
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4000 FUNCAO PULSO  PORD   X4000  0.2305 1.0  9999. 1.0
+4001 SUBIDA        X4000  X4001
+4002 ACUM          X4001  DVORD1 -0.115
+                   HOLD   DVORD1
+                   RES    DVORD1
+                   VINIC  DVORD1
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DVORD1 0.0
+(
+4003 FUNCAO PULSO  PORD   X4003  0.4605 1.0  9999. 1.0
+4004 SUBIDA        X4003  X4004
+4005 ACUM          X4004  DVORD2 -0.06
+                   HOLD   DVORD2
+                   RES    DVORD2
+                   VINIC  DVORD2
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DVORD2 0.0
+(
+4006 FUNCAO PULSO  PORD   X4006  -9999  1.0  0.17650.0
+4007 SUBIDA        X4006  X4007
+4008 ACUM          X4007  DVORD3 0.10
+                   HOLD   DVORD3
+                   RES    DVORD3
+                   VINIC  DVORD3
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DVORD3 0.0
+(
+4009 FUNCAO PULSO  PORD   X4009  -9999  1.0  0.41950.0
+4010 SUBIDA        X4009  X4010
+4011 ACUM          X4010  DVORD4 0.10
+                   HOLD   DVORD4
+                   RES    DVORD4
+                   VINIC  DVORD4
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        DVORD4 0.0
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3900 ENTRAD               HOLD
+3905 ENTRAD               RES
+3910 ENTRAD               VINIC
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        HOLD   0.0
+DEFVAL        RES    0.0
+DEFVAL        VINIC  0.0
+(
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4012 SOMA          DVORD1 DVORD
+                   DVORD2 DVORD
+                   DVORD3 DVORD
+                   DVORD4 DVORD
+4015 SOMA          X880   X4015
+                   DVORD  X4015
+4020 LIMITA        X4015  VORD                            Vdmin2 Vdmax2
+(
+0890 EXPORT CDU    VORD
+0900 EXPORT CDU    VORD
+0910 EXPORT CDU    VORD
+(
+(  AREA SELECTION
+(
+(  RPE ZONE SELECTION - BRASIL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0920 COMPAR .LT.   VWVFB  X920
+                   VWVMXB X920
+0930 COMPAR .GT.   VWVFB  X930
+                   VWVMNB X930
+0940 LOGIC  .AND.  X920   X940
+                   X930   X940
+0950 LOGIC  .AND.  X940   E-ZORB
+                   X490   E-ZORB
+0960 LOGIC  .AND.  X940   H-ZORB
+                   X520   H-ZORB
+(
+(  RPE ZONE SELECTION - URUGUAI
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0970 COMPAR .LT.   VWVFU  X970
+                   VWVMXU X970
+0980 COMPAR .GT.   VWVFU  X980
+                   VWVMNU X980
+0990 LOGIC  .AND.  X970   X990
+                   X980   X990
+1000 LOGIC  .AND.  X990   E-ZORU
+                   X420   E-ZORU
+1010 LOGIC  .AND.  X990   H-ZORU
+                   X450   H-ZORU
+(
+(  ACVC ZONE SELECTION - BRASIL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2500 COMPAR .GT.   VLWFB  X2500
+                   ACVMXB X2500
+2505 COMPAR .LT.   VLWFB  X2505
+                   ACVMNB X2505
+2510 LOGIC  .AND.  X940   E-ZOVB
+                   X2500  E-ZOVB
+2520 LOGIC  .AND.  X940   H-ZOVB
+                   X2505  H-ZOVB
+(
+(  ACVC ZONE SELECTION - URUGUAI
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2550 COMPAR .GT.   VLWFU  X2550
+                   ACVMXU X2550
+2555 COMPAR .LT.   VLWFU  X2555
+                   ACVMNU X2555
+2560 LOGIC  .AND.  X990   E-ZOVU
+                   X2550  E-ZOVU
+2565 LOGIC  .AND.  X990   H-ZOVU
+                   X2555  H-ZOVU
+(
+(  NOT IN PROCESS OF TAPPING AT PRESENT
+(
+1020 IMPORT CDU           CURSOB 5102
+1030 LOGIC  .NOT.  CURSOB NCURSB
+1040 IMPORT CDU           CURSOU 6102
+1050 LOGIC  .NOT.  CURSOU NCURSU
+(
+(  COMANDO DE TAPE EXTERNO DO RPC PARA O CONTROLE DE TAPE
+(
+(  COMPARADOR: VORD = Vdmax
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1060 COMPAR .GE.   VORD   X1060
+                   Vdmax2 X1060
+1070 T/HOLD        X1060  VOMAX
+                   TRACK  VOMAX
+(
+(  COMPARADOR: VORD = Vdmin
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1080 COMPAR .LE.   VORD   X1080
+                   Vdmin2 X1080
+1090 T/HOLD        X1080  VOMIN
+                   TRACK  VOMIN
+(
+(
+(  TAP-DOWN BRAZIL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1095 MULTPL        E-ZORB X1095
+                   MODEB2 X1095
+1096 MULTPL        H-ZOVB X1096
+                   MODEB3 X1096
+1097 LOGIC  .OR.   X1095  ZONBDW
+                   X1096  ZONBDW
+(
+1100 LOGIC  .AND.  VOMAX  TPDWB
+                   ZONBDW TPDWB
+                   NCURSB TPDWB
+                   NTDWB  TPDWB
+(
+1110 LOGIC  .NOT.  TDWB   NTDWB
+(
+(delay on
+1130 LOGIC  .NOT.  TPDWB  TPDWBN
+1140 LOGIC  .AND.  TPDWB  X1140
+                   X1210  X1140
+1150 LOGIC  FFLOP1 X1220  X1150
+                   X1140  X1150
+1160 FRACAO        X1150  X1160  1.0   0.0   0.5   0.0
+1170 INTRES        X1160  X1170  1.0                      ZERO   HUM
+                   TPDWBN X1170
+                   ZERO   X1170
+1180 LIMITA        X1170  X1180                           ZERO   HUM
+1190 COMPAR .GE.   X1180  TPDWBD
+                   HUM    TPDWBD
+1200 DELAY         TPDWBD X1200
+1210 LOGIC  .NOT.  X1200  X1210
+1220 LOGIC  .OR.   TPDWBN X1220
+                   X1200  X1220
+(
+1230 LOGIC  .AND.  TPDWBD X1230
+                   TPDWB  X1230
+1240 LOGIC  .AND.  X1230  X1240
+                   X1260  X1240
+1250 LOGIC  FFLOP1 X1300  X1250
+                   X1240  X1250
+1260 LOGIC  .NOT.  X1300  X1260
+1270 INTRES        X1250  X1270  1.0
+                   X1300  X1270
+                   ZERO   X1270
+1280 COMPAR .GT.   X1270  TDOWNB
+                   DELAY  TDOWNB
+1290 DELAY         TDOWNB X1290
+1300 LOGIC  .OR.   X1290  X1300
+                   CURSOB X1300
+1310 GANHO         TDOWNB TDWB   #L/D
+1320 EXPORT CDU    TDWB
+(
+(
+(  TAP-DOWN URUGUAY
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1325 MULTPL        E-ZORU X1325
+                   MODEU2 X1325
+1326 MULTPL        H-ZOVU X1326
+                   MODEU3 X1326
+1327 LOGIC  .OR.   X1325  ZONUDW
+                   X1326  ZONUDW
+
+1330 LOGIC  .AND.  VOMAX  TPDWU
+                   ZONUDW TPDWU
+                   NCURSU TPDWU
+                   NTDWU  TPDWU
+(
+1340 LOGIC  .NOT.  TDWU   NTDWU
+(
+(delay on
+1360 LOGIC  .NOT.  TPDWU  TPDWUN
+1370 LOGIC  .AND.  TPDWU  X1370
+                   X1440  X1370
+1380 LOGIC  FFLOP1 X1450  X1380
+                   X1370  X1380
+1390 FRACAO        X1380  X1390  1.0   0.0   0.5   0.0
+1400 INTRES        X1390  X1400  1.0                      ZERO   HUM
+                   TPDWUN X1400
+                   ZERO   X1400
+1410 LIMITA        X1400  X1410                           ZERO   HUM
+1420 COMPAR .GE.   X1410  TPDWUD
+                   HUM    TPDWUD
+1430 DELAY         TPDWUD X1430
+1440 LOGIC  .NOT.  X1430  X1440
+1450 LOGIC  .OR.   TPDWUN X1450
+                   X1430  X1450
+(
+1460 LOGIC  .AND.  TPDWUD X1460
+                   TPDWU  X1460
+1470 LOGIC  .AND.  X1460  X1470
+                   X1490  X1470
+1480 LOGIC  FFLOP1 X1530  X1480
+                   X1470  X1480
+1490 LOGIC  .NOT.  X1530  X1490
+1500 INTRES        X1480  X1500  1.0
+                   X1530  X1500
+                   ZERO   X1500
+1510 COMPAR .GT.   X1500  TDOWNU
+                   DELAY  TDOWNU
+1520 DELAY         TDOWNU X1520
+1530 LOGIC  .OR.   X1520  X1530
+                   CURSOU X1530
+1540 GANHO         TDOWNU TDWU   #L/D
+1550 EXPORT CDU    TDWU
+(
+(
+(  TAP-UP BRAZIL
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1555 MULTPL        H-ZORB X1555
+                   MODEB2 X1555
+1556 MULTPL        E-ZOVB X1556
+                   MODEB3 X1556
+1557 LOGIC  .OR.   X1555  ZONBUP
+                   X1556  ZONBUP
+(
+1560 LOGIC  .AND.  VOMIN  TPUPB
+                   ZONBUP TPUPB
+                   NCURSB TPUPB
+                   NTUPB  TPUPB
+(
+1570 LOGIC  .NOT.  TUPB   NTUPB
+(
+(delay on
+1590 LOGIC  .NOT.  TPUPB  TPUPBN
+1600 LOGIC  .AND.  TPUPB  X1600
+                   X1670  X1600
+1610 LOGIC  FFLOP1 X1680  X1610
+                   X1600  X1610
+1620 FRACAO        X1610  X1620  1.0   0.0   0.5   0.0
+1630 INTRES        X1620  X1630  1.0                      ZERO   HUM
+                   TPUPBN X1630
+                   ZERO   X1630
+1640 LIMITA        X1630  X1640                           ZERO   HUM
+1650 COMPAR .GE.   X1640  TPUPBD
+                   HUM    TPUPBD
+1660 DELAY         TPUPBD X1660
+1670 LOGIC  .NOT.  X1660  X1670
+1680 LOGIC  .OR.   TPUPBN X1680
+                   X1660  X1680
+(
+1690 LOGIC  .AND.  TPUPBD X1690
+                   TPUPB  X1690
+1700 LOGIC  .AND.  X1690  X1700
+                   X1720  X1700
+1710 LOGIC  FFLOP1 X1760  X1710
+                   X1700  X1710
+1720 LOGIC  .NOT.  X1760  X1720
+1730 INTRES        X1710  X1730  1.0
+                   X1760  X1730
+                   ZERO   X1730
+1740 COMPAR .GT.   X1730  TUPPB
+                   DELAY  TUPPB
+1750 DELAY         TUPPB  X1750
+1760 LOGIC  .OR.   X1750  X1760
+                   CURSOB X1760
+1770 GANHO         TUPPB  TUPB   #L/D
+1780 EXPORT CDU    TUPB
+(
+(
+(  TAP-UP URUGUAY
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1785 MULTPL        H-ZORU X1785
+                   MODEU2 X1785
+1786 MULTPL        E-ZOVU X1786
+                   MODEU3 X1786
+1787 LOGIC  .OR.   X1785  ZONUUP
+                   X1786  ZONUUP
+(
+1790 LOGIC  .AND.  VOMIN  TPUPU
+                   ZONUUP TPUPU
+                   NCURSU TPUPU
+                   NTUPU  TPUPU
+(
+1800 LOGIC  .NOT.  TUPU   NTUPU
+(
+(delay on
+1820 LOGIC  .NOT.  TPUPU  TPUPUN
+1830 LOGIC  .AND.  TPUPU  X1830
+                   X1900  X1830
+1840 LOGIC  FFLOP1 X1910  X1840
+                   X1830  X1840
+1850 FRACAO        X1840  X1850  1.0   0.0   0.5   0.0
+1860 INTRES        X1850  X1860  1.0                      ZERO   HUM
+                   TPUPUN X1860
+                   ZERO   X1860
+1870 LIMITA        X1860  X1870                           ZERO   HUM
+1880 COMPAR .GE.   X1870  TPUPUD
+                   HUM    TPUPUD
+1890 DELAY         TPUPUD X1890
+1900 LOGIC  .NOT.  X1890  X1900
+1910 LOGIC  .OR.   TPUPUN X1910
+                   X1890  X1910
+(
+1920 LOGIC  .AND.  TPUPUD X1920
+                   TPUPU  X1920
+1930 LOGIC  .AND.  X1920  X1930
+                   X1950  X1930
+1940 LOGIC  FFLOP1 X1990  X1940
+                   X1930  X1940
+1950 LOGIC  .NOT.  X1990  X1950
+1960 INTRES        X1940  X1960  1.0
+                   X1990  X1960
+                   ZERO   X1960
+1970 COMPAR .GT.   X1960  TUPPU
+                   DELAY  TUPPU
+1980 DELAY         TUPPU  X1980
+1990 LOGIC  .OR.   X1980  X1990
+                   CURSOU X1990
+2000 GANHO         TUPPU  TUPU   #L/D
+2010 EXPORT CDU    TUPU
+(
+(
+(=========================================================================
+( Curvas dos limites de intercâmbio de potência reativa para o RPC
+(==========================================================================
+( Convenção: Q positivo significa absorvendo da rede e Q negativo significa injetando na rede -> Qexch = Qconversor - Qf
+(
+( PORD em pu na base de 508 MW
+(
+( Qmx e Qmn em pu na base de 508 MVA
+(
+( Nome das variáveis:
+(
+( QMXUR - Q maximo Uruguai Retificador
+( QMNUR - Q minimo Uruguai Retificador
+( QMXUI - Q maximo Uruguai Inversor
+( QMNUI - Q minimo Uruguai Inversor
+(
+( QMXBR - Q maximo Brazil Retificador
+( QMNBR - Q minimo Brazil Retificador
+( QMXBI - Q maximo Brazil Inversor
+( QMNBR - Q minimo Brazil Inversor
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2020 FUNCAO PONTOS PORD   QMXUR  0.1   0.275
+                                 0.492 0.197
+                                 1.0   0.075
+2030 FUNCAO PONTOS PORD   QMNUR  0.1   -0.04
+                                 0.492 -0.197
+                                 1.0   -0.298
+2040 FUNCAO PONTOS PORD   QMXUI  0.1   0.295
+                                 0.492 0.2949
+                                 1.0   0.255
+2050 FUNCAO PONTOS PORD   QMNUI  0.1   -0.004
+                                 0.492 -0.02
+                                 1.0   -0.081
+2060 FUNCAO PONTOS PORD   QMXBR  0.1   0.273
+                                 0.492 0.226
+                                 1.0   0.125
+2070 FUNCAO PONTOS PORD   QMNBR  0.1   0.12
+                                 0.492 0.089
+                                 1.0   0.028
+( com 4º filtro disponível
+(1060 FUNCAO PONTOS PORD   QMXBI  0.1   0.273
+(                                 0.492 0.226
+(                                 1.0   0.125
+( com 4º filtro não disponível
+2080 FUNCAO PONTOS PORD   QMXBI  0.1   0.273
+                                 0.492 0.226
+                                 0.827 0.159
+                                 0.837 0.161
+                                 0.846 0.169
+                                 0.866 0.184
+                                 1.0   0.291
+2090 FUNCAO PONTOS PORD   QMNBI  0.1   0.12
+                                 0.492 0.089
+                                 1.0   0.028
+(
+(==========================================================================
+( Curvas dos limites de VORD para o RPC
+(==========================================================================
+(
+( Os limites dependem do sentido de transmissão (BR->URUR ou URU->BR)
+( e se a ordem de potência (PORD) é crescente ou decrescente
+(
+( PORD em pu na base de 508 MW
+(
+( Limites de VORD em pu na base 158.4kV
+(
+( Nome das variáveis:
+(
+( VMXUBU - VORD maximo, Uruguai->Brazil, rampa crescente
+( VMNUBU - VORD minimo, Uruguai->Brazil, rampa crescente
+( VMXUBD - VORD maximo, Uruguai->Brazil, rampa decrescente
+( VMNUBD - VORD minimo, Uruguai->Brazil, rampa decrescente
+(
+( VMXBUU - VORD maximo, Brazil->Uruguai, rampa crescente
+( VMNBUU - VORD minimo, Brazil->Uruguai, rampa crescente
+( VMXBUD - VORD maximo, Brazil->Uruguai, rampa decrescente
+( VMNBUD - VORD minimo, Brazil->Uruguai, rampa decrescente
+(
+(
+2100 FUNCAO PONTOS PORD   VMXUBU 0.1   0.6932
+                                 0.46060.6933
+                                 0.51970.838
+                                 1.0   1.0004
+                                 1.1   1.0
+2110 FUNCAO PONTOS PORD   VMNUBU 0.1   0.2776
+                                 0.177 0.308
+                                 0.23610.5978
+                                 0.23710.3988
+                                 0.47230.6555
+                                 0.47330.5302
+                                 0.94490.9131
+                                 1.0   0.9449
+                                 1.05  1.0
+                                 1.1   1.0001
+2120 FUNCAO PONTOS PORD   VMXUBD 0.1   0.6932
+                                 0.177 0.6933
+                                 0.187 0.4917
+                                 0.23620.6932
+                                 0.41220.6933
+                                 0.41320.5972
+                                 0.46060.6932
+                                 0.51970.838
+                                 1.0   1.0004
+                                 1.1   1.0
+2130 FUNCAO PONTOS PORD   VMNUBD 0.1   0.2776
+                                 0.177 0.308
+                                 0.23610.3988
+                                 0.41330.5914
+                                 0.41430.4824
+                                 0.94490.9131
+                                 1.0   0.9449
+                                 1.05  1.0
+                                 1.1   1.0001
+2140 FUNCAO PONTOS PORD   VMXBUU 0.1   0.6932
+                                 0.46060.6933
+                                 0.51970.838
+                                 1.02881.0101
+                                 1.1   1.0102
+2150 FUNCAO PONTOS PORD   VMNBUU 0.1   0.2776
+                                 0.177 0.308
+                                 0.23610.5978
+                                 0.23710.3988
+                                 0.47230.6555
+                                 0.47330.5302
+                                 0.94490.9131
+                                 1.0   0.9449
+                                 1.05911.0101
+                                 1.1   1.0102
+2160 FUNCAO PONTOS PORD   VMXBUD 0.1   0.6932
+                                 0.177 0.6933
+                                 0.187 0.4917
+                                 0.23620.6932
+                                 0.41220.6933
+                                 0.41320.5972
+                                 0.46060.6932
+                                 0.51970.838
+                                 1.02881.0101
+                                 1.1   1.0102
+2170 FUNCAO PONTOS PORD   VMNBUD 0.1   0.2776
+                                 0.177 0.308
+                                 0.23610.3988
+                                 0.41330.5914
+                                 0.41430.4824
+                                 0.94490.9141
+                                 1.0   0.9449
+                                 1.05911.0101
+                                 1.1   1.0102
+(
+FIMCDU
+(
+999999
+(
+FIM

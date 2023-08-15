@@ -1,0 +1,93 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       HVDC_FOZ_IBIUNA_DLOC.dat                                                                  |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DLOC
+(Barras AC
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9887   BARRAC    85                     # Foz do Iguaçu 500 kV
+(
+(Máquinas
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+3637   MAQ     1100            10       # Itaipu 50 HZ
+(
+(Conversores
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+7981   CONVER     1                     # Polo 1 - Foz do Iguaçu
+7982   CONVER     2                     # Polo 1 - Ibiuna
+7983   CONVER     3                     # Polo 2 - Foz do Iguaçu
+7984   CONVER     4                     # Polo 2 - Ibiuna
+7985   CONVER     5                     # Polo 3 - Foz do Iguaçu
+7986   CONVER     6                     # Polo 3 - Ibiuna
+7987   CONVER     7                     # Polo 4 - Foz do Iguaçu
+7988   CONVER     8                     # Polo 4 - Ibiuna
+(
+(CDU 9990 Master Control
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9991   CDU     9990              175    # IORDR -> Pole Control P1 Foz
+9992   CDU     9990              176    # IORDI -> Pole Control P1 Ibiuna
+9993   CDU     9990              275    # IORDR -> Pole Control P2 Foz
+9994   CDU     9990              276    # IORDI -> Pole Control P2 Ibiuna
+9995   CDU     9990              375    # IORDR -> Pole Control P3 Foz
+9996   CDU     9990              376    # IORDI -> Pole Control P3 Ibiuna
+9997   CDU     9990              475    # IORDR -> Pole Control P4 Foz
+9998   CDU     9990              476    # IORDI -> Pole Control P4 Ibiuna
+(
+(CDU 9011 DC Line Fault Protection - Polo 1
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9881   CDU     9013                 5   # RVO (Reduced Voltage Order) -> Pole Control P1 Ibiuna
+9885   CDU     9013                10   # RVO (Reduced Voltage Order) -> Master Control
+9882   CDU     9013                 6   # FRETR (Force Retard) -> Pole Control P1 Foz
+  95   CDU     9013                 2   # DCLF (DC Line Fault) -> Master Control
+(
+(CDU 9012 DC Line Fault Protection - Polo 2
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+9883   CDU     9014                 5   # RVO (Reduced Voltage Order) -> Pole Control P2 Ibiuna
+9886   CDU     9014                10   # RVO (Reduced Voltage Order) -> Master Control
+9884   CDU     9014                 6   # FRETR (Force Retard) -> Pole Control P2 Foz
+  96   CDU     9014                 2   # DCLF (DC Line Fault) -> Master Control
+(
+(CDU 9013 DC Line Fault Protection - Polo 3
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+7881   CDU     9015                 5   # RVO (Reduced Voltage Order) -> Pole Control P3 Ibiuna
+7885   CDU     9015                10   # RVO (Reduced Voltage Order) -> Master Control
+7882   CDU     9015                 6   # FRETR (Force Retard) -> Pole Control P3 Foz
+  97   CDU     9015                 2   # DCLF (DC Line Fault) -> Master Control
+(
+(CDU 9014 DC Line Fault Protection - Polo 4
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+7883   CDU     9016                 5   # RVO (Reduced Voltage Order) -> Pole Control P4 Ibiuna
+7886   CDU     9016                10   # RVO (Reduced Voltage Order) -> Master Control
+7884   CDU     9016                 6   # FRETR (Force Retard) -> Pole Control P4 Foz
+  98   CDU     9016                 2   # DCLF (DC Line Fault) -> Master Control
+(
+( HVDC Foz-Ibiuna - ECCT [STAB50]
+(Lc)   (Tipo)( El )( Pa)Nc( Ex)Gr(Bl)
+8991   CDU      900               100
+8992   CDU      900               101
+8993   CDU      900               102
+8994   CDU      900               103
+8995   CDU      900               104
+8996   CDU      900               105
+8997   CDU      900               106
+8998   CDU      900               107
+(
+999999
+(
+FIM

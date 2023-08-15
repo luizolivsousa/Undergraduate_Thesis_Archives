@@ -1,0 +1,689 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_TCC_V16.cdu                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 8421 - TCC - POLE 1 - XINGU
+( CDU 8422 - TCC - POLE 1 - T. RIO
+( CDU 8423 - TCC - POLE 2 - XINGU
+( CDU 8424 - TCC - POLE 2 - T. RIO
+(
+(----------------------------------------------------------------------
+(                    DADOS DE TOPOLOGIA (DTDU)
+(----------------------------------------------------------------------
+(
+( TDU 8420 - XRTE TAP CHANGER CONTROL
+(
+DTDU
+(ncdu) ( nome cdu )
+ 8420   TCC
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #TCC_A                1.0         # TCC CONTROL [0: MANUAL 1: AUTOMATIC]
+(
+DEFPAR #STA   1.0                        # STATION (1: XINGU 0: T.RIO)
+(
+DEFPAR #UACS1 1971                       # BARRA
+DEFPAR #CNV   1981                       # CONVERSOR
+DEFPAR #UDREF 2121                       # UD_REF
+DEFPAR #O_STA 1982                       # CONVERSOR OTHER STATION
+(
+DEFPAR #G_REF               17.0         # GAMMA REFERENCE
+DEFPAR #A_REF               15.0         # ALPHA REFERENCE
+DEFPAR #A_HYS                2.5         # ANGLE HYSTERESIS
+(
+DEFPAR #TCPMX               31.0         # MAXIMUM TAP
+DEFPAR #TCPMN                1.0         # MINIMUM TAP
+DEFPAR #TCPNO               21.0         # NOMINAL TAP
+DEFPAR #STEP              0.0125         # TAP RATIO STEP
+(
+DEFPAR #IDNOM             2500.0         # NOMINAL CURRENT
+DEFPAR #IDNRV             2043.8         # NOMINAL CURRENT (REVERSE)
+DEFPAR #URREC              815.0         # DC VOLTAGE REFERENCE
+DEFPAR #V_HYS               10.0         # VOLTAGE HYSTERESIS
+(
+DEFPAR #FA    1901
+DEFPAR #FB    1902
+DEFPAR #FC    1903
+DEFPAR #CNVX1 1981
+DEFPAR #CNVX2 1983
+(================== QPC ==================)
+DEFPAR #QPCON  1.0                       # [0: DISABLE 1: ENABLE]
+DEFPAR #Hlim   20.0                      # QPC LIMIT 1
+DEFPAR #Hlim2  22.0                      # QPC LIMIT 2
+DEFPAR #QPCKp  0.04                      # PROPORTIONAL GAIN
+DEFPAR #QPCTi  20.0                      # TIME CONSTANT
+DEFPAR #QPC_G  0.01745                   # GAIN
+(
+DEFPAR #OUred 0.0
+DEFPAR #UD_N  800.
+DEFPAR #UDred 560.
+( Medições
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+7901 IMPORT QBSH          QBSHA  #FA     0.0
+7902 IMPORT QBSH          QBSHB  #FB     0.0
+7903 IMPORT QBSH          QBSHC  #FC     0.0
+7904 IMPORT QCCCNV        QCNV1p #CNVX1  0.0
+7914 GANHO         QCNV1p QCNV1  100.
+7905 IMPORT QCCCNV        QCNV2p #CNVX2  0.0
+7915 GANHO         QCNV2p QCNV2  100.
+7906 SOMA          QBSHA  QDCTAC
+                   QBSHB  QDCTAC
+                   QBSHC  QDCTAC
+                  -QCNV1  QDCTAC
+                  -QCNV2  QDCTAC
+7907 SAIDA         QDCTAC
+(
+1002 IMPORT ALFA          ALPH_M #CNV  0.0                             ALPHA_MEAS
+1003 IMPORT GAMA          GAMM_M #CNV  0.0                             GAMMA_MEAS
+1004 IMPORT OPCNV         RECT   #CNV  0.0
+1005 IMPORT VCNV          UDC    #CNV  0.0
+1006 LEDLAG        UDC    UDC100 800.0 0.0   1.0    0.1
+(
+2703 SELET2        ZERO   PDIR
+                   UM     PDIR
+                   RECT   PDIR
+
+7704 ENTRAD               TCC_AU                                       TCC_AUTO
+7705 ENTRAD               TCCMI                                        TCC_M_INC
+7706 ENTRAD               TCCMD                                        TCC_M_DEC
+7707 ENTRAD               G_REF                                        GAMMAREF
+7708 ENTRAD               A_REF                                        ALPHAREF
+7709 ENTRAD               A_HYS                                        ANGLEHYST
+7710 ENTRAD               TCP_NO                                       TCP_NOM
+7711 ENTRAD               TCP_MX                                       TCP_MAX
+7712 ENTRAD               TCP_MN                                       TCP_MIN
+7713 FUNCAO DEGREE ALPH_M ALPHA
+7714 FUNCAO DEGREE GAMM_M GAMMA
+7715 SAIDA         ALPHA
+7716 SAIDA         GAMMA
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7800 SOMA          G_REF  G_MAX
+                   A_HYS  G_MAX
+7801 SOMA          G_REF  G_MIN
+                  -A_HYS  G_MIN
+7802 SOMA          A_REF  A_MAX
+                   A_HYS  A_MAX
+7803 SOMA          A_REF  A_MIN
+                  -A_HYS  A_MIN
+7804 SAIDA         G_MAX
+7805 SAIDA         G_MIN
+7806 SAIDA         A_MAX
+7807 SAIDA         A_MIN
+(===================================)
+2706 LEDLAG        ALPH_M ALPH_1   1.0   0.0   1.0  0.1                ALPHA_100
+2708 LEDLAG        GAMM_M GAMM_1   1.0   0.0   1.0  0.1                GAMMA_100
+2709 SELET2        GAMM_1 ANGLE                                        ANGLE
+                   ALPH_1 ANGLE
+                   RECT   ANGLE
+(2709 ATRASO        ANGLEa ANGLE   0.6
+2901 FUNCAO RADIAN A_REF  Aref_R
+2902 FUNCAO RADIAN G_REF  Gref_R
+2903 FUNCAO RADIAN A_HYS  ANGL_H
+2721 SOMA          Aref_R AlpRef                                       ALPHAREF
+                   ADD_A  AlpRef
+2722 SOMA          Gref_R GamRef                                       GAMMAREF
+                   ADD_G  GamRef
+2710 SELET2        GamRef ANGL_R                                       ANGLEREFLIM
+                   AlpRef ANGL_R
+                   RECT   ANGL_R
+(
+2711 SOMA          ANGL_R X2711
+                  -ANGL_H X2711
+(=========== Histerese =============)
+2712 COMPAR  .GT.  X2711  X2712
+                   ANGLE  X2712
+2713 SOMA          ANGLE  X2713
+                  -ZpZ1   X2713
+2714 COMPAR  .LE.  X2711  X2714
+                   X2713  X2714
+2715 LOGIC  FFLOP1 X2714  INCAN                                        INCANGLE
+                   X2712  INCAN
+9716 LOGIC  .AND.  INCAN  INCANG
+                   BLKAC  INCANG
+(6716 SAIDA         INCANG
+(6717 ENTRAD               INCANG
+(DEFVAL        INCANG 0.0
+(DEFVAL        INCANG  0.0
+(====================================)
+2716 SOMA          ANGL_R X2716
+                   ANGL_H X2716
+(===========  Histerese =============)
+2717 COMPAR  .GT.  ANGLE  X2717
+                   X2716  X2717
+2718 SOMA          X2716  X2718
+                  -ZpZ1   X2718
+2719 COMPAR  .LE.  ANGLE  X2719
+                   X2718  X2719
+2720 LOGIC  FFLOP1 X2719  DECAN                                        DECANGLE
+                   X2717  DECAN
+9721 LOGIC  .AND.  DECAN  DECANG
+                   BLKAC  DECANG
+(6718 SAIDA         DECANG
+(6719 ENTRAD               DECANG
+(DEFVAL        DECANG 0.0
+(DEFVAL VAR    DECANG X2717
+(====================================)
+2728 SELET2        IDNREV X2728
+                   ID_NOM X2728
+                   Pdir   X2728
+2729 GANHO         X2728  X2729  0.03
+(2730 GANHO         X2728  X2730  0.13
+2731 SOMA          IO_CFC X2731
+                  -IDN100 X2731
+2732 FUNCAO ABS    X2731  X2732
+(===========  Histerese =============)
+2733 COMPAR .GT.   X2729  X2733
+                   X2732  X2733
+2734 SOMA          X2732  X2734
+                  -ZpZ1   X2734
+2735 COMPAR .LE.   X2729  X2735
+                   X2734  X2735
+2736 LOGIC  FFLOP1 X2735  X2736
+                   X2733  X2736
+(DEFVAL        X2736  0.0
+(===========  Histerese =============)
+(2737 COMPAR .GT.   X2730  X2737
+(                   X2732  X2737
+(2738 SOMA          X2732  X2738
+(                  -ZpZ1   X2738
+(2739 COMPAR .LE.   X2730  X2739
+(                   X2738  X2739
+(2740 LOGIC  FFLOP1 X2739  X2740
+(                   X2737  X2740
+(DEFVAL        X2740  0.0
+(====================================)
+2741 LOGIC  .NOT.  StCuCt X2741
+2742 LOGIC  .NOT.  RECT   X2742
+2743 LOGIC  .AND.  X2741  X2743
+                   X2736  X2743
+                   X2742  X2743
+(2744 LOGIC  .AND.  X2742  INVAN                                        INV_ANG_C
+(                   X2740  INVAN
+(                   StCuCt INVAN
+(9744 SAIDA         INVAN
+(DEFVAL        INVAN   0.0
+9745 ENTRAD               INV_AN
+DEFVAL        INV_AN  1.0
+(===========  Monostable MultiVibrator 3.0s =============)
+2745 GANHO         OPN    X2745  1.0
+(========================================================)
+2746 LOGIC  .OR.   X2745  INV_VO                                       INV_VOLT_C
+                   X2743  INV_VO
+2747 LOGIC  .OR.   INV_AN X2747
+                   RECT   X2747
+2748 LOGIC  .AND.  X2747  X2748
+                   INCANG X2748
+(2749 LOGIC  .NOT.  RECT   X2749
+2750 LOGIC  .AND.  X2742  X2750
+                   INV_VO X2750
+                   INCVOL X2750
+2751 LOGIC  .OR.   X2748  X2751
+                   X2750  X2751
+2752 LOGIC  .AND.  X2751  X2752
+                   TCC_AU X2752
+DEFVAL        INV_VO 1.0
+2753 DLAYON         X2752 X2753  5.000
+2754 DLAYOF        AddTap X2754  5.000
+2755 DLAYOF        SubTap X2755  10.000
+2756 LOGIC   .OR.  X2754  X2756
+                   X2755  X2756
+2757 LOGIC  .NOT.  X2756  X2757
+2758 LOGIC  .NOT.  VSP_IN X2758
+2759 LOGIC  .AND.  X2753  X2759
+                   OPN    X2759
+                   X2757  X2759
+                   X2758  X2759
+2760 DLAYON        X2759  X2760  0.010
+2761 MONEST        X2760  X2761D 0.100
+9991 DELAY         x2761D X2761
+2762 LOGIC  .NOT.  TCC_AU X2762
+2763 LOGIC  .AND.  X2762  X2763
+                   TCCMI  X2763
+2764 LOGIC  .OR.   X2763  AddTap                                       Add_Tap
+                   X2761  AddTap
+2765 LOGIC   .OR.  INV_AN X2765
+                   RECT   X2765
+2766 LOGIC   .AND. X2765  X2766
+                   DECANG X2766
+(2767 LOGIC  .NOT.  RECT   X2767
+2768 LOGIC   .AND. X2742  X2768
+                   INV_VO X2768
+                   DECVOL X2768
+2769 LOGIC   .OR.  X2766  X2769
+                   X2768  X2769
+2770 LOGIC   .AND. X2769  X2770
+                   TCC_AU X2770
+2771 DLAYON        X2770  X2771  5.000
+2772 LOGIC  .OR.   VSP_DE X2772
+                   X2771  X2772
+2773 DLAYOF        OPN    X2773  1.000
+2774 DLAYOF        SubTap  X2774 5.000
+2775 DLAYOF        AddTap  X2775 10.000
+DEFVAL        AddTap 0.0
+2776 LOGIC  .OR.   X2774  X2776
+                   X2775  X2776
+9926 DELAY         X2776  X9976
+2777 LOGIC  .NOT.  X9976  X2777
+2778 LOGIC  .AND.  X2772  X2778
+                   X2773  X2778
+                   X2777  X2778
+2779 DLAYON        X2778  X2779  0.010
+2780 MONEST        X2779  X2780  0.100
+(2781 LOGIC  .NOT.  TCC_AU X2781
+2781 LOGIC  .AND.  X2762  X2781
+                   TCCMD  X2781
+2782 LOGIC  .OR.   X2781  SubTap                                       Sub_Tap
+                   X2780  SubTap
+DEFVAL        SUBTAP 0.0
+2783 SELET2        UD_REF UDREFV
+                   URRect UDREFV
+                   RECT   UDREFV
+2784 SOMA          UDREFV UDRFMN
+                  -VOLTHY UDRFMN
+(2785 SOMA          UDL100 X2785
+(                  -UDN100 X2785
+2786 FUNCAO ABS    UDC100 UDCABS
+2787 SOMA          UDREFV UDRFMX
+                   VOLTHY UDRFMX
+(===========  Histerese =============)
+2788 COMPAR .GT.   UDRFMN X2788
+                   UDCABS X2788
+2789 SOMA          UDCABS X2789
+                  -ZpZ1   X2789
+2790 COMPAR .LE.   UDRFMN X2790
+                   X2789  X2790
+2791 LOGIC  FFLOP1 X2790  INCVOL                                       INCVOLT
+                   X2788  INCVOL
+(DEFVAL        INCVOL 0.0
+(===========  Histerese =============)
+2792 COMPAR .GT.   UDCABS X2792
+                   UDRFMX X2792
+2793 SOMA          UDRFMX X2793
+                  -ZpZ1   X2793
+2794 COMPAR .LE.   UDCABS X2794
+                   X2793  X2794
+9794 LOGIC  .NOT.  X2794  X9794
+9795 LOGIC  .AND.  X2792  X9795
+                   X9794  X9795
+2795 LOGIC  FFLOP1 X2794  DECVOL                                       DECVOLT
+                   X9795  DECVOL
+DEFVAL VAR    DECVOL X2792
+(
+(2795 LOGIC  FFLOP1 X2794  DECVOL                                       DECVOLT
+(                   X2792  DECVOL
+2801 SUBIDA        AddTap X2803
+2805 SUBIDA        SubTap X2807
+2808 SOMA          X2803  X2808d
+                  -X2807  X2808d
+9808 DELAY         X2808d X2808
+2809 ACUM          X2808  X2809  1.0
+                   ZERO   X2809
+                   ZERO   X2809
+                   ZERO   X2809
+2810 LIMITA        X2809  TCP_1                           TCP_MN TCP_MX    TCP_1
+(
+2811 SOMA          TCP_1  X2811
+                  -TPOSN  X2811
+2812 GANHO         X2811  X2812  #STEP
+2813 SOMA          UM     TAP2
+                   X2812  TAP2
+
+2211 FRACAO        TAP2   TAPA   500.  0.0   530.  0.0
+2222 FRACAO        TAP2   TAPB   500.  0.0   535.  0.0
+2223 SELET2        TAPB   TAP
+                   TAPA   TAP
+                   STA    TAP
+2224 ENTRAD               STA
+DEFVAL        STA    #STA
+(2822 FUNCAO INVRS  CTAP2  CTAP
+(2822 GANHO         TAP2   TAP    0.9434
+2814 EXPORT CTAP   TAP
+
+2815 ENTRAD               TPOSN
+DEFVAL        TPOSN  #TCPNO
+
+(DEFVAL        TCP_1   21.
+2817 SAIDA         SETE
+2818 SAIDA         TCP_NO
+2819 SAIDA         ORDURE
+2820 SAIDA         X2808
+(
+3900 LOGIC  .OR.   DECVOL X2900
+                   INCVOL X2900
+3901 LOGIC  .NOT.  RECT   INV
+3902 LOGIC  .AND.  X2900  X2902
+                   INV    X2902
+3903 LOGIC  .NOT.  X2902  BLKAC
+
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3000 ENTRAD               QPCref
+3001 ENTRAD               QPC_ON
+3010 SOMA          QDCTAC X3010
+                  -QPCref X3010
+3011 SELET2        ZERO   X3011
+                   X3010  X3011
+                   QPC_ON X3011
+3012 GANHO         X3011  X3012  #QPCKp
+3013 PROINT        X3011  X3013  1.0    0.0  #QPCTi       ZERO   HLIM
+3014 SOMA          X3012  X3014
+                   X3013  X3014
+3015 LIMITA        X3014  X3015                           ZERO   HLIM2
+3016 GANHO         X3015  ADDANG #QPC_G
+3017 SELET2        ZERO   ADD_A
+                   ADDANG ADD_A
+                   RECT   ADD_A
+3018 SELET2        ADDANG ADD_G
+                   ZERO   ADD_G
+                   RECT   ADD_G
+3019 SAIDA         ADD_A
+3020 SAIDA         ADD_G
+(
+DEFVAL        TCCMI  0.0
+DEFVAL        TCCMD  0.0
+DEFVAL        TCC_AU #TCC_A
+DEFVAL        G_REF  #G_REF
+DEFVAL        A_REF  #A_REF
+DEFVAL        A_HYS  #A_HYS
+DEFVAL        TCP_MX #TCPMX
+DEFVAL        TCP_MN #TCPMN
+DEFVAL        TCP_NO #TCPNO
+
+DEFVAL VAR    QPCref QDCTAC
+DEFVAL        QPC_ON #QPCON
+DEFVAL        Hlim2  #Hlim2
+DEFVAL        Hlim   #Hlim
+DEFVAL        X3013  0.0
+DEFVAL        ADD_A  0.0
+DEFVAL        ADD_G  0.0
+(================ VOLT DROP ================)
+1590 IMPORT VCNV          UDCOS  #O_STA 0.0
+1591 LEDLAG        UDCOS  UDO100 800.   0.0   1.0   0.1
+1592 LEDLAG        UDC    UDL100 800.   0.0   1.0   0.1
+1593 IMPORT CCNV          IDN    #CNV   0.0
+1594 LEDLAG        IDN    IDN100 2500.  0.0   1.0   0.1
+(
+1600 FUNCAO ABS    UDO100 X1600
+1601 FUNCAO ABS    UDL100 X1601
+1605 SOMA          X1600  X1605
+                  -X1601  X1605
+1606 SOMA         -X1600  X1606
+                   X1601  X1606
+1607 SELET2        X1605  X1607
+                   X1606  X1607
+                   RECT   X1607
+1608 GANHO         X1607  X1608  1000.
+1609 MAX           IDN100 X1609
+                   UM     X1609
+1610 DIVSAO        X1608  X1610
+                   X1609  X1610
+1611 LIMITA        X1610  X1611                           ResLLm ResHLm
+1612 LEDLAG        X1611  X1614  1.0   0.0   1.0   100.
+1615 MAX           IDN100 X1615
+                   UM     X1615
+1616 MULTPL        X1614  X1616
+                   X1615  X1616
+1617 GANHO         X1616  DCVDrp 0.001                                   DC_VOLTDROP
+1618 SAIDA         DCVDrp
+(
+DEFPAR #OhmRe 16.935
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0132 ENTRAD               OhmRes
+0134 GANHO         OhmRes ResLLm 1.0                                   RESISTANCE_LLM
+0135 GANHO         ResLLm ResHLm 1.3                                   RESISTANCE_HLIM
+DEFVAL        OhmRes #OhmRe
+9901 ENTRAD               ZPZ1
+9902 ENTRAD               ZERO
+9903 ENTRAD               SETE
+9904 ENTRAD               UM
+DEFVAL        ZPZ1   0.01
+DEFVAL        ZERO   0.0
+DEFVAL        SETE   7.0
+DEFVAL        UM     1.0
+
+
+9905 ENTRAD               IDNREV
+9906 ENTRAD               ID_NOM
+9908 ENTRAD               IO_CFC
+9909 ENTRAD               STCUCT
+9910 ENTRAD               VSP_IN
+9911 ENTRAD               OPN
+9912 ENTRAD               VSP_DE
+9913 IMPORT CDU           UD_REF #UDREF 800.
+
+9314*ENTRAD               UD_N
+DEFVAL        UD_N   #UD_N
+9318*ENTRAD               UD_RED
+DEFVAL        UD_RED #UDred
+9319*SELET2        UD_N   X9319
+                   UD_RED X9319
+                   ORDURE X9319
+9315*SOMA          X9319  UDC_I
+                  -DCVdrp UDC_I
+9316*SELET2        UDC_I  UDCini
+                   X9319  UDCini
+                   RECT   UDCini
+9317*SAIDA         UDCini
+9320 FUNCAO ABS    UDC100 X9318
+9321 SAIDA         X9318
+(DEFVAL VAR    UD_REF UDCini
+DEFVAL VAR    UD_REF X9318
+
+(DEFVAL        UD_REF  800.
+(DEFVAL VAR    UD_REF UDCABS
+(9919 SOMA          UDREF  UD_REF
+(                   INVOFF UD_REF
+(9920 ENTRAD               INVOFF
+(DEFVAL        INVOFF 7.25
+(9913 ENTRAD               UD_REF
+9914 ENTRAD               URRECT
+9915 ENTRAD               VOLTHY
+9918 ENTRAD               ORDURE
+DEFVAL        IDNREV #IDNRV
+DEFVAL        ID_NOM #IDNOM
+DEFVAL        URRECT #URREC
+DEFVAL        VOLTHY #V_HYS
+
+
+DEFVAL        IO_CFC 0.0
+DEFVAL        STCUCT 1.0
+DEFVAL        VSP_IN 0.0
+DEFVAL        OPN    1.0
+DEFVAL        VSP_DE 0.0
+DEFVAL        ORDURE #OUred
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5000 ALERTA        INCANG        8430  8430
+5001 ALERTA        DECANG        8431  8431
+5002 ALERTA        INCVOL        8432  8432
+5003 ALERTA        DECVOL        8433  8433
+FIMCDU
+999999
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+(
+ACDU
+(ncdu) (ntop) ( nome cdu )
+8421   8420   TCC-S1P1
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #TCC_A                1.0         # TCC CONTROL [0: MANUAL 1: AUTOMATIC]
+(
+DEFPAR #STA   1.0                        # STATION (1: XINGU 0: T.RIO)
+(
+DEFPAR #UACS1 1971                       # BARRA XINGU
+DEFPAR #CNV   1981                       # CONVERSOR
+DEFPAR #UDREF 2121                       # UD_REF
+DEFPAR #O_STA 1982                       # OTHER STATION CONVERTER
+(
+DEFPAR #G_REF               17.0         # GAMMA REFERENCE
+DEFPAR #A_REF               15.0         # ALPHA REFERENCE
+DEFPAR #A_HYS                2.5         # ANGLE HYSTERESIS
+(
+DEFPAR #TCPMX               31.0         # MAXIMUM TAP
+DEFPAR #TCPMN                1.0         # MINIMUM TAP
+DEFPAR #TCPNO               21.0         # NOMINAL TAP
+DEFPAR #STEP              0.0125         # TAP RATIO STEP
+(                                        #
+DEFPAR #IDNOM             2500.0         # NOMINAL CURRENT
+DEFPAR #IDNRV             2043.8         # NOMINAL CURRENT (REVERSE)
+DEFPAR #URREC              805.0         # DC VOLTAGE REFERENCE
+DEFPAR #V_HYS               10.0         # VOLTAGE HYSTERESIS
+(
+DEFPAR #FA    1901
+DEFPAR #FB    1902
+DEFPAR #FC    1903
+DEFPAR #CNVX1 1981
+DEFPAR #CNVX2 1983
+(================== QPC ==================)
+DEFPAR #QPCON  0.0                       # [0: DISABLE 1: ENABLE]
+DEFPAR #Hlim   20.0                      # QPC LIMIT 1
+DEFPAR #Hlim2  22.0                      # QPC LIMIT 2
+DEFPAR #QPCKp  0.04                      # PROPORTIONAL GAIN
+DEFPAR #QPCTi  20.0                      # TIME CONSTANT
+DEFPAR #QPC_G  0.01745                   # GAIN
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+8423   8420   TCC-S1P2
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #TCC_A                1.0         # TCC CONTROL [0: MANUAL 1: AUTOMATIC]
+(
+DEFPAR #STA   1.0                        # STATION (1: XINGU 0: T.RIO)
+(
+DEFPAR #UACS1 1971                       # BARRA XINGU
+DEFPAR #CNV   1983                       # CONVERSOR
+DEFPAR #UDREF 2321                       # UD_REF
+DEFPAR #O_STA 1984                       # OTHER STATION CONVERTER
+(
+DEFPAR #G_REF               17.0         # GAMMA REFERENCE
+DEFPAR #A_REF               15.0         # ALPHA REFERENCE
+DEFPAR #A_HYS                2.5         # ANGLE HYSTERESIS
+(
+DEFPAR #TCPMX               31.0         # MAXIMUM TAP
+DEFPAR #TCPMN                1.0         # MINIMUM TAP
+DEFPAR #TCPNO               21.0         # NOMINAL TAP
+DEFPAR #STEP              0.0125         # TAP RATIO STEP
+(
+DEFPAR #IDNRV             2043.8         # NOMINAL CURRENT (REVERSE)
+DEFPAR #IDNOM             2500.0         # NOMINAL CURRENT
+DEFPAR #URREC              805.0         # DC VOLTAGE REFERENCE
+DEFPAR #V_HYS               10.0         # VOLTAGE HYSTERESIS
+(
+DEFPAR #FA    1901
+DEFPAR #FB    1902
+DEFPAR #FC    1903
+DEFPAR #CNVX1 1981
+DEFPAR #CNVX2 1983
+(================== QPC ==================)
+DEFPAR #QPCON  0.0                       # [0: DISABLE 1: ENABLE]
+DEFPAR #Hlim   20.0                      # QPC LIMIT 1
+DEFPAR #Hlim2  22.0                      # QPC LIMIT 2
+DEFPAR #QPCKp  0.04                      # PROPORTIONAL GAIN
+DEFPAR #QPCTi  20.0                      # TIME CONSTANT
+DEFPAR #QPC_G  0.01745                   # GAIN
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+8422   8420   TCC-S2P1
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #TCC_A                1.0         # TCC CONTROL [0: MANUAL 1: AUTOMATIC]
+(
+DEFPAR #STA   0.0                        # STATION (1: XINGU 0: T.RIO)
+(
+DEFPAR #UACS1 1970                       # BARRA TERMINAL RIO
+DEFPAR #CNV   1982                       # CONVERSOR
+DEFPAR #UDREF 9221                       # UD_REF
+DEFPAR #O_STA 1981                       # OTHER STATION CONVERTER
+(
+DEFPAR #G_REF               17.0         # GAMMA REFERENCE
+DEFPAR #A_REF               15.0         # ALPHA REFERENCE
+DEFPAR #A_HYS                2.5         # ANGLE HYSTERESIS
+(
+DEFPAR #TCPMX               31.0         # MAXIMUM TAP
+DEFPAR #TCPMN                1.0         # MINIMUM TAP
+DEFPAR #TCPNO               21.0         # NOMINAL TAP
+DEFPAR #STEP              0.0125         # TAP RATIO STEP
+(
+DEFPAR #IDNRV             2043.8         # NOMINAL CURRENT
+DEFPAR #IDNOM             2500.0         # NOMINAL CURRENT (REVERSE)
+DEFPAR #URREC              815.0         # DC VOLTAGE REFERENCE
+DEFPAR #V_HYS               10.0         # VOLTAGE HYSTERESIS
+(
+DEFPAR #FA    1904                        # T.Rio Filter Bank A
+DEFPAR #FB    1905                        # T.Rio Filter Bank A
+DEFPAR #FC    1906                        # T.Rio Filter Bank A
+DEFPAR #CNVX1 1982                        # T.Rio Converter Pole 1
+DEFPAR #CNVX2 1984                        # T.Rio Converter Pole 2
+(================== QPC ==================)
+DEFPAR #QPCON  0.0
+DEFPAR #Hlim   20.0
+DEFPAR #Hlim2  22.0
+DEFPAR #QPCKp  0.04
+DEFPAR #QPCTi  20.0
+DEFPAR #QPC_G  0.01745
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+8424   8420   TCC-S2P2
+(EFPAR (nome) (     valor      )
+(
+DEFPAR #TCC_A                1.0          # TCC CONTROL [0: MANUAL 1: AUTOMATIC]
+(
+DEFPAR #STA   0.0                         # STATION (1: XINGU 0: T.RIO)
+(
+DEFPAR #UACS1 1970                        # BARRA TERMINAL RIO
+DEFPAR #CNV   1984                        # CONVERSOR
+DEFPAR #UDREF 2421                        # UD_REF
+DEFPAR #O_STA 1983                        # OTHER STATION CONVERTER
+(
+DEFPAR #G_REF               17.0          # GAMMA REFERENCE
+DEFPAR #A_REF               15.0          # ALPHA REFERENCE
+DEFPAR #A_HYS                2.5          # ANGLE HYSTERESIS
+(
+DEFPAR #TCPMX               31.0          # MAXIMUM TAP
+DEFPAR #TCPMN                1.0          # MINIMUM TAP
+DEFPAR #TCPNO               21.0          # NOMINAL TAP
+DEFPAR #STEP              0.0125          # TAP RATIO STEP
+(
+DEFPAR #IDNRV             2043.8          # NOMINAL CURRENT  (REVERSE)
+DEFPAR #IDNOM             2500.0          # NOMINAL CURRENT
+DEFPAR #URREC              815.0          # DC VOLTAGE REFERENCE
+DEFPAR #V_HYS               10.0          # VOLTAGE HYSTERESIS
+(
+DEFPAR #FA    1904                        # T.Rio Filter Bank A
+DEFPAR #FB    1905                        # T.Rio Filter Bank A
+DEFPAR #FC    1906                        # T.Rio Filter Bank A
+DEFPAR #CNVX1 1982                        # T.Rio Converter Pole 1
+DEFPAR #CNVX2 1984                        # T.Rio Converter Pole 2
+(================== QPC ==================)
+DEFPAR #QPCON  0.0
+DEFPAR #Hlim   20.0
+DEFPAR #Hlim2  22.0
+DEFPAR #QPCKp  0.04
+DEFPAR #QPCTi  20.0
+DEFPAR #QPC_G  0.01745
+FIMCDU
+999999
+FIM

@@ -1,0 +1,878 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       HVDC_FOZ_IBIUNADPLT.dat                                                                   |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(  BASE DE DADOS PARA PLOTAGEM
+(
+DPLT IMPR IERR
+(
+( TENSÕES
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT       85
+VOLT       86
+VOLT     1100
+VOLT     1101
+VOLT     1103
+VOLT       48
+(
+( ITAIPU 50 HZ
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT     1100
+PELE     1100          10
+QELE     1100          10
+FMAQ     1100          10
+PMEC     1100          10
+EFD      1100          10
+IFD      1100          10
+(
+( CS IBIUNA
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT       48
+QELE     1100          10
+EFD      1100          10
+IFD      1100          10
+(
+( EQUIVALENTE 60 HZ
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VOLT     9999
+PELE     9999          10
+QELE     9999          10
+FMAQ     9999          10
+PMEC     9999          10
+EFD      9999          10
+IFD      9999          10
+(
+(  FLUXOS DE POTÊNCIA
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+FLXA   1101   1103   1
+FLXA   1101   1103   2
+FLXA   1101   1103   3
+FLXA   1101   1103   4
+(
+FLXA   1103     85   1
+FLXA   1103     85   2
+FLXA   1103     85   3
+FLXA   1103     85   4
+(
+( ELO DE ITAIPU
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU      9990                            8997
+PCNV     0001
+PCNV     0002
+PCNV     0003
+PCNV     0004
+PCNV     0005
+PCNV     0006
+PCNV     0007
+PCNV     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+QCNV     0001
+QCNV     0002
+QCNV     0003
+QCNV     0004
+QCNV     0005
+QCNV     0006
+QCNV     0007
+QCNV     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CCNV     0001
+CCNV     0002
+CCNV     0003
+CCNV     0004
+CCNV     0005
+CCNV     0006
+CCNV     0007
+CCNV     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VCNV     0001
+VCNV     0002
+VCNV     0003
+VCNV     0004
+VCNV     0005
+VCNV     0006
+VCNV     0007
+VCNV     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+VBDC     0010
+VBDC     0020
+VBDC     0050
+VBDC     0060
+VBDC     0090
+VBDC     0100
+VBDC     0130
+VBDC     0140
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+ALFA     0001
+ALFA     0002
+ALFA     0003
+ALFA     0004
+ALFA     0005
+ALFA     0006
+ALFA     0007
+ALFA     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+GAMA     0002
+GAMA     0004
+GAMA     0006
+GAMA     0008
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU    9021                                 1
+CDU    9022                                 1
+CDU    9023                                 1
+CDU    9024                                 1
+CDU    9025                                 1
+CDU    9026                                 1
+CDU    9027                                 1
+CDU    9028                                 1
+(
+(  Controles Definidos pelo Usuario - CDU
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+(
+( STATUS DE CONVERSORES E BIPOLOS
+CDU      9990                            9910
+CDU      9990                            9911
+CDU      9990                            9912
+CDU      9990                            9913
+CDU      9990                            9914
+CDU      9990                            9915
+CDU      9990                            9916
+CDU      9990                            9917
+CDU      9990                            9918
+CDU      9990                            9919
+CDU      9990                            9920
+CDU      9990                            9921
+CDU      9990                              19
+CDU      9990                              68
+(
+( BIPOLE POWER CONTROL
+CDU      9990                             120
+CDU      9990                             121
+CDU      9990                             122
+CDU      9990                             123
+( BIPOLO 1
+CDU      9990                               1
+CDU      9990                               4
+CDU      9990                             370
+CDU      9990                             371
+CDU      9990                             372
+CDU      9990                             470
+CDU      9990                             471
+CDU      9990                             472
+CDU      9990                              23
+CDU      9990                            1073
+( BIPOLO 2
+CDU      9990                              10
+CDU      9990                              13
+CDU      9990                             170
+CDU      9990                             171
+CDU      9990                             172
+CDU      9990                             270
+CDU      9990                             271
+CDU      9990                             272
+CDU      9990                              72
+CDU      9990                            1025
+(
+( STAB50
+CDU      9990                            2001
+CDU      9990                            2002
+CDU      9990                            2003
+CDU      9990                            2006
+CDU      9990                            2007
+CDU      9990                            2009
+CDU      9990                            2010
+(
+( HOLD UD/CMR
+( POLO 1
+CDU      9990                            9992
+CDU      9990                              39
+CDU      9990                              42
+( POLO 2
+CDU      9990                            9993
+CDU      9990                              58
+CDU      9990                              61
+( POLO 3
+CDU      9990                            9994
+CDU      9990                              86
+CDU      9990                              89
+( POLO 4
+CDU      9990                            9995
+CDU      9990                             105
+CDU      9990                             108
+(
+( CALCULO DA ORDEM DE CORRENTE
+( BIPOLO 1
+CDU      9990                              62
+CDU      9990                              63
+CDU      9990                              65
+CDU      9990                              66
+( BIPOLO 2
+CDU      9990                             110
+CDU      9990                             111
+CDU      9990                             113
+CDU      9990                             114
+(
+(
+( POLO 1 - STOL/TELECOM
+CDU      9990                             150
+CDU      9990                             151
+CDU      9990                             175
+CDU      9990                             176
+(
+( POLO 2 - STOL/TELECOM
+CDU      9990                             250
+CDU      9990                             251
+CDU      9990                             275
+CDU      9990                             276
+(
+( POLO 3 - STOL/TELECOM
+CDU      9990                             350
+CDU      9990                             351
+CDU      9990                             375
+CDU      9990                             376
+(
+( POLO 4 - STOL/TELECOM
+CDU      9990                             450
+CDU      9990                             451
+CDU      9990                             475
+CDU      9990                             476
+(
+(
+(
+CDU      9990                            9932
+CDU      9990                            9933
+CDU      9990                            9934
+CDU      9990                            9935
+CDU      9990                            9936
+CDU      9990                            9937
+CDU      9990                            9938
+CDU      9990                            9939
+CDU      9990                            9940
+(
+(
+( DCLF PROTECTION
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU      9013                               1
+CDU      9013                               6
+(
+CDU      9013                              10
+CDU      9013                              11
+CDU      9013                              12
+CDU      9013                              13
+CDU      9013                              14
+CDU      9013                              15
+CDU      9013                              16
+CDU      9013                              17
+CDU      9013                              18
+CDU      9013                              19
+CDU      9013                              20
+CDU      9013                              21
+CDU      9013                              22
+CDU      9013                              23
+CDU      9013                              24
+CDU      9013                              25
+CDU      9013                              26
+CDU      9013                              27
+CDU      9013                              28
+((
+(CDU      9013                             110
+(CDU      9013                             111
+(CDU      9013                             112
+(CDU      9013                             113
+(CDU      9013                             114
+(CDU      9013                             115
+(CDU      9013                             116
+(CDU      9013                             117
+(CDU      9013                             118
+(CDU      9013                             119
+(CDU      9013                             120
+(CDU      9013                             121
+(CDU      9013                             122
+(CDU      9013                             123
+(CDU      9013                             124
+(CDU      9013                             125
+(CDU      9013                             126
+(CDU      9013                             127
+(CDU      9013                             128
+((
+(CDU      9013                             210
+(CDU      9013                             211
+(CDU      9013                             212
+(CDU      9013                             213
+(CDU      9013                             214
+(CDU      9013                             215
+(CDU      9013                             216
+(CDU      9013                             217
+(CDU      9013                             218
+(CDU      9013                             219
+(CDU      9013                             220
+(CDU      9013                             221
+(CDU      9013                             222
+(CDU      9013                             223
+(CDU      9013                             224
+(CDU      9013                             225
+(CDU      9013                             226
+(CDU      9013                             227
+(CDU      9013                             228
+((
+(CDU      9013                             310
+(CDU      9013                             311
+(CDU      9013                             312
+(CDU      9013                             313
+(CDU      9013                             314
+(CDU      9013                             315
+(CDU      9013                             316
+(CDU      9013                             317
+(CDU      9013                             318
+(CDU      9013                             319
+(CDU      9013                             320
+(CDU      9013                             321
+(CDU      9013                             322
+(CDU      9013                             323
+(CDU      9013                             324
+(CDU      9013                             325
+(CDU      9013                             326
+(CDU      9013                             327
+(CDU      9013                             328
+((
+(CDU      9013                             410
+(CDU      9013                             411
+(CDU      9013                             412
+(CDU      9013                             413
+(CDU      9013                             414
+(CDU      9013                             415
+(CDU      9013                             416
+(CDU      9013                             417
+(CDU      9013                             418
+(CDU      9013                             419
+(CDU      9013                             420
+(CDU      9013                             421
+(CDU      9013                             422
+(CDU      9013                             423
+(CDU      9013                             424
+(CDU      9013                             425
+(CDU      9013                             426
+(CDU      9013                             427
+(CDU      9013                             428
+(
+CDU      9013                             501
+CDU      9013                             502
+CDU      9013                             503
+CDU      9013                             504
+CDU      9013                             505
+CDU      9013                             506
+CDU      9013                             507
+CDU      9013                             508
+CDU      9013                             509
+CDU      9013                             510
+CDU      9013                             511
+CDU      9013                             512
+CDU      9013                             513
+CDU      9013                             514
+CDU      9013                             515
+CDU      9013                            1516
+CDU      9013                             516
+CDU      9013                             517
+CDU      9013                             518
+CDU      9013                             519
+CDU      9013                             520
+CDU      9013                             521
+CDU      9013                             522
+CDU      9013                             523
+CDU      9013                             524
+CDU      9013                             525
+(
+CDU      9013                             530
+CDU      9013                             531
+CDU      9013                             532
+CDU      9013                             533
+CDU      9013                            1534
+CDU      9013                             534
+CDU      9013                             535
+CDU      9013                             536
+CDU      9013                             537
+CDU      9013                             538
+CDU      9013                             539
+CDU      9013                             540
+CDU      9013                             541
+CDU      9013                             542
+CDU      9013                             543
+CDU      9013                             544
+CDU      9013                             545
+CDU      9013                             546
+CDU      9013                             547
+CDU      9013                             548
+CDU      9013                            1524
+CDU      9013                            1548
+CDU      9013                            1550
+CDU      9013                            1551
+(
+CDU      9013                             556
+CDU      9013                             557
+CDU      9013                             558
+CDU      9013                             559
+CDU      9013                             560
+CDU      9013                             561
+CDU      9013                             562
+CDU      9013                             563
+(
+CDU      9013                             800
+(
+(
+(
+CDU      8001                            1005
+CDU      8001                            1000
+CDU      8001                            1001
+CDU      8001                            1002
+CDU      8001                            1003
+CDU      8001                            1004
+CDU      8001                              61
+CDU      8001                              62
+CDU      8001                              63
+CDU      8001                              64
+CDU      8001                              65
+CDU      8001                              66
+CDU      8001                              67
+CDU      8001                              68
+CDU      8001                              69
+CDU      8001                              96
+CDU      8001                             79
+CDU      8001                              80
+CDU      8001                              82
+CDU      8001                              83
+CDU      8001                              84
+CDU      8001                              85
+CDU      8001                              86
+CDU      8001                              87
+CDU      8001                              88
+CDU      8001                              89
+CDU      8001                              98
+CDU      8001                              90
+CDU      8001                            1010
+CDU      8001                            1011
+CDU      8001                            1012
+CDU      8001                            1013
+CDU      8001                            1014
+CDU      8001                             400
+CDU      8001                             405
+CDU      8001                             410
+CDU      8001                             412
+CDU      8001                             415
+CDU      8001                             420
+CDU      8001                             425
+CDU      8001                             430
+CDU      8001                             435
+CDU      8001                             440
+CDU      8001                             445
+CDU      8001                             450
+CDU      8001                             452
+CDU      8001                             453
+CDU      8001                             455
+CDU      8001                             500
+CDU      8001                             505
+CDU      8001                             510
+CDU      8001                             515
+CDU      8001                             520
+CDU      8001                             525
+CDU      8001                             530
+CDU      8001                             535
+CDU      8001                             540
+CDU      8001                             600
+CDU      8001                             605
+CDU      8001                             610
+CDU      8001                             615
+CDU      8001                             620
+CDU      8001                             625
+CDU      8001                             630
+CDU      8001                             635
+CDU      8001                             640
+CDU      8001                             645
+CDU      8001                             650
+CDU      8001                             655
+CDU      8001                             660
+CDU      8001                             665
+(
+CDU      8001                            1914
+CDU      8001                              48
+CDU      8001                              49
+
+(
+CDU      8001                              48
+CDU      8001                              49
+CDU      8001                            1000
+CDU      8001                            1001
+CDU      8001                            1002
+CDU      8001                            1003
+CDU      8001                            1004
+CDU      8001                              60
+CDU      8001                              61
+CDU      8001                              62
+CDU      8001                              63
+CDU      8001                              64
+CDU      8001                              65
+CDU      8001                              66
+CDU      8001                              67
+CDU      8001                              68
+CDU      8001                              69
+CDU      8001                              79
+CDU      8001                              82
+CDU      8001                              83
+CDU      8001                              84
+CDU      8001                              85
+CDU      8001                              86
+CDU      8001                              87
+CDU      8001                              88
+CDU      8001                              89
+CDU      8001                              90
+CDU      8001                            1010
+CDU      8001                            1011
+CDU      8001                            1012
+CDU      8001                            1013
+CDU      8001                            1014
+CDU      8001                             252
+CDU      8001                               4
+CDU      8001                               5
+CDU      8001                               8
+CDU      8001                               9
+CDU      8001                              10
+CDU      8001                             910
+CDU      8001                              11
+CDU      8001                              13
+CDU      8001                             912
+CDU      8001                            1912
+CDU      8001                            2912
+CDU      8001                            3912
+CDU      8001                            4912
+CDU      8001                            5912
+CDU      8001                            0040
+CDU      8001                            0041
+CDU      8001                            1041
+CDU      8001                            1042
+CDU      8001                            1043
+CDU      8001                            1044
+CDU      8001                            0034
+CDU      8001                            0035
+CDU      8001                            0036
+CDU      8001                            0037
+CDU      8001                            0038
+CDU      8001                            0039
+CDU      8001                            0040
+CDU      8001                            0041
+CDU      8001                            0042
+CDU      8001                            0043
+CDU      8001                            0044
+CDU      8001                            1045
+CDU      8001                            0046
+CDU      8001                            0047
+CDU      8001                            0048
+CDU      8001                            0049
+(
+CDU      8003                              48
+CDU      8003                              49
+CDU      8003                              61
+CDU      8003                              62
+CDU      8003                              63
+CDU      8003                              64
+CDU      8003                              65
+CDU      8003                              66
+CDU      8003                              67
+CDU      8003                              68
+CDU      8003                              69
+CDU      8003                              79
+CDU      8003                              82
+CDU      8003                              83
+CDU      8003                              84
+CDU      8003                              85
+CDU      8003                              86
+CDU      8003                              87
+CDU      8003                              88
+CDU      8003                              89
+CDU      8003                              90
+CDU      8003                             252
+CDU      8003                               4
+CDU      8003                               5
+CDU      8003                               8
+CDU      8003                               9
+CDU      8003                              10
+CDU      8003                             910
+CDU      8003                              11
+CDU      8003                              13
+CDU      8003                             912
+CDU      8003                            1912
+CDU      8003                            2912
+CDU      8003                            3912
+CDU      8003                            4912
+CDU      8003                            5912
+(
+CDU      8005                              48
+CDU      8005                              49
+CDU      8005                            1000
+CDU      8005                            1001
+CDU      8005                            1002
+CDU      8005                            1003
+CDU      8005                            1004
+CDU      8005                              60
+CDU      8005                              61
+CDU      8005                              62
+CDU      8005                              63
+CDU      8005                              64
+CDU      8005                              65
+CDU      8005                              66
+CDU      8005                              67
+CDU      8005                              68
+CDU      8005                              69
+CDU      8005                              79
+CDU      8005                              82
+CDU      8005                              83
+CDU      8005                              84
+CDU      8005                              85
+CDU      8005                              86
+CDU      8005                              87
+CDU      8005                              88
+CDU      8005                              89
+CDU      8005                              90
+CDU      8005                            1010
+CDU      8005                            1011
+CDU      8005                            1012
+CDU      8005                            1013
+CDU      8005                            1014
+CDU      8005                             252
+CDU      8005                               4
+CDU      8005                               5
+CDU      8005                               8
+CDU      8005                               9
+CDU      8005                              10
+CDU      8005                             910
+CDU      8005                              11
+CDU      8005                              13
+CDU      8005                             912
+CDU      8005                            1912
+CDU      8005                            2912
+CDU      8005                            3912
+CDU      8005                            4912
+CDU      8005                            5912
+(
+CDU      8006                            60
+(
+( VCA
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU    8002                              220
+CDU    8002                              230
+CDU    8002                              250
+CDU    8002                               32
+CDU    8002                              260
+CDU    8002                              270
+CDU    8002                              280
+CDU    8002                              290
+CDU    8002                              310
+(
+(
+(
+CDU    8002                               912
+CDU    8002                              1009
+CDU    8002                               117
+(
+( TAP-CONTROL
+CDU    9021                                 1
+CDU    9022                                 1
+CDU    9023                                 1
+CDU    9024                                 1
+CDU    9025                                 1
+CDU    9026                                 1
+CDU    9027                                 1
+CDU    9028                                 1
+(
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P
+CDU    9021                                 1
+CDU    9021                                10
+CDU    9021                                15
+CDU    9021                                20
+CDU    9021                                25
+CDU    9021                                30
+CDU    9021                                45
+CDU    9021                                50
+CDU    9021                                55
+CDU    9021                                60
+CDU    9021                               100
+CDU    9021                               105
+CDU    9021                               110
+CDU    9021                               115
+CDU    9021                               160
+CDU    9021                               170
+CDU    9021                               180
+CDU    9021                               190
+CDU    9021                               200
+CDU    9021                               205
+CDU    9021                               300
+CDU    9021                               305
+CDU    9021                               310
+CDU    9021                               500
+CDU    9021                              1110
+CDU    9021                               505
+CDU    9021                               510
+CDU    9021                               515
+CDU    9021                               520
+CDU    9021                               525
+CDU    9021                              2050
+CDU    9021                              2055
+CDU    9021                              2060
+CDU    9021                               550
+CDU    9021                              3110
+CDU    9021                               555
+CDU    9021                               560
+CDU    9021                               565
+CDU    9021                              4050
+CDU    9021                              4055
+CDU    9021                              4060
+CDU    9021                               600
+CDU    9021                               605
+CDU    9021                               610
+CDU    9021                               615
+CDU    9021                               620
+CDU    9021                               625
+CDU    9021                               645
+CDU    9021                               650
+CDU    9021                               685
+CDU    9021                               690
+CDU    9021                               630
+CDU    9021                               635
+CDU    9021                               640
+CDU    9021                               655
+CDU    9021                               660
+CDU    9021                               665
+CDU    9021                               670
+CDU    9021                               675
+CDU    9021                               680
+CDU    9021                               700
+CDU    9021                              5110
+CDU    9021                               705
+CDU    9021                               710
+CDU    9021                               715
+CDU    9021                              6050
+CDU    9021                              6055
+CDU    9021                              6060
+CDU    9021                               750
+CDU    9021                              7110
+CDU    9021                               755
+CDU    9021                               760
+CDU    9021                               765
+CDU    9021                              8050
+CDU    9021                              8055
+CDU    9021                              8060
+CDU    9021                               800
+CDU    9021                               805
+CDU    9021                               810
+CDU    9021                               815
+CDU    9021                               820
+CDU    9021                               825
+(
+CDU    9022                                 1
+CDU    9022                                10
+CDU    9022                                15
+CDU    9022                                20
+CDU    9022                                25
+CDU    9022                                30
+CDU    9022                                45
+CDU    9022                                50
+CDU    9022                                55
+CDU    9022                                60
+CDU    9022                               100
+CDU    9022                               105
+CDU    9022                               110
+CDU    9022                               160
+CDU    9022                               170
+CDU    9022                               180
+CDU    9022                               190
+CDU    9022                               200
+CDU    9022                               205
+CDU    9022                               300
+CDU    9022                               305
+CDU    9022                               310
+CDU    9022                               500
+CDU    9022                              1110
+CDU    9022                               505
+CDU    9022                               510
+CDU    9022                               515
+CDU    9022                              2050
+CDU    9022                              2055
+CDU    9022                              2060
+CDU    9022                               550
+CDU    9022                              3110
+CDU    9022                               555
+CDU    9022                               560
+CDU    9022                               565
+CDU    9022                              4050
+CDU    9022                              4055
+CDU    9022                              4060
+CDU    9022                               600
+CDU    9022                               605
+CDU    9022                               610
+CDU    9022                               615
+CDU    9022                               620
+CDU    9022                               625
+CDU    9022                               645
+CDU    9022                               650
+CDU    9022                               685
+CDU    9022                               690
+CDU    9022                               630
+CDU    9022                               635
+CDU    9022                               640
+CDU    9022                               655
+CDU    9022                               660
+CDU    9022                               665
+CDU    9022                               670
+CDU    9022                               675
+CDU    9022                               680
+CDU    9022                               700
+CDU    9022                              5110
+CDU    9022                               705
+CDU    9022                               710
+CDU    9022                               715
+CDU    9022                              6050
+CDU    9022                              6055
+CDU    9022                              6060
+CDU    9022                               750
+CDU    9022                              7110
+CDU    9022                               755
+CDU    9022                               760
+CDU    9022                               765
+CDU    9022                              8050
+CDU    9022                              8055
+CDU    9022                              8060
+CDU    9022                               800
+CDU    9022                               805
+CDU    9022                               810
+CDU    9022                               815
+CDU    9022                               820
+CDU    9022                               825
+(
+999999
+FIM

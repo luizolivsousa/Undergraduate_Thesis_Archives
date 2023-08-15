@@ -1,0 +1,2509 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       DREL_PEL_0720.dat                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Modelagem de relés de proteção                                                            |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  TIPOS DE RELÉS DE PROTEÇÃO PRESENTES                                                                     |
+( |                                                                                                           |
+( |  # Modelo 01  Relé de subfreqüência para alívio de carga em barra CA                                      |
+( |  # Modelo 02  Relé de sobrecorrente para abertura de circuito CA                                          |
+( |  # Modelo 03  Relé de subtensão para alívio de carga em barra CA                                          |
+( |  # Modelo 04  Relé de impedância para abertura de circuito CA                                             |
+( |               Nesse arquivo foram incluídos somente os relés com ajustes específicos.                     |
+( |               Os relés com ajuste padrão foram transferidos para o arquivo DREL_MD04_PEL_0320.dat         |
+( |  # Modelo 05  Relé de impedância para detecção de oscilação entre áreas (PPS)                             |
+( |                                                                                                           |
+( |   -> LI 500 kV B. Jesus da Lapa - Rio das Éguas                         (Interlig. SE-NE)                 |
+( |   -> LI 500 kV Pres. Dutra - Teresina                                   (Interlig. N-NE)                  |
+( |   -> LT 500 kV Pres. Dutra - Boa Esperança                              (Interlig. N-NE)                  |
+( |   -> LT 500 kV Teresina - Sobral                                        (DESABILITADA)                    |
+( |   -> LI Ribeiro Gonçalves  - Colinas (em R. Gonçalves)                  (Interlig. N-NE)                  |
+( |   -> LI 500 kV Miracema - Gurupi -Serra da Mesa e S. Mesa 2 C1, C2 e C3 (Interlig. N-SE)                  |
+( |   -> LT 230 kV Ji-Paraná - Pimenta Bueno C1, C2 e C3                    (Interlig. AC-RO)                 |
+( |   -> LT 230 kV Jauru - Vilhena C3                                       (Interlig. AC-RO)                 |
+( |   -> LT 765 kV Foz do Iguaçu - Ivaiporã                                 (Interlig. IPU-S/SE)              |
+( |   -> LT 525 kV Cascavel Oeste - Foz do Iguaçu                           (Interlig. S-SE                   |
+( |   -> LT 525 kV Londrina - Assis C1 e C2                                 (Interlig. S-SE)                  |
+( |   -> LT 138 kV Nova Mutum - S. J. do Rio Claro                          (DESABILITADA)                    |
+( |   -> LT 230 kV Nova Mutum - Brasnorte                                   (DESABILITADA)                    |
+( |                                                                                                           |
+( |  # Modelo 06  Relé de sobretensão para abertura de circuito CA                                            |
+( |  # Modelo 07  Relé de sobretensão para desligamento de capacitor                                          |
+( |  # Modelo 08  Relé de subtensão para desligamento de reator                                               |
+( |  # Modelo 09  Relé de impedância para abertura de circ. CA em esquemas especiais de proteção              |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 1 - RELÉ DE SUBFREQUÊNCIA PARA ALÍVIO DE CARGA EM BARRA CA
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD01
+( Nb) LH(Fs )(Fc )(Tax)(Fr ) ( % )           (Ttx)(Tre)(Tdj) M
+ 5562 A                0.963   100                0.1  0.01  M     São Luiz 2 230 kV
+ 5563 A                0.963   100                0.1  0.01  M     São Luiz 1 230 kV
+(
+ 6472 A                0.957   100                0.1  0.01  M
+(
+ 8356 A                0.963   100                0.1  0.01  M     B. Esperança - representacao nova 8036 -> 8356
+ 8357 A                0.963   100                0.1  0.01  M     B. Esperança - representacao nova 8037 -> 8357
+(8036 A                0.963   100                0.1  0.01  M     B. Esperança - representacao antiga
+(8037 A                0.963   100                0.1  0.01  M     B. Esperança - representacao antiga
+(
+ 8034 A                0.963   100                0.1  0.01  M     Teresina
+ 8035 A                0.963   100                0.1  0.01  M     Teresina
+(
+ 5403 O 0.9830.972.01170.942   100            0.1 0.1  0.01  M
+ 5156 O 0.9830.972.01170.942   100            0.1 0.1  0.01  M
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 2 - RELÉ DE SOBRECORRENTE PARA ABERTURA DE CIRCUITO CA
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD02
+( De)   ( Pa) Nc ( Ne) (Cor) ( Ang) (Tre) (Tdj) M
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 3 - RELÉ DE SUBTENSÃO PARA ALÍVIO DE CARGA EM BARRA CA
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD03
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 5562   0.80    100            2.5   0.01 M                        São Luiz 2 230 kV
+ 5563   0.80    100            2.5   0.01 M                        São Luiz 1 230 kV
+(
+( AREA NORTE DO SISTEMA NORDESTE
+(       SOBRAL
+ 5483    0.84    43            2.50  0.01 A
+ 5483    0.84    11            2.80  0.01 A
+ 5483    0.84    46            3.10  0.01 A
+(       FORTALEZA
+ 5453    0.84    19            2.50  0.01 A
+ 5453    0.84    11            2.80  0.01 A
+ 5453    0.84    11            3.10  0.01 A
+(       PICI II
+ 5643    0.84    55            3.10  0.01 A
+(       CAUIPE
+ 5653    0.84   100            2.50  0.01 A
+(       RUSSAS
+ 5433    0.84   100            2.80  0.01 A
+(
+ 2625    0.90    90              1.  0.00 A
+ 2674    0.89   100            15.   0.00 A
+ 2674    0.88    50            .01   0.00 A
+ 2682    0.82   100              5.  0.00 A
+ 2683    0.90    30             .3   0.00 A
+ 2683    0.90   100              3.  0.00 A
+( 2612    0.87   100            .08   0.00 A
+( 8903    0.87   100            .08   0.00 A
+( 3886    0.83   100            .01   0.00 A
+ 1719    0.85   100             8.0  0.00 A
+( 1746    0.85   100             8.0  0.00 A
+( 1745    0.85   100             8.0  0.00 A
+ 1602    0.85   100            10.0  0.00 A
+ 1604    0.85   100            10.0  0.00 A
+ 1610    0.85   100            10.0  0.00 A
+ 1611    0.85   100            15.0  0.00 A
+  271    0.85   100            20.0  0.00 A
+(
+( EPTE
+(NORDESTE 345 < 91,2 % CORTA 120 MW NO 88 KV
+(  443   0.912    15            5.00  0.00 A   442
+ 3443   0.912    15            5.00  0.00 A   442
+(NORTE 345 < 95,7 % CORTA 150 MW NO 88 KV
+(  436   0.957    30            5.00  0.00 A   435
+ 3436   0.957    30            5.00  0.00 A   435
+(SUL 345 < 90,3 % CORTA 75 MW NO 88 KV
+(  475   0.903    17            5.00  0.00 A   474
+ 3475   0.903    17            5.00  0.00 A   474
+(LESTE 345 < 94,7 % CORTA 120 MW NO 88 KV
+(  465   0.947    20            5.00  0.00 A   464
+ 3465   0.947    20            5.00  0.00 A   464
+(
+(-----------------------------------------------------------------------
+(  Quando a tensão de Colider 138 kV (barra 4963) estiver com 85% da
+(  tensão nominal durante 1000ms o relé envia o comando para retirar
+(  os alimentadores 1 e 2 de Colider 13kV (barra 4966)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4966   0.85    100            1.0   .05  A  4963
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rondonópolis 138 kV (barra 4623) estiver com 85%
+(  da tensão nominal durante 2500ms o relé envia o comando para retirar
+(  os alimentadores 2 e 3 de Rondonópolis 13kV (barras 4625 e 4626)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4625   0.85    100           2.500  .05  A  4623
+ 4626   0.85    100           2.500  .05  A  4623
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rondonópolis 138 kV (barra 4623) estiver com 85%
+(  da tensão nominal durante 2800ms o relé envia o comando para retirar
+(  o alimentador 1 de Rondonópolis 13kV e a LT 138 kV Rondonópolis -
+(  Rondonópolis Centro - Bunge (barras 4627, 4636 e 4634)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4627   0.85    100           2.800  .05  A  4623
+ 4636   0.85    100           2.800  .05  A  4623
+ 4634   0.85    100           2.800  .05  A  4623
+(-----------------------------------------------------------------------
+(  Quando a tensão de Barro Duro (Cuiabá) 138 kV (barra 4703) estiver
+(  com 85% da tensão nominal durante 2500ms o relé envia o comando para
+(  retirar o alimentador 3 de Barro Duro (Cuiabá) 13kV (barra 4708)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4708   0.85    100           2.500  .05  A  4703
+(-----------------------------------------------------------------------
+(  Quando a tensão de Cidade Alta 138 kV (barra 4723) estiver com 85%
+(  da tensão nominal durante 2500ms o relé envia o comando para retirar
+(  o alimentador 1 de Cidade Alta 13kV (barra 4726)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4726   0.85    100           2.500  .05  A  4723
+(-----------------------------------------------------------------------
+(  Quando a tensão de Várzea Grande 138 kV (barra 4713) estiver com 85%
+(  da tensão nominal durante 2500ms o relé envia o comando para retirar
+(  o alimentador 2 de Várzea Grande 13kV (barra 4717)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4717   0.85    100           2.500  .05  A  4713
+(-----------------------------------------------------------------------
+(  Quando a tensão de Várzea Grande 138 kV (barra 4713) estiver com 85%
+(  da tensão nominal durante 2800ms o relé envia o comando para retirar
+(  o alimentador 3 de Várzea Grande 13kV (barra 4718)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4718   0.85    100           2.800  .05  A  4713
+(-----------------------------------------------------------------------
+(  Quando a tensão de Coxipó 138 kV (barra 4533) estiver com 85%
+(  da tensão nominal durante 2500ms o relé envia o comando para retirar
+(  o alimentador 1 de Coxipó 13kV (barra 4796)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4796   0.85    100           2.500  .05  A  4533
+(-----------------------------------------------------------------------
+(  Quando a tensão de Coxipó 138 kV (barra 4533) estiver com 85%
+(  da tensão nominal durante 2800ms o relé envia o comando para retirar
+(  o alimentador 2 de Coxipó 13kV (barra 4797)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4797   0.85    100           2.800  .05  A  4533
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rodoviária 138 kV (barra 4743) estiver com 85%
+(  da tensão nominal durante 2800ms o relé envia o comando para retirar
+(  o alimentador 1 de Rodoviária 13kV (barra 4746)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4746   0.85    100           2.800  .05  A  4743
+(-----------------------------------------------------------------------
+(  Quando a tensão de CPA 138 kV (barra 4733) estiver com 85%
+(  da tensão nominal durante 3100ms o relé envia o comando para retirar
+(  o alimentador 1 de CPA 13kV (barra 4736)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4736   0.85    100           3.100  .05  A  4733
+(-----------------------------------------------------------------------
+(  Quando a LT 138 kV Juba-Q. Marcos estiver aberta em Q. Marcos
+(  e a tensão de Q. Marcos 138 kV (barra 4853) estiver com 85%
+(  da tensão nominal durante 200ms o relé envia o comando para retirar
+(  os alimentadores de Q. Marcos e Araputanga 34kV (barras 4855 e 4865)
+(  e o alimentador de P. Lacerda 13kV
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4855   0.85    100            .200  .05  M  4853
+ 4865   0.85    100            .200  .05  M  4853
+ 4876   0.85    100            .200  .05  M  4853
+(-----------------------------------------------------------------------
+(  Quando a tensão de Cáceres 138 kV (barra 4883) estiver com 85%
+(  da tensão nominal durante 200ms o relé envia o comando para retirar
+(  o alimentador de Cáceres 13kV (barra 4886)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4886   0.85    100           0.200  .05  A  4883
+(-----------------------------------------------------------------------
+(  Quando a tensão de Cristo Rei 138 kV (barra 4783) estiver com 85%
+(  da tensão nominal durante 1000ms o relé envia o comando para retirar
+(  o alimentador 1 de Cristo Rei 13kV (barra 4786)
+(-----------------------------------------------------------------------
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+ 4786   0.85    100           1.000  .05  A  4783
+(
+(------------------------------------------------------------------------------
+( ESQUEMAS DE CORTE DE CARGA POR SUBTENSÃO - MATO GROSSO DO SUL
+(------------------------------------------------------------------------------
+(
+( Consumidores do 138 kV e 34,5 kV
+( Nb)   (Vc ) ( % )           (Tre) (Tdj) M ( Bm)
+1881    .90   100              2.0   0.05 A 1146   (Retirada de carga 138 kV Corumbá
+1137    .93   067              5.0   0.05 A 1137   (Retirada de carga 138 kV Granha Ligas Corumbá
+1137    .93   033             10.0   0.05 A 1137   (Retirada de carga 138 kV Cimento Itau Corumbá
+1890    .93   100              2.0   0.05 A 1890   (Retirada de carga 138 kV C.G. Iumbirussu
+1891    .93   100              2.0   0.05 A 1891   (Retirada de carga 138 kV C.G. Industrial
+1135    .93   100              2.0   0.05 A 1135   (Retirada de carga 138 kV Águas Claras
+1075    .93   100              2.0   0.05 A 1075   (Retirada de carga 138 kV Sidrolândia 2
+1140    .93   100              4.0   0.05 A 1140   (Retirada de carga 138 kV Dourados das Nações
+1852    .93   060              2.0   0.05 A 1148   (Retirada de carga 34,5 kV S. Gabriel D'Oeste
+(
+( ECE subtensão 13,8 e 34,5 kV
+(
+( Temporização = 2.0 seg
+1801    .88   016              2.0   0.05 A 1891   (Retirada de carga 13,8 kV C.G. Industrial
+1814    .88   017              2.0   0.05 A 1133   (Retirada de carga 13,8 kV C.G. Centro
+1815    .88   015              2.0   0.05 A 1134   (Retirada de carga 13,8 kV C.G. M. Couto
+1816    .88   014              2.0   0.05 A 1136   (Retirada de carga 13,8 kV C.G. Cuiabá
+(
+( Temporização = 2.5 seg
+1800    .88   016              2.5   0.05 A 1130   (Retirada de carga 13,8 kV C.G. Almnoxarifado
+1804    .88   035              2.5   0.05 A 1132   (Retirada de carga 13,8 kV C.G. Assis Scaffa
+1814    .88   015              2.5   0.05 A 1133   (Retirada de carga 13,8 kV C.G. Centro
+1815    .88   015              2.5   0.05 A 1134   (Retirada de carga 13,8 kV C.G. M. Couto
+(
+( Temporização = 3.0 seg
+1834    .90   033              3.0   0.05 A 1148   (Retirada de carga 13,8 kV S. Gabriel D'Oeste
+1852    .90   020              3.0   0.05 A 1148   (Retirada de carga 34,5 kV S. Gabriel D'Oeste
+9916    .88   038              3.0   0.05 A 9915   (Retirada de carga 13,8 kV C.G. Tamandaré
+1802    .88   030              3.0   0.05 A 1129   (Retirada de carga 13,8 kV C.G. Lajeado
+1816    .88   028              3.0   0.05 A 1136   (Retirada de carga 13,8 kV C.G. Cuiabá
+1805    .88   031              3.0   0.05 A 1892   (Retirada de carga 13,8 kV C.G  J. Abrão
+(
+( Temporização = 3.5 seg
+1814    .88   014              3.5   0.05 A 1133   (Retirada de carga 13,8 kV C.G. Centro
+1801    .88   025              3.5   0.05 A 1891   (Retirada de carga 13,8 kV C.G. Industrial
+1815    .88   009              3.5   0.05 A 1134   (Retirada de carga 13,8 kV C.G. M. Couto
+1816    .88   035              3.5   0.05 A 1136   (Retirada de carga 13,8 kV C.G. Cuiabá
+(
+( Temporização = 4.0 seg
+1843    .90   015              4.0   0.05 A 1843   (Retirada de carga 13,8 kV Camapuã
+1852    .90   018              4.0   0.05 A 1148   (Retirada de carga 34,5 kV S. Gabriel do Oeste
+1809    .90   018              4.0   0.05 A 1883   (Retirada de carga 13,8 kV Coxim
+(
+( Temporização = 4.5 seg
+1833    .90   045              4.5   0.05 A 1893   (Retirada de carga 13,8 kV Rio Verde
+(
+( Temporização = 7.0 seg
+1122    .90   041              7.0   0.05 A 1121   (Retirada de carga 13,8 kV Dou. Industrial
+1820    .90   026              7.0   0.05 A 1139   (Retirada de carga 13,8 kV Dou. Maxwell
+(
+( Temporização = 7.5 seg
+1122    .90   023              7.5   0.05 A 1121   (Retirada de carga 13,8 kV Dou. Industrial
+1821    .90   046              7.5   0.05 A 1140   (Retirada de carga 13,8 kV Dou. Nações
+(
+( Temporização = 8.0 seg
+1122    .90   032              8.0   0.05 A 1121   (Retirada de carga 13,8 kV Dou. Industrial
+1826    .90   010              8.0   0.05 A 1128   (Retirada de carga 13,8 kV Dou. Alvorada
+1808    .90   024              8.0   0.05 A 1884   (Retirada de carga 13,8 kV Amambaí
+1820    .90   013              8.0   0.05 A 1139   (Retirada de carga 13,8 kV Dou. Maxwell
+(
+( Temporização = 8.5 seg
+1851    .90   032              8.5   0.05 A 1880   (Retirada de carga 13,8 kV Ponta Porã
+(
+( Temporização = 9.0 seg
+10027   .90   033              9.0   0.05 A 1882   (Retirada de carga 13,8 kV Rio Brilhante
+1808    .90   040              9.0   0.05 A 1884   (Retirada de carga 13,8 kV Amambaí
+(
+( Temporização = 10.0 seg
+1821    .90   033              10.   0.05 A 1140   (Retirada de carga 13,8 kV Dou. Nações
+1820    .90   009              10.   0.05 A 1139   (Retirada de carga 13,8 kV Dou. Maxwell
+1826    .90   020              10.   0.05 A 1128   (Retirada de carga 13,8 kV Dou. Alvorada
+(
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 4 - RELÉ DE IMPEDÂNCIA PARA ABERTURA DE CIRCUITO CA
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD04
+(
+( * Rele's de impedancia para desligamento de circuito
+( * PPS da Chesf nas linhas entre TSA-FTZ 230kV
+(
+(   A atuacao e determinada pela caracteristica interna (a carcteristica
+( externa esta comentada) e estao apenas com monitoracao. Apos rodar o caso,
+( verificar no arquivo .out se houve alguma atuacao. Caso ocorra, rodar no-
+( vamente o caso abrindo somente o circuito PRI-SBD.
+( Declarar no grupo DEVT:
+(                        ABCI xxxx 54815491 15481
+(
+(
+(  PPS IBI-SBD EM IBI
+( De)   ( Pa) Nc ( Ne) ( % ) ( Ang) ( % ) (Tre) (Tdj) M
+ 5481    6011  1  6011  121.  75.62  2.65   .05   .05 A
+( 5481    5491  1  5491  121.  75.62  97.5    .0    .0 M
+(
+(  PPS IBI-SBD EM SBD
+( De)   ( Pa) Nc ( Ne) ( % ) ( Ang) ( % ) (Tre) (Tdj) M
+ 6011    5481  1  5481  120.  72.47  -2.8   .05   .05 A
+( 5481    5491  1  5481  120.  72.47  68.0    .0    .0 M
+(
+(  PPS SBD-CAUIPE EM SBD
+( De)   ( Pa) Nc ( Ne) ( % ) ( Ang) ( % ) (Tre) (Tdj) M
+ 5651    5481  2  5481  63.4  75.20  1.39   .05   .05 M
+( 5651    5481  2  5481  63.4  75.20  68.5    .0    .0 M
+(
+(  PPS SBD-CAUIPE EM CAUIPE
+( De)   ( Pa) Nc ( Ne) ( % ) ( Ang) ( % ) (Tre) (Tdj) M
+ 5651    5481  2  5651  136.  76.20  23.9   .05   .05 M
+( 5651    5481  2  5651  136.  76.20  91.8    .0    .0 M
+(
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 5 - RELÉ DE IMPEDÂNCIA PARA DETEÇÃO DE OSCILAÇÃO ENTRE ÁREAS
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD05
+(===================================================================================
+( PPS da LI 500kV Bom Jesus da Lapa - Rio das Eguas (PPS DA SE-NE)
+( Ultimo ajuste Relatorio ONS 3/0323/2019
+(===================================================================================
+(ESTA PPS ATUA ABRINDO OS DISJUNTORES CENTRAIS NA SE RIO DAS ÉGUAS.
+(POR ISSO DEVE MONITORADA
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 6349    6444  1  -5.70   5.70   -8.5    8.5
+                  -4.20   4.20   -7.0    7.0 0.025   1.0  0.03 M
+(===================================================================================
+(===================================================================================
+( PPS da LI 500kV Parnaíba III - Acaraú
+( Ultimo ajuste Relatorio ONS 3/0323/2019
+(===================================================================================
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 5679    5318  1  -4.50   4.50  -6.00   6.00
+                  -3.00   3.00  -5.00   5.00 0.025  1.0   0.03 A
+(
+(===================================================================================
+(===================================================================================
+( PPS da LI 500kV Bom Jesus da Lapa II - Igaporã III
+( Definida no Relatorio ONS 3/0323/2019
+(===================================================================================
+(TRIP NA SAÍDA
+(POR ISSO DEVE SER MONITORADA
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 6220    6349  2  -3.50   3.50   -4.3    4.3
+                  -2.00   2.00   -2.8    2.8 0.010   1.0  0.03 M
+(===================================================================================
+( PPS da LI 500kV Buritirama - Barreiras II
+( Definida no Relatorio ONS 3/0323/2019
+(===================================================================================
+(TRIP NA SAÍDA
+(POR ISSO DEVE SER MONITORADA
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 6075    6360  6  -3.50   3.50   -3.5    3.5
+                  -3.00   3.00   -3.0    3.0 0.010   1.0  0.03 M
+(===================================================================================
+(===================================================================================
+( PPS da LI 500kV Presidente Dutra - Teresina
+(===================================================================================
+( Dados para dois circuitos em operacao
+( Ultimo ajuste Relatorio ONS 3/040/2003
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 5580    5500  8 -9.00   9.00  -9.20   9.20
+                 -7.62   7.62  -7.80   7.80  0.032  1.0   0.03 A
+ 5580    5500  9 -9.00   9.00  -9.20   9.20
+                 -7.62   7.62  -7.80   7.80  0.032  1.0   0.03 A
+((===================================================================================
+(( PPS da LI 500kV Presidente Dutra - Teresina - Um circuito
+((
+((===================================================================================
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 5580    5500  8 -5.98   5.98  -8.40   8.40
+(                 -4.60   4.60  -7.00   7.00  0.032  1.0   0.03 A
+(===================================================================================
+( AJUSTE DA PPS DA LT 500kV PRESIDENTE DUTRA - BOA ESPERANCA * CURVA EXTERNA
+( Ultimo ajuste Relatorio ONS 3/0155/2015
+(===================================================================================
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 5580    5510  7 -4.00   4.00  -7.00   7.00
+                 -3.00   3.00  -6.00   6.00  0.025  1.0   0.03 A
+((
+((===================================================================================
+(( PPS da LI 500kV Teresina - Sobral - Dois circuitos
+((===================================================================================
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 5500    5480  1 -9.30   9.30  -9.20   9.20
+(                 -8.30   8.30  -7.80   7.80  0.032  1.0   0.03 A
+( 5500    5480  2 -9.30   9.30  -9.20   9.20
+(                 -8.30   8.30  -7.80   7.80  0.032  1.0   0.03 A
+((
+((===================================================================================
+(( PPS da LI 500kV Teresina - Sobral - Um circuito
+((===================================================================================
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 5500    5480  1 -5.20   5.20  -8.40   8.40
+(                 -4.20   4.20  -7.00   7.00  0.032  1.0   0.03 A
+(===================================================================================
+( PPS DA LI RIBEIRO GONCALVES - COLINAS EM RIBEIRO GONCALVES
+( reajuste em função da entrada do segundo circuito
+( Ultimo ajuste Relatorio ONS 3/260/2009
+(===================================================================================
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 5437    7300  1   -5.5    5.5  -10.0   10.0
+                   -4.0    4.0   -8.0    8.0 0.040   1.0  0.03 A
+ 5575    7300  2   -5.5    5.5  -10.0   10.0
+                   -4.0    4.0   -8.0    8.0 0.040   1.0  0.03 A
+(===================================================================================
+( AJUSTE DA PPS DA Interligação Norte-Sudeste - após a entrada do terceiro circuito
+(===================================================================================
+( em Miracema
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 7200    7301 1     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+ 7200    7303 2     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+ 7200    7305 3     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+( em Gurupi
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 7102    7201 1     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+ 7104    7203 2     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+ 7105    7209 3     -3.     3.    -4.     4.
+                    -2.     2.    -3.     3. 0.025   1.0  0.03 A
+( em Serra da Mesa e Serra da Mesa 2
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 7236    7101 1     -4.     4.    -5.     5.
+                    -3.     3.    -4.     4. 0.025   1.0  0.03 A
+ 7237    7103 2     -4.     4.    -5.     5.
+                    -3.     3.    -4.     4. 0.025   1.0  0.03 A
+  299    7238 1     -4.     4.    -5.     5.
+                    -3.     3.    -4.     4. 0.025   1.0  0.03 A
+(
+(===================================================================================
+( AJUSTE DA PPS da Interligação Acre-Rondônia - 3 CIRCUITOS
+(===================================================================================
+(
+( em Ji-Parana - LT 230kV Ji-Parana/Pimenta Bueno
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(                (Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+ 6840    6820  1  -42.0   42.0  -48.0   48.0
+                  -34.0   34.0  -42.0   42.0 0.025   1.0  0.04 A
+ 6840    6820  2  -42.0   42.0  -48.0   48.0
+                  -34.0   34.0  -42.0   42.0 0.025   1.0  0.04 A
+ 6840    6820  3  -42.0   42.0  -48.0   48.0
+                  -34.0   34.0  -42.0   42.0 0.025   1.0  0.04 A
+((
+((===================================================================================
+(( AJUSTE DA PPS da Interligação Acre-Rondônia - 2 CIRCUITOS
+((===================================================================================
+((
+(( em Ji-Parana - LT 230kV Ji-Parana/Pimenta Bueno
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((                (Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 6840    6820  1  -38.0   38.0  -48.0   48.0
+(                  -30.0   30.0  -40.0   40.0 0.025   1.0  0.04 A
+( 6840    6820  2  -38.0   38.0  -48.0   48.0
+(                  -30.0   30.0  -40.0   40.0 0.025   1.0  0.04 A
+(
+((====================================================================================
+(( AJUSTE DA PPS da LT 230 kV Jauru - Vilhena
+((====================================================================================
+((
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((                (Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 6800    4862  3  -25.0   25.0  -48.0   48.0
+(                  -17.0   17.0  -40.0   40.0 0.025   1.0  0.10 A
+(
+(( ********* Atualmente, as duas PPS em Nova Mutum estao desabilitadas
+((===================================================================================
+(( AJUSTE DA PPS DA LT 138kV Nova Mutum - Sao Jose do Rio Claro
+(( Reajustada em funcao da entrada em operacao da LT 230kV Juba - Brasnorte
+((===================================================================================
+(( em Nova Mutum
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((                (Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 4903    4901  1  -75.0  115.0 -200.0  200.0
+(                  -55.0   95.0 -175.0  175.0 0.025   1.0  0.05 A
+((===================================================================================
+(( AJUSTE DA PPS DA LT 230kV Nova Mutum - Brasnorte
+(( Reajustada em funcao da entrada em operacao da LT 230kV Juba - Brasnorte
+((===================================================================================
+(( em Nova Mutum
+(( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+((                (Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+( 4552    4868  1 -110.0  110.0  -70.0  70.00
+(                  -80.0   80.0  -60.0  60.00 0.025   1.0  0.05 A
+( 4552    4868  2 -110.0  110.0  -70.0  70.00
+(                  -80.0   80.0  -60.0  60.00 0.025   1.0  0.05 A
+(
+( PPS da LT 525 kV Cascavel Oeste - Foz do Iguaçu
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+  896    9435  1 -2.20   2.20  -10.0   10.0
+                 -1.40   1.40   -9.2    9.2  0.022   1.0  0.03 A
+(
+( PPS da LT 765 kV Foz do Iguaçu - Ivaiporã - SOMENTE MONITORAÇÃO
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+(................(Rmn2) (Rmx2) (Xmn2) (Xmx2) (Tmn) (Tmx) (Tdj) M
+   62      60  1 -1.70   1.70   -2.6    2.6
+                 -1.30   1.30   -2.2    2.2  0.025   1.0  0.03 M
+   63      60  2 -1.70   1.70   -2.6    2.6
+                 -1.30   1.30   -2.2    2.2  0.025   1.0  0.03 M
+   64      60  3 -1.70   1.70   -2.6    2.6
+                 -1.30   1.30   -2.2    2.2  0.025   1.0  0.03 M
+(
+( PPS da LT 525 kV Londrina - Assis C1
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+  556    1027  1 -2.50   2.50    -5.    5.
+                 -1.50   1.50    -4.    4.   0.025  1.0   0.03 A
+(
+( PPS da LT 525 kV Londrina - Assis C2
+( De)   ( Pa) Nc (Rmn1) (Rmx1) (Xmn1) (Xmx1)
+  556    1027  2 -2.50   2.50    -5.    5.
+                 -1.50   1.50    -4.    4.   0.025  1.0   0.03 A
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 6 - RELÉ DE SOBRETENSÃO PARA ABERTURA DE CIRCUITO CA
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD06
+( PROTECAO DE SOBRETENSAO NO 500kV NNE (INSTANTANEA)
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                    TERMO-CEARÁ
+ 5660    5651  1 1.300  98.3    0.  .050 A
+(                    VCO-TUC
+ 6460    6430  3 1.450  98.3    0.  .062 A
+ 6460    6410  2 1.450  98.3    0.  .062 A
+ 6460    6430  1 1.450  98.3    0.  .062 A
+(                    TUC-VCO
+ 6430    6460  3 1.450  98.3    0.  .062 A
+ 6410    6460  2 1.450  98.3    0.  .050 A
+ 6430    6460  1 1.450  98.3    0.  .050 A
+(                    TUC-MAR C1 C2 C3 C4
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6410    6510  1 1.450  98.3    0.  .050 A
+ 6410    6511  2 1.450  98.3    0.  .050 A
+ 6430    6509  3 1.450  98.3    0.  .050 A
+ 6430    6507  4 1.450  98.3    0.  .050 A
+(                    MAR-TUC C1 C2 C3 e C4
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6400   43958  1 1.400  98.4    0.  .062 A
+ 6400   43959  2 1.400  98.4    0.  .062 A
+ 6400    6509  3 1.420  98.4    0.  .050 A
+ 6400    6507  4 1.420  98.4    0.  .050 A
+(                    AÇA-PDD C1
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6700    6702  1 1.420  98.4    0.  .050 A
+(                    PDD-AÇA C1
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 5580    6517  1 1.420  98.4    0.  .050 A
+(                    AÇA-MAR C1 e C2
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6700    6701  1 1.420  98.4    0.  .050 A
+ 6700    6703  2 1.420  98.4    0.  .050 A
+(                    MAR-AÇA C1 e C2
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6400    6701  1 1.420  98.4    0.  .050 A
+ 6400    6703  2 1.420  98.4    0.  .050 A
+(                    PDD-BEA
+ 5580    5510  7 1.420  98.4    0.  .040 A
+(                    PDD-MIR C1 e C2
+ 5580    5645  1 1.420  98.6    0.  .040 A
+ 5645    5540  1 1.420  98.6    0.  .040 A
+ 5580    5540  2 1.420  98.6    0.  .050 A
+(                    MIR-PDD C1 e C2
+ 5540    5645  1 1.420  98.6    0.  .040 A
+ 5645    5580  1 1.420  98.6    0.  .040 A
+ 5540    5580  2 1.420  98.6    0.  .050 A
+(                    BEA-PDD
+ 5510    5580  7 1.420  98.4 .0600  .040 A
+(                    BEA-SJP
+ 5510    5574  6 1.402  98.4 .0600  .050 A
+(                    SJP-BEA
+ 5574    5510  6 1.402  98.4 .0500  .050 A
+(
+( PROTECAO DE SOBRETENSAO DE LTs NOVAS NO 500kV NNE (INSTANTANEA)
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                    MIR-BAC C1 e C2
+ 5540    5684  1 1.420  98.6    0.  .040 A
+ 5540    5684  2 1.420  98.6    0.  .050 A
+(                    BAC-MIR C1 e C2
+ 5684    5540  1 1.420  98.6    0.  .040 A
+ 5684    5540  2 1.420  98.6    0.  .050 A
+(                    BAC-SLD C1 e C2
+ 5684    5550  1 1.420  98.6    0.  .040 A
+ 5684    5550  2 1.420  98.6    0.  .050 A
+(                    SLD-BAC C1 e C2
+ 5550    5684  1 1.420  98.6    0.  .040 A
+ 5550    5684  2 1.420  98.6    0.  .050 A
+(                    BAC-PNBIII C1 e C2
+ 5684    5679  1 1.420  98.6    0.  .040 A
+ 5684    5679  2 1.420  98.6    0.  .050 A
+(                    PNBIII-BAC C1 e C2
+ 5679    5684  1 1.420  98.6    0.  .040 A
+ 5679    5684  2 1.420  98.6    0.  .050 A
+(                    PNBIII-ACARAU
+ 5679    5318  1 1.420  98.4 .0600  .050 A
+(                    ACARAU-PNBIII
+ 5318    5679  1 1.420  98.4 .0500  .050 A
+(                    ACARAU-PECEMII
+ 5318    5370  1 1.420  98.4 .0600  .050 A
+(                    PECEMII-ACARAU
+ 5370    5318  1 1.420  98.4 .0500  .050 A
+(                    ACARAU-TIANGUA
+ 5318    5176  1 1.420  98.4 .0600  .050 A
+(                    TIANGUA-ACARAU
+ 5176    5318  1 1.420  98.4 .0500  .050 A
+( SUDOESTE DA BAHIA - INSTANTANEA E TEMPORIZADA
+(   SAO JOAO DO PIAUI 500kV (saida para GILBUES)
+ 5570    7190  5 1.380  98.4  0.08  .030 A      instantanea
+ 5570    7190  5 1.180  98.6  2.20  .030 A      temporizada
+(   GILBUES 500kV (saida para SAO JOAO DO PIAUI)
+ 7190    5570  5 1.380  98.4  0.08  .030 A      instantanea
+ 7190    5570  5 1.180  98.6  2.20  .030 A      temporizada
+(   GILBUES 500kV (saida para BURITIRAMA)
+ 7190    6075  6 1.380  98.4  0.08  .030 A      instantanea
+ 7190    6075  6 1.180  98.6  2.00  .030 A      temporizada
+(   BURITIRAMA 500kV (saida para GILGUES)
+ 6075    7190  6 1.380  98.4  0.08  .030 A      instantanea
+ 6075    7190  6 1.180  98.6  2.00  .030 A      temporizada
+(   BURITIRAMA 500kV (saida para GENTIO DO OURO)
+ 6075    6060  7 1.380  98.4  0.08  .030 A      instantanea
+ 6075    6060  7 1.180  98.6  2.70  .030 A      temporizada
+(   GENTIO DO OURO 500kV (saida para BURITIRAMA)
+ 6060    6075  7 1.380  98.4  0.08  .030 A      instantanea
+ 6060    6075  7 1.180  98.6  2.70  .030 A      temporizada
+(  GENTIO DO OURO 500kV (saida para OUROLANDIA)
+ 6060    6070  1 1.380  98.4  0.08  .030 A      instantanea
+ 6060    6070  1 1.180  98.6  3.00  .030 A      temporizada
+(  OUROLANDIA 500kV (saida para GENTIO DO OURO)
+ 6070    6060  1 1.380  98.4  0.08  .030 A      instantanea
+ 6070    6060  1 1.180  98.6  3.00  .030 A      temporizada
+(  OUROLANDIA 500kV (saida para MORRO DO CHAPEU)
+ 6070    6290  4 1.380  98.4  0.08  .030 A      instantanea
+ 6070    6290  4 1.180  98.6  3.50  .030 A      temporizada
+(  MORRO DO CHAPEU 500kV (saida para OUROLANDIA)
+ 6290    6070  4 1.380  98.4  0.08  .030 A      instantanea
+ 6290    6070  4 1.180  98.6  3.50  .030 A      temporizada
+(  MORRO DO CHAPEU 500kV (saida para SAPEAÇU)
+ 6290    6369  3 1.380  98.4  0.08  .030 A      instantanea
+ 6290    6369  3 1.180  98.6  1.70  .030 A      temporizada
+( SAPEAÇU 500kV (saida para MORRO DO CHAPEU)
+ 6369    6290  3 1.380  98.4  0.08  .030 A      instantanea
+ 6369    6290  3 1.180  98.6  1.70  .030 A      temporizada
+(   BURITIRAMA 500kV (saida para BARREIRAS II)
+ 6075    6360  6 1.380  98.4  0.08  .030 A      instantanea
+ 6075    6360  6 1.180  98.6  2.50  .030 A      temporizada
+(  BARREIRAS II 500kV (saida para BURITIRAMA)
+ 6360    6075  6 1.380  98.4  0.08  .030 A      instantanea
+ 6360    6075  6 1.180  98.6  2.50  .030 A      temporizada
+(  BARREIRAS II 500kV (saida para RIO DAS EGUAS)
+ 6360    6443  2 1.380  98.4  0.08  .030 A      instantanea
+ 6360    6443  2 1.180  98.6  1.00  .030 A      temporizada
+(  RIO DAS EGUAS 500kV (saida para BARREIRAS II)
+ 6444    6445  2 1.380  98.4  0.08  .030 A      instantanea
+ 6444    6445  2 1.180  98.6  1.00  .030 A      temporizada
+(  BARREIRAS II 500kV (saida para RIO DAS EGUAS)
+ 6360    6080  5 1.380  98.4  0.08  .030 A      instantanea
+ 6360    6080  5 1.180  98.6  2.00  .030 A      temporizada
+(  RIO DAS EGUAS 500kV (saida para BARREIRAS II)
+ 6444    6082  5 1.380  98.4  0.08  .030 A      instantanea
+ 6444    6082  5 1.180  98.6  2.00  .030 A      temporizada
+(  IBICOARA 500kV (saida para POÇOES III)
+ 6359    5860  5 1.280  98.4  0.08  .030 A      instantanea
+ 6359    5860  5 1.180  98.6  5.00  .030 A      temporizada
+(  POÇOES III 500kV (saida para IBICOARA)
+ 5860    6359  5 1.280  98.4  0.08  .030 A      instantanea
+ 5860    6359  5 1.180  98.6  5.00  .030 A      temporizada
+( AREA LESTE DO NE - INSTANTANEA E TEMPORIZADA
+(   QUIXADA 500kV (saida para AÇU III)
+ 5428    5350  2 1.280  98.4  0.08  .030 A      instantanea
+ 5428    5350  2 1.180  98.6  2.20  .030 A      temporizada
+(   AÇU III 500kV (saida para QUIXADA)
+ 5350    5428  2 1.280  98.4  0.08  .030 A      instantanea
+ 5350    5428  2 1.180  98.6  2.20  .030 A      temporizada
+(   AÇU III 500kV (saida para JOAO CAMARA III)
+ 5350    6140  1 1.280  98.4  0.08  .030 A      instantanea
+ 5350    6140  1 1.180  98.6  2.00  .030 A      temporizada
+ 5350    6140  3 1.280  98.4  0.08  .030 A      instantanea
+ 5350    6140  3 1.180  98.6  1.50  .030 A      temporizada
+(  JOAO CAMARA III 500kV (saida para AÇU III)
+ 6140    5350  1 1.280  98.4  0.08  .030 A      instantanea
+ 6140    5350  1 1.180  98.6  2.00  .030 A      temporizada
+ 6140    5350  3 1.280  98.4  0.08  .030 A      instantanea
+ 6140    5350  3 1.180  98.6  1.50  .030 A      temporizada
+(  JOAO CAMARA III 500kV (saida para CEARA MIRIM II)
+ 6140    6130  1 1.280  98.4  0.08  .030 A      instantanea
+ 6140    6130  1 1.180  98.6  5.50  .030 A      temporizada
+ 6140    6130  4 1.280  98.4  0.08  .030 A      instantanea
+ 6140    6130  4 1.180  98.6  4.00  .030 A      temporizada
+(   CEARA MIRIM II 500kV (saida para JOAO CAMARA III)
+ 6130    6140  1 1.280  98.4  0.08  .030 A      instantanea
+ 6130    6140  1 1.180  98.6  5.50  .030 A      temporizada
+ 6130    6140  4 1.280  98.4  0.08  .030 A      instantanea
+ 6130    6140  4 1.180  98.6  4.00  .030 A      temporizada
+(   CEARA MIRIM II 500kV (saida para CAMPINA GRANDE III)
+ 6130    5200  2 1.330  98.4  0.08  .030 A      instantanea
+ 6130    5200  2 1.180  98.6  5.00  .030 A      temporizada
+ 6130    5200  3 1.330  98.4  0.08  .030 A      instantanea
+ 6130    5200  3 1.180  98.6  3.50  .030 A      temporizada
+(  CAMPINA GRANDE III 500kV (saida para CEARA MIRIM II)
+ 5200    6130  2 1.330  98.4  0.08  .030 A      instantanea
+ 5200    6130  2 1.180  98.6  5.00  .030 A      temporizada
+ 5200    6130  3 1.330  98.4  0.08  .030 A      instantanea
+ 5200    6130  3 1.180  98.6  3.50  .030 A      temporizada
+(  CAMPINA GRANDE III 500kV (saida para GARANHUNS II)
+ 5200    5090  3 1.330  98.4  0.08  .030 A      instantanea
+ 5200    5090  3 1.180  98.6  4.00  .030 A      temporizada
+(   GARANHUNS II 500kV (saida para CAMPINA GRANDE III)
+ 5090    5200  3 1.330  98.4  0.08  .030 A      instantanea
+ 5090    5200  3 1.180  98.6  4.00  .030 A      temporizada
+(  CAMPINA GRANDE III 500kV (saida para PAU FERRO II)
+ 5200    5180  5 1.280  98.4  0.08  .030 A      instantanea
+ 5200    5180  5 1.180  98.6  4.00  .030 A      temporizada
+(  PAU FERRO II 500kV (saida para CAMPINA GRANDE III)
+ 5180    5200  5 1.280  98.4  0.08  .030 A      instantanea
+ 5180    5200  5 1.180  98.6  4.00  .030 A      temporizada
+( ***************************************************
+( PROTECAO DE SOBRETENSAO DA LT PDD-FZD (INSTANTANEA)
+( ***************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           PDD-TSD C1 e C2
+ 5580    5500  8 1.380  98.4 .045   .03  A
+ 5580    5500  9 1.380  98.4 .045   .03  A
+(           TSD-PDD C1 e C2
+ 5500    5580  8 1.380  98.4 .028   .022 A
+ 5500    5580  9 1.380  98.4 .028   .022 A
+( SECCIONAMENTO DE TSD-SBT EM TIANGUÁ C1
+(           TSD-TIANGUA-SBT C1
+ 5500    5176  9 1.330  98.4 .028   .022 A
+ 5176    5480  5 1.330  98.4 .028   .022 A
+(           SBT-TIANGUA-TSD C1
+ 5480    5176  5 1.330  98.4 .028   .022 A
+ 5176    5500  9 1.330  98.4 .028   .022 A
+(           TSD-SBT C2
+ 5500    5480  8 1.330  98.4 .028   .022 A
+(           SBT-TSD C2
+ 5480    5500  8 1.330  98.4 .028   .022 A
+( SECCIONAMENTO DE SBT-FORTALEZA EM PECEM C1 E C2
+(           SBT-PECEM-FTZ C1 E C2
+ 5480    5370  6 1.330  98.4 .028   .022 A
+ 5480    5370  7 1.330  98.4 .028   .022 A
+ 5370    5451  1 1.330  98.4 .028   .022 A
+ 5370    5451  2 1.330  98.4 .028   .022 A
+(           FZD-PECEM-SBT C1 E C2
+ 5451    5370  1 1.330  98.5 .028   .022 A
+ 5451    5370  2 1.330  98.5 .028   .022 A
+ 5370    5480  6 1.330  98.5 .028   .022 A
+ 5370    5480  7 1.330  98.5 .028   .022 A
+( ***************************************************
+( PROTECAO DE SOBRETENSAO DA LT FZD-ULG (INSTANTANEA)
+( ***************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           FZD-QXA
+ 5451    5428  5 1.280  98.5 .030   .04  A
+(           QXA-FZD
+ 5428    5451  5 1.280  98.5 .030   .04  A
+(           QXA-MLG
+ 5428    5408  3 1.280  98.5 .030   .04  A
+(           MLG-QXA
+ 5408    5428  3 1.280  98.5 .030   .04  A
+(           MLG-ULG
+ 5408    5050  1 1.280  98.5 .030   .04  A
+(           ULG-MLG
+ 5050    5408  1 1.280  98.5 .030   .04  A
+( *************************************************
+( PROTECAO DE SOBRETENSAO NO NORDESTE (INSTANTANEA)
+( *************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           ULG-OLD
+ 5050    5740  4 1.328  98.5 .0200  .100 M
+(           OLD-ULG
+ 5740    5050  4 1.348  98.5 .020   .100 M
+(           ULG-JUA
+ 5050    6500  5 1.330  98.5 .0300  .100 M
+(           JUA-ULG
+ 6500    5050  5 1.330  98.5 .0300  .100 M
+(           JUA-SOB
+ 6500    6300  3 1.330  98.5 .0300  .100 M
+(           SOB-JUA
+ 6300    6500  3 1.330  98.5 .0300  .100 M
+(           ULG-SOB C2
+ 5050    6300  4 1.328  98.5 .0300  .100 M
+(           SOB-ULG C2
+ 6300    5050  4 1.328  98.5 .0300  .100 M
+(           ULG-GRH C1
+ 5050    5090  1 1.330  98.5 .0200  .100 M
+(           ULG-GRH C2
+ 5050    5090  2 1.330  98.5 .0200  .100 M
+(           GRH-ULG C1
+ 5090    5050  1 1.330  98.5 .0200  .100 M
+(           GRH-ULG C2
+ 5090    5050  2 1.330  98.5 .0200  .100 M
+(           GRH-AGD
+ 5090    5100  5 1.330  98.5 .0200  .100 M
+(           AGD-GRH
+ 5100    5090  5 1.330  98.5 .020   .100 M
+(           GRH-PFE
+ 5090    5180  4 1.330  98.5 .0200  .100 M
+(           PFE-GRH
+ 5180    5090  4 1.330  98.5 .020   .100 M
+(           UXG-AGD
+ 5060    5100  1 1.330  98.5 .0200  .100 M
+(           AGD-UXG
+ 5100    5060  1 1.330  98.5 .020   .100 M
+(           PFE-AGD
+ 5180    5100  3 1.330  98.5 .0200  .100 M
+(           AGD-PFE
+ 5100    5180  3 1.330  98.5 .020   .100 M
+(           PFE-RCD
+ 5180    5140  8 1.330  98.5 .0200  .100 M
+(           RCD-PFE
+ 5140    5180  8 1.330  98.5 .020   .100 M
+(           ULG-PAQ C1
+ 5050    5001  1 1.380  98.5 .0300  .100 M
+(           ULG-PAQ C2
+ 5050    5001  2 1.380  98.5 .0300  .100 M
+(           PAQ-AGD
+ 5001    5100  6 1.348  98.5 .0200  .100 M
+(           PAQ-UXG
+ 5001    5060  6 1.330  98.5 .0300  .100 M
+(           PAQ-ULG C1
+ 5001    5050  1 1.330  98.5 .0300  .100 M
+(           PAQ-ULG C2
+ 5001    5050  2 1.380  98.5 .0300  .100 M
+(           PAQ-OLD
+ 5001    5740  5 1.348  98.5 .0200  .100 M
+(           UXG-PAQ
+ 5060    5001  6 1.285  98.5 .020   .100 M
+(           UXG-JDD
+ 5060    5720  5 1.285  98.5 .020   .100 M
+(           UXG-MSI
+ 5060    5300  4 1.285  98.5 .030   .100 M
+(           MSI-UXG
+ 5300    5060  4 1.285  98.5 .030   .100 M
+(           MSI-SUAPE II
+ 5300    5360  2 1.330  98.5 .030   .100 M
+(           SUAPE II-RCD
+ 5360    5140  7 1.330  98.5 .030   .100 M
+(           AGD-PAQ                            
+ 5100    5001  6 1.330  98.5 .020   .100 M
+(           AGD-RCD 
+ 5100    5140  9 1.330  98.5 .020   .100 M
+(           RCD-MSI
+ 5140    5360  7 1.285  98.5 .030   .100 M
+(           SUAPE II-MSI  
+ 5360    5300  2 1.285  98.5 .030   .100 M
+(           RCD-AGD             
+ 5140    5100  9 1.330  98.5 .030   .100 M
+(           OLD-PAQ
+ 5740    5001  5 1.348  98.5 .020   .100 M
+(           OLD-CMD L4 (C1)
+ 5740    5750  4 1.348  98.5 .020   .100 M
+(           OLD-CMD L5 (C2)
+ 5740    5750  5 1.348  98.5 .020   .100 M
+(           JDD-UXG - AJUSTES ESTIMADOS
+ 5720    5060  5 1.285  98.5 .020   .100 M
+(           JDD-CMQ
+ 5720    5752  7 1.330  98.5 .020   .100 M
+(           CMQ-CMD 
+ 5752    5750  6 1.330  98.5 .020   .100 M
+(           CMD-CMQ
+ 5750    5752  6 1.330  98.5 .020   .100 M
+(           CMQ-JDD 
+ 5752    5720  7 1.330  98.5 .020   .100 M
+(           CMD-OLD L4 (C1)
+ 5750    5740  4 1.348  98.5 .020   .100 M
+(           CMD-OLD L5 (C2)
+ 5750    5740  5 1.348  98.5 .020   .100 M
+( **************************************************
+( PROTECAO DE SOBRETENSAO NO 500kV NNE (TEMPORIZADA)
+( **************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                    TERMO-CEARA
+ 5660    5651  1 1.090  98.6  2.95 0.050 M
+(                    VCO-TUC
+ 6460    6430  3 1.250  98.6   2.5  .062 A
+ 6460    6410  2 1.250  98.6   2.0  .062 A
+ 6460    6430  1 1.250  98.6   3.0  .062 A
+(                    TUC-VCO
+ 6430    6460  3 1.250  98.6   2.5  .062 A
+ 6410    6460  2 1.250  98.6   2.0  .050 A
+ 6430    6460  1 1.250  98.6   3.0  .050 A
+(                    TUC-MAR C1 C2 C3 e C4
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6410    6510  1 1.290  98.5  4.50  .050 A
+ 6410    6511  2 1.290  98.5  3.50  .050 A
+ 6430    6509  3 1.290  98.5  4.00  .050 A
+ 6430    6507  4 1.290  98.3  3.00  .050 A
+(                    MAR-TUC C1 C2 C3 e C4
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6400   43958  1 1.230  98.6  4.50  .062 A
+ 6400   43959  2 1.230  98.6  3.50  .062 A
+ 6400    6509  3 1.220  98.5  4.00  .050 A
+ 6400    6507  4 1.220  98.5  3.00  .050 A
+(                    MAR-ACA C1 e C2
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6400    6701  1 1.220  98.5  4.00  .050 A
+ 6400    6703  2 1.230  98.5  3.00  .050 A
+(                    ACA-MAR C1 e C2
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6700    6701  1 1.220  98.5  4.00  .050 A
+ 6700    6703  2 1.220  98.5  3.00  .050 A
+(                    ACA-PDD C1
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6700    6702  1 1.220  98.5  3.50  .050 A
+(                    PDD-ACA C1
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 5580    6517  1 1.220  98.5  3.50  .050 A
+(                    PDD-BEA
+ 5580    5510  7 1.200  98.6  3.50  .040 A
+(                    PDD-MIR C1 e C2
+ 5580    5645  1 1.200  98.6  1.10  .040 A
+ 5645    5540  1 1.200  98.6  1.10  .040 A
+ 5580    5540  2 1.200  98.6  4.60  .050 A
+(                    MIR-PDD C1 e C2
+ 5540    5645  1 1.200  98.6  1.10  .040 A
+ 5645    5580  1 1.200  98.6  1.10  .040 A
+ 5540    5580  2 1.200  98.6  4.60  .050 A
+(                    BEA-PDD
+ 5510    5580  7 1.240  98.6  3.00  .040 A
+(                    BEA-SJP
+ 5510    5574  6 1.240  98.6  4.50  .050 A
+(
+(                    SJP-BEA
+ 5574    5510  6 1.240  98.7  4.50  .050 A
+( PROTECAO DE SOBRETENSAO DE LTs NOVAS NO 500kV NNE (TEMPORIZADA)
+(MARANHÃO - PIAUÍ - CEARÁ
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                    MIR-BAC C1 e C2
+ 5540    5684  1 1.200  98.6  2.0   .040 A
+ 5540    5684  2 1.200  98.6  3.50  .050 A
+(                    BAC-MIR C1 e C2
+ 5684    5540  1 1.200  98.6  2.0   .040 A
+ 5684    5540  2 1.200  98.6  3.50  .050 A
+(                    BAC-SLD C1 e C2
+ 5684    5550  1 1.200  98.6  6.0   .040 A
+ 5684    5550  2 1.200  98.6  5.0   .050 A
+(                    SLD-BAC C1 e C2
+ 5550    5684  1 1.200  98.6  6.0   .040 A
+ 5550    5684  2 1.200  98.6  5.0   .050 A
+(                    BAC-PNBIII C1 e C2
+ 5684    5679  1 1.200  98.6  3.0   .040 A
+ 5684    5679  2 1.200  98.6  2.0   .050 A
+(                    PNBIII-BAC C1 e C2
+ 5679    5684  1 1.200  98.6  3.0   .040 A
+ 5679    5684  2 1.200  98.6  2.0   .050 A
+(                    PNBIII-ACARAU
+ 5679    5318  1 1.200  98.4  2.50  .050 A
+(                    ACARAU-PNBIII
+ 5318    5679  1 1.200  98.4  2.50  .050 A
+(                    ACARAU-PECEMII
+ 5318    5370  1 1.200  98.4  3.0   .050 A
+(                    PECEMII-ACARAU
+ 5370    5318  1 1.200  98.4  3.0   .050 A
+(                    ACARAU-TIANGUA
+ 5318    5176  1 1.200  98.4  2.0   .050 A
+(                    TIANGUA-ACARAU
+ 5176    5318  1 1.200  98.4  2.0   .050 A
+(
+( ***************************************************
+( PROTECAO DE SOBRETENSAO DA LT PDD-FZD (TEMPORIZADA)
+( ***************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           PDD-TSD C1 e C2
+ 5580    5500  8 1.180  98.6  3.0   .03  A
+ 5580    5500  9 1.180  98.6  2.0   .03  A
+(           TSD-PDD C1 e C2
+ 5500    5580  8 1.180  98.6  3.0   .022 A
+ 5500    5580  9 1.180  98.6  2.3   .03  A
+( SECCIONAMENTO DE TSD-SBT EM TIANGUÁ C1
+(           TSD-TIANGUA-SBT C1
+ 5500    5176  9 1.150  98.4  3.2   .022 A
+ 5176    5480  5 1.200  98.4  3.5   .022 A
+(           SBT-TIANGUA-TSD C1
+ 5480    5176  5 1.200  98.4  3.5   .022 A
+ 5176    5500  9 1.150  98.4  3.2   .022 A
+(           TSD-SBD C2
+ 5500    5480  8 1.150  98.6  2.7   .022 A
+(           SBD-TSD C2
+ 5480    5500  8 1.150  98.6  2.7   .022 A
+( SECCIONAMENTO DE SBT-FORTALEZA EM PECEM C1 E C2
+(           SBT-PECEM-FTZ C1 E C2
+ 5480    5370  6 1.230  98.6  4.0   .022 A
+ 5480    5370  7 1.230  98.6  3.0   .022 A
+ 5370    5451  1 1.230  98.6  4.0   .022 A
+ 5370    5451  2 1.230  98.6  3.0   .022 A
+(           FZD-PECEM-SBT C1 E C2
+ 5451    5370  1 1.230  98.7  3.5   .022 A
+ 5451    5370  2 1.230  98.7  3.0   .022 A
+ 5370    5480  6 1.230  98.7  3.5   .022 A
+ 5370    5480  7 1.230  98.7  3.0   .022 A
+( ***************************************************
+( PROTECAO DE SOBRETENSAO DA LT FZD-ULG (TEMPORIZADA)
+( ***************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           FZD-QXDA
+ 5451    5428  5 1.200  98.6  2.5   .04  A
+(           QXDA-FZD
+ 5428    5451  5 1.200  98.6  3.0   .04  A
+(           QXDA-MLG
+ 5428    5408  3 1.200  98.6  3.0   .04  A
+(           MLG-QXDA
+ 5408    5428  3 1.200  98.6  3.0   .04  A
+(           MLG-ULG
+ 5408    5050  1 1.200  98.6  3.0   .04  A
+(           ULG-MLG
+ 5050    5408  1 1.200  98.6  3.0   .04  A
+( *************************************************
+( PROTECAO DE SOBRETENSAO NO NORDESTE (TEMPORIZADA)
+( *************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(           ULG-OLD
+ 5050    5740  4 1.198  98.5  4.50  .100 M
+(           ULG-JUA
+ 5050    6500  5 1.195  98.5  5.00  .100 M
+(           JUA-SOB
+ 6500    6300  3 1.195  98.5  5.00  .100 M
+(           ULG-SOB C2
+ 5050    6300  4 1.198  98.5  4.50  .100 M
+(           ULG-GRH C1
+ 5050    5090  1 1.180  98.5  3.50  .100 M
+(           ULG-GRH C2
+ 5050    5090  2 1.180  98.5  5.00  .100 M
+(           GRH-AGD
+ 5090    5100  5 1.180  98.5  6.50  .100 M
+(           GRH-PFE
+ 5090    5180  4 1.180  98.5  6.00  .100 M
+(           PFE-GRH
+ 5180    5090  4 1.180  98.5  6.00  .100 M
+(           ULG-PAQ C1
+ 5050    5001  1 1.230  98.5  6.50  .100 M
+(           ULG-PAQ C2
+ 5050    5001  2 1.230  98.5  6.20  .100 M
+(           PAQ-AGD
+ 5001    5100  6 1.180  98.5  5.50  .100 M
+(           UXG-AGD
+ 5060    5100  1 1.180  98.5  4.50  .100 M
+(           AGD-UXG
+ 5100    5060  1 1.180  98.5  4.50  .100 M
+(           PAQ-UXG
+ 5001    5060  6 1.240  98.5  5.00  .100 M
+(           PAQ-ULG C1
+ 5001    5050  1 1.230  98.5  6.50  .100 M
+(           PAQ-ULG C2
+ 5001    5050  2 1.230  98.5  6.20  .100 M
+(           PAQ-OLD
+ 5001    5740  5 1.195  98.5  4.50  .100 M
+(           UXG-PAQ
+ 5060    5001  6 1.198  98.5  5.0   .100 M
+(           UXG-JDD
+ 5060    5720  5 1.198  98.5  5.0   .100 M
+(           UXG-MSI
+ 5060    5300  4 1.198  98.5  4.5   .100 M
+(           MSI-UXG
+ 5300    5060  4 1.195  98.5  4.0   .100 M
+(           MSI-SUAPE II
+ 5300    5360  2 1.240  98.5  4.5   .100 M
+(           SUAPE II-RCD
+ 5360    5140  7 1.240  98.5  4.5   .100 M
+(           AGD-GRH                          
+ 5100    5090  5 1.180  98.5  6.5   .100 M
+(           GRH-ULG C1                       
+ 5090    5050  1 1.180  98.5  3.5   .100 M
+(           GRH-ULG C2                           
+ 5090    5050  2 1.180  98.5  5.0   .100 M
+(           AGD-PAQ                            
+ 5100    5001  6 1.180  98.5  5.5   .100 M
+(           AGD-RCD L9 (C2)                                
+ 5100    5140  9 1.180  98.5  4.0   .100 M
+(           RCD-SUAPE II
+ 5140    5360  7 1.195  98.5  4.5   .100 M
+(           SUAPE II-MSI 
+ 5360    5300  2 1.195  98.5  4.5   .100 M
+(           RCD-AGD L9 (C2)
+ 5140    5100  9 1.180  98.5  4.0   .100 M
+(           AGD-PFE
+ 5100    5180  3 1.180  98.5  5.00  .100 M
+(           PFE-AGD
+ 5180    5100  3 1.180  98.5  5.00  .100 M
+(           RCD-PFE
+ 5140    5180  8 1.180  98.5  5.50  .100 M
+(           PFE-RCD
+ 5180    5140  8 1.180  98.5  5.50  .100 M
+(           OLD-ULG
+ 5740    5050  4 1.195  98.5  4.5   .100 M
+(           OLD-PAQ
+ 5740    5001  5 1.195  98.5  5.5   .100 M
+(           OLD-CMD L4 (C1)
+ 5740    5750  4 1.195  98.5  5.0   .100 M
+(           OLD-CMD L5 (C2)
+ 5740    5750  5 1.195  98.5  4.0   .100 M
+(           JDD-UXG - AJUSTES ESTIMADOS
+ 5720    5060  5 1.198  98.5  5.0   .100 M
+(           JDD-CMQ - AJUSTES ESTIMADOS
+ 5720    5752  7 1.240  98.5  5.0   .100 M
+(           CMQ-JDD
+ 5752    5720  7 1.240  98.5  5.0   .100 M
+(           CMQ-CMD
+ 5752    5750  6 1.240  98.5  5.0   .100 M
+(           CMD-CMQ 
+ 5750    5752  6 1.240  98.5  5.0   .100 M
+(           CMD-OLD L4 (C1)
+ 5750    5740  4 1.190  98.5  5.0   .100 M
+(           CMD-OLD L5 (C2)
+ 5750    5740  5 1.195  98.5  4.0   .100 M
+( **************************************************
+( PROTECAO DE SOBRETENSAO NO 230kV NNE (INSTANTANEA)
+( **************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(             SLD-MIR
+ 5551    5541  1 1.380  98.4  .090  .060 A
+(             PRO-MIR
+ 5531    5541  1 1.380  98.4  .090  .060 A
+(             SLD-SLI C1 e C2
+ 5551    5561  1 1.380  98.4  .090  .060 A
+ 5551    5561  2 1.380  98.4  .090  .060 A
+(                    SLD-UTS
+( 5551    5557  1 1.380  98.4  .090  .060 A
+(                    UTS-SLD
+( 5557    5551  1 1.380  98.4  .090  .060 A
+(                    PRO-C.NETO (ABRE NA DERIVAÇÃO DA SKIN )
+ 5531   44118  1 1.380  98.4  .010  .060 M
+(
+(                    BEA-TODA SUBESTAÇÃO -
+ 5511    5501  1 1.330  98.5  .001  .100 A
+ 5511    5501  2 1.330  98.5  .001  .100 A
+ 5511    8473  5 1.330  98.5  .001  .100 A
+ 5511    8474  6 1.330  98.5  .001  .100 A
+(
+(                    TSA-BEA
+ 5501    5511  1 1.330  98.5  .001  .100 A
+ 5501    5511  2 1.330  98.5  .001  .100 A
+(
+(                    TSA-TODA SUBESTAÇÃO
+ 5501    5491  1 1.330  98.5  .001  .100 A
+ 5501    5503  3 1.330  98.5  .001  .100 A
+ 5501    5503  4 1.330  98.5  .001  .100 A
+ 5501    5503  5 1.330  98.5  .001  .100 A
+ 5501    5503  6 1.330  98.5  .001  .100 A
+ 5501    5503  7 1.330  98.5  .001  .100 A
+(
+(                    PIR-TODA SUBESTAÇÃO
+ 5491    5492  4 1.330  98.5  .001  .100 A
+ 5491    5492  5 1.330  98.5  .001  .100 A
+ 5491    5492  7 1.330  98.5  .001  .100 A
+ 5491    5499  1 1.330  98.5  .001  .100 A
+ 5491    5493  2 1.330  98.5  .001  .100 A
+ 5491    5493  3 1.330  98.5  .001  .100 A
+ 5491    5501  1 1.330  98.5  .001  .100 A
+(                    CAUIPE-TODA SUBESTAÇÃO
+ 5651    5481  2 1.348  98.5  .001  .100 A
+(                   SOBRAL-TODA SUBESTAÇÃO
+ 5481    5651  2 1.330  98.5  .001  .100 A
+ 5481    5482  1 1.330  98.5  .001  .100 A
+ 5481    5484  2 1.330  98.5  .001  .100 A
+(                    BNB-Aquiraz-FTZ C1 e C2 e C3
+ 5421    5381  6 1.330  98.5  .001  .100 M
+ 5381    5452  1 1.330  98.5  .001  .100 M
+ 5421    5381  8 1.330  98.5  .001  .100 M
+ 5381    5452  2 1.330  98.5  .001  .100 M
+ 5421   44096  7 1.330  98.5  .001  .100 M
+44096    5381  7 1.330  98.5  .001  .100 M
+ 5381    5452  3 1.330  98.5  .001  .100 M
+(                    FORTALEZA
+ 5452    5458  5 1.330  98.5  .001  .100 M
+ 5452    5458  6 1.330  98.5  .001  .100 M
+ 5458    5471  5 1.330  98.5  .001  .100 M
+ 5458   42332  1 1.330  98.5  .001  .100 M
+ 5458   42336  3 1.330  98.5  .001  .100 M
+(
+( ***********************************************************************
+( PROTECAO DE SOBRETENSAO DO EIXO 230kV B.J.LAPA-SOBRADINHO (INSTANTANEA)
+( ***********************************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+ 6301    6311  1 1.300  98.5  .040  .100 A
+ 6301    6311  2 1.300  98.5  .040  .100 A
+ 6311    6301  1 1.300  98.5  .040  .100 A
+ 6311    6301  2 1.300  98.5  .040  .100 A
+ 6311    6331  2 1.300  98.5  .040  .100 A
+ 6331    6311  2 1.300  98.5  .040  .100 A
+ 6351    6062  1 1.300  98.5  .040  .100 A
+ 6062    6315  1 1.300  98.5  .040  .100 A
+ 6315    6361  2 1.300  98.5  .040  .100 A
+ 6315    6316  1 1.300  98.5  .040  .100 A
+ 6316    6361  4 1.300  98.5  .040  .100 A
+(
+( **************************************************
+( PROTECAO DE SOBRETENSAO NO 230kV NNE (TEMPORIZADA)
+( **************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                    SLD-MIR
+ 5551    5541  1 1.130  98.7  5.20  .060 A
+(                    PRO-MIR
+ 5531    5541  1 1.130  98.7  5.20  .060 A
+(                    SLD-SLI C1 e C2
+ 5551    5561  1 1.130  98.7  6.00  .060 A
+ 5551    5561  2 1.130  98.7  6.00  .060 A
+(                    MAR-CARAJAS e CARAJAS-CVRD
+ 6401    6407  1 1.180  98.6  3.45  .060 A
+ 6407    6409  1 1.180  98.6  3.45  .060 A
+(                    VDC-GUA C1 e C2
+ 6461    6471  1 1.180  98.6  4.00  .060 A
+ 6461    6471  2 1.180  98.6  4.00  .060 A
+(                    GUA-VDC C2
+ 6471    6461  1 1.274  98.6  2.00  .060 A
+(                    GUA-MAR-UTI C1 e C2
+ 6471    6661  1 1.180  98.6  4.00  .060 A
+ 6661    6481  1 1.180  98.6  4.00  .060 A
+ 6471    6661  2 1.180  98.6  4.00  .060 A
+ 6661    6481  2 1.180  98.6  4.00  .060 A
+(                    UTI-MAR-GUA C1 e C2
+ 6481    6661  1 1.180  98.6  4.00  .060 A
+ 6661    6471  1 1.180  98.6  4.00  .060 A
+ 6481    6661  2 1.180  98.6  4.00  .060 A
+ 6661    6471  2 1.180  98.6  4.00  .060 A
+(                    UTI-Castanhal-SMA
+ 6481    6489  1 1.180  98.6  4.00  .060 A
+ 6489    6491  1 1.180  98.6  4.00  .060 A
+ 6489    6491  2 1.180  98.6  4.00  .060 A
+(                    SMA-Castanhal-UTI
+ 6491    6489  1 1.180  98.6  4.00  .060 A
+ 6491    6489  2 1.180  98.6  4.00  .060 A
+ 6489    6481  1 1.180  98.6  4.00  .060 A
+(
+(                    PIR-TODA SUBESTAÇÃO
+ 5491    5492  4 1.330  98.5  .001  .100 A
+ 5491    5492  5 1.330  98.5  .001  .100 A
+ 5491    5492  7 1.330  98.5  .001  .100 A
+ 5491    5499  1 1.330  98.5  .001  .100 A
+ 5491    5493  2 1.330  98.5  .001  .100 A
+ 5491    5493  3 1.330  98.5  .001  .100 A
+ 5491    5501  1 1.330  98.5  .001  .100 A
+(                    BEA-TODA SUBESTAÇÃO
+ 5511    5501  1 1.180  98.6  5.00  .100 A
+ 5511    5501  2 1.180  98.6  4.50  .100 A
+ 5511    8473  5 1.180  98.6  5.00  .100 A
+ 5511    8474  6 1.180  98.6  5.00  .100 A
+(
+(                    TSA-BEA
+ 5501    5511  1 1.140  98.7  6.00  .100 M
+ 5501    5511  2 1.180  98.6  4.50  .100 A
+(
+(                    TSA-TODA SUBESTAÇÃO
+ 5501    5491  1 1.140  98.7  6.00  .100 M
+ 5501    5503  3 1.140  98.7  6.00  .100 M
+ 5501    5503  4 1.140  98.7  6.00  .100 M
+ 5501    5503  5 1.140  98.7  6.00  .100 M
+ 5501    5503  6 1.140  98.7  6.00  .100 M
+ 5501    5503  7 1.140  98.7  6.00  .100 M
+(
+(                    PIR-TODA SUBESTAÇÃO
+ 5491    5492  4 1.210  98.6  6.00  .100 M
+ 5491    5492  5 1.210  98.6  6.00  .100 M
+ 5491    5492  7 1.210  98.6  6.00  .100 M
+ 5491    5499  1 1.210  98.6  6.00  .100 M
+ 5491    5493  2 1.210  98.6  6.00  .100 M
+ 5491    5493  3 1.210  98.6  6.00  .100 M
+ 5491    5501  1 1.210  98.6  6.00  .100 M
+(                    SOBRAL-TODA SUBESTAÇÃO
+ 5481    5651  2 1.210  98.6  6.00  .100 M
+ 5481    5482  1 1.210  98.6  6.00  .100 M
+ 5481    5484  2 1.210  98.6  6.00  .100 M
+(                    CAUIPE
+ 5651    5481  2 1.200  98.6  6.00  .100 M
+(                    BNB-Aquiraz-FTZ C1 e C2 e C3
+ 5421    5381  6 1.200  98.6  6.00  .100 M
+ 5381    5452  1 1.200  98.6  6.00  .100 M
+ 5421    5381  8 1.200  98.6  6.00  .100 M
+ 5381    5452  2 1.200  98.6  6.00  .100 M
+ 5421   44096  7 1.200  98.6  6.00  .100 M
+44096    5381  7 1.200  98.6  6.00  .100 M
+ 5381    5452  3 1.200  98.6  6.00  .100 M
+(                    FORTALEZA
+ 5452    5458  5 1.200  98.6  6.00  .100 M
+ 5452    5458  6 1.200  98.6  6.00  .100 M
+ 5458    5471  5 1.200  98.6  6.00  .100 M
+ 5458   42332  1 1.200  98.6  6.00  .100 M
+ 5458   42336  3 1.200  98.6  6.00  .100 M
+( ***********************************************************************
+( PROTECAO DE SOBRETENSAO DO EIXO 230kV B.J.LAPA-SOBRADINHO (TEMPORIZADA)
+( ***********************************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+ 6301    6311  1 1.200  98.5  5.00  .100 A
+ 6301    6311  2 1.200  98.5  6.00  .100 A
+ 6311    6301  1 1.200  98.5  5.00  .100 A
+ 6311    6301  2 1.200  98.5  6.00  .100 A
+ 6311    6331  2 1.200  98.5  5.00  .100 A
+ 6331    6311  2 1.200  98.5  5.00  .100 A
+ 6351    6062  1 1.200  98.5  4.50  .100 A
+ 6062    6315  1 1.200  98.5  4.00  .100 A
+ 6315    6361  2 1.200  98.5  5.00  .100 A
+ 6315    6316  1 1.200  98.5  2.00  .100 A
+ 6316    6361  4 1.200  98.5  3.00  .100 A
+(
+( ********************************************************************
+( PROTECAO DE SOBRETENSAO DA INTERLIGACAO NORTE/SUL ATUALIZADO NSULIII
+( 28/04/2008
+( ATUALIZADO PRE-OPERACIONAL CO-RB-SJ-MG EM 16/10/2009
+( ********************************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+( SJ.PIAUI 500 (saida para Sobradinho)
+ 5572    6300  5 1.402  98.4 .0500  .050 A
+ 5572    6300  5 1.204  98.7  5.00  .050 A
+ 5577    6300  2 1.380  98.4 .0300  .050 A
+ 5577    6300  2 1.180  98.7  3.00  .050 A
+( SJ.PIAUI 500 (saida para RIBEIRO)
+ 5570    5435  3 1.380  98.4 .0500  .050 A
+ 5570    5435  3 1.180  98.7  4.00  .050 A
+( SOBRADINHO 500 (saida para SJ.PIAUI)
+ 6300    5572  5 1.330  98.6 .0500  .100 A
+ 6300    5572  5 1.198  98.7  4.50  .100 A
+ 6300    5577  2 1.330  98.6 .0500  .050 A
+ 6300    5577  2 1.180  98.7  3.00  .050 A
+( SOBRADINHO 500 (saida para JUAZEIRO)
+ 6300    6500  3 1.330  98.5 .0500  .100 A
+ 6300    6500  3 1.198  98.7  6.00  .100 A
+(
+ 6300    5050  4 1.330  98.5 .0500  .100 A
+ 6300    5050  4 1.198  98.7  4.00  .100 A
+(  IMPERATRIZ 500 KV (saida para PDUTRA)
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 5590   43954  1 1.420  98.4    0.  .040 A         instantanea
+ 5590   43956  1 1.420  98.4    0.  .040 A         instantanea
+ 5590   43954  1 1.220  98.6  4.00  .040 A         temporizada
+ 5590   43956  1 1.220  98.6  4.60  .040 A         temporizada
+(  PDUTRA 500KV (saida para Imperatriz)
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 5580   43955  1 1.420  98.4    0.  .040 A         instantanea
+ 5580   43957  1 1.420  98.4    0.  .040 A         instantanea
+ 5580   43955  1 1.200  98.6  4.00  .040 A         temporizada
+ 5580   43957  1 1.200  98.6  4.60  .040 A         temporizada
+(   ACAILANDIA 500KV (saida para IMPERATRIZ)
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 6700    5590  1 1.420  98.4    0.  .050 A         instantanea
+ 6700    5590  1 1.220  98.5  4.00  .050 A         temporizada
+(   IMPERATRIZ 500KV (saida para ACAILANDIA)
+(                    IPZ-AÇA C1
+( Se a proteção abaixo atuar, abrir todos os trechos da LT
+ 5590    6700  1 1.420  98.4    0.  .050 A         instantanea
+ 5590    6700  1 1.220  98.5  4.00  .050 A         temporizada
+(   MARABA 500 KV (saida para IMPERATRIZ)
+ 6400    5590  1 1.400  98.4    0.  .062 A         instantanea
+ 6400    5590  2 1.400  98.4    0.  .062 A         instantanea
+ 6400    5590  1 1.230  98.6  4.50  .062 A         temporizada
+ 6400    5590  2 1.230  98.6  3.50  .062 A         temporizada
+(   IMPERATRIZ 500 KV (saida para Maraba)
+ 5590    6400  1 1.420  98.4    0.  .040 A         instantanea
+ 5590    6400  2 1.420  98.4    0.  .040 A         instantanea
+ 5590    6400  1 1.220  98.6  4.50  .040 A         temporizada
+ 5590    6400  2 1.220  98.6  3.50  .040 A         temporizada
+(   IMPERATRIZ 500kV (saida para Colinas)
+(  Caso esta protecao atue, abrir 5590-7592 e 7300-7302
+ 7591    7302  1 1.380  98.4  0.08  .030 A         instantanea
+ 7591    7302  1 1.180  98.6  3.00  .030 A         temporizada
+ 7593    7304  2 1.380  98.4  0.08  .030 A         instantanea
+ 7593    7304  2 1.180  98.6  2.00  .030 A         temporizada
+(   COLINAS 500kV (saida para Imperatriz)
+(  Caso esta protecao atue, abrir 5590-7592 e 7300-7302
+ 7302    7591  1 1.380  98.4  0.08  .030 A        instantanea
+ 7302    7591  1 1.180  98.6  3.00  .030 A        temporizada
+ 7304    7593  2 1.380  98.4  0.08  .030 A        instantanea
+ 7304    7593  2 1.180  98.6  2.00  .030 A        temporizada
+(   COLINAS 500kV (saida para Miracema)
+(  Caso esta protecao atue, abrir 7300-7301 e 7301-7200
+ 7301    7200  1 1.380  98.4  0.08  .030 A        instantanea
+ 7301    7200  1 1.180  98.6  2.75  .030 A        temporizada
+ 7303    7200  2 1.380  98.4  0.08  .030 A        instantanea
+ 7303    7200  2 1.180  98.6  1.50  .030 A        temporizada
+ 7305    7200  3 1.380  98.4  0.00  .030 A        instantanea
+ 7305    7200  3 1.180  98.6  4.00  .030 A        temporizada
+(   COLINAS 500kV (saida para RIBEIRO)
+ 7300    5437  1 1.380  98.4  0.08  .030 A        instantanea
+ 7300    5437  1 1.180  98.6  2.40  .030 A        temporizada
+(   COLINAS 500kV (saida para ITACAIUNAS)
+ 7300    7306  1 1.380  98.4  0.00  .030 A        instantanea
+ 7300    7306  1 1.180  98.6  3.60  .030 A        temporizada
+(  RIBEIRO 500kV (saida para COLINAS)
+ 5437    7300  1 1.380  98.4  0.08  .030 A        instantanea
+ 5437    7300  1 1.180  98.6  2.40  .030 A        temporizada
+(  RIBEIRO 500kV (saida para S.J.PIAUI)
+ 5435    5570  3 1.380  98.4  0.08  .030 A        instantanea
+ 5435    5570  3 1.180  98.6  4.00  .030 A        temporizada
+(   ITACAIUNAS 500kV (saida para COLINAS)
+ 7306    7300  1 1.380  98.4  0.00  .030 A        instantanea
+ 7306    7300  1 1.180  98.6  3.60  .030 A        temporizada
+(   ITACAIUNAS 500kV (saida para Maraba)
+ 6440    6400  1 1.380  98.4  0.00  .030 A        instantanea
+ 6440    6400  1 1.180  98.6  4.00  .030 A        temporizada
+ 6440    6400  2 1.380  98.4  0.00  .030 A        instantanea
+ 6440    6400  2 1.180  98.6  4.50  .030 A        temporizada
+(   ITACAIUNAS 230kV (saida para Carajas)
+ 6441    6407  1 1.380  98.4  0.00  .030 A        instantanea
+ 6441    6407  1 1.180  98.6  3.50  .030 A        temporizada
+ 6441    6407  2 1.380  98.4  0.00  .030 A        instantanea
+ 6441    6407  2 1.180  98.6  4.00  .030 A        temporizada
+(   CARAJAS 230kV (saida para Marabá via SE09)
+ 6407    6401  1 1.180  98.6  3.00  .030 A        temporizada
+(   CARAJAS 230kV (saida para Itacaiunas)
+ 6407    6441  1 1.380  98.4  0.00  .030 A        instantanea
+ 6407    6441  1 1.180  98.6  3.50  .030 A        temporizada
+ 6407    6441  2 1.380  98.4  0.00  .030 A        instantanea
+ 6407    6441  2 1.180  98.6  4.00  .030 A        temporizada
+(   MARABA 500kV (saida para Itacaiunas)
+ 6400    6440  1 1.380  98.4  0.00  .030 A        instantanea
+ 6400    6440  1 1.220  98.6  4.00  .030 A        temporizada
+ 6400    6440  2 1.380  98.4  0.00  .030 A        instantanea
+ 6400    6440  2 1.220  98.6  4.50  .030 A        temporizada
+(   MIRACEMA 500kV (saida para Colinas)
+(  Caso esta protecao atue, abrir 7300-7301 e 7301-7200
+ 7200    7301  1 1.380  98.4  0.08  .030 A        instantanea
+ 7200    7301  1 1.180  98.6  2.75  .030 A        temporizada
+ 7200    7303  2 1.380  98.4  0.08  .030 A        instantanea
+ 7200    7303  2 1.180  98.6  1.50  .030 A        temporizada
+ 7200    7305  3 1.380  98.4  0.01  .030 A        instantanea
+ 7200    7305  3 1.180  98.6  4.00  .030 A        temporizada
+(   MIRACEMA 500kV (saida para LAJ-ADO)
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+ 7200    7204  1 1.380  98.4  0.08  .030 A        instantanea
+ 7200    7204  1 1.180  98.6  4.00  .030 A        temporizada
+(   LAJEADO 500kV (saida para MIRACEMA)
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+ 7204    7200  1 1.380  98.4  0.08  .030 A        instantanea
+ 7204    7200  1 1.180  98.6  4.00  .030 A        temporizada
+(   MIRACEMA 500kV (saida para Gurupi)
+(  Caso esta protecao atue, abrir 7300-7301 e 7301-7200
+ 7201    7102  1 1.380  98.4  0.01  .030 A        instantanea
+ 7201    7102  1 1.180  98.6  2.20  .030 A        temporizada
+ 7203    7104  2 1.380  98.4  0.01  .030 A        instantanea
+ 7203    7104  2 1.180  98.6  1.50  .030 A        temporizada
+ 7209    7105  3 1.380  98.4  0.01  .030 A        instantanea
+ 7209    7105  3 1.180  98.6  3.20  .030 A        temporizada
+(   GURUPI 500kV (saida para Miracema)
+(  Caso esta protecao atue, abrir 7200-7201 e 7102-7100
+ 7102    7201  1 1.340  98.5  0.01  .030 A        instantƒnea
+ 7102    7201  1 1.180  98.6  2.20  .030 A        temporizada
+ 7104    7203  2 1.340  98.5  0.01  .030 A        instantƒnea
+ 7104    7203  2 1.180  98.6  1.50  .030 A        temporizada
+ 7105    7209  3 1.340  98.5  0.01  .030 A        instantƒnea
+ 7105    7209  3 1.180  98.6  3.20  .030 A        temporizada
+(   GURUPI 500kV (saida para Peixe)
+ 7235    7113  1 1.340  98.5  0.01  .030 A        instantƒnea
+ 7235    7113  1 1.180  98.6  2.50  .030 A        temporizada
+(   GURUPI 500kV (saida para Serra da Mesa)
+(  Caso esta protecao atue, abrir 7100-7101 e 7236-235
+ 7101    7236  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 7101    7236  1 1.180  98.6  1.80  .030 A      temporizada
+ 7103    7237  2 1.340  98.5  0.01  .030 A      instantƒnea
+ 7103    7237  2 1.180  98.6  1.20  .030 A      temporizada
+(   PEIXE II 500kV (saida para Gurupi)
+ 7113    7235  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 7113    7235  1 1.180  98.6  2.50  .030 A      temporizada
+(   PEIXE II 500kV (saida para UHE Peixe)
+ 7113    7112  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 7113    7112  1 1.180  98.6  2.50  .030 A      temporizada
+(   PEIXE II 500kV (saida para SMesa II)
+ 7238     299  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 7238     299  1 1.180  98.6  2.00  .030 A      temporizada
+( UHE PEIXE 500kV (saida para Peixe)
+ 7112    7113  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 7112    7113  1 1.180  98.6  2.50  .030 A      temporizada
+(   SERRA DA MESA 500kV (saida para Gurupi)
+(  Caso esta protecao atue, abrir 7100-7101 e 7236-235
+ 7236    7101  1 1.300  98.5  0.01  .030 A      instantƒnea
+ 7236    7101  1 1.180  98.6  1.80  .030 A      temporizada
+ 7237    7103  2 1.300  98.5  0.01  .030 A      instantƒnea
+ 7237    7103  2 1.180  98.6  1.20  .030 A      temporizada
+( SMESA II 500kV (saida para Peixe)
+  299    7238  1 1.340  98.5  0.01  .030 A      instantƒnea
+  299    7238  1 1.180  98.6  2.00  .030 A      temporizada
+( SMESA II 500kV (saida para SMESA)
+  299     235  1 1.340  98.5  0.00  .030 A      instantƒnea
+( SMESA 500kV (saida para SMESAII)
+  235     299  1 1.300  98.5  0.00  .030 A      instantƒnea
+( SMESA II 500kV (saida para Luziania)
+ 3005    3006  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3005    3006  1 1.180  98.6  1.50  .030 A      temporizada
+(   SERRA DA MESA 500kV (saida para Samambaia C1 C2 e C3)
+  235      92  1 1.300  98.5  0.05  .030 A      instantanea
+  235      92  1 1.180  98.6  1.00  .030 A      temporizada
+  235      93  2 1.300  98.5  0.10  .030 A      instantanea
+  235      93  2 1.180  98.6  1.30  .030 A      temporizada
+  235      94  3 1.300  98.5  0.15  .030 A      instantanea
+  235      94  3 1.180  98.6  1.80  .030 A      temporizada
+(   SAMAMBAIA 500kV (saida para Serra da Mesa C1 C2 e C3)
+   92     235  1 1.260  98.5  0.15  .030 A      instantanea
+   92     235  1 1.160  98.6  1.00  .030 A      temporizada
+   93     235  2 1.300  98.5  0.15  .030 A      instantanea
+   93     235  2 1.180  98.6  1.40  .030 A      temporizada
+   94     235  3 1.300  98.5  0.10  .030 A      instantanea
+   94     235  3 1.180  98.6  1.70  .030 A      temporizada
+(   SAMAMBAIA 500kV (saida para Luziania)
+  233    3007  1 1.300  98.5  0.01  .030 A      instantanea
+  233    3007  1 1.180  98.6  2.50  .030 A      temporizada
+(   SAMAMBAIA 500kV (saida para Itumbiara)
+  233     210  1 1.220  98.5  2.00  .030 A      instantanea
+  233     210  1 1.170  98.6  5.00  .030 A      temporizada
+(   ITUMBIARA 500 kV (saída para Samambaia
+  210     233  1 1.220  98.5  2.00  .030 A
+  210     233  1 1.170  98.6  5.00  .030 A
+(   SAMAMBAIA 500kV (saida para Emborcação)
+  233     320  1 1.220  98.5  3.30  .030 A      instantanea
+  233     320  1 1.170  98.6  5.00  .030 A      temporizada
+(  LUZIANIA 500kV (saida para S.Mesa II)
+ 3006    3005  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3006    3005  1 1.180  98.6  1.50  .030 A      temporizada
+(  LUZIANIA 500kV (saida para Paracatu)
+ 3007    3008  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3007    3008  1 1.180  98.6  2.00  .030 A      temporizada
+(  LUZIANIA 500kV (saida para Samanbaia)
+ 3007     233  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3007     233  1 1.180  98.6  2.50  .030 A      temporizada
+(  PARACATU 500kV (saida para Luziania)
+ 3008    3007  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3008    3007  1 1.180  98.6  2.00  .030 A      temporizada
+(  PARACATU 500kV (saida para Emborcação)
+ 3008     320  1 1.340  98.5  0.01  .030 A      instantƒnea
+ 3008     320  1 1.180  98.6  2.40  .030 A      temporizada
+(  EMBORCAÇÃO 500kV (saida para Paracatu)
+  320    3008  1 1.280  98.5  0.01  .030 A      instantƒnea
+  320    3008  1 1.180  98.6  2.40  .030 A      temporizada
+(  EMBORCAÇÃO 500kV (saida para Samambaia)
+  320     233  1 1.220  98.5  3.30  .030 A
+  320     233  1 1.170  98.6  5.00  .030 A
+(  EMBORCAÇÃO 500kV (saida para Itumbiara)
+  320     210  1 1.280  98.5  0.11  .030 A
+(  EMBORCAÇÃO 500kV (saida para SGotardo 2)
+  320     390  1 1.280  98.5  0.11  .030 A      instantƒnea
+(  EMBORCAÇÃO 500kV (saida para N Ponte C1)
+  320     360  1 1.280  98.5  0.11  .030 A      instantƒnea
+(  EMBORCAÇÃO 500kV (saida para N Ponte C2)
+  320     360  2 1.280  98.5  0.00  .030 A      instantƒnea
+  320     360  2 1.220  98.6  3.00  .030 A      temporizada
+(  ITUMBIARA 500kV (saida para N Ponte)
+  210     360  1 1.280  98.5  0.00  .030 A      instantƒnea
+  210     360  1 1.220  98.6  2.50  .030 A      temporizada
+(  NOVA PONTE 500kV (saida para Emborcaçao C1)
+  360     320  1 1.280  98.5  0.11  .030 A      instantƒnea
+(  NOVA PONTE 500kV (saida para Emborcaçao C2)
+  360     320  2 1.280  98.5  0.00  .030 A      instantƒnea
+  360     320  2 1.220  98.6  3.00  .030 A      temporizada
+(  NOVA PONTE 500kV (saida para Itumbiara)
+  360     210  1 1.280  98.5  0.00  .030 A      instantƒnea
+  360     210  1 1.220  98.6  2.50  .030 A      temporizada
+(   SERRA DA MESA 230kV (saida para Niquel)
+  230     787  1 1.180  98.6  0.50  .030 A      temporizada
+(    MONITORACAO DE SOBRETENSAO EM RUROPOLIS 138kV
+ 6542    6547  3 1.180  98.5  2.0  0.001 A
+ 6542    6548  1 1.180  98.5  2.0  0.001 A
+( ********************************************************
+( PROTECAO DE SOBRETENSAO DA INTERLIGACAO SUDESTE/NORDESTE
+( ********************************************************
+(   SERRA DA MESA 500kV (saida para RIO DA EGUAS)
+  299    6444  1 1.340  98.4  0.05  .030 A      instantanea
+  299    6444  1 1.180  98.6  2.50  .030 A      temporizada
+(   RIO DAS EGUAS 500kV (saida para SERRA DA MESA)
+ 6444     299  1 1.380  98.4  0.04  .030 A      instantanea
+ 6444     299  1 1.180  98.6  2.50  .030 A      temporizada
+(   RIO DAS EGUAS 500kV (saida para BOM JESUS DA LAPA)
+ 6444    6349  1 1.380  98.4  0.04  .030 A      instantanea
+ 6444    6349  1 1.180  98.6  2.80  .030 A      temporizada
+(   BOM JESUS DA LAPA 500kV (saida para RIO DAS EGUAS)
+ 6349    6444  1 1.380  98.4  0.05  .030 A      instantanea
+ 6349    6444  1 1.180  98.6  2.80  .030 A      temporizada
+(   BOM JESUS DA LAPA 500kV (saida para IGAPORA III)
+ 6349    6220  2 1.380  98.4  0.08  .030 A      instantanea
+ 6349    6220  2 1.180  98.6  2.00  .030 A      temporizada
+(   IGAPORA III 500kV (saida para BOM JESUS DA LAPA)
+ 6220    6349  2 1.380  98.4  0.08  .030 A      instantanea
+ 6220    6349  2 1.180  98.6  2.00  .030 A      temporizada
+(   IGAPORA III 500kV (saida para IBICOARA)
+ 6220    6359  4 1.380  98.4  0.08  .030 A      instantanea
+ 6220    6359  4 1.180  98.6  2.00  .030 A      temporizada
+(   IBICOARA 500kV (saida para IGAPORA III)
+ 6359    6220  4 1.380  98.4  0.08  .030 A      instantanea
+ 6359    6220  4 1.180  98.6  2.00  .030 A      temporizada
+(   IBICOARA 500kV (saida para SAPEACU)
+ 6359    6369  3 1.380  98.4  0.08  .030 A      instantanea
+ 6359    6369  3 1.180  98.6  2.00  .030 A      temporizada
+(   SAPEACU 500kV (saida para IBICOARA)
+ 6369    6359  3 1.380  98.4  0.08  .030 A      instantanea
+ 6369    6359  3 1.180  98.6  2.00  .030 A      temporizada
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rio Verde 230 kV (barra 231) estiver com
+(  sobretensão sustentada de 110% da tensão nominal durante 3000ms o
+(  relé envia o comando para abrir o ciruito 2 da LT 230 kV Rio Verde -
+(  Barra do Peixe na extremidade de Rio Verde
+(-----------------------------------------------------------------------
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+  231    4511  2  1.10  100.   3.0  0.04 A   231
+( ******************************************************
+( PROTECAO DE SOBRETENSAO DO SISTEMA MATO GROSSO
+( ******************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+( *******************************************      Sinop - Sorriso
+ 4582    4562  1 1.300  100. 0.040  .040 A
+ 4582    4562  1 1.200  100. 2.5    .040 A
+ 4582    4562  2 1.300  100. 0.040  .040 A
+ 4582    4562  2 1.200  100. 3.5    .040 A
+( *******************************************      Sorriso - Sinop
+ 4562    4582  1 1.300  100. 0.040  .040 A
+ 4562    4582  1 1.200  100. 2.5    .040 A
+ 4562    4582  2 1.300  100. 0.040  .040 A
+ 4562    4582  2 1.200  100. 3.5    .040 A
+( *******************************************      Sorriso - L. R. Verde
+ 4562    4573  1 1.300  100. 0.040  .040 A
+ 4562    4573  1 1.200  100. 4.0    .040 A
+ 4562    4552  2 1.300  100. 0.040  .040 A         Sorriso    - N. Mutum
+ 4562    4552  2 1.200  100. 3.0    .040 A
+( *******************************************      N. Mutum - L. R. Verde
+ 4552    4573  1 1.300  100. 0.040  .040 A
+ 4552    4573  1 1.150  100. 4.0    .040 A
+ 4552    4562  2 1.300  100. 0.040  .040 A         N. Mutum - L. R. Verde
+ 4552    4562  2 1.150  100. 3.0    .040 A
+( *******************************************      Nova Mutum - Brasnorte
+ 4552    4868  1 1.300  100. 0.040  .040 A
+ 4552    4868  1 1.150  100. 2.0    .040 A
+ 4552    4868  2 1.300  100. 0.040  .040 A
+ 4552    4868  2 1.150  100. 2.5    .040 A
+( *******************************************      Nova Mutum - Nobres
+ 4552    4542  1 1.300  100. 0.040  .040 A
+ 4552    4542  1 1.150  100. 3.5    .040 A
+( *******************************************      Brasnorte - N.Mutum
+ 4868    4552  1 1.300  100. 0.040  .040 A
+ 4868    4552  1 1.150  100. 2.0    .040 A
+ 4868    4552  2 1.300  100. 0.040  .040 A
+ 4868    4552  2 1.150  100. 2.5    .040 A
+( *******************************************      Brasnorte - Juína
+ 4868    4894  1 1.300  100. 0.040  .040 A
+ 4868    4894  1 1.150  100. 3.5    .040 A
+ 4868    4894  2 1.300  100. 0.040  .040 A
+ 4868    4894  2 1.150  100. 4.5    .040 A
+( *******************************************      Brasnorte - Parecis
+ 4868    4448  1 1.300  100. 0.040  .040 A
+ 4868    4448  1 1.150  100. 1.0    .040 A
+ 4868    4448  2 1.300  100. 0.040  .040 A
+ 4868    4448  2 1.150  100. 4.0    .040 A
+( *******************************************      Brasnorte - Juba
+ 4868    4869  1 1.300  100. 0.040  .040 A
+ 4868    4869  1 1.150  100. 1.5    .040 A
+ 4868    4869  2 1.300  100. 0.040  .040 A
+ 4868    4869  2 1.150  100. 3.0    .040 A
+( *******************************************      Juína - Brasnorte
+ 4894    4868  1 1.300  100. 0.040  .040 A
+ 4894    4868  1 1.150  100. 3.5    .040 A
+ 4894    4868  2 1.300  100. 0.040  .040 A
+ 4894    4868  2 1.150  100. 4.5    .040 A
+( *******************************************      Juína - Dardanelos
+ 4894    4892  1 1.300  100. 0.040  .040 A
+ 4894    4892  1 1.150  100. 4.0    .040 A
+ 4894    4892  2 1.300  100. 0.040  .040 A
+ 4894    4892  2 1.150  100. 5.0    .040 A
+( *******************************************      Dardanelos - Juína
+ 4892    4894  1 1.300  100. 0.040  .040 A
+ 4892    4894  1 1.150  100. 4.0    .040 A
+ 4892    4894  2 1.300  100. 0.040  .040 A
+ 4892    4894  2 1.150  100. 5.0    .040 A
+( *******************************************      Parecis - Brasnorte
+ 4448    4868  1 1.300  100. 0.040  .040 A
+ 4448    4868  1 1.150  100. 1.0    .040 A
+ 4448    4868  2 1.300  100. 0.040  .040 A
+ 4448    4868  2 1.150  100. 4.0    .040 A
+( *******************************************      Juba - Brasnorte
+ 4869    4868  1 1.300  100. 0.040  .040 A
+ 4869    4868  1 1.150  100. 1.5    .040 A
+ 4869    4868  2 1.300  100. 0.040  .040 A
+ 4869    4868  2 1.150  100. 3.0    .040 A
+( *******************************************      Juba - Jauru
+ 4869    4862  1 1.300  100. 0.040  .040 A
+ 4869    4862  1 1.150  100. 1.0    .040 A
+ 4869    4862  2 1.300  100. 0.040  .040 A
+ 4869    4862  2 1.150  100. 2.0    .040 A
+(
+(------------------------------------------------------------------------------
+( PROTEÇÃO DE SOBRETENSÃO - LTS DE 230 kV DA REDE DE OPERAÇÃO - MATO GROSSO DO SUL
+(------------------------------------------------------------------------------
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+1086    1078  1  1.200       0.2   0.05  A       ( LT 230 kV DOU-ANA  (ALTO AJUSTE)
+1078    1086  1  1.200       0.2   0.05  A       ( LT 230 kV DOU-ANA  (ALTO AJUSTE)
+1086    1078  1  1.150       4.0   0.05  A       ( LT 230 kV DOU-ANA  (BAIXO AJUSTE)
+1078    1086  1  1.150       4.0   0.05  A       ( LT 230 kV DOU-ANA  (BAIXO AJUSTE)
+(
+ 545    1088  1  1.200       0.2   0.05  A       ( LT 230 kV IVI2-NPP (ALTO AJUSTE)
+1088     545  1  1.200       0.2   0.05  A       ( LT 230 kV IVI2-NPP (ALTO AJUSTE)
+ 545    1088  1  1.150       3.0   0.05  A       ( LT 230 kV IVI2-NPP (BAIXO AJUSTE)
+1088     545  1  1.150       3.0   0.05  A       ( LT 230 kV IVI2-NPP (BAIXO AJUSTE)
+(
+ 545    1087  1  1.200       0.2   0.05  A       ( LT 230 kV RBR-NPP  (ALTO AJUSTE)
+1087     545  1  1.200       0.2   0.05  A       ( LT 230 kV RBR-NPP  (ALTO AJUSTE)
+ 545    1087  1  1.150       3.0   0.05  A       ( LT 230 kV RBR-NPP  (BAIXO AJUSTE)
+1087     545  1  1.150       3.0   0.05  A       ( LT 230 kV RBR-NPP  (BAIXO AJUSTE)
+(
+1889    1087  1  1.200       0.2   0.05  A       ( LT 230 kV IMB-RBR  (ALTO AJUSTE)
+1087    1889  1  1.200       0.2   0.05  A       ( LT 230 kV IMB-RBR  (ALTO AJUSTE)
+1889    1087  1  1.150       2.5   0.05  A       ( LT 230 kV IMB-RBR  (BAIXO AJUSTE)
+1087    1889  1  1.150       2.5   0.05  A       ( LT 230 kV IMB-RBR  (BAIXO AJUSTE)
+(
+1086    1088  1  1.200       0.2   0.05  A       ( LT 230 kV DOU-IVI2 (ALTO AJUSTE)
+1088    1086  1  1.200       0.2   0.05  A       ( LT 230 kV DOU-IVI2 (ALTO AJUSTE)
+1086    1088  1  1.150       2.5   0.05  A       ( LT 230 kV DOU-IVI2 (BAIXO AJUSTE)
+1088    1086  1  1.150       2.5   0.05  A       ( LT 230 kV DOU-IVI2 (BAIXO AJUSTE)
+(
+1889    1085  1  1.200       0.2   0.05  A       ( LT 230 kV IMB-SIA2 (ALTO AJUSTE)
+1085    1889  1  1.200       0.2   0.05  A       ( LT 230 kV IMB-SIA2 (ALTO AJUSTE)
+1889    1085  1  1.120       2.5   0.05  A       ( LT 230 kV IMB-SIA2 (BAIXO AJUSTE)
+1085    1889  1  1.120       2.5   0.05  A       ( LT 230 kV IMB-SIA2 (BAIXO AJUSTE)
+(
+1078    1085  1  1.200       0.2   0.05  A       ( LT 230 kV ANA-SIA2 (ALTO AJUSTE)
+1085    1078  1  1.200       0.2   0.05  A       ( LT 230 kV ANA-SIA2 (ALTO AJUSTE)
+1078    1085  1  1.150       2.0   0.05  A       ( LT 230 kV ANA-SIA2 (BAIXO AJUSTE)
+1085    1078  1  1.150       2.0   0.05  A       ( LT 230 kV ANA-SIA2 (BAIXO AJUSTE)
+(
+1086     978  1  1.200       0.4   0.05  A       ( LT 230 kV DOU-GUA  (ALTO AJUSTE)
+ 978    1086  1  1.200       0.4   0.05  A       ( LT 230 kV DOU-GUA  (ALTO AJUSTE)
+1086     978  1  1.150       4.5   0.05  A       ( LT 230 kV DOU-GUA  (BAIXO AJUSTE)
+ 978    1086  1  1.150       4.5   0.05  A       ( LT 230 kV DOU-GUA  (BAIXO AJUSTE)
+(
+2458     978  1  1.150       0.2   0.05  A       ( LT 230 kV CVO-GUA
+ 978    2458  1  1.150       0.2   0.05  A       ( LT 230 kV CVO-GUA
+(
+1090    1077  1  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C1 (ALTO AJUSTE)
+1077    1090  1  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C1 (ALTO AJUSTE)
+1090    1077  1  1.100       2.0   0.05  A       ( LT 230 kV INO-ISO2 C1 (BAIXO AJUSTE)
+1077    1090  1  1.100       2.0   0.05  A       ( LT 230 kV INO-ISO2 C1 (BAIXO AJUSTE)
+(
+1090    1077  2  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C2 (ALTO AJUSTE)
+1077    1090  2  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C2 (ALTO AJUSTE)
+1090    1077  2  1.100       2.3   0.05  A       ( LT 230 kV INO-ISO2 C2 (BAIXO AJUSTE)
+1077    1090  2  1.100       2.3   0.05  A       ( LT 230 kV INO-ISO2 C2 (BAIXO AJUSTE)
+(
+1090    1077  3  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C3 (ALTO AJUSTE)
+1077    1090  3  1.200       0.0   0.05  A       ( LT 230 kV INO-ISO2 C3 (ALTO AJUSTE)
+1090    1077  3  1.100       2.9   0.05  A       ( LT 230 kV INO-ISO2 C3 (BAIXO AJUSTE)
+1077    1090  3  1.100       2.9   0.05  A       ( LT 230 kV INO-ISO2 C3 (BAIXO AJUSTE)
+(
+1089    1090  1  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C1  (ALTO AJUSTE)
+1090    1089  1  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C1  (ALTO AJUSTE)
+1089    1090  1  1.100       2.0   0.05  A       ( LT 230 kV CAO-INO C1  (BAIXO AJUSTE)
+1090    1089  1  1.100       2.0   0.05  A       ( LT 230 kV CAO-INO C1  (BAIXO AJUSTE)
+(
+1089    1090  2  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C2  (ALTO AJUSTE)
+1090    1089  2  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C2  (ALTO AJUSTE)
+1089    1090  2  1.100       2.3   0.05  A       ( LT 230 kV CAO-INO C2  (BAIXO AJUSTE)
+1090    1089  2  1.100       2.3   0.05  A       ( LT 230 kV CAO-INO C2  (BAIXO AJUSTE)
+(
+1089    1090  3  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C3  (ALTO AJUSTE)
+1090    1089  3  1.200       0.0   0.05  A       ( LT 230 kV CAO-INO C3  (ALTO AJUSTE)
+1089    1090  3  1.100       2.6   0.05  A       ( LT 230 kV CAO-INO C3  (BAIXO AJUSTE)
+1090    1089  3  1.100       2.6   0.05  A       ( LT 230 kV CAO-INO C3  (BAIXO AJUSTE)
+(
+1078    1018  1  1.200       0.1   0.05  A       ( LT 230 kV ANA-COR2 C1 (ALTO AJUSTE)
+1018    1078  1  1.200       0.1   0.05  A       ( LT 230 kV ANA-COR2 C1 (ALTO AJUSTE)
+1078    1018  1  1.140       1.7   0.05  A       ( LT 230 kV ANA-COR2 C1 (BAIXO AJUSTE)
+1018    1078  1  1.140       1.7   0.05  A       ( LT 230 kV ANA-COR2 C1 (BAIXO AJUSTE)
+(
+1078    1018  2  1.200       0.2   0.05  A       ( LT 230 kV ANA-COR2 C2 (ALTO AJUSTE)
+1018    1078  2  1.200       0.2   0.05  A       ( LT 230 kV ANA-COR2 C2 (ALTO AJUSTE)
+1078    1018  2  1.150       2.3   0.05  A       ( LT 230 kV ANA-COR2 C2 (BAIXO AJUSTE)
+1018    1078  2  1.150       2.3   0.05  A       ( LT 230 kV ANA-COR2 C2 (BAIXO AJUSTE)
+(
+1089    1025  1  1.200       0.2   0.05  A       ( LT 230 kV CAO-CGR2 (ALTO AJUSTE)
+1025    1089  1  1.200       0.2   0.05  A       ( LT 230 kV CAO-CGR2 (ALTO AJUSTE)
+1089    1025  1  1.150       2.5   0.05  A       ( LT 230 kV CAO-CGR2 (BAIXO AJUSTE)
+1025    1089  1  1.150       2.5   0.05  A       ( LT 230 kV CAO-CGR2 (BAIXO AJUSTE)
+(
+1025    1889  1  1.200       0.4   0.05  A       ( LT 230 kV CGR2-IMB (ALTO AJUSTE)
+1889    1025  1  1.200       0.4   0.05  A       ( LT 230 kV CGR2-IMB (ALTO AJUSTE)
+1025    1889  1  1.150       2.8   0.05  A       ( LT 230 kV CGR2-IMB (BAIXO AJUSTE)
+1889    1025  1  1.150       2.8   0.05  A       ( LT 230 kV CGR2-IMB (BAIXO AJUSTE)
+(
+(------------------------------------------------------------------------------
+( ESQUEMAS DE DESLIGAMENTO POR SOBRETENSÃO - LTS DE 138 kV DO MATO GROSSO DO SUL
+(------------------------------------------------------------------------------
+( 3o. ESTÁGIO - Abertura de linhas
+(------------------------------------------------------------------------------
+(
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+1131    1079  1  1.150       3.0   0.05  A         (Abertura em AQU da LT 138 kV AQU-ANA C1
+1131    1080  2  1.150       3.0   0.05  A         (Abertura em AQU da LT 138 kV AQU-ANA C2
+1144    1135  1  1.150       4.5   0.05  A         (Abertura em MIM das LT 138 kV JUP-MIM-C1 e C3
+1144    0541  3  1.150       4.5   0.05  A         (Abertura em MIM das LT 138 kV JUP-MIM-C1 e C3
+1144    1082  1  1.150       4.0   0.05  A         (Abertura em MIM das LT 138 kV MIM-CGR-C1 e C3
+1144    1082  3  1.150       4.0   0.05  A         (Abertura em MIM das LT 138 kV MIM-CGR-C1 e C3
+1082    1144  1  1.150       4.0   0.05  A         (Abertura em CGR das LT 138 kV MIM-CGR-C1 e C3
+1082    1144  3  1.150       4.0   0.05  A         (Abertura em CGR das LT 138 kV MIM-CGR-C1 e C3
+1131    1890  1  1.150       2.6   0.05  A         (Abertura em AQU da LT 138 kV AQU-CGI-C1
+1890    1131  1  1.150       2.6   0.05  A         (Abertura em CGI da LT 138 kV AQU-CGI-C1
+(
+(------------------------------------------------------------------------------
+( 4o. ESTÁGIO - Abertura de TR
+(------------------------------------------------------------------------------
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+1086    43099 1  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 1 230/138 kV - 75 MVA (Primario)
+1086    43097 2  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 2 230/138 kV - 75 MVA (Primario)
+1086    43096 3  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 3 230/138 kV - 75 MVA (Primario)
+1086    43098 4  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 4 230/138 kV - 75 MVA (Primario)
+1142    43099 1  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 1 230/138 kV - 75 MVA (Secundario)
+1142    43097 2  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 2 230/138 kV - 75 MVA (Secundario)
+1142    43096 3  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 3 230/138 kV - 75 MVA (Secundario)
+1142    43098 4  1.150       5.0   0.05  A  1142   (Abertura em Dou. S. Cruz do TF 4 230/138 kV - 75 MVA (Secundario)
+(
+(------------------------------------------------------------------------------
+( 5o. ESTÁGIO - Abertura de linha
+(------------------------------------------------------------------------------
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+1146    1881  1  1.150       4.0   0.05  A         (Abertura em MIR da LT 138 kV MIR-CEL
+1131    1146  1  1.150       5.5   0.05  A         (Abertura em AQU da LT 138 kV AQU-MIR
+1019    1146  1  1.150       5.0   0.05  A         (Abertura em COR2 da LT 138 kV MIR-COR2
+1019    1131  1  1.120       1.2   0.05  A         (Abertura em COR2 da LT 138 kV COR2-AQU
+1145    9851  1  1.150       6.0   0.05  A         (Abertura em MAR da LT 138 kV MAR-VAL
+(
+(------------------------------------------------------------------------------
+( 6o. ESTÁGIO - Abertura de linha e TR
+(------------------------------------------------------------------------------
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+1093    1836  1  1.150       7.0   0.05  A         (Abertura em IVI do TF 138/13,8 kV
+1147    1831  1  1.150       7.0   0.05  A         (Abertura em NAN do TF 138/13,8 kV
+1141    1824  1  1.100       7.0   0.05  A         (Abertura em ELD do TF 138/13,8 kV
+1141    1827  1  1.100       7.0   0.05  A         (Abertura em ELD do TF 138/34,5 kV
+1140    1093  1  1.150       7.0   0.05  A         (Abertura em DOD da LT 138 kV DOD-IVI
+1853    1854  1  1.150       7.0   0.05  A         (Abertura em SEL da LT 138 kV SEL-ATA
+(1141    1847  1  1.100       5.0   0.05  A         (Abertura em ELD da LT 138 kV ELD-NAV
+1141    1823  1  1.100       5.0   0.05  A         (Abertura em ELD da LT 138 kV ELD-IGU
+1144    0541  2  1.150       6.5   0.05  A         (Abertura em MIM das LT's 138 kV JUP-MIM-C2 e C4
+1144    0541  4  1.150       6.5   0.05  A         (Abertura em MIM das LT's 138 kV JUP-MIM-C2 e C4
+(
+( ******************************************************
+( PROTECAO DE SOBRETENSAO DO SISTEMA ACRE-RONDONIA
+( ******************************************************
+( De)   ( Pa) Nc (Ten) (Rel) (Tre) (Tdj) M ( Bm)
+(                                                Porto Velho-CJirau-Abunã C1
+( 6900    6999  1 1.400  100. 0.100  .040 A
+( 6999    6900  1 1.400  100. 0.100  .040 A
+((
+( 6999    6930  1 1.400  100. 0.100  .040 A
+( 6930    6999  1 1.400  100. 0.100  .040 A
+((
+( 6900    6999  1 1.200  100.   3.0  .040 A
+( 6999    6900  1 1.200  100.   3.0  .040 A
+((
+( 6999    6930  1 1.200  100.   3.0  .040 A
+( 6930    6999  1 1.200  100.   3.0  .040 A
+(                                                Porto Velho-Abunã C2
+ 6900    6930  2 1.400  100. 0.100  .040 A
+ 6930    6900  2 1.400  100. 0.100  .040 A
+(
+ 6900    6930  2 1.200  100.   2.2  .040 A
+ 6930    6900  2 1.200  100.   2.2  .040 A
+(                                                Porto Velho-Samuel C1
+ 6900    6890  1 1.400  100. .0312  .040 A
+ 6890    6900  1 1.400  100. .0312  .040 A
+(
+ 6900    6890  1 1.200  100.   3.0  .040 A
+ 6890    6900  1 1.200  100.   3.0  .040 A
+(                                                Porto Velho-Samuel C2
+ 6900    6890  2 1.400  100. .0312  .040 A
+ 6890    6900  2 1.400  100. .0312  .040 A
+(
+ 6900    6890  2 1.200  100.   4.0  .040 A
+ 6890    6900  2 1.200  100.   4.0  .040 A
+(                                                Porto Velho-Samuel C3
+ 6900    6890  3 1.400  100. .0312  .040 A
+ 6890    6900  3 1.400  100. .0312  .040 A
+(
+ 6900    6890  3 1.200  100.   5.0  .040 A
+ 6890    6900  3 1.200  100.   5.0  .040 A
+(                                                Samuel-Ariquemes C1
+ 6890    6880  1 1.400  100. .0312  .040 A
+ 6880    6890  1 1.400  100. .0312  .040 A
+(
+ 6890    6880  1 1.200  100.   3.5  .040 A
+ 6880    6890  1 1.200  100.   3.5  .040 A
+(                                                Samuel-Ariquemes C2
+ 6890    6880  2 1.400  100. .0312  .040 A
+ 6880    6890  2 1.400  100. .0312  .040 A
+(
+ 6890    6880  2 1.200  100.   2.5  .040 A
+ 6880    6890  2 1.200  100.   2.5  .040 A
+(                                                Samuel-Ariquemes C3
+ 6890    6880  3 1.400  100. .0312  .040 A
+ 6880    6890  3 1.400  100. .0312  .040 A
+(
+ 6890    6880  3 1.200  100.   4.5  .040 A
+ 6880    6890  3 1.200  100.   4.5  .040 A
+(                                                Ariquemes-Ji-Parana C2
+ 6880    6840  2 1.400  100. .0312  .040 A
+ 6880    6840  2 1.400  100. .0312  .040 A
+(
+ 6880    6840  2 1.200  100.   2.0  .040 A
+ 6880    6840  2 1.200  100.   2.0  .040 A
+(                                                Ariquemes-Ji-Parana C3
+ 6880    6840  3 1.400  100. .0312  .040 A
+ 6880    6840  3 1.400  100. .0312  .040 A
+(
+ 6880    6840  3 1.200  100.   4.0  .040 A
+ 6880    6840  3 1.200  100.   4.0  .040 A
+(                                                Ariquemes-Jaru-Ji-Parana C1
+ 6880    6870  1 1.400  100. .0312  .040 A  6880
+ 6880    6870  1 1.400  100. .0312  .040 A  6840
+(
+ 6880    6870  1 1.200  100.   5.0  .040 A  6880
+ 6880    6870  1 1.200  100.   5.0  .040 A  6840
+(
+ 6870    6840  1 1.400  100. .0312  .040 A  6880
+ 6870    6840  1 1.400  100. .0312  .040 A  6840
+(
+ 6870    6840  1 1.200  100.   3.0  .040 A  6880
+ 6870    6840  1 1.200  100.   3.0  .040 A  6840
+(                                                Ji-Paraná-Rolim de Moura 138 kV
+ 6841    6857  1 1.400  100.  .040  .040 A
+ 6857    6841  1 1.400  100.  .040  .040 A
+(
+ 6841    6857  1 1.200  100.   2.5  .040 A
+ 6857    6841  1 1.200  100.   2.5  .040 A
+(                                                Ji Paraná-Pimenta Bueno C1
+ 6840    6820  1 1.400  100.  .040  .040 A
+ 6820    6840  1 1.400  100.  .040  .040 A
+(
+ 6840    6820  1 1.200  100.   2.5  .040 A
+ 6820    6840  1 1.200  100.   2.5  .040 A
+(                                                Ji Paraná-Pimenta Bueno C2
+ 6840    6820  2 1.400  100.  .040  .040 A
+ 6820    6840  2 1.400  100.  .040  .040 A
+(
+ 6840    6820  2 1.200  100.   3.5  .040 A
+ 6820    6840  2 1.200  100.   3.5  .040 A
+(                                                Ji Paraná-Pimenta Bueno C3
+ 6840    6820  3 1.400  100.  .040  .040 A
+ 6820    6840  3 1.400  100.  .040  .040 A
+(
+ 6840    6820  3 1.200  100.   4.5  .040 A
+ 6820    6840  3 1.200  100.   4.5  .040 A
+(                                                Pimenta Bueno-Vilhena C1
+ 6820    6800  1 1.400  100.  .040  .040 A
+ 6800    6820  1 1.400  100.  .040  .040 A
+(
+ 6820    6800  1 1.200  100.   2.0  .040 A
+ 6800    6820  1 1.200  100.   2.0  .040 A
+(                                                Pimenta Bueno-Vilhena C2
+ 6820    6800  2 1.400  100.  .040  .040 A
+ 6800    6820  2 1.400  100.  .040  .040 A
+(
+ 6820    6800  2 1.200  100.   3.0  .040 A
+ 6800    6820  2 1.200  100.   3.0  .040 A
+(                                                Pimenta Bueno-Vilhena C3
+ 6820    6800  3 1.400  100.  .040  .040 A
+ 6800    6820  3 1.400  100.  .040  .040 A
+(
+ 6820    6800  3 1.200  100.   4.0  .040 A
+ 6800    6820  3 1.200  100.   4.0  .040 A
+(                                                Abunã-Rio Branco C1
+ 6930    6950  1 1.400  100.  .040  .040 A
+ 6950    6930  1 1.400  100.  .040  .040 A
+(
+ 6930    6950  1 1.200  100.  1.75  .040 A
+ 6950    6930  1 1.200  100.  1.75  .040 A
+(                                                Abunã-Rio Branco C2
+ 6930    6950  2 1.400  100.  .040  .040 A
+ 6950    6930  2 1.400  100.  .040  .040 A
+(
+ 6930    6950  2 1.200  100.  1.75  .040 A
+ 6950    6930  2 1.200  100.  1.75  .040 A
+(                                                Abunã-G.Mirim 138 kV
+ 6931    6939  1 1.400  100.  .040  .040 A
+ 6939    6931  1 1.400  100.  .040  .040 A
+(
+ 6931    6939  1 1.200  100.  1.50  .040 A
+ 6939    6931  1 1.200  100.  1.50  .040 A
+(                                                Jauru-Vilhena C1
+(6898    4862  1 1.400  100.  .040  .040 A
+(4862    6898  1 1.400  100.  .040  .040 A
+(
+(6898    4862  1 1.200  100.  1.50  .040 A
+(4862    6898  1 1.200  100.  1.50  .040 A
+(                                                Jauru-Vilhena C2
+ 6899    4862  2 1.400  100.  .040  .040 A
+ 4862    6899  2 1.400  100.  .040  .040 A
+(
+ 6899    4862  2 1.200  100.  2.50  .040 A
+ 4862    6899  2 1.200  100.  2.50  .040 A
+(                                                Jauru-Vilhena C3
+( 4862    6800  3 1.400  100.  .040  .040 A
+( 6800    4862  3 1.400  100.  .040  .040 A
+(
+( 4862    6800  3 1.200  100.  3.50  .040 A
+( 6800    4862  3 1.200  100.  3.50  .040 A
+(
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 7 - RELÉ DE SOBRETENSÃO PARA DESLIGAMENTO DE CAPACITOR / INSERÇÃO DE REATOR
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD07
+(
+(PROTE€ÇO DE SOBRET. DOS BANCOS DE CAP. CASO A ALUMAR SEJA DESLIGADA (INST)
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+ 5551    1.41  98.4        284.9            0.09  0.06 A
+(PROTE€ÇO DE SOBRET. DOS BANCOS DE CAP. CASO A ALUMAR SEJA DESLIGADA (TEMP)
+ 5551    1.18  98.6        284.9            3.00  0.06 A
+(PROTE€ÇO DE SOBRETENSÇO DOS BANCOS DE CAPACITORES DA BARRA 5551 (TEMP)
+ 5551    1.13  98.7        111.9            0.50  0.06 A
+(PROTE€ÇO DE SOBRETENSÇO DOS BANCOS DE CAPACITORES DA BARRA 5501 (INST)
+( OBSERVAR SE Hµ BANCO DE CAPACITOR NO FLOW
+ 5501    1.16  98.7  100                    0.01  0.06 A
+(PROTE€ÇO DE SOBRETENSÇO DOS BANCOS DE CAPACITORES DA BARRA 5501 (TEMP)
+ 5501    1.16  98.7   100                   1.00  0.06 A
+(PROTE€ÇO DE SOBRETENSÇO DOS BANCOS DE CAPACITORES DA BARRA 5483 (TEMP)
+ 5483   1.067  98.8   100                   0.50  0.06 A
+(PROTE€ÇO DE SOBRETENSÇO DOS BANCOS DE CAPACITORES DA BARRA 5503 (TEMP)
+ 5503   1.093  98.8   100                   0.50  0.06 M
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rondonópolis 138 kV (barra 4623) estiver com
+(  sobretensão sustentada de 110% da tensão nominal durante 1100ms
+(  o relé envia o comando para inserir o reator de barra de 230 kV
+(  (30 Mvar) da SE Rondonópolis (barra 4522)
+(  Obs: Esse ECE não retira o banco de capacitores de 230 kV (30 Mvar)
+(  da SE Rondonópolis (4522) antes de inserir o reator de barra de
+(  230 kV (30 Mvar) da SE Rondonópolis (barra 4522), mas o modelo
+(  MD07 retira o capacitor de 230 kV (30 Mvar) da SE Rondonópolis
+(  (barra 4522) antes de inserir o reator de barra de 230 kV (30 Mvar)
+(  da SE Rondonópolis (barra 4522)
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+ 4522   1.100  100.          30.             1.1  0.04 A   -30.
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rio Verde 230 kV (barra 231) estiver com
+(  sobretensão instantânea de 115% da tensão nominal o relé envia o
+(  comando para inserir o reator de barra de 230 kV (42 Mvar) da
+(  SE Rio Verde (barra 231)
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+  231   1.150  100.          42.             0.0  0.04 A   -42.
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rio Verde 230 kV (barra 231) estiver com
+(  sobretensão sustentada de 110% da tensão nominal durante 500ms o
+(  relé envia o comando para inserir o reator de barra de 230 kV
+(  (42 Mvar) da SE Rio Verde (barra 231) e retirar o banco de
+(  capacitores de 13,8 kV (3 x 10 Mvar) da SE Rio Verde (barra 241)
+(  Obs: Esse modelo MD07 não consegue retirar o banco de capacitores
+(  de uma barra que não seja a monitorada pelo relé
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+  231   1.100  100.          42.             0.5  0.04 A   -42.
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rio Verde 13,8 kV (barra 241) estiver com
+(  sobretensão instantânea de 118% da tensão nominal durante 100ms o
+(  relé envia o comando para retirar o banco de capacitores de 13,8 kV
+(  (3 x 10 Mvar) da SE Rio Verde (barra 241)
+(  Obs: Esse ECE só retira o banco de capacitores de 13,8 kV
+(  (3 x 10 Mvar) da SE Rio Verde (barra 241), ele não insere os
+(  reatores de barra de 13,8 kV (1 x 25 Mvar e 1 x 5 Mvar) da SE
+(  Rio Verde (barra 241) que estiverem desligados, mas o modelo MD07,
+(  quando o banco de capacitores de 13,8 kV (3 x 10 Mvar) da SE
+(  Rio Verde estiver desligado, insere todos os reatores de barra
+(  de 13,8 kV (1 x 25 Mvar e 1 x 5 Mvar) da SE Rio Verde (barra 241)
+(  que estiverem desligados
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+  241   1.180  100.          30.             0.1  0.04 A   -30.
+(
+( ******************************************************
+( Retirada de Banco de Capacitores
+( Inserção de Reatores
+( ******************************************************
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmin)
+ 6800   1.100  100.         18.5             2.5  0.04 A     0.
+ 6800   1.100  100.         18.5             2.8  0.04 A     0.
+ 6800   1.100  100.         18.5             3.2  0.04 A     0.
+ 6800   1.100  100.         20.0             3.5  0.04 A   -20.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6820   1.100  100.         18.5             2.2  0.04 A     0.
+ 6820   1.100  100.         18.5             2.5  0.04 A     0.
+ 6820   1.100  100.         18.5             2.8  0.04 A     0.
+ 6820   1.100  100.         20.0             3.0  0.04 A   -20.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6840   1.100  100.         18.5             2.5  0.04 A     0.
+ 6840   1.100  100.         18.5             2.8  0.04 A     0.
+ 6840   1.100  100.         18.5             3.2  0.04 A     0.
+ 6840   1.100  100.         20.0             3.5  0.04 A   -20.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6950   1.100  100.         18.5             1.1  0.04 A     0.
+ 6950   1.100  100.         20.0             1.4  0.04 A   -20.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6930   1.100  100.         30.0             1.1  0.04 A   -30.
+(
+(-----------------------------------------------------------------------------
+( REGIÃO SUL + MS - REDE DE OPERAÇÃO
+( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SOBRETENSÃO
+(-----------------------------------------------------------------------------
+(
+( RIO GRANDE DO SUL
+(
+( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+ 9820    1.07                    10   1        4  0.05 A         9818  1  9818  (SE 525 kV LT 525 kV Marmeleiro - Povo Novo, na SE Povo Novo (REATOR 1 x 50 Mvar)
+ 9822    1.07                    10   1        4  0.05 A         9820  1  9822  (SE 525 kV LT 525 kV S. V. do Palmar 2 - Marmeleiro 2, na SE S. V. do Palmar 2 (REATOR 1 x 50 Mvar)
+ 1045   1.075                    10   1        4  0.05 A                        (SE 525 kV Santo Ângelo    (REATOR 2 x 150 Mvar)
+ 1045   1.075                    10   1        5  0.05 A                        (SE 525 kV Santo Ângelo    (REATOR 2 x 150 Mvar)
+ 9786    1.06                    10   1        2  0.05 A         9787  1  9786  (SE 525 kV Candiota        (REATOR 1 x 75 Mvar)
+ 9820    1.07                    10   1        6  0.05 A                        (SE 525 kV Marmeleiro 2    (REATOR 1 x 100 Mvar)
+ 1186     1.1                    10   1      0.1  0.05 A                        (SE 230 kV Alegrete 2      (REATOR 2 x 25 Mvar)
+ 1186     1.1                    10   1      0.2  0.05 A                        (SE 230 kV Alegrete 2      (REATOR 2 x 25 Mvar)
+ 1186     1.1                    10   1      0.3  0.05 A         1230  1  1186  (SE 230 kV Alegrete 2      (REATOR 1 x 25 Mvar)
+ 1230   1.085                    10   1      0.3  0.05 A                        (SE 230 kV Livramento 2    (REATOR 1 x 30 Mvar)
+ 1239   1.065                    10   1        2  0.05 A                        (SE 230 kV Pres. Médici    (REATOR 1 x 30 Mvar)
+ 1246     1.1                    10   1      0.3  0.05 A                        (SE 230 kV Quinta          (REATOR 1 x 25 Mvar)
+ 1246    1.12                    20   1      2.0  0.05 A                        (SE 230 kV Quinta          (CAPACITOR 2 x 25 Mvar)
+ 1246    1.12                    20   1      2.0  0.05 A                        (SE 230 kV Quinta          (CAPACITOR 2 x 25 Mvar)
+ 1254     1.1                    10   1      2.5  0.05 A                        (SE 230 kV São Borja 2     (CAPACITOR 1 x 30 Mvar)
+ 1291     1.1                    10   1        3  0.05 A                        (SE 230 kV Tapera 2        (CAPACITOR 1 x 50 Mvar)
+ 1198    1.12                    10   1        2  0.05 A                        (SE 230 kV Campo Bom       (CAPACITOR 1 x 100 Mvar)
+ 1210     1.1                    20   1      0.8  0.05 A                        (SE 230 kV Gravataí 2      (CAPACITOR 1 x 100,5 Mvar)
+ 1210     1.1                    30   1      1.1  0.05 A                        (SE 230 kV Gravataí 2      (CAPACITOR 1 x 111 Mvar)
+ 1218    1.12                    10   1        2  0.05 A                        (SE 230 kV Lajeado 2       (CAPACITOR 1 x 50 Mvar)
+ 1225     1.1                    10   1        2  0.05 A                        (SE 230 kV Maçambará       (CAPACITOR 1 x 30 Mvar)
+(
+( MATO GROSSO DO SUL
+(
+( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+  978    1.11                    10   1      1.5  0.05 A         1086  1  1086  (SE 230 kV LT 230 kV Dourados - Guaíra, na SE Dourados (REATOR 1 x 27 Mvar)
+ 1018   1.052                    10   1        3  0.05 A                        (SE 230 kV Corumbá 2       (REATOR 2 x 15 Mvar)
+ 1018   1.052                    10   1      3.5  0.05 A                        (SE 230 kV Corumbá 2       (REATOR 2 x 15 Mvar)
+ 1086    1.11                    10   1        1  0.05 A                        (SE 230 kV Dourados        (REATOR 1 x 27 Mvar)
+ 1086    1.07                    20   1      2.0  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+ 1086    1.07                    20   1      3.0  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+ 1086    1.10                    20   1      0.2  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+ 1086    1.10                    20   1      0.5  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+(
+( PARANÁ
+(
+( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+  814     1.1                    10   1      3.5  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  814     1.1                    10   1      4.0  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  814     1.2                    10   1      0.4  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  814     1.2                    10   1      0.5  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  827     1.1                    10   1        2  0.05 A                        (SE 230 kV Jaguariaíva     (CAPACITOR 1 x 50 Mvar)
+  831     1.1                    10   1        2  0.05 A                        (SE 230 kV P. Grossa Sul   (CAPACITOR 1 x 50 Mvar)
+  978     1.1                    10   1        2  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 50 Mvar)
+  978    1.15                    10   1     0.33  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 50 Mvar)
+  978     1.1                    20   1      2.5  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 30 Mvar)
+  978    1.15                    20   1      0.1  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 30 Mvar)
+  852     1.1                    10   1        2  0.05 A                        (SE 230 kV Pato Branco     (CAPACITOR 1 x 30 Mvar)
+ 9543     1.1                    10   1      2.0  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+ 9543     1.1                    10   1      2.5  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+ 9543     1.2                    10   1      0.5  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+ 9543     1.2                    10   1      0.8  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+(
+( SANTA CATARINA
+(
+( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+  939     1.1                    10   1      2.0  0.05 A                        (SE 230 kV Blumenau        (CAPACITOR 2 x 125 Mvar)
+  939     1.1                    10   1      2.0  0.05 A                        (SE 230 kV Blumenau        (CAPACITOR 2 x 125 Mvar)
+  943     1.1                    10   1      1.5  0.05 A                        (SE 230 kV Canoinhas       (CAPACITOR 1 x 50 Mvar)
+  949     1.1                    10   1        2  0.05 A                        (SE 230 kV Rio do Sul 2    (CAPACITOR 1 x 100 Mvar)
+ 1020     1.1                    10   1      2.5  0.05 A                        (SE 230 kV Joinville Norte (CAPACITOR 2 x 100 Mvar)
+ 1020     1.1                    10   1        3  0.05 A                        (SE 230 kV Joinville Norte (CAPACITOR 2 x 100 Mvar)
+ 1034     1.1                    10   1        2  0.05 A                        (SE 230 kV Palhoça         (CAPACITOR 1 x 50 Mvar)
+ 1069     1.1                    10   1        2  0.05 A                        (SE 230 kV Xanxerê         (CAPACITOR 1 x 100 Mvar)
+(
+((------------------------------------------------------------------------------
+(( ESQUEMAS ESPECIAIS NÃO PERTENCENTES À REDE DE OPERAÇÃO - Região SUL + MS
+(( Nota: Informações enviadas pelos agentes proprietários.
+((------------------------------------------------------------------------------
+((
+((------------------------------------------------------------------------------
+(( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SOBRETENSÃO - M.G.SUL
+((------------------------------------------------------------------------------
+(( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+( 1093   1.065                    10   1      1.6  0.05 A         1140  1  1140  (LT 138 kV Dourados das Nações - Ivinhema, na SE D. das Nações (REATOR 1 x 5 Mvar)
+( 1019   1.043                    10   1      4.5  0.05 A         1137  1  1137  (LT 138 kV Corumbá 2 - Corumbá, na SE Corumbá                  (REATOR 1 x 5 Mvar)
+( 1131    1.03                    10   1        3  0.05 A         1019  1  1131  (LT 138 kV Corumbá - Aquidauana, na SE Aquidauana              (REATOR 1 x 5 Mvar)
+( 1146    1.03                    10   1        3  0.05 A         1019  1  1146  (LT 138 kV Miranda - Corumbá 2, na SE Miranda                  (REATOR 1 x 5 Mvar)
+( 1843    1.03                    10   1        3  0.05 A         1859  1  1859  (LT 138 kV Camapuã - Paraíso, na SE Paraíso                    (REATOR 1 x 5 Mvar)
+( 1893    1.06                    10   1      1.2  0.05 A         1883  1  1883  (LT 138 kV Coxim - Rio Verde, na SE COXIM                      (REATOR 1 x 5 Mvar)
+( 1896   1.050                    10   1      2.0  0.05 A         1895  1  1895  (LT 138 kV Porto Murtinho - Alto Caracol, na SE PORTO MURTINHO (REATOR 2 x 5 Mvar)
+( 1896   1.050                    10   1      3.0  0.05 A         1895  1  1895  (LT 138 kV Porto Murtinho - Alto Caracol, na SE PORTO MURTINHO (REATOR 2 x 5 Mvar)
+( 9851    1.06                    10   1      2.2  0.05 A         1127  1  1127  (LT 138 kV Jardim - Vista Alegre, na SE Jardim                 (REATOR 1 x 5 Mvar)
+( 1857    1.04                    10   1        4  0.05 A         1858  1  1857  (LT 138 kV Chapadão do Sul - Costa Rica, na SE Chapadão do Sul (REATOR 1 x 10 Mvar)
+( 1131    1.03                    10   1        3  0.05 A                        (SE 138 kV Aquidauana                 (REATOR 1 x 5 Mvar)
+( 1148    1.05                    10   1        2  0.05 A                        (SE 138 kV São Gabriel D'Oeste        (REATOR 1 x 5 Mvar)
+( 1837   1.065                    10   1        2  0.05 A                        (SE 13,8 kV Ivinhema                  (REATOR 1 x 5 Mvar)
+( 1843    1.03                    10   1        2  0.05 A                        (SE 138 kV Camapuã                    (REATOR 1 x 5 Mvar)
+( 1856    1.04                    10   1        3  0.05 A                        (SE 138 kV Cassilândia                (REATOR 1 x 5 Mvar)
+( 1082    1.12                    10   1      0.1  0.05 A                        (SE 138 kV Campo Grande Esul          (CAPACITOR 1 x 30 Mvar)
+( 1132    1.15                    10   1      0.1  0.05 A                        (SE 138 kV Campo Grande Assis Scaffa  (CAPACITOR 1 x 15 Mvar)
+( 1132     1.1                    10   1        2  0.05 A                        (SE 138 kV Campo Grande Assis Scaffa  (CAPACITOR 1 x 15 Mvar)
+( 1136     1.1                    10   1      1.8  0.05 A                        (SE 138 kV Campo Grande Cuiabá        (CAPACITOR 1 x 15 Mvar)
+( 1140    1.15                    10   1      0.5  0.05 A                        (SE 138 kV Dourados das Nações        (CAPACITOR 1 x 15 Mvar)
+( 1890    1.15                    10   1      0.1  0.05 A                        (SE 138 kV Campo Grande Imbirussú     (CAPACITOR 2 x 30 Mvar)
+( 1890    1.10                    10   1      2.5  0.05 A                        (SE 138 kV Campo Grande Imbirussú     (CAPACITOR 2 x 30 Mvar)
+( 1890    1.10                    10   1      3.0  0.05 A                        (SE 138 kV Campo Grande Imbirussú     (CAPACITOR 2 x 30 Mvar)
+( 1800     1.1                    10   5      1.4  0.05 A                        (SE 13,8 kV Campo Grande Almoxarifado (CAPACITOR 15 x 1,8 Mvar) - Chaveamento em bloco(s) de 5 unidade(s)
+( 1800     1.1                    10   5      1.8  0.05 A                        (SE 13,8 kV Campo Grande Almoxarifado (CAPACITOR 15 x 1,8 Mvar) - Chaveamento em bloco(s) de 5 unidade(s)
+( 1800     1.1                    10   5      2.2  0.05 A                        (SE 13,8 kV Campo Grande Almoxarifado (CAPACITOR 15 x 1,8 Mvar) - Chaveamento em bloco(s) de 5 unidade(s)
+( 1802    1.04                    10   4       15  0.05 A                        (SE 13,8 kV Campo Grande Lageado      (CAPACITOR  4 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1802    1.10                    10   4      1.2  0.05 A                        (SE 13,8 kV Campo Grande Lageado      (CAPACITOR  4 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1815     1.1                    10   4      1.2  0.05 A                        (SE 13,8 kV Campo Grande Miguel Couto (CAPACITOR 12 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1815     1.1                    10   4      1.6  0.05 A                        (SE 13,8 kV Campo Grande Miguel Couto (CAPACITOR 12 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1815     1.1                    10   4      1.8  0.05 A                        (SE 13,8 kV Campo Grande Miguel Couto (CAPACITOR 12 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    1.06                    10   4      5.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR  8 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    1.06                    10   4      6.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR  8 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    1.06                    20   2      7.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR  6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1818    1.06                    20   2      8.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR  6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1818    1.06                    20   2      9.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR  6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1848     1.1                    10   5        4  0.05 A                        (SE 13,8 kV Naviraí                   (CAPACITOR  7 x 1,8 Mvar) - Chaveamento em bloco(s) de 5 unidade(s)
+((
+((------------------------------------------------------------------------------
+(( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SOBRETENSÃO - PARANÁ
+((------------------------------------------------------------------------------
+((
+(( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmin) ( Pa) Nc ( Ex)
+(  830     1.1                    10   1      2.0  0.05 A                        (SE 138 kV Ponta Grossa Norte (CAPACITOR 1 x 30 Mvar)
+(  830    1.15                    10   1     0.33  0.05 A                        (SE 138 kV Ponta Grossa Norte (CAPACITOR 1 x 30 Mvar)
+(  869     1.1                    40   1      2.0  0.05 A                        (SE 138 kV Maringá (CAPACITOR 1 x 15 Mvar)
+(  869    1.15                    40   1     0.33  0.05 A                        (SE 138 kV Maringá (CAPACITOR 1 x 15 Mvar)
+(  869     1.1                    50   1      2.0  0.05 A                        (SE 138 kV Maringá (CAPACITOR 2 x 30 Mvar)
+(  869    1.15                    50   1     0.33  0.05 A                        (SE 138 kV Maringá (CAPACITOR 2 x 30 Mvar)
+(  890     1.1                    30   1      2.0  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 30 Mvar)
+(  890    1.15                    30   1     0.33  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 30 Mvar)
+(  890     1.1                    40   1      2.0  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 15 Mvar)
+(  890    1.15                    40   1     0.33  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 15 Mvar)
+( 2383    1.10                    10   1      2.0  0.05 A                        (SE 138 kV Posto Fiscal (CAPACITOR 1 x 30 Mvar)
+( 2383    1.15                    10   1     0.33  0.05 A                        (SE 138 kV Posto Fiscal (CAPACITOR 1 x 30 Mvar)
+( 2423    1.11                    10   1        2  0.05 A                        (SE 138 kV Jaguariaíva (CAPACITOR 2 x 30 Mvar)
+( 2472     1.1                    10   1      2.0  0.05 A                        (SE 138 kV Sarandi (CAPACITOR 1 x 15 Mvar)
+( 2472    1.15                    10   1     0.33  0.05 A                        (SE 138 kV Sarandi (CAPACITOR 1 x 15 Mvar)
+( 2368    1.14                    10   1    300.0  0.05 A                        (SE 69 kV Cidade Industrial (CAPACITOR 2 x 15 Mvar)
+( 2368    1.24                    10   1      2.0  0.05 A                        (SE 69 kV Cidade Industrial (CAPACITOR 2 x 15 Mvar)
+( 2387     1.1                    20   1        1  0.05 A                        (SE 69 kV Pilarzinho (CAPACITOR 1 x 15 Mvar)
+( 2387     1.1                    30   1        1  0.05 A                        (SE 69 kV Pilarzinho (CAPACITOR 1 x 30 Mvar)
+( 2397    1.10                    10   1      5.0  0.05 A                        (SE 69 kV Santa Quitéria (CAPACITOR 1 x 30 Mvar)
+( 2397    1.15                    10   1      1.0  0.05 A                        (SE 69 kV Santa Quitéria (CAPACITOR 1 x 30 Mvar)
+( 2401     1.1                    20   1        2  0.05 A                        (SE 69 kV Uberaba (CAPACITOR 1 x 15 Mvar)
+( 2402     1.1                    10   1        1  0.05 A                        (SE 69 kV Umbará (CAPACITOR 2 x 15 Mvar)
+( 2478    1.10                    10   1      1.0  0.05 A                        (SE 69 kV Santa Mônica (CAPACITOR 1 x 15 Mvar)
+( 2478    1.15                    10   1     0.33  0.05 A                        (SE 69 kV Santa Mônica (CAPACITOR 1 x 15 Mvar)
+(  840    1.07                    20   1     10.0  0.05 A                        (SE 13,8 kV Cascavel  (REATOR 2 x 15 Mvar)
+(  840    1.07                    20   1      1.0  0.05 A                        (SE 13,8 kV Cascavel  (REATOR 2 x 15 Mvar)
+(  847     1.1                    20   1      2.0  0.05 A                        (SE 13,8 kV Guaíra  (REATOR 3 x 5 Mvar)
+(  847    1.15                    20   1     0.33  0.05 A                        (SE 13,8 kV Guaíra  (REATOR 3 x 5 Mvar)
+(  847     1.1                    30   1      2.5  0.05 A                        (SE 13,8 kV Guaíra  (REATOR 1 x 10 Mvar)
+(  847    1.15                    30   1     0.05  0.05 A                        (SE 13,8 kV Guaíra  (REATOR 1 x 10 Mvar)
+( 2485   1.071                    10   1      165  0.05 A                        (SE 13,8 kV Figueira  (REATOR 1 x 5 Mvar)
+( 2485   1.071                    20   1      165  0.05 A                        (SE 13,8 kV Figueira  (REATOR 1 x 10 Mvar)
+(
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 8 - RELÉ DE SUBTENSÃO PARA DESLIGAMENTO DE REATOR / INSERÇÃO DE CAPACITOR
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD08
+(-----------------------------------------------------------------------
+(  Quando a tensão de Coxipó 138 kV (barra 4533) estiver com subtensão
+(  sustentada de 90% da tensão nominal durante: 500ms (1º Estágio) o
+(  relé envia o comando para inserir os três bancos de capacitores
+(  (3 x 9,6 Mvar) associados ao autotransformador 2(barra 4535),
+(  700ms (2º Estágio) o relé envia o comando para inserir os três bancos
+(  de capacitores (3 x 9,6 Mvar) associados ao autotransformador 1
+(  (barra 4534) e 900ms (3º Estágio) o relé envia o comando para inserir
+(  os três bancos de capacitores (3 x 9,6 Mvar) associados ao
+(  autotransformador 3(barra 4536)
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 4535   0.900  100.         28.8             0.5  0.04 A   28.8
+ 4534   0.900  100.         28.8             0.7  0.04 A   28.8
+ 4536   0.900  100.         28.8             0.9  0.04 A   28.8
+(-----------------------------------------------------------------------
+(  Quando a tensão de Rondonópolis 138 kV (barra 4623) estiver com
+(  subtensão sustentada de 90% da tensão nominal durante 300ms o
+(  relé envia o comando para retirar o reator de barra de 230 kV
+( (30 Mvar) da SE Rondonópolis (barra 4522)
+(-----------------------------------------------------------------------
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 4522   0.900  100.          30.             0.3  0.04 A    30.
+(
+( ******************************************************
+( Inserção de Banco de Capacitores
+( Retirada de Reatores
+( ******************************************************
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6800   0.900  100.         18.5             2.5  0.04 A   55.5
+ 6800   0.900  100.         18.5             2.8  0.04 A   55.5
+ 6800   0.900  100.         18.5             3.2  0.04 A   55.5
+ 6800   0.900  100.         20.0             3.5  0.04 A     0.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6820   0.900  100.         18.5             2.2  0.04 A   55.5
+ 6820   0.900  100.         18.5             2.5  0.04 A   55.5
+ 6820   0.900  100.         18.5             2.8  0.04 A   55.5
+ 6820   0.900  100.         20.0             3.0  0.04 A     0.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6840   0.900  100.         18.5             2.5  0.04 A   55.5
+ 6840   0.900  100.         18.5             2.8  0.04 A   55.5
+ 6840   0.900  100.         18.5             3.2  0.04 A   55.5
+ 6840   0.900  100.         20.0             3.5  0.04 A     0.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6950   0.950  100.         18.5             1.1  0.04 A   18.5
+ 6950   0.950  100.         20.0             1.4  0.04 A     0.
+( Nb)   (Ten) (Rel) ( % ) ( ABS)           (Tre) (Tdj) M (Qmax)
+ 6930   0.950  100.         30.0             1.1  0.04 A     0.
+(
+(-----------------------------------------------------------------------------
+( REGIÃO SUL + MS - REDE DE OPERAÇÃO
+( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SUBTENSÃO
+(-----------------------------------------------------------------------------
+(
+( RIO GRANDE DO SUL
+(
+( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmax) ( Pa) Nc ( Ex)
+ 9820    0.94                    10   1      4.5  0.05 A         9818  1  9818  (SE 525 kV LT 525 kV Marmeleiro - Povo Novo, na SE Povo Novo (REATOR 1 x 50 Mvar)
+ 9822    0.94                    10   1      3.5  0.05 A         9820  1  9822  (SE 525 kV LT 525 kV S. V. do Palmar 2 - Marmeleiro 2, na SE S. V. do Palmar 2 (REATOR 1 x 50 Mvar)
+ 1045    0.94                    10   1        4  0.05 A                        (SE 525 kV Santo Ângelo    (REATOR 2 x 150 Mvar)
+ 1045    0.94                    10   1        5  0.05 A                        (SE 525 kV Santo Ângelo    (REATOR 2 x 150 Mvar)
+ 9786    0.94                    10   1      1.2  0.05 A         9787  1  9786  (SE 525 kV Candiota        (REATOR 1 x 75 Mvar)
+ 9820    0.94                    10   1      5.5  0.05 A                        (SE 525 kV Marmeleiro 2    (REATOR 1 x 100 Mvar)
+ 1186    0.93                    10   1      1.5  0.05 A                        (SE 230 kV Alegrete 2      (REATOR 2 x 25 Mvar)
+ 1186    0.93                    10   1      1.8  0.05 A                        (SE 230 kV Alegrete 2      (REATOR 2 x 25 Mvar)
+ 1186    0.93                    10   1        2  0.05 A         1230  1  1186  (SE 230 kV Alegrete 2      (REATOR 1 x 25 Mvar)
+ 1230   0.948                    10   1        2  0.05 A                        (SE 230 kV Livramento 2    (REATOR 1 x 30 Mvar)
+ 1239    0.94                    10   1      1.2  0.05 A                        (SE 230 kV Pres. Médici    (REATOR 1 x 30 Mvar)
+ 1246    0.94                    10   1        2  0.05 A                        (SE 230 kV Quinta          (REATOR 1 x 25 Mvar)
+ 1246    0.94                    20   1      2.0  0.05 A                        (SE 230 kV Quinta          (CAPACITOR 2 x 25 Mvar)
+ 1246    0.94                    20   1      3.0  0.05 A                        (SE 230 kV Quinta          (CAPACITOR 2 x 25 Mvar)
+ 1254    0.93                    10   1      2.7  0.05 A                        (SE 230 kV São Borja 2     (CAPACITOR 1 x 30 Mvar)
+ 1291    0.93                    10   1        2  0.05 A                        (SE 230 kV Tapera 2        (CAPACITOR 1 x 50 Mvar)
+ 1198    0.94                    10   1        2  0.05 A                        (SE 230 kV Campo Bom       (CAPACITOR 1 x 100 Mvar)
+ 1210   0.969                    20   1      4.8  0.05 A                        (SE 230 kV Gravataí 2      (CAPACITOR 1 x 100,5 Mvar)
+ 1210   0.969                    30   1        5  0.05 A                        (SE 230 kV Gravataí 2      (CAPACITOR 1 x 111 Mvar)
+ 1218    0.94                    10   1        2  0.05 A                        (SE 230 kV Lajeado 2       (CAPACITOR 1 x 50 Mvar)
+ 1225    0.93                    10   1      2.5  0.05 A                        (SE 230 kV Maçambará       (CAPACITOR 1 x 30 Mvar)
+(
+( MATO GROSSO DO SUL
+(
+  978   0.945                    10   1      1.2  0.05 A         1086  1  1086  (SE 230 kV LT 230 kV Dourados - Guaíra, na SE Dourados (REATOR 1 x 27 Mvar)
+ 1018    0.95                    10   1        4  0.05 A                        (SE 230 kV Corumbá 2       (REATOR 2 x 15 Mvar)
+ 1086   0.945                    10   1        1  0.05 A                        (SE 230 kV Dourados        (REATOR 1 x 27 Mvar)
+ 1086   0.945                    20   1      1.4  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+ 1086   0.945                    20   1      1.7  0.05 A                        (SE 230 kV Dourados        (CAPACITOR 2 x 50 Mvar)
+(
+( PARANÁ
+(
+  814   0.987                    10   1      3.5  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  814   0.987                    10   1      4.0  0.05 A                        (SE 230 kV Bateias         (CAPACITOR 2 x 150 Mvar)
+  827    0.94                    10   1        6  0.05 A                        (SE 230 kV Jaguariaíva     (CAPACITOR 1 x 50 Mvar)
+  831    0.94                    10   1        6  0.05 A                        (SE 230 kV P. Grossa Sul   (CAPACITOR 1 x 50 Mvar)
+  978    0.93                    10   1        4  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 50 Mvar)
+  978   0.945                    20   1        5  0.05 A                        (SE 230 kV Guaíra          (CAPACITOR 1 x 30 Mvar)
+  852    0.94                    10   1        6  0.05 A                        (SE 230 kV Pato Branco     (CAPACITOR 1 x 30 Mvar)
+ 9543   0.987                    10   1      4.5  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+ 9543   0.987                    10   1      5.0  0.05 A                        (SE 230 kV Curitiba Leste  (CAPACITOR 2 x 100 Mvar)
+(
+( SANTA CATARINA
+(
+  933    0.85                    10   1        2  0.05 A          955  1   955  (SE 525 kV LT 525 kV Areia - Campos Novos, na SE Campos Novos (REATOR 1 x 100 Mvar)
+  943   0.945                    10   1        4  0.05 A                        (SE 230 kV Canoinhas       (CAPACITOR 1 x 50 Mvar)
+  949    0.91                    10   1        5  0.05 A                        (SE 230 kV Rio do Sul 2    (CAPACITOR 1 x 100 Mvar)
+ 1020   0.945                    10   1        4  0.05 A                        (SE 230 kV Joinville Norte (CAPACITOR 2 x 100 Mvar)
+ 1020    0.93                    10   1      4.5  0.05 A                        (SE 230 kV Joinville Norte (CAPACITOR 2 x 100 Mvar)
+ 1069    0.92                    10   1        2  0.05 A                        (SE 230 kV Xanxerê         (CAPACITOR 1 x 100 Mvar)
+(
+((------------------------------------------------------------------------------
+(( ESQUEMAS ESPECIAIS NÃO PERTENCENTES À REDE DE OPERAÇÃO - Região Sul + MS
+(( Nota: Informações enviadas pelos agentes proprietários.
+((------------------------------------------------------------------------------
+((
+((------------------------------------------------------------------------------
+(( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SUBTENSÃO - M.G.SUL
+((------------------------------------------------------------------------------
+((
+(( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmax) ( Pa) Nc ( Ex)
+( 1093    0.95                    10   1        3  0.05 A         1140  1  1140  (LT 138 kV Dourados das Nações - Ivinhema, na SE D. das Nações (REATOR 1 x 5 Mvar)
+( 1019    0.95                    10   1      4.5  0.05 A         1137  1  1137  (LT 138 kV Corumbá 2 - Corumbá, na SE Corumbá                  (REATOR 1 x 5 Mvar)
+( 1131    0.95                    10   1        3  0.05 A         1019  1  1131  (LT 138 kV Corumbá - Aquidauana, na SE Aquidauana              (REATOR 1 x 5 Mvar)
+( 1146    0.95                    10   1        3  0.05 A         1019  1  1146  (LT 138 kV Miranda - Corumbá 2, na SE Miranda                  (REATOR 1 x 5 Mvar)
+( 1843    0.98                    10   1        3  0.05 A         1859  1  1859  (LT 138 kV Camapuã - Paraíso, na SE Paraíso                    (REATOR 1 x 5 Mvar)
+( 1893    0.96                    10   1      1.2  0.05 A         1883  1  1883  (LT 138 kV Coxim - Rio Verde, na SE COXIM                      (REATOR 1 x 5 Mvar)
+( 1896    0.95                    10   1      2.0  0.05 A         1895  1  1895  (LT 138 kV Porto Murtinho - Alto Caracol, na SE PORTO MURTINHO (REATOR 2 x 5 Mvar)
+( 1896    0.95                    10   1      3.0  0.05 A         1895  1  1895  (LT 138 kV Porto Murtinho - Alto Caracol, na SE PORTO MURTINHO (REATOR 2 x 5 Mvar)
+( 9851    0.98                    10   1      1.6  0.05 A         1127  1  1127  (LT 138 kV Jardim - Vista Alegre, na SE Jardim                 (REATOR 1 x 5 Mvar)
+( 1857    0.97                    10   1        4  0.05 A         1858  1  1857  (LT 138 kV Chapadão do Sul - Costa Rica, na SE Chapadão do Sul (REATOR 1 x 10 Mvar)
+( 1131    0.95                    10   1        3  0.05 A                        (SE 138 kV Aquidauana                 (REATOR 1 x 5 Mvar)
+( 1148    0.98                    10   1        2  0.05 A                        (SE 138 kV São Gabriel D'Oeste        (REATOR 1 x 5 Mvar)
+( 1843    0.98                    10   1        2  0.05 A                        (SE 138 kV Camapuã                    (REATOR 1 x 5 Mvar)
+( 1856    0.96                    10   1        2  0.05 A                        (SE 138 kV Cassilândia                (REATOR 1 x 5 Mvar)
+( 1132    0.95                    10   1      1.7  0.05 A                        (SE 138 kV Campo Grande Assis Scaffa  (CAPACITOR 1 x 15 Mvar)
+( 1136    0.95                    10   1      1.3  0.05 A                        (SE 138 kV Campo Grande Cuiabá        (CAPACITOR 1 x 15 Mvar)
+( 1140    0.95                    10   1      0.5  0.05 A                        (SE 138 kV Dourados das Nações        (CAPACITOR 1 x 15 Mvar)
+( 1890    0.95                    10   1      4.0  0.05 A                        (SE 138 kV Campo Grande Imbirussú     (CAPACITOR 2 x 30 Mvar)
+( 1890    0.95                    10   1      6.0  0.05 A                        (SE 138 kV Campo Grande Imbirussú     (CAPACITOR 2 x 30 Mvar)
+( 1802    0.35                    10   4      1.5  0.05 A                        (SE 13,8 kV Campo Grande Lageado      (CAPACITOR 4 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1802    0.95                    10   4       15  0.05 A                        (SE 13,8 kV Campo Grande Lageado      (CAPACITOR 4 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    0.95                    10   4      6.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR 8 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    0.95                    10   4      7.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR 8 x 1,8 Mvar) - Chaveamento em bloco(s) de 4 unidade(s)
+( 1818    0.95                    20   2      8.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR 6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1818    0.95                    20   2      8.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR 6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1818    0.95                    20   2     10.0  0.05 A                        (SE 13,8 kV Corumbá                   (CAPACITOR 6 x 1,8 Mvar) - Chaveamento em bloco(s) de 2 unidade(s)
+( 1848     0.4                    10   5        3  0.05 A                        (SE 13,8 kV Naviraí                   (CAPACITOR 7 x 1,8 Mvar) - Chaveamento em bloco(s) de 5 unidade(s)
+((
+((------------------------------------------------------------------------------
+(( ESQUEMAS DE CONEXÃO / DESCONEXÃO DE ELEMENTOS SHUNT POR SUBTENSÃO - PARANÁ
+((------------------------------------------------------------------------------
+((
+(( Nb)   (Ten) (Rel) ( % ) ( ABS) Gr Und    (Tre) (Tdj) M (Qmax) ( Pa) Nc ( Ex)
+(  830    0.94                    10   1        6  0.05 A                        (SE 138 kV Ponta Grossa Norte (CAPACITOR 1 x 30 Mvar)
+(  869    0.94                    40   1       12  0.05 A                        (SE 138 kV Maringá (CAPACITOR 1 x 15 Mvar)
+(  890    0.94                    30   1        9  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 30 Mvar)
+(  890    0.94                    40   1        6  0.05 A                        (SE 138 kV Londrina (CAPACITOR 1 x 15 Mvar)
+( 2383    0.94                    10   1        6  0.05 A                        (SE 138 kV Posto Fiscal (CAPACITOR 1 x 30 Mvar)
+( 2423     0.4                    10   1      100  0.05 A                        (SE 138 kV Jaguariaíva (CAPACITOR 2 x 30 Mvar)
+( 2472    0.94                    10   1        6  0.05 A                        (SE 138 kV Sarandi (CAPACITOR 1 x 15 Mvar)
+( 2397    0.85                    10   1       10  0.05 A                        (SE 69 kV Santa Quitéria (CAPACITOR 1 x 30 Mvar)
+( 2401    0.93                    10   1      4.0  0.05 A                        (SE 69 kV Uberaba (CAPACITOR 2 x 30 Mvar)
+( 2401    0.93                    10   1      6.0  0.05 A                        (SE 69 kV Uberaba (CAPACITOR 2 x 30 Mvar)
+( 2401    0.93                    20   1        8  0.05 A                        (SE 69 kV Uberaba (CAPACITOR 1 x 15 Mvar)
+( 2478    0.92                    10   1        4  0.05 A                        (SE 69 kV Santa Mônica (CAPACITOR 1 x 15 Mvar)
+((
+999999
+(
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+( TIPO 9 - RELÉ DE IMPEDÂNCIA PARA ABERTURA DE CIRCUITO CA EM SEPs
+(-----------------------------------------------------------------------------------
+(-----------------------------------------------------------------------------------
+DREL MD09
+( PPS DA LI 230 KV PRO-SCH EM PRO
+( OBS. RETIRAR O COMENTÁRIO DESTA PPS QUANDO O ANEL PRO-TSA ESTIVER FECHADO
+( De)   ( Pa) Nc (Rc ) (Xc ) ( Z ) (Tre) (Tdj) M (De2) (Pa2) Nc
+ 5531   44118    3.28  18.54  38.  0.00  0.053 A    
+999999
+(
+FIM

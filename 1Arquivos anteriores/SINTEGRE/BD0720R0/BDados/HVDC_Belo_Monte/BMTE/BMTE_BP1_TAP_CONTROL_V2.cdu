@@ -1,0 +1,317 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_BP1_TAP_CONTROL_V2.cdu                                                               |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 9110 - TAP-CHANGER CONTROL - POLO 1 - XINGU
+( CDU 9120 - TAP-CHANGER CONTROL - POLO 1 - ESTREITO
+( CDU 9130 - TAP-CHANGER CONTROL - POLO 2 - XINGU
+( CDU 9140 - TAP-CHANGER CONTROL - POLO 2 - ESTREITO
+(
+(----------------------------------------------------------------------
+(                    DADOS DE TOPOLOGIA (DTDU)
+(----------------------------------------------------------------------
+(
+( TDU 9100 - TAP-CHANGER CONTROL
+(
+DTDU
+(
+(----------------------------------------------------------------------
+(
+( SINAIS DE INTERESSE:
+(
+(
+(----------------------------------------------------------------------
+(
+(ncdu) ( nome cdu )
+  9100 TAP-CONTROL
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+DEFPAR #TCANG 0.1                # CONSTANTE DE TEMPO MEDIÇÃO ANGULO (SEGUNDOS)
+DEFPAR #DELAY 5.                 # TAP DELAY (SEGUNDOS)
+DEFPAR #AMIN  12.7               # ALFA MINIMO (GRAUS)
+DEFPAR #AMAX  17.3               # ALFA MAXIMO (GRAUS)
+DEFPAR #GMIN  18.0               # GAMA MINIMO (GRAUS)
+DEFPAR #GMAX  21.0               # GAMA MAXIMO (GRAUS)
+DEFPAR #TSTEP 0.0125             # TAP STEP (PU)
+DEFPAR #TPMIN 0.9375             # TAP RATIO MIN
+DEFPAR #TPMAX 1.25               # TAP RATIO MAX
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        AUTO   #AUTO
+DEFVAL        AMIN   #AMIN
+DEFVAL        AMAX   #AMAX
+DEFVAL        GMIN   #GMIN
+DEFVAL        GMAX   #GMAX
+DEFVAL        TPMIN  #TPMIN
+DEFVAL        TPMAX  #TPMAX
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        HOLD   0.0
+DEFVAL        RESET  0.0
+DEFVAL        VINIC  0.0
+DEFVAL        ERRTAP 0.005  
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X510   0.0
+DEFVAL        X560   0.0
+DEFVAL        X710   0.0
+DEFVAL        X760   0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL VAR    TAPMAN TAPINI
+DEFVAL VAR    TAPAUT TAPINI
+DEFVAL VAR    TPOSR  TPOS
+DEFVAL VAR    TPOSI  TPOS
+(
+(----------------------------------------------------------------------
+(
+(Exports
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 EXPORT CTAP   TAP
+(
+(Entradas default
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 ENTRAD               HOLD
+  15 ENTRAD               RESET
+  20 ENTRAD               VINIC
+  25 ENTRAD               AMIN
+  30 ENTRAD               AMAX
+  35 ENTRAD               GMIN
+  40 ENTRAD               GMAX
+  45 ENTRAD               TPMIN
+  50 ENTRAD               TPMAX
+  55 ENTRAD               TAPMAN
+  60 ENTRAD               AUTO
+  65 ENTRAD               ERRTAP 
+(
+(Imports
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 100 IMPORT*OPCNV         OPCNV
+ 105 IMPORT*CTAP          TAPINI
+ 110 SAIDA         TAPINI
+(
+(Saída do TCC - modo auto
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 160 SELET2        TPOSI  TPOS
+                   TPOSR  TPOS
+                   OPCNV  TPOS
+ 170 GANHO         TPOS   DTAP   #TSTEP
+ 180 FUNCAO RETA   DTAP   TRATIO 1.0   1.0
+ 190 FUNCAO INVRS  TRATIO TAPAUT
+(
+(Seleção man/auto
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 200 SELET2        TAPMAN X200
+                   TAPAUT X200
+                   AUTO   X200
+ 205 DELAY         X200   TAP
+(
+(======================================================================
+(                     Tap-control retificador
+(======================================================================
+(
+(Medição ALFA - para conversor inversor, força-se ALFA = AMAX
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 IMPORT*ALFA          ALFAR
+ 305 FUNCAO DEGREE ALFAR  ALFAG
+ 310 LEDLAG        ALFAG  ALFAF  1.0         1.0   #TCANG
+ 301 SELET2        AMAX   ALFAGF
+                   ALFAF  ALFAGF
+                   OPCNV  ALFAGF
+(
+(Raise tap retificador to decrease alpha
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+500  COMPAR .GT.   ALFAGF RAISER
+                   AMAX   RAISER
+(
+1110 DLAYON        RAISER X1110  #DELAY
+(
+ 505 LOGIC  .NOT.  X2060  X505
+ 510 LOGIC  .AND.  X1110  X510
+                   AUTO   X510
+                   X505   X510
+                   X515   X510
+(
+(Tap não está no limite superior (considerando erro de 1 time step)
+ 512 SOMA          TPMAX  TPMAX1
+                  -ERRTAP TPMAX1
+ 515 COMPAR .LT.   TRATIO X515
+                   TPMAX1 X515
+(
+2059 MONEST        X510   X2059  #DELAY
+2060 DELAY         X2059  X2060
+(
+(Lower tap retificador to increase alpha
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+550  COMPAR .LT.   ALFAGF LOWERR
+                   AMIN   LOWERR
+(
+3110 DLAYON        LOWERR X3110  #DELAY
+(
+ 555 LOGIC  .NOT.  X4060  X555
+ 560 LOGIC  .AND.  X3110  X560
+                   AUTO   X560
+                   X555   X560
+                   X565   X560
+(
+(Tap não está no limite inferior
+ 565 COMPAR .GT.   TRATIO X565
+                   TPMIN  X565
+(
+4059 MONEST        X560   X4059  #DELAY
+4060 DELAY         X4059  X4060
+(
+(Contador posição de tape - retificador
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 DELAY         X2060  X600
+ 605 COMPAR .GT.   X2060  X605
+                   X600   X605
+ 610 DELAY         X4060  X610
+ 615 COMPAR .GT.   X4060  X615
+                   X610   X615
+ 620 SOMA          X605   X620
+                  -X615   X620
+ 625 ACUM          X620   TPOSR  1.0
+                   HOLD   TPOSR
+                   RESET  TPOSR
+                   VINIC  TPOSR
+(
+(======================================================================
+(                     Tap-control inversor
+(======================================================================
+(
+(Medição GAMA - para conversor retificador, força-se GAMA = GMIN
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 385 IMPORT*GAMA          GAMAR
+ 390 FUNCAO DEGREE GAMAR  GAMAG
+ 395 LEDLAG        GAMAG  GAMAF  1.0          1.0  #TCANG
+ 386 SELET2        GAMAF  GAMAGF
+                   GMIN   GAMAGF
+                   OPCNV  GAMAGF
+(
+(Raise tap inversor to decrease gamma
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+700  COMPAR .GT.   GAMAGF RAISEI
+                   GMAX   RAISEI
+(
+5110 DLAYON        RAISEI X5110  #DELAY
+(
+ 705 LOGIC  .NOT.  X6060  X705
+ 710 LOGIC  .AND.  X5110  X710
+                   AUTO   X710
+                   X705   X710
+                   X715   X710
+(
+(Tap não está no limite superior (considerando erro de 1 time step)
+ 715 COMPAR .LT.   TRATIO X715
+                   TPMAX1 X715
+(
+6059 MONEST        X710   X6059  #DELAY
+6060 DELAY         X6059  X6060
+(
+(Lower tap inversor to increase gama
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+750  COMPAR .LT.   GAMAGF LOWERI
+                   GMIN   LOWERI
+(
+7110 DLAYON        LOWERI X7110  #DELAY
+(
+ 755 LOGIC  .NOT.  X8060  X755
+ 760 LOGIC  .AND.  X7110  X760
+                   AUTO   X760
+                   X755   X760
+                   X765   X760
+(
+(Tap não está no limite inferior
+ 765 COMPAR .GT.   TRATIO X765
+                   TPMIN  X765
+(
+8059 MONEST        X760   X8059  #DELAY
+8060 DELAY         X8059  X8060
+(
+(Contador posição de tape - inversor
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 800 DELAY         X6060  X800
+ 805 COMPAR .GT.   X6060  X805
+                   X800   X805
+ 810 DELAY         X8060  X810
+ 815 COMPAR .GT.   X8060  X815
+                   X810   X815
+ 820 SOMA          X805   X820
+                  -X815   X820
+ 825 ACUM          X820   TPOSI  1.0
+                   HOLD   TPOSI
+                   RESET  TPOSI
+                   VINIC  TPOSI
+(
+FIMCDU
+(
+999999
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+(
+ACDU
+(ncdu) (ntop) ( nome cdu )
+  9110   9100 BM-TAP-P1-X
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  9120   9100 BM-TAP-P1-E
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  9130   9100 BM-TAP-P2-X
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  9140   9100 BM-TAP-P2-E
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+(
+FIMCDU
+(
+999999
+(
+FIM

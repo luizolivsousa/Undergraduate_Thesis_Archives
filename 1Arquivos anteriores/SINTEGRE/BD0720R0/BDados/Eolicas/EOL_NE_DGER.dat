@@ -1,0 +1,251 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       EOL_NE_DGER.dat                                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Representação Simplificada das Usinas Eólicas da Região NE - Modelo ZIP                   |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS EM OPERAÇÃO                                                                             |
+( |------------------------------------------------------------------------------------------------|
+(
+DGER
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (VbP) (VdP) (VbQ) (VdQ)
+BARR  6073                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo Largo - Campo Largo II, V, VI, XV, XVII e XXI
+BARR  6756                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo Largo - Campo Largo I, III, IV, VIII e XVI
+BARR  6793                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Icaraí - Boca do Corrego, Ribeirao e Ilha Grande
+BARR  5612                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Trairi - Cacimbas I, Estrela, Ouro Verde e S. Mônica I
+BARR  6019                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Basílio - Ventos de S. Angelina, S. Bárbara, S. Edwiges e S. Fátima
+BARR  5672                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Basílio - S. Regina, S. Adriano e S. Albano
+BARR  5298                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Basílio - S. Verônica , S. Amaro, S. Anastácio, S. Basílio, S. Veridiana, S. Félix e S. Moisés
+BARR  6150                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Riachão - Riachão I, II, IV, VI e VII
+BARR  6776                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Brisa Potiguar - Asa Branca I a III, Eurus IV, Ventos de S. Helena, Ventos de S. Uriel e SM
+BARR  6135                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Curva dos Ventos - Emiliana e Joana
+BARR  6678                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Tacaratu - Tacaicó, Pau Ferro e Pedra do Jerônimo
+BARR  6292                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cristal - Cristal, Primavera e São Judas
+BARR  6379                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Dos Araçás - Da Prata, Dos Araças, Maron, Pilões, Tanque e Ventos do NE
+BARR  6382                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morrão - Ametista, Dourados, Morrão e Seraíma
+BARR  6227                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pelourinho - Borgo e Pelourinho
+BARR  5067                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Caetité - Caetite, Espigão e S. Espinhaço
+BARR  6144                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. BW Guirapá I - Angical, Corrupiao, Inhambu e Teiu
+BARR  5985                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. BW Guirapá II - Caititu, Coqueirinho e Tamanduá Mirim
+BARR  6266                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Caetité ABC - Caetite A, B, C
+BARR  6731                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Gentio do Ouro - Assurá III, Curral Pedras I, Diamante II a III, Laranjeiras I, II e V
+BARR  6732                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Gentio do Ouro - Capoeiras III e Curral de Pedras II
+BARR  6387                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Planaltina - Planaltina e EOL Pajeú do Vento
+BARR  8074                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Licínio de Almeida - Candiba, Guanambi, Licínio de Almeida e Serra do Salto
+BARR  8080                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Alvorada - Alvorada e Rio Verde
+BARR  8071                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. N. S. Conceição - Igaporã, Ilhéus, N. S. Conceição e P. Seguro
+BARR  8077                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Guirapá - Guirapá e Pindaí I
+BARR  6229                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo Formoso - Ventos do Campo Formoso I, Ventos da Andorinha e Ventos de Guarás I
+BARR  6637                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo Formoso - Ventos de Campo Formoso II, Ventos do Sertão e de Ventos de Morrinhos
+BARR  6209                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra Azul - Dois Riachos e Damascena
+BARR  6242                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra Azul - Manicoba e Esperança
+BARR  6624                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. GPEXPAN - EOL Carcará, Caititu 2, Caititu 3, Papagaio, Coqueirinho II
+BARR  6626                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. GPEXPAN - EOL Acauã, Angical 2, Arapapá, Teiú 2, Corrupião 3, Tamanduá Mirim II
+BARR  6244                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Gentio do Ouro - Assuruá II, IV, V e VII
+BARR  6072                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Laranjeiras - Laranjeiras III e IX
+BARR  6068                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Umburanas - Umburanas 8, 16, 17, 18, 21 e 23
+BARR  8085                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Umburanas - Umburanas 5, 6, 9, 10, 19 e 25
+BARR  8086                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Umburanas - Umburanas 1, 2, 3, 11, 13 e 15
+BARR  6109                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Babilônia - Ventos de S. Beatriz, de S. Aparecida e de S. Gabriel
+BARR  5048                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Babilônia - Ventos de S. Aurora e de S. Emília
+BARR  6714                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Ventos da Bahia - Ventos da Bahia II, IV e VIII
+BARR  6372                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Ventos da Bahia 2 - Ventos da Bahia I, III, IX e XVIII
+BARR  6232                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Delfina - Delfina I a VII
+BARR  6719                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Delfina - Delfina I a VII
+BARR  6307                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - São Pedro do Lago
+BARR  6307                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - São Pedro do Lago
+BARR  6309                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - Pedra Branca
+BARR  6309                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - Pedra Branca
+BARR  6304                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - Sete Gameleiras
+BARR  6074                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro do Chapéu Sul - Ventos de S. Dulce, Ventos de S. Abrão, Boa Vista da Lagoinha
+BARR  6741                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro do Chapéu Sul - Ventos de S. Esperança, Ventos de S. Mario e Ventos de S. Paulo
+BARR  5294                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cristalândia - Cristalândia I , II e III
+BARR  6308                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - Morro Branco I, Mussambe, Baraunas II e Banda de Couro
+BARR  6310                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Branca - Baraunas I
+BARR  5744                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Casa Nova II - Casa Nova II e III
+BARR  6320                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra da Babilônia - Serra da Babilônia II, VI, VIII e XII
+BARR  6785                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra da Babilônia - Serra da Babilônia VII, IX, X e XI
+BARR  5433                                            0   0 100   0  84.5  85.0  84.5  85.0         EOL Quixabá  (17 x 1.5 = 25.5)
+BARR  5472                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Acaraú II - Praia do Morgado e Volta do Rio
+BARR  6768                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Icaraí - Icarai I e II
+BARR  6777                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Taíba - Colônia, Taíba Andorinha e Taíba Aguia
+BARR  6781                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Faísa - Faisa I, II e III
+BARR  6782                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Faísa - Faisa IV e V e Embuaca
+BARR  6386                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Trairi - Guajiru, Trairi, Fleixeiras I e Mundau
+BARR  6693                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pedra Cheirosa - Pedra Cheirosa I e II
+BARR  6636                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Itarema V - I a V
+BARR  6066                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Itarema V - Itarema VI, VII, VIII e IX
+BARR  6051                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Santa Rosália - Vento Formoso, Ventos de de Tinguá, Ventos de de Tinguá Norte, Ventos do Morro do Chapéu e Ventos do Paraizinho
+BARR  6016                                            0   0 100   0  84.5  85.0  84.5  85.0         EOL Malhadinha I
+BARR  6106                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Pitombeira - Goiabeira, Pitombeira, S.Catarina, Ubatuba e Ventos do Horizonte
+BARR  6550                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cacimbas - Cacimbas 2, 4 e 7
+BARR  6618                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cacimbas - Cacimbas 3 e 5
+BARR  6114                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Papagaios - Coqueiros, Buritis e Cajucoco - SUSPENSA OPERAÇÃO COMERCIAL pelo Despacho ANEEL n.º 1442 de 28/06/2018
+BARR  5320                                            0   0 100   0  84.5  85.0  84.5  85.0         Cataventos Acaraú I (14 x 2.0)
+BARR  6629                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Caetés II - Ventos de Santa Brígida I a VII
+BARR  6020                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Clemente - Ventos de S. Clemente 2, 5, 7 e 8
+BARR  6014                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Clemente - Ventos de S. Clemente 1, 3, 4 e 6
+BARR  6634                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paranatama - Serra das Vacas I a III
+BARR  5729                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paranatama - Serra das Vacas V e VI
+BARR  6654                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paranatama - Serra das Vacas IV
+BARR  6630                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada I - Ventos de S. Joana VI e XIV e V. S. Onofre 1 e 3
+BARR  5600                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada I - Ventos de S. Joana II e VIII e Ventos de S. Onofre 2
+BARR  6708                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapadinha I - Ventos de S. Vicente 8, 9 e 10
+BARR  6709                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapadinha I - Ventos de S. Vicente 11 a 14
+BARR  6638                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada III - Ventos de S. Augusto III e IV e S. Joana V e VII
+BARR  6647                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada II - Ventos de S. Joana IX, X, XI e XIII
+BARR  6648                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada II - Ventos de S. Joana XII, XV e XVI (FUTURO)
+BARR  6672                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Araripe III T1C - Ventos de S. Augusto I e VIII, S. Estevão V e III
+BARR  6673                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Araripe III T1D - Ventos de S. Augusto II, S. Onofre IV e S.Virgílio II
+BARR  6674                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Araripe III T2B - Ventos de S. Augusto VI, S. Estevão I e Virgílio I
+BARR  6675                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Araripe III T2A - Ventos de S. Augusto VII, S. Estevão II e IV e Virgílio III
+BARR  5622                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Chapada III - Ventos de S. Joana I e IV
+BARR  5322                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Lagoa do Barro I - Aura Lagoa do Barro 1 a 7 e Aura Queimada Nova 3
+BARR  5040                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Lagoa do Barro I - Aura Lagoa do Barro 1 a 7 e Aura Queimada Nova 3
+BARR  6042                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Areia Branca - Areia Branca
+BARR  6215                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Modelo - Modelo I e II
+BARR  6167                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Macacos - Macacos, Pedra Preta, Costa Branca e Juremas
+BARR  6213                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. União dos Ventos - União dos Ventos 8 a 10
+BARR  6214                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. União dos Ventos - União dos Ventos 1 a 7
+BARR  6136                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro dos Ventos II - Eurus I e III
+BARR  6127                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro dos Ventos II - Morro dos Ventos II
+BARR  6138                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro dos Ventos II - Eurus I, II e III
+BARR  6160                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro dos Ventos II - Morro dos Ventos I, III, IV, VI e IX
+BARR  6165                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Asa Branca - Asa Branca IV, V, VI, VII e VIII
+BARR  6644                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Morro dos Ventos - Aventura I
+BARR  6030                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Mangue Seco - Mangue Seco I, II, III e V (2.0)
+BARR  6145                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Santa Clara  - Eurus VI e S. Clara I a VI (2.0)
+BARR  6742                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Baixa do Feijão - Aroeira, Jericó e Umbuzeiros
+BARR  6166                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo dos Ventos - Campo dos Ventos II
+BARR  6166                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo dos Ventos - Campo dos Ventos I
+BARR  6166                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo dos Ventos - Campo dos Ventos III
+BARR  6166                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Campo dos Ventos - Campo dos Ventos V
+BARR  5079                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 1 e 2 - S. Santana I e II
+BARR  8099                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 1 e 2 - Lanchinha
+BARR  8098                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 1 e 2 - Macambira I
+BARR  6129                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Baixa do Feijão - Baixa do Feijão I a IV
+BARR  6065                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Calango 3 - Calango 6 e Santana I e II
+BARR  5124                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Bloco Sul - S. Mônica, S. Úrsula, V. de S. Martinho, S. Domingos, V. de S. Benedito e V. de S. Dimas
+BARR  6688                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Amazonas - Vila Acre I
+BARR  5901                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Amazonas - Ventos de Vila Acre II
+BARR  8309                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. São Miguel - União dos Ventos 15 e 16
+BARR  6619                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. União dos Ventos - União dos Ventos 12 a 14
+BARR  6653                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Carcará II - Carcara I e II e Terral
+BARR  6105                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Carnaúbas - Carnaubas, Reduto, S. Cristo e S. João
+BARR  6164                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Renascença - Renascença I a IV e Ventos de S.Miguel
+BARR  6775                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Olho d´Água - Dreen B. Vista, Dreen Olho Dágua, Dreen S.Bento do Norte e Farol
+BARR  6763                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Renascença V - Eurus II e Renascença V
+BARR  6108                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 3 - Serra Santana 3 e Pelado
+BARR  8113                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 3 - Macambira II
+BARR  8114                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra de Santana 3 - Pedra Rajada I e II
+BARR  6052                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cabeço Preto II - Cabeço Preto III, V e VI
+BARR  5127                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cabeço Preto II - Cabeço Vermelho I e II e Boa Esperança I
+BARR  6057                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Amazonas - Caiçara I e II e Junco I e II
+BARR  6642                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Amazonas - Vila Amazonas V e Vila Pará I, II e III
+BARR  6659                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Santo Inácio - S. Inácio, III e IV, S. Raimundo e Garrote
+BARR  5044                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cutia - Dreen Cutia e Gaujiru, Potiguar e Paraíso dos Ventos do NE.
+BARR  5078                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cutia - Esperança NE, GE Jangada e GE M.Helena.
+BARR  5126                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Cutia - S. Bento do Norte I a III e S. Miguel I a III
+BARR  6711                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 3 IV a VII
+BARR  8013                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 3 II, V e VI
+BARR  8014                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 3 I, III e VIII
+BARR  5899                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 5 II e Delta 6 I e II
+BARR  8015                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 5 I
+BARR  8312                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Paulino Neves - Delta 7 I, II e 8 I
+BARR  8701                                            0   0 100   0  84.5  85.0  84.5  85.0         EOL Gargaú I e II
+(Barras de geração da EOL Delfina VIII a serem definidas nos casos de planejamento
+(BARR  XXXX                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Delfina - Delfina VIII (Zeus II)
+(BARR  YYYY                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Delfina - Delfina VIII (Zeus II)
+999999
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS FUTURAS                                                                                 |
+( | Usinas no horizonte do PEL Quadrimestral (maio a agosto de 2020)                               |
+( |------------------------------------------------------------------------------------------------|
+DGER
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (VbP) (VdP) (VbQ) (VdQ)
+BARR  6053                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Jandaia - EOL Jandaia, S. Clemente e S. Januário
+BARR  8306                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Jandaia - EOL Jandaia I, N. S. Fátima e S. Clemente
+BARR  6751                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra do Mel (1) - V. de Vila Ceará I, II e V. de Vila Paraíba I, II
+BARR  5916                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra do Mel (2) - Vila Maranhão I, II e III e Vila Ceará I
+BARR  8141                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra do Mel (Complexo Echo 6 e 7) - Vila Piauí I, II e III e Vila Sergipe III
+BARR  8295                                            0   0 100   0  84.5  85.0  84.5  85.0         Conj. Serra do Mel (Complexo Echo 3 e 6) - Vila Rio Grande do Norte I e II e Vila Sergipe I e II
+999999
+(
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS FUTURAS NO HORIZONTE DO PAR 2021-2025                                                   |
+( |------------------------------------------------------------------------------------------------|
+(
+(DGER
+((tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (VbP) (VdP) (VbQ) (VdQ)
+(BARR 5905                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de S. Angela 1 a 11, 14 e 15, 17, 19 a 21      (SET A DEZ/20)
+(BARR 8328                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de S. Angela 12, 13, 16, 18                    (SET A DEZ/20)
+(BARR 8340                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Oitis 1 e 8
+(BARR 8408                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Aura Queimada Nova 1 e 2
+(BARR 8333                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Monte do Ronca - São Fernando 1                     (OUT/10)
+(BARR 8150                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Monte do Ronca - São Fernando 2                     (JAN/24)
+(BARR 8417                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Jandaira I a IV
+(BARR 8156                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Gameleira
+(BARR 8292                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Terra Santa
+(BARR 8144                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Jerusalém
+(BARR 8147                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Monte Verde
+(BARR 8153                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Rio do Vento II
+(BARR 8376                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Cumaru I a V
+(BARR 8420                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de Santa Leia 1 a 5 e 12 a 14
+(BARR 8343                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Vila Alagoas III
+(BARR 5914                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL S. Rosa e Mundo Novo I, II, III, IV e V                                     (JAN/23)        -  REPRESENTADA APENAS NO PAR
+(BARR 5913                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Aventura II, III, IV e V                                                    (JAN/23)        -  REPRESENTADA APENAS NO PAR
+(BARR 5900                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Canoas 2 e 4, Chafariz 1, 2, 3, 6 e 7 e Lagoa 3 e 4   (DEZ/22)
+(BARR 8299                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Canoas 3, Chafariz 4 e 5 e Ventos de Arapuá 1, 2 e 3  (DEZ/22)
+(BARR 8398                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Serra do Seridó  II a IV, VI, VII e IX
+(BARR 8477                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Serra do Fogo, Serra do Vento e Umburana de Cheiro
+(BARR 5940                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de São Januário 1, 4, 13 e 14
+(BARR 8138                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de São Januário 3, 5, 6, 10 e 11
+(BARR 8330                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de São Januário 20, 21 e 22
+(BARR 5879                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de S.Esperança 13, 15 e 17                     (JAN/23)
+(BARR 8132                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Serra da Babilônia A, C, E e F
+(BARR 8135                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos da Bahia XII, XIV, XXII e XXVII
+(BARR 8379                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Serra da Mangabeira
+(BARR 8382                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de Santa Eugênia 1 a 3, 5 a 9, 12 e 13
+(BARR 8385                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Aura Caetité 1 a 4 e Aura Tanque Novo 1 a 3
+(BARR 8388                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Caetité D
+(BARR 8391                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Ventos de São Januário 15 a 19
+(BARR 8442                                             0   0 100   0  84.5  85.0  84.5  85.0         EOL Serrote I a VIII
+(999999
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS FUTURAS SEM PREVISÃO
+( |------------------------------------------------------------------------------------------------|
+(
+(DGER
+((tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (VbP) (VdP) (VbQ) (VdQ)
+(BARR 6318                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Alcaçuz, Umbuzeiro e Tamboril I                                           (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6276                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Folha da Serra - Folha de Serra e Jacaranda do Cerrado                    (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6277                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Folha da Serra - Jacaranda do Serrado                                     (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6279                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Abil I - Abil, Vaqueta, Jabuticaba e Tábua                                (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6222                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Tamboril II - Quina e Mulungu                                             (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6278                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Abil I - Abil e Vaqueta                                                   (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6223                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Abil I - Pau Santo                                                        (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6625                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Tamboril II - Acacia, Angico e Taboquinha                                 (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(BARR 6241                                             0   0 100   0  84.5  85.0  84.5  85.0         Conj. Tamboril II - São Salvador                                                (SEM PREVISÃO)  -  COMENTADA NO PEL/PAR
+(999999
+(
+(
+FIM

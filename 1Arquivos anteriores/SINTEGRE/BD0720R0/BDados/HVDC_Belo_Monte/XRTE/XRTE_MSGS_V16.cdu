@@ -1,0 +1,64 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_DMSG_V16.cdu                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DMSG
+(----------------------------------------------------------------------
+(                    MENSAGENS DO RPC
+(----------------------------------------------------------------------
+(
+(Id)   ( Numero da mensagem                                                                                                  )
+8420   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para ligar filtros pela função Q CONTROL - %trns%
+8421   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para desligar filtros pela função Q CONTROL - %trns%
+8422   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para ligar filtros pela função U CONTROL - %trns%
+8423   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para desligar filtros pela função U CONTROL - %trns%
+8424   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para desligar filtros pela função U MAX - %trns%
+8425   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para ligar filtros pela função U MIN - %trns%
+8426   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para desligar filtros pela função Q MAX - %trns%
+8427   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para desligar filtros pela função OVERVOLTAGE - %trns%
+8428   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para ligar filtros pela função ABS MIN - %trns%
+8429   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para ligar filtros pela função MIN FILTER - %trns%
+(----------------------------------------------------------------------
+(                    MENSAGENS DO TCC
+(----------------------------------------------------------------------
+(
+(Id)   ( Numero da mensagem                                                                                                  )
+8430   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para aumentar tap pela função ANGLE CONTROL - %trns%
+8431   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para diminuir tap pela função ANGLE CONTROL - %trns%
+8432   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para aumentar tap pela função VOLTAGE CONTROL - %trns%
+8433   (ALERTA) %ncdu%-%nome_do_cdu%: Comando para diminuir tap pela função VOLTAGE CONTROL - %trns%
+(----------------------------------------------------------------------
+(                    MENSAGENS DO POLE CONTROL
+(----------------------------------------------------------------------
+(
+(Id)   ( Numero da mensagem                                                                                                  )
+(
+(----------------------------------------------------------------------
+(                    MENSAGENS DO MASTER CONTROL
+(----------------------------------------------------------------------
+(
+(Id)   ( Numero da mensagem                                                                                                  )
+8450   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 1 - %trns%
+8451   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 2 - %trns%
+8452   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 3 - %trns%
+8453   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 4 - %trns%
+8454   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 5 - %trns%
+8455   (ALERTA) %ncdu%-%nome_do_cdu%: LÓGICA 6 - %trns%
+(
+999999

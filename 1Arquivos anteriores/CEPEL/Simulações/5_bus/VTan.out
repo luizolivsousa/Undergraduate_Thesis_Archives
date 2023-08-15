@@ -1,0 +1,15 @@
+ 
+ 
+Numero do incremento de carga:  42
+Carregamento do sistema =   134.6875
+Arquivo Historico: CONT_001.SAV          
+Caso #32
+Parametro de Continuacao: Carregamento do Sistema
+Inverso da norma do vetor tangente:   0.1600E+05
+X------------------X-----------------------X
+      Barra               Vetor Tangente    
+ Num.      Nome        Tensao      Angulo   
+X-----X------------X-----------X-----------X
+    30 Barra_PQ      -42.39      -70.41    
+    10 Barra_Term_1  -27.20      -20.23    
+    20 Barra_Term_2  -14.35      -16.28    

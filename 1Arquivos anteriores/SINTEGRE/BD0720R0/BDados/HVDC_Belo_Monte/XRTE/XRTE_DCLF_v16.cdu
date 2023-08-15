@@ -1,0 +1,282 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       XRTE_DCLF_V16.cdu                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DTDU
+(ncdu) ( nome cdu )
+ 8430  DCLF-XRTE
+(---------------------------------------------------------------------)
+(                        DC LINE FAULT LOGICS                         )
+(---------------------------------------------------------------------)
+(EFPAR (nome) (     valor      )
+DEFPAR #ON/OF                1.0  ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL)
+DEFPAR #NRELI                2.0  NUMBER OF RESTARTS
+DEFPAR #URED                 1.0  LAST RESTART ON REDUCED VOLTAGE (1:On 0:Off)
+(
+DEFPAR #PNUM  1981
+DEFPAR #NUMOS 1982
+DEFPAR #NUMOP 1983
+DEFPAR #LFOP  3285
+(
+DEFPAR #DT_1  0.150               Down time 1 [s] (DOWN_TIME1)
+DEFPAR #DT_2  0.200               Down time 2 [s] (DOWN_TIME2)
+DEFPAR #DT_3  0.300               Down time 3 [s] (DOWN_TIME3)
+DEFPAR #DT_4  0.200               Down time 4 [s] (DOWN_TIME4)
+(
+DEFPAR #PRT_2 0.100               Restart time 1 [s] (PR_TIME2)
+DEFPAR #PRT_3 0.100               Restart time 2 [s] (PR_TIME3)
+DEFPAR #PRT_4 0.100               Restart time 3 [s] (PR_TIME4)
+DEFPAR #PRT_5 0.100               Restart time 4 [s] (PR_TIME5)
+(
+DEFPAR #ATBIP 0.100               DELAY FOR BIPOLAR DC FAULT DETECTION
+DEFPAR #DLYBL 0.100               DELAY FROM POLE BLOCK AFTER LAST RESTART
+DEFPAR #TTAXA 0.005
+(
+ 200 ENTRAD               TXVDC
+ 210 ENTRAD               TXIDC
+ 220 ENTRAD               VDCMNR
+( 230 ENTRAD               VDCMNS
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TXVDC     -40
+DEFVAL        TXIDC      50
+DEFVAL        VDCMNR    0.6
+(DEFVAL        VDCMNS    0.1
+(
+1000 IMPORT OPCNV         OP     #PNUM
+1001 IMPORT ESTCNV        OPN    #PNUM  0.0                             OPN
+1002 IMPORT ESTCNV        OPNFOP #NUMOP 0.0                             OPN_FOP
+(
+1003 IMPORT CCNV          IDNCP1 #PNUM
+1004 IMPORT CCNV          IDNCP2 #NUMOS
+1005 SELET2        IDNCP2 IDNCP
+                   IDNCP1 IDNCP
+                   OP     IDNCP
+1006 FUNCAO ABS    IDNCP  IDNCPU
+(
+1007 IMPORT VCNV          UDLP1  #PNUM
+1008 IMPORT VCNV          UDLP2  #NUMOS
+1009 SELET2        UDLP2  UDLP
+                   UDLP1  UDLP
+                   OP     UDLP
+1010 FUNCAO ABS    UDLP   UDLPU
+
+1011 IMPORT CONDCC        CONDX  #PNUM  0.0
+1012 IMPORT CONDCC        CONDTR #NUMOS 0.0
+1013 SELET2        CONDX  COND-I
+                   CONDTR COND-I
+                   OP     COND-I
+(
+1020 IMPORT CDU           LFLTOP #LFOP 0.0
+(
+(Lógica de detecção de falta na linha DC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 WSHOUT        UDLPU  dVdcDt 1.0   1.0   #TTAXA
+ 310 COMPAR .LT.   dVdcDt X310
+                   TXVDC  X310
+ 320 WSHOUT        IDNCPU dIdcDt 1.0   1.0   #TTAXA
+ 330 COMPAR .GT.   dIdcdt X330
+                   TXIDC  X330
+ 340 LOGIC  .AND.  X310   TR
+                   X330   TR
+9350 MONEST        TR     TR2    0.05
+(
+ 350 COMPAR .EQ.   COND-I CFINV
+                   DOIS   CFINV
+ 355 MONEST        CFINV  CFI100 0.1
+ 360 LOGIC  .NOT.  CFI100 NOTCF
+ 370 LOGIC  .AND.  TR2    X370
+                   NOTCF  X370
+9370 SAIDA         X370
+(
+ 380 COMPAR .GT.   UDLPU  X380
+                   VDCMNR X380
+ 390 LOGIC  FFLOP1 X380   X390
+(                   TR2    X390
+                   X370   X390
+ 400 GANHO         X390   DCLFA  #ON/OF
+ 410 LOGIC  .OR.   DCLFA  DCLF
+                   DCLFM  DCLF
+DEFVAL        DCLF   0.0
+DEFVAL        DCLFA  0.0
+(1060 MONEST        DCLF   DCP    0.05
+(
+(Detecção pela proteção OR bolted fault
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+( 450 LOGIC  .OR.   BOLTDC X450
+(                   DCP    X450
+
+1061 LOGIC  .OR.   DCLF   LinFlt
+                   DCLFM  LinFlt
+1062 ENTRAD               DCLFM
+DEFVAL        DCLFM  0.0
+2200 LOGIC  .AND.  LinFlt X2200
+                   OPN    X2200
+2201 DLAYON        X2200  X2201  0.008
+2202 MONEST        X2201  RlInD1 0.15                                   RL_INIT_DOWN1
+2203 LOGIC  .NOT.  RlInD1 X2203
+
+2204 MONEST        X2203  RLRes1 0.004                                 RL_RESTART1
+2205 MONEST        X2203  X2205  #PRT_2
+2208 DESCID        X2205  X2208
+2209 LOGIC  .AND.  X2208  X2209
+                   X2200  X2209
+2210 MONEST        X2209  RlInD2 #DT_2                                 RL_INIT_DOWN2
+2211 LOGIC  .NOT.  RlInD2 X2211
+2212 MONEST        X2211  RLRes2 0.004                                 RL_RESTART2
+2213 MONEST        X2211  X2213  #PRT_3
+2216 DESCID        X2213  X2216
+2217 LOGIC  .AND.  X2216  X2217
+                   X2200  X2217
+2218 LOGIC  .AND.  OPNFOP X2218
+                   X2217  X2218
+2219 MONEST        X2218  RlInD3 #DT_3                                 RL_INIT_DOWN3
+2220 LOGIC  .NOT.  RlInD3 X2220
+2221 MONEST        X2220  RLRes3 0.004                                 RL_RESTART3
+2222 MONEST        X2220  X2222  #PRT_4
+2225 DESCID        X2222  X2225
+2226 LOGIC  .AND.  X2225  X2226
+                   X2200  X2226
+2227 LOGIC  .AND.  OPNFOP X2227
+                   X2226  X2227
+2228 MONEST        X2227  RlInD4 #DT_4                                 RL_INIT_DOWN4
+2229 LOGIC  .NOT.  RlInD4 X2229
+2230 MONEST        X2229  RLRes4 0.004                                 RL_RESTART4
+(2231 MONEST        X2229  X2231  #PRT_5
+(2234 DESCID        X2231  X2234
+(2235 LOGIC  .NOT.  OPNFOP X2235
+(2236 LOGIC  .AND.  X2226  X2236
+(                   X2235  X2236
+(2237 LOGIC  .AND.  X2234  X2237
+(                   X2200  X2237
+(2238 LOGIC  .OR.   X2236  X2238
+(                   X2237  X2238
+(2239 MONEST        X2238  RlTrp  0.200                                 RL_TRIP
+(
+2240 LOGIC  .OR.   RlInD1 RlInDw                                       RL_INIT_DOWN
+                   RlInD2 RlInDw
+                   RlInD3 RlInDw
+                   RlInD4 RlInDw
+2241 LOGIC  .OR.   RLRes1 RLRest                                       RL_RESTART
+                   RLRes2 RLRest
+                   RLRes3 RLRest
+                   RLRes4 RLRest
+(
+2242 MONEST        RLRest X2242  .001
+2243 INTRES        X2242  X2243  1000.
+                   RSTC   X2243
+                   ZERO   X2243
+2244 FUNCAO ROUND  X2243  NREST
+2245 SAIDA         NREST
+DEFVAL        X2243  0.0
+(
+2300 ENTRAD               NRELI
+DEFVAL        NRELI  #NRELI
+2301 COMPAR .GE.   NREST  X2301
+                   NRELI  X2301
+9302 DLAYON        X2301  X9302  #DLYBL
+9303 LOGIC  .AND.  X9302  X9303
+                   LinFlt X9303
+
+2302 LOGIC  .AND.  LFLTOP X2302
+                   LinFlt X2302
+2303 ATRASO        X2302  X2303  #ATBIP
+2304 LOGIC  .OR.   X9303  RLTRIP
+                   X2303  RLTRIP
+DEFVAL        RLTRIP 0.0
+DEFVAL        LFLTOP 0.0
+(
+2310 ENTRAD               L_URED
+DEFVAL        L_URED #URED
+2311 COMPAR .GE.   NREST  X2311
+                   NRELI  X2311
+2312 LOGIC  .AND.  X2311  DCUred
+                   L_URED DCUred
+(
+2320 DLAYOF        LinFlt X2320  10.0
+2321 DESCID        X2320  RSTC
+(
+2322 ENTRAD               ZERO
+DEFVAL        ZERO   0.0
+2323 ENTRAD               DOIS
+DEFVAL        DOIS   2.0
+(
+2250 EXPORT CDU    RlInDw
+2251 EXPORT CDU    RLRest
+2252 EXPORT CDU    DCUred
+2253 EXPORT CDU    RlTrip
+(
+2260 EXPORT CDU    RlInDw
+2261 EXPORT CDU    RLRest
+2262 EXPORT CDU    DCUred
+2263 EXPORT CDU    RlTrip
+(
+2264 EXPORT CDU    LinFlt
+
+FIMCDU
+999999
+(
+ACDU
+(ncdu) (ntop) ( nome cdu )
+8431   8430   DCLF-XRTE-P1
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #ON/OF                1.0  ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL)
+DEFPAR #NRELI                2.0  NUMBER OF RESTARTS
+DEFPAR #URED                 1.0  LAST RESTART ON REDUCED VOLTAGE (1:On 0:Off)
+(
+DEFPAR #PNUM  1981
+DEFPAR #NUMOS 1982
+DEFPAR #NUMOP 1983
+DEFPAR #LFOP  3285
+(
+DEFPAR #DT_1  0.150               Down time 1 [s] (DOWN_TIME1)
+DEFPAR #DT_2  0.200               Down time 2 [s] (DOWN_TIME2)
+DEFPAR #DT_3  0.300               Down time 3 [s] (DOWN_TIME3)
+DEFPAR #DT_4  0.200               Down time 4 [s] (DOWN_TIME4)
+(
+DEFPAR #PRT_2 0.100               Restart time 1 [s] (PR_TIME2)
+DEFPAR #PRT_3 0.100               Restart time 2 [s] (PR_TIME3)
+DEFPAR #PRT_4 0.100               Restart time 3 [s] (PR_TIME4)
+DEFPAR #PRT_5 0.100               Restart time 4 [s] (PR_TIME5)
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+8432   8430   DCLF-XRTE-P2
+(
+DEFPAR #ON/OF                1.0  ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL)
+DEFPAR #NRELI                2.0  NUMBER OF RESTARTS
+DEFPAR #URED                 1.0  LAST RESTART ON REDUCED VOLTAGE (1:On 0:Off)
+(
+DEFPAR #PNUM  1983
+DEFPAR #NUMOS 1984
+DEFPAR #NUMOP 1981
+DEFPAR #LFOP  3265
+(
+DEFPAR #DT_1  0.150               Down time 1 [s] (DOWN_TIME1)
+DEFPAR #DT_2  0.200               Down time 2 [s] (DOWN_TIME2)
+DEFPAR #DT_3  0.300               Down time 3 [s] (DOWN_TIME3)
+DEFPAR #DT_4  0.200               Down time 4 [s] (DOWN_TIME4)
+(
+DEFPAR #PRT_2 0.100               Restart time 1 [s] (PR_TIME2)
+DEFPAR #PRT_3 0.100               Restart time 2 [s] (PR_TIME3)
+DEFPAR #PRT_4 0.100               Restart time 3 [s] (PR_TIME4)
+DEFPAR #PRT_5 0.100               Restart time 4 [s] (PR_TIME5)
+FIMCDU
+999999

@@ -1,0 +1,1826 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       MADEIRA_BP2_POLE_CONTROL.cdu                                                              |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( **********************************************************************
+( *  OBSERVACOES (03/05/2019)                                          *
+( *  1. Atualização do controle de acordo com o modelo                 *
+( *     do PSCAD fornecido                                             *
+( *                                                                    *
+( *  REVISOES                                                          *
+( *  1. (03/06/2019) Atualização do controle de acordo com o modelo    *
+( *     do PSCAD fornecido                                             *
+( *  2. (07/06/2019) Atualização do controle de filtro                 *
+( *  3. (17/07/2019) Atualização do controle de filtro 2               *
+( *  4. (07/10/2019) Mudança do número do CDU FC_PORTOVELHO de 9321    *
+( *     para 9319, assim como mudanaça na numerção de alguns DLOCs     *
+( **********************************************************************
+(
+DTDU
+(--------------------------------------------------------
+(  CONTROLE DE POLO COMUM DE RETIFICADORES E INVERSORES
+(      9000 - RETIFICADOR  
+(      9001 - INVERSOR     
+(--------------------------------------------------------
+(ncdu) ( nome cdu )
+  9000 ALSTOM-RET
+(----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL         DCLF   0.0
+DEFVAL         RVO    0.0
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9090 SAIDA          DCLF
+(-----------------------------------------------------------------------
+(|        MEDIÇÃO E FILTRAGEM - DEFINIÇÃO DE VALORES E PARAMETROS      |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #P3P4                 1.0
+DEFPAR #TfI               0.0001
+DEFPAR #TfV               0.0001
+(-----------------------------------------------------------------------
+(|           VDCOL - VOLTAGE DEPENDENT CURRENT ORDER LIMITER           |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #GHP           5.336
+DEFPAR #THP           0.001034
+DEFPAR #G                 1.0
+DEFPAR #TfD             0.010
+DEFPAR #TfU             0.040
+DEFPAR #IDCAC            0.50
+DEFPAR #VMARR            0.30
+DEFPAR #IDCAL            0.30
+DEFPAR #VMARL        0.533333
+DEFPAR #IMINR            0.10
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    IORDX  IDCX
+DEFVAL VAR    VORD2X VDCX 
+DEFVAL VAR    VORD1  VDCX
+(DEFVAL        VORD1  1.0
+(-----------------------------------------------------------------------
+(|              ACDU - DEFINIÇÃO DE VALORES E PARAMETROS               |
+(-----------------------------------------------------------------------
+((EFPAR (nome) (     valor      )
+DEFPAR #IORDX               9301
+DEFPAR #VORD                9605
+DEFPAR #VORD2               9305
+DEFPAR #DCLF                9309
+(EFPAR (nome) (     valor      )
+DEFPAR #RAMP1               0.01
+DEFPAR #RAMP2               0.01
+(EFPAR (nome) (     valor      ) 
+DEFPAR #FETRA               9313
+DEFPAR #RET                 1205
+(EFPAR (nome) (     valor      )   
+DEFPAR #L3ZM                 3.0
+DEFPAR #RVO                 9321
+(
+(-----------------------------------------------------------------------
+(|           DC CURRENT - LOOP 1 - DEFINIÇÃO DE VALORES E PARAMETROS   |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(DEFPAR #DCK            21600.         (60HZ)
+(DEFVA (stip) (vdef) ( d1 )
+(-----------------------------------------------------------------------
+(|           GAMMA MIN - LOOP 3 - DEFINIÇÃO DE VALORES E PARAMETROS    |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #dx2                 0.15
+DEFPAR #L3RG1          0.40
+(-----------------------------------------------------------------------
+(|           ALPHA MAX - LOOP 5 - DEFINIÇÃO DE VALORES E PARAMETROS    |
+(-----------------------------------------------------------------------
+(
+(DEFVAL        X1320     0.0
+(DEFVAL        X1340     0.0
+(-----------------------------------------------------------------------
+(|           DC VOLTAGE - LOOP 7 - DEFINIÇÃO DE VALORES E PARAMETROS   |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L7RT1        0.0059
+DEFPAR #L7RT2        0.002244
+DEFPAR #L7RG1        0.4
+(-----------------------------------------------------------------------
+(|        ALPHA MIN - LOOP 8 - DEFINIÇÃO DE VALORES E PARAMETROS       |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(DEFPAR #L8RG2        -0.4
+(DEFVAL        FRETRM 0.0
+(DEFVAL        FRETRA 0.0
+(DEFVAL        AORDR  2.0
+(DEFVAL        FRAO   120.
+(
+(-----------------------------------------------------------------------
+(|          LOOP SELETION AND PLO - DEFINIÇÃO DE VALORES E PARAMETROS  |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ALFMN             1.8
+DEFPAR #ALFMX             180.
+DEFPAR #PI           3.141592654
+DEFPAR #Gpll         -1.0
+DEFPAR #Tpll               0.001  0.01
+DEFPAR #LWLIM             -43200     = -2 * 21600
+DEFPAR #UPLIM               4320     = +0.2 * 21600
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ALFMN  #ALFMN
+DEFVAL        ALFMX  #ALFMX
+DEFVAL        LWLIM  #LWLIM
+DEFVAL        UPLIM  #UPLIM
+(
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+(
+(----------------------------------------------------------------------
+(|                       ENTRADAS                                     |
+(----------------------------------------------------------------------
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               HUM
+0002 ENTRAD               PONT3
+0003 ENTRAD               P5625
+0004 ENTRAD               PONT5
+0007 ENTRAD               REC                                          RECX
+0008 ENTRAD               PONT1
+0009 ENTRAD               PONT4
+0010 ENTRAD               IMAR
+0011 ENTRAD               IMININ
+0015 ENTRAD               UMPUM
+(-----------------------------------------------------------------------
+(|                    MEDIÇÃO E FILTRAGEM                               |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        LLIM1    -0.2
+DEFVAL        ULIM1     0.2
+(EFPAR (nome) (     valor      )
+DEFPAR #N1    0.0001061032953946
+DEFPAR #D1    0.0001061032953946
+DEFPAR #D2    7.036193308496E-06
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0017 IMPORT CDU           IORDX  #IORDX                                IORDX
+0018 IMPORT CDU           VORD1  #VORD                                 VORD1
+0019 IMPORT CDU           VORD2X #VORD2                                VORD2X
+0020 IMPORT CDU           DCLF   #DCLF
+2020 IMPORT CDU           RVO    #RVO
+2023 IMPORT VCNV          VDCX
+2024 LEDLAG        VDCX   VDC    1.0         1.0   #TfV
+2046 IMPORT CCNV          IDCX
+2047 LEDLAG        IDCX   IDCXA  1.0         1.0   #TfI
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2048 GANHO         IDCXA  X48     0.5
+2049 POL(S)        X48    X49     0.0  0.0    #N1   0.0
+                                  0.0  #D2    #D1   1.0
+2050 LIMITA        X49    X50                             LLIM1   ULIM1 
+2051 SOMA         -X50    IDC   
+                   IDCXA  IDC 
+5085 IMPORT ALFA          ALFA_R
+5086 FUNCAO DEGREE ALFA_R ALPHA                                        ALX[3] - ALPHA
+3160 IMPORT GAMA          GAMA_R  
+3161 FUNCAO DEGREE GAMA_R GAMMA                                        GAX[3] - GAMMA
+0027 IMPORT VOLT          VACR
+0028 IMPORT CTAP          TAPE
+(-----------------------------------------------------------------------
+(|                GADIS -  DEFINIÇÃO DE VALORES                         |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        NOVEN    90.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3075 ENTRAD               NOVEN
+3099 COMPAR  .GT.  NOVEN   GADIS
+                   ALPHA   GADIS
+(-----------------------------------------------------------------------
+(|                VDCOL -  DEFINIÇÃO DE VALORES                         |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        PONT3     0.3
+DEFVAL        P5625  0.5625
+DEFVAL        PONT5     0.5
+DEFVAL        REC       1.0
+DEFVAL        PONT1     0.1
+DEFVAL        IMAR      0.1
+DEFVAL        IMININ   0.06 
+DEFVAL        UMPUM     1.1
+DEFVAL        PONT4     0.4
+(-----------------------------------------------------------------------
+(|         VDCOL - VOLTAGE DEPENDENT CURRENT ORDER LIMITER             |
+(-----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9028 ENTRAD               ZP75
+9029 ENTRAD               ZP8
+DEFVAL        ZP75   0.75
+DEFVAL        ZP8    0.80
+9030 COMPAR .GT.   X0410  X9030
+                   ZP75   X9030
+9031 COMPAR .LT.   X0410  X9031
+                   ZP8    X9031
+9032 LOGIC  FFLOP1 X9031  X9032
+                   X9030  X9032
+DEFVAL VAR    X9032  X9030             
+9033 LOGIC  .NOT.  X9032  X9033                                                        
+9034 LOGIC  .AND.  X9033  X9034
+                   RVO    X9034
+
+0031 SELET2        ZERO   adVMar
+                   PONT1  adVMar
+                   X9034  adVMar
+(
+0029 SOMA          HUM    X0020
+                  -PONT3  X0020
+0030 SOMA          HUM    X0030
+                  -P5625  X0030
+0040 DIVSAO        X0020  SLPRLF                                       SlopeRecLFR
+                   X0030  SLPRLF
+0050 SOMA         -P5625  X0050
+                  -VDCME  X0050
+                   HUM    X0050
+0060 MULTPL        SLPRLF X0060
+                   X0050  X0060
+(                   
+0070 SOMA          HUM    X0070
+                  -PONT5  X0070
+0080 SOMA          HUM    X0080
+                  -PONT3  X0080
+0090 DIVSAO        X0070  SLPREC                                       SlopeRec
+                   X0080  SLPREC
+0100 SOMA         -PONT3  X0100
+                  -VDCME  X0100
+                  -adVMar X0100
+                   VORD1  X0100
+0110 MULTPL        SLPREC X0110
+                   X0100  X0110
+(
+0120 MAX           X0060  X0120
+                   X0110  X0120
+0129 DLAYOF        DCLF   X0129  1.8
+0130 SELET2        X0110  X0130 
+                   X0120  X0130 
+                   X0129  X0130
+0140 SOMA         -X0130  X0140
+                   HUM    X0140 
+(                   
+(0150 ATRASO        IORDX  X0150  0.032
+0150 GANHO         IORDX  X0150  1.0  
+0170 MAX           IORDX  X0170
+                   X0150  X0170
+0180 GANHO         X0170  X0180  1.0
+(                   
+0190 MULTPL        X0140  X0190
+                   X0180  X0190
+0200 MIN           X0190  X0200
+                   X0180  X0200
+0210 MAX           X0200  X0210
+                   PONT1  X0210
+0220 SOMA          HUM    X0220
+                  -PONT1  X0220
+0230 SOMA          HUM    X0230
+                  -PONT4  X0230
+                  -PONT3  X0230
+0240 DIVSAO        X0220  X0240
+                   X0230  X0240
+0250 MULTPL        X0180  X0250
+                   X0240  X0250
+0260 SOMA         -PONT3  X0260
+                   VORD1  X0260
+                  -VDCME  X0260
+                  -adVMar X0260
+0270 MULTPL        X0250  X0270
+                   X0260  X0270
+0280 SOMA         -IMAR   X0280
+                   X0180  X0280
+                  -X0270  X0280
+0290 SOMA          X0180  X0290
+                  -IMAR   X0290
+0300 MIN           X0290  X0300
+                   X0280  X0300
+0310 MAX           X0300  X0310
+                   IMININ X0310
+0320 SELET2        X0310  X0320
+                   X0210  X0320
+                   REC    X0320   
+0330 SELET2        X0320  IOLTD                                        IordLtdX
+                   HUM    IOLTD
+                   ZERO   IOLTD
+(
+0400 GANHO         VDC    X0400  -1.0
+0410 SELET2        X0400  X0410
+                   VDC    X0410
+                   REC    X0410
+0411 LOGIC  .AND.  REC    X0411          
+                   RVO    X0411
+0412 DLAYOF        X0411  X0412  2.0
+0413 DLAYON        RVO    X0413  0.02
+0414 LOGIC  .NOT.  REC    X0414
+0415 LOGIC  .AND.  X0414  X0415
+                   X0413  X0415
+0416 DLAYOF        X0415  X0416  2.0
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #FLTDC 9330
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(9417 IMPORT CDU           FLTDCC #FLTDC
+9417 ENTRAD               FLTDCC
+DEFVAL        FLTDCC 0.0
+9418 ENTRAD               P3ORP4
+DEFVAL        P3ORP4  #P3P4
+9419 MULTPL        FLTDCC FLTDC
+                   P3ORP4 FLTDC
+(0417 DLAYOF        DCLF   X0417  2.0
+(0417 DLAYOF        F4     X0417  2.0
+0417 DLAYOF        FLTDC  X0417  2.0
+(
+0418 ENTRAD               ZP04
+0419 ENTRAD               ZP12
+0420 ENTRAD               ZP15
+0421 ENTRAD               ZP01
+0460 SOMA          X0410  X0460
+                  -VDCME  X0460
+0461 COMPAR .GT.   X0460  X0461
+                   ZERO   X0461
+0462 SELET2        ZERO   X0462
+                   HUM    X0462
+                   X0461  X0462
+(0463 SELET2        ZP04   X0463
+0463 SELET2        X0473  X0463
+                   ZP12   X0463
+                   X0417  X0463
+0464 SELET2        X0463  X0464
+                   PONT1  X0464
+                   X0412  X0464                   
+0465 SELET2        X0464  X0465
+                   ZP15   X0465
+                   X0416  X0465
+0466 SELET2        ZP01   X0466
+                   X0465  X0466
+                   X0462  X0466
+0467 DIVSAO        X0460  X0467
+                   X0466  X0467
+0468 PROINT        X0467  VDCME  1.0   0.0   1.0          ZERO   UMPUM Vcdme
+(DEFVAL        VDCME  1.0
+DEFVAL VAR    VDCME  X0410
+DEFVAL        ZP04   0.04
+DEFVAL        ZP12   0.12
+DEFVAL        ZP15   0.15
+DEFVAL        ZP01   0.01
+(0460 LAGNL         X0410  VDCME   1.0  0.01  0.04          ZERO  UMPUM Vdcme
+(0470 GANHO         DCLF   X0470  1.0
+(
+9471 ENTRAD               FLTAC
+DEFVAL        FLTAC  0.0
+(0471 LOGIC  .AND.  X0470  X0471
+0471 LOGIC  .AND.  FLTAC  X0471
+                   REC    X0471
+0472 DLAYOF        X0471  X0472  0.3
+0473 SELET2        ZP04   X0473
+                   ZP07   X0473
+                   X0472  X0473
+0474 ENTRAD               ZP07   
+DEFVAL        ZP07   0.07
+(
+(      ------------------------------------------------------------------------------
+(      |                                                                            |
+(      |             LOOP CONTROL FROM THE X [RECTIFIER] SIDE                       |
+(      |               # LOOP 1 - DC CURRENT                                        |
+(      |               # LOOP 3 - GAMMA                                             |
+(      |               # LOOP 5 - ALPHA MAX                                         |
+(      |               # LOOP 7 - DC VOLTAGE MAX RECTIFIER                          |
+(      |               # LOOP 8 - ALPHA MIN                                         |
+(      |                                                                            |
+(      ------------------------------------------------------------------------------
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1015 ENTRAD               LLIM2
+1020 ENTRAD               ULIM2
+1040 ENTRAD               IREST
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        LLIM2   -0.08
+DEFVAL        ULIM2     0.1
+DEFVAL        IREST     0.0
+(EFPAR (nome) (     valor      )
+DEFPAR #L1RT1           6.644E-3
+DEFPAR #L1RT2             2.2E-3
+DEFPAR #L1RG2                0.4
+DEFPAR #DCK               21600.         (60HZ)   
+(-----------------------------------------------------------------------
+(|                      MAIN     -    [LOOP 1]                         |
+(-----------------------------------------------------------------------
+((nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1220 LEDLAG        IDC    IDCF    1.0  #L1RT1 1.0  #L1RT2
+1230 SOMA          VORD2X X1230
+                  -VDC    X1230
+1235 LIMITA        X1230  X1235                           LLIM2   ULIM2
+1240 GANHO         X1235  X1240   1.0
+1245 SELET2        ZERO   X1245
+                   X1240  X1245
+                   REC    X1245
+1250 LEDLAG        X1245  X1250   1.0  0.0   1.0   0.003
+1255 SOMA         -ZERO   X1255
+                   X1250  X1255
+                  -IDCF   X1255
+                   IOLTD  X1255 
+                   IREST  X1255
+1260 GANHO         X1255  X1260  #L1RG2
+1265 GANHO         X1260  ERR1   #DCK  
+1270 SAIDA         ERR1     
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3000 ENTRAD               GAMORD
+3005 ENTRAD               L3_3p5
+3010 ENTRAD               GAMINC
+3015 ENTRAD               L3_30
+(3025 ENTRAD               VDCFIL
+3030 ENTRAD               L3_P1
+3035 ENTRAD               L3_MP3
+3040 ENTRAD               L3_20
+3055 ENTRAD               L3_13
+3060 ENTRAD               L3-INF
+(3065 ENTRAD               AVDCOL
+3070 ENTRAD               L3_315
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        GAMORD   18.5        
+DEFVAL        L3_3P5    3.5
+DEFVAL        GAMINC    0.0
+DEFVAL        L3_30    30.0
+DEFVAL        L3_P1     0.1
+DEFVAL        L3_MP3   -0.3
+DEFVAL        L3_20    20.0
+DEFVAL        L3_13    13.0
+DEFVAL        L3-INF -65535
+DEFVAL        L3_315   31.5
+(-----------------------------------------------------------------------
+(|                      MAIN     -    [LOOP 3]                         |
+(-----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #N2          5.30516E-05
+DEFPAR #D3          5.30516E-05
+DEFPAR #D4          1.75905E-06
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3200 SOMA          GAMORD X3200
+                  -L3_3P5 X3200
+3205 SOMA          X3200  X3205       
+                   GAMINC X3205
+3210 SELET2        X3205  X3210
+                   L3_30  X3210                 
+                   REC    X3210
+3215 FRACAO        X3210  X3215   1.0         150.0
+3220 GANHO         VDC    X3220   1.5
+3225 WSHOUT        X3220  X3225  6E-3   1.0   6E-3
+3230 LIMITA        X3225  X3230                           L3_MP3 L3_P1
+3235 SOMA          X3215  X3235
+                  -X3230  X3235
+3240 LIMITA        X3235  X3240                           GAMALL L3_20
+3245 FRACAO        GAMMA  X3245   1.0         150.0
+3250 SOMA          IOLTD  X3250
+                  -IDC    X3250
+3255 LIMITA        X3250  X3255                           ZERO   L3_P1
+3260 GANHO         X3255  X3260   0.6
+3265 SOMA         -L3_13  X3265
+                   X3200  X3265
+3270 SOMA          ALAD_V X3270
+                  -X3265  X3270
+3275 LIMITA        X3270  X3275                            ZERO  L3_315
+3280 FRACAO        X3275  X3280   1.0         150.0
+3285 SOMA          X3240  X3285
+                  -X3245  X3285
+                   X3260  X3285
+                   X3280  X3285
+3290 GANHO         X3285  X3290   0.4
+3295 SELET2        X3290  X3295 
+                   L3-INF X3295
+                   GADIS  X3295
+3300 GANHO         X3295  ERR3    #DCK
+3305 FRACAO        X3200  GAMALL   1.0        150.0
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5010 ENTRAD               L5_P01 
+5015 ENTRAD               L5_7   
+5030 ENTRAD               L5_15  
+5035 ENTRAD               L5_P1  
+5040 ENTRAD               L5_P25 
+5045 ENTRAD               L5_XC  
+5050 ENTRAD               G_REF0 
+5055 ENTRAD               L5_165 
+5060 ENTRAD               L5_180 
+5065 ENTRAD               ALPHMX 
+5070 ENTRAD               CFTH   
+5092 MULTPL        VACR   VDIF
+                   TAPE   VDIF
+5090 ENTRAD               L5_MP3
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L5_P01   0.01
+DEFVAL        L5_7      7.0
+DEFVAL        L5_15    15.0
+DEFVAL        L5_P1     0.1
+DEFVAL        L5_P25   0.25
+DEFVAL        L5_XC    0.15
+DEFVAL        G_REF0   13.0
+DEFVAL        L5_165 .09659
+DEFVAL        L5_180  180.0
+DEFVAL        ALPHMX  165.0
+DEFVAL        CFTH     0.05
+DEFVAL        L5_MP3   -0.3
+(EFPAR (nome) (     valor      )
+DEFPAR #L5_LG             0.0016
+DEFPAR #T1    0.0015  
+DEFPAR #GMO1  25.                GMO1=1/TMO1=1/0.04s
+DEFPAR #GMO2  2.5                GMO2=1/TMO2=1/0.4s 
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(------------------------------------------------------------------------
+(|                  AC>DC PROTECTION                                    |
+(|                  ALAD CALCULATION      [LOOP 5]                      |
+(------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X1330     0.0
+DEFVAL        X1340     0.0
+DEFVAL        X1430     0.0
+DEFVAL        X1450     0.0
+DEFVAL        X1520     0.0
+
+5100 IMPORT CONDCC        CFINV
+5102 SELET2        CFINV  CFY
+                   ZERO   CFY
+                   DCLF   CFY
+5104 LIMITA        CFY    CFINVL                          ZERO   HUM
+5106 LEDLAG        CFINVL X1280  1.0         1.0   0.5
+5108 COMPAR .GT.   X1280  X1290
+                   CFINVL X1290
+5110 LEDLAG        CFINVL X1300  1.0         1.0   #T1
+5112 SELET2        CFINVL X1310
+                   X1300  X1310
+                   X1290  X1310
+5114 COMPAR .GT.   X1310  CFX
+                   CFTH   CFX
+(
+5116 LOGIC  FFLOP1 R1     X1330
+                   S1     X1330
+5118 INTRES        X1330  X1340  #GMO1                    ZERO   HUM
+                   R2     X1340
+                   ZERO   X1340
+5120 COMPAR .GE.   X1340  X1350
+                   HUM    X1350
+5122 DELAY         X1350  R1
+5124 LOGIC  .NOT.  R1     X1370
+5126 LOGIC  .AND.  X1370  S1
+                   CFX    S1
+5128 LEDLAG        CFX    CFXD   1.0         1.0   0.5
+5130 COMPAR .LT.   CFX    R2
+                   CFXD   R2
+5132 LOGIC  .NOT.  X1330  X1410
+5134 LOGIC  .AND.  X1410  MO1
+                   CFX    MO1
+5136 LOGIC  FFLOP1 R3     X1430
+                   S2     X1430
+5138 LOGIC  .OR.   R3     R3S2
+                   S2     R3S2
+5140 INTRES        X1430  X1450  #GMO2                    ZERO   HUM
+                   R3S2   X1450
+                   ZERO   X1450
+5142 COMPAR .GE.   X1450  X1460
+                   HUM    X1460
+5144 DELAY         X1460  R3
+5146 LOGIC  .NOT.  R3     X1480
+5148 LOGIC  .AND.  X1480  S2
+                   CFX    S2
+5150 LEDLAG        X1430  X1500  1.0         1.0   0.5
+5152 COMPAR .LT.   X1430  R4
+                   X1500  R4
+5154 INTRES        X1430  X1520  #GMO1                    ZERO   HUM
+                   R4     X1520
+                   ZERO   X1520
+5156 COMPAR .GE.   X1520  MO2
+                   HUM    MO2
+5158 LOGIC  .OR.   MO1    MO
+                   MO2    MO
+5160 LOGIC  .AND.  MO     ALAD
+                   CFX    ALAD
+(------------------------------------------------------------------------
+(|                  INV ALPHA MAX ORDER   [LOOP 5]                      |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax) 
+5200 SOMA          IORDX  X5200
+                  -IMAR   X5200
+5205 SELET2        X5200  X5205
+                   IORDX  X5205
+                   REC    X5205                 
+5210 SOMA          X5205  X5210
+                  -IOLTD  X5210
+5215 COMPAR .GT.   X5210  X5215
+                   L5_P01 X5215
+5220 DLAYOF        X5215  X5220  0.001
+5225 SELET2        ZERO   X5225
+                   L5_7   X5225
+                   X5220  X5225
+5250 LAGNL         X5225  ALAD_V  1.0  0.025 0.001        MMIL   MIL   ALAD_Vdcol
+(
+5255 MONEST        ALAD   X5255   0.05
+5260 SELET2        ZERO   X5260
+                   L5_15  X5260
+                   X5255  X5260
+5265 SOMA          X5225  X5265
+                   X5260  X5265
+5285 LAGNL         X5265  CF_ALA  1.0  0.025 0.001        MMIL   MIL   CF_ALAD
+(
+5300 SELET2        L5_P1  X5300
+                   ZERO   X5300
+                   REC    X5300
+5305 SOMA          IOLTD  X5305
+                   X5300  X5305
+5310 MAX           VDIF   X5310
+                   L5_P25 X5310
+5315 DIVSAO        X5305  X5315
+                   X5310  X5315
+5320 LEDLAG        X5315  X5320   1.0  0.0   1.0   #L5_LG  
+5325 GANHO         X5320  X5325   0.9 
+5330 MULTPL        X5325  X5330 
+                   L5_XC  X5330
+5335 SOMA          G_REF0 X5335
+                   CF_ALA X5335
+5336 FUNCAO RADIAN X5335  X5336
+5340 FUNCAO COS    X5336  X5340
+5345 SOMA         -X5330  X5345
+                   X5340  X5345
+5350 LIMITA        X5345  X5350                           L5_165 HUM
+5355 FUNCAO ACOS   X5350  X5355
+5356 FUNCAO DEGREE X5355  X5356
+5360 SOMA         -X5356  X5360
+                   L5_180 X5360
+5380 LAGNL         X5360  X5380   1.0  0.08  0.001        CEM    CEM63
+5385 MIN           ALPHMX ALFAMX
+                   X5380  ALFAMX                                       alphamax
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        MIL     1000.
+DEFVAL        MMIL   -1000.  
+DEFVAL        CEM63    163.     
+DEFVAL        CEM      100.
+(DEFVAL        CF_ALA     0.
+(------------------------------------------------------------------------
+(|                   RESTART CONTROLLER    [LOOP 5]                     |      
+(------------------------------------------------------------------------
+(
+(  RESTART CONTROLLER N? FOI MODELADO, POIS SEU OUTPUT 
+(
+(------------------------------------------------------------------------
+(|                         MAIN            [LOOP 5]                     |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5500 SOMA          ALFAMX X5500
+                  -ZERO   X5500
+5505 SOMA         -ALPHA  X5505
+                   X5500  X5505
+5510 FRACAO        X5505  X5510   1.0          150
+5515 GANHO         VDC    X5515   1.5
+5520 WSHOUT        X5515  X5520   6E-3  1.0   6E-3
+5525 LIMITA        X5520  X5525                           L5_MP3 L5_P1
+5530 SOMA         -IDC    X5530
+                   IOLTD  X5530
+5535 LIMITA        X5530  X5535                           ZERO   L5_P1
+5540 GANHO         X5535  X5540   0.4
+5545 SOMA          X5510  X5545
+                   X5525  X5545
+                  -X5540  X5545
+5550 GANHO         X5545  X5550   -0.3  
+5555 GANHO         X5550  ERR5    #DCK
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7020 ENTRAD               L7_P2
+7025 ENTRAD               L7_P12
+7030 ENTRAD               L7_1P1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L7_P2     0.2
+DEFVAL        L7_P12   0.12
+DEFVAL        L7_1P1    1.1
+(EFPAR (nome) (     valor      )
+DEFPAR #L7_P1             5.9E-3
+DEFPAR #L7_P2           2.244E-3 
+(------------------------------------------------------------------------
+(|                         MAIN            [LOOP 7]                     |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7200 COMPAR  .GT.  L7_P2  X7200
+                   VDC    X7200
+7205 DLAYON        X7200  X7205   0.3
+7210 LOGIC   .AND. X7200  X7210
+                   X7205  X7210
+7215 SELET2        ZERO   X7215
+                   L7_P12 X7215
+                   X7210  X7215
+7220 SELET2        X7215  X7220
+                   L7_1P1 X7220
+                   REC    X7220
+7225 LEDLAG        VDC    X7225   1.0  #L7_P1 1.0  #L7_P2 
+7230 SOMA          X7220  X7230
+                  -X7225  X7230
+7235 GANHO         X7230  X7235   0.4
+7240 GANHO         X7235  ERR7   #DCK
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] |
+(-------------------------------------------------------------------------------------------
+(-----------------------------------------------------------------------  
+(        ALPHA MIN - LOOP 8 - DEFINIÇÃO DE VALORES E PARAMETROS
+(-----------------------------------------------------------------------  
+(EFPAR (nome) (     valor      )
+DEFPAR #FREON 1.0
+(
+8020 ENTRAD               AORDR                                                 
+8030 ENTRAD               FRAO                                                  
+8040 IMPORT CDU           FRETRA #FETRA
+8041 ENTRAD               FREON
+8042 SELET2        ZERO   FRREC
+                   FRETRA FRREC
+                   FREON  FRREC
+8043 IMPORT ESTCNV        C-EST  #RET
+(EFPAR (npar) (     valpar     )                                                
+DEFPAR #L8RG2               -0.4
+DEFPAR #GHP8                 0.0
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        FRETRA    0.0
+DEFVAL        FREON  #FREON
+DEFVAL        AORDR     2.0
+DEFVAL        FRAO    120.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                                                        
+8048 LOGIC  .NOT.  C-EST  BLCK
+8049 LOGIC  .OR.   BLCK   FREST
+                   FRREC  FREST
+8050 SELET2        AORDR  X8050                                                                
+                   FRAO   X8050                                                                
+                   FREST  X8050                                                                
+8060 FRACAO        X8050  X8060  1.0         150.                                            
+8070 FRACAO        ALPHA  X8070  1.0         150.                                            
+8090 SOMA         -X8070  X8090                                                              
+                   X8060  X8090                                                              
+8100 GANHO         X8090  X8100  #L8RG2                                                      
+8110 GANHO         X8100  X8110  #DCK                                                        
+8130 GANHO         X8110  ERR8   1.0                                                         
+(-------------------------------------------------------------------------------------------
+(|                              LOOP SELECTION AND PLO                                     |
+(-------------------------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1590 MAX           ERR1   W55
+                   ERR3   W55
+1600 MAX           ERR5   W69
+                   ERR7   W69
+1610 MAX           ZERO   X1030
+                   W55    X1030
+1620 COMPAR .GT.   ERR5   X1040
+                   X1030  X1040
+1630 SELET2        W55    X1050
+                   ERR5   X1050
+                   X1040  X1050
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+1640 MIN           W69    RINTI
+                   ERR8   RINTI
+                   X1050  RINTI
+1649 DELAY         RINTI  RINTIN                   
+1650 LIMITA        RINTIN ERR_R                           LWLIM  UPLIM
+1651 SAIDA         ERR_R
+(1652 ENTRAD               ERR_R2
+1660 PROINT        ERR_R  ALPHA2 #Gpll 0.0   1.0          ALFMN  ALFMX
+1670 LIMITA        ALPHA2 ALPHRR                          ALFMN  ALFMX
+1680 DELAY         ALPHRR ALPHAR
+1690 FRACAO        ALPHAR ALFA   #PI   0.0   180.0 0.0
+(
+1700 EXPORT ALFA   ALFA
+(-------------------------------------------------------------------------------------------
+(|                            LOOP IN CONTROL INDEX - RECIFIER                             |
+(-------------------------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+(DEFVAL        LICR     1.0
+(DEFVAL        L5Z      0.0
+(DEFVAL        L3Z      0.0
+1710 ENTRAD               ZERO
+1720 SOMA          ERR1   L1
+                  -RINTI  L1
+1730 SOMA          ERR3   L3
+                  -RINTI  L3
+1740 SOMA          ERR5   L5
+                  -RINTI  L5
+1750 SOMA          ERR7   L7
+                  -RINTI  L7
+1760 SOMA          ERR8   L8
+                  -RINTI  L8
+1770 COMPAR .EQ.   L1     L1z
+                   ZERO   L1z
+1780 COMPAR .EQ.   L3     L3z
+                   ZERO   L3z
+1790 COMPAR .EQ.   L5     L5z
+                   ZERO   L5z
+1800 COMPAR .EQ.   L7     L7z
+                   ZERO   L7z
+1810 COMPAR .EQ.   L8     L8z
+                   ZERO   L8z
+1820 GANHO         L1z    L1zm   1.0
+1830 GANHO         L3z    L3zm   #L3ZM
+1840 GANHO         L5z    L5zm   5.0
+1850 GANHO         L7z    L7zm   7.0
+1860 GANHO         L8z    L8zm   8.0
+1870 SOMA          L1zm   LICr
+                   L3zm   LICr
+                   L5zm   LICr
+                   L7zm   LICr
+                   L8zm   LICr
+1880 SAIDA         LICr
+FIMCDU
+(
+(ncdu) ( nome cdu )
+  9001 ALSTOM-INV
+(----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL         DCLF   0.0
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9090 SAIDA          DCLF
+(-----------------------------------------------------------------------
+(|        MEDIÇÃO E FILTRAGEM - DEFINIÇÃO DE VALORES E PARAMETROS      |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #P3P4                 1.0
+DEFPAR #TfI               0.0001
+DEFPAR #TfV               0.0001
+(-----------------------------------------------------------------------
+(|           VDCOL - VOLTAGE DEPENDENT CURRENT ORDER LIMITER           |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #G                 1.0
+DEFPAR #TfD             0.010
+DEFPAR #TfU             0.040
+DEFPAR #IDCAC            0.50
+DEFPAR #VMARR            0.30
+DEFPAR #IDCAL            0.30
+DEFPAR #VMARL        0.533333
+DEFPAR #IMINR            0.10
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    IORDX  IDCY
+(DEFVAL VAR    VORD2X VDC 
+(-----------------------------------------------------------------------
+(|              ACDU - DEFINIÇÃO DE VALORES E PARAMETROS               |
+(-----------------------------------------------------------------------
+((EFPAR (nome) (     valor      )
+DEFPAR #IORDX               9304
+DEFPAR #VORD                9606
+DEFPAR #VORD2               9306
+DEFPAR #DCLF                9312
+(EFPAR (nome) (     valor      )
+DEFPAR #RAMP1               0.01
+DEFPAR #RAMP2               0.01
+(EFPAR (nome) (     valor      ) 
+(DEFPAR #FETRA               9313
+DEFPAR #RET                 1205
+(EFPAR (nome) (     valor      )   
+DEFPAR #L3ZM                 3.0
+DEFPAR #RVO                 9322
+(
+(-----------------------------------------------------------------------
+(|           DC CURRENT - LOOP 1 - DEFINIÇÃO DE VALORES E PARAMETROS   |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(DEFPAR #DCK            21600.         (60HZ)
+(DEFVA (stip) (vdef) ( d1 )
+(-----------------------------------------------------------------------
+(|          DC VOLTAGE - LOOP 2 - DEFINIÇÃO DE VALORES E PARAMETROS    |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L2IT1       0.0059
+DEFPAR #L2IT2       0.002244
+DEFPAR #dVmn       -0.02
+DEFPAR #dVmx        0.02
+DEFPAR #HP          0.0002
+DEFPAR #HN         -0.00001
+DEFPAR #GHP         1.034e-3 
+DEFPAR #THP         1.034e-3 
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        dVmn   #dVmn
+DEFVAL        dVmx   #dVmx
+(DEFVAL        ERR2   0.0
+(-----------------------------------------------------------------------
+(|           GAMMA MIN - LOOP 3 - DEFINIÇÃO DE VALORES E PARAMETROS    |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #dx2                 0.15
+DEFPAR #L3RG1          0.40
+(-----------------------------------------------------------------------
+(|           ALPHA MAX - LOOP 5 - DEFINIÇÃO DE VALORES E PARAMETROS    |
+(-----------------------------------------------------------------------
+(
+(DEFVAL        X1320     0.0
+(DEFVAL        X1340     0.0
+(-----------------------------------------------------------------------
+(|           DC VOLTAGE - LOOP 7 - DEFINIÇÃO DE VALORES E PARAMETROS   |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L7RT1        0.0059
+DEFPAR #L7RT2        0.002244
+DEFPAR #L7RG1        0.4
+(-----------------------------------------------------------------------
+(|        ALPHA MIN - LOOP 8 - DEFINIÇÃO DE VALORES E PARAMETROS       |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(DEFPAR #L8RG2        -0.4
+(DEFVAL        FRETRM 0.0
+(DEFVAL        FRETRA 0.0
+(DEFVAL        AORDR  2.0
+(DEFVAL        FRAO   120.
+(
+(-----------------------------------------------------------------------
+(|          LOOP SELETION AND PLO - DEFINIÇÃO DE VALORES E PARAMETROS  |
+(-----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ALFMN             1.0
+DEFPAR #ALFMX             180.
+DEFPAR #PI           3.141592654
+DEFPAR #Gpll         -1.0
+DEFPAR #Tpll               0.001  0.01
+DEFPAR #LWLIM             -43200     = -2 * 21600
+DEFPAR #UPLIM               4320     = +0.2 * 21600
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ALFMN  #ALFMN
+DEFVAL        ALFMX  #ALFMX
+DEFVAL        LWLIM  #LWLIM
+DEFVAL        UPLIM  #UPLIM
+(
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+(
+(----------------------------------------------------------------------
+(|                       ENTRADAS                                     |
+(----------------------------------------------------------------------
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0001 ENTRAD               HUM
+0002 ENTRAD               PONT3
+0003 ENTRAD               P5625
+0004 ENTRAD               PONT5
+0007 ENTRAD               REC                                          RECY
+0008 ENTRAD               PONT1
+0009 ENTRAD               PONT4
+0010 ENTRAD               IMAR
+0011 ENTRAD               IMININ
+0015 ENTRAD               UMPUM
+(-----------------------------------------------------------------------
+(|                GADIS -  DEFINI?O DE VALORES                         |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        NOVEN    90.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3075 ENTRAD               NOVEN
+3099 COMPAR  .GT.  NOVEN   GADIS
+                   ALPHA   GADIS
+(-----------------------------------------------------------------------
+(-----------------------------------------------------------------------
+(|                    MEDIÇÃO E FILTRAGEM                               |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        LLIM1    -0.2
+DEFVAL        ULIM1     0.2
+(EFPAR (nome) (     valor      )
+DEFPAR #N1    0.0001061032953946
+DEFPAR #D1    0.0001061032953946
+DEFPAR #D2    7.036193308496E-06
+DEFPAR #N2    0.0000530516476973
+DEFPAR #D3    0.0000530516476973
+DEFPAR #D4    1.759048327124E-06
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0017 IMPORT CDU           IORDX  #IORDX                                IORDX
+(0018 IMPORT CDU           VORD1  #VORD                                 VORD1
+0019 IMPORT CDU           VORD2X #VORD2                                VORD2X
+0020 IMPORT CDU           DCLF   #DCLF
+2020 IMPORT CDU           RVO    #RVO
+2023 IMPORT VCNV          VDCY
+2024 LEDLAG        VDCY   VDCYA  1.0         1.0   #TfV
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2025 GANHO         VDCYA  X25     0.5
+2026 POL(S)        X25    X26     0.0  0.0    #N2   0.0
+                                  0.0  #D4    #D3   1.0
+2027 LIMITA        X26    X27                             LLIM1   ULIM1 
+2028 GANHO         VDCYA  X28     0.05
+2029 POL(S)        X28    X29     0.0  0.0    #N1   0.0
+                                  0.0  #D2    #D1   1.0
+2030 LIMITA        X29    X30                             LLIM1   ULIM1 
+2031 SOMA         -X27    VDC
+                  -X30    VDC
+                   VDCYA  VDC
+(
+0046 IMPORT CCNV          IDCY
+0047 LEDLAG        IDCY   IDC    1.0         1.0   #TfI
+5085 IMPORT ALFA          ALFA_R
+5086 FUNCAO DEGREE ALFA_R ALPHA                                        ALX[3] - ALPHA
+3160 IMPORT GAMA          GAMA_R  
+3161 FUNCAO DEGREE GAMA_R GAMMA                                        GAX[3] - GAMMA
+0027 IMPORT VOLT          VACR
+0028 IMPORT CTAP          TAPE
+(-----------------------------------------------------------------------
+(|                VDCOL -  DEFINIÇÃO DE VALORES                         |
+(-----------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        PONT3     0.3
+DEFVAL        P5625  0.5625
+DEFVAL        PONT5     0.5
+DEFVAL        REC       0.0
+DEFVAL        PONT1     0.1
+DEFVAL        IMAR      0.1
+DEFVAL        IMININ   0.06
+DEFVAL        UMPUM     1.1
+DEFVAL        PONT4     0.4
+(-----------------------------------------------------------------------
+(|         VDCOL - VOLTAGE DEPENDENT CURRENT ORDER LIMITER             |
+(-----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9028 ENTRAD               ZP75
+9029 ENTRAD               ZP8
+DEFVAL        ZP75   0.75
+DEFVAL        ZP8    0.80
+9030 COMPAR .GT.   X0410  X9030
+                   ZP75   X9030
+9031 COMPAR .LT.   X0410  X9031
+                   ZP8    X9031
+9032 LOGIC  FFLOP1 X9031  X9032
+                   X9030  X9032
+DEFVAL VAR    X9032  X9030             
+9033 LOGIC  .NOT.  X9032  X9033                                                        
+9034 LOGIC  .AND.  X9033  X9034
+                   RVO    X9034
+0031 SELET2        ZERO   adVMar
+                   PONT1  adVMar
+                   X9034  adVMar
+0032 ATRASO        VORD2X X0032  0.005       
+(
+0029 SOMA          HUM    X0020
+                  -PONT3  X0020
+0030 SOMA          HUM    X0030
+                  -P5625  X0030
+0040 DIVSAO        X0020  SLPRLF                                       SlopeRecLFR
+                   X0030  SLPRLF
+0050 SOMA         -P5625  X0050
+                  -VDCME  X0050
+                   HUM    X0050
+0060 MULTPL        SLPRLF X0060
+                   X0050  X0060
+(                   
+0070 SOMA          HUM    X0070
+                  -PONT5  X0070
+0080 SOMA          HUM    X0080
+                  -PONT3  X0080
+0090 DIVSAO        X0070  SLPREC                                       SlopeRec
+                   X0080  SLPREC
+0100 SOMA         -PONT3  X0100
+                  -VDCME  X0100
+                  -adVMar X0100
+                   X0032  X0100
+(                   VORD2X X0100                   
+0110 MULTPL        SLPREC X0110
+                   X0100  X0110
+(
+0120 MAX           X0060  X0120
+                   X0110  X0120
+0129 DLAYOF        DCLF   X0129  1.8
+0130 SELET2        X0110  X0130 
+                   X0120  X0130 
+                   X0129  X0130
+0140 SOMA         -X0130  X0140
+                   HUM    X0140 
+(                   
+(0150 ATRASO        IORDX  X0150  0.032
+0150 GANHO         IORDX  X0150  1.0  
+0170 MAX           IORDX  X0170
+                   X0150  X0170
+0180 GANHO         X0170  X0180  1.0
+(                   
+0190 MULTPL        X0140  X0190
+                   X0180  X0190
+0200 MIN           X0190  X0200
+                   X0180  X0200
+0210 MAX           X0200  X0210
+                   PONT1  X0210
+0220 SOMA          HUM    X0220
+                  -PONT1  X0220
+0230 SOMA          HUM    X0230
+                  -PONT4  X0230
+                  -PONT3  X0230
+0240 DIVSAO        X0220  X0240
+                   X0230  X0240
+0250 MULTPL        X0180  X0250
+                   X0240  X0250
+0260 SOMA         -PONT3  X0260
+                   X0032  X0260
+                  -VDCME  X0260
+                  -adVMar X0260
+(                   VORD2X X0260
+0270 MULTPL        X0250  X0270
+                   X0260  X0270
+0280 SOMA         -IMAR   X0280
+                   X0180  X0280
+                  -X0270  X0280
+0290 SOMA          X0180  X0290
+                  -IMAR   X0290
+0300 MIN           X0290  X0300
+                   X0280  X0300
+0310 MAX           X0300  X0310
+                   IMININ X0310
+0320 SELET2        X0310  X0320
+                   X0210  X0320
+                   REC    X0320   
+0330 SELET2        X0320  IOLTD                                        IordLtdY
+                   HUM    IOLTD
+                   ZERO   IOLTD
+(
+0400 GANHO         VDC    X0400  -1.0
+0410 SELET2        X0400  X0410
+                   VDC    X0410
+                   REC    X0410
+9411 ENTRAD               P3P4
+DEFVAL        P3P4   #P3P4
+9412 SELET2        ZERO   X9412
+                   RVO    X9412
+                   P3P4   X9412
+0411 LOGIC  .AND.  REC    X0411          
+                   X9412  X0411
+0412 DLAYOF        X0411  X0412  2.0
+0413 DLAYON        X9412  X0413  0.02
+0414 LOGIC  .NOT.  REC    X0414
+0415 LOGIC  .AND.  X0414  X0415
+                   X0413  X0415
+0416 DLAYOF        X0415  X0416  2.0
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #FLTDC 9331
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(9417 IMPORT CDU           FLTDCC #FLTDC
+9417 ENTRAD               FLTDCC
+DEFVAL        FLTDCC 0.0
+9418 ENTRAD               P3ORP4
+DEFVAL        P3ORP4  #P3P4
+9419 MULTPL        FLTDCC FLTDC
+                   P3ORP4 FLTDC
+(0417 DLAYOF        DCLF   X0417  2.0
+(0417 DLAYOF        F4     X0417  2.0
+0417 DLAYOF        FLTDC  X0417  2.0
+(
+0418 ENTRAD               ZP04
+0419 ENTRAD               ZP12
+0420 ENTRAD               ZP15
+0421 ENTRAD               ZP01
+0460 SOMA          X0410  X0460A
+                  -VDCME  X0460A
+2460 FUNCAO DEADB1 X0460A X0460  -.0001 .0001 1.0  1.0                  
+0461 COMPAR .GT.   X0460  X0461
+                   ZERO   X0461
+0462 SELET2        ZERO   X0462
+                   HUM    X0462
+                   X0461  X0462
+(0463 SELET2        ZP04   X0463
+0463 SELET2        X0473  X0463
+                   ZP12   X0463
+                   X0417  X0463
+0464 SELET2        X0463  X0464
+                   PONT1  X0464
+                   X0412  X0464                   
+0465 SELET2        X0464  X0465
+                   ZP15   X0465
+                   X0416  X0465
+0466 SELET2        ZP01   X0466
+                   X0465  X0466
+                   X0462  X0466
+0467 DIVSAO        X0460  X0467
+                   X0466  X0467
+0468 PROINT        X0467  VDCME  1.0   0.0   1.0          ZERO   UMPUM Vcdme
+(0470 GANHO         DCLF   X0470  1.0
+(
+9471 ENTRAD               FLTAC
+DEFVAL        FLTAC  0.0
+(
+(0471 LOGIC  .AND.  X0470  X0471
+0471 LOGIC  .AND.  FLTAC  X0471
+                   REC    X0471
+0472 DLAYOF        X0471  X0472  0.3
+0473 SELET2        ZP04   X0473
+                   ZP07   X0473
+                   X0472  X0473
+0474 ENTRAD               ZP07   
+DEFVAL        ZP07   0.07
+(DEFVAL        VDCME  1.0
+DEFVAL VAR    VDCME  X0410
+DEFVAL        ZP04   0.04
+DEFVAL        ZP12   0.12
+DEFVAL        ZP15   0.15
+DEFVAL        ZP01   0.01
+(0460 LAGNL         X0410  VDCME   1.0  0.01  0.04          ZERO  UMPUM Vdcme
+(
+(      ------------------------------------------------------------------------------
+(      |                                                                            |
+(      |             LOOP CONTROL FROM THE Y [INVERTER] SIDE                        |
+(      |               # LOOP 1 - DC CURRENT                                        |
+(      |               # LOOP 2 - CASCADED GAMMA / DC VOLTAGE                       |
+(      |               # LOOP 3 - GAMMA                                             |
+(      |               # LOOP 5 - ALPHA MAX                                         |
+(      |               # LOOP 7 - DC VOLTAGE MAX RECTIFIER                          |
+(      |               # LOOP 8 - ALPHA MIN                                         |
+(      |                                                                            |
+(      ------------------------------------------------------------------------------
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] [ LOOP 1 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1040 ENTRAD               IREST
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        IREST     0.0
+(EFPAR (nome) (     valor      )
+DEFPAR #P2              6.644E-3
+DEFPAR #P4                2.2E-3
+DEFPAR #L1RG2                0.4
+DEFPAR #DCK              21600.0         (60HZ)   
+(-----------------------------------------------------------------------
+(|                      MAIN     -    [LOOP 1]                         |
+(-----------------------------------------------------------------------
+((nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1250 LEDLAG        IDC    X1250   1.0  #P2   1.0   #P4
+1255 SOMA         -X1250  X1255
+                   IOLTD  X1255
+                   IREST  X1255
+1260 GANHO         X1255  X1260  #L1RG2
+1265 GANHO         X1260  ERR1   #DCK  
+1270 SAIDA         ERR1 
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] [ LOOP 2 ] |
+(-------------------------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)        
+2330 ENTRAD               SEL_A                                                
+2340 ENTRAD               SEL_B
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        SEL_A  3.336
+DEFVAL        SEL_B  2.336
+(DEFVAL        LLIM   -0.2 
+(DEFVAL        ULIM    0.2
+(DEFVAL VAR    IDCFHP  X2830
+(EFPAR (nome) (     valor      )
+(DEFPAR #N1    0.0001061033
+(DEFPAR #D1    0.0001061033
+(DEFPAR #D2    0.000007036193
+(DEFPAR #N2    5.30516E-05
+(DEFPAR #D3    5.30516E-05
+(DEFPAR #D4    1.75905E-06
+DEFPAR #PE2   5.9E-3     
+DEFPAR #PE4   2.244E-3   
+(-----------------------------------------------------------------------
+(|                      MAIN     -    [LOOP 2]                         |
+(-----------------------------------------------------------------------
+(2349*SOMA          VOdec  X2349
+(                  -X2380  X2349 
+(2348*SAIDA         X2349                  
+(DEFVAL VAR     X2400 X2349 
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2350 LEDLAG        GAMMA  X2060     1.0         1.0  0.01
+2360 SOMA          GAMORD X2070a
+                  -X2060  X2070a
+2361 FUNCAO DEADB1 X2070a X2070  -.0001 .0001 1.0  1.0
+2370 FRACAO        X2070  X2370  1.0         150.
+2380 GANHO         X2370  X2380  0.008
+2390 GANHO         X2370  X2390  4.0
+2400 PROINT        X2390  X2400  1.0   0.0   1.00         dVmn   dVmx 
+9401*COMPAR .GT.   GAMMA  X9401
+                   GAMORD X9401
+9402*SELET2        ZERO   X9402
+                   dVmn   X9402
+                   X9401  X9402
+9403*SAIDA         X9402
+9404 ENTRAD               dVmn                                 
+DEFVAL VAR    X2400  X9402
+2410 SOMA          X2380  X2410 
+                   X2400  X2410 
+(                   AUX    X2410 
+(9410 ENTRAD               AUX                   
+2420 LIMITA        X2410  X2420                           dVmn   dVmx
+(9406*SELET2        ZERO   X9406
+(                   dVdmn  X9406
+(                   X9401  X9406
+(9407*SAIDA         X9406
+(9405 ENTRAD               dVdmn
+(DEFVAL VAR    X2420  X9406
+ 480 MULTPL        X2420  VOdec                                        VORDdec
+                   HUM    VOdec
+2700 GANHO         IDC    X2700    0.07 
+(2710 SOMA          VORD2X X2710
+2710 SOMA          X0032  X2710
+                  -X2700  X2710
+                  -VOdec  X2710
+(2720 GANHO         VDC    VDCG2   0.05  
+(2030 POL(S)        VDCG2  VDCP2   0.0  0.0    #N1   0.0
+(                                  0.0  #D2    #D1   1.0
+(2740 LIMITA        VDCP2  VDCL2                            LLIM  ULIM
+((
+(2750 GANHO         VDC    VDCG1   0.5
+(2760 POL(S)        VDCG1  VDCP1   0.0  0.0    #N2   0.0
+(                                  0.0  #D4    #D3   1.0
+(2780 LIMITA        VDCP1  VDCL1                            LLIM  ULIM
+(2790 SOMA          VDC    VDCF                                         Vdcfilt
+(                  -VDCL1  VDCF 
+(                  -VDCL2  VDCF 
+(DEFVAL VAR    VDCF   VDC
+(2800 LEDLAG        VDCF   X2800  1.0   #L2IT11.0   #L2IT2
+2720 LEDLAG        VDC    X2720   1.0  #PE2  1.0   #PE4
+2810 FUNCAO HISTE1 IDC    IDCLL   0.3    0.0  2  
+                                  0.2    1.0     
+2820 SELET2        SEL_B  HIPASS                                       I_highpassgain
+                   SEL_A  HIPASS
+                   IDCLL  HIPASS
+2830 MULTPL        IDC    X2830
+                   HIPASS X2830
+2840 WSHOUT        X2830  IDCFHP #GHP  1.0   #THP                      IDCFHP
+2850 SOMA         -X2710  X2850A
+                  -X2720  X2850A
+                  -IDCFHP X2850A
+(                  -X2800  X2850     
+3850 FUNCAO DEADB1 X2850A X2850  -.008  .008  1.0  1.0             
+2860 GANHO         X2850  X2860  0.28
+2870 GANHO         X2860  ERR2   #DCK
+2871 SAIDA         ERR2 
+((EFPAR (nome) (     valor      )
+(DEFPAR #ERR2  0.0               -44.9809
+(2872 ENTRAD               ERR2
+(DEFVAL        ERR2   #ERR2
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] [ LOOP 3 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3000 ENTRAD               GAMORD
+3005 ENTRAD               L3_3p5
+3010 ENTRAD               GAMINC
+3015 ENTRAD               L3_30
+(3025 ENTRAD               VDCFIL
+3030 ENTRAD               L3_P1
+3035 ENTRAD               L3_MP3
+3040 ENTRAD               L3_1P2
+3055 ENTRAD               L3_13
+3060 ENTRAD               L3-INF
+(3065 ENTRAD               AVDCOL
+3070 ENTRAD               L3_315
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        GAMORD   18.5        
+DEFVAL        L3_3P5    3.5
+DEFVAL        GAMINC    0.0
+DEFVAL        L3_30    30.0
+DEFVAL        L3_P1     0.1
+DEFVAL        L3_MP3   -0.3
+DEFVAL        L3_1P2    1.2
+DEFVAL        L3_13    13.0
+DEFVAL        L3-INF -65535
+DEFVAL        L3_315   31.5
+(-----------------------------------------------------------------------
+(|                      MAIN     -    [LOOP 3]                         |
+(-----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3200 SOMA          GAMORD X3200
+                  -L3_3P5 X3200
+3205 SOMA          X3200  X3205       
+                   GAMINC X3205
+3210 SELET2        X3205  X3210
+                   L3_30  X3210                 
+                   REC    X3210
+3215 FRACAO        X3210  X3215   1.0         150.0
+(3220 GANHO         VDCF   X3220   1.5
+3220 GANHO         VDC    X3220   1.5
+3225 WSHOUT        X3220  X3225  6E-3   1.0   6E-3
+3230 LIMITA        X3225  X3230                           L3_MP3 L3_P1
+3235 SOMA          X3215  X3235
+                  -X3230  X3235
+3240 LIMITA        X3235  X3240                           GAMALL L3_1P2
+3245 FRACAO        GAMMA  X3245   1.0         150.0
+3250 SOMA          IORDX  X3250
+                  -IDC    X3250
+3255 LIMITA        X3250  X3255                           ZERO   L3_P1
+3260 GANHO         X3255  X3260   0.6
+3265 SOMA         -L3_13  X3265
+                   X3200  X3265
+3270 SOMA          ALAD_V X3270
+                  -X3265  X3270
+3275 LIMITA        X3270  X3275                            ZERO  L3_315
+3280 FRACAO        X3275  X3280   1.0         150.0
+3285 SOMA          X3240  X3285
+                  -X3245  X3285
+                   X3260  X3285
+                   X3280  X3285
+3290 GANHO         X3285  X3290   0.4
+3295 SELET2        X3290  X3295 
+                   L3-INF X3295
+                   GADIS  X3295
+3300 GANHO         X3295  ERR3    #DCK
+3301 SAIDA         ERR3 
+(EFPAR (nome) (     valor      )
+(DEFPAR #ERR3  -201.599
+(3302 ENTRAD               ERR3
+(DEFVAL        ERR3   #ERR3
+3305 FRACAO        X3200  GAMALL   1.0        150.0
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] [ LOOP 5 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5010 ENTRAD               L5_P01 
+5015 ENTRAD               L5_7   
+5030 ENTRAD               L5_15  
+5035 ENTRAD               L5_P1  
+5040 ENTRAD               L5_P25 
+5045 ENTRAD               L5_XC  
+5050 ENTRAD               G_REF0 
+5055 ENTRAD               L5_165 
+5060 ENTRAD               L5_180 
+5065 ENTRAD               ALPHMX 
+5070 ENTRAD               CFTH   
+5092 MULTPL        VACR   VDIF
+                   TAPE   VDIF
+5090 ENTRAD               L5_MP3
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L5_P01   0.01
+DEFVAL        L5_7      7.0
+DEFVAL        L5_15    15.0
+DEFVAL        L5_P1     0.1
+DEFVAL        L5_P25   0.25
+DEFVAL        L5_XC    0.15
+DEFVAL        G_REF0   13.0
+DEFVAL        L5_165 .09659
+DEFVAL        L5_180  180.0
+DEFVAL        ALPHMX  165.0
+DEFVAL        CFTH     0.05
+DEFVAL        L5_MP3   -0.3
+(EFPAR (nome) (     valor      )
+DEFPAR #L5_LG             0.016
+DEFPAR #T1    0.0015  
+DEFPAR #GMO1  25.                GMO1=1/TMO1=1/0.04s
+DEFPAR #GMO2  2.5                GMO2=1/TMO2=1/0.4s 
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(------------------------------------------------------------------------
+(|                  AC>DC PROTECTION                                    |
+(|                  ALAD CALCULATION      [LOOP 5]                      |
+(------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X1330     0.0
+DEFVAL        X1340     0.0
+DEFVAL        X1430     0.0
+DEFVAL        X1450     0.0
+DEFVAL        X1520     0.0
+
+5100 IMPORT CONDCC        CFINV
+5102 SELET2        CFINV  CFY
+                   ZERO   CFY
+                   DCLF   CFY
+5104 LIMITA        CFY    CFINVL                          ZERO   HUM
+5106 LEDLAG        CFINVL X1280  1.0         1.0   0.5
+5108 COMPAR .GT.   X1280  X1290
+                   CFINVL X1290
+5110 LEDLAG        CFINVL X1300  1.0         1.0   #T1
+5112 SELET2        CFINVL X1310
+                   X1300  X1310
+                   X1290  X1310
+5114 COMPAR .GT.   X1310  CFX
+                   CFTH   CFX
+(
+5116 LOGIC  FFLOP1 R1     X1330
+                   S1     X1330
+5118 INTRES        X1330  X1340  #GMO1                    ZERO   HUM
+                   R2     X1340
+                   ZERO   X1340
+5120 COMPAR .GE.   X1340  X1350
+                   HUM    X1350
+5122 DELAY         X1350  R1
+5124 LOGIC  .NOT.  R1     X1370
+5126 LOGIC  .AND.  X1370  S1
+                   CFX    S1
+5128 LEDLAG        CFX    CFXD   1.0         1.0   0.5
+5130 COMPAR .LT.   CFX    R2
+                   CFXD   R2
+5132 LOGIC  .NOT.  X1330  X1410
+5134 LOGIC  .AND.  X1410  MO1
+                   CFX    MO1
+5136 LOGIC  FFLOP1 R3     X1430
+                   S2     X1430
+5138 LOGIC  .OR.   R3     R3S2
+                   S2     R3S2
+5140 INTRES        X1430  X1450  #GMO2                    ZERO   HUM
+                   R3S2   X1450
+                   ZERO   X1450
+5142 COMPAR .GE.   X1450  X1460
+                   HUM    X1460
+5144 DELAY         X1460  R3
+5146 LOGIC  .NOT.  R3     X1480
+5148 LOGIC  .AND.  X1480  S2
+                   CFX    S2
+5150 LEDLAG        X1430  X1500  1.0         1.0   0.5
+5152 COMPAR .LT.   X1430  R4
+                   X1500  R4
+5154 INTRES        X1430  X1520  #GMO1                    ZERO   HUM
+                   R4     X1520
+                   ZERO   X1520
+5156 COMPAR .GE.   X1520  MO2
+                   HUM    MO2
+5158 LOGIC  .OR.   MO1    MO
+                   MO2    MO
+5160 LOGIC  .AND.  MO     ALAD
+                   CFX    ALAD
+(------------------------------------------------------------------------
+(|                  INV ALPHA MAX ORDER   [LOOP 5]                      |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax) 
+5200 SOMA          IORDX  X5200
+                  -IMAR   X5200
+5205 SELET2        X5200  X5205
+                   IORDX  X5205
+                   REC    X5205                 
+5210 SOMA          X5205  X5210
+                  -IOLTD  X5210
+5215 COMPAR .GT.   X5210  X5215
+                   L5_P01 X5215
+5220 DLAYOF        X5215  X5220  0.001
+5225 SELET2        ZERO   X5225
+                   L5_7   X5225
+                   X5220  X5225
+5250 LAGNL         X5225  ALAD_V  1.0  0.025 0.001        MMIL   MIL   ALAD_Vdcol
+(
+5255 MONEST        ALAD   X5255   0.05
+5260 SELET2        ZERO   X5260
+                   L5_15  X5260
+                   X5255  X5260
+5265 SOMA          X5225  X5265
+                   X5260  X5265
+5285 LAGNL         X5265  CF_ALA  1.0  0.025 0.001        MMIL   MIL   CF_ALAD
+(
+5300 SELET2        L5_P1  X5300
+                   ZERO   X5300
+                   REC    X5300
+5305 SOMA          IOLTD  X5305
+                   X5300  X5305
+5310 MAX           VDIF   X5310
+                   L5_P25 X5310
+5315 DIVSAO        X5305  X5315
+                   X5310  X5315
+5320 LEDLAG        X5315  X5320   1.0  0.0   1.0   #L5_LG  
+5325 GANHO         X5320  X5325   0.9 
+5330 MULTPL        X5325  X5330 
+                   L5_XC  X5330
+5335 SOMA          G_REF0 X5335
+                   CF_ALA X5335
+5336 FUNCAO RADIAN X5335  X5336
+5340 FUNCAO COS    X5336  X5340
+5345 SOMA         -X5330  X5345
+                   X5340  X5345
+5350 LIMITA        X5345  X5350                           L5_165 HUM
+5355 FUNCAO ACOS   X5350  X5355
+5356 FUNCAO DEGREE X5355  X5356
+5360 SOMA         -X5356  X5360
+                   L5_180 X5360
+5380 LAGNL         X5360  X5380   1.0  0.08  0.001        CEM    CEM63
+5385 MIN           ALPHMX ALFAMX
+                   X5380  ALFAMX                                       alphamax
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        MIL     1000.
+DEFVAL        MMIL   -1000.  
+DEFVAL        CEM63    163.     
+DEFVAL        CEM      100.
+(DEFVAL        CF_ALA     0.
+(------------------------------------------------------------------------
+(|                   RESTART CONTROLLER    [LOOP 5]                     |      
+(------------------------------------------------------------------------
+(
+( RESTART CONTROLLER N? FOI MODELADO, POIS SEU OUTPUT 
+(
+(------------------------------------------------------------------------
+(|                         MAIN            [LOOP 5]                     |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+5500 SOMA          ALFAMX X5500
+                  -ZERO   X5500
+5505 SOMA         -ALPHA  X5505
+                   X5500  X5505
+5510 FRACAO        X5505  X5510   1.0          150
+5515 GANHO         VDC    X5515   1.5
+5520 WSHOUT        X5515  X5520   6E-3  1.0   6E-3
+5525 LIMITA        X5520  X5525                           L5_MP3 L5_P1
+5530 SOMA         -IDC    X5530
+                   IORDX  X5530
+5535 LIMITA        X5530  X5535                           ZERO   L5_P1
+5540 GANHO         X5535  X5540   0.4
+5545 SOMA          X5510  X5545
+                   X5525  X5545
+                  -X5540  X5545
+5550 GANHO         X5545  X5550   -0.3  
+5555 GANHO         X5550  ERR5    #DCK
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] [ LOOP 7 ] |
+(-------------------------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7020 ENTRAD               L7_P2
+7025 ENTRAD               L7_P12
+7030 ENTRAD               L7_1P1
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        L7_P2     0.2
+DEFVAL        L7_P12   0.12
+DEFVAL        L7_1P1    1.1
+(EFPAR (nome) (     valor      )
+DEFPAR #L7_P1             5.9E-3
+DEFPAR #L7_P2           2.244E-3 
+(------------------------------------------------------------------------
+(|                         MAIN            [LOOP 7]                     |
+(------------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7200 COMPAR  .GT.  L7_P2  X7200
+                   VDC    X7200
+7205 DLAYON        X7200  X7205   0.3
+7210 LOGIC   .AND. X7200  X7210
+                   X7205  X7210
+7215 SELET2        ZERO   X7215
+                   L7_P12 X7215
+                   X7210  X7215
+7220 SELET2        X7215  X7220
+                   L7_1P1 X7220
+                   REC    X7220
+7225 LEDLAG        VDC    X7225   1.0  #L7_P1 1.0  #L7_P2 
+7230 SOMA          X7220  X7230
+                  -X7225  X7230
+7235 GANHO         X7230  X7235   0.4
+7240 GANHO         X7235  ERR7   #DCK
+(-------------------------------------------------------------------------------------------
+(  [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] [ LOOP 8 ] |
+(-------------------------------------------------------------------------------------------
+(-----------------------------------------------------------------------  
+(        ALPHA MIN - LOOP 8 - DEFINIÇÃO DE VALORES E PARAMETROS
+(-----------------------------------------------------------------------  
+8020 ENTRAD               AORDR                                                 
+8030 ENTRAD               FRAO 
+8040 IMPORT ESTCNV        C-EST  #RET
+(EFPAR (npar) (     valpar     )                                                
+DEFPAR #L8RG2               -0.4
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        AORDR    38.0
+DEFVAL        FRAO    110.0
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                                                        
+8048 LOGIC  .NOT.  C-EST  BLCK                                                 
+8050 SELET2        AORDR  X8050                                                                
+                   FRAO   X8050                                                                
+                   BLCK   X8050                                                                
+8060 FRACAO        X8050  X8060  1.0         150.                                            
+8070 FRACAO        ALPHA  X8070  1.0         150.                                            
+8090 SOMA         -X8070  X8090                                                              
+                   X8060  X8090                                                              
+8100 GANHO         X8090  X8100  #L8RG2                                                      
+8110 GANHO         X8100  ERR8   #DCK
+(-------------------------------------------------------------------------------------------
+(|                              LOOP SELECTION AND PLO                                     |
+(-------------------------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1590 MAX           ERR1   W55
+                   ERR2   W55
+                   ERR3   W55                   
+1600 MAX           ERR5   W69
+                   ERR7   W69
+1620 COMPAR .GT.   ERR5   X1040
+                   W55    X1040
+1630 SELET2        W55    X1050
+                   ERR5   X1050
+                   X1040  X1050
+1640 MIN           W69    IINTI
+                   ERR8   IINTI
+                   X1050  IINTI
+1649 DELAY         IINTI  IINTIN                   
+1650 LIMITA        IINTIN ERR_I                           LWLIM  UPLIM
+1651 SAIDA         ERR_I 
+(1652 ENTRAD               ERR_I2
+1660 PROINT        ERR_I  ALPHA2 #Gpll 0.0   1.0          ALFMN  ALFMX
+1670 LIMITA        ALPHA2 ALPHRI                          ALFMN  ALFMX
+1680 DELAY         ALPHRI ALPHAI
+1690 FRACAO        ALPHAI ALFA   #PI   0.0   180.0 0.0
+(
+(1701 SAIDA         ALF
+(DEFVAL VAR    ALF    ALFA
+(1702 ENTRAD               ALFA
+1700 EXPORT ALFA   ALFA
+(-------------------------------------------------------------------------------------------
+(|                            LOOP IN CONTROL INDEX - RECIFIER                             |
+(-------------------------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+1710 ENTRAD               ZERO
+1720 SOMA          ERR1   L1
+                  -IINTI  L1
+1730 SOMA          ERR2   L2
+                  -IINTI  L2                 
+1740 SOMA          ERR3   L3
+                  -IINTI  L3
+1750 SOMA          ERR5   L5
+                  -IINTI  L5
+1760 SOMA          ERR7   L7
+                  -IINTI  L7
+1770 SOMA          ERR8   L8
+                  -IINTI  L8
+1780 COMPAR .EQ.   L1     L1z
+                   ZERO   L1z
+1790 COMPAR .EQ.   L2     L2z
+                   ZERO   L2z                   
+1800 COMPAR .EQ.   L3     L3z
+                   ZERO   L3z
+1810 COMPAR .EQ.   L5     L5z
+                   ZERO   L5z
+1820 COMPAR .EQ.   L7     L7z
+                   ZERO   L7z
+1830 COMPAR .EQ.   L8     L8z
+                   ZERO   L8z
+1840 GANHO         L1z    L1zm   1.0
+1850 GANHO         L2z    L2zm   2.0
+1860 GANHO         L3z    L3zm   3.0
+1870 GANHO         L5z    L5zm   5.0
+1880 GANHO         L7z    L7zm   7.0
+1890 GANHO         L8z    L8zm   8.0
+1900 SOMA          L1zm   LICi
+                   L2zm   LICi
+                   L3zm   LICi
+                   L5zm   LICi
+                   L7zm   LICi
+                   L8zm   LICi
+1910 SAIDA         LICi
+FIMCDU
+(
+999999
+ACDU 
+(--------------------------------------------------------
+(  PARAMETROS DOS CONTROLES DE RETIFICADOR E INVERSOR
+(      9009 - RETIFICADOR 1 (POLO 3)
+(      9010 - INVERSOR    1 (POLO 3)
+(      9011 - RETIFICADOR 2 (POLO 4)
+(      9012 - INVERSOR    2 (POLO 4)
+(--------------------------------------------------------
+(
+(ncdu) (ntop) ( nome cdu )
+ 9009   9000   ALSTOM-RET1
+(EFPAR (nome) (     valor      ) 
+DEFPAR #IORDX               9301
+DEFPAR #VORD                9605
+DEFPAR #VORD2               9305
+DEFPAR #DCLF                9309
+DEFPAR #RAMP1               0.01
+DEFPAR #RAMP2               0.01
+DEFPAR #FETRA               9313   
+DEFPAR #RET                 1205
+DEFPAR #L3ZM                 3.0
+DEFPAR #RVO                 9321
+DEFPAR #P3P4                 1.0
+DEFPAR #FLTDC               9330
+FIMCDU
+(ncdu) (ntop) ( nome cdu )
+ 9010   9001   ALSTOM-INV1
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDX               9302
+DEFPAR #VORD                9606
+DEFPAR #VORD2               9306
+DEFPAR #DCLF                9310
+DEFPAR #RET                 1205
+DEFPAR #RVO                 9322
+DEFPAR #P3P4                 1.0
+DEFPAR #FLTDC               9331
+FIMCDU
+(ncdu) (ntop) ( nome cdu )
+ 9011   9000   ALSTOM-RET2
+(
+(EFPAR (nome) (     valor      ) 
+DEFPAR #IORDX               9303
+DEFPAR #VORD                9607
+DEFPAR #VORD2               9307
+DEFPAR #DCLF                9311
+DEFPAR #RAMP1               0.01
+DEFPAR #RAMP2               0.01
+DEFPAR #FETRA               9314 
+DEFPAR #FREON                1.0
+DEFPAR #RET                 1207
+DEFPAR #L3ZM                 3.0
+DEFPAR #RVO                 9323
+DEFPAR #P3P4                 1.0
+DEFPAR #FLTDC               9332
+FIMCDU
+(ncdu) (ntop) ( nome cdu )
+ 9012   9001   ALSTOM-INV2
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDX               9304
+DEFPAR #VORD                9608
+DEFPAR #VORD2               9308
+DEFPAR #DCLF                9312
+DEFPAR #RET                 1207
+DEFPAR #RVO                 9324
+DEFPAR #P3P4                 1.0
+DEFPAR #FLTDC               9333
+FIMCDU
+999999

@@ -1,0 +1,1844 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       EOL_NE_PEL_0720.dat                                                                       |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Associação de barras a modelos de aerogeradores                                           |
+( |                 Associação dos controladores não específicos aos modelos de controle de parques eólicos   |
+( |                 Usinas em operação no Subsistema Nordeste                                                 |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ENERCON                                                                          |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ENERCON - Modelo E82 / E82F1 - 2.0 MW                                             |
+( |  TOPOLOGIA - 91522                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Mangue Seco - Polo Petrobras 138 kV (RN)                                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Mangue Seco I        13   Enercon       E82F1     2.0   MS-F.Conv    91522         6030       |
+( |  Mangue Seco II       13   Enercon       E82F1     2.0   MS-F.Conv    91612         8127       |
+( |  Mangue Seco III      13   Enercon       E82F1     2.0   MS-F.Conv    91613         8128       |
+( |  Mangue Seco IV       13   Enercon       E82F1     2.0   MS-F.Conv    91614         8129       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Santa Clara - ICG João Câmara II 69 kV (RN)                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Santa Clara I        15   Enercon       E82F1     2.0   MS-F.Conv    91523         6145       |
+( |  Santa Clara II       15                                                                       |
+( |  Santa Clara III      15   Enercon       E82F1     2.0   MS-F.Conv    91615         8636       |
+( |  Santa Clara IV       15                                                                       |
+( |  Santa Clara V        15   Enercon       E82F1     2.0   MS-F.Conv    91616         8637       |
+( |  Santa Clara VI       15                                                                       |
+( |  Euros VI              4                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Campo dos Ventos - ICG - ETN João Câmara III 138 kV (RN)                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Campo dos Ventos II  15   Enercon       E82F1     2.0   MS-F.Conv    91525         6166(Gr10) |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ENERCON - Modelo E92 / ExF2v4 - 2.35 MW                                           |
+( |  TOPOLOGIA - 90113                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pedra Branca - Sobradinho 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Morro Branco I       14   Enercon       E92      2.35   MS-F.Conv    90032         6308       |
+( |  Mussambê             14                                                                       |
+( |  Baraúnas II          11                                                                       |
+( |  Banda de Couro       14                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Baraunas I           14   Enercon       E92      2.35   MS-F.Conv    90033         6310       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Casa Nova II - Sobradinho 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Casa Nova II         14   Enercon       ExF2v4   2.35   MS-F.Conv    90113         5744       |
+( |  Casa Nova III        12                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ENERCON - Modelo E92 / ExF2v4 2.35 MW                                             |
+( |  TOPOLOGIA - 90113                                                                             |
+( |  UNIDADE DE CONTROLE DO PARQUE - Modelo E92 / ERTU01                                           |
+( |  TOPOLOGIA - 91561                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Baixa do Feijão - ICG ETN João Câmara III 138 kV (RN)                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Aroeira              14   ENERCON       ExF2v4   2.35   MS-F.Conv  91552/91553     8484       |
+( |  Jericó               14                                                                       |
+( |  Umbuzeiros           14   ENERCON       ExF2v4   2.35   MS-F.Conv  91579/91584     8485       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Morro dos Ventos - João Câmara II 69 kV (RN)                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Aventura I           12   ENERCON       ExF2v4   2.35   MS-F.Conv  91560/91561     6644       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ENERCON - Modelo E92 / ExF4r1 2.35 MW                                             |
+( |  TOPOLOGIA - 90151                                                                             |
+( |  UNIDADE DE CONTROLE DO PARQUE - Modelo E92 / EFCU07                                           |
+( |  TOPOLOGIA - 90152                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra da Babilônia - Morro do Chapéu II (BA)                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. da Babilônia II   12   Enercon       E92      2.35   MS-F.Conv  90151/90152     6320       |
+( |  S. da Babilônia VI   11                                                                       |
+( |  S. da Babilônia VIII 12                                                                       |
+( |  S. da Babilônia XII  12                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. da Babilônia VII  12   Enercon       E92      2.35   MS-F.Conv  90153/90154     6785       |
+( |  S. da Babilônia IX   12                                                                       |
+( |  S. da Babilônia X    12                                                                       |
+( |  S. da Babilônia XI   12                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - WEG                                                                              |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR WEG - Modelo AWG-110 2.1 MW                                                       |
+( |  TOPOLOGIA - 90522                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Malhadinha I - ICG Ibiapina II 69 kV (CE)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Malhadinha I         11   WEG           AGW 110   2.1  PMSG-F.Conv   90522         6016       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pitombeira - Russas 230 kV (CE)                                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Goiabeira            11   WEG           AGW 110   2.1  PMSG-F.Conv   90523         6106       |
+( |  Pitombeira            6                                                                       |
+( |  S. Catarina           9                                                                       |
+( |  Ubatuba              13                                                                       |
+( |  Ventos do Horizonte   8                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cutia - Touros 230 kV (RN)                                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Esperança NE         13   WEG           AGW110    2.1  PMSG-F.Conv   91546         5078       |
+( |  GE Jangada           13                                                                       |
+( |  GE M. Helena         13                                                                       |
+( |  S. B. do Norte III   11                                                                       |
+( |  Dreen Cutia          11   WEG           AGW110    2.1  PMSG-F.Conv   91563         5044       |
+( |  Dreen Guajiru        10                                                                       |
+( |  Potiguar             13                                                                       |
+( |  Paraíso Ventos NE    13                                                                       |
+( |  S. Bento do Norte I  11   WEG           AGW 110   2.1  PMSG-F.Conv   91549         5126       |
+( |  S. Bento do Norte II 11                                                                       |
+( |  S. Miguel I          10                                                                       |
+( |  S. Miguel II         10                                                                       |
+( |  S. Miguel III        10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cacimbas -  Ibiapina II 230 kV (CE)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  B. V. Cacimbas 2     11   WEG           AWG 110   2.1  PMSG-F.Conv   90531         6550       |
+( |  B. V. Cacimbas 4      5                                                                       |
+( |  B. V. Cacimbas 7      8                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  B. V. Cacimbas 3      7   WEG           AWG 110   2.1  PMSG-F.Conv   90532         6618       |
+( |  B. V. Cacimbas 3     10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Santo Inácio - Mossoró IV 230 kV (RN)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Santo Inácio III     14   WEG           AGW2.1    2.1  PMSG-F.Conv   91556         6659       |
+( |  Santo Inácio IV      11                                                                       |
+( |  Sâo Raimundo         11                                                                       |
+( |  Garrote              11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - VENSYS                                                                           |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VENSYS - Modelo VS77 1.5 MW                                                       |
+( |  TOPOLOGIA - 90507                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Acaraú - Sobral III 230 kV (CE)                                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Praia Morgado        19   Vensys        VS77      1.5   MS-PMSG      90507         5472       |
+( |  Volta Rio            28   Vensys        VS77      1.5   MS-PMSG      90526         8629       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Quixabá - Jaguaruna 69 kV (CE)                                                         |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Quixabá              17   Vensys        VS77      1.5   MS-PMSG      90521         5433       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Papagaios - Acaraú 230 kV - (CE)                                                  |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Coqueiros            18   Vensys        VS77      1.5   MS-PMSG      90508         6114       |
+( |  Buritis              20                                                                       |
+( |  Cajucoco             20                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ACCIONA                                                                          |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ACCIONA - Modelo AW116 3.0 MW com WPP (Controle do Parque)                        |
+( |  TOPOLOGIA - 91269                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Lagoa do Barro I - São João do Piauí 230 kV (PI)                                  |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Aura L. do Barro II   9   Acciona       AW116     3.0     DFIG       91279         5040       |
+( |  Aura L. do Barro III  9                                                                       |
+( |  Aura L. do Barro IV   9                                                                       |
+( |  Aura L. do Barro VI   9                                                                       |
+( |                                                                                                |
+( |  Aura L. do Barro I    9   Acciona       AW116     3.0     DFIG       91269         5322       |
+( |  Aura L. do Barro V    8                                                                       |
+( |  Aura L. do Barro VII  9                                                                       |
+( |  Aura Queimada NovaIII 3                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ACCIONA - Modelo AW116 3.0 MW com WPP (Controle do Parque)                        |
+( |  TOPOLOGIA - 91564                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Amazonas - Mossoró II 230 kV (RN)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Junco I               8   Acciona       AW116     3.0     DFIG       91564         6057       |
+( |  Junco II              8                                                                       |
+( |  Caiçara I             9                                                                       |
+( |  Caiçara II            6                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Vila Amazonas V      10   Acciona       AW116     3.0     DFIG       91565         6642       |
+( |  Vila Pará I           9                                                                       |
+( |  Vila Pará II          8                                                                       |
+( |  Vila Pará III         8                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Ventos da Bahia - Bonito 138 kV (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Ventos da Bahia II    9   Acciona       AW116     3.0     DFIG       90110         6714       |
+( |  Ventos da Bahia VII   9                                                                       |
+( |  Ventos da Bahia IV    4                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Itarema V - Acaraú II 230 kV (CE)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Itarema VI            8   Acciona       AW116     3.0     DFIG       90535         6066       |
+( |  Itarema VII           7                                                                       |
+( |  Itarema VIII          7                                                                       |
+( |  Itarema IX           10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Jandaia - Russas II 230 kV (CE)                                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Jandaia               9   Acciona       AW125     3.0     DFIG       90537         6053       |
+( |  São Clemente          5                                                                       |
+( |  São Januário          7                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Jandaia I             8   Acciona       AW125     3.0     DFIG       90538         8306       |
+( |  N. S. Fátima         10                                                                       |
+( |  São Clemente          2                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |                                                                                                |
+( |  PARQUES FUTUROS NO HORIZONTE DO PEL                                                           |
+( |  ==============================================                                                |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Ventos de S. Esperança - Morro do Chapéu (BA)                                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Esperança 13    9   Acciona       AW116     3.0     DFIG       90156         5879       |
+( |  V. S. Esperança 15    9                                                                       |
+( |  V. S. Esperança 17    8                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ACCIONA - Modelo AW116 3.0 MW sem WPP (Controle do Parque)                        |
+( |  TOPOLOGIA - 91524                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Carcará II - Mossoró II 230 kV (RN)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Carcará I            10   Acciona       AW116     3.0     DFIG       91524         6653       |
+( |  Carcará II           10                                                                       |
+( |  Terral               10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Itarema V - Acaraú II 230 kV (CE)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Itarema I             9   Acciona       AW116     3.0     DFIG       90517         6636       |
+( |  Itarema II            9                                                                       |
+( |  Itarema IV            7                                                                       |
+( |  Itarema V             7                                                                       |
+( |  Itarema III           5                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Carnaúbas - ICG Touros 69 kV (RN)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Carnaúbas             9   Acciona       AW116     3.0     DFIG       91551         6105       |
+( |  Reduto                9                                                                       |
+( |  Santo Cristo          9                                                                       |
+( |  Sao João              9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - VESTAS                                                                           |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VESTAS - Modelo V82 1.65 MW                                                       |
+( |  TOPOLOGIA - 91509 (FORA DA SIMULAÇÃO - MODELO EM ANÁLISE)                                     |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Alegria I e II - Açu II 230 kV (RN)                                                    |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Alegria 1            31   Vestas        V82      1.65   MI-Gaiola    91509         5459       |
+( |  Alegria 2            61                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VESTAS - Modelo V90 3.0 MW / V100 2.0 MW / V110 2.0 e 2.2 MW                      |
+( |  TOPOLOGIA - 91529                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Morro do Chapéu Sul - Morro do Chapéu II 230 kV (BA)                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Ventos S. Dulce      14   Vestas        V110      2.0     DFIG       90123         6074       |
+( |  Boa V. Lagoinha      15                                                                       |
+( |  Ventos S. Abraão     14                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Ventos S. Mario      15   Vestas        V110      2.0     DFIG       90124         6741       |
+( |  Ventos S. Paulo      14                                                                       |
+( |  Ventos S. Esperança  14                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Renascença - ICG ETN João Câmara III 138 kV (RN)                                  |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Renascença I         15   Vestas        V100      2.0     DFIG       91529         6164       |
+( |  Renascença II        15                                                                       |
+( |  Renascença III       15                                                                       |
+( |  Renascença IV        15                                                                       |
+( |  Ventos S. Miguel     15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Olho D'Água - ICG ETN João Câmara III 138 kV (RN)                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Farol                10   Vestas        V100      2.0     DFIG       91531         6775       |
+( |  Dreen Olho D'Água    15                                                                       |
+( |  Dreen S. B. Norte    15                                                                       |
+( |  Dreen Boa Vista       7                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Renascença V - ICG ETN João Câmara III 138 kV (RN)                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Eurus II             15   Vestas        V100      2.0     DFIG       91598         8661       |
+( |  Renascença V         15   Vestas        V100      2.0     DFIG       91532         6763       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra de Santana 1 e 2 - ICG Lagoa Nova II 69 kV (RN)                             |
+( |  (Complementação deste conjunto nas barras 5079 e 8099)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Macambira I           9   Vestas        V100      2.0     DFIG       91535         8098       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra de Santana 3 - ICG Lagoa Nova II 69 kV (RN)                                 |
+( |  (Complementação deste conjunto na barra 6108)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Macambira II          9   Vestas        V100      2.0     DFIG       91582         8113       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Pedra Rajada I       10   Vestas        V100      2.0     DFIG       91583         8114       |
+( |  Pedra Rajada II      10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cabeço Preto II - ICG ETN João Câmara III 138 kV (RN)                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Cabeço Preto III     13   Vestas        V110      2.0     DFIG       91536         6052       |
+( |  Cabeço Preto V       13                                                                       |
+( |  Cabeço Preto VI       9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Ventos da Bahia 2 - Morro do Chapéu II 230 kV (BA)                                |
+( |                                                                                                |
+( |  Parque                UN  Fabricante    Modelo     MW     Tipo        ACDU        Barra       |
+( |  Ventos da Bahia I     13  Vestas        V110      2.2     DFIG       90149         6372       |
+( |  Ventos da Bahia III   14                                                                      |
+( |  Ventos da Bahia IX    13                                                                      |
+( |  Ventos da Bahia XVIII 13                                                                      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Delfina - Juazeiro da Bahia II 230 kV (BA)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delfina I            14   Vestas        V110      2.0     DFIG       90111         6232       |
+( |  Delfina II           14                                                                       |
+( |  Delfina III          14                                                                       |
+( |  Delfina IV            4                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delfina V            14   Vestas        V110      2.0     DFIG       90112         6719       |
+( |  Delfina VI           15                                                                       |
+( |  Delfina VII          15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cristalândia - Brumado II 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Cristalândia I       15   Vestas        V110      2.0     DFIG       90155         5294       |
+( |  Cristalândia II      15                                                                       |
+( |  Cristalândia III     15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pedra Branca - Sobradinho 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  São Pedro do Lago     4   Vestas        V100      3.0     DFIG       90035         6304(Gp20) |
+( |  Pedra Branca          6                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VESTAS - Modelo V100 2.0 MW                                                       |
+( |  TOPOLOGIA - 90013                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pedra Branca - Sobradinho 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Sete Gameleiras      15   Vestas        V100      2.0     DFIG       90013         6304(Gp10) |
+( |  São Pedro do Lago     9                                                                       |
+( |  Pedra Branca          6                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VESTAS (WTG) - Modelo V110 2.2 e 2.0 MW                                           |
+( |  TOPOLOGIA - 91570                                                                             |
+( |  CONTROLE DA PLANTA (PPC) - Modelo V110 2.2 e 2.0 MW                                           |
+( |  TOPOLOGIA - 91574                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cabeço Preto II - ICG ETN João Câmara III 138 kV (RN)                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Boa Esperança I      14   Vestas        V110      2.2     DFIG    91570/91574      5127       |
+( |  Cabeço Vermelho II(*) 8                           2.2                                         |
+( |  Cabeço Vermelho I    13                           2.0                                         |
+( |  Nota: (*) - Limitada a 16 MW                                                                  |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR VESTAS (WTG) - Modelo V150 4.2 MW                                                 |
+( |  TOPOLOGIA - 91571                                                                             |
+( |  CONTROLE DA PLANTA (PPC) - Modelo V150 4.2 MW                                                 |
+( |  TOPOLOGIA - 91575                                                                             |
+( |                                                                                                |
+( |  PARQUES FUTUROS NO HORIZONTE DO PEL                                                           |
+( |  ==============================================                                                |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Complexo Echo 6 e 7                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       | 
+( |  Vila Piauí I          9   Vestas        V150      4.2   F.Converter  91575/91577   8141       |
+( |  Vila Piauí II         9                                                                       |
+( |  Vila Piauí III       10                                                                       |
+( |  Vila Sergipe III      4                                                                       |
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Complexo Echo 3 e 6                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       | 
+( |  V. R. G. do Norte I   6   Vestas        V150      4.2   F.Converter  91576/91578   8295       |
+( |  V. R. G. do Norte II  9                                                                       |
+( |  Vila Sergipe I        9                                                                       |
+( |  Vila Sergipe II       9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Folha Larga                                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       | 
+( |  V. de S. Januário 1   8   Vestas        V150      4.2  F.Converter 90171/90164     5940       |
+( |  V. de S. Januário 4   7                                                                       |
+( |  V. de S. Januário 13 10                                                                       |
+( |  V. de S. Januário 14 10                                                                       |
+( |  V. de S. Januário 3   8   Vestas        V150      4.2  F.Converter 90172/90165     8138       |
+( |  V. de S. Januário 5  10                                                                       |
+( |  V. de S. Januário 6   9                                                                       |
+( |  V. de S. Januário 10 10                                                                       |
+( |  V. de S. Januário 11 10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Folha Larga Sul                                                    |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       | 
+( |  V. de S. Januário 20  6   Vestas        V150      4.2  F.Converter 90173/90166     8679       |
+( |  V. de S. Januário 21 12                                                                       |
+( |  V. de S. Januário 20  6   Vestas        V150      4.2  F.Converter 90168/90167     8330       |
+( |  V. de S. Januário 22 12                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - GAMESA                                                                           |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G87 e G90 2.0 MW                                                  |
+( |  TOPOLOGIA - 90106                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Caetité - ICG Igaporã II 230 kV (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Caetite I            15   Gamesa        G90       2.0     DFIG       90106         6195       |
+( |  Caetite II           15                                                                       |
+( |  Caetite III          15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Faísa - Pecém II 230 kV (CE)                                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. Antônio de Pádua   7   Gamesa        G90       2.0     DFIG       90516         5374       |
+( |  S. Cristovão         13                                                                       |
+( |  S. Jorge             12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  **   CONJUNTO Calango 1 - Lagoa Nova II 69 kV (BA)                                            |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Calango 1            15   Gamesa        G87 e G90 2.0     DFIG       91534         5075       |
+( |  Calango 3            15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  **  CONJUNTO Calango 2 - Lagoa Nova II 69 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Calango 2            15   Gamesa        G87 e G90 2.0     DFIG       91542         8091       |
+( |  Calango 4            15                                                                       |
+( |  Calango 5            15      
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G97/G114 - DFIG                                                 |
+( |  TOPOLOGIA - 90021                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pedra Cheirosa - Sobral III 230 kV (CE)                                           |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Pedra Cheirosa I     12   Gamesa        G114      2.1     DFIG       90524         6693       |
+( |  Pedra Cheirosa II    11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Campo Formoso - Sec. LT 230 kV Irecê - S. Bonfim (BA)                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. Campo Formoso I   15   Gamesa        G97       2.0     DFIG       90109         6229       |
+( |  Ventos da Andorinha  15                                                                       |
+( |  Ventos de Guarás I   15                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. Campo Formoso II  15   Gamesa        G97       2.0     DFIG       90021         6637       |
+( |  V. de Morrinhos      15                                                                       |
+( |  V. do Sertão         15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra Azul - Morro do Chapéu 230 kV (BA)                                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Dois Riachos         15   Gamesa        G97       2.0     DFIG       90015         6209       |
+( |  Damascena            15                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Maniçoba             14   Gamesa        G97       2.0     DFIG       90010         6242       |
+( |  Esperança            15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Gentio do Ouro - Irecê 230 kV (BA)                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Assuruá II           15   Gamesa        G97       2.0     DFIG       90011         6244       |
+( |  Assuruá IV           15                                                                       |
+( |  Assuruá V            10                                                                       |
+( |  Assuruá VII           9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapada I - Curral Novo do Piauí II 500 kV (PI)                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. JOANA 6        15   Gamesa        G97       2.0     DFIG       91254         6630       |
+( |  V. S. JOANA 14       15                                                                       |
+( |  V. S. ONOFRE 1       15                                                                       |
+( |  V. S. ONOFRE 3       15                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. JOANA 2        15   Gamesa        G97       2.0     DFIG       91277         5600       |
+( |  V. S. JOANA 8        15                                                                       |
+( |  V. S. ONOFRE 2       15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra de Santana 1 e 2 - ICG Lagoa Nova II 69 kV (RN)                             |
+( |  (Complementação deste conjunto na barra 8098)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. de Santana I      10   Gamesa        G97       2.0     DFIG       91533         5079       |
+( |  S. de Santana II     15                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Lanchinha            14   Gamesa        G97       2.0     DFIG       91580         8099       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra de Santana 3 - ICG Lagoa Nova II 69 kV (RN)                                 |
+( |  (Complementação deste conjunto nas barras 8113 e 8114)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. de Santana III    15   Gamesa        G97       2.0     DFIG       91581         6108       |
+( |  Pelado               10                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Baixa do Feijão - ICG ETN João Câmara III 138 kV (RN)                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Baixa do Feijão I    15   Gamesa        G97       2.0     DFIG       91537         6742       |
+( |  Baixa do Feijão II   15                                                                       |
+( |  Baixa do Feijão III  15   Gamesa        G97       2.0     DFIG       91558         6129       |      |
+( |  Baixa do Feijão IV   15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Calango 3 - ICG Lagoa Nova II 69 kV (RN)                                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Calango 6            15   Gamesa        G97       2.0     DFIG       91547         6065       |
+( |  Santana I            15                                                                       |
+( |  Santana II           12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Acaraú II - Acaraú II (CE)                                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Cataventos Acaraú I  14   Gamesa        G97       2.0     DFIG       90536         5320       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G114 2.1 MW                                                       |
+( |  TOPOLOGIA - 91100                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Amazonas - Mossoró II 230 kV (RN)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Vila Acre I          13   Gamesa        G114      2.1     DFIG       91550         6688       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Campo dos Ventos - ICG - ETN João Câmara III 138 kV (RN)                          |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Campo dos Ventos V   12   Gamesa        G114      2.1     DFIG       91545         6166(Gr20) |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Campo dos Ventos I   12   Gamesa        G114      2.1     DFIG       91539         5999       |
+( |  Campo dos Ventos III 12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Bloco Sul (SEs Bloco Sul e Bloco Norte - ICG ETN João Câmara III 138 kV (RN)      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Santa Mônica         14   Gamesa        G114      2.1     DFIG       91543         5124       |
+( |  V. São Martinho       7                                                                       |
+( |  Santa Úrsula         13   Gamesa        G114      2.1     DFIG       91591         8684       |
+( |  S. Domingos          12   Gamesa        G114      2.1     DFIG       91592         5968       |
+( |  V. S. Benedito        6                                                                       |
+( |  V. S. Benedito        8   Gamesa        G114      2.1     DFIG       91593         8686       |
+( |  V. São Dimas         14                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapadinha I - Curral Novo do Piauí 230 kV (PI)                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Vicente 8      14   Gamesa        G114      2.1     DFIG       91265         6708       |
+( |  V. S. Vicente 9      14                                                                       |
+( |  V. S. Vicente 10     14                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Vicente 11     14   Gamesa        G114      2.1     DFIG       91266         6709       |
+( |  V. S. Vicente 12     14                                                                       |
+( |  V. S. Vicente 13     14                                                                       |
+( |  V. S. Vicente 14     14                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Babilônia - Morro do Chapéu II (BA)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Beatriz        13   Gamesa        G114      2.1     DFIG       90159         6109       |
+( |  V. S. Aparecida      13                                                                       |
+( |  V. S. Gabriel        13                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Aurora         13   Gamesa        G114      2.1     DFIG       90169         5048       |                                                                    |
+( |  V. S. Emília         13                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G114 2.1 MW                                                       |
+( |  TOPOLOGIA - 91555                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO União dos Ventos - João Câmara II 230 kV (RN)                                     |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  U. dos Ventos 12     12   Gamesa        G114      2.1     DFIG       91555         6619       |
+( |  U. dos Ventos 13      9                                                                       |
+( |  U. dos Ventos 14     10                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G97 2.0 MW                                                        |
+( |  TOPOLOGIA - 91028 (A) / 90028 (P)                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO GPEXPAN - ICG Pindaí II 230 kV (BA)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Coqueirinho II        8   Gamesa        G97       2.0     DFIG    90017/90183      6624       |
+( |  Papagaio              5                                                                       |
+( |  Carcará               5                                                                       |
+( |  Caititu 2             5                                                                       | 
+( |  Caititu 3             5                                                                       | 
+( |                                                                                                | 
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Acauã                 3   Gamesa        G97       2.0     DFIG    90217/90184      6626       | 
+( |  Angical 2             5                                                                       | 
+( |  Ararapá               2                                                                       | 
+( |  Teiú 2                4                                                                       | 
+( |  Corrupiã 3            5                                                                       | 
+( |  Tamanduá Mirim II     8                                                                       | 
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G114 2.625 MW                                                     |
+( |  TOPOLOGIA - 91029 (A) / 90029 (P)                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Zeus II (Delfina VIII) - Juazeiro II (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Zeus II               6   Gamesa        G114      2.1    F.Converter 90161/90185   xxxx       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Zeus II               8   Gamesa        G114      2.1    F.Converter 90162/90186   yyyy       |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GAMESA - Modelo G114 2.625 MW                                                     |
+( |  TOPOLOGIA - 91030 (A) / 90030 (P)                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO São Miguel - João Cãmara II 230 kV (RN)                                           |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  União dos Ventos 15  12   Gamesa        G114     2.625    DFIG    91569/91588      8309       |
+( |  União dos Ventos 16  11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Amazonas - Mossoró II 230 kV (RN)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. de Vila Acre II    9   Gamesa        G132     3.465    DFIG    91566/91587      5901       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Complexo Serra do Mel 1 (RN)                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. de Vila Ceará I    9   Gamesa        G132     3.465    DFIG    91573/91589      6751       |
+( |  V. de Vila Ceará II   9                                                                       |
+( |  V. de Vila Paraíba I 10                                                                       |
+( |  V. de Vila Paraíba II10                                                                       |  
+( |                                                                                                |
+( |  ** CONJUNTO Serra do Mel - Complexo Serra do Mel 2 (RN)                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Vila Maranhão I       9   Gamesa        G132      3.55    DFIG    91572/91590      5916       |
+( |  Vila Maranhão II      9                                                                       |
+( |  Vila Maranhão III     9                                                                       |
+( |  Vila Ceará I          9                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - GE                                                                               |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GE - Modelo GE X.X                                                                |
+( |  TOPOLOGIA - 91526                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Morro dos Ventos II - ICG ETN João Câmara III 138 kV (RN)                         |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Eurus I               4   GE            GE 1.5    1.5     DFIG       91526         6136       |
+( |  Eurus III             4                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  M. dos Ventos II     18   GE            GE 1.6    1.6     DFIG       91538         6127       |
+( |  Eurus I              15                                                                       |
+( |  Eurus III            15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Santa Rosália - ICG Ibiapina II 69 kV (CE)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Vento Formoso        15   GE            GE 1.69  1.69     DFIG       90518         6051       |
+( |  V. de Tinguá         15                                                                       |
+( |  V. do Morro Chapéu   15                                                                       |
+( |  V. de Tinguá Norte   16   GE            GE 1.69  1.69     DFIG       90528         8607       |
+( |  V. do Paraizinho     16                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Caetés - ICG Garanhuns II 230 kV (PE)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Brígida III    17   GE            GE 1.7    1.7     DFIG       90204         6629       |
+( |  V. S. Brígida V      17                                                                       |
+( |  V. S. Brígida VI     17                                                                       |
+( |  V. S. Brígida I       8   GE            GE 1.7    1.7     DFIG       90209         8574       |
+( |  V. S. Brígida II     16                                                                       |
+( |  V. S. Brígida IV     16                                                                       |
+( |  V. S. Brígida VII    16                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Caetité A - ICG Igapora II 230 kV (BA)                                            |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Caetité A            14   GE            GE 1.7    1.7     DFIG       90012         6266       |
+( |  Caetité B            13                                                                       |
+( |  Caetité C             5                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO São Clemente - IEG Garanhuns II 230 kV (PE)                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Clemente 2     17   GE            GE 1.7    1.7     DFIG       91004         6020       |
+( |  V. S. Clemente 5     17                                                                       |
+( |  V. S. Clemente 7     14                                                                       |
+( |  V. S. Clemente 8     12                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Clemente 1     17   GE            GE 1.7    1.7     DFIG       91005         6014       |
+( |  V. S. Clemente 3     17                                                                       |
+( |  V. S. Clemente 4     17                                                                       |
+( |  V. S. Clemente 6     15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapada II - Picos II 230 kV (PI)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Joana XII      17   GE            GE 1.7    1.7     DFIG       91275         6648       |
+( |  V. S. Joana XV       17                                                                       |
+( |  V. S. Joana XVI      17                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapada III - Curral Novo do Piauí II (PI)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Joana I        17   GE            GE 1.7    1.7     DFIG       91276         5622       |
+( |  V. S. Joana III      16                                                                       |
+( |  V. S. Joana IV       16                                                                       |
+( |  V. S. Augusto V      16                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Paranatama - IEG Garanhuns II 230 kV (PE)                                         |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. das Vacas I       14   GE            GE 1.715 1.715    DFIG       91006         6634       |
+( |  S. das Vacas II      13                                                                       |
+( |  S. das Vacas III     13                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. das Vacas IV      13   GE            GE 1.79  1.79     DFIG       91007         6654       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  S. das Vacas V       11   GE            GE 2.3    2.3     DFIG       91008         5729       |
+( |  S. das Vacas VI      11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Araripe III - Curral Novo do Piauí II 230 kV (PI)                                 |
+( |                                                                                                |
+( |  - T1C -                                                                                       |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Augusto VIII    8   GE            GE 2.3    2.3     DFIG       91261         6672       |
+( |  V. S. Augusto I       8                                                                       |
+( |  V. S. Estevão III    13                                                                       |
+( |  V. S. Estevão V      12                                                                       |
+( |                                                                                                |
+( |  - T1D -                                                                                       |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Augusto II     12   GE            GE 2.3    2.3     DFIG       91262         6673       |
+( |  V. S. Onofre  IV     12                                                                       |
+( |  V. S. Virgilio II    13                                                                       |
+( |                                                                                                |
+( |  - T2B -                                                                                       |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Augusto VI     13   GE            GE 2.3    2.3     DFIG       91263         6674       |
+( |  V. S. Estevão  I     11                                                                       |
+( |  V. S. Virgilio I     13                                                                       |
+( |                                                                                                |
+( |  - T2A -                                                                                       |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Augusto VII     8   GE            GE 2.3    2.3     DFIG       91264         6675       |
+( |  V. S. Estevão II     11                                                                       |
+( |  V. S. Estevão IV     13                                                                       |
+( |  V. S. Virgílio III    9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Paulino Neves - Paulino Neves Miranda II 525 kV (MA)                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 3 IV           12   GE            GE 2.3    2.3     DFIG       90752         6711       |
+( |  Delta 3 VII          12                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 3 II           12   GE            GE 2.3    2.3     DFIG       90756         8013       |                                                                         |
+( |  Delta 3 V            12                                                                       |
+( |  Delta 3 VI           12                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 3 I            12   GE            GE 2.3    2.3     DFIG       90757         8014       |                                                                         |
+( |  Delta 3 III          12                                                                       |
+( |  Delta 3 VIII         12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Gargaú - Gargaú 69 kV (RJ)                                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Gargaú I              9   GE            GE 1.7    1.7     DFIG       90018         8701       |
+( |  Gargaú II             8                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GE - Modelo GE 1.X                                                                |
+( |  TOPOLOGIA - 91519                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Morro dos Ventos II - ICG ETN João Câmara III 138 kV (RN)                         |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  M. dos Ventos I      18   GE            GE 1.6    1.6     DFIG       91521         6160       |
+( |  M. dos Ventos III    18                                                                       |
+( |  M. dos Ventos IV     18                                                                       |
+( |  M. dos Ventos VI     18                                                                       |
+( |  M. dos Ventos IX     19                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO União dos Ventos - João Câmara II 230 kV (RN)                                     |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  U. dos Ventos VIII    9   GE            GE 1.6    1.6     DFIG       91519         6213       |
+( |  U. dos Ventos IX      7                                                                       |
+( |  U. dos Ventos X       9                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  U. dos Ventos I      14   GE            GE1.6     1.6     DFIG       91520         6214       |
+( |  U. dos Ventos II     14                                                                       |
+( |  U. dos Ventos III    14                                                                       |
+( |  U. dos Ventos IV      7                                                                       |
+( |  U. dos Ventos V      15                                                                       |
+( |  U. dos Ventos VI      8                                                                       |
+( |  U. dos Ventos VII     9                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Asa Branca - ICG ETN João Câmara III 138 kV (RN)                                  |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Asa Branca IV        20   GE            GE 1.6    1.6     DFIG       91557         8640       |
+( |  Asa Branca V         20                                                                       |
+( |  Asa Branca VI        20   GE            GE 1.6    1.6     DFIG       91528         6165       |                                                                      |
+( |  Asa Branca VII       20                                                                       |
+( |  Asa Branca VIII      20                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Alvorada - ICG Igaporã II 69 kV (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Alvorada              5   GE            GE 1.6    1.6     DFIG       90206         8080       |
+( |  Rio Verde            19                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Licínio - ICG Igaporã II 69 kV (BA)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Candiba               6   GE            GE 1.6    1.6     DFIG       90205         8074       |
+( |  Guanambi             13                                                                       |
+( |  Licínio de Almeida   15                                                                       |
+( |  Serra do Salto       12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Guirapá - ICG Igaporã II 69 kV (BA)                                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Guirapa              18   GE            GE 1.6     1.6    DFIG       90208         8077       |
+( |  Pindaí               15                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO N. S. da Conceição - ICG Igaporã II 69 kV (BA)                                    |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Igapora              19   GE            GE 1.6    1.6     DFIG       90207         8071       |
+( |  Ilhéus                7                                                                       |
+( |  N. S. Conceição      18                                                                       |
+( |  Porto Seguro          4                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Planaltina - ICG Igaporã II 69 kV (BA)                                            |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Pajeú do Vento       16   GE            GE 1.6    1.6     DFIG       90203         6387       |
+( |  Planaltina           17                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO dos Araçás - ICG Igaporã II 69 kV (BA)                                            |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Da Prata             13   GE            GE 1.68  1.68     DFIG       90104         6379       |
+( |  Dos Aracás           19                                                                       |
+( |  Tanque               18                                                                       |
+( |  V. Nordeste          14                                                                       |
+( |  Maron                18                                                                       |
+( |  Pilões               18                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Morrão - ICG Igaporã II 69 kV (BA)                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Morrão               18   GE            GE 1.68  1.68     DFIG       90105         6382       |
+( |  Seraíma              18                                                                       |
+( |  Ametista             17                                                                       |
+( |  Dourados             17                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Pelourinho - ICG Pindaí II 69 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Borgo                12   GE            GE 1.68  1.68     DFIG       90107         6227       |
+( |  Pelourinho           13                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Caetité - ICG Pindaí II 69 kV (BA)                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Caetite              18   GE            GE 1.68  1.68     DFIG       90137         5067       |
+( |  Espigão               6   GE            GE 1.68  1.68     DFIG       90139         8688       |
+( |  Serra do Espinhaço   11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapada III - Curral Novo do Piauí II (PI)                                        |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Joana V        17   GE            GE 1.85  1.85     DFIG       91259         6638       |
+( |  V. S. Joana VII      17                                                                       |
+( |  V. S. Augusto III    16                                                                       |
+( |  V. S. Augusto IV     17                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Chapada II - Picos II 230 kV (PI)                                                 |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  V. S. Joana IX       16   GE            GE 1.85  1.85     DFIG       91260         6647       |
+( |  V. S. Joana X        16                                                                       |
+( |  V. S. Joana XI       16                                                                       |
+( |  V. S. Joana XIII     16                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO BW Guirapá 1 - ICG Pindaí 69 kV (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Corrupiao            15   GE            GE 1.85  1.85     DFIG       90108         6144       |
+( |  Inhambu              17                                                                       |
+( |  Teiú                  9   GE            GE 1.85  1.85     DFIG       90138         8691       |
+( |  Angical               7                                                                       |
+( |                                                                                                |
+( |  ** CONJUNTO BW Guirapá 2 - ICG Pindaí 69 kV (BA)                                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Caetitú              12   GE            GE 1.85  1.85     DFIG       90127         5985       |
+( |  Coqueirinho          16                                                                       |
+( |  Tamandua Mirim       16   GE            GE 1.85  1.85     DFIG       90129         8693       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GE - Modelo GE 2.5                                                                |
+( |  TOPOLOGIA - 90760                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Gentio do Ouro - Irecê 230 kV (BA)                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Assuruá III           5   GE            GE 2.5    2.5     DFIG       90118         6731       |
+( |  Curral de Pedras I    8                                                                       |
+( |  Diamante II           7                                                                       |
+( |  Diamante III          7                                                                       |
+( |  Laranjeiras I        11                                                                       |
+( |  Laranjeiras II       12                                                                       |
+( |  Laranjeiras V        10                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Capoeiras III        11   GE            GE 2.5    2.5     DFIG       90119         6732       |
+( |  Curral de Pedras II  11                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR GE - Modelo GE 2.5-116 e 2.7-116  (v6016)                                         |
+( |  TOPOLOGIA - 90762                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |  ** CONJUNTO Paulino Neves - Paulino Neves Miranda II 525 kV (MA)                              |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 5 II           10   GE         GE 2.7-116   2.7     DFIG       90760         5899       |
+( |  Delta 6 I            11                                                                       |
+( |  Delta 6 II            9                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 5 I            10   GE         GE 2.7-116   2.7     DFIG       90761         8015       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Delta 7 I            10   GE         GE 2.7-116   2.7     DFIG       90763         8312       |
+( |  Delta 7 II           13                                                                       |
+( |  Delta 8 I            13                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** - Conjunto Laranjeiras - Gentio do Ouro II 230 kV (BA)                                     |                                                                                                           |
+( |  Parque                UN  Fabricante    Modelo     MW     Tipo        ACDU        Barra       |
+( |  Laranjeiras III       10  GE         GE 2.5-116   2.5     DFIG       90014         6072       |
+( |  Laranjeiras IX        10                                                                      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Umburanas - Ourolandia II 230 kV (BA)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Umburanas  8         10   GE            GE 2.5    2.5     DFIG       90040         6068       |
+( |  Umburanas 16         10                                                                       |
+( |  Umburanas 17          9                                                                       |
+( |  Umburanas 18          3                                                                       |
+( |  Umburanas 21          6                                                                       |
+( |  Umburanas 23          9                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |                       
+( |  Umburanas  5          7   GE            GE 2.5    2.5     DFIG       90240         8085       |
+( |  Umburanas  6          8                                                                       |
+( |  Umburanas  9          7                                                                       |
+( |  Umburanas 10          8                                                                       |
+( |  Umburanas 19         10                                                                       |
+( |  Umburanas 25          7                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |                       
+( |  Umburanas  1         10   GE            GE 2.5    2.5     DFIG       90241         8086       |
+( |  Umburanas  2         10                                                                       |
+( |  Umburanas  3          8                                                                       |
+( |  Umburanas 11          6                                                                       |
+( |  Umburanas 13          8                                                                       |
+( |  Umburanas 15          8                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - SUZLON                                                                           |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR SUZLON - Modelo S88                                                               |
+( |  TOPOLOGIA - 90501                                                                             |
+( |  CONTROLE DO PARQUE - Modelo S88                                                               |
+( |  TOPOLOGIA - 90502                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Praia Formosa - Sobral III 230 kV (CE)                                                 |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Praia Formosa        50   Suzlon        S88       2.1     DFIG     90501/90502      6037      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Icaraizinho - Sobral III 230 kV (CE)                                                   |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Icaraizinho          26   Suzlon        S88       2.1     DFIG     90503/90504      6038      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Aracati II - Russas II 230 kV (CE)                                                |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Enacel               16   Suzlon        S88       2.1     DFIG     90505/90506      5439      |
+( |  Canoa Quebrada       27                                                                       |
+( |  Bons Ventos          24                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Areia Branca - Mossoró II 230 kV (RN)                                             |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Mar e Terra          11   Suzlon        S88       2.1     DFIG     91507/91508      6043      |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR SUZLON - Modelo S95                                                               |
+( |  TOPOLOGIA - 91506                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Areia Branca - Mossoró II 230 kV (RN)                                             |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Areia Branca         13   Suzlon        S95       2.1     DFIG       91506         6042       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Icaraí - Sobral III 230 kV (CE)                                                   |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Icaraí I             13   Suzlon        S95       2.1     DFIG       90509         6768       |
+( |  Icaraí II            18                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Taíba - Pecém II 230 kV (CE)                                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Colônia               9   Suzlon        S95       2.1     DFIG       90510         6777       |
+( |  Taíba Andorinha       7                                                                       |
+( |  Taíba Águia          11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Faísa - Pecém II 230 kV (CE)                                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Faisa I              14   Suzlon        S95       2.1     DFIG       90511         6781       |
+( |  Faisa II             13                                                                       |
+( |  Faisa III            12                                                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Faisa IV             12   Suzlon        S95       2.1     DFIG       90512         6782       |
+( |  Faisa V              14                                                                       |
+( |  Embuaca              13                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - SIEMENS                                                                          |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR SIEMENS - Modelo SWT-XXX                                                          |
+( |  TOPOLOGIA - 91530                                                                             |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Curva dos Ventos - ICG Igapora II 69 kV (BA)                                      |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Emiliana             12   Siemens       SWT-108  2.35   MI-F.Conv    90102         6135       |
+( |  Joana                12                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Modelo - João Câmara II 69 kV (RN)                                                |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Modelo I             13   Siemens       SWT-108  2.35   MI-F.Conv    91518         6215       |
+( |  Modelo II            11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Tacaratu - Sec. LT 230 kV P. Afonso - Bom Nome (BA)                               |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Pau Ferro            13   Siemens       SWT-108  2.35   MI-F.Conv    90103         6678       |
+( |  Pedra Jeronimo       13                                                                       |
+( |  Tacaicó               8                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Cristal - ICG Morro do Chapéu II 69 kV (BA)                                       |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Cristal              13   Siemens       SWT-101   2.3   MI-F.Conv    90016         6292       |
+( |  Primavera            07                                                                       |
+( |  Primavera            06   Siemens       SWT-101   2.3   MI-F.Conv    90034         8651       |
+( |  São Judas            13                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Trairi - Pecém II 230 kV (CE)                                                     |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Guajiru              13   Siemens       SWT-101   2.3   MI-F.Conv    90527         7199       |
+( |  Trairi               11                                                                       |
+( |  Fleixeiras I         13   Siemens       SWT-101   2.3   MI-F.Conv    90515         6386       |
+( |  Mundaú               13                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Macacos - ICG João Câmara III 138 kV (RN)                                         |
+( |                                                                                                |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     ACDU (A/P)     Barra       |
+( |  Macacos               9   Siemens       SWT-101   2.3    MI-F.Conv   91530         6167       |
+( |  Juremas               7                                                                       |
+( |  Pedra Preta           9   Siemens       SWT-101   2.3    MI-F.Conv   91585         8644       |
+( |  Costa Branca          9                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( |  FABRICANTE - ALSTOM                                                                           |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ALSTOM Modelo ECO-86                                                              |
+( |  TURBINA - TOPOLOGIA 90101                                                                     |
+( |  CONVERSOR - TOPOLOGIA 90000                                                                   |
+( |                                                                                                |
+( |  PARQUES EM OPERAÇÃO                                                                           |
+( |  ===================                                                                           |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Brotas de Macaúbas - B. Macaúbas 230 kV (BA)                                      |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Seabra               18   Alstom        ECO-86   1.67     DFIG     90101/90000      6370      |
+( |  Novo Horizonte       18                                                                       |
+( |  Macaúbas             21                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Rei dos Ventos I - Açú II 230 kV (RN)                                                  |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Rei Ventos I         35   Alstom        ECO-86   1.67     DFIG     91511/91510      6035      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Rei dos Ventos III - Açú II 230 kV (RN)                                                |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Rei Ventos III       36   Alstom        ECO-86   1.67     DFIG     91513/91512      6036      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** EOL Miassaba III - AÇU II 230 kV (RN)                                                      |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante    Modelo     MW     Tipo     Turb./Contr     Barra      |
+( |  Miassaba III         41   Alstom        ECO-86   1.67     DFIG     91515/91514      6031      |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ALSTOM Modelo ECO-122                                                             |
+( |  TURBINA - TOPOLOGIA 91258                                                                     |
+( |  CONVERSOR - TOPOLOGIA 90026                                                                   |
+( |  CONVERSOR - TOPOLOGIA 91516 (ECO-122-86)                                                      |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Riachão -  Extremoz III 230 kV - (RN)                                             |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW   Tipo   Turb./Conv./Slip/TopSlip  Barra   |
+( |  Riachão I            11   Alstom     ECO-122   2.7   DFIG  91517/91516/999011/999100   6150   |
+( |  Riachão II           10                                                                       |
+( |  Riachão IV           11                                                                       |
+( |  Riachão VI           11                                                                       |
+( |  Riachão VII          11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Icaraí - Sobral III 230 kV (CE)                                                   |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW   Tipo   Turb./Conv./Slip/TopSlip  Barra   |
+( |  Boca do Córrego       9   Alstom     ECO-122   2.7   DFIG  90514/90513/999006/999100   6793   |
+( |  Ribeirao              8                                                                       |
+( |  Ilha Grande          11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Trairi - Pecém II 230 kV (CE)                                                     |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW   Tipo   Turb./Conv./Slip/TopSlip  Barra   |
+( |  Cacimbas              4   Alstom     ECO-122   2.7   DFIG  90533/90534/999007/999100   5612   |
+( |  Estrela              11                                                                       |
+( |  Ouro Verde           11                                                                       |
+( |  Santa Mônica          7                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO São Basílio - Curral Novo do Piauí II 500 kV (PI)                                 |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW   Tipo   Turb./Conv./Slip/TopSlip  Barra   |
+( |  Ventos S. Angelina   11   Alstom     ECO-122   2.7   DFIG  91258/91257/999008/999100   6019   |
+( |  Ventos S. Bárbara    11                                                                       |
+( |  Ventos S. Edwiges    11                                                                       |
+( |  Ventos S. Fátima     11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ALSTOM Modelo ECO-122                                                             |
+( |  TURBINA - TOPOLOGIA 91540                                                                     |
+( |  CONVERSOR - TOPOLOGIA 91541                                                                   |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Brisa Potiguar - João Câmara III 138 kV (RN)                                      |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW  Tipo   Turb./Conv./Slip/TopSlip  Barra    |
+( |  Eurus IV             10   Alstom     ECO-122   2.7  DFIG  91540/91541/999012/999100   6776    |
+( |  Asa Branca III       10                                                                       |
+( |  Asa Branca I         10   Alstom     ECO-122   2.7  DFIG  91594/91595/999015/999100   8120    |
+( |  Asa Branca II        10                                                                       |
+( |  Ventos de São Uriel   6   Alstom     ECO-122   2.7  DFIG  91596/91597/999016/999100   8121    |
+( |  Ventos de S. Helena  11                                                                       |
+( |  Santa Maria (SM)     11                                                                       |
+( |                                                                                                |
+( |------------------------------------------------------------------------------------------------|
+( |                                                                                                |
+( |  AEROGERADOR ALSTOM Modelo ECO-122                                                             |
+( |  TURBINA - TOPOLOGIA 90146                                                                     |
+( |  CONVERSOR - TOPOLOGIA 90145                                                                   |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO Campo Largo - Ourolândia II 230 kV (BA)                                           |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW  Tipo   Turb./Conv./Slip/TopSlip  Barra    |
+( |  Campo Largo II       11   Alstom     ECO-122   2.7  DFIG  90146/90145/999004/999100   6073    |
+( |  Campo Largo V        11                                                                       |
+( |  Campo Largo VI       11                                                                       |
+( |  Campo Largo XV       11                                                                       |
+( |  Campo Largo XVII     11                                                                       |
+( |  Campo Largo XXI      11                                                                       |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW  Tipo   Turb./Conv./Slip/TopSlip  Barra    |
+( |  Campo Largo I        11   Alstom     ECO-122   2.7  DFIG  90148/90147/999005/999100   6756    |
+( |  Campo Largo III      11                                                                       |
+( |  Campo Largo IV       11                                                                       |
+( |  Campo Largo VIII     11                                                                       |
+( |  Campo Largo XVI      11                                                                       |
+( |                                                                                                |
+( |                                                                                                |
+( |  ** CONJUNTO São Basílio - Curral Novo do Piauí II 500 kV (PI)                                 |
+( |                                                                        ACDU                    |
+( |  Parque               UN   Fabricante Modelo     MW  Tipo    Turb./Conv./Slip/TopSlip Barra    |
+( |  Ventos S. Regina     11   Alstom     ECO-122   2.7  DFIG   91270/91271/999009/999100  5672    |
+( |  Ventos S. Adriano    11                                                                       |
+( |  Ventos S. Albano     11                                                                       |
+( |                                                                        ACDU                    |
+( |------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS EM OPERAÇÃO                                                                             |
+( |------------------------------------------------------------------------------------------------|
+(
+DDFM
+( BAHIA
+( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mc )u(Xvd )(Nbc) ( Slip )uR I
+ 6073   10 100 100  66     17  90146u 90145u              999004u2 2     Alstom ECO122     2.7   - Conj. Campo Largo - Campo Largo II, V, VI, XV, XVII e XXI
+ 6756   10 100 100  55     17  90148u 90147u              999005u2 2     Alstom ECO122     2.7   - Conj. Campo Largo - Campo Largo I, III, IV, VIII e XVI
+(
+( CEARÁ
+ 6793   10 100 100  28     17  90514u 90513u              999006u2 2     Alstom ECO122     2.7   - Conj. Icaraí - Boca do Corrego, Ribeirao e Ilha Grande
+ 5612   10 100 100  33     17  90533u 90534u              999007u2 2     Alstom ECO122     2.7   - Conj. Trairi - Cacimbas I, Estrela, Ouro Verde e S. Mônica I
+(
+( PIAUÍ
+ 6019   10 100 100  44     17  91258u 91257u              999008u2 2     Alstom ECO122     2.7   - Conj. São Basílio - Ventos de S. Angelina, S. Bárbara, S. Edwiges e S. Fátima
+ 5672   10 100 100  33     17  91270u 91271u              999009u2 2     Alstom ECO122     2.7   - Conj. São Basílio - S. Regina, S. Adriano e S. Albano
+(
+( RIO GRANDE DO NORTE
+ 6150   10 100 100  54     17  91517u 91516u              999011u2 2     Alstom ECO122     2.7   - Conj. Riachão - Riachão I, II, IV, VI e VII
+ 6776   10 100 100  20     17  91540u 91541u              999012u2 2     Alstom ECO122     2.7   - Conj. Brisa Potiguar - Asa Branca III e Eurus IV
+ 8120   10 100 100  20     17  91594u 91595u              999015u2 2     Alstom ECO122     2.7   - Conj. Brisa Potiguar - Asa Branca I e II
+ 8121   10 100 100  28     17  91596u 91597u              999016u2 2     Alstom ECO122     2.7   - Conj. Brisa Potiguar - Ventos de S. Helena, Ventos de S. Uriel e SM
+999999
+(
+DFNT
+( BAHIA
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+ 6135   10 I  100.  100.  24  90102u            -2.300                   Siemens SWT108    2.35  - Conj. Curva dos Ventos - Emiliana e Joana
+ 6678   10 I  100.  100.  34  90103u            -2.300                   Siemens SWT108    2.35  - Conj. Tacaratu - Tacaicó, Pau Ferro e Pedra do Jerônimo
+ 6292   10 I  100.  100.  20  90016u            -2.300                   Siemens SWT101    2.3   - Conj. Cristal - Cristal e Primavera (7 UGS)
+ 8651   10 I  100.  100.  19  90034u            -2.300                   Siemens SWT101    2.3   - Conj. Cristal - Primavera (6 UGs) e São Judas
+ 6379   10 I  100.  100. 100  90104u            -2.338                   GE                1.68  - Conj. Dos Araçás - Da Prata, Dos Araças, Maron, Pilões, Tanque e Ventos do NE
+ 6382   10 I  100.  100.  70  90105u            -2.338                   GE                1.68  - Conj. Morrão - Ametista, Dourados, Morrão e Seraíma
+ 6227   10 I  100.  100.  25  90107u            -2.338                   GE                1.68  - Conj. Pelourinho - Borgo e Pelourinho
+ 5067   10 I  100.  100.  18  90137u            -2.338                   GE                1.68  - Conj. Caetité - Caetite
+ 8688   10 I  100.  100.  17  90139u            -2.338                   GE                1.68  - Conj. Caetité - Espigão e S. Espinhaço
+ 6144   10 I  100.  100.  32  90108u            -2.574                   GE                1.85  - Conj. BW Guirapá I - Corrupiao e Inhambu
+ 8691   10 I  100.  100.  16  90138u            -2.574                   GE                1.85  - Conj. BW Guirapá I - Angical e Teiu
+ 5985   10 I  100.  100.  28  90127u            -2.574                   GE                1.85  - Conj. BW Guirapá II - Coqueirinho e Catitu
+ 8693   10 I  100.  100.  16  90129u            -2.574                   GE                1.85  - Conj. BW Guirapá II - Tamanduá Mirim 
+ 6266   10 I  100.  100.  32  90012u            -2.366                   GE                1.7   - Conj. Caetité ABC - Caetite A, B, C
+ 6731   10 I  100.  100.  60  90118u           -10.000                   GE                2.5   - Conj. Gentio do Ouro - Assurá III, Curral Pedras I, Diamante II a III, Laranjeiras I, II e V
+ 6732   10 I  100.  100.  22  90119u           -10.000                   GE                2.5   - Conj. Gentio do Ouro - Capoeiras III e Curral de Pedras II
+ 6387   10 I  100.  100.  33  90203u            -2.227                   GE                1.6   - Conj. Planaltina - Planaltina e EOL Pajeú do Vento
+ 8074   10 I  100.  100.  46  90205u            -2.227                   GE                1.6   - Conj. Licínio de Almeida - Candiba, Guanambi, Licínio de Almeida e Serra do Salto
+ 8080   10 I  100.  100.  24  90206u            -2.227                   GE                1.6   - Conj. Alvorada - Alvorada e Rio Verde
+ 8071   10 I  100.  100.  48  90207u            -2.227                   GE                1.6   - Conj. N. S. Conceição - Igaporã, Ilhéus, N. S. Conceição e P. Seguro
+ 8077   10 I  100.  100.  33  90208u            -2.227                   GE                1.6   - Conj. Guirapá - Guirapá e Pindaí I
+ 6229   10 I  100.  100.  45  90109u                      2.0            Gamesa G97        2.0   - Conj. Campo Formoso - Ventos do Campo Formoso I, Ventos da Andorinha e Ventos de Guarás I
+ 6637   10 I  100.  100.  45  90021u                      2.0            Gamesa G97        2.0   - Conj. Campo Formoso - Ventos de Campo Formoso II, Ventos do Sertão e de Ventos de Morrinhos
+ 6209   10 I  100.  100.  30  90015u                      2.0            Gamesa G97        2.0   - Conj. Serra Azul - Dois Riachos e Damascena
+ 6242   10 I  100.  100.  29  90010u                      2.0            Gamesa G97        2.0   - Conj. Serra Azul - Manicoba e Esperança
+ 6624   10 I  100.  100.  28  90017u                                     Gamesa G97        2.0   - Conj. GPEXPAN - EOL Carcará, Caititu 2, Caititu 3, Papagaio, Coqueirinho II
+ 6626   10 I  100.  100.  27  90217u                                     Gamesa G97        2.0   - Conj. GPEXPAN - EOL Acauã, Angical 2, Arapapá, Teiú 2, Corrupião 3, Tamanduá Mirim II
+ 6244   10 I  100.  100.  49  90011u                      2.0            Gamesa G97        2.0   - Conj. Gentio do Ouro - Assuruá II, IV, V e VII
+ 6072   10 I  100.  100.  20  90014u          -3.125                     GE 2.5-116        2.5   - Conj. Laranjeiras - Laranjeiras III e IX 
+ 6068   10 I  100.  100.  47  90040u          -3.1625                    GE 2.5-116        2.5   - Conj. Umburanas - Umburanas 8, 16, 17, 18, 21 e 23
+ 8085   10 I  100.  100.  47  90240u          -3.1625                    GE 2.5-116        2.5   - Conj. Umburanas - Umburanas 5, 6, 9, 10, 19 e 25  
+ 8086   10 I  100.  100.  50  90241u          -3.1625                    GE 2.5-116        2.5   - Conj. Umburanas - Umburanas 1, 2, 3, 11, 13 e 15  
+(Barras de geração da EOL Delfina VIII a serem definidas nos casos de planejamento
+( XXXX   10 I  100.  100.   6  90161u                                     Gamesa G114       2.1   - Conj. Delfina - Delfina VIII (Zeus II)
+( YYYY   10 I  100.  100.   8  90162u                                     Gamesa G114       2.1   - Conj. Delfina - Delfina VIII (Zeus II)
+ 6109   10 I  100.  100.  39  90159u                      2.1            Gamesa G114       2.1   - Conj. Babilônia - Ventos de S. Beatriz, de S. Aparecida e de S. Gabriel
+ 5048   10 I  100.  100.  26  90169u                      2.1            Gamesa G114       2.1   - Conj. Babilônia - Ventos de S. Aurora e de S. Emília
+ 6714   10 I  100.  100.  22  90110u                                     Acciona AW3000    3.0   - Conj. Ventos da Bahia - Ventos da Bahia II, IV e VIII
+ 6372   10 I  100.  100.  53  90149u                                     Vestas V110       2.2   - Conj. Ventos da Bahia 2 - Ventos da Bahia I, III, IX e XVIII
+ 6232   10 I  100.  100.  46  90111u                                     Vestas V110       2.0   - Conj. Delfina - Delfina I a VII
+ 6719   10 I  100.  100.  44  90112u                                     Vestas V110       2.0   - Conj. Delfina - Delfina I a VII
+ 6304   10 I   75.   75.  30  90013u                                     Vestas V100       2.0   - Conj. Pedra Branca - Sete Gameleiras, São Pedro do Lago (9 UGs) e Pedra Branca (6 UGs)
+ 6304   20 I   25.   25.  10  90035u                                     Vestas V100       3.0   - Conj. Pedra Branca - São Pedro do Lago (4 UGs) e Pedra Branca (6 UGs)
+ 6074   10 I  100.  100.  43  90123u                                     Vestas V110       2.0   - Conj. Morro do Chapéu Sul - Ventos de S. Dulce, Ventos de S. Abrão, Boa Vista da Lagoinha
+ 6741   10 I  100.  100.  43  90124u                                     Vestas V110       2.0   - Conj. Morro do Chapéu Sul - Ventos de S. Esperança, Ventos de S. Mario e Ventos de S. Paulo
+ 5294   10 I  100.  100.  45  90155u                                     Vestas V110       2.0   - Conj. Cristalândia - Cristalândia I , II e III
+ 5940   10 I  100   100   35  90171u                    4.2              Vestas V150       4.2   - Conj. Folha Larga (Complexo Folha Larga I)
+ 8138   10 I  100   100   47  90172u                    4.2              Vestas V150       4.2   - Conj. Folha Larga (Complexo Folha Larga II) 
+ 8679   10 I  100   100   18  90173u                    4.2              Vestas V150       4.2   - Conj. Folha Larga Sul (Complexo Folha Larga Sul I)  
+ 8330   10 I  100   100   18  90168u                    4.2              Vestas V150       4.2   - Conj. Folha Larga Sul (Complexo Folha Larga Sul II)    
+ 6308   10 I  100.  100.  53  90032u                                     Enercon E92       2.35  - Conj. Pedra Branca - Morro Branco I, Mussambe, Baraunas II e Banda de Couro
+ 6310   10 I  100.  100.  14  90033u                                     Enercon E92       2.35  - Conj. Pedra Branca - Baraunas I
+ 5744   10 I  100.  100.  26  90113u                                     Enercon EXF2      2.35  - Conj. Casa Nova II - Casa Nova II e III
+ 6320   10 I  100.  100.  47  90151u                                     Enercon E92       2.35  - Conj. Serra da Babilônia - Serra da Babilônia II, VI, VIII e XII
+ 6785   10 I  100.  100.  48  90153u                                     Enercon E92       2.35  - Conj. Serra da Babilônia - Serra da Babilônia VII, IX, X e XI
+(
+( CEARÁ
+ 5433   10 I  100.  100.  17  90521u                                     Vensys VS77       1.5   - EOL Quixabá  (17 x 1.5 = 25.5)
+ 5472   10 I  100.  100.  19  90507u                                     Vensys VS77       1.5   - Conj. Acaraú II - Praia do Morgado
+ 8629   10 I  100.  100.  28  90526u                                     Vensys VS77       1.5   - Conj. Acaraú II - Volta do Rio
+ 6768   10 I  100.  100.  31  90509u                                     Suzlon S95        2.1   - Conj. Icaraí - Icarai I e II
+ 6777   10 I  100.  100.  27  90510u                                     Suzlon S95        2.1   - Conj. Taíba - Colônia, Taíba Andorinha e Taíba Aguia
+ 6781   10 I  100.  100.  39  90511u                                     Suzlon S95        2.1   - Conj. Faísa - Faisa I, II e III
+ 6782   10 I  100.  100.  39  90512u                                     Suzlon S95        2.1   - Conj. Faísa - Faisa IV e V e Embuaca
+ 6386   10 I  100.  100.  26  90515u            -2.300                   Siemens SWT101    2.3   - Conj. Trairi - Fleixeiras I e Mundau
+ 7199   10 I  100.  100.  24  90527u            -2.300                   Siemens SWT101    2.3   - Conj. Trairi - Guajiru e Trairi 
+ 6693   10 I  100.  100.  23  90524u                      2.1            Gamesa G114       2.1   - Conj. Pedra Cheirosa - Pedra Cheirosa I e II
+ 6636   10 I  100.  100.  37  90517u                                     Acciona AW3000    3.0   - Conj. Itarema V - I a V
+ 6066   10 I  100.  100.  32  90535u                                     Acciona AW3000    3.0   - Conj. Itarema V - Itarema VI, VII, VIII e IX
+ 6051   10 I  100.  100.  45  90518u            -2.352                   GE                1.69  - Conj. Santa Rosália - Vento Formoso, Ventos de de Tinguá e Ventos do Morro do Chapéu
+ 8607   10 I  100.  100.  32  90528u            -2.352                   GE                1.69  - Conj. Santa Rosália - Ventos de de Tinguá Norte e Ventos do Paraizinho
+ 6016   10 I  100.  100.  11  90522u                                     WEG AGW-110       2.1   - EOL Malhadinha I
+ 6106   10 I  100.  100.  47  90523u                                     WEG AGW-110       2.1   - Conj. Pitombeira - Goiabeira, Pitombeira, S.Catarina, Ubatuba e Ventos do Horizonte
+ 6550   10 I  100.  100.  24  90531u                                     WEG AGW-110       2.1   - Conj. Cacimbas - Cacimbas 2, 4 e 7
+ 6618   10 I  100.  100.  17  90532u                                     WEG AGW-110       2.1   - Conj. Cacimbas - Cacimbas 3 e 5
+ 6114   10 I  100.  100.  58  90508u                                     Vensys VS77       1.5   - Conj. Papagaios - Coqueiros, Buritis e Cajucoco - SUSPENSA OPERAÇÃO COMERCIAL pelo Despacho ANEEL n.º 1442 de 28/06/2018
+ 5320   10 I  100.  100.  14  90536u                      2.0            Gamesa G97        2.0   - Cataventos Acaraú I (14 x 2.0)        
+(
+( PERNAMBUCO
+ 6629   10 I  100.  100.  51  90204u            -2.366                   GE                1.7   - Conj. Caetés II - Ventos de Santa Brígida III, V e VI
+ 8574   10 I  100.  100.  56  90209u            -2.366                   GE                1.7   - Conj. Caetés II - Ventos de Santa Brígida I, II, IV a VII
+ 6020   10 I  100.  100.  60  91004u            -2.366                   GE                1.7   - Conj. São Clemente - Ventos de S. Clemente 2, 5, 7 e 8
+ 6014   10 I  100.  100.  66  91005u            -2.366                   GE                1.7   - Conj. São Clemente - Ventos de S. Clemente 1, 3, 4 e 6
+ 6634   10 I  100.  100.  40  91006u            -2.387                   GE                1.715 - Conj. Paranatama - Serra das Vacas I a III
+ 5729   10 I  100.  100.  22  91008u            -3.200                   GE                2.3   - Conj. Paranatama - Serra das Vacas V e VI
+ 6654   10 I  100.  100.  13  91007u            -2.491                   GE                1.79  - Conj. Paranatama - Serra das Vacas IV
+(
+( PIAUÍ
+ 6630   10 I  100.  100.  60  91254u                      2.0            Gamesa G97        2.0   - Conj. Chapada I - Ventos de S. Joana VI e XIV e V. S. Onofre 1 e 3
+ 5600   10 I  100.  100.  45  91277u                      2.0            Gamesa G97        2.0   - Conj. Chapada I - Ventos de S. Joana II e VIII e Ventos de S. Onofre 2
+ 6708   10 I  100.  100.  42  91265u                      2.1            Gamesa G114       2.1   - Conj. Chapadinha I - Ventos de S. Vicente 8, 9 e 10
+ 6709   10 I  100.  100.  56  91266u                      2.1            Gamesa G114       2.1   - Conj. Chapadinha I - Ventos de S. Vicente 11 a 14
+ 6638   10 I  100.  100.  67  91259u            -2.574                   GE                1.85  - Conj. Chapada III - Ventos de S. Augusto III e IV e S. Joana V e VII
+ 6647   10 I  100.  100.  64  91260u            -2.574                   GE                1.85  - Conj. Chapada II - Ventos de S. Joana IX, X, XI e XIII
+ 6648   10 I  100.  100.  51  91275u            -2.366                   GE                1.7   - Conj. Chapada II - Ventos de S. Joana XII, XV e XVI (FUTURO)
+ 6672   10 I  100.  100.  41  91261u            -3.200                   GE                2.3   - Conj. Araripe III T1C - Ventos de S. Augusto I e VIII, S. Estevão V e III
+ 6673   10 I  100.  100.  37  91262u            -3.200                   GE                2.3   - Conj. Araripe III T1D - Ventos de S. Augusto II, S. Onofre IV e S.Virgílio II
+ 6674   10 I  100.  100.  37  91263u            -3.200                   GE                2.3   - Conj. Araripe III T2B - Ventos de S. Augusto VI, S. Estevão I e Virgílio I
+ 6675   10 I  100.  100.  41  91264u            -3.200                   GE                2.3   - Conj. Araripe III T2A - Ventos de S. Augusto VII, S. Estevão II e IV e Virgílio III
+ 5622   10 I  100.  100.  65  91276u            -2.366                   GE                1.7   - Conj. Chapada III - Ventos de S. Joana I e IV
+ 5322   10 I  100.  100.  29  91269u                                     Acciona AW3000    3.0   - Conj. Lagoa do Barro I - Aura Lagoa do Barro 1 a 7 e Aura Queimada Nova 3
+ 5040   10 I  100.  100.  36  91279u                                     Acciona AW3000    3.0   - Conj. Lagoa do Barro I - Aura Lagoa do Barro 1 a 7 e Aura Queimada Nova 3
+(
+( RIO GRANDE DO NORTE
+ 6042   10 I  100.  100.  13  91506u                                     Suzlon S95        2.1   - Conj. Areia Branca - Areia Branca
+ 6215   10 I  100.  100.  24  91518u            -2.300                   Siemens SWT108    2.35  - Conj. Modelo - Modelo I e II
+ 6167   10 I  100.  100.  16  91530u            -2.300                   Siemens SWT101    2.3   - Conj. Macacos - Macacos e Juremas
+ 8644   10 I  100.  100.  18  91585u            -2.300                   Siemens SWT101    2.3   - Conj. Macacos - Pedra Preta e Costa Branca
+ 6213   10 I  100.  100.  25  91519u            -2.227                   GE                1.6   - Conj. União dos Ventos - União dos Ventos 8 a 10
+ 6214   10 I  100.  100.  81  91520u            -2.227                   GE                1.6   - Conj. União dos Ventos - União dos Ventos 1 a 7
+ 6136   10 I  100.  100.   8  91526u           -2.0874                   GE                1.5   - Conj. Morro dos Ventos II - Eurus I e III
+ 6127   10 I  100.  100.  48  91538u            -2.227                   GE                1.6   - Conj. Morro dos Ventos II - Morro dos Ventos II
+ 6160   10 I  100.  100.  91  91521u            -2.227                   GE                1.6   - Conj. Morro dos Ventos II - Morro dos Ventos I, III, IV, VI e IX
+ 6165   10 I  100.  100.  60  91528u            -2.227                   GE                1.6   - Conj. Asa Branca - Asa Branca VI, VII e VIII
+ 8640   10 I  100.  100.  40  91557u            -2.227                   GE                1.6   - Conj. Asa Branca - Asa Branca IV, V
+ 6644   10 I  100.  100.  12  91560u                                     Enercon EXF2      2.35  - Conj. Morro dos Ventos - Aventura I
+ 6030   10 I  100.  100.  13  91522u                                     Enercon E82ESFT   2.0   - Conj. Mangue Seco - Mangue Seco I
+ 8127   10 I  100.  100.  13  91612u                                     Enercon E82ESFT   2.0   - Conj. Mangue Seco - Mangue Seco II
+ 8128   10 I  100.  100.  13  91613u                                     Enercon E82ESFT   2.0   - Conj. Mangue Seco - Mangue Seco III
+ 8129   10 I  100.  100.  13  91614u                                     Enercon E82ESFT   2.0   - Conj. Mangue Seco - Mangue Seco V
+ 6145   10 I  100.  100.  30  91523u                                     Enercon E82ESFT   2.0   - Conj. Santa Clara  - S. Clara I e II
+ 8636   10 I  100.  100.  30  91615u                                     Enercon E82ESFT   2.0   - Conj. Santa Clara  - S. Clara III IV
+ 8637   10 I  100.  100.  34  91616u                                     Enercon E82ESFT   2.0   - Conj. Santa Clara  - S. Clara V e VI e Eurus VI
+ 8484   10 I  100.  100.  28  91552u                                     Enercon E92       2.35  - Conj. Baixa do Feijão - Aroeira, Jericó
+ 8485   10 I  100.  100.  14  91579u                                     Enercon E92       2.35  - Conj. Baixa do Feijão - Umbuzeiros
+ 5999   10 I  100.  100.  24  91539u                      2.1            Gamesa G114       2.1   - Conj. Campo dos Ventos - Campo dos Ventos I e III
+ 6166   10 I   56.   56.  15  91525u                                     Enercon E82F1     2.0   - Conj. Campo dos Ventos - Campo dos Ventos II
+ 6166   20 I   44.   44.  12  91545u                      2.1            Gamesa G114       2.1   - Conj. Campo dos Ventos - Campo dos Ventos V
+ 5079   10 I  100.  100.  25  91533u                      2.0            Gamesa G97        2.0   - Conj. Serra de Santana 1 e 2 - S. Santana I e II
+ 8099   10 I  100.  100.  14  91580u                      2.0            Gamesa G97        2.0   - Conj. Serra de Santana 1 e 2 - Lanchinha
+ 8098   10 I  100.  100.   9  91535u                                     Vestas V100       2.0   - Conj. Serra de Santana 1 e 2 - Macambira I 
+ 6742   10 I  100.  100.  30  91537u                      2.0            Gamesa G97        2.0   - Conj. Baixa do Feijão - Baixa do Feijão I e II
+ 6129   10 I  100.  100.  30  91558u                      2.0            Gamesa G97        2.0   - Conj. Baixa do Feijão - Baixa do Feijão III e IV
+ 6065   10 I  100.  100.  42  91547u                      2.0            Gamesa G97        2.0   - Conj. Calango 3 - Calango 6 e Santana I e II
+ 5124   10 I  100.  100.  21  91543u                      2.1            Gamesa G114       2.1   - Conj. Bloco Sul - S. Mônica, S. Martinho
+ 8684   10 I  100.  100.  13  91591u                      2.1            Gamesa G114       2.1   - Conj. Bloco Sul - S. Úrsula
+ 5968   10 I  100.  100.  18  91592u                      2.1            Gamesa G114       2.1   - Conj. Bloco Sul - S. Domingos, V. de S. Benedito (6 UGs)
+ 8686   10 I  100.  100.  22  91593u                      2.1            Gamesa G114       2.1   - Conj. Bloco Sul - V. de S. Benedito (8 UGS) e V. de S. Dimas
+ 6688   10 I  100.  100.  13  91550u                      2.1            Gamesa G114       2.1   - Conj. Amazonas - Vila Acre I
+ 5901   10 I  100.  100.   9  91566u                                     Gamesa G132       3.465 - Conj. Amazonas - Ventos de Vila Acre II
+ 8309   10 I  100.  100.  23  91569u                                     Gamesa G114       2.625 - Conj. São Miguel - União dos Ventos 15 e 16
+ 6619   10 I  100.  100.  31  91555u                                     Gamesa G114       2.1   - Conj. União dos Ventos - União dos Ventos 12 a 14
+ 6653   10 I  100.  100.  30  91524u                                     Acciona AW3000    3.0   - Conj. Carcará II - Carcara I e II e Terral
+ 6105   10 I  100.  100.  36  91551u                                     Acciona AW3000    3.0   - Conj. Carnaúbas - Carnaubas, Reduto, S. Cristo e S. João
+ 6164   10 I  100.  100.  75  91529u                                     Vestas V100       2.0   - Conj. Renascença - Renascença I a IV e Ventos de S.Miguel
+ 6775   10 I  100.  100.  47  91531u                                     Vestas V100       2.0   - Conj. Olho d´Água - Dreen B. Vista, Dreen Olho Dágua, Dreen S.Bento do Norte e Farol
+ 6763   10 I  100.  100.  15  91532u                                     Vestas V100       2.0   - Conj. Renascença V - Renascença V
+ 8661   10 I  100.  100.  15  91598u                                     Vestas V100       2.0   - Conj. Renascença V - Eurus II
+ 6108   10 I  100.  100.  25  91581u                      2.0            Gamesa G97        2.0   - Conj. Serra de Santana 3 - Serra Santana 3 e Pelado
+ 8113   10 I  100.  100.   9  91582u                                     Vestas V100       2.0   - Conj. Serra de Santana 3 - Macambira II
+ 8114   10 I  100.  100.  20  91583u                                     Vestas V100       2.0   - Conj. Serra de Santana 3 - Pedra Rajada I e II
+ 6052   10 I  100.  100.  35  91536u                                     Vestas V110       2.0   - Conj. Cabeço Preto II - Cabeço Preto III, V e VI
+ 5127   10 I  100.  100.  35  91570u                                     Vestas V110       2.2   - Conj. Cabeço Preto II - Cabeço Vermelho I e II e Boa Esperança I
+ 6057   10 I  100.  100.  31  91564u                                     Acciona AW3000    3.0   - Conj. Amazonas - Caiçara I e II e Junco I e II
+ 6642   10 I  100.  100.  35  91565u                                     Acciona AW3000    3.0   - Conj. Amazonas - Vila Amazonas V e Vila Pará I, II e III
+ 6659   10 I  100.  100.  47  91556u                                     WEG AGW-110       2.1   - Conj. Santo Inácio - S. Inácio, III e IV, S. Raimundo e Garrote
+ 5044   10 I  100.  100.  47  91563u                                     WEG AGW-110       2.1   - Conj. Cutia - Dreen Cutia e Gaujiru, Potiguar e Paraíso dos Ventos do NE.
+ 5078   10 I  100.  100.  50  91546u                                     WEG AGW-110       2.1   - Conj. Cutia - Esperança NE, GE Jangada, GE M.Helena, S. B. Norte III
+ 5126   10 I  100.  100.  52  91549u                                     WEG AGW-110       2.1   - Conj. Cutia - S. Bento do Norte I e II e S. Miguel I a III
+(
+( MARANHÃO
+ 6711   10 I  100.  100.  24  90752u            -3.200                   GE                2.3   - Conj. Paulino Neves - Delta 3 IV a VII
+ 8013   10 I  100.  100.  36  90756u            -3.200                   GE                2.3   - Conj. Paulino Neves - Delta 3 II, V e VI
+ 8014   10 I  100.  100.  36  90757u            -3.200                   GE                2.3   - Conj. Paulino Neves - Delta 3 I, III e VIII
+ 5899   10 I  100.  100.  30  90760u            -3.400                   GE 2.7-116        2.7   - Conj. Paulino Neves - Delta 5 II e Delta 6 I e II
+ 8015   10 I  100.  100.  10  90761u            -3.400                   GE 2.7-116        2.7   - Conj. Paulino Neves - Delta 5 I                  
+ 8312   10 I  100.  100.  36  90763u            -3.400                   GE 2.7-116        2.7   - Conj. Paulino Neves - Delta 7 I, II e 8 I   
+(
+( RIO DE JANEIRO
+ 8701   10 I  100.  100.  17  90018u            -2.366                   GE                1.7   - EOL Gargaú I e II
+(
+999999
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS FUTURAS                                                                                 |
+( | Usinas no horizonte do PEL Quadrimestral (maio a agosto de 2020)                               |
+( |------------------------------------------------------------------------------------------------|
+DFNT
+( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+(CEARÁ
+ 6053   10 I  100.  100.  21  90537u                                     Acciona AW3000    3.0   - Conj. Jandaia - EOL Jandaia, S. Clemente e S. Januário
+ 8306   10 I  100.  100.  20  90538u                                     Acciona AW3000    3.0   - Conj. Jandaia - EOL Jandaia I, N. S. Fátima e S. Clemente
+(
+(RIO GRANDE DO NORTE
+ 6751   10 I  100.  100.  38  91573u                                     Gamesa G132       3.465 - Conj. Serra do Mel (1) - V. de Vila Ceará I, II e V. de Vila Paraíba I, II
+ 5916   10 I  100.  100.  36  91572u                                     Gamesa G132       3.55  - Conj. Serra do Mel (2) - Vila Maranhão I, II e III e Vila Ceará I
+ 8141   10 I  100   100   32  91575u                    4.2              Vestas V150       4.2   - Conj. Serra do Mel (Complexo Echo 6 e 7) - Vila Piauí I, II e III e Vila Sergipe III
+ 8295   10 I  100   100   33  91576u                    4.2              Vestas V150       4.2   - Conj. Serra do Mel (Complexo Echo 3 e 6) - Vila Rio Grande do Norte I e II e Vila Sergipe I e II
+999999
+(
+( |------------------------------------------------------------------------------------------------|
+( | CONTROLADORES NÃO ESPECÍFICOS (CONTROLE DE PARQUE, SEP, ETC...)                                |
+( |------------------------------------------------------------------------------------------------|
+(
+DCNE
+(Nc)   ( Mc )u
+(RN
+7014    91574u                        Conj. Cabeço Preto II                           - 5127 - Vestas 110
+7010    91553u                        Conj. Baixa do Feijão (Aroeira e Jericó)        - 8484 - Enercon E92
+7009    91584u                        Conj. Baixa do Feijão (Umbuzeiros)              - 8485 - Enercon E92
+7011    91561u                        Conj. Morro dos Ventos                          - 6644 - Enercon E92
+7024    91587u                        EOL Ventos de Vila Acre II                      - 5901 - Gamesa G132    - Controle de Parque 
+7025    91588u                        Conj. São Miguel                                - 8309 - Gamesa G114    - Controle de Parque 
+7026    91589u                        Conj. Serra do Mel (Complexo Serra do Mel 1)    - 6751 - Gamesa G132    - Controle de Parque 
+7027    91590u                        Conj. Serra do Mel (Complexo Serra do Mel 2)    - 5916 - Gamesa G132    - Controle de Parque 
+7028    91577U                        Conj. Serra do Mel (Complexo Echo 6 e 7)        - 8141 - Vestas V150    - Controle de Parque 
+7029    91578U                        Conj. Serra do Mel (Complexo Echo 3 e 6)        - 8295 - Vestas V150    - Controle de Parque 
+(BA
+0152    90152u                        Conj. S. Babilônia                              - 6320 - Enercon E92                                           
+0156    90154u                        Conj. S. Babilônia                              - 6785 - Enercon E92 
+7020    90183u                        Conj. GPEXPAN                                   - 6624 - Gamesa G97     - Controle de Parque 
+7021    90184u                        Conj. GPEXPAN                                   - 6626 - Gamesa G97     - Controle de Parque 
+(7022    90185u                        EOL Delfina VIII (Zeus II)   **6 AERO           - XXXX - Gamesa G114    - Controle de Parque 
+(7023    90186u                        EOL Delfina VIII (Zeus II)   **8 AERO           - YYYY - Gamesa G114    - Controle de Parque 
+9457    90164u                        Conj. Folha Larga (Complexo Folha Larga I)      - 5940 - Vestas V150    - Controle de Parque 
+9458    90165u                        Conj. Folha Larga (Complexo Folha Larga II)     - 8138 - Vestas V150    - Controle de Parque
+9459    90166u                        Conj. Folha Larga Sul (Complexo F. Larga Sul I) - 8679 - Vestas V150    - Controle de Parque 
+9460    90167u                        Conj. Folha Larga Sul (Complexo F. Larga Sul II)- 8330 - Vestas V150    - Controle de Parque 
+999999
+(
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS TEMPORARIAMENTE FORA DA SIMULAÇÃO - REVISÃO DOS MODELOS                                 |
+( |------------------------------------------------------------------------------------------------|
+((
+(DMOT
+((Modelo predefinido de motor/gerador de indução gaiola de esquilo - tipo 2
+(( Nb)   Gr (  H ) ( K0 ) ( K1 ) ( K2 ) ( EXP) M ( Mt )
+( 5459   10  0.85                              2  91509                  Vestas V82        1.65  - EOL Alegria I e II - RN - (92 UG)
+(999999
+((
+(DDFM
+(( BAHIA
+(( Nb)   Gr (P) (Q) Und ( Mg ) ( Mt )u( Mc )u(Xvd )(Nbc) ( Slip ) R I
+( 6370   10 100 100  57     11  90101u 90000u              -20.00 2 2    Alstom ECO86      1.67  - Conj. Brotas de Macaúbas - Seabra, Novo Horizonte e Macaúbas
+((
+(( CEARÁ
+( 6037   10 100 100  50     12  90501u 90502u               -2.61 2 2    Suzlon S88        2.1   - EOL Praia Formosa
+( 6038   10 100 100  26     12  90503u 90504u               -2.61 2 2    Suzlon S88        2.1   - Conj. Icaraí - Icaraizinho
+( 5439   10 100 100  67     12  90505u 90506u               -2.61 2 2    Suzlon S88        2.1   - Conj. Aracati II - Bons Ventos, Canoa Quebrada e Enacel
+((
+(( RIO GRANDE DO NORTE
+( 6043   10 100 100  11     12  91507u 91508u               -2.61 2 2    Suzlon S88        2.1   - Conj. Areia Branca - Mar e Terra
+( 6035   10 100 100  35     11  91511u 91510u              -20.00 2 2    Alstom ECO86      1.67  - EOL Rei dos Ventos I
+( 6036   10 100 100  36     11  91513u 91512u              -20.00 2 2    Alstom ECO86      1.67  - EOL Rei dos Ventos III
+( 6031   10 100 100  41     11  91515u 91514u              -20.00 2 2    Alstom ECO86      1.67  - EOL Miassaba 3
+(999999
+((
+(DFNT
+(( Nb)   Gr T (FP%) (FQ%) Und ( Mc )u (R ou G) (X ou B) (Sbas)
+( 6195   10 I  100.  100.  45  90106u                                    Gamesa G90        2.0   - Conj. Caetité 123 - Caetite I, II, III
+((
+(( CEARÁ
+( 5374   10 I  100.  100.  32  90516u                                    Gamesa G90        2.0   - Conj. Faísa - S. A. de Pádua, S. Cristovão e S. Jorge
+((
+(( RIO GRANDE DO NORTE
+( 5075   10 I  100.  100.  30  91534u                                    Gamesa G87 e G90  2.0   - Conj. Calango 1 - Calango 1 e 3 
+( 8091   10 I  100.  100.  45  91542u                                    Gamesa G87 e G90  2.0   - Conj. Calango 2 - Calango 2, 4 e 5
+(999999
+(
+(
+FIM

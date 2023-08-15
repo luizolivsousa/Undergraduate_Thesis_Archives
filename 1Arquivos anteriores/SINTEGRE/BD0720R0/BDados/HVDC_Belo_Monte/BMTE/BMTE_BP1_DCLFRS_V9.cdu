@@ -1,0 +1,456 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_BP1_DCLFRS_V9.cdu                                                                    |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------
+(
+( LISTA DE CDU's NESTE ARQUIVO: 
+(
+( CDU 97010 - DC LINE FAULT PROTECTION AND RESTART SEQUENCE POLE 1
+( CDU 97020 - DC LINE FAULT PROTECTION AND RESTART SEQUENCE POLE 2
+(
+(
+(----------------------------------------------------------------------
+(                    DADOS DE TOPOLOGIA (DTDU)
+(----------------------------------------------------------------------
+(
+( TDU 97000 - DC LINE FAULT PROTECTION AND RESTART SEQUENCE
+(
+(----------------------------------------------------------------------
+(
+( SINAIS DE INTERESSE:
+(
+( BLOCO 1060 - SINAL DCP - FALTA DETECTADA POR TAXA (PROTEÇÃO)
+( BLOCO  850 - SINAL BOLTDC - FALTA DETECTADA POR NÍVEL APÓS PRIMEIRO RESTART (CONTROLE)
+( BLOCO 2160 - SINAL DCLNFT - TRIGGER FORCE RETARD
+( BLOCO  540 - SINAL COUNT - CONTADOR DO NUMERO DE TENTATIVAS DE RELIGAMENTO
+( BLOCO  950 - SINAL UREFDC - TENSÃO DC DE REFERÊNCIA (NORMAL OU REDUZIDA)
+( BLOCO  970 - SINAL REDV - ATIVA TENSÃO REDUZIDA
+( BLOCO  985 - SINAL BLOCK - COMANDA BLOQUEIO DO POLO (QUANDO NUMERO DE TENTATIVAS > NRELIG)
+(
+DTDU
+(
+(ncdu) ( nome cdu )
+ 97000 BM-DCLFRS
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #ON/OF                1.0  # ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL) 
+( 
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #NRELI                  2  # NUMERO MÁXIMO DE TENTATIVAS DE RELIGAMENTO
+(
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #UREF1                1.0  # TENSÃO DC DE RELIGAMENTO - 1ª TENTATIVA
+DEFPAR #UREF2                0.7  # TENSÃO DC DE RELIGAMENTO - 2ª TENTATIVA
+DEFPAR #UREF3                0.7  # TENSÃO DC DE RELIGAMENTO - 3ª TENTATIVA
+DEFPAR #UREF4                0.7  # TENSÃO DC DE RELIGAMENTO - 4ª TENTATIVA
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TBPF               0.100  # TEMPO PARA DETECÇÃO DE FALTA BIPOLAR NA LINHA DC (PARA INTERROMPER A SEQUÊNCIA DE RELIGAMENTO E BLOQUEAR O BIPOLO)
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #CNV-X               9981
+DEFPAR #CNV-E               9982
+DEFPAR #DCFOP               9510
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #TTAXA 0.005               # CONSTANTE DE TEMPO PARA MEDICAO DE TAXA 
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TXVDC     -40       # TAXA MINIMA EM VDCR PARA DETECCAO DE FALTA NA LINHA CC
+DEFVAL        TXIDC      90       # TAXA MINIMA EM IDCR PARA DETECCAO DE FALTA NA LINHA CC 
+DEFVAL        VDCMNR    0.6       # SE VDC>VDCMNR DCLF É RESETADA
+DEFVAL        VDCMNS    0.1       # SE VDC<VDCMNS, HABILITA DETECÇÃO BOLTED FAULT
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        NRELIG #NRELI
+(                                
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TDEIO1   0.15       # TEMPO DE DEIONIZAÇÃO - 1ª TENTATIVA
+DEFVAL        TDEIO2   0.20       # TEMPO DE DEIONIZAÇÃO - 2ª TENTATIVA
+DEFVAL        TDEIO3   0.25       # TEMPO DE DEIONIZAÇÃO - 3ª TENTATIVA
+DEFVAL        TDEIO4   0.25       # TEMPO DE DEIONIZAÇÃO - 4ª TENTATIVA
+(                                
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UREF1  #UREF1       # TENSÃO DC DE RELIGAMENTO - 1ª TENTATIVA
+DEFVAL        UREF2  #UREF2       # TENSÃO DC DE RELIGAMENTO - 2ª TENTATIVA
+DEFVAL        UREF3  #UREF3       # TENSÃO DC DE RELIGAMENTO - 3ª TENTATIVA
+DEFVAL        UREF4  #UREF4       # TENSÃO DC DE RELIGAMENTO - 4ª TENTATIVA
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #TRSET                6.0 # TEMPO PARA RESET DO CICLO DE RELIGAMENTO
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #UD_TC              0.008 # CONSTANTE DE TEMPO DE MEDIÇÃO DA TENSÃO (DETECÇÃO DE FALTA PERMANENTE)
+(
+(
+(DEFVA (stip) (vdef) ( d1 ) 
+DEFVAL        ZERO      0.0
+DEFVAL        HUM       1.0
+DEFVAL        DOIS      2.0
+(
+(DEFVA (stip) (vdef) ( d1 ) 
+DEFVAL        HOLD      0.0
+(
+(DEFVA (stip) (vdef) ( d1 ) 
+DEFVAL        X2080     0.0
+DEFVAL        COUNT     0.0
+DEFVAL        DCLFM     0.0
+DEFVAL        REDV      0.0
+DEFVAL        BLOCK     0.0
+DEFVAL        DCLNFT    0.0
+(----------------------------------------------------------------------
+(
+(Detecção manual de falta na linha DC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   1 ENTRAD               DCLFM
+(
+(Saídas para outras CDUs
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   2 EXPORT CDU    DCLNFT
+   3 EXPORT CDU    UREFDC
+   4 EXPORT CDU    REDV
+   5 EXPORT CDU    BLOCK
+(   
+   6 EXPORT CDU    DCLNFT
+   7 EXPORT CDU    UREFDC
+   8 EXPORT CDU    REDV
+   9 EXPORT CDU    BLOCK
+(
+8001 EXPORT CDU    DCLNFT    
+8002 EXPORT CDU    BLOCK  
+8003 EXPORT CDU    DCLNFT    
+8004 EXPORT CDU    BLOCK  
+8005 EXPORT CDU    DCLNFT   
+(
+(Entradas default
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  15 ENTRAD               ZERO
+  25 ENTRAD               HUM
+  35 ENTRAD               DOIS
+(
+(Entradas
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 IMPORT VCNV          VDC-X2 #CNV-X 0.0
+  20 IMPORT VCNV          VDC-E2 #CNV-E 0.0
+  30 IMPORT CCNV          IDC-X  #CNV-X 0.0
+  40 IMPORT CCNV          IDC-E  #CNV-E 0.0
+  50 IMPORT CONDCC        COND-X #CNV-X 0.0
+  60 IMPORT CONDCC        COND-E #CNV-E 0.0
+  70 IMPORT OPCNV         PDIR   #CNV-X 0.0 
+  80 IMPORT ESTCNV        ESTCNV #CNV-X 0.0
+(
+90   SELET2        HUM    VDC-X
+                   VDC-X2 VDC-X
+                   ESTCNV VDC-X
+91   SELET2        HUM    VDC-E
+                   VDC-E2 VDC-E
+                   ESTCNV VDC-E 
+(Seleciona terminal em função do sentido de transmissão de potência <===> PDIR=1 = X->E  /  PDIR=-1 = E->X
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 100 SELET2        VDC-E  VDC-R
+                   VDC-X  VDC-R
+                   PDIR   VDC-R
+ 110 SELET2        IDC-E  IDC-R
+                   IDC-X  IDC-R
+                   PDIR   IDC-R
+ 120 SELET2        COND-X COND-I
+                   COND-E COND-I
+                   PDIR   COND-I
+(
+(Parâmetros para detecção automática de falta na linha DC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 200 ENTRAD               TXVDC
+ 210 ENTRAD               TXIDC                                          
+ 220 ENTRAD               VDCMNR
+ 230 ENTRAD               VDCMNS
+(
+(Lógica de detecção de falta na linha DC
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 WSHOUT        VDC-R  dVdcDt 1.0   1.0   #TTAXA                    
+ 310 COMPAR .LT.   dVdcDt X310                                          
+                   TXVDC  X310   
+ 320 WSHOUT        IDC-R  dIdcDt 1.0   1.0   #TTAXA                    
+ 330 COMPAR .GT.   dIdcdt X330                                          
+                   TXIDC  X330   
+ 340 LOGIC  .AND.  X310   TR                                           
+                   X330   TR    
+ 350 COMPAR .EQ.   COND-I CFINV                                          
+                   DOIS   CFINV
+ 360 LOGIC  .NOT.  CFINV  NOTCF   
+ 370 LOGIC  .AND.  TR     X370                                          
+                   NOTCF  X370   
+ 380 COMPAR .GT.   VDC-R  X380                                          
+                   VDCMNR X380   
+ 390 LOGIC  FFLOP1 X380   X390
+                   X370   X390
+ 400 GANHO         X390   DCLFA  #ON/OF
+ 410 LOGIC  .OR.   DCLFA  DCLF 
+                   DCLFM  DCLF
+1060 MONEST        DCLF   DCP    0.05  
+(
+(Detecção pela proteção OR bolted fault
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 450 LOGIC  .OR.   BOLTDC X450
+                   DCP    X450
+(
+(Monostable - T_deio
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2050 LOGIC  .AND.  X450   X2050                                          
+                   X2150  X2050   
+2060 LOGIC  FFLOP1 R2     X2060                                       
+                   X2050  X2060
+2070 DIVSAO        X2060  X2070
+                   T_DEIO X2070
+2080 INTRES        X2070  X2080  1.0                      ZERO   HUM   
+                   R2a    X2080
+                   ZERO   X2080
+2090 LIMITA        X2080  X2090                           ZERO   HUM   
+2100 COMPAR .GE.   X2090  X2100                                         
+                   HUM    X2100  
+2110 DELAY         X2100  R2    
+2120 DELAY         X450   X2120                                         
+2130 LOGIC  .NOT.  X2120  X2130                                         
+2140 LOGIC  FFLOP1 X2130  X2140                                         
+                   R2     X2140  
+2150 LOGIC  .NOT.  X2140  X2150
+2160 SOMA          X450   X2160
+                  -X2120  X2160
+2170 LOGIC  .OR.   R2     R2a
+                   X2160  R2a
+(
+(Sinal DCLNFT
+2180 LOGIC  .OR.   X2060  DCLNFT
+                   BLOCK  DCLNFT
+(
+(Counter
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 460 ENTRAD               HOLD
+ 500 DELAY         DCLNFT X500
+ 510 COMPAR .GT.   DCLNFT X510
+                   X500   X510
+ 520 ATRASO        X510   INC    0.005
+ 540 ACUM          INC    COUNT  1.0
+                   HOLD   COUNT
+                   RESET  COUNT
+                   ZERO   COUNT
+(
+(Seleção do deionization time
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 860 FUNCAO RETA   COUNT  COUNT1 1.0   -1.0
+ 865 FUNCAO RETA   COUNT  COUNT2 1.0   -2.0 
+ 870 FUNCAO RETA   COUNT  COUNT3 1.0   -3.0 
+ 875 FUNCAO RETA   COUNT  COUNT4 1.0   -4.0
+ 880 FUNCAO RETA   COUNT  COUNT5 1.0   -5.0
+(
+ 605 ENTRAD               TDEIO0
+ 600 ENTRAD               TDEIO1
+ 610 ENTRAD               TDEIO2
+ 620 ENTRAD               TDEIO3
+ 630 ENTRAD               TDEIO4
+ 640 ENTRAD               TDEIO5
+ 645 ENTRAD               TDEIO6
+ 650 SELET2        TDEIO0 X650
+                   TDEIO1 X650
+                   COUNT  X650
+ 660 SELET2        X650   X660
+                   TDEIO2 X660
+                   COUNT1 X660
+ 670 SELET2        X660   X670
+                   TDEIO3 X670
+                   COUNT2 X670
+ 680 SELET2        X670   X680
+                   TDEIO4 X680
+                   COUNT3 X680
+ 690 SELET2        X680   X690
+                   TDEIO5 X690
+                   COUNT4 X690
+ 700 SELET2        X690   T_DEIO
+                   TDEIO6 T_DEIO
+                   COUNT5 T_DEIO
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    TDEIO0 TDEIO1
+DEFVAL VAR    TDEIO5 TDEIO4
+DEFVAL VAR    TDEIO6 TDEIO4
+(
+(Reset do contador - monostable - 6s
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3060 MONEST        DCLNFT RES    #TRSET
+(
+(Reset do contador - edge detector QN
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                   
+ 750 DELAY         RES    RESD
+ 760 SOMA          RESD   X760
+                  -RES    X760
+ 770 LIMITA        X760   RESET                           ZERO   HUM
+(
+(Detection of bolted faults
+(
+(Vdc<Vdcmns
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                    
+ 800 LEDLAG        VDC-R  UDACTR 1.0         1.0   #UD_TC
+ 810 COMPAR .LT.   UDACTR X810
+                   VDCMNS X810
+(
+(Edge detector QN
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                    
+ 820 DELAY         DCLNFT DCLFTD
+ 830 SOMA          DCLFTD X830
+                  -DCLNFT X830
+ 840 LIMITA        X830   X840                            ZERO   HUM
+(
+(Monostable - tem que ser superior ao intervalo entre Force Retards consecutivos para falta permanente
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                    
+4060 MONEST        X840   X4060  0.15
+(
+(Delay ON - 85ms (intervalo entre Force Retards consecutivos para falta permanente)
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                    
+5110 DLAYON        X4060  X5110  0.085  
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)                    
+ 850 LOGIC  .AND.  X810   BOLTDC
+                   X5110  BOLTDC
+(
+(Seleção da tensão DC de religamento
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 900 ENTRAD               UREF1
+ 905 ENTRAD               UREF2
+ 910 ENTRAD               UREF3
+ 915 ENTRAD               UREF4
+ 920 ENTRAD               UREF5
+ 922 ENTRAD               UREF6
+ 923 ENTRAD               VDC0
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VDC0   VDC-R
+DEFVAL VAR    UREF5  UREF4
+DEFVAL VAR    UREF6  UREF4
+(
+ 925 SELET2        VDC0   X925
+                   UREF1  X925
+                   COUNT  X925
+ 930 SELET2        X925   X930
+                   UREF2  X930
+                   COUNT1 X930
+ 935 SELET2        X930   X935
+                   UREF3  X935
+                   COUNT2 X935
+ 940 SELET2        X935   X940
+                   UREF4  X940
+                   COUNT3 X940
+ 945 SELET2        X940   X945
+                   UREF5  X945
+                   COUNT4 X945
+ 950 SELET2        X945   UREFD1
+                   UREF6  UREFD1
+                   COUNT5 UREFD1
+(
+(Chaveia para tensão reduzida
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 960 COMPAR .LT.   UREFD1 X960
+                   HUM    X960
+ 965 LOGIC  .AND.  X960   X965
+                   DCLNFT X965
+ 970 LOGIC  FFLOP1 ZERO   REDV
+                   X965   REDV
+ 971 LOGIC  .NOT.  REDV   REDVN
+ 973 DELAY         REDVN  X973
+ 974 DELAY         X973   X974
+ 972 T/HOLD        UREFD1 UREFD
+                   X974   UREFD
+(
+ 951 SELET2        ZERO   UREFDC
+                   UREFD  UREFDC
+                   ESTCNV UREFDC
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    UREFD  VDC-R
+(
+(Bloqueia após a última tentativa de religamento ou se houver falta na linha DC do outro polo
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1000 IMPORT CDU           DCF_OP #DCFOP    0.
+ 975 ENTRAD               NRELIG
+ 980 COMPAR .GT.   COUNT  X980
+                   NRELIG X980
+ 995 LOGIC  .AND.  DCLNFT DCLFBP
+                   DCF_OP DCLFBP
+ 997 ATRASO        DCLFBP DCFBPA #TBPF
+ 990 LOGIC  .OR.   X980   X990
+                   DCFBPA X990
+ 985 LOGIC  FFLOP1 ZERO   BLOCK
+                   X990   BLOCK
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DCF_OP 0.0
+(
+FIMCDU
+(
+999999
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+(
+ACDU
+(ncdu) (ntop) ( nome cdu )
+ 97010  97000 BM-DCLFRS-P1
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #ON/OF                1.0  # ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL) 
+( 
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #NRELI                  2  # NUMERO MÁXIMO DE TENTATIVAS DE RELIGAMENTO
+(
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #UREF1                1.0  # TENSÃO DC DE RELIGAMENTO - 1ª TENTATIVA
+DEFPAR #UREF2                0.7  # TENSÃO DC DE RELIGAMENTO - 2ª TENTATIVA
+DEFPAR #UREF3                0.7  # TENSÃO DC DE RELIGAMENTO - 3ª TENTATIVA
+DEFPAR #UREF4                0.7  # TENSÃO DC DE RELIGAMENTO - 4ª TENTATIVA
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #CNV-X               9981  # CONVERSOR XINGU P1
+DEFPAR #CNV-E               9982  # CONVERSOR ESTREITO P1
+DEFPAR #DCFOP               9520  # DC LINE FAULT OTHER POLE
+(
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+ 97020  97000 BM-DCLFRS-P2
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #ON/OF                1.0  # ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL) 
+( 
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #NRELI                  2  # NUMERO MÁXIMO DE TENTATIVAS DE RELIGAMENTO
+(
+(EFPAR (npar) (     valpar     )                                
+DEFPAR #UREF1                1.0  # TENSÃO DC DE RELIGAMENTO - 1ª TENTATIVA
+DEFPAR #UREF2                0.7  # TENSÃO DC DE RELIGAMENTO - 2ª TENTATIVA
+DEFPAR #UREF3                0.7  # TENSÃO DC DE RELIGAMENTO - 3ª TENTATIVA
+DEFPAR #UREF4                0.7  # TENSÃO DC DE RELIGAMENTO - 4ª TENTATIVA
+(
+(EFPAR (npar) (     valpar     ) 
+DEFPAR #CNV-X               9983  # CONVERSOR XINGU P2
+DEFPAR #CNV-E               9984  # CONVERSOR ESTREITO P2
+DEFPAR #DCFOP               9510  # DC LINE FAULT OTHER POLE
+(
+FIMCDU
+(
+999999
+(
+FIM

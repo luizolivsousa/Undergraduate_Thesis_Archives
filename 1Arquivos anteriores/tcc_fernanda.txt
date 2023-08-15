@@ -1,0 +1,25 @@
+Por meio do fluxo de carga continuado (FCC) é possível obter a curva PV
+do sistema e sua margem de estabilidade de tensão (MET). É importantís-
+-simo considerar a direção do crescimento de carga.
+
+PAR: Plano de Ampliações e Reforços nas Instalações de Transmissão.
+	- Produzido pelo ONS.
+	- Dividido em:
+		- Carga leve
+		- Carga média
+		- Carga pesada
+PDE: Plano Decenal de Expansão de Energia.
+	- Produzido pela EPE.
+	
+- Subáreas com FP CTE, definidas de acordo com a concessionária atuante
+no local.
+
+- Análise a longo prazo foram ativados: controle de tap do LTC, controle
+de geração de reativo das barras PV, controle dos limites de tensão das
+barras PQ e controle remoto de tensão.
+
+- Caso A: cargas crescendo à mesma proporção.
+- Caso B: Grande São Paulo e litoral paulista crescendo a cargas maiores.
+- Caso C: região interior sentido a noroeste crescendo a cargas maiores.
+- Casa D: redução dos FPs.
+- Casa E: Grande São Paulo e litoral paulista com redução no FP.

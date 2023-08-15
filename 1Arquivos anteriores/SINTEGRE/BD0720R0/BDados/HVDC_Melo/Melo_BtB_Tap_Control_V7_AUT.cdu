@@ -1,0 +1,448 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_Tap_Control_V7_AUT.cdu                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCDU
+(ncdu) ( nome cdu )
+  9093 MELO-TAP-BRA
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+DEFPAR #TF    0.05               # CONSTANTE DE TEMPO MEDIÇÃO VVW (SEGUNDOS)
+DEFPAR #DELAY 5.                 # TAP DELAY (SEGUNDOS)
+DEFPAR #TPMAX 1.296              # TAP MAX
+DEFPAR #TPMIN 0.9024             # TAP MIN
+DEFPAR #TSTEP 0.0125             # TAP STEP (PU)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #BRA                 3101     (DLOC COM O NUMERO DO CONVERSOR - CODIGO DCNV)
+DEFPAR #URU                 3102     (DLOC COM O NUMERO DO CONVERSOR - CODIGO DCNV)
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DELAY  #DELAY
+DEFVAL        TPMIN  #TPMIN
+DEFVAL        TPMAX  #TPMAX
+DEFVAL        AUTO   #AUTO
+(
+DEFVAL VAR    TRATIO TAPINI
+DEFVAL VAR    TAPMAN TAPINI
+DEFVAL VAR    TAP0   TAPINI
+DEFVAL        X60    0.0
+DEFVAL        X110   0.0
+DEFVAL        X52    0.0
+DEFVAL        X102   0.0
+DEFVAL        X1090  0.0
+DEFVAL        X3090  0.0
+DEFVAL        HOLD   0.0
+DEFVAL        RESET  0.0
+DEFVAL        TUPEX  0.0
+DEFVAL        TDNEX  0.0
+DEFVAL VAR    PORD   PDCR
+(----------------------------------------------------------------------
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 ENTRAD               ZERO
+0002 ENTRAD               HUM
+0005 ENTRAD               DELAY
+0007 ENTRAD               TPMIN
+0008 ENTRAD               TPMAX
+0011 ENTRAD               HOLD
+0012 ENTRAD               RESET
+0013 ENTRAD               AUTO
+(
+0031 IMPORT CDU           TUPEX   5291  0.0
+0032 IMPORT CDU           TDNEX   5292  0.0
+(
+0014 IMPORT CTAP          TAPINI
+1014 SAIDA         TAPINI
+0019 ENTRAD               TAPMAN
+2019 ENTRAD               TAP0
+1019 SELET2        TAPMAN TAP1
+                   CTPAUT TAP1
+                   AUTO   TAP1
+1000 DELAY         TAP1   TAP
+(
+0009 EXPORT CTAP   TAP
+(
+0010 IMPORT VOLT          VLW
+0030 MULTPL        TAP    VWV
+                   VLW    VWV
+0035 LEDLAG        VWV    VWVF   1.0         1.0   #TF
+(
+1021 IMPORT PCCCNV        PDC1   #BRA   0.0
+2021 IMPORT PCCCNV        PDC2   #URU   0.0
+3021 SELET2        PDC2   PDCR
+                   PDC1   PDCR
+                   RETINV PDCR
+4021 SAIDA         PDCR
+(
+0021 IMPORT OPCNV         RETINV
+0022 IMPORT CDU           PORD   2025   0.0
+0023 LEDLAG        PORD   PORDF   1.0        1.0   #TF
+(
+0026 FUNCAO PONTOS PORDF  VWVMX  0.0   0.8750
+                                 0.51970.8751
+                                 0.59060.9032
+                                 0.59260.8907
+                                 0.94491.0206
+                                 0.94691.0081
+                                 1.00391.0298
+                                 1.00591.0173
+                                 1.01571.0227
+                                 1.09961.035
+                                 1.1   1.0351
+1026 EXPORT CDU    VWVMX
+(
+0027 FUNCAO PONTOS PORDF  VWVMNR 0.0   0.8125
+                                 0.51970.8126
+                                 1.0   0.9909
+                                 1.002 1.0034
+                                 1.01571.0102
+                                 1.1   1.0225
+(
+0028 FUNCAO PONTOS PORDF  VWVMNI 0.0   0.7283
+                                 0.46650.7284
+                                 0.51380.8372
+                                 1.01571.0227
+                                 1.1   1.035
+(
+0029 SELET2        VWVMNI VWVMN
+                   VWVMNR VWVMN
+                   RETINV VWVMN
+1029 EXPORT CDU    VWVMN
+(
+0040 COMPAR .GT.   VWVMN  X40
+                   VWVF   X40
+0041 LOGIC  .NOT.  TUP    NTUP
+0042 LOGIC  .AND.  X40    TAPUP
+                   NTUP   TAPUP
+(
+(DELAY ON
+1050 LOGIC  .NOT.  TAPUP  TAPUPN
+1060 LOGIC  .AND.  TAPUP  X1060
+                   X1130  X1060
+1070 LOGIC  FFLOP1 X1140  X1070
+                   X1060  X1070
+1080 FRACAO        X1070  X1080  1.0   0.0   0.5   0.0
+1090 INTRES        X1080  X1090  1.0                      ZERO   HUM
+                   TAPUPN X1090
+                   ZERO   X1090
+1100 LIMITA        X1090  X1100                           ZERO   HUM
+1110 COMPAR .GE.   X1100  TAPUPD
+                   HUM    TAPUPD
+1120 DELAY         TAPUPD X1120
+1130 LOGIC  .NOT.  X1120  X1130
+1140 LOGIC  .OR.   TAPUPN X1140
+                   X1120  X1140
+(
+0050 LOGIC  .AND.  TAPUPD X50
+                   TAPUP  X50
+0051 LOGIC  .AND.  X50    X51
+                   X53    X51
+0052 LOGIC  FFLOP1 X80    X52
+                   X51    X52
+0053 LOGIC  .NOT.  X80    X53
+0060 INTRES        X52    X60     1.0
+                   X80    X60
+                   ZERO   X60
+0070 COMPAR .GT.   X60    TUP
+                   DELAY  TUP
+0080 DELAY         TUP    X80
+(
+0090 COMPAR .GT.   VWVF   X90
+                   VWVMX  X90
+0091 LOGIC  .NOT.  TDN    NTDN
+0092 LOGIC  .AND.  X90    TAPDN
+                   NTDN   TAPDN
+(
+(DELAY ON
+3050 LOGIC  .NOT.  TAPDN  TAPDNN
+3060 LOGIC  .AND.  TAPDN  X3060
+                   X3130  X3060
+3070 LOGIC  FFLOP1 X3140  X3070
+                   X3060  X3070
+3080 FRACAO        X3070  X3080  1.0   0.0   0.5   0.0
+3090 INTRES        X3080  X3090  1.0                      ZERO   HUM
+                   TAPDNN X3090
+                   ZERO   X3090
+3100 LIMITA        X3090  X3100                           ZERO   HUM
+3110 COMPAR .GE.   X3100  TAPDND
+                   HUM    TAPDND
+3120 DELAY         TAPDND X3120
+3130 LOGIC  .NOT.  X3120  X3130
+3140 LOGIC  .OR.   TAPDNN X3140
+                   X3120  X3140
+(
+0100 LOGIC  .AND.  TAPDND X100
+                   TAPDN  X100
+0101 LOGIC  .AND.  X100   X101
+                   X103   X101
+0102 LOGIC  FFLOP1 X130   X102
+                   X101   X102
+0103 LOGIC  .NOT.  X130   X103
+0110 INTRES        X102   X110   1.0
+                   X130   X110
+                   ZERO   X110
+0120 COMPAR .GT.   X110   TDN
+                   DELAY  TDN
+0130 DELAY         TDN    X130
+(
+0135 LOGIC  .OR.   X60    X135
+                   X110   X135
+0136 LOGIC  .AND.  X135   CURSO
+                   AUTO   CURSO
+0137 EXPORT CDU    CURSO
+(
+0140 SOMA          TUP    X140
+                  -TDN    X140
+                   TUPEX  X140
+                  -TDNEX  X140
+0150 GANHO         X140   X150   #TSTEP
+0160 ACUM          X150   DTAP
+                   HOLD   DTAP
+                   RESET  DTAP
+                   ZERO   DTAP
+0180 SOMA          TAP0   TRATIO
+                   DTAP   TRATIO
+0190 FUNCAO INVRS  TRATIO TAPE
+0200 LIMITA        TAPE   TAPAUT                           TPMIN  TPMAX
+0201 FUNCAO INVRS  TAPAUT CTPAUT
+(
+FIMCDU
+(
+(ncdu) ( nome cdu )
+  9094 MELO-TAP-URU
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #AUTO  1                  # AUTO=1 / MANUAL=0
+DEFPAR #TF    0.05               # CONSTANTE DE TEMPO MEDIÇÃO VVW (SEGUNDOS)
+DEFPAR #DELAY 5.                 # TAP DELAY (SEGUNDOS)
+DEFPAR #TPMAX 1.297              # TAP MAX
+DEFPAR #TPMIN 0.9217             # TAP MIN
+DEFPAR #TSTEP 0.013              # TAP STEP (PU)
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #BRA                 3101     (DLOC COM O NUMERO DO CONVERSOR - CODIGO DCNV)
+DEFPAR #URU                 3102     (DLOC COM O NUMERO DO CONVERSOR - CODIGO DCNV)
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DELAY  #DELAY
+DEFVAL        TPMIN  #TPMIN
+DEFVAL        TPMAX  #TPMAX
+DEFVAL        AUTO   #AUTO
+(
+DEFVAL VAR    TRATIO TAPINI
+DEFVAL VAR    TAPMAN TAPINI
+DEFVAL VAR    TAP0   TAPINI
+DEFVAL        X60    0.0
+DEFVAL        X110   0.0
+DEFVAL        X1090  0.0
+DEFVAL        X3090  0.0
+DEFVAL        HOLD   0.0
+DEFVAL        RESET  0.0
+DEFVAL        TUPEX  0.0
+DEFVAL        TDNEX  0.0
+DEFVAL VAR    PORD   PDCR
+(----------------------------------------------------------------------
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 ENTRAD               ZERO
+0002 ENTRAD               HUM
+0005 ENTRAD               DELAY
+0007 ENTRAD               TPMIN
+0008 ENTRAD               TPMAX
+0011 ENTRAD               HOLD
+0012 ENTRAD               RESET
+0013 ENTRAD               AUTO
+(
+0031 IMPORT CDU           TUPEX  5293   0.0
+(0031 ENTRAD               TUPEX
+0032 IMPORT CDU           TDNEX  5294   0.0
+(0032 ENTRAD               TDNEX
+(
+0014 IMPORT CTAP          TAPINI
+1014 SAIDA         TAPINI
+0019 ENTRAD               TAPMAN
+2019 ENTRAD               TAP0
+1019 SELET2        TAPMAN TAP1
+                   CTPAUT TAP1
+                   AUTO   TAP1
+1000 DELAY         TAP1   TAP
+(
+0009 EXPORT CTAP   TAP
+(
+0010 IMPORT VOLT          VLW
+0030 MULTPL        TAP    VWV
+                   VLW    VWV
+0035 LEDLAG        VWV    VWVF   1.0         1.0   #TF
+(
+1021 IMPORT PCCCNV        PDC1   #BRA   0.0
+2021 IMPORT PCCCNV        PDC2   #URU   0.0
+3021 SELET2        PDC1   PDCR
+                   PDC2   PDCR
+                   RETINV PDCR
+4021 SAIDA         PDCR
+(
+0021 IMPORT OPCNV         RETINV
+0022 IMPORT CDU           PORD   2027   0.0
+0023 LEDLAG        PORD   PORDF   1.0        1.0   #TF
+(
+0026 FUNCAO PONTOS PORDF  VWVMX  0.0   0.8765
+                                 0.51970.8766
+                                 0.59060.9047
+                                 0.59070.8917
+                                 0.94491.0216
+                                 0.94501.0086
+                                 1.00391.0303
+                                 1.00401.0173
+                                 1.01571.0227
+                                 1.09961.035
+                                 1.1   1.0351
+1026 EXPORT CDU    VWVMX
+(
+0027 FUNCAO PONTOS PORDF  VWVMNR 0.0   0.7985
+                                 0.51970.7986
+                                 1.0   0.9769
+                                 1.01570.9837
+                                 1.1   0.9960
+(
+0028 FUNCAO PONTOS PORDF  VWVMNI 0.0   0.7356
+                                 0.47830.7357
+                                 0.51380.8127
+                                 0.91540.9700
+                                 1.01571.0079
+                                 1.1   1.0202
+(
+0029 SELET2        VWVMNI VWVMN
+                   VWVMNR VWVMN
+                   RETINV VWVMN
+1029 EXPORT CDU    VWVMN
+(
+0040 COMPAR .GT.   VWVMN  X40
+                   VWVF   X40
+0041 LOGIC  .NOT.  TUP    NTUP
+0042 LOGIC  .AND.  X40    TAPUP
+                   NTUP   TAPUP
+(
+(DELAY ON
+1050 LOGIC  .NOT.  TAPUP  TAPUPN
+1060 LOGIC  .AND.  TAPUP  X1060
+                   X1130  X1060
+1070 LOGIC  FFLOP1 X1140  X1070
+                   X1060  X1070
+1080 FRACAO        X1070  X1080  1.0   0.0   0.5   0.0
+1090 INTRES        X1080  X1090  1.0                      ZERO   HUM
+                   TAPUPN X1090
+                   ZERO   X1090
+1100 LIMITA        X1090  X1100                           ZERO   HUM
+1110 COMPAR .GE.   X1100  TAPUPD
+                   HUM    TAPUPD
+1120 DELAY         TAPUPD X1120
+1130 LOGIC  .NOT.  X1120  X1130
+1140 LOGIC  .OR.   TAPUPN X1140
+                   X1120  X1140
+(
+(
+0050 LOGIC  .AND.  TAPUPD X50
+                   TAPUP  X50
+0051 LOGIC  .AND.  X50    X51
+                   X53    X51
+0052 LOGIC  FFLOP1 X80    X52
+                   X51    X52
+0053 LOGIC  .NOT.  X80    X53
+0060 INTRES        X52    X60     1.0
+                   X80    X60
+                   ZERO   X60
+0070 COMPAR .GT.   X60    TUP
+                   DELAY  TUP
+0080 DELAY         TUP    X80
+(
+0090 COMPAR .GT.   VWVF   X90
+                   VWVMX  X90
+0091 LOGIC  .NOT.  TDN    NTDN
+0092 LOGIC  .AND.  X90    TAPDN
+                   NTDN   TAPDN
+(
+(DELAY ON
+3050 LOGIC  .NOT.  TAPDN  TAPDNN
+3060 LOGIC  .AND.  TAPDN  X3060
+                   X3130  X3060
+3070 LOGIC  FFLOP1 X3140  X3070
+                   X3060  X3070
+3080 FRACAO        X3070  X3080  1.0   0.0   0.5   0.0
+3090 INTRES        X3080  X3090  1.0                      ZERO   HUM
+                   TAPDNN X3090
+                   ZERO   X3090
+3100 LIMITA        X3090  X3100                           ZERO   HUM
+3110 COMPAR .GE.   X3100  TAPDND
+                   HUM    TAPDND
+3120 DELAY         TAPDND X3120
+3130 LOGIC  .NOT.  X3120  X3130
+3140 LOGIC  .OR.   TAPDNN X3140
+                   X3120  X3140
+(
+0100 LOGIC  .AND.  TAPDND X100
+                   TAPDN  X100
+0101 LOGIC  .AND.  X100   X101
+                   X103   X101
+0102 LOGIC  FFLOP1 X130   X102
+                   X101   X102
+0103 LOGIC  .NOT.  X130   X103
+0110 INTRES        X102   X110   1.0
+                   X130   X110
+                   ZERO   X110
+0120 COMPAR .GT.   X110   TDN
+                   DELAY  TDN
+0130 DELAY         TDN    X130
+(
+0135 LOGIC  .OR.   X60    X135
+                   X110   X135
+0136 LOGIC  .AND.  X135   CURSO
+                   AUTO   CURSO
+0137 EXPORT CDU    CURSO
+(
+0140 SOMA          TUP    X140
+                  -TDN    X140
+                   TUPEX  X140
+                  -TDNEX  X140
+0150 GANHO         X140   X150   #TSTEP
+0160 ACUM          X150   DTAP
+                   HOLD   DTAP
+                   RESET  DTAP
+                   ZERO   DTAP
+0180 SOMA          TAP0   TRATIO
+                   DTAP   TRATIO
+0190 FUNCAO INVRS  TRATIO TAPE
+0200 LIMITA        TAPE   TAPAUT                           TPMIN  TPMAX
+0201 FUNCAO INVRS  TAPAUT CTPAUT
+(
+FIMCDU
+(
+(
+999999
+(
+FIM

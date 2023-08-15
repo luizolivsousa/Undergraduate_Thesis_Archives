@@ -1,0 +1,789 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       HVDC_FOZ_IBIUNA_POLE_CONTROL_V11.cdu                                                      |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 8001 - POLE CONTROL POLE 1 - RETIFICADOR
+( CDU 8002 - POLE CONTROL POLE 1 - INVERSOR
+( CDU 8003 - POLE CONTROL POLE 2 - RETIFICADOR
+( CDU 8004 - POLE CONTROL POLE 2 - INVERSOR
+( CDU 8005 - POLE CONTROL POLE 3 - RETIFICADOR
+( CDU 8006 - POLE CONTROL POLE 3 - INVERSOR
+( CDU 8007 - POLE CONTROL POLE 4 - RETIFICADOR
+( CDU 8008 - POLE CONTROL POLE 4 - INVERSOR
+(
+(----------------------------------------------------------------------
+(                    DADOS DE TOPOLOGIA (DTDU)
+(----------------------------------------------------------------------
+(
+( TDU 8001 - POLE CONTROL - RETIFICADOR
+( TDU 8002 - POLE CONTROL - INVERSOR
+(
+(----------------------------------------------------------------------
+DTDU
+(
+(======================================================================
+(                    CONTROLES DO RETIFICADOR
+(======================================================================
+(ncdu) ( nome cdu )
+  8001 PC-RET
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #IORDR               9991
+DEFPAR #FRETR               9882
+DEFPAR #TRAML               0.05
+DEFPAR #TRML2                0.1
+( CCA
+DEFPAR #KICCA            2500.00
+DEFPAR #KPCCA              102.0
+( VCO
+DEFPAR #TVCO               .0017
+( Limites de ALFA
+DEFPAR #ALFMX              163.0
+DEFPAR #ALFMN                5.0
+( Constantes de medicao
+DEFPAR #Tmc                0.001
+DEFPAR #TmV                0.001
+( Medida de derivada
+DEFPAR #FN                  50.0
+DEFPAR #NP                    12
+DEFPAR #PI           3.141592654
+( Normalizacao do VDCOL
+DEFPAR #THUP               0.014
+DEFPAR #THDWN              0.004
+DEFPAR #TVDLN               2.25
+DEFPAR #THRF                0.13
+DEFPAR #VDNMN              0.375
+DEFPAR #VDNMX              1.000
+( VDCOL
+DEFPAR #TUP1               0.080
+DEFPAR #TDWN1             0.0054
+DEFPAR #UDHI                0.93
+DEFPAR #UDLW               0.326
+DEFPAR #I0MIN                0.1
+DEFPAR #I0MAX                1.4
+DEFPAR #K1RET              0.326
+DEFPAR #UDG1             1.07500
+( Limite de Derivada
+DEFPAR #LIMN1                0.3
+DEFPAR #LIMN2                5.0
+DEFPAR #LIMX1                1.0
+DEFPAR #LIMX2              164.0
+(
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        DALFA   0.0
+DEFVAL        R62     0.0
+DEFVAL        R65     1.0
+DEFVAL        R82     0.0
+DEFVAL        R85     1.0
+DEFVAL        UDERR   0.0
+DEFVAL        UDNORM  1.0
+DEFVAL        ERRMIN -3.5
+DEFVAL        ERRMAX  3.5
+DEFVAL        ALFMN* #ALFMN
+DEFVAL        UDFMAX    1.4
+DEFVAL        K1RET  #K1RET
+DEFVAL        UDRR     0.02
+DEFVAL        R6        0.0
+DEFVAL        R8        0.0
+DEFVAL        R10       0.0
+DEFVAL        DEZ      10.0
+DEFVAL        BIG     1.E+6
+(
+DEFVAL        ALFMX  #ALFMX
+DEFVAL        ZERO      0.0
+DEFVAL        HUM       1.0
+DEFVAL        I0MAX  #I0MAX
+DEFVAL        I0MIN  #I0MIN
+DEFVAL        VDNMN  #VDNMN
+DEFVAL        VDNMX  #VDNMX
+DEFVAL        FRETR     0.0
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(======================================================================
+(                       ORDEM DE CORRENTE
+(======================================================================
+0045 IMPORT CDU           I00r   #IORDR   0.0
+(
+(======================================================================
+(                       MEDIÇÃO E FILTRAGEM
+(======================================================================
+0001 IMPORT*CCNV          IDC
+0060 IMPORT*VOLT          VAC
+0030 IMPORT*VCNV          VDC
+(
+(======================================================================
+(                               CCA
+(======================================================================
+(0252 LEDLAG        IDC    IDCM   1.0     0.0   1.0  0.001
+0252 GANHO         IDC    IDCM   1.0
+0004 SOMA          IDCM   ERRC
+                  -IOL    ERRC
+0005 GANHO         ERRC   UCP    #KPCCA
+0008 PROINT        ERRC   UCI    #KICCA   0.0  1.0        ALFMIN ALFMX
+0009 SOMA          UCP    UC
+                   UCI    UC
+0010 LIMITA        UC     UCL                             ALFMIN ALFMX
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0910 MAX           UCL    X910
+                   RAML2  X910
+                   RAML2A X910
+0011 ENTRAD               ALFMN*
+0013 DELAY         X910   ALFALD
+0912 MAX           ALFMN* ALFAM
+                   RIAC*  ALFAM
+                   RAML1  ALFAM
+                   RAML1A ALFAM
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1912 IMPORT CDU           FRETR  #FRETR   0.0
+2912 ENTRAD               ALFMX
+3912 SELET2        ALFAM  ALFMFR
+                   ALFMX  ALFMFR
+                   FRETR  ALFMFR
+4912 MAX           ALFAM  ALFAMN
+                   ALFMFR ALFAMN
+5912 LEDLAG        ALFAMN ALFMIN  1.0   0.0   1.0   0.010
+(======================================================================
+(                              RIAC
+(======================================================================
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0915 GANHO         ERRC   ERR0   -1.0
+0916 LEDLAG        ERR0   ERIAC   1.0   0.0   1.0  0.033
+0917 FUNCAO RETA   ERIAC  R1      1.0  -0.02
+0918 FUNCAO PULSO  R1     R2     -999.  0.0   0.0   1.0
+0919 LOGIC  .AND.  R2     R3
+                   R11    R3
+0920 GANHO         R3     R4     1.E+6
+0921 SOMA          R4     R5
+                   R10    R5
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0922 PROINT        R5     R6      1.0   0.0   1.0         ZERO   HUM
+0923 SOMA          R6     R7
+                   R10    R7
+0924 PROINT        R12    R8      1.0   0.0   1.0         ZERO   DEZ
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0925 FUNCAO PULSO  R8     RIAC*   0.0   15.0  0.3   0.0
+0926 FUNCAO PULSO  R8     R9      0.1   -1.0  5.0   0.0
+0927 FUNCAO RETA   R9     R11     1.0   1.0
+0928 FUNCAO PULSO  R8     R10    5.00  -1.E+6 5.50  0.0
+0929 DELAY         R7     R12
+(======================================================================
+(                              RAML
+(======================================================================
+(
+( RAMO DE FALTAS SIMÉTRICAS
+(
+(                      RAML1 (p/CCA) - FALTA SIMÉTRICA
+(
+(normalização do RAML
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1005 LEDLAG        VAC    VACF   1.0         1.0   0.005
+1006 ENTRAD               VBNORM
+1004 SOMA         -VACF   DELTAV
+                   VBNORM DELTAV
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    VBNORM VAC
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0061 FUNCAO PULSO  DELTAV R61     0.0   0.0   0.11    1.0
+0062 INTRES        R61    R62     1.0                     ZERO   BIG
+                   REST1  R62
+                   ZERO   R62
+0063 FUNCAO PULSO  R62    RAML1   0.05  27.0  1.0  27.0
+0064 LOGIC  .NOT.  R61    R64
+0065 INTRES        R64    R65     1.0                     ZERO   HUM
+                   REST2  R65
+                   ZERO   R65
+0066 FUNCAO PULSO  R65    R66    #TRAML  1.0   1.0   1.0
+0067 COMPAR .GT.   RAML1  R67
+                   ZERO   R67
+0068 LOGIC  .AND.  R66    R68
+                   R67    R68
+0069 DELAY         R68    R69
+0096 LOGIC  .OR.   R69    REST1
+                   X525   REST1
+0079 DELAY         R61    REST2
+0080 ENTRAD               ZERO
+(
+(
+(                      RAML2 (p/FIRING) - FALTA SIMÉTRICA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0082 INTRES        R61    R82     1.0                     ZERO   BIG
+                   REST3  R82
+                   ZERO   R82
+0083 FUNCAO PULSO  R82    R83    0.03  32.5  1.0   32.5
+0084 LOGIC  .NOT.  R61    R84
+0085 INTRES        R84    R85     1.0                     ZERO   HUM
+                   REST4  R85
+                   ZERO   R85
+0086 FUNCAO PULSO  R85    R86    #TRAML   1.0   1.0   1.0
+0087 COMPAR .GT.   RAML2  R87
+                   ZERO   R87
+0088 LOGIC  .AND.  R86    R88
+                   R87    R88
+0089 DELAY         R88    R89
+0098 LOGIC  .OR.   R89    REST3
+                   X625   REST3
+0090 DELAY         R61    REST4
+(
+(taxa subida = instantaneo, taxa descida = 1250 graus/s
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1011 ENTRAD               TXRMLN
+1014 RATELM        R83    RAML2                           TXRMLN BIG
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TXRMLN -1250.
+(
+( RAMO DE FALTAS ASSIMÉTRICAS
+(
+(                   DETECÇÃO DE FALTA (TAXA E NÍVEL)
+(
+ 400 IMPORT DT            DT
+ 405 ENTRAD               TXDVDT
+ 410 ENTRAD               UACMN
+ 412 ENTRAD               UACRST
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TXDVDT 45.
+DEFVAL        UACMN  0.75
+DEFVAL        UACRST 0.9
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 415 DELAY         VACF   VACFD
+ 420 SOMA          VACFD  DVAC
+                  -VACF   DVAC
+ 425 DIVSAO        DVAC   DVDT
+                   DT     DVDT
+ 430 COMPAR .GT.   DVDT   DVDTH
+                   TXDVDT DVDTH
+ 445 MONEST        DVDTH  DVDTA  0.2
+(
+ 450 COMPAR .LE.   VACF   VSET
+                   UACMN  VSET
+ 452 COMPAR .GT.   VACF   VREST
+                   UACRST VREST
+ 453 LOGIC  FFLOP1 VREST  VLOW
+                   VSET   VLOW
+ 455 LOGIC  .AND.  DVDTA  ACFLT
+                   VLOW   ACFLT
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        VLOW   0.0
+(
+(                      RAML1 (p/CCA) - FALTA ASSIMÉTRICA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 500 INTRES        ACFLT  X500   1.0                      ZERO   BIG
+                   REST5  X500
+                   ZERO   X500
+ 505 FUNCAO PULSO  X500   RAML1A  0.04  27.0  1.0  27.0
+ 510 LOGIC  .NOT.  ACFLT  X510
+ 515 INTRES        X510   X515    1.0                     ZERO   HUM
+                   REST6  X515
+                   ZERO   X515
+ 520 FUNCAO PULSO  X515   X520   #TRML2  1.0   1.0   1.0
+ 525 COMPAR .GT.   RAML1A X525
+                   ZERO   X525
+ 530 LOGIC  .AND.  X520   X530
+                   X525   X530
+ 535 DELAY         X530   REST5
+ 540 DELAY         ACFLT  REST6
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RAML1A 0.0
+DEFVAL        X500   0.0
+DEFVAL        X515   1.0
+(
+(                      RAML2 (p/FIRING) - FALTA ASSIMÉTRICA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 INTRES        ACFLT  X600    1.0                     ZERO   BIG
+                   REST7  X600
+                   ZERO   X600
+ 605 FUNCAO PULSO  X600   X605   0.02  32.5  1.0   32.5
+ 610 LOGIC  .NOT.  ACFLT  X610
+ 615 INTRES        X610   X615    1.0                     ZERO   HUM
+                   REST8  X615
+                   ZERO   X615
+ 620 FUNCAO PULSO  X615   X620   #TRML2   1.0   1.0   1.0
+ 625 COMPAR .GT.   RAML2A X625
+                   ZERO   X625
+ 630 LOGIC  .AND.  X620   X630
+                   X625   X630
+ 635 DELAY         X630   REST7
+ 640 DELAY         ACFLT  REST8
+(
+(taxa subida = instantaneo, taxa descida = 1250 graus/s
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 665 RATELM        X605   RAML2A                          TXRMLN BIG
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RAML2A 0.0
+DEFVAL        X600   0.0
+DEFVAL        X615   1.0
+(
+(======================================================================
+(                                VCO
+(======================================================================
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0014 SOMA          ALFALD DALFA
+                  -ALFAER DALFA
+0015 LIMITA        DALFA  DALFAL                          DALFMN DALFMX
+0017 PROINT        DALFAL ALFAC  600.   0.0   1.0         ALFMIN  ALFMX
+0018 DELAY         ALFAC  ALFAER
+(
+(                     LIMITE DE DERIVADA DE ALFA
+(
+0022 DELAY         ALFALD ALFANT
+0023 FUNCAO RAMPA  ALFANT DALFMX   56.0  79.0 124.0  11.0
+0024 FUNCAO PULSO  ALFANT X00020   45.0  4.20 68.0    0.0
+0025 FUNCAO RETA   X00020 DALFMN   1.0   -5.6
+0026 FRACAO        ALFAC  ALFAR  #PI      0.0 180.0   0.0
+0027 EXPORT ALFA   ALFARR
+0028 DELAY         ALFAR  ALFARR
+(
+( ====================================================================
+(                                VDCOL
+( ====================================================================
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0031 LIMITA        VDC    VDCM                            ZERO   UDFMAX
+(
+(                       Normalizacao do VDCOL
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0032 LAGNL         VDCM   X32       1.0#THDWN#THUP
+0033 LEDLAG        VDCM   X33       1.0         1.0#TVDLN
+0034 FUNCAO RETA   X32    HOLD    1.0  -#THRF
+0035 T/HOLD        X33    VDCNR
+                   HOLD   VDCNR
+0036 LIMITA        VDCNR  UDREF                           VDNMN  VDNMX
+0037 GANHO         UDREF  UDFMIN #K1RET
+0038 ENTRAD               UDRR
+0039 MAX           VDCL   UDREF1
+                   UDREF  UDREF1
+                   UDRR   UDREF1
+(
+(                          Dinamica do VDCOL
+(
+0040 LIMITA        VDCM   UD1                             UDFMIN HUM
+0041 SOMA          UD1    UDERR
+                  -VDCL   UDERR
+1041 LIMITA        UDERR  UDERRL                          ERRMIN ERRMAX
+1042 FUNCAO RAMPA  UDERR  TVDCL  -0.01 #TDWN1 0.01 #TUP1
+1043 DIVSAO        UDERRL GAIN
+                   TVDCL  GAIN
+1044 PROINT        GAIN   VDCL    1.0   0.0   1.0
+0042 DIVSAO        VDCL   VDCMN
+                   UDREF1 VDCMN
+0043 LIMITA        VDCMN  UDNORM                          K1RET  HUM
+0044 GANHO         UDNORM X44     #UDG1
+1045 LIMITA        X44    XX44                            ZERO   HUM
+0046 LIMITA        I00r   X46                             I0MIN  I0MAX
+0047 MULTPL        XX44   X47
+                   X46    X47
+0048 LIMITA        X47    X48                             I0MIN  I0MAX
+0049 SELET2        X48    IOL
+                   ZERO   IOL
+                   FRETR  IOL
+(
+FIMCDU
+(
+(======================================================================
+(                    CONTROLES DO INVERSOR
+(======================================================================
+(ncdu) ( nome cdu )
+  8002 PC-INV
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #IORDI               9992
+DEFPAR #RVO                 9881
+( CCA
+DEFPAR #KICCA            5000.00
+DEFPAR #KPCCA               47.0
+( VCO
+DEFPAR #TVCO               .0014
+( Limites de ALFA
+DEFPAR #ALFMN              100.0
+( Constantes de medicao
+DEFPAR #Tmc                0.001
+DEFPAR #TmV                0.001
+( Medida de derivada
+DEFPAR #FN                  60.0
+DEFPAR #NP                    12
+DEFPAR #PI           3.141592654
+( Normalizacao do VDCOL
+DEFPAR #THUP               0.014
+DEFPAR #THDWN              0.004
+DEFPAR #TVDLN               2.25
+DEFPAR #THRF                0.13
+DEFPAR #VDNMN              0.375
+DEFPAR #VDNMX              1.000
+( VDCOL
+DEFPAR #TDWN1              0.004
+DEFPAR #TUP1               0.050
+DEFPAR #UDHI                0.93
+DEFPAR #UDLW               0.279
+DEFPAR #I0MIN                0.1
+DEFPAR #I0MAX                1.4
+DEFPAR #K1INV              0.279
+DEFPAR #UDG1             1.07500
+( Limite de derivada
+DEFPAR #LIMN1                0.3
+DEFPAR #LIMN2                5.0
+DEFPAR #LIMX1                1.0
+DEFPAR #LIMX2              164.0
+( Margem de corrente
+DEFPAR #IMRG                 0.1
+( CEC
+DEFPAR #KCEC              161.10
+DEFPAR #K2CEC             107.47
+DEFPAR #T1CEC             .00250
+DEFPAR #T2CEC             0.0009
+DEFPAR #T3CEC             .06900
+DEFPAR #T4CEC             .01030
+DEFPAR #T5CEC             .00010
+( VCA
+DEFPAR #RLDC              0.0455
+DEFPAR #KPVCA                60.
+DEFPAR #KIVCA              6000.
+(
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+(----------------------------------------------------------------------
+DEFVAL        DALFMN -16.2
+DEFVAL        DALFA  0.0
+DEFVAL        VDMIN  -0.52
+DEFVAL        VDMAX  0.52
+DEFVAL        VSMIN  0.0
+DEFVAL        UDERR  0.0
+DEFVAL        UDNORM 1.0
+DEFVAL        ERRMIN -3.5
+DEFVAL        ERRMAX 3.5
+DEFVAL        UDFMAX 1.4
+DEFVAL        K1INV  #K1INV
+DEFVAL        UDRR   0.02
+DEFVAL VAR    I00i   IDC
+(
+DEFVAL        ALFMN  #ALFMN
+DEFVAL VAR    ALFMX  ALFAC
+DEFVAL VAR    ALFMX* ALFAC
+DEFVAL        HUM    1.0
+DEFVAL        ZERO   0.0
+DEFVAL        I0MAX  #I0MAX
+DEFVAL        I0MIN  #I0MIN
+DEFVAL        M_HUM  -1.0
+DEFVAL        IMRG   #IMRG
+DEFVAL VAR    UCI    ALFMX*
+DEFVAL        VDNMN  #VDNMN
+DEFVAL        VDNMX  #VDNMX
+DEFVAL        INF    1E10
+( VCA
+DEFVAL        VOR110 1.10
+DEFVAL        VORD75 0.75
+DEFVAL        RVO    0.0
+DEFVAL VAR    UVI    ALFAMX
+DEFVAL        CEC    0.0
+(
+(======================================================================
+(                       ORDEM DE CORRENTE
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0046 IMPORT CDU           I00i   #IORDI   0.0
+(
+(======================================================================
+(                       MEDIÇÃO E FILTRAGEM
+(======================================================================
+0001 IMPORT*CCNV          IDC
+0030 IMPORT*VCNV          VDC
+0031 GANHO         VDC    VDCM      1.0
+0032 FUNCAO MENOS  VDCM   MVDC
+0081 IMPORT*VOLT          VAC
+0082 IMPORT*CTAP          CTAP
+0083 IMPORT*CNVK          CNVK
+0084 IMPORT*RCNV          DXL
+0002 IMPORT*GAMA          GAMA
+(
+(======================================================================
+(                                CCA
+(======================================================================
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(0172 LEDLAG        IDC    IDCM    1.0   0.0  1.0   0.001
+0172 GANHO         IDC    IDCM    1.0
+0003 ENTRAD               IMRG
+0004 SOMA          IDCM   ERRC
+                  -IOL    ERRC
+                   IMRG   ERRC
+0005 GANHO         ERRC   UCP    #KPCCA
+0008 PROINT        ERRC   UCI    #KICCA   0.0  1.0        ALFMN  ALFAMX
+0009 SOMA          UCP    UC
+                   UCI    UC
+2009 ENTRAD               INF
+1009 MIN           ALFMX* ALFMAX
+                   VAORDI ALFMAX
+0010 LIMITA        UC     UCL                             ALFMN  ALFMAX
+0013 GANHO         UCL    ALFALD    1.0
+(=======================================================================
+(                                VCO
+(=======================================================================
+0014 SOMA          ALFALD DALFA
+                  -ALFAER DALFA
+0015 LIMITA        DALFA  DALFAL                          DALFMN DALFMX
+0017 PROINT        DALFAL ALFAC  720.   0.0   1.0         ALFMN  ALFAMX
+0018 DELAY         ALFAC  ALFAER
+(
+(                     LIMITE DE DERIVADA DE ALFA
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0022 DELAY         ALFALD ALFANT
+0023 FUNCAO PULSO  ALFANT DALFMX   0.0   5.6 124.0 0.703
+0024 FRACAO        ALFAC  ALFAR  #PI     0.0 180.0 0.0
+0025 EXPORT ALFA   ALFAR
+(
+(=====================================================================
+(                              VDCOL
+(=====================================================================
+0033 LIMITA        MVDC   UD1                             ZERO   UDFMAX
+(
+(                     Normalizacao do VDCOL
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+0034 LAGNL         UD1    X34       1.0#THDWN#THUP
+0035 LEDLAG        UD1    X35       1.0         1.0#TVDLN
+0036 FUNCAO RETA   X34    HOLD    1.0  -#THRF
+0037 T/HOLD        X35    VDCNR
+                   HOLD   VDCNR
+0038 LIMITA        VDCNR  UDREF                           VDNMN  VDNMX
+0039 GANHO         UDREF  UDFMIN #K1INV
+0040 ENTRAD               UDRR
+0041 MAX           VDCL   UDREF1
+                   UDREF  UDREF1
+                   UDRR   UDREF1
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    UDREF  MVDC
+(
+(                         Dinamica do VDCOL
+(
+0042 LIMITA        UD1    VDCML                           UDFMIN HUM
+0043 SOMA          VDCML  UDERR
+                  -VDCL   UDERR
+1041 LIMITA        UDERR  UDERRL                          ERRMIN ERRMAX
+1042 FUNCAO RAMPA  UDERR  TVDCL  -0.01 #TDWN1 0.01 #TUP1
+1043 DIVSAO        UDERRL GAIN
+                   TVDCL  GAIN
+1044 PROINT        GAIN   VDCL    1.0   0.0   1.0
+(
+0044 DIVSAO        VDCL   VDCMN
+                   UDREF1 VDCMN
+0145 LIMITA        VDCMN  UDNORM                          K1INV  HUM
+0045 GANHO         UDNORM X45     #UDG1
+1045 LIMITA        X45    XX45                            ZERO   HUM
+0047 LIMITA        I00i   X47                             I0MIN  I0MAX
+0048 MULTPL        XX45   X48
+                   X47    X48
+0049 LIMITA        X48    IOL                             I0MIN  I0MAX
+(
+(=====================================================================
+(                                  CEC
+(=====================================================================
+0051 SOMA          IOL    DI
+                  -IDCM   DI
+0052 LIMITA        DI     X52                             ZERO   IMRG
+0053 LEDLAG        X52    X53    #KCEC  0.0  1.0   #T1CEC
+0054 WSHOUT        IDCM   X54    #T3CEC 1.0  #T3CEC
+0055 LEDLAG        X54    X55    #K2CEC 0.0  1.0   #T2CEC VDMIN  VDMAX
+0056 WSHOUT        IDCM   X56    #T4CEC 1.0  #T5CEC
+0057 FUNCAO RETA   X56    X57    1.0   -0.03
+0157 LIMITA        X57    X157                            VSMIN  INF
+0058 SOMA          X53    X58
+                  -X55    X58
+                   X157   X58
+0059 GANHO         X58    CEC    0.3166
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+(=====================================================================
+(                    ALFA MAXIMO (AREA MINIMA)
+(=====================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0060 ENTRAD               AREARF
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1060 FUNCAO COS    GAMA   COSGAM
+1061 SAIDA         COSGAM
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    AREARF COSGAM
+(DEFVAL        AREARF 0.9563             (COS17°)
+(
+0061 IMPORT*CONDCC        CONDCC
+0062 DLAYOF        CONDCC X62    0.1
+0063 LAGNL         X62    X63    1.00  0.03  0.001
+0064 GANHO         X63    X64    0.1272
+0065 SOMA          AREARF X65
+                  -X64    X65
+0070 LEDLAG        VAC    VACF   1.0   0.0   1.0   0.02
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0085 GANHO         DXL    DX2     2.0
+0086 DIVSAO        IDCM   X86
+                   CTAP   X86
+                   CNVK   X86
+                   VACF   X86
+0087 MULTPL        DX2    X87
+                   X86    X87
+0090 SOMA          X65    X90
+                  -X87    X90
+0091 LIMITA        X90    X91                             M_HUM   HUM
+0092 FUNCAO ACOS   X91    X92
+0093 FRACAO        X92    X93     180.0 0.0   #PI
+0094 FUNCAO RETA   X93    X94     -1.0  180.
+0095 SOMA          X94    ALFMX
+                  -CEC    ALFMX
+0912 LIMITA        ALFMX  ALFMX*                          ALFMN  INF
+0117 LIMITA        X94    ALFAMX                          ALFMN  INF
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+(======================================================================
+(                                VCA
+(======================================================================
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0200 ENTRAD               VORD75
+0210 ENTRAD               VOR110
+0220 IMPORT CDU           RVO    #RVO     0.0
+0230 SELET2        VOR110 VORD
+                   VORD75 VORD
+                   RVO    VORD
+0240 LEDLAG        VORD   VORDF  1.0         1.0   0.2
+0250 MAX           VORD   VREF
+                   VORDF  VREF
+0260 GANHO         IDC    R*IDC  #RLDC
+0270 SOMA          VREF   ERRV
+                  -MVDC   ERRV
+                  -R*IDC  ERRV
+0280 GANHO         ERRV   UVP    #KPVCA
+0290 PROINT        ERRV   UVI    #KIVCA         1.0       ALFMN  ALFAMX
+0300 SOMA          UVP    UV
+                   UVI    UV
+0310 LIMITA        UV     VAORDI                          ALFMN  ALFAMX
+1310 SAIDA         VAORDI
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+FIMCDU
+(
+999999
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+(
+ACDU
+(ncdu) (ntop) ( nome cdu )
+  8001   8001 PC-RET-P1
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDR               9991
+DEFPAR #FRETR               9882
+DEFPAR #TRAML               0.05
+DEFPAR #TRML2                0.0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8003   8001 PC-RET-P2
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDR               9993
+DEFPAR #FRETR               9884
+DEFPAR #TRAML               0.05
+DEFPAR #TRML2                0.0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8005   8001 PC-RET-P3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDR               9995
+DEFPAR #FRETR               7882
+DEFPAR #TRAML               0.10
+DEFPAR #TRML2               0.10
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8007   8001 PC-RET-P4
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDR               9997
+DEFPAR #FRETR               7884
+DEFPAR #TRAML               0.10
+DEFPAR #TRML2               0.10
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8002   8002 PC-INV-P1
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDI               9992
+DEFPAR #RVO                 9881
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8004   8002 PC-INV-P2
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDI               9994
+DEFPAR #RVO                 9883
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8006   8002 PC-INV-P3
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDI               9996
+DEFPAR #RVO                 7881
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  8008   8002 PC-INV-P4
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #IORDI               9998
+DEFPAR #RVO                 7883
+(
+FIMCDU
+(
+999999
+(
+FIM

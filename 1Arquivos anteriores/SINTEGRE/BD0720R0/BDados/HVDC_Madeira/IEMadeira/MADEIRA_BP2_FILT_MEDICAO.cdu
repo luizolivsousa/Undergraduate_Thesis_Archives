@@ -1,0 +1,165 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       MADEIRA_BP2_FILT_MEDICAO.cdu                                                              |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( **********************************************************************
+( *  OBSERVACOES (03/05/2019)                                          *
+( *  1. Atualização do controle de acordo com o modelo                 *
+( *     do PSCAD fornecido                                             *
+( *                                                                    *
+( *  REVISOES                                                          *
+( *  1. (03/06/2019) Atualização do controle de acordo com o modelo    *
+( *     do PSCAD fornecido                                             *
+( *  2. (07/06/2019) Atualização do controle de filtro                 *
+( *  3. (17/07/2019) Atualização do controle de filtro 2               *
+( *  4. (07/10/2019) Mudança do número do CDU FC_PORTOVELHO de 9321    *
+( *     para 9319, assim como mudanaça na numerção de alguns DLOCs     *
+( **********************************************************************
+(
+DCDU
+(ncdu) ( nome cdu )
+  9999 FILT MEDICAO
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+(----------------------------------------------------------------------
+DEFPAR #PI        3.141592653589
+(
+(----------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+0001 IMPORT  VOLT         VT5201   5201
+0002 LEDLAG        VT5201 VrmsX     1.0   0.0   1.0 0.001
+0003 SAIDA         VrmsX
+(
+0004 IMPORT  VOLT         VT5202   5202
+0005 LEDLAG        VT5202 VrmsY     1.0   0.0   1.0 0.001
+0006 SAIDA         VrmsY
+(
+0007 IMPORT PCCCNV        PEX3pu   1205
+0008 GANHO         PEX3pu PEX3MW   1575
+0009 LEDLAG        PEX3MW PdcX3     1.0   0.0   1.0 0.005
+0010 SAIDA         PdcX3
+(
+0011 IMPORT PCCCNV        PEX4pu   1207
+0012 GANHO         PEX4pu PEX4MW   1575
+0013 LEDLAG        PEX4MW PdcX4     1.0   0.0   1.0 0.005
+0014 SAIDA         PdcX4
+(
+0015 IMPORT PCCCNV        PEY3pu   1206
+0016 GANHO         PEY3pu PEY3MW  -1575
+0017 LEDLAG        PEY3MW PdcY3     1.0   0.0   1.0 0.005
+0018 SAIDA         PdcY3
+(
+0019 IMPORT PCCCNV        PEY4pu   1208
+0020 GANHO         PEY4pu PEY4MW  -1575
+0021 LEDLAG        PEY4MW PdcY4     1.0   0.0   1.0 0.005
+0022 SAIDA         PdcY4
+(
+0023 IMPORT FLXR          QCXpu    5501
+0024 GANHO         QCXpu  QCXMVA   100
+0025 LEDLAG        QCXMVA QacX     -1.0   0.0   1.0  0.02
+0026 SAIDA         QacX
+(
+0027 IMPORT FLXR          QCYpu    5502
+0028 GANHO         QCYpu  QCYMVA   100
+0029 LEDLAG        QCYMVA QacY     1.0   0.0   1.0  0.02
+0030 SAIDA         QacY
+(
+0031 IMPORT CCNV          IdX3     1205
+0032 LEDLAG        IdX3   IdcX3    1.0   0.0   1.0  0.005
+0033 SAIDA         IdcX3
+(
+0034 IMPORT CCNV          IdX4     1207
+0035 LEDLAG        IdX4   IdcX4    1.0   0.0   1.0  0.005
+0036 SAIDA         IdcX4
+(
+0037 IMPORT CCNV          IdY3     1206
+0038 LEDLAG        IdY3   IdcY3    1.0   0.0   1.0  0.005
+0039 SAIDA         IdcY3
+(
+0040 IMPORT CCNV          IdY4     1208
+0041 LEDLAG        IdY4   IdcY4    1.0   0.0   1.0  0.005
+0042 SAIDA         IdcY4
+(
+0043 IMPORT VCNV          VdX3     1205
+0044 LEDLAG        VdX3   VdcX3    1.0   0.0   1.0  0.005
+0045 SAIDA         VdcX3
+(
+0046 IMPORT VCNV          VdX4     1207
+0047 LEDLAG        VdX4   VdcX4    1.0   0.0   1.0  0.005
+0048 SAIDA         VdcX4
+(
+0049 IMPORT VCNV          VdY3     1206
+0050 LEDLAG        VdY3   VdcY3    -1.0  0.0   1.0  0.005
+0051 SAIDA         VdcY3
+(
+0052 IMPORT VCNV          VdY4     1208
+0053 LEDLAG        VdY4   VdcY4    -1.0  0.0   1.0  0.005
+0054 SAIDA         VdcY4
+(
+0055 IMPORT ALFA          ALPHR3   1205
+0057 FRACAO        ALPHR3 AlfaX3   180.        #PI
+0058 SAIDA         AlfaX3
+(
+0059 IMPORT ALFA          ALPHR4   1207
+0061 FRACAO        ALPHR4 AlfaX4   180.        #PI
+0062 SAIDA         AlfaX4
+(
+1055 IMPORT ALFA          ALPHI3   1206
+1057 FRACAO        ALPHI3 AlfaY3   180.        #PI
+1058 SAIDA         AlfaY3
+(
+1059 IMPORT ALFA          ALPHI4   1208
+1061 FRACAO        ALPHI4 AlfaY4   180.        #PI
+1062 SAIDA         AlfaY4
+(
+(1063 IMPORT CDU           GamaX3   1395
+(1066 SAIDA         GamaX3
+(
+(1067 IMPORT CDU           GamaX4   2395
+(1070 SAIDA         GamaX4
+(
+0063 IMPORT GAMA          GAMAI3   1206
+0065 FRACAO        GAMAI3 GamaY3   180.        #PI
+0066 SAIDA         GamaY3
+(
+0067 IMPORT GAMA          GAMAI4   1208
+0069 FRACAO        GAMAI4 GamaY4   180.        #PI
+0070 SAIDA         GamaY4
+(
+0071 IMPORT CTAP          TAPER3   1205
+0072 FUNCAO INVRS  TAPER3 TAPX3
+0073 SAIDA         TAPX3
+(
+0074 IMPORT CTAP          TAPER4   1207
+0075 FUNCAO INVRS  TAPER4 TAPX4
+0076 SAIDA         TAPX4
+(
+0077 IMPORT CTAP          TAPEI3   1206
+0078 FUNCAO INVRS  TAPEI3 TAPY3
+0079 SAIDA         TAPY3
+(
+0080 IMPORT CTAP          TAPEI4   1208
+0081 FUNCAO INVRS  TAPEI4 TAPY4
+0082 SAIDA         TAPY4
+(
+(
+FIMCDU
+(
+999999

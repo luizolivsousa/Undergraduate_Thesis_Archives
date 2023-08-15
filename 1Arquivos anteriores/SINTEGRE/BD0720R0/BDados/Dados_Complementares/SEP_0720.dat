@@ -1,0 +1,42 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       SEP_0720.dat                                                                              |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Sistema Especiais de Proteção (SEP)                                                       |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |    DADOS DE ENTRADA                                                                                       |
+( |                                                                                                           |
+( |    1. SEP765  - SEP do tronco de 765 kV associado a UHE Itaipu 60 Hz                                      |
+( |    2. SEP_SUL - SEP da Região Sul                                                                         |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(
+( SEP do tronco de 765 kV associado a UHE Itaipu 60 Hz
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\SEP\SEP765_V6.dat
+(
+( SEP da Região Sul
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\SEP\SEP_SUL_1219.dat
+(
+999999
+(
+FIM

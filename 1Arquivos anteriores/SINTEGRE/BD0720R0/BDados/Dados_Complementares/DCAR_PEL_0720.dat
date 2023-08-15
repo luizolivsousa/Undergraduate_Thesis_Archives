@@ -1,0 +1,133 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       DCAR_PEL_0720.dat                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Modelagem de carga do SIN                                                                 |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( | DADOS DE MODELAGEM DE CARGAS                                                                              |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCAR IMPR IERR
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (Vmn)
+AREA     3                                            0  40   0 100    70       RS - DIT/DIST
+AREA     4                                            0  40   0 100    70       RS - DIT/DIST (Sul + Livramento 2)
+AREA     5                                            0  15   0 100    70       RS - Consumidores RB
+AREA     6                                            0  15   0 100    70       RS - Autoprodutores 230 kV
+AREA    53                                            0  40   0 100    70       SC - DIT/DIST
+AREA    54                                            0  15   0 100    70       SC - Consumidores RB
+AREA   103                                            0  40   0 100    70       PR - DIT/DIST
+AREA   104                                            0  15   0 100    70       PR - Consumidores RB
+AREA   105                                            0  15   0 100    70       PR - Autoprodutores 230 kV
+AREA   206                                            0  50   0 100    70       SP - DIT/DIST (Litoral)
+AREA   207                                            0  60   0 100    70       SP - DIT/DIST (ATB/MOG/CAMP)
+AREA   208                                            0  75   0 100    70       SP - DIT/DIST (Araras)
+AREA   209                                            0  70   0 100    70       SP - DIT/DIST (Jupiá)
+AREA   210                                            0  50   0 100    70       SP - DIT/DIST (P.Prudente)
+AREA   211                                            0  50   0 100    70       SP - DIT/DIST (CERQ/Oeste/Salto)
+AREA   212                                            0  50   0 100    70       SP - DIT/DIST (Região Metropolitana)
+AREA   213                                            0  50   0 100    70       SP - DIT/DIST (Vale do Paraíba)
+AREA   215                                            0  50   0 100    70       SP - Autoprodutores DIT/DIST
+AREA   216                                            0  50   0 100    70       SP - Consumidores RB
+AREA   254                                            0  50   0 100    70       RJ - DIT/DIST (Metropolitana)
+AREA   255                                            0  50   0 100    70       RJ - DIT/DIST (Sul Fluminense)
+AREA   256                                            0  50   0 100    70       RJ - DIT/DIST (Baixada Fluminense)
+AREA   257                                            0  75   0 100    70       RJ - DIT/DIST (Serrana)
+AREA   258                                            0  75   0 100    70       RJ - DIT/DIST (Lagos)
+AREA   259                                            0  75   0 100    70       RJ - DIT/DIST (Norte Fluminenese)
+AREA   260                                            0  50   0 100    70       RJ - Consumidores RB
+AREA   262                                            0  75   0 100    70       RJ - Autoprodutores DIT/DIST
+AREA   304                                            0  65   0 100    70       ES - DIT/DIST (Grande Vitória)
+AREA   305                                            0  65   0 100    70       ES - DIT/DIST (Sul)
+AREA   306                                            0  65   0 100    70       ES - DIT/DIST (Norte)
+AREA   307                                            0  50   0 100    70       ES - Autoprodutores DIT/DIST
+AREA   354                                            0  50   0 100    70       MG - DIT/DIST (Metropolitana)
+AREA   355                                            0  50   0 100    70       MG - DIT/DIST (Mantiqueira)
+AREA   356                                            0  50   0 100    70       MG - DIT/DIST (Norte)
+AREA   357                                            0  50   0 100    70       MG - DIT/DIST (Leste)
+AREA   358                                            0  50   0 100    70       MG - DIT/DIST (Triângulo)
+AREA   359                                            0  50   0 100    70       MG - DIT/DIST (Sul)
+AREA   360                                            0  50   0 100    70       MG - DIT/DIST (Oeste)
+AREA   361                                            0  75   0 100    70       MG - DIT/DIST (Padre Fialho)
+AREA   362                                            0  50   0 100    70       MG - Consumidores RB
+AREA   363                                            0  50   0 100    70       MG - Autoprodutores DIT/DIST
+AREA   403                                            0  75   0 100    70       MS - DIT/DIST
+AREA   404                                            0  15   0 100    70       MS - Autoprodutores 230 kV
+AREA   405                                            0  15   0 100    70       MS - Autoprodutores DIT/DIST
+AREA   432                                            0  70   0 100    70       AC - DIT/DIST (Rio Branco I)
+AREA   453                                            0  70   0 100    70       RO - DIT/DIST (Abunã)
+AREA   454                                            0  70   0 100    70       RO - DIT/DIST (Nova Mutum Paraná)
+AREA   455                                            0  70   0 100    70       RO - DIT/DIST (Porto Velho)
+AREA   456                                            0  70   0 100    70       RO - DIT/DIST (Ariquemes)
+AREA   457                                            0  70   0 100    70       RO - DIT/DIST (Jaru)
+AREA   458                                            0  70   0 100    70       RO - DIT/DIST (Ji-Paraná)
+AREA   459                                            0  70   0 100    70       RO - DIT/DIST (Pimenta Bueno)
+AREA   460                                            0  70   0 100    70       RO - DIT/DIST (Vilhena)
+AREA   473                                            0  60   0 100    70       MT - DIT/DIST (Sinop)
+AREA   474                                            0  60   0 100    70       MT - DIT/DIST (Sorriso)
+AREA   475                                            0  60   0 100    70       MT - DIT/DIST (Lucas do Rio Verde)
+AREA   476                                            0  60   0 100    70       MT - DIT/DIST (Dardanelos)
+AREA   477                                            0  60   0 100    70       MT - DIT/DIST (Anel Cuiabá)
+AREA   478                                            0  60   0 100    70       MT - DIT/DIST (Barra do Peixe)
+AREA   480                                            0  60   0 100    70       MT - Consumidores RB
+AREA   481                                            0  60   0 100    70       MT - Autoprodutores DIT/DIST
+AREA   514                                            0  75   0 100    70       GO - DIT/DIST (Corumbá)
+AREA   515                                            0  75   0 100    70       GO - DIT/DIST (Goiânia)
+AREA   516                                            0  75   0 100    70       GO - DIT/DIST (Paranaíba)
+AREA   517                                            0  75   0 100    70       GO - DIT/DIST (Sudoeste)
+AREA   518                                            0  75   0 100    70       GO - DIT/DIST (Norte)
+AREA   519                                            0  50   0 100    70       GO - Consumidores RB
+AREA   520                                            0  30   0 100    70       GO - Autoprodutores 230 kV
+AREA   564                                            0  75   0 100    70       DF - DIT/DIST (Brasília)
+AREA   703                                            0  70   0 100    70       BO - DIT/DIST (Sudoeste NE)
+AREA   704                                            0  70   0 100    70       BO - Consumidores RB
+AREA   713                                            0  50   0 100    70       BA/SE - DIT/DIST (Sul NE)
+AREA   714                                            0  70   0 100    70       BA/SE - DIT/DIST (Centro NE)
+AREA   715                                            0  50   0 100    70       BA/SE - Consumidores RB
+AREA   716                                            0  50   0 100    70       BA/SE - Autoprodutores 230 kV
+AREA   723                                            0  60   0 100    70       AL/PE - DIT/DIST (Leste NE)
+AREA   724                                            0  60   0 100    70       AL/PE - Consumidores RB
+AREA   743                                            0  60   0 100    70       PB/RN - DIT/DIST (Leste NE)
+AREA   744                                            0  60   0 100    70       PB/RN - Consumidores RB
+AREA   763                                            0  60   0 100    70       CE - DIT/DIST
+AREA   764                                            0  60   0 100    70       CE - Consumidores RB
+AREA   773                                            0  60   0 100    70       PI - DIT/DIST
+AREA   803                                            0  70   0 100    70       AM - DIT/DIST (Mauá III)
+AREA   804                                            0  70   0 100    70       AM - DIT/DIST (Manaus)
+AREA   805                                            0  70   0 100    70       AM - DIT/DIST (J. Teixeira)
+AREA   806                                            0  70   0 100    70       AM - DIT/DIST (Radiais)
+AREA   822                                            0  70   0 100    70       AP - DIT/DIST
+AREA   845                                            0  60   0 100    70       PA - DIT/DIST (Tramo Oeste)
+AREA   846                                            0  60   0 100    70       PA - DIT/DIST (Norte)
+AREA   847                                            0  60   0 100    70       PA - DIT/DIST (Sul)
+AREA   848                                            0  60   0 100    70       PA - Consumidores RB
+AREA   862                                            0  60   0 100    70       MA - 230 kV (Centro/Norte)
+AREA   864                                            0  70   0 100    70       MA - DIT/DIST (Centro/Norte)
+AREA   865                                            0  70   0 100    70       MA - DIT/DIST (Imperatriz)
+AREA   866                                            0  70   0 100    70       MA - Consumidores RB
+AREA   883                                            0  70   0 100    70       TO - DIT/DIST (Norte)
+( Barras do MS )
+BARR  1149                                            0   0   0 100    70
+BARR  1839                                            0   0   0 100    70
+BARR  1881                                            0   0   0 100    70
+BARR  1862                                            0   0   0 100    70
+BARR  1137                                            0  50   0 100    70
+BARR  1821                                            0  50   0 100    70
+BARR  1831                                            0  50   0 100    70
+BARR  1841                                            0  50   0 100    70
+999999
+FIM

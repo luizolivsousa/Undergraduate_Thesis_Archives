@@ -1,0 +1,467 @@
+Relatorio de Curvas PxV - Fluxo de Potencia Continuado
+Sistema : Caso Sistema Teste 5 Barras                                                     
+ 
+ 
+Numero do incremento de carga:   1
+Carregamento do sistema =     5.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.963    -0.002
+    10 Barra_Term_1     0.971    -0.002
+    20 Barra_Term_2     1.018    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =    10.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #03
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.961    -0.003
+    10 Barra_Term_1     0.969    -0.002
+    20 Barra_Term_2     1.017    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   3
+Carregamento do sistema =    15.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #04
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.958    -0.003
+    10 Barra_Term_1     0.968    -0.002
+    20 Barra_Term_2     1.016    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   4
+Carregamento do sistema =    20.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #05
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.955    -0.003
+    10 Barra_Term_1     0.966    -0.002
+    20 Barra_Term_2     1.015    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   5
+Carregamento do sistema =    25.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #06
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.952    -0.003
+    10 Barra_Term_1     0.963    -0.002
+    20 Barra_Term_2     1.014    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   6
+Carregamento do sistema =    30.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #07
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.949    -0.003
+    10 Barra_Term_1     0.961    -0.002
+    20 Barra_Term_2     1.013    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   7
+Carregamento do sistema =    35.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #08
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.945    -0.004
+    10 Barra_Term_1     0.958    -0.003
+    20 Barra_Term_2     1.012    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   8
+Carregamento do sistema =    40.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #09
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.941    -0.004
+    10 Barra_Term_1     0.956    -0.003
+    20 Barra_Term_2     1.010    -0.001
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:   9
+Carregamento do sistema =    45.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #10
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.937    -0.004
+    10 Barra_Term_1     0.953    -0.003
+    20 Barra_Term_2     1.009    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  10
+Carregamento do sistema =    50.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #11
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.933    -0.004
+    10 Barra_Term_1     0.950    -0.003
+    20 Barra_Term_2     1.007    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  11
+Carregamento do sistema =    55.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #12
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.928    -0.005
+    10 Barra_Term_1     0.946    -0.003
+    20 Barra_Term_2     1.005    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  12
+Carregamento do sistema =    60.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #13
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.923    -0.005
+    10 Barra_Term_1     0.943    -0.004
+    20 Barra_Term_2     1.003    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  13
+Carregamento do sistema =    65.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #14
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.918    -0.005
+    10 Barra_Term_1     0.939    -0.004
+    20 Barra_Term_2     1.001    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  14
+Carregamento do sistema =    70.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #15
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.912    -0.006
+    10 Barra_Term_1     0.935    -0.004
+    20 Barra_Term_2     0.999    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  15
+Carregamento do sistema =    75.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #16
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.906    -0.006
+    10 Barra_Term_1     0.930    -0.004
+    20 Barra_Term_2     0.997    -0.002
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  16
+Carregamento do sistema =    80.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #17
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.899    -0.007
+    10 Barra_Term_1     0.926    -0.005
+    20 Barra_Term_2     0.994    -0.003
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  17
+Carregamento do sistema =    85.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #18
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.891    -0.007
+    10 Barra_Term_1     0.920    -0.005
+    20 Barra_Term_2     0.992    -0.003
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  18
+Carregamento do sistema =    90.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #19
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.883    -0.008
+    10 Barra_Term_1     0.915    -0.006
+    20 Barra_Term_2     0.989    -0.003
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  19
+Carregamento do sistema =    95.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #20
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.875    -0.009
+    10 Barra_Term_1     0.909    -0.006
+    20 Barra_Term_2     0.985    -0.003
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  20
+Carregamento do sistema =   100.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #21
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.865    -0.010
+    10 Barra_Term_1     0.902    -0.007
+    20 Barra_Term_2     0.982    -0.004
+     2 Maq2             1.025    -0.000
+     1 Maq1             1.017     0.000
+ 
+ 
+Numero do incremento de carga:  21
+Carregamento do sistema =   105.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #22
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.855    -0.011
+    10 Barra_Term_1     0.894    -0.008
+    20 Barra_Term_2     0.978    -0.004
+     1 Maq1             1.017    -0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  22
+Carregamento do sistema =   110.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #23
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.842    -0.012
+    10 Barra_Term_1     0.886    -0.008
+    20 Barra_Term_2     0.973    -0.004
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  23
+Carregamento do sistema =   115.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #24
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.829    -0.014
+    10 Barra_Term_1     0.876    -0.010
+    20 Barra_Term_2     0.968    -0.005
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  24
+Carregamento do sistema =   120.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #25
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.812    -0.016
+    10 Barra_Term_1     0.865    -0.011
+    20 Barra_Term_2     0.962    -0.006
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  25
+Carregamento do sistema =   125.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #26
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.792    -0.020
+    10 Barra_Term_1     0.851    -0.014
+    20 Barra_Term_2     0.955    -0.007
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  26
+Carregamento do sistema =   130.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #27
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.764    -0.028
+    10 Barra_Term_1     0.832    -0.019
+    20 Barra_Term_2     0.945    -0.010
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  28
+Carregamento do sistema =   132.5000
+Arquivo Historico: CONT_001.SAV          
+Caso #28
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.743    -0.021
+    10 Barra_Term_1     0.818    -0.014
+    20 Barra_Term_2     0.938    -0.007
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  30
+Carregamento do sistema =   133.7500
+Arquivo Historico: CONT_001.SAV          
+Caso #29
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.726    -0.016
+    10 Barra_Term_1     0.807    -0.011
+    20 Barra_Term_2     0.932    -0.006
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  32
+Carregamento do sistema =   134.3750
+Arquivo Historico: CONT_001.SAV          
+Caso #30
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.713    -0.013
+    10 Barra_Term_1     0.798    -0.009
+    20 Barra_Term_2     0.927    -0.005
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+ 
+ 
+Numero do incremento de carga:  34
+Carregamento do sistema =   134.6875
+Arquivo Historico: CONT_001.SAV          
+Caso #31
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+    30 Barra_PQ         0.697    -0.016
+    10 Barra_Term_1     0.788    -0.010
+    20 Barra_Term_2     0.922    -0.005
+     2 Maq2             1.025     0.000
+     1 Maq1             1.017     0.000
+ 
+ 
+Numero do incremento de carga:  42
+Carregamento do sistema =   134.6875
+Arquivo Historico: CONT_001.SAV          
+Caso #32
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+     1 Maq1             1.017     0.000
+     2 Maq2             1.025     0.000
+    10 Barra_Term_1     0.788     0.000
+    20 Barra_Term_2     0.922     0.000
+    30 Barra_PQ         0.697     0.000

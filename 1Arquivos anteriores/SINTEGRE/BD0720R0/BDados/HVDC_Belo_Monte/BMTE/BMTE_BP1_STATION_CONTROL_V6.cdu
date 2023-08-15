@@ -1,0 +1,607 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_BP1_STATION_CONTROL_V6.cdu                                                           |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------
+(
+( LISTA DE CDU's NESTE ARQUIVO:
+(
+( CDU 95000 - STATION CONTROL (POWER RAMP, POD, FREQUENCY CONTROL)
+(
+(----------------------------------------------------------------------
+(
+( SINAIS DE INTERESSE:
+(
+( BLOCO 400 - PREF - ENTRADA PARA RAMPA EM PREF (MW)
+( BLOCO 450 - RUNUP - ENTRADA PARA RUNUP(+) OU RUNBACK(-) (MW)
+( BLOCO 65 - PDEG - ENTRADA PARA APLICAÇÃO DE DEGRAU EM PREF (MW)
+(
+DCDU
+(
+(ncdu) ( nome cdu )
+ 95000 BMTE-STATION
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #STAB                 1.0            # HABILITA FUNÇÕES DE ESTABILIDADE (1->LIGADO / 0->DESLIGADO)
+DEFPAR #FCON                 1.0            # HABILITA CONTROLES DE FREQUÊNCIA (1->LIGADO / 0->DESLIGADO)
+DEFPAR #LFCON                0.0            # FREQUENCY CONTROL (SELEÇÃO OPERADOR): 0->SISTÊMICO / 1->LOCAL
+DEFPAR #LFCLC                1.0            # LOCAL FREQUENCY CONTROL (TERMINAL): 0->ESTREITO / 1->XINGU
+(
+DEFPAR #RAMPA                10.            # TAXA PARA RAMPA DE POTÊNCIA NORMAL (BIPOLO), EM MW/S
+(
+DEFPAR #TAXA              14000.            # TAXA PARA RUN-BACK OU RUN-UP MANUAL, EM MW/S
+(
+DEFPAR #PNOM               2000.            # POTÊNCIA NOMINAL (POLO), EM MW
+(
+DEFPAR #PMAX               5320.            # POTÊNCIA MÁXIMA (BIPOLO), INCLUINDO SOBRECARGA "LONGA DURAÇÃO", EM MW
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #CNVX1               9981            # CONVERSOR XINGU POLO 1
+DEFPAR #CNVE1               9982            # CONVERSOR ESTREITO POLO 1
+DEFPAR #CNVX2               9983            # CONVERSOR XINGU POLO 2
+DEFPAR #CNVE2               9984            # CONVERSOR ESTREITO POLO 2
+DEFPAR #BAR-X               9971            # BARRA AC XINGU
+DEFPAR #BAR-E               9970            # BARRA AC ESTREITO
+DEFPAR #LTXT1               9951            # LT XINGU-TUCURUI C1
+DEFPAR #LTXT2               9952            # LT XINGU-TUCURUI C2
+(
+DEFPAR #RUNUP               9542            # LOCAL REMOTO RUNUP EXTERNO SEP
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #TELCM               0.03            # TEMPO DE TELECOM ENTRE ESTAÇÕES, EM SEGUNDOS
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #TF                  0.05            # CONSTANTE DE TEMPO DE MEDIÇÃO DA FREQUÊNCIA, EM SEGUNDOS
+(
+(----------------------------------------------------------------------
+(            POD - Power Oscillation Damping Controller
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #POD                  1.0            # HABILITA POD (1->LIGADO / 0->DESLIGADO)
+DEFPAR #T1POD               10.0            # CONSTANTE DE TEMPO WASH-OUT DO CANAL DE ERRO DE FREQUÊNCIA, EM SEGUNDOS
+DEFPAR #T2POD               0.05            # CONSTANTE DE TEMPO DO FILTRO PASSA-BAIXAS, EM SEGUNDOS
+DEFPAR #KPOD                2000            # GANHO DO POD, EM MW/Hz
+DEFPAR #T3POD                0.1            # CONSTANTE DE TEMPO AVANÇO DO POD, EM SEGUNDOS
+DEFPAR #T4POD                0.1            # CONSTANTE DE TEMPO ATRASO DO POD, EM SEGUNDOS
+DEFPAR #T5POD                1.0            # CONSTANTE DE TEMPO WASH-OUT DA FUNÇÃO DE TRANSFERÊNCIA, EM SEGUNDOS
+DEFPAR #MNPOD               -200            # LIMITE MÍNIMO SAÍDA POD, EM MW
+DEFPAR #MXPOD                200            # LIMITE MÁXIMO SAÍDA POD, EM MW
+DEFPAR #PODOF                1.0            # DESVIO DE FREQUÊNCIA PARA DESCONEXÃO AUTOMÁTICA DO POD, EM HZ
+DEFPAR #TOFF                 1.0            # TEMPO PARA DESCONEXÃO AUTOMÁTICA DO POD, EM SEGUNDOS
+DEFPAR #PODON                0.1            # DESVIO DE FREQUÊNCIA PARA RECONEXÃO AUTOMÁTICA DO POD, EM HZ
+DEFPAR #TON                  1.0            # TEMPO PARA RECONEXÃO AUTOMÁTICA DO POD, EM SEGUNDOS
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        PODOFF #PODOF
+DEFVAL        PODON  #PODON
+DEFVAL        LMNPOD #MNPOD
+DEFVAL        LMXPOD #MXPOD
+DEFVAL VAR    ONPOD  LIGPOD
+(
+(----------------------------------------------------------------------
+(            SFC - Systemic Frequency Controller
+(----------------------------------------------------------------------
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #DBSFC                0.5            # DEAD-BAND - CONTROLE DE FREQUÊNCIA SISTÊMICO
+DEFPAR #SLOPS               666.            # SLOPE DO CONTROLE DE FREQUÊNCIA SISTÊMICO, EM MW/HZ
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DBSFC  #DBSFC
+(
+(----------------------------------------------------------------------
+(                   Frequency Controller
+(----------------------------------------------------------------------
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        FTARG    60.0                 # TARGET FREQUENCY (HZ)
+DEFVAL        FMIND    56.0                 # MINIMUM DESIGN FREQUENCY (HZ)
+DEFVAL        FMAXD    66.0                 # MAXIMUM DESIGN FREQUENCY (HZ)
+(
+(----------------------------------------------------------------------
+(           LFC - Local Frequency Controller - XINGU
+(----------------------------------------------------------------------
+(
+( Frequency Controller (FC) - XINGU
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #DBFCX                0.2            # DEAD-BAND - CONTROLE DE FREQUÊNCIA LOCAL - XINGU, EM HZ
+DEFPAR #SLPLX               666.            # SLOPE DO CONTROLE DE FREQUÊNCIA LOCAL - XINGU, EM MW/HZ
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        FMINCX   56.0                 # MINIMUM CONTROL FREQUENCY - XINGU (HZ)
+DEFVAL        FMAXCX   66.0                 # MAXIMUM CONTROL FREQUENCY - XINGU (HZ)
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DBFCX  #DBFCX
+(
+( Frequency Limit Controller (FLC) - XINGU
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #T1FLX                0.1            # CONSTANTE DE TEMPO DE ENTRADA DO FLC - XINGU, EM SEGUNDOS
+DEFPAR #KPUFX               1000            # GANHO PROPORCIONAL DO FLC - UPPER PART - XINGU, EM MW/HZ
+DEFPAR #KIUFX                 10            # GANHO INTEGRAL DO FLC - UPPER PART - XINGU, EM MW/HZ
+DEFPAR #KPLFX               1000            # GANHO PROPORCIONAL DO FLC - LOWER PART - XINGU, EM MW/HZ
+DEFPAR #KILFX                 10            # GANHO INTEGRAL DO FLC - LOWER PART - XINGU, EM MW/HZ
+DEFPAR #MNFLX              -4000            # LIMITE INFERIOR FLC - LOWER PART - XINGU, EM MW
+DEFPAR #MXFLX              +4000            # LIMITE SUPERIOR FLC - UPPER PART - XINGU, EM MW
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        MXFLCX #MXFLX
+DEFVAL        MNFLCX #MNFLX
+(
+(----------------------------------------------------------------------
+(           LFC - Local Frequency Controller - ESTREITO
+(----------------------------------------------------------------------
+(
+( Frequency Controller (FC) - XINGU
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #DBFCE                0.2            # DEAD-BAND - CONTROLE DE FREQUÊNCIA LOCAL - ESTREITO, EM HZ
+DEFPAR #SLPLE             666.67            # SLOPE DO CONTROLE DE FREQUÊNCIA LOCAL - ESTREITO, EM MW/HZ
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        FMINCE   56.0                 # MINIMUM CONTROL FREQUENCY - ESTREITO (HZ)
+DEFVAL        FMAXCE   66.0                 # MAXIMUM CONTROL FREQUENCY - ESTREITO (HZ)
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DBFCE  #DBFCE
+(
+( Frequency Limit Controller (FLC) - XINGU
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #T1FLE                0.1            # CONSTANTE DE TEMPO DE ENTRADA DO FLC - ESTREITO, EM SEGUNDOS
+DEFPAR #KPUFE               1000            # GANHO PROPORCIONAL DO FLC - UPPER PART - ESTREITO, EM MW/HZ
+DEFPAR #KIUFE                 10            # GANHO INTEGRAL DO FLC - UPPER PART - ESTREITO, EM MW/HZ
+DEFPAR #KPLFE               1000            # GANHO PROPORCIONAL DO FLC - LOWER PART - ESTREITO, EM MW/HZ
+DEFPAR #KILFE                 10            # GANHO INTEGRAL DO FLC - LOWER PART - ESTREITO, EM MW/HZ
+DEFPAR #MNFLE              -4000            # LIMITE INFERIOR FLC - LOWER PART - ESTREITO, EM MW
+DEFPAR #MXFLE              +4000            # LIMITE SUPERIOR FLC - UPPER PART - ESTREITO, EM MW
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        MXFLCE #MXFLE
+DEFVAL        MNFLCE #MNFLE
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        LFCON  #LFCON
+DEFVAL        LFCLOC #LFCLC
+DEFVAL        RUNUP  0.0
+DEFVAL        RUNUPL 0.0
+DEFVAL        PMAX   #PMAX
+DEFVAL        X815   0.0
+DEFVAL        X840   0.0
+DEFVAL        X1015  0.0
+DEFVAL        X1040  0.0
+DEFVAL        PDEG   0.0
+DEFVAL        RUNUPX 0.0
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        MHUM   -1.0
+DEFVAL        INF    99999.
+DEFVAL        MINF   -99999
+(
+(----------------------------------------------------------------------
+(
+(Export
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  11 EXPORT CDU    PRFDC1
+  12 EXPORT CDU    PRFDC2
+  13 EXPORT CDU    PRFDC3
+  14 EXPORT CDU    PRFDC4
+(
+(Entrad
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+   2 ENTRAD               ZERO
+   3 ENTRAD               HUM
+   4 ENTRAD               INF
+   5 ENTRAD               MINF
+   6 ENTRAD               MHUM
+  10 ENTRAD               FTARG
+  15 ENTRAD               FMIND
+  20 ENTRAD               FMAXD
+  25 ENTRAD               FMINCX
+  26 ENTRAD               FMINCE
+  30 ENTRAD               FMAXCX
+  31 ENTRAD               FMAXCE
+  35 ENTRAD               LFCON
+  40 ENTRAD               LFCLOC
+  45 ENTRAD               PMAX
+  50 ENTRAD               DBSFC
+  55 ENTRAD               DBFCX
+  60 ENTRAD               DBFCE
+  65 ENTRAD               PDEG
+(
+(Imports
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 100 IMPORT FREQ          FPU-X  #BAR-X 0.0
+ 105 IMPORT FREQ          FPU-E  #BAR-E 0.0
+ 110 IMPORT OPCNV         OPCNVX #CNVX1 1.0
+ 115 IMPORT OPCNV         OPCNVE #CNVE1 0.0
+ 120 IMPORT STCIRC        LTXT1  #LTXT1 0.0
+ 125 IMPORT STCIRC        LTXT2  #LTXT2 0.0
+ 130 IMPORT PCCCNV        PDC-X1 #CNVX1 0.0
+ 135 IMPORT PCCCNV        PDC-X2 #CNVX2 0.0
+ 140 IMPORT PCCCNV        PDC-E1 #CNVE1 0.0
+ 145 IMPORT PCCCNV        PDC-E2 #CNVE2 0.0
+ 146 IMPORT ESTCNV        ESTP1  #CNVX1 0.0
+ 147 IMPORT ESTCNV        ESTP2  #CNVX2 0.0
+ 150 IMPORT CDU           RUNUPX #RUNUP 0.0
+(
+(Cálculo da potência total bipolar
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 175 SELET2        PDC-E1 PDC-P1
+                   PDC-X1 PDC-P1
+                   OPCNVX PDC-P1
+ 180 SELET2        PDC-E2 PDC-P2
+                   PDC-X2 PDC-P2
+                   OPCNVX PDC-P2
+ 182 LEDLAG        PDC-P1 PD-P1F 1.0         1.0   0.01
+ 184 LEDLAG        PDC-P2 PD-P2F 1.0         1.0   0.01
+ 185 SOMA          PD-P1F PDC-PU
+                   PD-P2F PDC-PU
+ 190 GANHO         PDC-PU PDC-BP #PNOM
+ 195 SAIDA         PDC-BP
+(
+(Frequência do retificador e inversor
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 200 LEDLAG        FPU-X  FREQX  60.         1.0   #TF
+ 205 LEDLAG        FPU-E  FREQE  60.         1.0   #TF
+(
+ 210 SELET2        FREQE  FR
+                   FREQX  FR
+                   OPCNVX FR
+(
+ 220 SELET2        FREQX  FREQI
+                   FREQE  FREQI
+                   OPCNVX FREQI
+ 225 ATRASO        FREQI  FI     #TELCM
+(
+(======================================================================
+(                        CÁLCULO DE PREFDC
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 300 SOMA          FCX    LFCX
+                   FLCX   LFCX
+ 305 SOMA          FCE    LFCE
+                   FLCE   LFCE
+ 310 SELET2        LFCE   X310
+                   LFCX   X310
+                   LFCLOC X310
+ 312 ATRASO        X310   X312   #TELCM
+ 315 GANHO         X312   X315   -1.0
+(
+ 320 SELET2        OPCNVE OPCNV
+                   OPCNVX OPCNV
+                   LFCLOC OPCNV
+(
+ 325 SELET2        X315   LFC
+                   X310   LFC
+                   OPCNV  LFC
+(
+ 330 LOGIC  .NOR.  LTXT1  LTXT
+                   LTXT2  LTXT
+ 335 LOGIC  .OR.   LTXT   LFC_ON
+                   LFCON  LFC_ON
+(
+ 340 SELET2        SFC    X340
+                   LFC    X340
+                   LFC_ON X340
+ 342 GANHO         X340   FC     #FCON
+(
+ 345 SOMA          RUNUPL STAB
+                   RUNUPX STAB
+                   POD    STAB
+                   FC     STAB
+(
+ 346 GANHO         STAB   STABL  #STAB
+(
+ 347 SOMA          PREFL  PREFDC
+                   STABL  PREFDC
+                   PDEG   PREFDC
+(
+ 348 SELET2        ZERO   PRFDC1
+                   PREFDC PRFDC1
+                   ESTP1  PRFDC1
+ 349 SELET2        ZERO   PRFDC2
+                   PREFDC PRFDC2
+                   ESTP1  PRFDC2
+ 350 SELET2        ZERO   PRFDC3
+                   PREFDC PRFDC3
+                   ESTP2  PRFDC3
+ 351 SELET2        ZERO   PRFDC4
+                   PREFDC PRFDC4
+                   ESTP2  PRFDC4
+352  SAIDA         PRFDC1
+353  SAIDA         PRFDC2
+354  SAIDA         PRFDC3
+355  SAIDA         PRFDC4
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        STABL  0.0
+DEFVAL        STAB   0.0
+DEFVAL        POD    0.0
+DEFVAL        SFC    0.0
+DEFVAL        LFC    0.0
+DEFVAL        FC     0.0
+DEFVAL        FLCX   0.0
+DEFVAL        FLCE   0.0
+DEFVAL        FCX    0.0
+DEFVAL        FCE    0.0
+DEFVAL        LFCX   0.0
+DEFVAL        LFCE   0.0
+(
+(======================================================================
+(                        RAMPA DE POTÊNCIA
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 400 ENTRAD               PREF
+ 405 ENTRAD               RAMPAP
+ 410 FUNCAO MENOS  RAMPAP RAMPAN
+ 420 LIMITA        PREF   X420                            ZERO   PMAX
+ 415 RATELM        X420   PREFL                           RAMPAN RAMPAP
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        RAMPAP #RAMPA
+DEFVAL VAR    PREF   PDC-BP
+(
+(======================================================================
+(                       RUN-BACK / RUN-UP
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 450 ENTRAD               RUNUP
+ 455 SOMA          RUNUP  X455
+                  -X470   X455
+ 460 FUNCAO DEADB2 X455   X460   -.001 -1.0  .001  1.0
+ 465 PROINT        X460   RUNUPL #TAXA  0.0  1.0          DPOMN   DPOMX
+ 470 DELAY         RUNUPL X470
+ 475 FUNCAO SINAL  RUNUP  SINAL
+ 480 SELET2        INF    DPOMX
+                   RUNUP  DPOMX
+                   SINAL  DPOMX
+ 485 SELET2        RUNUP  DPOMN
+                   MINF   DPOMN
+                   SINAL  DPOMN
+(
+(======================================================================
+(                 ENTRADA DE TESTE (DELTA F INPUT)
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+500  ENTRAD               DFTEST
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DFTEST 0.0
+(
+(======================================================================
+(                   POWER OSCILLATION DAMPING (POD)
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 510 SOMA          FR     ERROF
+                  -FI     ERROF
+                   DFTEST ERROF
+ 515 LEDLAG        ERROF  X515   1.0         1.0   #T1POD
+ 520 SOMA          ERROF  X520
+                  -X515   X520
+ 525 LEDLAG        X520   X525   1.0         1.0   #T2POD
+ 530 GANHO         X525   X530   #KPOD
+ 535 LEDLAG        X530   X535   1.0   #T3POD1.0   #T4POD
+ 540 LEDLAG        X535   X540   1.0         1.0   #T5POD
+ 545 SOMA          X535   X545
+                  -X540   X545
+ 550 LIMITA        X545   X550                            LMNPOD LMXPOD
+ 552 MULTPL        X550   X552
+                   ONPOD  X552
+(banda morta na saída do POD retirada por solicitação do ONS
+( 553 FUNCAO DEADB1 X552   X553   -8.   +8.   1.0   1.0
+ 555 GANHO         X552   POD    #POD
+(
+( Lógica conexão/desconexão do POD por desvio de frequência
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 557 ENTRAD               PODOFF
+ 558 ENTRAD               PODON
+ 576 SELET2        ERROF  ERROF1
+                   ZERO   ERROF1
+                   LFCON  ERROF1
+ 559 FUNCAO ABS    ERROF1 ERROFM
+ 560 COMPAR .GE.   ERROFM X560
+                   PODOFF X560
+ 565 COMPAR .LE.   ERROFM X565
+                   PODON  X565
+ 570 LOGIC  FFLOP1 DESPOD X570
+                   LIGPOD X570
+ 577 SELET2        MHUM   X577
+                   HUM    X577
+                   X570   X577
+ 575 PROINT        X577   ONPOD  1.0         5.0          ZERO   HUM
+(
+(desconexão automática do POD
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2110 DLAYON        X560   DESL_F #TOFF
+(
+(reconexão automática do POD
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3110 DLAYON        X565   LIG_F  #TON
+(
+(Desliga POD se LT Xingu-tucurui C1 e C2 estão desligados
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 580 LOGIC  .OR.   DESL_F DESPOD
+                   LTXT   DESPOD
+ 585 LOGIC  .NOT.  LTXT   NLTXT
+ 590 LOGIC  .AND.  LIG_F  LIGPOD
+                   NLTXT  LIGPOD
+(
+(======================================================================
+(                     SYSTEMIC FREQUENCY CONTROL (SFC)
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 600 LIMITA        FR     FRL                             FMIND  FMAXD
+ 605 LIMITA        FI     FIL                             FMIND  FMAXD
+ 610 SOMA          FRL    ERRSFC
+                  -FIL    ERRSFC
+ 615 FUNCAO MENOS  DBSFC  DBSFCN
+ 620 COMPAR .GT.   ERRSFC X620
+                   DBSFC  X620
+ 625 SOMA          ERRSFC X625
+                  -DBSFC  X625
+ 630 MULTPL        X620   X630
+                   X625   X630
+ 635 COMPAR .LT.   ERRSFC X635
+                   DBSFCN X635
+ 640 SOMA          ERRSFC X640
+                  -DBSFCN X640
+ 645 MULTPL        X635   X645
+                   X640   X645
+ 650 SOMA          X630   X650
+                   X645   X650
+ 655 GANHO         X650   SFC    #SLOPS
+(
+(
+(======================================================================
+(                  FREQUENCY CONTROL (FC) - XINGU
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 700 LIMITA        FREQX  FREQXL                          FMIND  FMAXD
+ 705 SOMA          FREQXL ERRFCX
+                  -FTARG  ERRFCX
+ 710 FUNCAO MENOS  DBFCX  DBFCXN
+ 715 COMPAR .GT.   ERRFCX X715
+                   DBFCX  X715
+ 716 SOMA          ERRFCX X716
+                  -DBFCX  X716
+ 720 MULTPL        X715   X720
+                   X716   X720
+ 721 COMPAR .LT.   ERRFCX X721
+                   DBFCXN X721
+ 724 SOMA          ERRFCX X724
+                  -DBFCXN X724
+ 722 MULTPL        X721   X722
+                   X724   X722
+ 723 SOMA          X720   X723
+                   X722   X723
+ 725 SOMA          FMAXCX DFMAXX
+                  -FTARG  DFMAXX
+ 730 SOMA          FMINCX DFMINX
+                  -FTARG  DFMINX
+ 735 LIMITA        X723   X735                            DFMINX DFMAXX
+ 740 GANHO         X735   FCX    #SLPLX
+(
+(
+(======================================================================
+(              FREQUENCY LIMIT CONTROL (FLC) - XINGU
+(======================================================================
+(
+ 800 LEDLAG        FREQXL X800   1.0         1.0   #T1FLX
+(
+(Upper part
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 805 SOMA          X800   X805
+                  -FMAXCX X805
+ 810 GANHO         X805   X810   #KPUFX
+ 815 PROINT        X805   X815   #KIUFX      1.0          ZERO   MXFLCX
+ 820 SOMA          X810   X820
+                   X815   X820
+ 825 LIMITA        X820   FLCXU                           ZERO   MXFLCX
+(
+(Lower part
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 830 SOMA          X800   X830
+                  -FMINCX X830
+ 835 GANHO         X830   X835   #KPLFX
+ 840 PROINT        X830   X840   #KILFX      1.0          MNFLCX ZERO
+ 845 SOMA          X835   X845
+                   X840   X845
+ 850 LIMITA        X845   FLCXL                           MNFLCX ZERO
+(
+ 855 SOMA          FLCXU  FLCX
+                   FLCXL  FLCX
+(
+(
+(======================================================================
+(                  FREQUENCY CONTROL (FC) - ESTREITO
+(======================================================================
+(
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 900 LIMITA        FREQE  FREQEL                          FMIND  FMAXD
+ 905 SOMA          FREQEL ERRFCE
+                  -FTARG  ERRFCE
+ 910 FUNCAO MENOS  DBFCE  DBFCEN
+ 915 COMPAR .GT.   ERRFCE X915
+                   DBFCE  X915
+ 916 SOMA          ERRFCE X916
+                  -DBFCE  X916
+ 920 MULTPL        X915   X920
+                   X916   X920
+ 921 COMPAR .LT.   ERRFCE X921
+                   DBFCEN X921
+ 924 SOMA          ERRFCE X924
+                  -DBFCEN X924
+ 922 MULTPL        X921   X922
+                   X924   X922
+ 923 SOMA          X920   X923
+                   X922   X923
+ 925 SOMA          FMAXCE DFMAXE
+                  -FTARG  DFMAXE
+ 930 SOMA          FMINCE DFMINE
+                  -FTARG  DFMINE
+ 935 LIMITA        X923   X935                            DFMINE DFMAXE
+ 940 GANHO         X935   FCE    #SLPLE
+(
+(
+(======================================================================
+(              FREQUENCY LIMIT CONTROL (FLC) - ESTREITO
+(======================================================================
+(
+1000 LEDLAG        FREQEL X1000  1.0         1.0   #T1FLE
+(
+(Upper part
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1005 SOMA          X1000  X1005
+                  -FMAXCE X1005
+1010 GANHO         X1005  X1010  #KPUFE
+1015 PROINT        X1005  X1015  #KIUFE      1.0          ZERO   MXFLCE
+1020 SOMA          X1010  X1020
+                   X1015  X1020
+1025 LIMITA        X1020  FLCEU                           ZERO   MXFLCE
+(
+(Lower part
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1030 SOMA          X1000  X1030
+                  -FMINCE X1030
+1035 GANHO         X1030  X1035  #KPLFE
+1040 PROINT        X1030  X1040  #KILFE      1.0          MNFLCE ZERO
+1045 SOMA          X1035  X1045
+                   X1040  X1045
+1050 LIMITA        X1045  FLCEL                           MNFLCE ZERO
+(
+1055 SOMA          FLCEU  FLCE
+                   FLCEL  FLCE
+(
+FIMCDU
+(
+999999
+(
+FIM

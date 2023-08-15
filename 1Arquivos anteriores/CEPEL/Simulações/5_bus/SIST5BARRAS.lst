@@ -1,0 +1,57 @@
+!      ---- Modo de Desenho da Barra ---
+BU
+!      ---- Tamanho da Fonte das Legendas ---
+F 1
+!      ---- Cores (Fundo - Identificador - Numero - Valor - Grid - Fluxo Ativo - Fluxo Reativo)---
+RF 255 255 255
+RI 128 0 128
+RN 128 0 128
+RV 0 0 255
+RG 0 0 0
+RA 0 0 255
+RR 255 0 0
+!      ---- Grupos Base de Tensão ----
+!Ten  lar  R   G   B ID
+!    ---- Componentes ----
+!Numero Tipo Rot Hac Px Py Cor sl SubTp ch1 ch2 ch3 ch4 Descrip
+C  1  1 257 0  -1024   -480  0  0 -  1  0  0  0 0
+C  2  1 257 0  -1024   -640  0  0 -  2  0  0  0 0
+C 11  1 769 0   -864   -480  0  0 - 10  0  0  0 0
+C 12  1 513 0   -864   -640  0  0 - 20  0  0  0 0
+C 13  1 513 0   -608   -432  0  0 - 30  0  0  0 0
+C  9  4 1 0  -1088   -624  0  0 -  1  2  0  0 87
+C 10  4 1 0  -1088   -464  0  0 -  1  1  0  0 87
+C 15  9 2 0   -704   -528  0  0 -  1 10 20  0 87
+C 16  9 2 0   -768   -528  0  0 -  2 10 20  0 87
+!      ---- Linhas ----
+!Numero Tipo hac sl De Para ch1 nsg segmentos
+L14 14 0 0   1  11  1  1 5 
+L17 14 0 0  11  13  1  1 10 
+L18 14 0 0  11  13  2  1 11 
+L38 14 0 0   2  12  1  1 12 
+!     ---- Ligacoes ----
+!Numero Flags cor Inic Coni Fin Conf Linhas nqb quebras
+U 3 0  0   9   1   2   2  -1   0 
+U 4 0  0  10   1   1   2  -1   0 
+U 5 0  0   1   2  11   2  14   0 
+U10 0  0  11   6  13   3  17   0 
+U11 0  0  11   8  13   5  18   0 
+U 6 0  0  11   4  15   1  -1   1    -704   -432
+U 7 0  0  12   2  15   2  -1   1    -704   -624
+U 8 0  0  11   2  16   1  -1   1    -768   -464
+U 9 0  0  12   4  16   2  -1   2    -768   -592   -768   -560
+U12 0  0   2   2  12   2  38   0 
+!    ---- Posição de Legenda de Componentes ----
+!NumCompo Label Rot Px Py
+X  15  0  2    12.00     0.00
+X  16  0  2    12.00     0.00
+!     ---- Posição de Legenda de Ligacoes ----
+!Lado NumLig Label Px Py
+YI  11  1    28.30    -7.35
+YI  11  2    28.30     8.65
+YF  11  1   -42.38    -7.35
+YF  11  2   -45.70     8.65
+YI   6  1    96.00    -7.35
+YI   6  2    96.00     8.65
+YI   7  1    92.30    -7.35
+YI   7  2    96.00     8.65

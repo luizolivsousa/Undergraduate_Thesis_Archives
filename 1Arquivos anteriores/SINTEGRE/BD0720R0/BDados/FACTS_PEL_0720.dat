@@ -1,0 +1,114 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       FACTS_PEL_0720.dat                                                                        |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Associação de modelos de FACTS (CDU) e sinais remotos (DLOC) associados                   |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsãveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   CDU     .\BDados\FACTS\FACTS_DATA_0720.cdu
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | COMPENSADORES ESTATICOS DE REATIVOS (SVC)                                                                 |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCER
+( Nb)   Gr ( Mc )u( Me )u
+   42    1    191u           CER Bandeirantes 1 (-50 Mvar / 100 Mvar)
+   43    2    192u           CER Bandeirantes 2 (-50 Mvar / 100 Mvar)
+   46    3    198u           CER Campos (-50 Mvar / 100 Mvar)
+   55    4    190u           CER Barro Alto (-75 Mvar / 150 Mvar)
+  389   10    395u           CER Ouro Preto 2 (-80 Mvar / 20 Mvar)
+  499   10   6901u           CER Fernão Dias (-150 Mvar / 300 Mvar)
+  567    1   9995u           CER Santa Bárbara (-300 Mvar / 300 Mvar)
+  597   10   6917u           CER Bauru (-125 Mvar / 250 Mvar)
+  944    1   8312u           CER Biguaçu (-100 Mvar / 300 Mvar)
+ 1078    1   1482u           CER Anastácio 230 kV (-50 Mvar / 50 Mvar)
+( 1078    1   1483u           CER Anastácio 230 kV - Estabilidade a longo termo - (-50 Mvar / 50 Mvar)
+ 1490   10   9993u           CER B. Despacho 3 (-200 Mvar / 300 Mvar)
+ 1889    1   5900u           CER Imbirussu (-100 Mvar / 100 Mvar)
+ 3026    1   1480u           CER Luziânia (-150 Mvar / 300 Mvar)
+ 3344   10   9997u           CER Padre Fialho (-92 Mvar / 103.2 Mvar)
+ 4093   10   9996u           CER Santos Dumont (-84 Mvar / 100 Mvar)
+ 4530   10   1390u           CER Coxipó (-50 Mvar / 70 Mvar)
+ 4582   10   1495u           CER Sinop (-20 Mvar / 55 Mvar)
+( 4582   10   1496u           CER Sinop - External device - (-20 Mvar / 55 Mvar)
+ 4665   10   9981u           CER Paranatinga (-200 Mvar / 200 Mvar)
+ 4677   10   9978u           CER R.V.Norte (-200 Mvar / 300 Mvar)
+ 5239   10   1292u           CER Campina Grande 2 ( 0 Mvar / 192.6 Mvar)
+ 5410   10   1291u           CER Milagres (-88 Mvar / 97.4 Mvar)
+ 5450   10   1290u           CER Fortaleza (-175 Mvar / 189.6 Mvar)
+ 5480   10   1239u           CER Sobral III (-150 Mvar / 250 Mvar)
+(
+( 5551   10   1380u           CER São Luis 2 - Siemens - Operaãão normal - (-113 Mvar / 166.4 Mvar)
+ 5551   20   1381u           CER São Luis 2 - ABB     - Operaãão normal - (-100 Mvar / 150 Mvar)
+(
+( 5551   10    380u           CER São Luis 2 - Siemens - DEGRADADO - Somente capacitivo
+( 5551   20    381u           CER São Luis 2 - ABB     - Usar em conjunto como CDU 380
+(
+ 5611   10   1227u           CER Taua (-45 Mvar / 90 Mvar)
+ 5679   90   1479u           CER Parnaíba III (-150 Mvar / 300 Mvar)
+ 5681   10   1230u           CER E.Martins (-20 Mvar / 30 Mvar)
+ 5902   10   1293u           CER Funil (-114 Mvar / 225 Mvar)
+ 6060   10   8311u           CER Gentio do Ouro (-100 Mvar / 200 Mvar)
+ 6131   10   1222u           CER Extremoz (-75 Mvar / 150 Mvar)
+ 6132   10   1225u           CER Ceará Mirim (-75 Mvar / 150 Mvar)
+ 6290   10   8310u           CER Morro do Chapãu (-100 Mvar / 200 Mvar)
+ 6349   10   1294u           CER Bom Jesus da Lapa 2 (-250 Mvar / 250 Mvar)
+ 6368   10   9992u           CER Sapeaçu (-150 Mvar / 250 Mvar)
+ 6609    1   9994u           CER Itatiba (-300 Mvar / 300 Mvar)
+ 6800   10   1497u           CER Vilhena (-50 Mvar / 100 Mvar)
+( 6800   10   1498u           CER Vilhena - External device - (-50 Mvar / 100 Mvar)
+ 6950   10   1499u           CER Rio Branco (-20 Mvar / 55 Mvar)
+ 8265   10   6091u           CER Jurupari (-221 Mvar / 221.6 Mvar)
+ 8285   10   6095u           CER Macapá (-111 Mvar / 176.6 Mvar)
+ 8365   10   6092u           CER Oriximina (-221 Mvar / 332.3 Mvar)
+ 8465   10   6093u           CER Silves (-200 Mvar / 300 Mvar)
+( 8465   20   6094u           CER Silves - External device - (-200 Mvar / 300 Mvar)
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | COMPENSADORES ESTATICOS DE REATIVOS (SVC) - FUTUROS                                                       |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( Nb)   Gr ( Mc )u( Me )u
+( 3053   90   6918u           CER João Neiva 2 (-150 Mvar / 150 Mvar)
+( 4375   10   6915u           CER Padre Paraíso 2 (-150 Mvar / 300 Mvar)
+( 5929   10   6916u           CER Jaguaruana 2 (-150 Mvar / 300 Mvar)
+(
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | THYRISTOR CONTROLLED SERIES CAPACITOR                                                                     |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DCSC
+( De)   ( Pa) Nc ( Mc )u ( Me )u
+( 7236     235  1    197u            TCSC Gurupi - S. Mesa
+( 7237     235  2   2890u            TCSC Gurupi - S. Mesa
+( 5590    7592  1   1392u            TCSC Imperatriz - Colinas - Eletronorte
+ 5590    7594  2   2891u            TCSC Imperatriz - Colinas - Taesa
+(
+999999
+(
+FIM

@@ -1,0 +1,996 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       Melo_BtB_PhaseCtrl_V10.cdu                                                                |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(----------------------------------------------------------------------------)
+(                                                                            )
+( TDU 9090 - PHASE CONTROL                                                   )
+(                                                                            )
+(----------------------------------------------------------------------------)
+( LISTA DE ADU's NESTE ARQUIVO:                                              )
+(                                                                            )
+( ADU 9091 - PHASE CONTROL - BRASIL                                          )
+( ADU 9092 - PHASE CONTROL - URUGUAI                                         )
+(----------------------------------------------------------------------------)
+(
+DTDU
+(ncdu) ( nome cdu )
+  9090 PHASE-CTRL
+(
+(======================================================================
+(    DADOS DE LOCAIS REMOTOS
+(======================================================================
+(EFPAR (npar) (     valpar     )
+DEFPAR #LOC                 3101   Conversor Local
+DEFPAR #REM                 3102   Conversor Remoto
+DEFPAR #LOCCA               3191   Barra AC Local
+DEFPAR #REMCA               3192   Barra AC Remoto
+(
+DEFPAR #IORD                2091   IORD (from POWER CONTROL)
+DEFPAR #VORD                2012   VORD (from RPC)
+(
+(======================================================================
+(    PARÂMETROS BÁSICOS
+(======================================================================
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+(DEFVAL        MHUM   -1.0
+(DEFVAL        INF    1E10
+(DEFVAL        MINF   -1E10
+DEFVAL        NOVENT 90.0
+DEFVAL        L3INF  -65535
+DEFVAL        L4INF  -65535
+DEFVAL        L6INF  65535
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #DCK                21600   (360 x 60HZ)
+(DEFPAR #DCK                18000  (360 x 50HZ)
+DEFPAR #Gpll                -1.0
+DEFPAR #LWLIM             -43200   = -2 * 21600 (-2 x #DCK)
+DEFPAR #UPLIM               4320   = 0.2 * 21600 (0.2 x #DCK)
+(DEFPAR #LWLIM             -43200   = -2 x 18000 (-2 x #DCK)
+(DEFPAR #UPLIM               4320   = 0.2 x 18000 (0.2 x #DCK)
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        LWLIM  #LWLIM
+DEFVAL        UPLIM  #UPLIM
+DEFVAL        ALFMN     2.0
+DEFVAL        ALFMX    180.
+(
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL VAR    IORD   Idcpur
+DEFVAL VAR    VORD   Vdrpu
+(
+(======================================================================
+(    PARÂMETROS RETIFICADOR
+(======================================================================
+( -----------------------------------------------------------------------------
+(    VDCOL
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        MinIOR    0.1
+(
+( -----------------------------------------------------------------------------
+( DC CURRENT - LOOP 1
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L1RT1           0.006644
+DEFPAR #L1RT2           0.002244
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        ERR1R  0.0
+(
+( -----------------------------------------------------------------------------
+(     GAMMA - LOOP 3
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L4RT1                5.3
+DEFPAR #L4RT2           0.001034
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        LminR    -0.3
+DEFVAL        LmaxR     0.0
+DEFVAL        GORDR     30.
+(
+( -----------------------------------------------------------------------------
+(     AC VOLTAGE - LOOP 4
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        L4RG1     1.1
+DEFVAL        L4RG2    0.05
+DEFVAL        L4RG3     1.3
+(
+( -----------------------------------------------------------------------------
+( ALPHA MAX - LOOP 5
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        AMXOR    155.
+(
+( -----------------------------------------------------------------------------
+(     GAMMA OTHER SIDE - LOOP 6
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        Gothor  17.
+(EFPAR (nome) (     valor      )
+DEFPAR #L6G1                 1.0
+DEFPAR #L6G2                 1.0
+(
+( -----------------------------------------------------------------------------
+( DC VOLTAGE - LOOP 7
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L7RT1             0.0059
+DEFPAR #L7RT2           0.002244
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        RVDORD   -1.1
+(
+( -----------------------------------------------------------------------------
+( ALPHA MIN - LOOP 8
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        FRAOR      5.
+(
+( -----------------------------------------------------------------------------
+(   LOOP SELECTION AND PLO
+( -----------------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ERR_R  0.0
+(
+(======================================================================
+(    PARÂMETROS INVERSOR
+(======================================================================
+( -----------------------------------------------------------------------------
+(    VDCOL
+( -----------------------------------------------------------------------------
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        IMAR      0.1
+(
+( -----------------------------------------------------------------------------
+( DC CURRENT - LOOP 1
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L1IT1           0.008244
+DEFPAR #L1IT2           0.002244
+(
+( -----------------------------------------------------------------------------
+( DC VOLTAGE - LOOP 2
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L2IT1           0.006244
+DEFPAR #L2IT2           0.002244
+DEFPAR #L2IT3              0.001
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        ERR2   0.0
+(
+( -----------------------------------------------------------------------------
+( DC VOLTAGE - LOOP 3
+( -----------------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        GORDI     17.
+DEFVAL        GMARG     3.9
+DEFVAL        LminI    -0.3
+DEFVAL        LmaxI     0.0
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #GON                1000.  (GON=1/TON , GON=1/0.001=1000.)
+DEFPAR #GOFF                 10.  (GOFF=1/TOFF , GOFF=1/0.1=10.)
+DEFPAR #GGK                   8.  (GGK= 80 º/s , GGK=80/GOFF=80/10=8 pu/s)
+DEFPAR #DGAMA               11.0
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        X2240  0.0
+DEFVAL        X2320  0.0
+DEFVAL        X2340  0.0
+DEFVAL        X2360  0.0
+(
+(----------------------------------------------------------------------
+(     AC VOLTAGE - LOOP 4
+(----------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        VERINV    1.3
+(
+( -----------------------------------------------------------------------------
+( ALPHA MAX - LOOP 5
+( -----------------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #T1                0.0015
+DEFPAR #GMO1                 25.  GMO1 = 1/TMO1 = 1/0.04s
+DEFPAR #GMO2                 2.5  GMO2 = 1/TMO2 = 1/0.4s
+(
+(EFVAL (stip) (vdef) ( d1 )
+DEFVAL        AMXOI    155.
+DEFVAL        CFTH   0.05
+DEFVAL        X2830  1.0
+DEFVAL        X2760  0.0
+DEFVAL        X2850  0.0
+DEFVAL        X2870  0.0
+DEFVAL        X2940  0.0
+DEFVAL        X2750  0.0
+(
+( -----------------------------------------------------------------------------
+( DC VOLTAGE - LOOP 7
+( -----------------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #L7IT1             0.0059
+DEFPAR #L7IT2           0.002244
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        L7IG1    -1.1
+DEFVAL        L7IG2    0.12
+DEFVAL        X3090  0.0
+DEFVAL        W1_7   0.0
+(
+( -----------------------------------------------------------------------------
+( ALPHA MIN - LOOP 8
+( -----------------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        FRAOI     40.
+(
+( -----------------------------------------------------------------------------
+(   LOOP SELECTION AND PLO
+( -----------------------------------------------------------------------------
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        IINTIN 0.0
+(
+(======================================================================
+(    IMPORT CDU
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9000 IMPORT CDU           IORD   #IORD  0.0
+9001 IMPORT CDU           VORD   #VORD  0.0
+(
+(======================================================================
+(    ENTRAD CONSTANTES
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+  10 ENTRAD               ZERO
+  11 ENTRAD               HUM
+(  12 ENTRAD               MHUM
+(  13 ENTRAD               INF
+(  15 ENTRAD               MINF
+  16 ENTRAD               NOVENT
+  17 ENTRAD               L3INF
+  18 ENTRAD               L4INF
+  19 ENTRAD               L6INF
+(
+(======================================================================
+(    MEDIÇÕES CONVERSOR LOCAL
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9010 IMPORT*OPCNV         RETLOC #LOC
+9020 IMPORT CCNV          IDCLOC #LOC   0.0
+9030 IMPORT ALFA          ALFLOC #LOC   0.0
+9040 IMPORT VCNV          VDCLOC #LOC   0.0
+9050 IMPORT*VOLT          VLWLOC #LOCCA
+9060 IMPORT*CTAP          TAPLOC #LOC
+9070 IMPORT GAMA          GAMLOC #LOC   0.0
+9080 IMPORT CONDCC        CFLOC  #LOC   0.0
+(
+(======================================================================
+(    MEDIÇÕES CONVERSOR REMOTO
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9220 IMPORT CCNV          IDCREM #REM   0.0
+9230 IMPORT ALFA          ALFREM #REM   0.0
+9240 IMPORT VCNV          VDCREM #REM   0.0
+9250 IMPORT*VOLT          VLWREM #REMCA
+9260 IMPORT*CTAP          TAPREM #REM
+9270 IMPORT GAMA          GAMREM #REM   0.0
+9280 IMPORT CONDCC        CFREM  #REM   0.0
+(
+(======================================================================
+(    SELEÇÃO DAS MEDIÇÕES DO RETIFICADOR
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9310 SELET2        IDCREM Idcpur
+                   IDCLOC Idcpur
+                   RETLOC Idcpur
+9320 SELET2        ALFREM ALFAiR
+                   ALFLOC ALFAiR
+                   RETLOC ALFAiR
+9325 SAIDA         ALFAIR
+9330 SELET2        VDCREM Vdrpu
+                   VDCLOC Vdrpu
+                   RETLOC Vdrpu
+9335 GANHO         Vdrpu  Vdrpun -1.0
+9340 SELET2        VLWREM VLWR
+                   VLWLOC VLWR
+                   RETLOC VLWR
+9350 SELET2        TAPREM TAPR
+                   TAPLOC TAPR
+                   RETLOC TAPR
+9355 MULTPL        TAPR   VVWR
+                   VLWR   VVWR
+9360 MAX           VLWI   VLWOSR
+                   VVWI   VLWOSR
+9370 SELET2        GAMREM GAMAR
+                   GAMLOC GAMAR
+                   RETLOC GAMAR
+9375 FUNCAO DEGREE GAMAR  GAMARG
+(
+(======================================================================
+(    SELEÇÃO DAS MEDIÇÕES DO INVERSOR
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9410 SELET2        IDCLOC Idcpui
+                   IDCREM Idcpui
+                   RETLOC Idcpui
+9420 SELET2        ALFLOC ALFAiI
+                   ALFREM ALFAiI
+                   RETLOC ALFAiI
+9425 SAIDA         ALFAiI
+9440 SELET2        VLWLOC VLWI
+                   VLWREM VLWI
+                   RETLOC VLWI
+9450 SELET2        TAPLOC TAPI
+                   TAPREM TAPI
+                   RETLOC TAPI
+9455 MULTPL        TAPI   VVWI
+                   VLWI   VVWI
+9460 MAX           VLWR   VLWOSI
+                   VVWR   VLWOSI
+9470 SELET2        GAMLOC GAMAI
+                   GAMREM GAMAI
+                   RETLOC GAMAI
+9475 FUNCAO DEGREE GAMAI  GAMAIG
+9480 SELET2        CFLOC  CFINV
+                   CFREM  CFINV
+                   RETLOC CFINV
+9485 LIMITA        CFINV  CFINVL                          ZERO   HUM
+9487 LOGIC  .NOT.  CFINVL NCFINV
+(
+(======================================================================
+(    SELEÇÃO DE ALFA
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+9510 SELET2        ALFAI  ALFA
+                   ALFAR  ALFA
+                   RETLOC ALFA
+9520 EXPORT ALFA   ALFA
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    ALFAR  ALFAiR
+DEFVAL VAR    ALFAI  ALFAiI
+(
+( *****************************************************************************
+(                        CONTROLE RETIFICADOR
+( *****************************************************************************
+( -----------------------------------------------------------------------------
+(    VDCOL
+( -----------------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 120 LEDLAG        Vdrpu  X120   1.0   0.0   1.0   0.0025
+ 121 FUNCAO HISTE1 X120   X121   0.075 0.0   2
+                                 0.07  1.0
+ 122 LOGIC  .NOT.  X121   X122
+ 130 LOGIC  .AND.  X122   VDCL1
+                   CFINVL VDCL1
+ 131 FUNCAO HISTE1 VLWOSR X131   0.31  0.0   2
+                                 0.29  1.0
+ 132 LOGIC  .NOT.  X131   X132
+ 140 LOGIC  .OR.   VDCL1  X140
+                   X132   X140
+ 150 GANHO         IORD   X150   0.5
+ 160 SELET2        IORD   X160
+                   X150   X160
+                   X140   X160
+ 170 ENTRAD               MinIOR
+ 180 MAX           X160   IOLTDR
+                   MinIOR IOLTDR
+(
+( -----------------------------------------------------------------------------
+(    DC CURRENT - LOOP 1
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 190 LEDLAG        Idcpur X190   1.0   #L1RT11.0   #L1RT2
+ 200 SOMA         -X190   X200
+                   IOLTDR X200
+ 210 GANHO         X200   X210   0.4
+ 215 GANHO         X210   ERR1R  #DCK
+(
+( -----------------------------------------------------------------------------
+(     GAMMA - LOOP 3
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 340 FRACAO        GAMARG X340   1.0         150.
+ 350 ENTRAD               GORDR
+ 360 FRACAO        GORDR  X360   1.0         150.
+ 370 GANHO         Vdrpu  X370   1.5
+ 380 WSHOUT        X370   X380   0.006 1.0   0.006
+ 390 LIMITA        X380   X390                            LminR   LmaxR
+ 400 GANHO         Idcpur X400   #L4RT1
+ 410 WSHOUT        X400   IDFHPR #L4RT21.0   #L4RT2
+ 420 GANHO         IDFHPR X420   0.0
+ 430 SOMA         -X340   X430
+                   X360   X430
+                  -X390   X430
+                  -X420   X430
+ 440 GANHO         X430   X440   0.4
+ 460 COMPAR .LT.   ALPHAR GADISR
+                   NOVENT GADISR
+ 480 SELET2        X440   X480
+                   L3INF  X480
+                   GADISR X480
+ 485 GANHO         X480   ERR3R  #DCK
+(
+( -----------------------------------------------------------------------------
+(     AC VOLTAGE - LOOP 4
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 490 ENTRAD               L4RG1
+ 500 ENTRAD               L4RG2
+ 505 ENTRAD               L4RG3
+ 510 GANHO         Idcpur X510   0.0
+ 530 MAX           VVWR   VacMxR
+                   VLWR   VacMxR
+ 550 SELET2        VLWOSR X550
+                   ZERO   X550
+                   CFINVL X550
+ 560 MAX           VacMxR X560
+                   X550   X560
+ 570 GANHO         IDFHPR X570   0.0
+ 571 SELET2        L4RG3  X571
+                   L4RG1  X571
+                   VDCL1  X571
+ 572 SELET2        ZERO   X572
+                   L4RG2  X572
+                   NCFINV X572
+ 580 SOMA         -X571   X580
+                  -X572   X580
+                  -X510   X580
+                   X560   X580
+                  -X570   X580
+ 590 GANHO         X580   X590   0.3
+ 600 SELET2        X590   X600
+                   L4INF  X600
+                   ZERO   X600
+ 605 GANHO         X600   ERR4R  #DCK
+(
+( -----------------------------------------------------------------------------
+(     ALPHA MAX - LOOP 5
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 610 FRACAO        ALPHAR X610   1.0         150.
+ 620 ENTRAD               AMXOR
+ 630 FRACAO        AMXOR  X630   1.0         150.
+ 640 SOMA          X610   X640
+                  -X630   X640
+ 650 GANHO         X640   X650   0.4
+ 655 GANHO         X650   ERR5R  #DCK
+(
+( -----------------------------------------------------------------------------
+(     GAMMA OTHER SIDE - LOOP 6
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 660 FRACAO        GAMAIG X660   1.0         150.
+ 670 ENTRAD               Gothor
+ 680 FRACAO        Gothor X680   1.0         150.
+ 690 GANHO         Vdrpu  X690   #L6G1
+ 700 WSHOUT        X690   X700   0.001 1.0   0.001
+ 710 GANHO         IDFHPR X710   #L6G2
+ 720 SOMA          X660   X720
+                  -X680   X720
+                  -X700   X720
+                  -X710   X720
+ 730 GANHO         X720   X730   0.4
+ 731 FUNCAO HISTE1 VLWOSR X731   0.35  0.0   2
+                                 0.30  1.0
+ 740 SELET2        L6INF  X740
+                   X730   X740
+                   X731   X740
+ 741 SELET2        X740   X741
+                   L6INF  X741
+                   CFINVL X741
+ 745 GANHO         X741   ERR6R  #DCK
+(
+( -----------------------------------------------------------------------------
+(   DC VOLTAGE - LOOP 7
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 770 ENTRAD               RVDORD
+ 800 GANHO         IDFHPR X800   0.0
+ 820 LEDLAG        Vdrpu  X820   1.0   #L7RT1 1.0  #L7RT2
+ 830 SOMA         -RVDORD X830
+                  -X800   X830
+                  -X820   X830
+ 840 GANHO         X830   X840   0.4
+ 845 GANHO         X840   ERR7R  #DCK
+(
+( -----------------------------------------------------------------------------
+(     ALPHA MIN - LOOP 8
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 850 FRACAO        ALPHAR X850   1.0         150.
+ 860 ENTRAD               FRAOR
+ 870 FRACAO        FRAOR  X870   1.0         150.
+ 880 GANHO         IDFHPR X880   0.0
+ 890 SOMA          X850   X890
+                  -X870   X890
+                  -X880   X890
+ 900 GANHO         X890   X900   0.5
+ 905 GANHO         X900   ERR8R  #DCK
+(
+( -----------------------------------------------------------------------------
+(   LOOP SELECTION AND PLO
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+ 910 MAX           ERR1R  X910
+                   ERR3R  X910
+                   ERR4R  X910
+                   ERR5R  X910
+ 920 MAX           ERR3R  X920
+                   ERR6R  X920
+ 930 MAX           ERR5R  X930
+                   ERR7R  X930
+ 940 MIN           X910   RINTIN
+                   X920   RINTIN
+                   X930   RINTIN
+                   ERR8R  RINTIN
+ 960 LIMITA        RINTIN ERR_R                           LWLIM  UPLIM
+( PLO
+ 961 PROINT        ERR_R  X961   #Gpll 0.0   1.0          ALFMN  ALFMX
+ 962 LIMITA        X961   X962                            ALFMN  ALFMX
+ 963 DELAY         X962   ALPHAR
+ 964 FUNCAO RADIAN ALPHAR ALFAR
+(
+( -----------------------------------------------------------------------------
+(   LOOP IN CONTROL
+( -----------------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+1130 SOMA          ERR1R  L1R
+                  -RINTIN L1R
+1135 SOMA          ERR3R  L3R
+                  -RINTIN L3R
+1138 SOMA          ERR4R  L4R
+                  -RINTIN L4R
+1140 SOMA          ERR5R  L5R
+                  -RINTIN L5R
+1145 SOMA          ERR6R  L6R
+                  -RINTIN L6R
+1150 SOMA          ERR7R  L7R
+                  -RINTIN L7R
+1160 SOMA          ERR8R  L8R
+                  -RINTIN L8R
+1170 COMPAR .EQ.   L1R    L1Rz
+                   ZERO   L1Rz
+1175 COMPAR .EQ.   L3R    L3Rz
+                   ZERO   L3Rz
+1178 COMPAR .EQ.   L4R    L4Rz
+                   ZERO   L4Rz
+1180 COMPAR .EQ.   L5R    L5Rz
+                   ZERO   L5Rz
+1185 COMPAR .EQ.   L6R    L6Rz
+                   ZERO   L6Rz
+1190 COMPAR .EQ.   L7R    L7Rz
+                   ZERO   L7Rz
+1200 COMPAR .EQ.   L8R    L8Rz
+                   ZERO   L8Rz
+1210 GANHO         L1Rz   L1Rzm  1.0
+1215 GANHO         L3Rz   L3Rzm  3.0
+1218 GANHO         L4Rz   L4Rzm  4.0
+1220 GANHO         L5Rz   L5Rzm  5.0
+1225 GANHO         L6Rz   L6Rzm  6.0
+1230 GANHO         L7Rz   L7Rzm  7.0
+1240 GANHO         L8Rz   L8Rzm  8.0
+1250 SOMA          L1Rzm  LICr
+                   L3Rzm  LICr
+                   L4Rzm  LICr
+                   L5Rzm  LICr
+                   L6Rzm  LICr
+                   L7Rzm  LICr
+                   L8Rzm  LICr
+1260 SAIDA         LICr
+(
+(
+( *****************************************************************************
+(                        CONTROLE INVERSOR
+( *****************************************************************************
+( -----------------------------------------------------------------------------
+(    VDCOL
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2000 LEDLAG        Vdrpu  W1_9   1.0         1.0   0.01
+2010 SOMA          VORD   W2_9
+                  -W1_9   W2_9
+2020 GANHO         IORD   W3_9   0.7
+2030 ENTRAD               IMAR
+2040 SOMA          W3_9   W4_9
+                  -IMAR   W4_9
+2050 MULTPL        W2_9   W5_9
+                   W4_9   W5_9
+2060 SOMA          IORD   W6_9
+                  -IMAR   W6_9
+                  -W5_9   W6_9
+2070 MIN           IORD   W7_9
+                   W6_9   W7_9
+2080 MAX           W7_9   IOLTDI
+                   ZERO   IOLTDI
+(
+( -----------------------------------------------------------------------------
+(    DC CURRENT - LOOP 1
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2090 LEDLAG        Idcpui W1_1   1.0   #L1IT11.0   #L1IT2
+2100 SOMA         -W1_1   IERR
+                   IOLTDI IERR
+2110 GANHO         IERR   ERRL1  0.4
+2120 GANHO         ERRL1  ERR1   #DCK
+(
+( -----------------------------------------------------------------------------
+(   DC VOLTAGE - LOOP 2
+( -----------------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2130 LEDLAG        Vdrpun W1_2   1.0   #L2IT11.0   #L2IT2
+2140 GANHO         Idcpui IDC11  1.1
+2150 WSHOUT        IDC11  IDFHPI #L2IT31.0   #L2IT3
+2160 SOMA         -VORD   W2_2
+                  -W1_2   W2_2
+                  -IDFHPI W2_2
+2170 GANHO         W2_2   ERRL2  0.3
+2180 GANHO         ERRL2  ERR2   #DCK
+(
+( -----------------------------------------------------------------------------
+(   GAMMA - LOOP 3
+( -----------------------------------------------------------------------------
+(Função Gamma Kick - Incrementa GAMMAO de DGAMA com atraso TON e TOFF e decrease rate de TGK*DGAMA - SET VDC<0.1 e RESET VDC>0.5
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2190 DIVSAO        Vdrpu  Vd
+                   VORD   Vd
+2200 FUNCAO HISTE1 Vd     TRIGN  0.5   0.0   2
+                                 0.1   1.0
+2210 LOGIC  .NOT.  TRIGN  TRIGG
+2220 LOGIC  .AND.  TRIGG  X2220
+                   X2270  X2220
+2230 LOGIC  FFLOP1 X2260  X2230
+                   X2220  X2230
+2240 INTRES        X2230  X2240  #GON                     ZERO   HUM
+                   X2280  X2240
+                   ZERO   X2240
+2250 COMPAR .GE.   X2240  X2250
+                   HUM    X2250
+2260 DELAY         X2250  X2260
+2270 LOGIC  .NOT.  X2260  X2270
+2280 COMPAR .LT.   TRIGG  X2280
+                   X2290  X2280
+2290 LEDLAG        TRIGG  X2290  1.0   0.0   1.0   0.5
+2300 LOGIC  .NOT.  X2230  X2300
+2310 LOGIC  .AND.  X2300  GK1
+                   TRIGG  GK1
+2320 INTRES        GK1    X2320  1.0                      ZERO   HUM
+                   X2380  X2320
+                   ZERO   X2320
+2330 COMPAR .LT.   GK1    X2330
+                   X2320  X2330
+2340 INTRES        X2330  X2340  #GOFF                    ZERO   HUM
+                   X2380  X2340
+                   ZERO   X2340
+2350 COMPAR .GE.   X2340  X2350
+                   HUM    X2350
+2360 INTRES        X2350  X2360  #GGK
+                   X2380  X2360
+                   ZERO   X2360
+2370 COMPAR .GE.   X2360  X2370
+                   HUM    X2370
+2380 DELAY         X2370  X2380
+2390 FUNCAO RETA   X2360  X2390  -1.0  1.0
+2400 MULTPL        X2390  GK2
+                   X2330  GK2
+2410 SOMA          GK1    GK
+                   GK2    GK
+2420 GANHO         GK     GAMINC #DGAMA
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+2430 FRACAO        GAMAIG W1_3   1.0         150.
+2440 GANHO         Vdrpun X2440  1.5
+2450 WSHOUT        X2440  W2_3   0.006 1.0   0.006
+2460 LIMITA        W2_3   W3_3                            LminI  LmaxI
+2470 ENTRAD               GORDI
+2480 ENTRAD               GMARG
+2490 SOMA          GORDI  W4_3
+                  -GMARG  W4_3
+                   GAMINC W4_3
+2500 FRACAO        W4_3   W5_3   1.0         150.
+2510 GANHO         IDFHPI W6_3   0.0
+2520 SOMA         -W1_3   W7_3
+                   W5_3   W7_3
+                  -W3_3   W7_3
+                  -W6_3   W7_3
+2530 GANHO         W7_3   W8_3   0.4
+2540 COMPAR .LT.   ALPHAI GADISI
+                   NOVENT GADISI
+2550 SELET2        W8_3   ERRL3
+                   L3INF  ERRL3
+                   GADISI ERRL3
+2560 GANHO         ERRL3  ERR3   #DCK
+(
+(----------------------------------------------------------------------
+(     AC VOLTAGE - LOOP 4
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2570 ENTRAD               VERINV
+2580 GANHO         Idcpui W1_4   0.0
+2590 MAX           VVWI   VacMxI
+                   VLWI   VacMxI
+2600 MAX           VacMxI W5_4
+                   VLWOSI W5_4
+2610 GANHO         IDFHPI W6_4   0.0
+2620 SOMA         -VERINV W7_4
+                  -W1_4   W7_4
+                   W5_4   W7_4
+                  -W6_4   W7_4
+2630 GANHO         W7_4   W7_5   0.3
+2640 SELET2        W7_5   ERRL4
+                   L4INF  ERRL4
+                   ZERO   ERRL4
+2650 GANHO         ERRL4  ERR4   #DCK
+(
+( -----------------------------------------------------------------------------
+(     ALPHA MAX  - LOOP 5
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2660 FRACAO        ALPHAI W1_5   1.0         150.
+2670 ENTRAD               AMXOI
+2680 FRACAO        AMXOI  W2_5   1.0         150.
+(
+( Função Alpha Advance
+2690 ENTRAD               CFTH
+2700 LEDLAG        CFINVL X2700  1.0         1.0   0.5
+2710 COMPAR .GT.   X2700  X2710
+                   CFINVL X2710
+2720 LEDLAG        CFINVL X2720  1.0         1.0   #T1
+2730 SELET2        CFINVL X2730
+                   X2720  X2730
+                   X2710  X2730
+2740 COMPAR .GT.   X2730  CFX
+                   CFTH   CFX
+(
+2750 LOGIC  FFLOP1 R1     X2750
+                   S1     X2750
+2760 INTRES        X2750  X2760  #GMO1                    ZERO   HUM
+                   R2     X2760
+                   ZERO   X2760
+2770 COMPAR .GE.   X2760  X2770
+                   HUM    X2770
+2780 DELAY         X2770  R1
+2790 LOGIC  .NOT.  R1     X2790
+2800 LOGIC  .AND.  X2790  S1
+                   CFX    S1
+2810 LEDLAG        CFX    CFXD   1.0         1.0   0.5
+2820 COMPAR .LT.   CFX    R2
+                   CFXD   R2
+2830 LOGIC  .NOT.  X2750  X2830
+2840 LOGIC  .AND.  X2830  MO1
+                   CFX    MO1
+2850 LOGIC  FFLOP1 R3     X2850
+                   S2     X2850
+2860 LOGIC  .OR.   R3     R3S2
+                   S2     R3S2
+2870 INTRES        X2850  X2870  #GMO2                    ZERO   HUM
+                   R3S2   X2870
+                   ZERO   X2870
+2880 COMPAR .GE.   X2870  X2880
+                   HUM    X2880
+2890 DELAY         X2880  R3
+2900 LOGIC  .NOT.  R3     X2900
+2910 LOGIC  .AND.  X2900  S2
+                   CFX    S2
+2920 LEDLAG        X2850  X2920  1.0         1.0   0.5
+2930 COMPAR .LT.   X2850  R4
+                   X2920  R4
+2940 INTRES        X2850  X2940  #GMO1                    ZERO   HUM
+                   R4     X2940
+                   ZERO   X2940
+2950 COMPAR .GE.   X2940  MO2
+                   HUM    MO2
+2960 LOGIC  .OR.   MO1    MO
+                   MO2    MO
+2970 LOGIC  .AND.  MO     ALAD
+                   CFX    ALAD
+(
+2980 LEDLAG        ALAD   W3_5   0.23330.0   1.0   0.01
+2990 LEDLAG        ALAD   W4_5   0.23330.0   1.0   0.02
+3000 MAX           W3_5   W5_5
+                   W4_5   W5_5
+3010 SOMA          W1_5   W6_5
+                  -W2_5   W6_5
+                   W5_5   W6_5
+3020 GANHO         W6_5   ERRL5  0.4
+3030 GANHO         ERRL5  ERR5   #DCK
+(
+( -----------------------------------------------------------------------------
+(   DC VOLTAGE - LOOP 7
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3040 FUNCAO HISTE1 VLWOSI X3040  0.50  0.0   2
+                                 0.45  1.0
+3050 LOGIC  .NOT.  X3040  X3050
+(
+(monoestavel 0.015s
+3060 LOGIC  .AND.  X3050  X3060
+                   X3160  X3060
+3070 LOGIC  FFLOP1 RESET  W1_7
+                   X3060  W1_7
+3080 FRACAO        W1_7   X3080  1.0   0.0   0.015 0.0
+3090 INTRES        X3080  X3090  1.0                      ZERO   HUM
+                   RESET  X3090
+                   ZERO   X3090
+3100 LIMITA        X3090  X3100                           ZERO   HUM
+3110 COMPAR .GE.   X3100  X3110
+                   HUM    X3110
+3120 DELAY         X3110  RESET
+3130 DELAY         X3050  X3130
+3140 LOGIC  .NOT.  X3130  X3140
+3150 LOGIC  FFLOP1 X3140  X3150
+                   RESET  X3150
+3160 LOGIC  .NOT.  X3150  X3160
+(
+3170 LOGIC  .OR.   X3050  W2_7
+                   W1_7   W2_7
+3180 ENTRAD               L7IG1
+3190 ENTRAD               L7IG2
+3200 SELET2        L7IG2  W3_7
+                   L7IG1  W3_7
+                   W2_7   W3_7
+3210 GANHO         IDFHPI W4_7   0.0
+3220 LEDLAG        Vdrpun W6_7   1.0   #L7IT11.0   #L7IT2
+3230 SOMA         -W3_7   W7_7
+                  -W4_7   W7_7
+                  -W6_7   W7_7
+3240 GANHO         W7_7   ERRL7  0.4
+3250 GANHO         ERRL7  ERR7   #DCK
+(
+( -----------------------------------------------------------------------------
+(     ALPHA MIN - LOOP 8
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3260 FRACAO        ALPHAI W1_8   1.0         150.
+3270 ENTRAD               FRAOI
+3280 FRACAO        FRAOI  W2_8   1.0         150.
+3290 GANHO         IDFHPI W3_8   0.0
+3300 SOMA          W1_8   W4_8
+                  -W2_8   W4_8
+                  -W3_8   W4_8
+3310 GANHO         W4_8   ERRL8  0.5
+3320 GANHO         ERRL8  ERR8   #DCK
+(
+( -----------------------------------------------------------------------------
+(   LOOP SELECTION AND PLO
+( -----------------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3330 MAX           ERR1   W1_10
+                   ERR2   W1_10
+                   ERR3   W1_10
+                   ERR4   W1_10
+                   ERR5   W1_10
+3340 MAX           ERR5   W3_10
+                   ERR7   W3_10
+3350 MIN           W1_10  IINTIN
+                   W3_10  IINTIN
+                   ERR8   IINTIN
+3360 LIMITA        IINTIN ERR_I                           LWLIM  UPLIM
+( PLO
+3370 PROINT        ERR_I  X3370  #Gpll 0.0   1.0          ALFMN  ALFMX
+3380 LIMITA        X3370  X3380                           ALFMN  ALFMX
+3390 DELAY         X3380  ALPHAI
+3400 FUNCAO RADIAN ALPHAI ALFAI
+(
+( -----------------------------------------------------------------------------
+(   LOOP IN CONTROL
+( -----------------------------------------------------------------------------
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3410 SOMA          ERR1   L1
+                  -IINTIN L1
+3420 SOMA          ERR5   L5
+                  -IINTIN L5
+3430 SOMA          ERR8   L8
+                  -IINTIN L8
+3440 SOMA          ERR7   L7
+                  -IINTIN L7
+3450 SOMA          ERR2   L2
+                  -IINTIN L2
+3460 SOMA          ERR3   L3
+                  -IINTIN L3
+3470 SOMA          ERR4   L4
+                  -IINTIN L4
+3480 COMPAR .EQ.   L1     L1z
+                   ZERO   L1z
+3490 COMPAR .EQ.   L5     L5z
+                   ZERO   L5z
+3500 COMPAR .EQ.   L8     L8z
+                   ZERO   L8z
+3510 COMPAR .EQ.   L7     L7z
+                   ZERO   L7z
+3520 COMPAR .EQ.   L2     L2z
+                   ZERO   L2z
+3530 COMPAR .EQ.   L3     L3z
+                   ZERO   L3z
+3540 COMPAR .EQ.   L4     L4z
+                   ZERO   L4z
+3550 GANHO         L1z    L1zm   1.0
+3560 GANHO         L5z    L5zm   5.0
+3570 GANHO         L8z    L8zm   8.0
+3580 GANHO         L7z    L7zm   7.0
+3590 GANHO         L2z    L2zm   2.0
+3600 GANHO         L3z    L3zm   3.0
+3610 GANHO         L4z    L4zm   4.0
+3620 SOMA          L1zm   LICi
+                   L5zm   LICi
+                   L8zm   LICi
+                   L7zm   LICi
+                   L2zm   LICi
+                   L3zm   LICi
+                   L4zm   LICi
+3630 SAIDA         LICi
+(
+FIMCDU
+(
+999999
+(
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+ACDU
+(
+(ncdu) (ntop) ( nome cdu )
+  9091   9090 PH-CTRL-BR
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #LOC                 3101   Conversor Local
+DEFPAR #REM                 3102   Conversor Remoto
+DEFPAR #LOCCA               3191   Barra AC Local
+DEFPAR #REMCA               3192   Barra AC Remoto
+(
+DEFPAR #IORD                2091   IORD (from POWER CONTROL)
+DEFPAR #VORD                2012   VORD (from RPC)
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #DCK                21600   (360 x 60HZ)
+DEFPAR #LWLIM             -43200   = -2 * 21600 (-2 x #DCK)
+DEFPAR #UPLIM               4320   = 0.2 * 21600 (0.2 x #DCK)
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #L6G1                 1.0
+DEFPAR #L6G2                 1.0
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+  9092   9090 PH-CTRL-UR
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #LOC                 3102   Conversor Local
+DEFPAR #REM                 3101   Conversor Remoto
+DEFPAR #LOCCA               3192   Barra AC Local
+DEFPAR #REMCA               3191   Barra AC Remoto
+(
+DEFPAR #IORD                2092   IORD (from POWER CONTROL)
+DEFPAR #VORD                2013   VORD (from RPC)
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #DCK                18000   (360 x 50HZ)
+DEFPAR #LWLIM             -36000   = -2 x 18000 (-2 x #DCK)
+DEFPAR #UPLIM               3600   = 0.2 x 18000 (0.2 x #DCK)
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #L6G1                 1.1
+DEFPAR #L6G2                 0.0
+(
+FIMCDU
+(
+999999
+(
+FIM

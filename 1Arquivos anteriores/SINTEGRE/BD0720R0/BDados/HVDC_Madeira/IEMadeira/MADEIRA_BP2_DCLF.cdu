@@ -1,0 +1,607 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       MADEIRA_BP2_DCLF.cdu                                                                      |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( **********************************************************************
+( *  OBSERVACOES (03/05/2019)                                          *
+( *  1. Atualização do controle de acordo com o modelo                 *
+( *     do PSCAD fornecido                                             *
+( *                                                                    *
+( *  REVISOES                                                          *
+( *  1. (03/06/2019) Atualização do controle de acordo com o modelo    *
+( *     do PSCAD fornecido                                             *
+( *  2. (07/06/2019) Atualização do controle de filtro                 *
+( *  3. (17/07/2019) Atualização do controle de filtro 2               *
+( *  4. (07/10/2019) Mudança do número do CDU FC_PORTOVELHO de 9321    *
+( *     para 9319, assim como mudanaça na numerção de alguns DLOCs     *
+( **********************************************************************
+(
+DCDU
+(--------------------------------------------------------    
+(
+(--------------------------------------------------------    
+(ncdu) ( nome cdu )
+  9201 DCLF-PROT-P3
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ON/OF 1.0                # ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL)
+(
+DEFPAR #RET-3 1205               # LOCAL REMOTO CONVERSOR RETIFICADOR POLE 3
+DEFPAR #INV-3 1206               # LOCAL REMOTO CONVERSOR INVERSOR POLE 3
+(
+( 4 tentativas de religamento - 3N + 1R
+DEFPAR #DLAY1 0.090              # TEMPO DE DETECÇÃO DA FALTA NA LINHA CC
+DEFPAR #TFR1  0.150              # DURAÇÃO FORCE RETARD 1
+DEFPAR #DLAY2 0.340              # ATRASO PARA INICIO DO FORCE RETARD 2
+DEFPAR #TFR2  0.200              # DURAÇÃO FORCE RETARD 2
+DEFPAR #DLAY3 0.640              # ATRASO PARA INICIO DO FORCE RETARD 3
+DEFPAR #TFR3  0.300              # DURAÇÃO FORCE RETARD 3
+DEFPAR #DLAY4 1.040              # ATRASO PARA INICIO DO FORCE RETARD 4
+DEFPAR #TFR4  0.200              # DURAÇÃO FORCE RETARD 4
+DEFPAR #DLAY5 1.340              # ATRASO PARA INICIO DO FORCE RETARD PERMANENTE (SEQUENCIA DE BLOQUEIO)
+(
+( 2 tentativas de religamento - 1N + 1R
+(DEFPAR #DLAY1 0.090               # TEMPO DE DETECÇÃO DA FALTA NA LINHA CC
+(DEFPAR #TFR1  0.150               # DURAÇÃO FORCE RETARD 1
+(DEFPAR #DLAY2 0.340               # ATRASO PARA INICIO DO FORCE RETARD 2
+(DEFPAR #TFR2  0.200               # DURAÇÃO FORCE RETARD 2
+(DEFPAR #DLAY3 0.640               # ATRASO PARA INICIO DO FORCE RETARD 3
+(DEFPAR #TFR3  0.200               # DURAÇÃO FORCE RETARD 3
+(DEFPAR #DLAY4 0.640               # ATRASO PARA INICIO DO FORCE RETARD 4
+(DEFPAR #TFR4  0.200               # DURAÇÃO FORCE RETARD 4
+(DEFPAR #DLAY5 0.640               # ATRASO PARA INICIO DO FORCE RETARD PERMANENTE (SEQUENCIA DE BLOQUEIO)
+(
+DEFPAR #TTAXA 0.005               # CONSTANTE DE TEMPO PARA MEDICAO DE TAXA
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TXVDC  -50          # TAXA MINIMA EM VDCX PARA DETECCAO DE FALTA NA LINHA CC
+DEFVAL        TXIDC  50           # TAXA MINIMA EM IDCX PARA DETECCAO DE FALTA NA LINHA CC
+DEFVAL        VDCMNR 0.65         # SE VDC>VDCMNR DCLF É RESETADA
+(----------------------------------------------------------------------
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DCLF   0.0
+DEFVAL        DCLFA  0.0
+DEFVAL        DCLF3  0.0
+DEFVAL        DCLFM  0.0
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        FRBLK  0.0
+DEFVAL        X22    0.0
+DEFVAL        X122   0.0
+DEFVAL        X222   0.0
+DEFVAL        X322   0.0
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+( Indicador de Falta na Linha CC Pólo 3
+0001 ENTRAD               DCLFM
+0002 EXPORT CDU    DCLF3
+0003 EXPORT CDU    DCLF3
+0004 EXPORT CDU    DCLF3
+0005 EXPORT CDU    REDV3
+1005 EXPORT CDU    REDV3
+1006 EXPORT CDU    REDV3
+0006 EXPORT CDU    FRETR3
+0007 ENTRAD               ZERO
+0008 ENTRAD               HUM
+0009 ENTRAD               DOIS
+(
+0501 IMPORT VCNV          VDCX   #RET-3
+0502 IMPORT CCNV          IDCX   #RET-3
+0503 IMPORT CONDCC        CONDCC #INV-3
+0504 ENTRAD               TXVDC
+0505 ENTRAD               TXIDC
+0508 ENTRAD               VDCMNR
+0509 WSHOUT        VDCX   dVdcDt 1.0   1.0   #TTAXA
+0510 COMPAR .LT.   dVdcDt X510
+                   TXVDC  X510
+0511 WSHOUT        IDCX   dIdcDt 1.0   1.0   #TTAXA
+0512 COMPAR .GT.   dIdcdt X512
+                   TXIDC  X512
+0513 LOGIC  .AND.  X510   TR
+                   X512   TR
+0518 COMPAR .EQ.   CONDCC CFINV
+                   DOIS   CFINV
+0517 LOGIC  .NOT.  CFINV  NOTCF
+0519 LOGIC  .AND.  TR     X519
+                   NOTCF  X519
+0520 COMPAR .GT.   VDCX   X520
+                   VDCMNR X520
+0522 LOGIC  FFLOP1 X520   DCLF
+                   X519   DCLF
+0523 GANHO         DCLF   DCLFA  #ON/OF
+1524 LOGIC  .OR.   DCLFA  DCLF3x
+                   DCLFM  DCLF3x
+2524 LOGIC  .NOT.  FRBLK  FRBLKN
+0524 LOGIC  .AND.  DCLF3x DCLF3
+                   FRBLKN DCLF3
+0420 EXPORT CDU    DCLF3
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(
+( FORCED RETARD 1
+0010 LOGIC  .AND.  DCLF3  X10
+                   X16    X10
+0011 LOGIC  FFLOP1 X18    X11
+                   X10    X11
+0012 FRACAO        X11    X12    1.0   0.0   #DLAY10.0
+0013 INTRES        X12    X13    1.0                       ZERO  HUM
+                   DCLF3N X13
+                   ZERO   X13
+0014 COMPAR .GE.   X13    ST1
+                   HUM    ST1
+0015 DELAY         ST1    X15
+0016 LOGIC  .NOT.  X15    X16
+0017 LOGIC  .NOT.  DCLF3  DCLF3N
+0018 LOGIC  .OR.   DCLF3N X18
+                   X15    X18
+(
+0019 LOGIC  .AND.  X28    X19
+                   ST1    X19
+0020 LOGIC  FFLOP1 RES1   FR1
+                   X19    FR1
+0021 FRACAO        FR1    X21    1.0   0.0   #TFR1  0.0
+0022 INTRES        X21    X22    1.0                       ZERO  HUM
+                   RES1   X22
+                   ZERO   X22
+0023 COMPAR .GE.   X22    X23
+                   HUM    X23
+0024 DELAY         X23    RES1
+0025 DELAY         ST1    X25
+0026 LOGIC  .NOT.  X25    X26
+0027 LOGIC  FFLOP1 X26    X27
+                   RES1   X27
+0028 LOGIC  .NOT.  X27    X28
+(
+( FORCED RETARD 2
+0110 LOGIC  .AND.  DCLF3  X110
+                   X116   X110
+0111 LOGIC  FFLOP1 X118   X111
+                   X110   X111
+0112 FRACAO        X111   X112   1.0   0.0   #DLAY20.0
+0113 INTRES        X112   X113   1.0                       ZERO  HUM
+                   DCLF3N X113
+                   ZERO   X113
+0114 COMPAR .GE.   X113   ST2
+                   HUM    ST2
+0115 DELAY         ST2    X115
+0116 LOGIC  .NOT.  X115   X116
+0118 LOGIC  .OR.   DCLF3N X118
+                   X115   X118
+(
+0119 LOGIC  .AND.  X128   X119
+                   ST2    X119
+0120 LOGIC  FFLOP1 RES2   FR2
+                   X119   FR2
+0121 FRACAO        FR2    X121   1.0   0.0   #TFR2  0.0
+0122 INTRES        X121   X122   1.0                       ZERO  HUM
+                   RES2   X122
+                   ZERO   X122
+0123 COMPAR .GE.   X122   X123
+                   HUM    X123
+0124 DELAY         X123   RES2
+0125 DELAY         ST2    X125
+0126 LOGIC  .NOT.  X125   X126
+0127 LOGIC  FFLOP1 X126   X127
+                   RES2   X127
+0128 LOGIC  .NOT.  X127   X128
+(
+( FORCED RETARD 3
+0210 LOGIC  .AND.  DCLF3  X210
+                   X216   X210
+0211 LOGIC  FFLOP1 X218   X211
+                   X210   X211
+0212 FRACAO        X211   X212   1.0   0.0   #DLAY30.0
+0213 INTRES        X212   X213   1.0                       ZERO  HUM
+                   DCLF3N X213
+                   ZERO   X213
+0214 COMPAR .GE.   X213   ST3
+                   HUM    ST3
+0215 DELAY         ST3    X215
+0216 LOGIC  .NOT.  X215   X216
+0218 LOGIC  .OR.   DCLF3N X218
+                   X215   X218
+(
+0219 LOGIC  .AND.  X228   X219
+                   ST3    X219
+0220 LOGIC  FFLOP1 RES3   FR3
+                   X219   FR3
+0221 FRACAO        FR3    X221   1.0   0.0   #TFR3  0.0
+0222 INTRES        X221   X222   1.0                       ZERO  HUM
+                   RES3   X222
+                   ZERO   X222
+0223 COMPAR .GE.   X222   X223
+                   HUM    X223
+0224 DELAY         X223   RES3
+0225 DELAY         ST3    X225
+0226 LOGIC  .NOT.  X225   X226
+0227 LOGIC  FFLOP1 X226   X227
+                   RES3   X227
+0228 LOGIC  .NOT.  X227   X228
+(
+( FORCED RETARD 4
+0310 LOGIC  .AND.  DCLF3  X310
+                   X316   X310
+0311 LOGIC  FFLOP1 X318   X311
+                   X310   X311
+0312 FRACAO        X311   X312   1.0   0.0   #DLAY40.0
+0313 INTRES        X312   X313   1.0                       ZERO  HUM
+                   DCLF3N X313
+                   ZERO   X313
+0314 COMPAR .GE.   X313   ST4
+                   HUM    ST4
+0315 DELAY         ST4    X315
+0316 LOGIC  .NOT.  X315   X316
+0318 LOGIC  .OR.   DCLF3N X318
+                   X315   X318
+(
+0319 LOGIC  .AND.  X328   X319
+                   ST4    X319
+0320 LOGIC  FFLOP1 RES4   FR4
+                   X319   FR4
+0321 FRACAO        FR4    X321   1.0   0.0   #TFR4  0.0
+0322 INTRES        X321   X322   1.0                       ZERO  HUM
+                   RES4   X322
+                   ZERO   X322
+0323 COMPAR .GE.   X322   X323
+                   HUM    X323
+0324 DELAY         X323   RES4
+0325 DELAY         ST4    X325
+0326 LOGIC  .NOT.  X325   X326
+0327 LOGIC  FFLOP1 X326   X327
+                   RES4   X327
+0328 LOGIC  .NOT.  X327   X328
+(
+( QUARTA TENTATIVA DE RELIGAMENTO COM TENSÃO REDUZIDA
+0350 LOGIC  FFLOP1 ZERO   REDV3
+                   ST4    REDV3
+(
+( PERMANENT FORCED RETARD TO ALLOW POLE BLOCK
+0410 LOGIC  .AND.  DCLF3  X410
+                   X416   X410
+0411 LOGIC  FFLOP1 X418   X411
+                   X410   X411
+0412 FRACAO        X411   X412   1.0   0.0   #DLAY50.0
+0413 INTRES        X412   X413   1.0                       ZERO  HUM
+                   DCLF3N X413
+                   ZERO   X413
+0414 COMPAR .GE.   X413   ST5
+                   HUM    ST5
+0415 DELAY         ST5    X415
+0416 LOGIC  .NOT.  X415   X416
+0418 LOGIC  .OR.   DCLF3N X418
+                   X415   X418
+0419 LOGIC  FFLOP1 ZERO   FRBLK
+                   ST5    FRBLK
+(
+( Bloqueio pela proteção DCLF ou falta bipolar
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0850 IMPORT ESTCNV        ESTi   #RET-3
+0851 IMPORT CDU           DCLF4  9316
+0853 LOGIC  .AND.  DCLF3  DCLFBP
+                   DCLF4  DCLFBP
+0854 ATRASO        DCLFBP DCFBPA 0.100
+0855 LOGIC  .OR.   DCFBPA BLKP3
+                   FRBLK  BLKP3
+0856 LOGIC  .NOT.  BLKP3  BLKP3N
+0857 MULTPL        ESTi   ESTCNV
+                   BLKP3N ESTCNV
+0990 EXPORT ESTCNV ESTCNV        #RET-3
+(
+( COMBINA AÇÃO DAS 4 TENTATIVAS DE RELIGAMENTO -> O 5º FORCED RETARD É
+( DEFINITIVO E O POLO TEM QUE SER BLOQUEADO
+0800 LOGIC  .OR.   FR1    FRETR3
+                   FR2    FRETR3
+                   FR3    FRETR3
+                   FR4    FRETR3
+                   FRBLK  FRETR3
+0801 SAIDA         FRETR3
+FIMCDU
+(
+(ncdu) ( nome cdu )
+  9202 DCLF-PROT-P4
+(----------------------------------------------------------------------
+(EFPAR (npar) (     valpar     )
+DEFPAR #ON/OF 1.0                # ( 1.0 -> DC LINE FAULT PROTECTION AUTOMATICO / 0.0 -> MANUAL)
+(
+DEFPAR #RET-4 1207               # LOCAL REMOTO CONVERSOR RETIFICADOR POLE 4
+DEFPAR #INV-4 1208               # LOCAL REMOTO CONVERSOR INVERSOR POLE 4
+(
+( 4 tentativas de religamento - 3N + 1R
+DEFPAR #DLAY1 0.090              # TEMPO DE DETECÇÃO DA FALTA NA LINHA CC
+DEFPAR #TFR1  0.150              # DURAÇÃO FORCE RETARD 1
+DEFPAR #DLAY2 0.340              # ATRASO PARA INICIO DO FORCE RETARD 2
+DEFPAR #TFR2  0.200              # DURAÇÃO FORCE RETARD 2
+DEFPAR #DLAY3 0.640              # ATRASO PARA INICIO DO FORCE RETARD 3
+DEFPAR #TFR3  0.300              # DURAÇÃO FORCE RETARD 3
+DEFPAR #DLAY4 1.040              # ATRASO PARA INICIO DO FORCE RETARD 4
+DEFPAR #TFR4  0.200              # DURAÇÃO FORCE RETARD 4
+DEFPAR #DLAY5 1.340              # ATRASO PARA INICIO DO FORCE RETARD PERMANENTE (SEQUENCIA DE BLOQUEIO)
+(
+( 2 tentativas de religamento - 1N + 1R
+(DEFPAR #DLAY1 0.090               # TEMPO DE DETECÇÃO DA FALTA NA LINHA CC
+(DEFPAR #TFR1  0.150               # DURAÇÃO FORCE RETARD 1
+(DEFPAR #DLAY2 0.340               # ATRASO PARA INICIO DO FORCE RETARD 2
+(DEFPAR #TFR2  0.200               # DURAÇÃO FORCE RETARD 2
+(DEFPAR #DLAY3 0.640               # ATRASO PARA INICIO DO FORCE RETARD 3
+(DEFPAR #TFR3  0.200               # DURAÇÃO FORCE RETARD 3
+(DEFPAR #DLAY4 0.640               # ATRASO PARA INICIO DO FORCE RETARD 4
+(DEFPAR #TFR4  0.200               # DURAÇÃO FORCE RETARD 4
+(DEFPAR #DLAY5 0.640               # ATRASO PARA INICIO DO FORCE RETARD PERMANENTE (SEQUENCIA DE BLOQUEIO)
+(
+DEFPAR #TTAXA 0.005               # CONSTANTE DE TEMPO PARA MEDICAO DE TAXA
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        TXVDC  -50          # TAXA MINIMA EM VDCX PARA DETECCAO DE FALTA NA LINHA CC
+DEFVAL        TXIDC  50           # TAXA MINIMA EM IDCX PARA DETECCAO DE FALTA NA LINHA CC
+DEFVAL        VDCMNR 0.65         # SE VDC>VDCMNR DCLF É RESETADA
+(----------------------------------------------------------------------
+(
+(DEFVA (stip) (vdef) ( d1 )
+DEFVAL        DCLF   0.0
+DEFVAL        DCLFA  0.0
+DEFVAL        DCLF4  0.0
+DEFVAL        DCLFM  0.0
+DEFVAL        ZERO   0.0
+DEFVAL        HUM    1.0
+DEFVAL        DOIS   2.0
+DEFVAL        FRBLK  0.0
+DEFVAL        X22    0.0
+DEFVAL        X122   0.0
+DEFVAL        X222   0.0
+DEFVAL        X322   0.0
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+( Indicador de Falta na Linha CC Pólo 4
+0001 ENTRAD               DCLFM
+0002 EXPORT CDU    DCLF4
+0003 EXPORT CDU    DCLF4
+0004 EXPORT CDU    DCLF4
+0005 EXPORT CDU    REDV4
+1005 EXPORT CDU    REDV4
+1006 EXPORT CDU    REDV4
+0006 EXPORT CDU    FRETR4
+0007 ENTRAD               ZERO
+0008 ENTRAD               HUM
+0009 ENTRAD               DOIS
+(
+0501 IMPORT VCNV          VDCX   #RET-4
+0502 IMPORT CCNV          IDCX   #RET-4
+0503 IMPORT CONDCC        CONDCC #INV-4
+0504 ENTRAD               TXVDC
+0505 ENTRAD               TXIDC
+0508 ENTRAD               VDCMNR
+0509 WSHOUT        VDCX   dVdcDt 1.0   1.0   #TTAXA
+0510 COMPAR .LT.   dVdcDt X510
+                   TXVDC  X510
+0511 WSHOUT        IDCX   dIdcDt 1.0   1.0   #TTAXA
+0512 COMPAR .GT.   dIdcdt X512
+                   TXIDC  X512
+0513 LOGIC  .AND.  X510   TR
+                   X512   TR
+0518 COMPAR .EQ.   CONDCC CFINV
+                   DOIS   CFINV
+0517 LOGIC  .NOT.  CFINV  NOTCF
+0519 LOGIC  .AND.  TR     X519
+                   NOTCF  X519
+0520 COMPAR .GT.   VDCX   X520
+                   VDCMNR X520
+0522 LOGIC  FFLOP1 X520   DCLF
+                   X519   DCLF
+0523 GANHO         DCLF   DCLFA  #ON/OF
+1524 LOGIC  .OR.   DCLFA  DCLF4x
+                   DCLFM  DCLF4x
+2524 LOGIC  .NOT.  FRBLK  FRBLKN
+0524 LOGIC  .AND.  DCLF4x DCLF4
+                   FRBLKN DCLF4
+0420 EXPORT CDU    DCLF4 
+(
+(----------------------------------------------------------------------
+(nb) (tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(----------------------------------------------------------------------
+(
+( FORCED RETARD 1
+0010 LOGIC  .AND.  DCLF4  X10
+                   X16    X10
+0011 LOGIC  FFLOP1 X18    X11
+                   X10    X11
+0012 FRACAO        X11    X12    1.0   0.0   #DLAY10.0
+0013 INTRES        X12    X13    1.0                       ZERO  HUM
+                   DCLF4N X13
+                   ZERO   X13
+0014 COMPAR .GE.   X13    ST1
+                   HUM    ST1
+0015 DELAY         ST1    X15
+0016 LOGIC  .NOT.  X15    X16
+0017 LOGIC  .NOT.  DCLF4  DCLF4N
+0018 LOGIC  .OR.   DCLF4N X18
+                   X15    X18
+(
+0019 LOGIC  .AND.  X28    X19
+                   ST1    X19
+0020 LOGIC  FFLOP1 RES1   FR1
+                   X19    FR1
+0021 FRACAO        FR1    X21    1.0   0.0   #TFR1  0.0
+0022 INTRES        X21    X22    1.0                       ZERO  HUM
+                   RES1   X22
+                   ZERO   X22
+0023 COMPAR .GE.   X22    X23
+                   HUM    X23
+0024 DELAY         X23    RES1
+0025 DELAY         ST1    X25
+0026 LOGIC  .NOT.  X25    X26
+0027 LOGIC  FFLOP1 X26    X27
+                   RES1   X27
+0028 LOGIC  .NOT.  X27    X28
+(
+( FORCED RETARD 2
+0110 LOGIC  .AND.  DCLF4  X110
+                   X116   X110
+0111 LOGIC  FFLOP1 X118   X111
+                   X110   X111
+0112 FRACAO        X111   X112   1.0   0.0   #DLAY20.0
+0113 INTRES        X112   X113   1.0                       ZERO  HUM
+                   DCLF4N X113
+                   ZERO   X113
+0114 COMPAR .GE.   X113   ST2
+                   HUM    ST2
+0115 DELAY         ST2    X115
+0116 LOGIC  .NOT.  X115   X116
+0118 LOGIC  .OR.   DCLF4N X118
+                   X115   X118
+(
+0119 LOGIC  .AND.  X128   X119
+                   ST2    X119
+0120 LOGIC  FFLOP1 RES2   FR2
+                   X119   FR2
+0121 FRACAO        FR2    X121   1.0   0.0   #TFR2  0.0
+0122 INTRES        X121   X122   1.0                       ZERO  HUM
+                   RES2   X122
+                   ZERO   X122
+0123 COMPAR .GE.   X122   X123
+                   HUM    X123
+0124 DELAY         X123   RES2
+0125 DELAY         ST2    X125
+0126 LOGIC  .NOT.  X125   X126
+0127 LOGIC  FFLOP1 X126   X127
+                   RES2   X127
+0128 LOGIC  .NOT.  X127   X128
+(
+( FORCED RETARD 3
+0210 LOGIC  .AND.  DCLF4  X210
+                   X216   X210
+0211 LOGIC  FFLOP1 X218   X211
+                   X210   X211
+0212 FRACAO        X211   X212   1.0   0.0   #DLAY30.0
+0213 INTRES        X212   X213   1.0                       ZERO  HUM
+                   DCLF4N X213
+                   ZERO   X213
+0214 COMPAR .GE.   X213   ST3
+                   HUM    ST3
+0215 DELAY         ST3    X215
+0216 LOGIC  .NOT.  X215   X216
+0218 LOGIC  .OR.   DCLF4N X218
+                   X215   X218
+(
+0219 LOGIC  .AND.  X228   X219
+                   ST3    X219
+0220 LOGIC  FFLOP1 RES3   FR3
+                   X219   FR3
+0221 FRACAO        FR3    X221   1.0   0.0   #TFR3  0.0
+0222 INTRES        X221   X222   1.0                       ZERO  HUM
+                   RES3   X222
+                   ZERO   X222
+0223 COMPAR .GE.   X222   X223
+                   HUM    X223
+0224 DELAY         X223   RES3
+0225 DELAY         ST3    X225
+0226 LOGIC  .NOT.  X225   X226
+0227 LOGIC  FFLOP1 X226   X227
+                   RES3   X227
+0228 LOGIC  .NOT.  X227   X228
+(
+( FORCED RETARD 4
+0310 LOGIC  .AND.  DCLF4  X310
+                   X316   X310
+0311 LOGIC  FFLOP1 X318   X311
+                   X310   X311
+0312 FRACAO        X311   X312   1.0   0.0   #DLAY40.0
+0313 INTRES        X312   X313   1.0                       ZERO  HUM
+                   DCLF4N X313
+                   ZERO   X313
+0314 COMPAR .GE.   X313   ST4
+                   HUM    ST4
+0315 DELAY         ST4    X315
+0316 LOGIC  .NOT.  X315   X316
+0318 LOGIC  .OR.   DCLF4N X318
+                   X315   X318
+(
+0319 LOGIC  .AND.  X328   X319
+                   ST4    X319
+0320 LOGIC  FFLOP1 RES4   FR4
+                   X319   FR4
+0321 FRACAO        FR4    X321   1.0   0.0   #TFR4  0.0
+0322 INTRES        X321   X322   1.0                       ZERO  HUM
+                   RES4   X322
+                   ZERO   X322
+0323 COMPAR .GE.   X322   X323
+                   HUM    X323
+0324 DELAY         X323   RES4
+0325 DELAY         ST4    X325
+0326 LOGIC  .NOT.  X325   X326
+0327 LOGIC  FFLOP1 X326   X327
+                   RES4   X327
+0328 LOGIC  .NOT.  X327   X328
+(
+( QUARTA TENTATIVA DE RELIGAMENTO COM TENSÃO REDUZIDA
+0350 LOGIC  FFLOP1 ZERO   REDV4
+                   ST4    REDV4
+(
+( PERMANENT FORCED RETARD TO ALLOW POLE BLOCK
+0410 LOGIC  .AND.  DCLF4  X410
+                   X416   X410
+0411 LOGIC  FFLOP1 X418   X411
+                   X410   X411
+0412 FRACAO        X411   X412   1.0   0.0   #DLAY50.0
+0413 INTRES        X412   X413   1.0                       ZERO  HUM
+                   DCLF4N X413
+                   ZERO   X413
+0414 COMPAR .GE.   X413   ST5
+                   HUM    ST5
+0415 DELAY         ST5    X415
+0416 LOGIC  .NOT.  X415   X416
+0418 LOGIC  .OR.   DCLF4N X418
+                   X415   X418
+0419 LOGIC  FFLOP1 ZERO   FRBLK
+                   ST5    FRBLK
+(
+( Bloqueio pela proteção DCLF ou falta bipolar
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+0850 IMPORT ESTCNV        ESTi   #RET-4
+0851 IMPORT CDU           DCLF3  9315
+0853 LOGIC  .AND.  DCLF4  DCLFBP
+                   DCLF3  DCLFBP
+0854 ATRASO        DCLFBP DCFBPA 0.100
+0855 LOGIC  .OR.   DCFBPA BLKP4
+                   FRBLK  BLKP4
+0856 LOGIC  .NOT.  BLKP4  BLKP4N
+0857 MULTPL        ESTi   ESTCNV
+                   BLKP4N ESTCNV
+0990 EXPORT ESTCNV ESTCNV        #RET-4
+(
+( COMBINA AÇÃO DAS 4 TENTATIVAS DE RELIGAMENTO -> O 5º FORCED RETARD É
+( DEFINITIVO E O POLO TEM QUE SER BLOQUEADO
+0800 LOGIC  .OR.   FR1    FRETR4
+                   FR2    FRETR4
+                   FR3    FRETR4
+                   FR4    FRETR4
+                   FRBLK  FRETR4
+0801 SAIDA         FRETR4
+(
+FIMCDU
+999999

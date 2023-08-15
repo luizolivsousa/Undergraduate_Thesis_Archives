@@ -1,0 +1,2445 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       BMTE_BP1_POLE_CONTROL_V15.cdu                                                             |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:                                                                                             |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(
+( LISTA DE CDU's NESTE ARQUIVO: 
+(
+( CDU 97761 - POLE CONTROL - POLE 1 - XINGU
+( CDU 97762 - POLE CONTROL - POLE 1 - ESTREITO
+( CDU 97763 - POLE CONTROL - POLE 2 - XINGU
+( CDU 97764 - POLE CONTROL - POLE 2 - ESTREITO
+( 
+(
+(----------------------------------------------------------------------
+(                    DADOS DE TOPOLOGIA (DTDU)
+(----------------------------------------------------------------------
+(
+( TDU 97760 - POLE CONTROL
+(
+DTDU
+(
+(----------------------------------------------------------------------
+(
+( SINAIS DE INTERESSE:
+(
+( BLOCO 2142 - Ideg - ENTRAD PARA DEGRAU EM IREF (pu) - Bipolar/Monopolar => 1pu=2500 A
+( BLOCO 4750 - FASOF - ENTRAD PARA ATIVAR SEQUENCIA FASOF (0->DESATIVADO, 1->ATIVADO) - TAXA DE -4000 A/s
+(
+(----------------------------------------------------------------------
+(
+(ncdu) ( nome cdu )
+ 97760 POLE CONTROL
+(----------------------------------------------------------------------
+(
+(======================================================================
+(    DADOS DE LOCAIS REMOTOS
+(======================================================================
+(EFPAR (npar) (     valpar     )
+DEFPAR #REM                 9982   Conversor Remoto
+DEFPAR #LOCOP               9983   Conversor Local do Outro Polo
+DEFPAR #REMOP               9984   Conversor Remoto do Outro Polo
+DEFPAR #LOCCA               9971   Barra AC Local
+DEFPAR #REMCA               9970   Barra AC Remoto
+(
+DEFPAR #DCLOP               9521   DCLNFT Other Pole
+(
+DEFPAR #DCL                 8501   DCLNFT
+DEFPAR #URFDC               9502   UREFDC
+DEFPAR #REDV                9503   REDV 
+DEFPAR #BKDC                8504   BLOCK DCLF 
+(
+DEFPAR #PREF                9960   PREFDC
+(
+DEFPAR #BKSEP               9543   BLKSEP
+(
+DEFPAR #IRFOS               9561   IrefIN from other side
+(
+DEFPAR #RPCLX               9891   Current limit by AC filter rating (RPC limit) - XINGU
+DEFPAR #RPCLE               9895   Current limit by AC filter rating (RPC limit) - ESTREITO 
+(
+DEFPAR #LADO                 1.0   (1: Xingu / -1: Estreito)
+(
+(======================================================================
+(    Exports
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2162 EXPORT ALFA   ALFAX2 
+2635 EXPORT ESTCNV DEBLK 
+(
+(======================================================================
+(    Medição Conversor Local 
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2001 IMPORT*OPCNV         RI_LOC
+2002 IMPORT*PCCCNV        PpuLOC
+2003 IMPORT*CCNV          IDRLOC
+2004 IMPORT*VCNV          VDCLOC
+2005 IMPORT*ESTCNV        ESTLOC
+2006 IMPORT*VOLT          VACLOC
+2007 IMPORT*GAMA          GAMALC
+2008 GANHO         RI_LOC Pdir    #LADO
+(
+(======================================================================
+(    Medição Conversor Remoto     
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2010 IMPORT*OPCNV         RI_REM #REM  
+2011 IMPORT*PCCCNV        PpuREM #REM  
+2012 IMPORT*CCNV          IDRREM #REM
+2013 IMPORT*VCNV          VDCREM #REM  
+2014 IMPORT*VOLT          VACREM #REMCA
+2015 IMPORT*ALFA          ALFARM #REM
+2016 IMPORT*GAMA          GAMARM #REM
+(
+(======================================================================
+(    Medição Conversor Local Outro Polo 
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2020 IMPORT OPCNV         RI__OP #LOCOP   1.0
+2021 IMPORT PCCCNV        Ppu_OP #LOCOP   0.0
+2022 IMPORT CCNV          IDR_OP #LOCOP   0.0
+2023 IMPORT VCNV          VDC_OP #LOCOP   0.0
+2024 IMPORT ESTCNV        EST_OP #LOCOP   0.0
+(
+(======================================================================
+(    Medição Conversor Remoto Outro Polo
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2030 IMPORT OPCNV         RI_OPR #REMOP   0.0
+2031 IMPORT PCCCNV        PpuOPR #REMOP   0.0
+2032 IMPORT CCNV          IDROPR #REMOP   0.0
+2033 IMPORT VCNV          VDCOPR #REMOP   0.0
+(
+(======================================================================
+(    Seleção das medições do retificador
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)  
+2130 SELET2        IDRREM IDR  
+                   IDRLOC IDR  
+                   RI_LOC IDR
+(
+2132 SELET2        VDCREM VDC_R 
+                   VDCLOC VDC_R 
+                   RI_LOC VDC_R 
+(
+2136 SELET2        VDCOPR VDCRop  
+                   VDC_OP VDCRop  
+                   RI_LOC VDCRop
+(
+2137 SELET2        PpuREM PpuR     
+                   PpuLOC PpuR     
+                   RI_LOC PpuR
+(
+7137 SELET2        PpuOPR PpuRop
+                   Ppu_OP PpuRop
+                   RI_LOC PpuRop
+(
+7318 SOMA          PpuR   Ppu
+                   PpuRop Ppu
+7140 GANHO         Ppu    PMW    2000.
+7139 SAIDA         PMW
+(
+2138 SELET2        VACREM VAC_R
+                   VACLOC VAC_R
+                   RI_LOC VAC_R
+(
+(======================================================================
+(    Seleção das medições do inversor
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)  
+4000 SELET2        IDRLOC IDI  
+                   IDRREM IDI  
+                   RI_LOC IDI
+(
+4006 SELET2        IDR_OP IDI_OP  
+                   IDROPR IDI_OP  
+                   RI_LOC IDI_OP
+(
+4002 SELET2        VDCLOC X4002 
+                   VDCREM X4002
+                   RI_LOC X4002
+4003 MULTPL        X4002  VDC_I
+                   MUM    VDC_I
+(
+4160 SELET2        GAMALC GMES 
+                   GAMARM GMES  
+                   RI_LOC GMES
+(
+2139 SELET2        VACLOC VAC_I
+                   VACREM VAC_I
+                   RI_LOC VAC_I
+(
+(======================================================================
+(    Verifica configuração inicial (Bipolar=0 ; Monopolar=1)
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2040 ENTRAD               MonoPo
+2034 SOMA          ESTLOC X2034
+                  -EST_OP X2034
+8002 SAIDA         X2034
+(                  
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    MonoPo X2034     
+(
+(======================================================================
+(  Blocking of the firing pulses Other Pole  (Sinal Blk_Seq_Intd_oP)
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2930 LOGIC  .NOT.  EST_OP ESOFOP
+2931 IMPORT CDU           DCLFOP #DCLOP   0.0
+(
+2934 LOGIC  .OR.   ESOFOP BLK_OP
+                   DCLFOP BLK_OP
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DCLFOP 0.0
+(
+(======================================================================
+(      AC UNDERVOLTAGE DETECTION
+(======================================================================
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2899 ENTRAD               TXDVDT
+2900 ENTRAD               UACMIN
+2901 IMPORT DT            DT
+(
+(rectifier
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2907 LAGNL         VAC_R  VAC_RF    1.0 0.003  0.01
+2902 DELAY         VAC_RF VAC_RD
+2903 SOMA          VAC_RD DVACR
+                  -VAC_RF DVACR
+2904 DIVSAO        DVACR  DVRDT
+                   DT     DVRDT
+2905 COMPAR .GT.   DVRDT  DVRDTH
+                   TXDVDT DVRDTH
+(Bloco Delay ON 0.25s  ->  DVRDTH - DVRDTA 
+9050 LOGIC  .AND.  DVRDTH X9050                                          
+                   X9150  X9050   
+9060 LOGIC  FFLOP1 RESET1 DVRDTA                                       
+                   X9050  DVRDTA
+9070 FRACAO        DVRDTA X9070  1.0   0.0   0.25  0.0                 
+9080 INTRES        X9070  X9080  1.0                      ZERO   UM   
+                   RES1   X9080   
+                   ZERO   X9080   
+9090 LIMITA        X9080  X9090                           ZERO   UM   
+9100 COMPAR .GE.   X9090  X9100                                         
+                   UM     X9100  
+9110 DELAY         X9100  RESET1                                       
+9120 DELAY         DVRDTH X9120                                         
+9130 LOGIC  .NOT.  X9120  X9130                                         
+9140 LOGIC  FFLOP1 X9130  X9140                                         
+                   RESET1 X9140  
+9150 LOGIC  .NOT.  X9140  X9150
+9160 SOMA          DVRDTH X9160
+                  -X9120  X9160
+9170 LOGIC  .OR.   RESET1 RES1
+                   X9160  RES1
+(Fim Bloco Delay ON
+(
+2908 COMPAR .LE.   VAC_RF VRLOW
+                   UACMIN VRLOW
+2906 LOGIC  .AND.  DVRDTA X2906
+                   VRLOW  X2906
+2909 LOGIC  .NOT.  X2906  X2909
+5236 DLAYON        X2909  X2910  0.003  
+2911 LOGIC  .NOT.  X2910  ACUV_R
+(
+(inverter
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2943 LAGNL         VAC_I  VAC_IF    1.0 0.003 0.015
+2912 DELAY         VAC_IF VAC_ID
+2913 SOMA          VAC_ID DVACI
+                  -VAC_IF DVACI
+2914 DIVSAO        DVACI  DVIDT
+                   DT     DVIDT
+2915 COMPAR .GT.   DVIDT  DVIDTH
+                   TXDVDT DVIDTH
+(Bloco Delay ON 0.25s  ->  DVIDTH - DVIDTA 
+8050 LOGIC  .AND.  DVIDTH X8050                                          
+                   X8150  X8050   
+8060 LOGIC  FFLOP1 RESET2 DVIDTA                                       
+                   X8050  DVIDTA
+8070 FRACAO        DVIDTA X8070  1.0   0.0   0.25  0.0                 
+8080 INTRES        X8070  X8080  1.0                      ZERO   UM   
+                   RES2   X8080   
+                   ZERO   X8080   
+8090 LIMITA        X8080  X8090                           ZERO   UM   
+8100 COMPAR .GE.   X8090  X8100                                         
+                   UM     X8100  
+8110 DELAY         X8100  RESET2                                       
+8120 DELAY         DVIDTH X8120                                         
+8130 LOGIC  .NOT.  X8120  X8130                                         
+8140 LOGIC  FFLOP1 X8130  X8140                                         
+                   RESET2 X8140  
+8150 LOGIC  .NOT.  X8140  X8150
+8160 SOMA          DVIDTH X8160
+                  -X8120  X8160
+8170 LOGIC  .OR.   RESET2 RES2
+                   X8160  RES2
+(Fim Bloco Delay ON 
+(
+2944 COMPAR .LE.   VAC_IF VILOW
+                   UACMIN VILOW
+2916 LOGIC  .AND.  DVIDTA ACUV_I
+                   VILOW  ACUV_I
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UACMIN 0.7
+DEFVAL        TXDVDT 65.
+DEFVAL        X9080  0.0
+DEFVAL        X9140  0.0
+DEFVAL        X8080  0.0
+DEFVAL        X8140  0.0
+(
+(======================================================================
+(    POWER REFERENCE (FROM STATION CONTROL)
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(Bipolar -> 1pu = 4000 MW  /  Monopolar -> 1pu = 2000 MW
+2091 ENTRAD               PbaseB
+2092 ENTRAD               PbaseM
+2093 SELET2        PbaseB Pbase
+                   PbaseM Pbase
+                   MonoPo Pbase
+2099 IMPORT CDU           PrefMW #PREF    0.0
+2100 DIVSAO        PrefMW Pref
+                   Pbase  Pref
+2101 ENTRAD               Pdeg  
+2102 SOMA          Pref   PrefDC
+                   Pdeg   PrefDC
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL  VAR   PrefMW PMW
+DEFVAL        PbaseB 4000.
+DEFVAL        PbaseM 2000.
+DEFVAL        Pdeg     0.0
+(
+(======================================================================
+(   BIPOLAR DC VOLTAGE CALCULATION
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2043 SELET2        MEIO   X2043
+                   UM     X2043
+                   MonoPo X2043
+2044 MULTPL        X2043  X2044
+                   VDCR   X2044
+2045 SELET2        MEIO   X2045
+                   ZERO   X2045
+                   MonoPo X2045
+2046 MULTPL        X2045  X2046
+                   VDCRop X2046
+5001 LOGIC  .NOT.  BLK_OP X5001
+5002 DLAYON        X5001  X5002  0.01
+5008 LOGIC  .NOT.  X5002  BLKOP1
+2047 SELET2        X2046  X2047
+                   ZERO   X2047
+                   BLKOP1 X2047
+2048 SOMA          X2044  X2048 
+                   X2047  X2048 
+2049 LEDLAG        X2048  X2049  1.0   0.0   1.0   10.0    
+2050 SELET2        X2048  X2050
+                   X2049  X2050
+                   X2051  X2050
+5011 LOGIC  .NOT.  BLK_OP X5011
+5012 DLAYON        X5011  X5012  60.0
+5018 LOGIC  .NOT.  X5012  BLKOP2
+2051 LOGIC  .AND.  BLKOP2 X2051
+                   DC_LnF X2051
+2053 COMPAR  .LE.  Vref   Vref08
+                   Zp8    Vref08
+2054 LOGIC  .AND.  Vref08 X2054
+                   DC_LnF X2054
+5021 LOGIC  .NOT.  X2054  X5021
+5022 DLAYON        X5021  X5022  1.0
+5028 LOGIC  .NOT.  X5022  BLKOP3
+2055 LOGIC  .OR.   BLKOP3 X2055
+                   BLKOP2 X2055
+                   X2051  X2055
+2057 MAX           Zp25   X2057
+                   X2050  X2057
+(Bloco lag com constante de tempo variável - 1/(1+sTauVdc)
+2058 SOMA          X2057  X2058 
+                  -VD_BP  X2058 
+2059 DIVSAO        X2058  X2059
+                   TauVdc X2059
+2060 PROINT        X2059  VD_BP    1.0   0.0 1.0   
+(Determinação da constante de tempo TauVdc
+5033 MONEST        BLK_OP BLKOP4 0.15
+2065 SELET2        Zpz2   X2065 
+                   Zpz6   X2065 
+                   BLKOP4 X2065
+2062 SELET2        Dez    TauVdc
+                   X2065  TauVdc
+                   X2055  TauVdc
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+(
+(======================================================================
+(    COC - CURRENT ORDER CALCULATION (P/U FUNCTION)
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2195 ENTRAD               IMIN
+2104 DIVSAO        PrefDC Iord  
+                   VD_BP  Iord  
+2103 LIMITA        Iord   IrefD                           IMIN   I_MAX 
+7105 ENTRAD               IFOLGA
+2105 SOMA          IrefD  IrefDC
+                   IFOLGA IrefDC
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        IMIN   0.1
+DEFVAL VAR    IrefDC IDR
+(
+(======================================================================
+(      COL - CURRENT OVERLOAD LIMITER
+(======================================================================
+(EFPAR (nome) (     valor      )
+DEFPAR #Imax1               1.33
+DEFPAR #Imax2             1.0876
+DEFPAR #Iove1               1.55
+DEFPAR #Iove2               1.25
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2200 ENTRAD               Imax1 
+2201 ENTRAD               Imax2 
+2202 ENTRAD               Iover1
+2203 ENTRAD               Iover2
+2204 SELET2        Imax2  Imaxc   
+                   Imax1  Imaxc   
+                   Pdir   Imaxc  
+2205 SELET2        Iover2 Iover  
+                   Iover1 Iover  
+                   Pdir   Iover
+2206 SELET2        Iover  X2206 
+                   Imaxc  X2206 
+                   X5126  X2206 
+2207 LEDLAG        X2206  I_OVER    1.0   0.0   1.0   0.5                 
+2209 SOMA          Iord   X2209
+                   ZpZz35 X2209
+                   X2213  X2209
+2210 COMPAR .GT.   X2209  X2210
+                   Imaxc  X2210
+5126 DLAYON        X2210  X5126  5.0  
+2213 SELET2        MpZZ15 X2213 
+                   ZpZZ15 X2213 
+                   X2210  X2213
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X2210  0.0   
+DEFVAL        Imax1  #Imax1
+DEFVAL        Imax2  #Imax2 
+DEFVAL        Iover1 #Iove1 
+DEFVAL        Iover2 #Iove2
+DEFVAL VAR    I_OVER  Iover 
+(
+(======================================================================
+(      CURRENT LIMITATION FOR ABNORMAL AC VOLTAGE RANGE
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3622 ENTRAD               UACMX
+3623 ENTRAD               UACMN
+3624 ENTRAD               UACMXR
+3625 ENTRAD               UACMNR
+(
+3602 LEDLAG        VACLOC X3602  1.0   0.0    1.0  10.
+3603 COMPAR .GT.   X3602  X3603
+                   UACMX  X3603
+3604 COMPAR .LE.   X3602  X3604
+                   UACMN  X3604
+(                   
+3605 LEDLAG        VACREM X3605  1.0   0.0    1.0  10.
+3606 COMPAR .GT.   X3605  X3606
+                   UACMX  X3606
+3607 COMPAR .LE.   X3605  X3607
+                   UACMN  X3607
+(
+3608 LOGIC  .OR.   X3603  X3608
+                   X3604  X3608
+                   X3606  X3608
+                   X3607  X3608
+5266 DLAYON        X3608  SetIUa 2.0  
+( 
+3609 COMPAR .GT.   X3602  X3609
+                   UACMNR X3609
+3610 COMPAR .LE.   X3602  X3610
+                   UACMXR X3610                   
+3611 COMPAR .GT.   X3605  X3611
+                   UACMNR X3611
+3612 COMPAR .LE.   X3605  X3612
+                   UACMXR X3612
+3613 LOGIC  .AND.  X3609  ResIUa             
+                   X3610  ResIUa
+                   X3611  ResIUa
+                   X3612  ResIUa
+(
+3618 LOGIC  FFLOP1 ResIUa X3618
+                   SetIUa X3618
+(
+(inicialização do fflop1
+3619 SELET2        ZERO   X3619
+                   UM     X3619
+                   SetIUa X3619
+3617 SAIDA         X3619
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL VAR    X3618  X3619
+(
+3614 ENTRAD               INOMXE
+3615 ENTRAD               INOMEX
+3616 SELET2        INOMEX INOM
+                   INOMXE INOM
+                   PDIR   INOM 
+3620 SELET2        I_OVER X3620
+                   INOM   X3620
+                   X3618  X3620
+3621 LEDLAG        X3620  IL_Uac 1.0   0.0   1.0   2.0                   
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UACMX  1.105
+DEFVAL        UACMN  0.945
+DEFVAL        UACMXR 1.095
+DEFVAL        UACMNR 0.955
+DEFVAL        INOMXE 1.0
+DEFVAL        INOMEX 0.8176
+(
+(======================================================================
+(   CURRENT LIMIT AND POLE BLOCK FOR REDUCED SHORT-CIRCUIT LEVELS
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3706 LEDLAG        VdacIn X3706  1.0   0.0   1.0   0.006
+3707 COMPAR .LE.   X3706  X3707
+                   Zp4    X3707
+3708 LOGIC  .NOT.  ACUV_R X3708             
+5291 LOGIC  .NOT.  DC_LnF X5291
+5292 DLAYON        X5291  X5292  0.25
+5298 LOGIC  .NOT.  X5292  X3712
+3713 LOGIC  .NOT.  X3712  X3713
+3714 LOGIC  .AND.  X3707  X3714
+                   X3708  X3714
+                   X3713  X3714
+5303 MONEST        X3714  X3715  0.15                    
+3718 SUBIDA        X3715  INC
+3716 ENTRAD               HOLD
+3720 ACUM          INC    COUNT  1.0
+                   HOLD   COUNT
+                   ZERO   COUNT
+                   ZERO   COUNT
+(
+3721 COMPAR .GT.   COUNT  X3721           
+                   Tres   X3721
+3722 COMPAR .GT.   COUNT  X3722           
+                   Cinco  X3722           
+3723 COMPAR .GT.   COUNT  BdSCL           
+                   Sete   BdSCL                           
+3724 EXPORT CDU    BdSCL
+3725 SELET2        Dois   X3725
+                   Zp75   X3725
+                   X3721  X3725
+3726 SELET2        X3725  X3726
+                   Zp5    X3726
+                   X3722  X3726
+3727 LEDLAG        X3726  IL_SCL 1.0   0.0   1.0   0.05
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        HOLD      0.0
+DEFVAL        COUNT     0.0
+(
+(======================================================================
+(   CURRENT LIMIT AND POLE BLOCK BY FASOF SEQUENCE
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4750 ENTRAD               FASOF
+4755 ENTRAD               TXFASA
+4756 GANHO         TXFASA TXFASP 0.0004 
+4757 FUNCAO MENOS  TXFASP TXFASN
+4760 SELET2        I_OVER X4760
+                   IMIN   X4760
+                   FASOF  X4760
+4765 RATELM        X4760  IL_FAS                          TXFASN TXFASP
+4770 COMPAR .LE.   IDR    I<IMIN
+                   IMIN   I<IMIN
+4775 LOGIC  .AND.  FASOF  X4775
+                   I<IMIN X4775
+4780 LOGIC  FFLOP1 ZERO   BLKFAS
+                   X4775  BLKFAS
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        TXFASA 4000.           % TAXA DE APLICAÇÃO DO FASOF, EM A/s
+DEFVAL        FASOF  0.
+(
+(======================================================================
+(   CURRENT LIMIT BY AC FILTER RATING (RPC LIMIT)
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4782 IMPORT CDU           RPCLX  #RPCLX   2.0
+4785 IMPORT CDU           RPCLE  #RPCLE   2.0
+(
+(EFVAL (stip) (vdef) ( d1 )o( d2 )
+DEFVAL        RPCLX  2.0
+DEFVAL        RPCLE  2.0
+(
+(======================================================================
+(      POLE CURRENT LIMITATION          
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2503 MIN           IL_SCL I_MAX 
+                   IL_Uac I_MAX 
+                   I_OVER I_MAX
+                   IL_FAS I_MAX 
+                   RPCLX  I_MAX
+                   RPCLE  I_MAX
+2504 EXPORT CDU    I_MAX
+(
+(======================================================================
+(   CMC - CURRENT MARGIN COMPENSATION
+(======================================================================
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #PICX1              0.02
+DEFPAR #PICKp              0.10
+DEFPAR #PICTn              2.00  =0.2/PICKp
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2106 ENTRAD               PICX1
+2107 LEDLAG        IDRLOC Idcf   1.0   0.0   1.0   0.01   
+2108 SOMA          IrefDC X2108
+                  -idcF   X2108
+                  -PICX1  X2108
+2109 LIMITA        X2108  X2109                           MZp1   Zp1   
+2110 SELET2        ZERO   X2110
+                   X2109  X2110
+                   EnPiCM X2110
+(
+( Enable PI CMC - Disable when VDCL active on rectifier
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2128 SOMA          VDCOLR X2128
+                  -VDCOL2 X2128
+2129 FUNCAO ABS    X2128  X2129
+2121 COMPAR .LE.   X2129  VDCLAR
+                   Zero   VDCLAR
+2120 LOGIC  .NOT.  VDCLAR X2120
+2460 DELAY         X2120  EnPiCM
+(
+( Set PI CMC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2124 COMPAR .LT.   X2108  X2124
+                   MZpZ3  X2124
+2125 DELAY         X2124  X2125 
+2126 COMPAR .GT.   X2124  PI_CMC
+                   X2125  PI_CMC
+(
+( Limite do PI do CMC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2123 ENTRAD               PICLU
+2127 SELET2        PICLU  PIC_LU
+                   ZERO   PIC_LU
+                   PI_CMC PIC_LU
+(
+( PI Controller CMC
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2111 GANHO         X2110  X2111  #PICKp
+2112 PROINT        X2110  X2112    1.0  0.0  #PICTn       Zero   PIC_LU
+2113 SOMA          X2111  X2113
+                   X2112  X2113
+2114 LIMITA        X2113  ICMC                            Zero   PIC_LU
+(
+2115 SOMA          IrefDC IrefN 
+                   ICMC   IrefN
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        PICX1  #PICX1
+DEFVAL        X2112   0.0
+DEFVAL        VDCLAR  0.0
+DEFVAL        PICLU   0.12
+(
+(======================================================================
+(   PCOC - POLE CURRENT ORDER COORDINATION
+(======================================================================
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #TELCM               0.03   # TELECOMMUNICATION DELAY
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2116 ATRASO        IrefN  IrefI  #TELCM
+2117 ATRASO        IrefI  TL_1   #TELCM
+2118 MAX           IrefN  IrefRe
+                   TL_1   IrefRe
+
+(
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4850 EXPORT CDU    IrefI
+4855 IMPORT CDU           IREFOS #IRFOS   0.0
+4860 SELET2        IREFOS IrefIN
+                   IrefI  IrefIN
+                   RI_LOC IrefIN
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    IREFOS IDI
+(
+(======================================================================
+(   VOLTAGE REFERENCE SELECTION
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2177 ENTRAD               Vref0
+2601 IMPORT  CDU          UREFDC #URFDC 0.0
+2602 IMPORT  CDU          REDV   #REDV  0.0
+(
+2610 SELET2        Vref0  Vref
+                   UREFDC Vref
+                   REDV   Vref 
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    Vref0  VDCR
+DEFVAL VAR    UREFDC VDCR
+DEFVAL        REDV   0.0
+(
+(======================================================================
+(    RECTIFIER CONTROLS
+(======================================================================
+(
+(----------------------------------------------------------------------
+(    RECTIFIER MEASUREMENTS
+(----------------------------------------------------------------------
+(
+(EFPAR (nome) (     valor      )
+DEFPAR #Ud_TC              0.008 
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2131 LEDLAG        IDR    IDCM   1.0   0.0   1.0   0.001   
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2134 LEDLAG        VDC_R  VDCR   1.0   0.0   1.0   #Ud_TC 
+2135 DIVSAO        VDCR   Vdacre
+                   Vref   Vdacre
+2235 LEDLAG        Vdacre Udarsc 1.0   0.0   1.0   0.006 
+(
+(----------------------------------------------------------------------
+(    RECTIFIER VDCL / TRANSIENT FAULT RECOVERY LOGIC
+(----------------------------------------------------------------------
+2301 SELET2        UMp5   X2301 
+                   ZERO   X2301 
+                   DC_LnF X2301 
+2302 MIN           Udarsc VdVDCR 
+                   X2301  VdVDCR 
+2303 MIN           VdacIN VdVDCI 
+                   X2301  VdVDCI 
+(
+2304 SOMA          VdVDCR X2304
+                   X2316  X2304
+                   X2314  X2304
+2305 FUNCAO PONTOS X2304  VDCOLR  0.00  0.499 0.30 0.500  
+                                  0.45  1.000 0.65 2.000
+2306 MIN           VDCOLR VDCOL2
+                   IrefRe VDCOL2 
+(
+2308 COMPAR .GT.   VDCOLR VDCLHi
+                   Zp57   VDCLHi
+(
+2309 LOGIC  .NOT.  VDCLHi X2309
+2310 DELAY         X2309  Vdcllo
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        Vdcllo 0.0
+(
+5045 DLAYON        Vdcllo X5045  0.08
+5048 DLAYOF        X5045  X5048  2.0
+5046 LOGIC  .OR.   X5045  Sonof1
+                   X5048  Sonof1
+( 
+2311 COMPAR .LE.   IrefRe X2311
+                   UMp1   X2311
+2312 LOGIC  .AND.  X2311  X2312  
+                   Sonof1 X2312
+2314 SELET2        ZERO   X2314
+                   Zp2    X2314
+                   X2312  X2314
+(
+5064 MONEST        Vdcllo SMONO1 0.075  
+2316 SELET2        ZERO   X2316
+                   MZp1   X2316
+                   SMONO1 X2316
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        SMONO1 0.0
+(
+2317 SOMA          VDCOL2 X2317
+                   X2327  X2317
+(
+( Frist Ordem Filter with Change Time Const.
+2318 SOMA          X2317  X2318 
+                  -X2320  X2318 
+2319 DIVSAO        X2318  X2319
+                   TADDn  X2319
+2320 PROINT        X2319  X2320    1.0   0.0 1.0   
+(
+5074 MONEST        VDCLHi SMONO2 1.0      
+2321 SELET2        X2317  X2321
+                   X2320  X2321
+                   SMONO2 X2321
+(
+2322 MAX           X2321  Iref_R
+                   MIVDCL Iref_R 
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2323 LIMITA        IrefRe X2323                           Zp7    UMp5 
+2324 MULTPL        X2323  X2324
+                   dIA_2  X2324
+2325 DIVSAO        dIA_1  X2325
+                   X2323  X2325
+2326 SOMA          X2324  X2326
+                   X2325  X2326                   
+2327 SELET2        ZERO   X2327
+                   X2326  X2327
+                   X2333  X2327
+(
+2330 LOGIC  .NOT.  MonoPo Bipola
+2331 LOGIC  .AND.  Bipola X2331
+                   DC_LnF X2331
+(
+7189 LOGIC  .NOT.  X2331  X7189  
+7196 DLAYON        X7189  X7196  0.6
+8200 LOGIC  .NOT.  X7196  BLKOP5 
+2332 LOGIC  .NOT.  BLKOP5 EN_D_I
+(
+(----------------------------------------------------------------------
+(    Mono-Stable (TUP) - Begin
+(    INPUT  VdclHI
+(    OUTPUT SMONO3
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6048 DELAY         VDCLHi X6048
+6049 COMPAR .GT.   VDCLHi X6049
+                   X6048  X6049
+6050 LOGIC  .AND.  X6049  X6050                                          
+                   X6150  X6050
+6051 DELAY         X6050  X6050D                      
+5104 LOGIC  FFLOP1 RESET3 SMONO3                                       
+                   X6050D SMONO3
+6070 DIVSAO        SMONO3 X6070
+                   TUP    X6070
+6080 INTRES        X6070  X6080  1.0                      ZERO   UM   
+                   RES3   X6080   
+                   ZERO   X6080   
+6090 LIMITA        X6080  X6090                           ZERO   UM   
+6100 COMPAR .GE.   X6090  X6100                                         
+                   UM     X6100  
+6110 DELAY         X6100  RESET3                                        
+6120 DELAY         X6049  X6120                                         
+6130 LOGIC  .NOT.  X6120  X6130                                         
+6140 LOGIC  FFLOP1 X6130  X6140                                         
+                   RESET3 X6140  
+6150 LOGIC  .NOT.  X6140  X6150
+6160 SOMA          X6049  X6160
+                  -X6120  X6160
+6170 LOGIC  .OR.   RESET3 RES3
+                   X6160  RES3 
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X6080  0.0   
+DEFVAL        X6140  0.0                 
+DEFVAL        SMONO3 0.0
+(----------------------------------------------------------------------
+(    Mono-Stable - End
+(----------------------------------------------------------------------
+(
+2333 LOGIC  .AND.  EN_D_I X2333
+                   SMONO3 X2333
+(
+5089 LOGIC  .NOT.  X2331  X5089  
+5096 DLAYON        X5089  X5096  0.5
+5100 LOGIC  .NOT.  X5096  BLKOP6
+2334 SELET2        dTA_2  dTA_2N
+                   ZpZ65  dTA_2N
+                   BLKOP6 dTA_2N
+(
+2335 SELET2        Dois   X3535  
+                   Tresp5 X3535  
+                   MonoPo X3535  
+2336 COMPAR .LE.   IrefRC X3636
+                   Zp3    X3636
+2337 SELET2        Seis   M_TUP  
+                   X3535  M_TUP  
+                   X3636  M_TUP  
+(
+2338 MULTPL        X2323  X2338
+                   dTA_1  X2338
+2339 SOMA          X2338  X2339
+                   dTA_2N X2339                   
+2340 MULTPL        X2339  TUP   
+                   M_TUP  TUP   
+(
+2341 MULTPL        X2339  X2341 
+                   Seis   X2341 
+2342 LOGIC  .OR.   Vdcllo X2342
+                   SMONO3 X2342
+2343 SELET2        X2341  TADDn  
+                   X2339  TADDn  
+                   X2342  TADDn  
+(
+(======================================================================
+(    TRANSIENT RECOVERY LOGIC FOR LOW DC VOLTAGE
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2703 SELET2        Zp245  IUL_LL                  
+                   Zp2    IUL_LL
+                   PDir   IUL_LL 
+(
+2707 LEDLAG        IrefRe IrefRC 1.0   0.0   1.0   0.5
+2709 SOMA          IrefRC X2709
+                   Zp1    X2709                                    
+2710 LIMITA        X2709  IUdcUL                          IUL_LL Zp7
+(
+2714 SOMA          UM     X2714
+                  -VdacIN X2714
+2715 GANHO         X2714  X2715  1.15
+2717 SOMA         -ZpZ7   X2717
+                   IrefRC X2717
+2718 SOMA          X2715  X2718
+                   X2717  X2718
+2719 LEDLAG        X2718  X2719  1.0   0.0   1.0   0.06 
+2720 LIMITA        X2719  X2720                           ZpZ2   IUdcUL                   
+2723 LOGIC  .OR.   DC_LnF X2723
+                   ACUV_R X2723
+2725 SELET2        X2720  X2725                   
+                   ZpZ2   X2725
+                   X2723  X2725
+2726 LEDLAG        X2725  X2726  1.0   0.0   1.0   0.008 
+2728 LIMITA        X2726  MIVDCL                          ZpZ2   VDCOLR                   
+(
+(----------------------------------------------------------------------
+(    RECTIFIER DC CURRENT CONTROLLER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2142 ENTRAD               Ideg
+2143 SOMA         -IDCM   ERRC
+                   Iref_R ERRC
+                   Ideg   ERRC
+2144 GANHO         ERRC   IDR_Er  0.5
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        Ideg      0.0 
+(
+(----------------------------------------------------------------------
+(    RECTIFIER DC VOLTAGE CONTROLLER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7002 ENTRAD               UMAXR
+2179 ENTRAD               UDM_N
+2180 ENTRAD               UDM_E
+(
+2170 LEDLAG        VDCR   VDCM     1.0   0.0  1.0  0.2
+2174 COMPAR .GT.   VDCM   X2171
+                   UMAXR  X2171
+2175 SELET2        UDM_N  X2175
+                   UDM_E  X2175
+                   X2171  X2175
+2176 LEDLAG        X2175  VDmarg   1.0   0.0  1.0  0.1   
+(
+2178 SOMA          Vref   U_er_R
+                   VDmarg U_er_R
+                  -VDCR   U_er_R
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UMAXR    1.01
+DEFVAL        UDM_N    0.3
+DEFVAL        UDM_E    0.02
+(
+(----------------------------------------------------------------------
+(    RECTIFIER ERROR SELECTION AND  PI-CONTROLLER
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #Tkp   0.00888
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2145 MIN           IDR_Er ERRmn
+                   U_er_R ERRmn
+(
+2146 COMPAR .EQ.   IDR_Er SCD
+                   ERRmn  SCD
+(
+9147 SELET2        KP_UR  Kp_IR2
+                   KP_IR  Kp_IR2
+                   SCD    Kp_IR2
+2147 LEDLAG        Kp_IR2 Kp_IR1 1.0          1.0   #Tkp
+2148 SELET2        Tn_UR  Tn_IR1
+                   Tn_IR  Tn_IR1
+                   SCD    Tn_IR1
+2149 SELET2        Tn_IR1 X2149 
+                   ZpZ1   X2149 
+                   Stf_Tn X2149 
+2150 DIVSAO        X2149  Tn_I_R
+                   Kp_IR1 Tn_I_R
+(                   
+2151 MULTPL        ERRmn  UPC  
+                   Kp_IR1 UPC   
+2152 DIVSAO        ERRmn  X2150
+                   Tn_I_R X2150
+9152 DELAY         X2150  X9152  
+2153 PROINT        X9152  UCI      1.0   0.0 1.0          C_LL_R C_UL_R
+2154 SOMA          UPC    UC
+                   UCI    UC
+2155 LIMITA        UC     UCL                             C_LL_R C_UL_R
+(
+9155 ENTRAD               UCLfix
+9156 SELET2        UCLfix UCL2
+                   UCL    UCL2
+                   RI_LOC UCL2
+2156 FUNCAO ASIN   UCL2   ALPHAR    
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    UCLfix UCL2
+DEFVAL VAR    UCL    UCL2
+(
+(----------------------------------------------------------------------
+(    LOOP IN CONTROL - RECTIFIER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2745 COMPAR .EQ.   IDR_Er ICTRLR
+                   ERRmn  ICTRLR
+2746 COMPAR .EQ.   U_er_R VCTRLR
+                   ERRmn  VCTRLR
+2747 SELET2        ZERO   X2747
+                   DOIS   X2747
+                   ICTRLR X2747
+2748 SELET2        X2747  LICR
+                   QUATRO LICR
+                   VCTRLR LICR
+2749 SAIDA         LICR
+(
+(----------------------------------------------------------------------
+(    Switch_to_fast_Tn_Id_rec
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2751 SELET2        FirADB X2751
+                   FirADA X2751
+                   PDir   X2751
+2752 COMPAR .GT.   X2751  X2752
+                   TRINTA X2752
+5316 DLAYON        X2752  X2753  0.05 
+5328 DLAYOF        X2753  X2754  0.1   
+2755 LOGIC  .OR.   X2754  X2755
+                   X2753  X2755
+2756 COMPAR .LE.   Udarsc X2756             
+                   Zp9    X2756
+5346 DLAYON        X2756  X2757  0.05  
+5353 MONEST        X2757  X2758  0.3  
+2759 LOGIC  .AND.  X2758  X2759
+                   X2757  X2759
+2760 LOGIC  .AND.  X2755  Stf_Tn
+                   X2759  Stf_Tn
+(
+(----------------------------------------------------------------------
+(    RECTIFIER VCO
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #PI/2     1.570796327
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2157 FUNCAO RETA   ALPHAR ALFAR1 -1.0   #PI/2
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    ALFAR1 ARinit
+(
+(----------------------------------------------------------------------
+(   RECTIFIER ALPHA INITIALIZATION
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8800 SELET2        ALFARM ARinit
+                   ALFAX1 ARinit
+                   RI_LOC ARinit
+8017 SAIDA         ARinit 
+( 
+(======================================================================
+(    INVERTER CONTROLS
+(======================================================================
+(
+(----------------------------------------------------------------------
+(    INVERTER MEASUREMENTS
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4001 LEDLAG        IDI    IDCIm    1.    0.     1. 0.001   
+(
+4004 LEDLAG        VDC_I  VDCI     1.    0.     1. #Ud_TC 
+4005 DIVSAO        VDCI   VdacIN
+                   Vref   VdacIN
+(
+(======================================================================
+(    CMS - CURRENT MARGIN SWITCHING
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4200 ENTRAD               IMARGN
+4217 ENTRAD               IMARGH
+(
+4201 LOGIC  .NOT.  CFltin X4201
+5206 DLAYON        X4201  X4202  0.2  
+4203 LOGIC  .NOT.  X4202  X4203
+4205 LOGIC  .NOT.  ACUV_I X4205
+5216 DLAYON        X4205  X4206  0.2    
+4207 LOGIC  .NOT.  X4206  X4207
+4209 COMPAR .LE.   IDCIm  X4209
+                   ZpZ5   X4209
+5226 DLAYON        X4209  X4210  0.012 
+4212 COMPAR .LE.   VdacIN X4212
+                   Zp9    X4212
+4213 LOGIC  .AND.  X4210  X4213                   
+                   X4212  X4213                                 
+4214 LOGIC  .OR.   X4203  X4214
+                   X4207  X4214
+                   X4213  X4214                                                   
+4215 SELET2        IMARGN X4215
+                   IMARGH X4215
+                   X4214  X4215
+4216 LEDLAG        X4215  IDmarg 1.0   0.0   1.0   0.05
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        CFltin    0.0
+DEFVAL        IMARGN    0.1
+DEFVAL        IMARGH    0.5
+(                 
+(----------------------------------------------------------------------
+(    INVERTER VDCL
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4100 LEDLAG        VdVDCI X4100  1.0   0.0   1.0   0.03
+4101 FUNCAO PONTOS X4100  X4101  -2.00  0.199 0.60 0.200  
+                                  0.80  1.000 1.00 1.800  
+                                  1.20  2.000 2.00 2.001  
+4102 ATRASO        X4101  X4102   0.02
+4103 MIN           X4101  VDCOLI
+                   X4102  VDCOLI
+(
+(----------------------------------------------------------------------
+(    INVERTER DC CURRENT CONTROLLER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4050 SOMA          IrefIN X4050 
+                  -IDmarg X4050
+4051 MAX           ZpZ2   X4051
+                   X4050  X4051
+4053 MIN           X4051  Iref_I
+                   VDCOLI Iref_I
+4054 SOMA          Iref_I IDIerr
+                  -IDCIm  IDIerr
+4055 GANHO         IDIerr IDI_Er  0.5  
+(  
+(----------------------------------------------------------------------
+(     CEC - CURRENT ERROR CONTROLLER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4150 SOMA          IDmarg X4150
+                   IDIerr X4150
+4151 COMPAR .GE.   X4150  X4151
+                   ZpZ6   X4151
+4152 COMPAR .GE.   X4150  X4152
+                   Zp1    X4152
+4153 FUNCAO RETA   X4150  Y1     0.5    -0.03                
+4154 FUNCAO RETA   X4150  Y2     .0103 .01897                
+4155 SELET2        ZERO   X4155 
+                   Y1     X4155 
+                   X4151  X4155 
+4156 SELET2        X4155  CEC   
+                   Y2     CEC   
+                   X4152  CEC
+(
+(----------------------------------------------------------------------
+(     INVERTER DC VOLTAGE CONTROLLER 
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4157 SOMA          Vref   VrfCEC
+                  -CEC    VrfCEC
+4158 SOMA          VDCR   V_I_Er
+                  -VrfCEC V_I_Er
+(
+(----------------------------------------------------------------------
+(     INVERTER GAMMA CONTROLLER 
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #RADtG            57.2957
+DEFPAR #A_GY1              0.753
+DEFPAR #B_GY1            -0.8892
+DEFPAR #A_GY2              4.333
+DEFPAR #B_GY2           -14.9985
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4164 ENTRAD               GAMARF 
+4161 GANHO         GMES   GMESD  #RADtG
+4162 LIMITA        GMESD  MinGam                          ZERO   OITENT
+4163 SELET2        MinGam X4163  
+                   ZERO   X4163  
+                   DC_LnF X4163
+8021 SOMA          GAMARF GAMREF
+                   DGOPBK GAMREF  
+4165 SOMA          GAMREF GAMAER
+                  -X4163  GAMAER
+(início ganho não-linear
+4166 FUNCAO RETA   GAMAER GY1    #A_GY1#B_GY1               
+4167 FUNCAO RETA   GAMAER GY2    #A_GY2#B_GY2                
+4168 COMPAR .LE.   GAMAER X4168
+                   mTp6   X4168
+4169 COMPAR .GE.   GAMAER X4169
+                   Qp5    X4169
+4170 SELET2        GAMAER X4170 
+                   GY1    X4170 
+                   X4168  X4170 
+4171 SELET2        X4170  X4171 
+                   GY2    X4171 
+                   X4169  X4171 
+(fim ganho não-linear
+4172 SELET2        ZpZZ56 X4172 
+                   ZpZ111 X4172 
+                   Pdir   X4172
+4173 SELET2        X4172  X4173 
+                   ZpZZ56 X4173 
+                   MonoPo X4173
+4174 MULTPL        X4173  G_ERR
+                   X4171  G_ERR
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        GAMARF 17.5 
+(
+(----------------------------------------------------------------------
+(     DELTA GAMMA BY BLOCK SEQUENCE INITIATED OP
+(----------------------------------------------------------------------    
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8000 LOGIC  .OR.   BLK_OP X8000
+                   DCLFOP X8000
+(delay-on 0.004s
+8005 DISMAX        X8000  X8005  0.5   0.004 0.0
+(
+8010 LOGIC  .NOT.  X8005  X8010
+(
+(delay-on 0.24s
+8015 DISMAX        X8010  X8015  0.5   0.24  0.0
+(
+8020 LOGIC  .NOT.  X8015  X8020
+(
+(monoestável 0.08s
+8025 DELAY         X8020  X8025
+8028 COMPAR .GT.   X8020  X8028
+                   X8025  X8028
+8030 DISMAX        X8028  X8030  0.5   0.0   0.08
+(
+8031 ENTRAD               DGAMAX
+8032 ENTRAD               DGAMAE
+8033 SELET2        DGAMAX DGAMA
+                   DGAMAE DGAMA
+                   PDIR   DGAMA
+8034 SELET2        ZERO   X8034
+                   DGAMA  X8034
+                   X8030  X8034
+8035 LEDLAG        X8034  X8035  1.0         1.0   0.06
+8036 MAX           X8034  X8036
+                   X8035  X8036
+8037 SELET2        X8036  DGOPBK
+                   ZERO   DGOPBK
+                   RI_LOC DGOPBK
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DGAMAX 12.5
+DEFVAL        DGAMAE 15.0
+DEFVAL        X8030  0.0
+DEFVAL        DGOPBK 0.0
+(
+(----------------------------------------------------------------------
+(    INVERTER ERRO SELECTION AND PI-CONTROLLER
+(----------------------------------------------------------------------
+(EFPAR (nome) (     valor      )
+DEFPAR #T_KpI            0.00888
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4300 MAX           G_ERR  ERR_IN
+                   V_I_Er ERR_IN
+                   IDI_Er ERR_IN
+(
+4301 COMPAR .EQ.   G_ERR  SCDI1
+                   ERR_IN SCDI1
+4302 COMPAR .EQ.   IDI_Er SCDI2
+                   ERR_IN SCDI2
+4303 SELET2        KP_UI  X4303
+                   KP_GI  X4303
+                   SCDI1  X4303
+4304 SELET2        X4303  X4304  
+                   Kp_II  X4304  
+                   SCDI2  X4304  
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4305 LEDLAG        X4304  KP_I   1.0   0.0   1.0   #T_KpI
+4306 SELET2        Tn_UI  X4306
+                   Tn_GI  X4306
+                   SCDI1  X4306
+4307 SELET2        X4306  X4307 
+                   Tn_II  X4307 
+                   SCDI2  X4307 
+4308 DIVSAO        X4307  Tn_I  
+                   Kp_I   Tn_I  
+(                   
+4309 MULTPL        ERR_IN UPC_I
+                   Kp_I   UPC_I 
+4310 DIVSAO        ERR_IN X4310
+                   Tn_I   X4310 
+4311 PROINT        X4310  UCI_I   1.0  0.0   1.0          C_LL_I C_UL_I
+4312 SOMA          UPC_I  UC_I
+                   UCI_I  UC_I
+4313 LIMITA        UC_I   UC_IL                           C_LL_I C_UL_I
+(
+4314 FUNCAO ASIN   UC_IL  ALPHAI       
+(
+(----------------------------------------------------------------------
+(    LOOP IN CONTROL - INVERTER
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4743 COMPAR .EQ.   IDI_Er ICTRLI
+                   ERR_IN ICTRLI
+4744 COMPAR .EQ.   V_I_er VCTRLI
+                   ERR_IN VCTRLI
+4745 COMPAR .EQ.   G_ERR  GCTRLI
+                   ERR_IN GCTRLI
+4746 SELET2        ZERO   X4746
+                   UM     X4746
+                   GCTRLI X4746
+4747 SELET2        X4746  X4747
+                   DOIS   X4747
+                   ICTRLI X4747
+4748 SELET2        X4747  LICI
+                   TRES   LICI
+                   VCTRLI LICI
+4149 SAIDA         LICI
+(
+(----------------------------------------------------------------------
+(    INVERTER VCO
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+4315 FUNCAO RETA   ALPHAI ALFAI1 -1.0   #PI/2
+8024 SAIDA         ALFAI1
+(                 
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL VAR    ALFAI1 AIinit 
+(
+(----------------------------------------------------------------------
+(   INVERTER ALPHA INITIALIZATION
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+8801 SELET2        ALFAX1 AIinit
+                   ALFARM AIinit
+                   RI_LOC AIinit
+8018 SAIDA         AIinit                                      
+(
+(======================================================================
+(    FIRING ANGLE - A
+(======================================================================
+(EFPAR (nome) (     valor      )
+DEFPAR #FA_P1            0.63662
+DEFPAR #FA_P2          1.1111e-2
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3405 GANHO         X2163  X3405  #FA_P1
+(
+3407 SOMA          X3405  X3407
+                   AlpPDA X3407
+3408 LIMITA        X3407  X3408                           MUM    CLiScA
+3411 GANHO         TS_L_D X3411  #FA_P2
+3413 SOMA          UM     X3413
+                  -X3411  X3413
+3415 SELET2        ZERO   FACtrl
+                   TrigFR FACtrl
+                   PDir   FACtrl
+3416 SELET2        X3408  X3416
+                   X3413  X3416
+                   FACtrl X3416
+3422 SOMA          UM     X3422
+                  -X3416  X3422
+3433 GANHO         X3422  FirARA #PI/2
+3436 GANHO         FirARA FirADA #RADtG
+(
+3440 SELET2        UL_I_D X3440
+                   UL_R_D X3440
+                   PDir   X3440
+3441 GANHO         X3440  X3441  #FA_P2
+3442 SOMA          UM     CLiScA    
+                  -X3441  CLiScA
+(
+(======================================================================
+(    FIRING ANGLE - B
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3505 GANHO         X2163  X3505  #FA_P1
+3507 SOMA          X3505  X3507
+                   AlpPDB X3507
+3508 LIMITA        X3507  X3508                           MUM    CLiScB
+3511 GANHO         TS_L_D X3511  #FA_P2
+3513 SOMA          UM     X3513
+                  -X3511  X3513
+3515 SELET2        TrigFR FBCtrl
+                   ZERO   FBCtrl
+                   PDir   FBCtrl
+3516 SELET2        X3508  X3516
+                   X3513  X3516
+                   FBCtrl X3516
+3522 SOMA          UM     X3522
+                  -X3516  X3522
+3533 GANHO         X3522  FirARB #PI/2
+3536 GANHO         FirARB FirADB #RADtG
+(
+3540 SELET2        UL_R_D X3540
+                   UL_I_D X3540                  
+                   PDir   X3540
+3541 GANHO         X3540  X3541  #FA_P2
+3542 SOMA          UM     CLiScB    
+                  -X3541  CLiScB
+(
+(======================================================================
+( Phase Angle Damping = Current Error Modulation (CEM) - Station A
+(======================================================================
+(EFPAR (nome) (     valor      )
+DEFPAR #PA_G                 1.0
+DEFPAR #PA_T1               0.15
+DEFPAR #PA_T2              0.015
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3202 SELET2        IDI    IdCN_A
+                   IDR    IdCN_A
+                   Pdir   IdCN_A
+3203 LIMITA        IdCN_A X3203                           ZERO   DOIS
+3204 LEDLAG        X3203  X3204  #PA_G       1.0   #PA_T1
+3205 SOMA          X3203  X3205
+                  -X3204  X3205
+3206 MULTPL        X3205  X3206
+                   X3225  X3206
+3207 LEDLAG        X3206  X3207  #PA_G       1.0   #PA_T2
+3208 LIMITA        X3207  X3208                           MZp1   Zp5
+3211 SELET2        X3208  AlpPDA                  
+                   Zero   AlpPDA
+                   PDir   AlpPDA
+(
+3215 LOGIC  .OR.   DC_LnF X3215
+                   DCLFOP X3215
+3216 LOGIC  .NOT.  X3215  X3216      
+5156 DLAYON        X3216  X3217  0.15  
+3218 LOGIC  .NOT.  X3217  X3218
+3219 LOGIC  .OR.   X3218  X3219
+                   Cfcont X3219
+3220 LOGIC  .NOT.  X3219  X3220      
+5166 DLAYON        X3220  X3221  0.05    
+3222 LOGIC  .NOT.  X3221  X3222                
+3225 SELET2        PAD    X3225
+                   PADF   X3225
+                   X3222  X3225
+3228 COMPAR  .LE.  MinGam X3228
+                   UMp5   X3228
+3229 LOGIC  .NOT.  X3228  X3229      
+5176 DLAYON        X3229  X3230  0.02  
+3231 LOGIC  .NOT.  X3230  X3231
+3234 LOGIC  .NOT.  TrigFR X3234
+3235 LOGIC  .AND.  X3231  Cfcont
+                   X3234  Cfcont
+(
+(======================================================================
+( Phase Angle Damping = Current Error Modulation (CEM) - Station B
+(======================================================================
+(EFPAR (nome) (     valor      )
+DEFPAR #PB_G                 1.0
+DEFPAR #PB_T1               0.15
+DEFPAR #PB_T2              0.015
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3302 SELET2        IDR    IdCN_B
+                   IDI    IdCN_B
+                   Pdir   IdCN_B
+3303 LIMITA        IdCN_B X3303                           ZERO   DOIS
+3304 LEDLAG        X3303  X3304  #PB_G 0.0   1.0   #PB_T1
+3305 SOMA          X3303  X3305
+                  -X3304  X3305
+3306 MULTPL        X3305  X3306
+                   X3326  X3306
+3307 LEDLAG        X3306  X3307  #PB_G 0.0   1.0   #PB_T2
+3308 LIMITA        X3307  X3308                           MZp1   Zp5
+3311 SELET2        ZERO   AlpPDB
+                   X3308  AlpPDB
+                   PDir   AlpPDB
+(
+3315 LOGIC  .OR.   DC_LnF X3315
+                   DCLFOP X3315
+3316 LOGIC  .NOT.  X3315  X3316      
+5186 DLAYON        X3316  X3317  0.15   
+3318 LOGIC  .NOT.  X3317  X3318
+3320 LOGIC  .OR.   Cfcont X3320
+                   X3318  X3320
+3321 LOGIC  .NOT.  X3320  X3321      
+5196 DLAYON        X3321  X3322  0.05  
+3323 LOGIC  .NOT.  X3322  X3323
+3326 SELET2        PAD    X3326
+                   PADF   X3326
+                   X3323  X3326
+( 
+(======================================================================
+(      Seleção de Alpha
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2163 SELET2        ALPHAI X2163
+                   ALPHAR X2163
+                   RI_LOC X2163
+(
+2165 ENTRAD               LADO
+(
+2164 SELET2        FirARB ALFA2
+                   FirARA ALFA2
+                   LADO   ALFA2
+(
+2168 LEDLAG        ALFA2  ALFAX2   1.0   0.0   1.0  .004        
+(      
+2160 SELET2        ALFAI1 ALPHA
+                   ALFAR1 ALPHA
+                   RI_LOC ALPHA
+2161 LEDLAG        ALPHA  ALFAX1   1.0   0.0   1.0  .004  
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        LADO   #LADO    
+(   
+(======================================================================
+(    FORCE RETARD RECTIFIER - TEMPORARY AND PERMANENT (BLOCK)
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2600 IMPORT  CDU          DC_LnF #DCL   0.0 
+2603 IMPORT  CDU          BKDC   #BKDC  0.0
+2604 IMPORT  CDU          BLKSEP #BKSEP 0.0
+(
+2620 LOGIC  .OR.   BKDC   TrigFR
+                   DC_Lnf TrigFR
+                   BdSCL  TrigFR
+                   BLKSEP TrigFR
+                   BLKFAS TrigFR
+(
+2625 LOGIC  .OR.   BKDC   BLOCK
+                   BdSCL  BLOCK
+                   BLKSEP BLOCK
+                   BLKFAS BLOCK
+(
+2630 LOGIC  .NOT.  BLOCK  DEBLK
+(                    
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        DC_LnF 0.0
+DEFVAL        BKDC   0.0
+DEFVAL        BLKSEP 0.0
+DEFVAL        BLKFAS 0.0
+DEFVAL VAR    DEBLK  ESTLOC
+(
+(======================================================================
+(  Block signal to AC Filter Control
+(======================================================================
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2935 LOGIC  .OR.   BKDC   BL_ACF
+                   BdSCL  BL_ACF
+2936 EXPORT CDU    BL_ACF
+2937 EXPORT CDU    BL_ACF
+(
+(======================================================================
+(    COMMUTATION FAILURE MITIGATION - INVERTER
+(======================================================================
+(EFPAR (nome) (     valor      )
+DEFPAR #CF_P1       0.0008912677
+DEFPAR #CF_P2  0.000000405284735
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3104 POL(S)        IDI    IdLHlp 0.0   0.0   0.0   1.0
+                                 0.0   #CF_P2#CF_P11.0
+(
+3111 POL(S)        IDI_OP IdoPlp 0.0   0.0   0.0   1.0
+                                 0.0   #CF_P2#CF_P11.0
+(
+3114 SOMA          IdoPlp X3114
+                  -IdLHlp X3114
+3115 ATRASO        X3114  X3115  0.002
+3116 SOMA          X3114  X3116
+                  -X3115  X3116
+3118 COMPAR .LE.   X3116  X3118
+                   MZp4   X3118
+3120 COMPAR .GT.   X3116  X3120
+                   Zp35   X3120
+3121 LOGIC  .OR.   X3118  X3121
+                   X3120  X3121
+3123 LOGIC  .AND.  X3121  X3123
+                   Bipola X3123
+                   X3127  X3123
+5134 MONEST        X3123  X3124D 0.05
+5135 DELAY         X3124D X3124 
+5141 LOGIC  .NOT.  X3124  X5141
+5142 DLAYON        X5141  X5142  0.5
+5148 LOGIC  .NOT.  X5142  X3126
+3127 LOGIC  .NOT.  X3126  X3127
+3128 ATRASO        X3124  CF_OP  0.003
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        X3123  0.0
+DEFVAL        X3124  0.0
+(
+(======================================================================
+(     CONTROLLER LIMITS
+(======================================================================
+(
+(Seleção das refrências
+(
+(ACUV_alfmin_r_lev
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2885 ENTRAD               A1RMX
+2886 ENTRAD               A1RME
+2887 ENTRAD               A1RBX
+2888 ENTRAD               A1RBE
+(
+2890 SELET2        A1RME  X2890
+                   A1RMX  X2890
+                   PDir   X2890
+2891 SELET2        A1RBE  X2891
+                   A1RBX  X2891
+                   PDir   X2891
+2892 SELET2        X2891  UVam_R
+                   X2890  UVam_R
+                   Monopo UVam_R                                
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        A1RMX  40.0
+DEFVAL        A1RME  30.0
+DEFVAL        A1RBX  35.0
+DEFVAL        A1RBE  30.0
+(
+(ACUV_alfmin_i_lev
+(                                     
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2873 ENTRAD               A1IMX
+2874 ENTRAD               A1IME
+2875 ENTRAD               A1IBX
+2876 ENTRAD               A1IBE
+(
+2893 SELET2        A1IMX  X2893
+                   A1IME  X2893
+                   Pdir   X2893
+2894 SELET2        A1IBX  X2894
+                   A1IBE  X2894
+                   Pdir   X2894
+2895 SELET2        X2894  UVam_I
+                   X2893  UVam_I
+                   Monopo UVam_I
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        A1IMX  127.0
+DEFVAL        A1IME  130.0
+DEFVAL        A1IBX  122.0
+DEFVAL        A1IBE  120.0                                
+(
+(Id_zero_alfmin_i_lev
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2877 ENTRAD               A2IMX
+2878 ENTRAD               A2IME
+2879 ENTRAD               A2IBX
+2880 ENTRAD               A2IBE
+
+
+2896 SELET2        A2IMX  X2896
+                   A2IME  X2896
+                   Pdir   X2896
+2897 SELET2        A2IBX  X2897
+                   A2IBE  X2897
+                   Pdir   X2897
+2898 SELET2        X2897  Iam_I
+                   X2896  Iam_I
+                   Monopo Iam_I  
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        A2IMX  125.0
+DEFVAL        A2IME  127.0
+DEFVAL        A2IBX  125.0
+DEFVAL        A2IBE  115.0
+(
+( Limites dinamicos
+(
+(Cont_UL_Rec
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2803 ENTRAD               AMINR
+2804 SELET2        AMINR  X2804
+                   UVam_R X2804
+                   ACUV_R X2804
+2805 SELET2        ZpZ3   TDCULR
+                   ZpZ4   TDCULR
+                   Pdir   TDCULR
+( First Ordem Filter with Change Time Const.
+2806 SOMA          X2804  X2806 
+                  -UL_R_D X2806 
+2807 DIVSAO        X2806  X2807
+                   TDCULR X2807
+2808 PROINT        X2807  UL_R_D 1.0   0.0   1.0
+( First Ordem Filter with Change Time Const.
+2809 FUNCAO RADIAN UL_R_D X2809
+2810 FUNCAO COS    X2809  X2810
+2811 SELET2        X2810  C_ULR
+                   ZERO   C_ULR
+                   DC_LnF C_ULR
+3811 SELET2        UM     C_UL_R
+                   C_ULR  C_UL_R            
+                   RI_LOC C_UL_R
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        AMINR  5.0
+(
+(Cont_LL_Rec
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2817 ENTRAD               AMAXR
+2818 ENTRAD               AMAXRL
+2819 ENTRAD               IDMIN2
+2820 COMPAR .LE.   IDR    X2820
+                   IDMIN2 X2820
+5116 DLAYON        X2820  S_ON_1 0.05 
+2821 LOGIC  .NOT.  S_ON_1 X2821                   
+2822 SELET2        AMAXR  TS_L_D
+                   AMAXRL TS_L_D
+                   X2821  TS_L_D
+2823 FUNCAO RADIAN TS_L_D TS_LIM
+2824 FUNCAO COS    TS_LIM X2824
+2825 SELET2        X2824  C_LLR
+                   ZERO   C_LLR
+                   DC_LnF C_LLR
+3825 SELET2        MUM    X3825
+                   C_LLR  X3825            
+                   RI_LOC X3825
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3826 LIMITA        X3825  C_LL_R                          MINF   C_UL_R
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        AMAXR  162.
+DEFVAL        AMAXRL 120.
+DEFVAL        IDMIN2 0.05
+(
+(Cont_UL_Inv 
+(                  
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2868 ENTRAD               AMINI
+2826 LOGIC  .NOT.  ACUV_I X2826   
+5366 DLAYON        X2826  X2827  0.153    
+2828 LOGIC  .NOT.  X2827  X2828
+(
+2845 SOMA          UM     X2845
+                  -Vref   X2845
+2846 MULTPL        X2845  X2846
+                   Cinqu5 X2846
+2847 SOMA          Iam_I  Iam_I2
+                  -X2846  Iam_I2
+2848 SOMA         -X2846  UVamI2     
+                   UVam_I UVamI2
+(
+2849 COMPAR .LE.   IDI    X2849
+                   IDMIN2 X2849
+2850 LOGIC  .NOT.  X2849  X2850
+5406 DLAYON        X2850  X2851  0.05   
+2852 LOGIC  .NOT.  X2851  X2852    
+2853 SELET2        AMINI  X2853
+                   Iam_I2 X2853
+                   X2852  X2853
+2854 SELET2        X2853  X2854
+                   UVamI2 X2854
+                   X2828  X2854
+2855 LEDLAG        X2854  UL_I_D 1.0   0.0   1.0   0.03
+2856 FUNCAO RADIAN UL_I_D X2856
+2857 FUNCAO COS    X2856  C_ULI
+3857 SELET2        C_ULI  C_UL_I
+                   UM     C_UL_I
+                   RI_LOC C_UL_I
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        AMINI  95.
+(
+(Cont_LL_Inv
+(
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2867 ENTRAD               AMAXI
+2869 ENTRAD               AMAXIL
+2829 LOGIC  .NOT.  X2828  X2829   
+5376 DLAYON        X2829  X2830  0.2  
+2831 LOGIC  .NOT.  X2830  X2831
+2833 LEDLAG        IrefIN X2833  1.0   0.0   1.0   10.
+2834 SOMA          X2833  X2834
+                   Zp4    X2834
+2835 COMPAR .GT.   IDI    X2835          
+                   X2834  X2835
+2838 LOGIC  .AND.  Cfcont X2838
+                   X2835  X2838
+2839 LOGIC  .NOT.  X2838  X2839   
+5386 DLAYON        X2839  X2840  0.06    
+2841 LOGIC  .NOT.  X2840  X2841                
+2844 LOGIC  .OR.   X2831  X2844
+                   X2841  X2844
+2858 SELET2        FirADA X2858
+                   FirADB X2858
+                   PDir   X2858
+2859 LEDLAG        X2858  X2859  1.0   0.0   1.0   0.2
+2860 SOMA          X2859  X2860
+                  -Dez    X2860
+2861 SELET2        AMAXI  X2861
+                   X2860  X2861
+                   CF_OP  X2861
+2862 SELET2        X2861  X2862
+                   AMAXIL X2862
+                   X2844  X2862
+2863 LEDLAG        X2862  X2863  1.0   0.0   1.0   0.08
+2864 MIN           X2862  X2864
+                   X2863  X2864
+2865 FUNCAO RADIAN X2864  X2865
+2866 FUNCAO COS    X2865  C_LLI
+3867 SELET2        C_LLI  X3867
+                   MUM    X3867
+                   RI_LOC X3867
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+3868 LIMITA        X3867  C_LL_I                          MINF   C_UL_I
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        AMAXI  162.
+DEFVAL        AMAXIL 155.
+(
+(Com_Flt_IdH_interlock
+5393 MONEST        X2841  X2842  0.05   
+2843 LOGIC  .OR.   X2842  CFltin
+                   X2841  CFltin
+(
+(=====================================================================
+(  Dummy sum - saída de blocos que não são entradas de outros blocos
+(======================================================================
+(nb)i(tipo) (stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+2038 SOMA          RI_REM X2038
+                   RI__OP X2038
+                   RI_OPR X2038
+8003 Saida         X2038
+(
+(----------------------------------------------------------------------
+(    Controller Parameters and auxiliary blocks
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+7000 ENTRAD               UM     
+7001 ENTRAD               UMp1 
+7003 ENTRAD               UMp5  
+7004 ENTRAD               MEIO   
+7005 ENTRAD               ZERO
+7006 ENTRAD               Zp1    
+7007 ENTRAD               Zp2    
+7008 ENTRAD               Zp25   
+7009 ENTRAD               Zp3
+7010 ENTRAD               Zp35
+7758 ENTRAD               ZpZ35
+7011 ENTRAD               Zp4    
+7012 ENTRAD               Zp5    
+7013 ENTRAD               Zp57 
+7014 ENTRAD               Zp7    
+7015 ENTRAD               Zp8
+7715 ENTRAD               Zp77    
+7016 ENTRAD               Zp9      
+7017 ENTRAD               ZpZZ2  
+7018 ENTRAD               ZpZ2   
+7019 ENTRAD               ZpZ3
+7020 ENTRAD               ZpZ4
+7021 ENTRAD               ZpZ5    
+7022 ENTRAD               ZpZ12    
+7023 ENTRAD               ZpZ15  
+7024 ENTRAD               ZpZ16
+7025 ENTRAD               ZpZ18  
+7026 ENTRAD               ZpZ25  
+7027 ENTRAD               ZpZ6   
+7028 ENTRAD               MZp1    
+7029 ENTRAD               MZp2    
+7030 ENTRAD               MZp15
+7031 ENTRAD               MZp22
+7032 ENTRAD               MZpZ3 
+7033 ENTRAD               DEZ    
+7034 ENTRAD               ZpZ65  
+7035 ENTRAD               DOIS
+7066 ENTRAD               QUATRO   
+7036 ENTRAD               Tresp5 
+7037 ENTRAD               Seis   
+7038 ENTRAD               Cinco
+7039 ENTRAD               Quaren 
+7040 ENTRAD               Trinta
+7041 ENTRAD               Trint5
+7042 ENTRAD               UM20  
+7043 ENTRAD               UM62  
+7044 ENTRAD               ZpZ1     
+7045 ENTRAD               INF
+7046 ENTRAD               ZpZZ15  
+7047 ENTRAD               MpZZ15  
+7048 ENTRAD               ZpZZ35  
+7049 ENTRAD               OITENT
+7050 ENTRAD               mTp6   
+7051 ENTRAD               Qp5    
+7052 ENTRAD               ZpZZ56
+7053 ENTRAD               ZpZ111
+7054 ENTRAD               ZpZ7
+7055 ENTRAD               Zp245
+7056 ENTRAD               MZp4
+7057 ENTRAD               UMp8
+7058 ENTRAD               MUM
+7063 ENTRAD               Tres
+7064 ENTRAD               Sete
+7065 ENTRAD               Zp75
+7757 ENTRAD               Cinqu5
+(    
+7100 LOGIC  .NOT.  MONOPO X7100
+7101 LOGIC  .NOT.  BLK_OP X7101
+7102 LOGIC  .AND.  X7100  BP_OP2
+                   X7101  BP_OP2
+(                   
+7200 ENTRAD               KpIR_A
+7201 SELET2        ZpZ2   TnIR_A
+                   ZpZ15  TnIR_A
+                   BP_OP2 TnIR_A
+(
+7202 ENTRAD               KpGI_A
+7203 SELET2        ZpZ2   TnGI_A
+                   ZpZ18  TnGI_A
+                   BP_OP2 TnGI_A
+(
+7204 ENTRAD               KpII_A
+7205 ENTRAD               TnII_A
+(
+7206 ENTRAD               KpUI_A
+7207 ENTRAD               TnUI_A
+(
+7208 ENTRAD               KpUR_A
+7209 ENTRAD               TnUR_A
+(
+7210 ENTRAD               PAD_A 
+7211 ENTRAD               PADF_A
+(
+7212 ENTRAD               dIA1_A
+7213 ENTRAD               dIA2_A
+(
+7214 SELET2        ZpZ2   dTA1_A
+                   ZpZ25  dTA1_A
+                   BP_OP2 dTA1_A
+7215 SELET2        ZpZ2   dTA2_A
+                   ZpZ12  dTA2_A
+                   BP_OP2 dTA2_A
+(
+7220 SELET2        Zp8    KpIR_B
+                   Zp77   KpIR_B
+                   BP_OP2 KpIR_B  
+(
+7221 ENTRAD               TnIR_B
+(
+7222 SELET2        Zp3    KpGI_B
+                   Zp35   KpGI_B
+                   BP_OP2 KpGI_B
+7223 ENTRAD               TnGI_B
+(
+7224 ENTRAD               KpII_B
+7225 ENTRAD               TnII_B
+(
+7226 ENTRAD               KpUI_B
+7227 ENTRAD               TnUI_B
+(
+7228 ENTRAD               KpUR_B
+7229 ENTRAD               TnUR_B
+(
+7230 SELET2        ZERO   PAD_B
+                   MZP22  PAD_B
+                   BP_OP2 PAD_B
+7231 SELET2        ZERO   PADF_B
+                   MZP15  PADF_B
+                   BP_OP2 PADF_B
+(
+7232 ENTRAD               dIA1_B
+7233 SELET2        ZpZ2   dIA2_B
+                   ZpZ5   dIA2_B
+                   BP_OP2 dIA2_B
+(
+7234 SELET2        ZpZ3   dTA1_B
+                   ZpZ35  dTA1_B
+                   BP_OP2 dTA1_B
+7235 SELET2        ZpZ2   dTA2_B
+                   ZpZ16  dTA2_B
+                   BP_OP2 dTA2_B
+(
+( Ganhos e Constantes de Tempo do Retificador 
+(
+7240 SELET2        KpIR_B Kp_IR 
+                   KpIR_A Kp_IR 
+                   Pdir   Kp_IR 
+7241 SELET2        TnIR_B Tn_IR 
+                   TnIR_A Tn_IR 
+                   Pdir   Tn_IR 
+7242 SELET2        KpUR_B Kp_UR 
+                   KpUR_A Kp_UR 
+                   Pdir   Kp_UR 
+7243 SELET2        TnUR_B Tn_UR 
+                   TnUR_A Tn_UR 
+                   Pdir   Tn_UR 
+(
+( Ganhos e Constantes de Tempo do Inversor
+(
+7244 SELET2        KpII_A Kp_II 
+                   KpII_B Kp_II 
+                   Pdir   Kp_II 
+7245 SELET2        TnII_A Tn_II 
+                   TnII_B Tn_II 
+                   Pdir   Tn_II 
+7246 SELET2        KpUI_A Kp_UI 
+                   KpUI_B Kp_UI 
+                   Pdir   Kp_UI 
+7247 SELET2        TnUI_A Tn_UI 
+                   TnUI_B Tn_UI 
+                   Pdir   Tn_UI 
+7248 SELET2        KpGI_A Kp_GI 
+                   KpGI_B Kp_GI 
+                   Pdir   Kp_GI 
+7249 SELET2        TnGI_A Tn_GI 
+                   TnGI_B Tn_GI 
+                   Pdir   Tn_GI 
+(
+7250 SELET2        PAD_A  PAD   
+                   PAD_B  PAD   
+                   Pdir   PAD   
+7251 SELET2        PADF_A PADF   
+                   PADF_B PADF   
+                   Pdir   PADF   
+(
+7252 SELET2        dIA1_B dIA_1  
+                   dIA1_A dIA_1  
+                   Pdir   dIA_1  
+7253 SELET2        dIA2_B dIA_2  
+                   dIA2_A dIA_2  
+                   Pdir   dIA_2  
+7254 SELET2        dTA1_B dTA_1  
+                   dTA1_A dTA_1  
+                   Pdir   dTA_1  
+7255 SELET2        dTA2_B dTA_2  
+                   dTA2_A dTA_2  
+                   Pdir   dTA_2  
+(
+7300 SOMA          Zp1    X7300
+                   Zp2    X7300
+                   Zp25   X7300
+                   Zp3    X7300
+                   Zp35   X7300
+                   Zp4    X7300
+                   Zp5    X7300
+                   Zp7    X7300
+                   Zp8    X7300
+                   ZpZZ2  X7300
+                   ZpZ2   X7300
+                   ZpZ3   X7300
+                   ZpZ4   X7300
+                   ZpZ5   X7300
+                   ZpZ1   X7300
+                   ZpZ12  X7300
+                   ZpZ15  X7300
+                   ZpZ16  X7300
+                   ZpZ18  X7300
+                   ZpZ25  X7300
+                   ZpZ6   X7300
+                   ZpZ65  X7300
+                   MZp1   X7300
+                   MZp2   X7300
+                   MZp15  X7300
+                   MZp22  X7300
+                   MZpZ3  X7300
+                   Dois   X7300
+                   Tresp5 X7300
+                   Cinco  X7300
+                   Seis   X7300
+                   Trinta X7300
+                   Trint5 X7300
+                   UM20   X7300
+                   UM62   X7300
+                   INF    X7300
+                   OITENT X7300
+                   mTp6   X7300
+                   Qp5    X7300
+                   ZpZZ56 X7300
+                   ZpZ111 X7300
+                   MUM    X7300
+                   UMp1   X7300
+                   UMp5   X7300
+                   MEIO   X7300
+                   Zp57   X7300
+                   Zp9    X7300
+                   DEZ    X7300
+                   QUAREN X7300
+                   ZPZZ15 X7300
+                   MPZZ15 X7300
+                   ZPZZ35 X7300
+                   ZPZ7   X7300
+                   ZP245  X7300
+                   MZP4   X7300
+                   UMP8   X7300
+(
+                   Kp_IR  X7300
+                   Tn_IR  X7300
+                   Kp_UR  X7300
+                   Tn_UR  X7300
+                   Kp_II  X7300
+                   Tn_II  X7300
+                   Kp_UI  X7300
+                   Tn_UI  X7300
+                   Kp_GI  X7300
+                   Tn_GI  X7300
+                   PAD    X7300
+                   PADF   X7300
+                   dIA_1  X7300
+                   dIA_2  X7300
+                   dTA_1  X7300
+                   dTA_2  X7300
+                   c_ll_R X7300
+                   C_UL_R X7300
+(
+7301 SAIDA         X7300
+(
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+DEFVAL        UM     1.0
+DEFVAL        UMp1   1.1
+DEFVAL        UMp5   1.5
+DEFVAL        UMp8   1.8
+DEFVAL        MEIO   0.5
+DEFVAL        ZERO   0.0
+DEFVAL        Zp1    0.1
+DEFVAL        Zp2    0.2
+DEFVAL        Zp245  0.245
+DEFVAL        Zp25   0.25
+DEFVAL        Zp3    0.3
+DEFVAL        Zp35   0.35
+DEFVAL        ZpZ35  0.035
+DEFVAL        Zp4    0.4
+DEFVAL        Zp5    0.5
+DEFVAL        Zp57   0.57
+DEFVAL        Zp7    0.7
+DEFVAL        Zp75   0.75
+DEFVAL        Zp77   0.77
+DEFVAL        Zp8    0.8
+DEFVAL        Zp9    0.9
+DEFVAL        ZpZZ2  0.002
+DEFVAL        ZpZ2   0.02
+DEFVAL        ZpZ3   0.03
+DEFVAL        ZpZ4   0.04
+DEFVAL        ZpZ5   0.05
+DEFVAL        ZpZ7   0.07
+DEFVAL        ZpZ1   0.01
+DEFVAL        ZpZ12  0.012
+DEFVAL        ZpZ15  0.015
+DEFVAL        ZpZ16  0.016
+DEFVAL        ZpZ18  0.018
+DEFVAL        ZpZ25  0.025
+DEFVAL        ZpZ6   0.06 
+DEFVAL        MZp1   -0.1
+DEFVAL        MZp2   -0.2
+DEFVAL        MZp4   -0.4
+DEFVAL        MZp15  -0.15
+DEFVAL        MZp22  -0.22
+DEFVAL        MZpZ3  -0.03
+DEFVAL        DEZ    10.0 
+DEFVAL        ZpZ65  0.065
+DEFVAL        DOIS   2.0
+DEFVAL        QUATRO 4.0
+DEFVAL        Tres   3.0
+DEFVAL        Tresp5 3.5  
+DEFVAL        Seis   6.0  
+DEFVAL        Cinco  5.0
+DEFVAL        Sete   7.0  
+DEFVAL        Trinta 30.0
+DEFVAL        Trint5 35.0
+DEFVAL        QUAREN  40.                 
+DEFVAL        UM20   120. 
+DEFVAL        UM62   162. 
+DEFVAL        INF    9999.
+DEFVAL        MINF   -9999.
+DEFVAL        ZpZZ35 .00350 
+DEFVAL        ZpZZ15 .00150 
+DEFVAL        MpZZ15 -.0015 
+DEFVAL        OITENT 80.0   
+DEFVAL        mTp6   -3.60   
+DEFVAL        Qp5    4.50   
+DEFVAL        ZpZZ56 .00565
+DEFVAL        ZpZ111 .01111
+DEFVAL        MUM    -1.0   
+DEFVAL        Cinqu5   55.0
+(
+DEFVAL        KpIR_A 0.8
+DEFVAL        KpGI_A 0.4
+DEFVAL        KpII_A 0.7
+DEFVAL        TnII_A 0.025
+DEFVAL        KpUI_A 0.20
+DEFVAL        TnUI_A 0.020
+DEFVAL        KpUR_A 0.2
+DEFVAL        TnUR_A 0.020
+DEFVAL        PAD_A  -.20
+DEFVAL        PADF_A -.15
+DEFVAL        dIA1_A 0.05
+DEFVAL        dIA2_A 0.05
+(
+DEFVAL        TnIR_B 0.02
+DEFVAL        TnGI_B 0.02
+DEFVAL        KpII_B 0.7
+DEFVAL        TnII_B 0.025
+DEFVAL        KpUI_B 0.20
+DEFVAL        TnUI_B 0.020
+DEFVAL        KpUR_B 0.2
+DEFVAL        TnUR_B 0.020
+DEFVAL        dIA1_B 0.05
+(
+(===========================================================================================================================-
+(
+(
+(----------------------------------------------------------------------
+(    Delay OFF - Begin
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6000 Entrad               ENTRA
+6001 Entrad               TimeX
+6002 LOGIC  .NOT.  ENTRA  X6002
+6003 LOGIC  FFLOP1 X6007  SAIDA
+                   ENTRA  SAIDA
+6004 LOGIC  .AND.  SAIDA  X6004
+                   X6002  X6004
+6005 LOGIC  .NOT.  X6004  X6005
+6006 INTRES        UM     X6006     1.0                   ZERO   INF
+                   X6005  X6006 
+                   ZERO   X6006 
+6007 COMPAR .GT.   X6006  X6007 
+                   TimeX  X6007 
+( 
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+defval        SAIDA   0.0
+defval        X6006   0.0
+defval        entra   0.0
+defval        TimeX   0.25
+(----------------------------------------------------------------------
+(    Delay OFF - End
+(----------------------------------------------------------------------
+(----------------------------------------------------------------------
+(    Delay ON - Begin
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6010 Entrad               ENT_on
+6011 Entrad               Timeon
+6012 LOGIC  .NOT.  ENT_on X6012
+6013 INTRES        UM     X6013     1.0                   ZERO   INF
+                   X6012  X6013 
+                   ZERO   X6013 
+6014 COMPAR .GT.   X6013  X6014 
+                   Timeon X6014 
+6015 MULTPL        ENT_on SAI_on
+                   X6014  SAI_on
+6016 SAIDA         SAI_on                   
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+(defval        SAI_on  0.0
+defval        X6013   0.0
+defval        ENT_on  0.0
+defval        Timeon  0.25
+(----------------------------------------------------------------------
+(    Delay On - End
+(----------------------------------------------------------------------
+(----------------------------------------------------------------------
+(    Mono-Stable - Begin
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6020 Entrad               ENT_MO
+6021 Entrad               TimeMO
+6022 delay         ENT_MO X6022 
+6023 COMPAR .GT.   ENT_MO X6023 
+                   X6022  X6023 
+6024 LOGIC  FFLOP1 X6027  SAI_MO
+                   X6023  SAI_MO
+6025 LOGIC  .NOT.  SAI_MO X6025
+6026 INTRES        UM     X6026     1.0                   ZERO   INF
+                   X6025  X6026 
+                   ZERO   X6026 
+6027 COMPAR .GT.   X6026  X6027 
+                   TimeMO X6027 
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+defval        SAI_MO  0.0
+defval        X6026   0.0
+defval        ENT_MO  0.0
+defval        TimeMO  0.50
+(----------------------------------------------------------------------
+(    Mono-Stable - End
+(----------------------------------------------------------------------
+(----------------------------------------------------------------------
+(    Delay ON and Delay OFF - Begin
+(----------------------------------------------------------------------
+(nb)i(tipo)o(stip)s(vent) (vsai) ( p1 )( p2 )( p3 )( p4 ) (vmin) (vmax)
+6030 Entrad               Eonoff
+6031 Entrad               Tonoff
+6032 LOGIC  .NOT.  Eonoff X6032
+6033 INTRES        UM     X6033     1.0                   ZERO   INF
+                   X6032  X6033 
+                   ZERO   X6033 
+6034 COMPAR .GT.   X6033  X6034 
+                   Tonoff X6034 
+6035 MULTPL        Eonoff X6035 
+                   X6034  X6035 
+(
+6036 Entrad               Toffon
+6037 LOGIC  .NOT.  X6035  X6037
+6038 LOGIC  FFLOP1 X6042  Sonoff
+                   X6035  Sonoff
+6039 LOGIC  .AND.  Sonoff X6039
+                   X6037  X6039
+6040 LOGIC  .NOT.  X6039  X6040
+6041 INTRES        UM     X6041     1.0                   ZERO   INF
+                   X6040  X6041 
+                   ZERO   X6041 
+6042 COMPAR .GT.   X6041  X6042 
+                   Toffon X6042 
+(EFVAL (stip) (vdef) ( d1 ) ( d2 )
+(defval        SAI_on  0.0
+defval        X6033   0.0
+defval        Eonoff  0.0           
+defval        Tonoff  0.08                         Time Delay on
+defval        Sonoff  0.0
+defval        X6041   0.0
+defval        Toffon  2.00                         Time Delay Off
+(----------------------------------------------------------------------
+(    Delay ON and Delay OFF End
+(----------------------------------------------------------------------
+FIMCDU
+(
+999999
+(
+(----------------------------------------------------------------------
+(            ASSOCIAÇÃO DAS CDUs COM AS TOPOLOGIAS (ACDU)
+(----------------------------------------------------------------------
+ACDU
+(ncdu) (ntop) ( nome cdu )
+ 97761 97760  PC-XINGU-P1
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #REM                 9982   Conversor Remoto - P1 ESTREITO
+DEFPAR #LOCOP               9983   Conversor Local do Outro Polo - P2 XINGU 
+DEFPAR #REMOP               9984   Conversor Remoto do Outro Polo - P2 ESTREITO 
+DEFPAR #LOCCA               9971   Barra AC Local - XINGU 
+DEFPAR #REMCA               9970   Barra AC Remoto - ESTREITO 
+(
+DEFPAR #DCLOP               9521   CDU 9020 (DC LINE FAULT P2) - DCLNFT Other Pole
+(
+DEFPAR #DCL                 8501   CDU 9010 (DC LINE FAULT P1) - DCLNFT
+DEFPAR #URFDC               9502   CDU 9010 (DC LINE FAULT P1) - UREFDC
+DEFPAR #REDV                9503   CDU 9010 (DC LINE FAULT P1) - REDV
+DEFPAR #BKDC                8504   CDU 9010 (DC LINE FAULT P1) - BLOCK DCLF  
+(
+DEFPAR #PREF                9960   CDU 90000 (STATION CONTROL) - PREFDC
+(
+DEFPAR #BKSEP               9543   CDU 92000 (SEP) - BLKSEP
+(
+DEFPAR #IRFOS               9561   IrefIN from other side
+(
+DEFPAR #RPCLX               9891   DC Current limit by AC filter rating (RPC limit) - XINGU
+DEFPAR #RPCLE               9895   DC Current limit by AC filter rating (RPC limit) - ESTREITO 
+(
+DEFPAR #LADO                 1.0   (1: Xingu / -1: Estreito)
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+ 97762 97760  PC-ESTR-P1
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #REM                 9981   Conversor Remoto - P1 XINGU
+DEFPAR #LOCOP               9984   Conversor Local do Outro Polo - P2 ESTREITO
+DEFPAR #REMOP               9983   Conversor Remoto do Outro Polo - P2 XINGU 
+DEFPAR #LOCCA               9970   Barra AC Local - ESTREITO 
+DEFPAR #REMCA               9971   Barra AC Remoto - XINGU 
+(
+DEFPAR #DCLOP               9523   CDU 9020 (DC LINE FAULT P2) - DCLNFT Other Pole      
+(
+DEFPAR #DCL                 8505   CDU 9010 (DC LINE FAULT P1) - DCLNFT     
+DEFPAR #URFDC               9506   CDU 9010 (DC LINE FAULT P1) - UREFDC     
+DEFPAR #REDV                9507   CDU 9010 (DC LINE FAULT P1) - REDV       
+DEFPAR #BKDC                9508   CDU 9010 (DC LINE FAULT P1) - BLOCK DCLF 
+(
+DEFPAR #PREF                9961   CDU 90000 (STATION CONTROL) - PREFDC
+(
+DEFPAR #BKSEP               9544   CDU 92000 (SEP) - BLKSEP
+(
+DEFPAR #IRFOS               9560   IrefIN from other side
+(
+DEFPAR #RPCLX               9892   DC Current limit by AC filter rating (RPC limit) - XINGU
+DEFPAR #RPCLE               9896   DC Current limit by AC filter rating (RPC limit) - ESTREITO 
+(
+DEFPAR #LADO                -1.0   (1: Xingu / -1: Estreito)
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+ 97763 97760  PC-XINGU-P2
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #REM                 9984   Conversor Remoto - P2 ESTREITO
+DEFPAR #LOCOP               9981   Conversor Local do Outro Polo - P1 XINGU 
+DEFPAR #REMOP               9982   Conversor Remoto do Outro Polo - P1 ESTREITO 
+DEFPAR #LOCCA               9971   Barra AC Local - XINGU
+DEFPAR #REMCA               9970   Barra AC Remoto - ESTREITO 
+(
+DEFPAR #DCLOP               9525   CDU 9010 (DC LINE FAULT P1) - DCLNFT Other Pole     
+(
+DEFPAR #DCL                 9511   CDU 9020 (DC LINE FAULT P2) - DCLNFT       
+DEFPAR #URFDC               9512   CDU 9020 (DC LINE FAULT P2) - UREFDC       
+DEFPAR #REDV                9513   CDU 9020 (DC LINE FAULT P2) - REDV         
+DEFPAR #BKDC                9514   CDU 9020 (DC LINE FAULT P2) - BLOCK DCLF   
+(
+DEFPAR #PREF                9962   CDU 90000 (STATION CONTROL) - PREFDC
+(
+DEFPAR #BKSEP               9545   CDU 92000 (SEP) - BLKSEP
+(
+DEFPAR #IRFOS               9563   IrefIN from other side
+(
+DEFPAR #RPCLX               9893   DC Current limit by AC filter rating (RPC limit) - XINGU
+DEFPAR #RPCLE               9897   DC Current limit by AC filter rating (RPC limit) - ESTREITO 
+(
+DEFPAR #LADO                 1.0   (1: Xingu / -1: Estreito)
+(
+FIMCDU
+(
+(ncdu) (ntop) ( nome cdu )
+ 97764 97760  PC-ESTR-P2
+(
+(EFPAR (npar) (     valpar     )
+DEFPAR #REM                 9983   Conversor Remoto - P2 XINGU
+DEFPAR #LOCOP               9982   Conversor Local do Outro Polo - P1 ESTREITO
+DEFPAR #REMOP               9981   Conversor Remoto do Outro Polo - P1 XINGU
+DEFPAR #LOCCA               9970   Barra AC Local - ESTREITO 
+DEFPAR #REMCA               9971   Barra AC Remoto - XINGU
+(
+DEFPAR #DCLOP               9527   CDU 9010 (DC LINE FAULT P1) - DCLNFT Other Pole     
+(
+DEFPAR #DCL                 9515   CDU 9020 (DC LINE FAULT P2) - DCLNFT    
+DEFPAR #URFDC               9516   CDU 9020 (DC LINE FAULT P2) - UREFDC    
+DEFPAR #REDV                9517   CDU 9020 (DC LINE FAULT P2) - REDV      
+DEFPAR #BKDC                9518   CDU 9020 (DC LINE FAULT P2) - BLOCK DCLF
+(
+DEFPAR #PREF                9963   CDU 90000 (STATION CONTROL) - PREFDC
+(
+DEFPAR #BKSEP               9546   CDU 92000 (SEP) - BLKSEP
+(
+DEFPAR #IRFOS               9562   IrefIN from other side
+(
+DEFPAR #RPCLX               9894   DC Current limit by AC filter rating (RPC limit) - XINGU
+DEFPAR #RPCLE               9898   DC Current limit by AC filter rating (RPC limit) - ESTREITO
+(
+DEFPAR #LADO                -1.0   (1: Xingu / -1: Estreito)
+(
+FIMCDU
+(
+999999
+(
+FIM

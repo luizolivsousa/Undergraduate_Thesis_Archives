@@ -1,0 +1,270 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       PLT_HVDC_0720.dat                                                                         |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Arquivo para plotagem de todos os elos HVDC do SIN                                        |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 1. ELO CC FURNAS / ITAIPU - HVDC Foz Ibiuna                                                               |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\HVDC_Foz_Ibiuna\HVDC_FOZ_IBIUNA_DPLT.dat
+999999
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 2. HVDC MADEIRA                                                                                           |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+DPLT IERR
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+VOLT     7055
+VOLT     7057
+(BIPOLO 1 - C.P.VELHO - ARARAQUARA2)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+PCNV     1201
+CCNV     1201
+VCNV     1201
+ALFA     1201
+COMU     1201
+GAMA     1201
+PCNV     1202
+CCNV     1202
+VCNV     1202
+ALFA     1202
+COMU     1202
+GAMA     1202
+PCNV     1203
+CCNV     1203
+VCNV     1203
+ALFA     1203
+COMU     1203
+GAMA     1203
+PCNV     1204
+CCNV     1204
+VCNV     1204
+ALFA     1204
+COMU     1204
+GAMA     1204
+(BIPOLO 2 - C.P.VELHO - ARARAQUARA2)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+PCNV     1205
+CCNV     1205
+VCNV     1205
+ALFA     1205
+COMU     1205
+GAMA     1205
+PCNV     1206
+CCNV     1206
+VCNV     1206
+ALFA     1206
+COMU     1206
+GAMA     1206
+PCNV     1207
+CCNV     1207
+VCNV     1207
+ALFA     1207
+COMU     1207
+GAMA     1207
+PCNV     1208
+CCNV     1208
+VCNV     1208
+ALFA     1208
+COMU     1208
+GAMA     1208
+(BACK-TO-BACK P. VELHO)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+PCNV     2201
+CCNV     2201
+VCNV     2201
+ALFA     2201
+COMU     2201
+GAMA     2201
+PCNV     2202
+CCNV     2202
+VCNV     2202
+ALFA     2202
+COMU     2202
+GAMA     2202
+PCNV     2203
+CCNV     2203
+VCNV     2203
+ALFA     2203
+COMU     2203
+GAMA     2203
+PCNV     2204
+CCNV     2204
+VCNV     2204
+ALFA     2204
+COMU     2204
+GAMA     2204
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 3. HVDC BELO MONTE                                                                                        |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(BIPOLO 1 - XINGÚ - ESTREITO)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+VOLT     8100
+VOLT     3010
+PCNV     3201
+CCNV     3201
+VCNV     3201
+ALFA     3201
+COMU     3201
+GAMA     3201
+PCNV     3202
+CCNV     3202
+VCNV     3202
+ALFA     3202
+COMU     3202
+GAMA     3202
+PCNV     3203
+CCNV     3203
+VCNV     3203
+ALFA     3203
+COMU     3203
+GAMA     3203
+PCNV     3204
+CCNV     3204
+VCNV     3204
+ALFA     3204
+COMU     3204
+GAMA     3204
+(BIPOLO 2 - XINGÚ - T. RIO)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+VOLT     8100
+VOLT     9605
+PCNV     3205
+CCNV     3205
+VCNV     3205
+ALFA     3205
+COMU     3205
+GAMA     3205
+PCNV     3206
+CCNV     3206
+VCNV     3206
+ALFA     3206
+COMU     3206
+GAMA     3206
+PCNV     3207
+CCNV     3207
+VCNV     3207
+ALFA     3207
+COMU     3207
+GAMA     3207
+PCNV     3208
+CCNV     3208
+VCNV     3208
+ALFA     3208
+COMU     3208
+GAMA     3208
+(
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( | 4. HVDC GARABI I e II                                                                                     |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+(BIPOLO 1 - GARABI I)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+VOLT      972
+VOLT      970
+PCNV        9
+CCNV        9
+VCNV        9
+ALFA        9
+COMU        9
+GAMA        9
+PCNV       10
+CCNV       10
+VCNV       10
+ALFA       10
+COMU       10
+GAMA       10
+PCNV       11
+CCNV       11
+VCNV       11
+ALFA       11
+COMU       11
+GAMA       11
+PCNV       12
+CCNV       12
+VCNV       12
+ALFA       12
+COMU       12
+GAMA       12
+(BIPOLO 2 - GARABI II)
+(Tipo)M( El ) ( Pa) Nc Gp ( Br) Gr ( Ex) (Bl) P   (              Nome da Variável               )
+VOLT      973
+VOLT      971
+PCNV       13
+CCNV       13
+VCNV       13
+ALFA       13
+COMU       13
+GAMA       13
+PCNV       14
+CCNV       14
+VCNV       14
+ALFA       14
+COMU       14
+GAMA       14
+PCNV       15
+CCNV       15
+VCNV       15
+ALFA       15
+COMU       15
+GAMA       15
+PCNV       16
+CCNV       16
+VCNV       16
+ALFA       16
+COMU       16
+GAMA       16
+(
+999999
+(
+(( |-----------------------------------------------------------------------------------------------------------|
+(( |                                                                                                           |
+(( | 5. HVDC MELO                                                                                              |
+(( |                                                                                                           |
+(( |-----------------------------------------------------------------------------------------------------------|
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | PLOTAGEM COMPLETA                                                                                         |
+(( |-----------------------------------------------------------------------------------------------------------|
+((
+(DARQ
+((Tipo) (C) ( Nome do Arquivo
+(   DAT     .\BDados\HVDC Melo\Melo_BtB_DPLT.dat
+(999999
+((
+(( |-----------------------------------------------------------------------------------------------------------|
+(( | PLOTAGEM MÍNIMA - BLOCOS IMPORTANTES                                                                      |
+(( |-----------------------------------------------------------------------------------------------------------|
+((
+DARQ
+(Tipo) (C) ( Nome do Arquivo
+   DAT     .\BDados\HVDC_Melo\Melo_BtB_DPLT_MIN.dat
+999999
+(
+FIM

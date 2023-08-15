@@ -1,0 +1,61 @@
+( |-----------------------------------------------------------------------------------------------------------|
+( |                                                                                                           |
+( |  ARQUIVO:       EOL_SUL_DGER.dat                                                                          |
+( |  FORMATO:       PROGRAMA ANATEM 11.10.00 (AGO/20)                                                         |
+( |                 PROGRAMA ANAREDE 11.04.00 (AGO/20)                                                        |
+( |  VERSÃO:        JUL/2020 R0                                                                               |
+( |  EMISSÃO:       ONS - DPL/EG/EGE/EGS/EGN                                                                  |
+( |  COMPONENTES:   Representação Simplificada das Usinas Eólicas da Região SUL - Modelo ZIP                  |
+( |                                                                                                           |
+( |------------------------------------------ CONTATOS -------------------------------------------------------|
+( |                                                                                                           |
+( |  Equipe BD Anatem - ONS        -    bdanatem@ons.org.br                                                   |
+( |                                                                                                           |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  SITE - https://sintegre.ons.org.br/sites/8/93/paginas/servicos/produtos.aspx                             |
+( |-----------------------------------------------------------------------------------------------------------|
+( |  NOTA: Todas as informações aqui apresentadas foram fornecidas oficialmente pelos Agentes                 |
+( |        responsáveis, como sendo representativas dos equipamentos instalados em campo.                     |
+( |-----------------------------------------------------------------------------------------------------------|
+(
+( |------------------------------------------------------------------------------------------------|
+( | USINAS EM OPERAÇÃO                                                                             |
+( |------------------------------------------------------------------------------------------------|
+(
+DGER
+(tp) ( no) C (tp) ( no) C (tp) ( no) C (tp) ( no)   (A) (B) (C) (D) (VbP) (VdP) (VbQ) (VdQ)
+BARR 10121                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Quinta 138 kV - EOL Corredor dos Senandes e Vento Aragano
+BARR  1369                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL Osório 1
+BARR  1370                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL Sangradouro 1
+BARR  1371                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL dos Índios 1
+BARR  9732                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Cerro Chato 1
+BARR  9733                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Cerro Chato 2
+BARR  9734                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Cerro Chato 3
+BARR  1347                                            0   0 100   0  84.5  85.0  84.5  85.0                    EOL Cidreira
+BARR 10109                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL Osório 2 e 3
+BARR 10108                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL Sangradouro 2 e 3
+BARR 10110                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Lagoa dos Barros - EOL Índios 2 e 3
+BARR 10124                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Bom Jardim - EOL Púlpito + B.Jardim + S.Antônio + Rio do Ouro
+BARR 10120                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Água Doce - EOL Aquibatã + C.Belo + Cascata + C.Alta + Salto + Âmparo
+BARR  9854                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Cerro Chato VI
+BARR 10118                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Cerro Chato IV e V e Cerro dos Trindade
+BARR  9853                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Ibirapuitã
+BARR 10119                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Atlântica - EOL Atlântica I, II, IV e V
+BARR 10017                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Marmeleiro 2 - EOL A. Mangueira VII, XI e XV e A. Mirim II e IV
+BARR 10018                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Marmeleiro 2 - EOL A. Mangueira XII e XIII e A. Mirim VI e VIII
+BARR 10019                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Marmeleiro 2 - EOL A. Mangueira IV, VI e e XVII
+BARR  9183                                            0   0 100   0  84.5  85.0  84.5  85.0                    EOL Xangri-lá
+BARR 10114                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Quinta 69 kV - EOL Cassino 1, 2 e 3
+BARR 10112                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. S. V. do Palmar - EOL Verace 1 a 5
+BARR 10113                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. S. V. do Palmar - EOL Verace 6 a 10
+BARR 10012                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. S. V. do Palmar - EOL Chuí 1 a 4 e Minuano 1 e 2
+BARR  9948                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Capão do Inglês
+BARR  9949                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Coxilha Seca
+BARR  9950                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Livramento 2 - EOL Galpões
+BARR 10011                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. S. V. do Palmar - EOL Verace 25 a 31 e 34 a 36
+BARR  9900                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. S. V. do Palmar - EOL Chuí IX
+BARR  9867                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Viamão 3 - EOL Pontal 2B
+BARR  9868                                            0   0 100   0  84.5  85.0  84.5  85.0                    Conj. Viamão 3 - EOL Pontal 3B e 2A
+999999
+(
+FIM
