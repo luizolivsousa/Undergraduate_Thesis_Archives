@@ -1,0 +1,1029 @@
+Relatorio de Geracao de Potencia Reativa - Fluxo de Potencia Continuado
+Barras em ordem crescente de reserva disponivel de Q
+Sistema : MANAUS-SIN                                                                      
+ 
+ 
+Numero do incremento de carga:   1
+Carregamento do sistema =     5.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10501 MAUA3GUTE013    -75.00     66.93    120.00   55.7768       
+ 10503 MAUA3VUTE013    -82.00     66.73    131.00   50.9407       
+ 10436 PIEMANUTE013    -51.20     23.28     51.24   45.4375       
+ 10391 PIEPNGUTE013    -51.20     21.81     51.24   42.5579       
+ 10471 PIEJRQUTE013    -36.70     18.36     50.73   36.1919       
+ 10411 BALBI1UHE013   -121.00    -33.31    120.60   27.5279       
+ 10406 CROCHAUTE013    -51.20     12.41     51.24   24.2170       
+ 10447 PIETBQUTE013    -36.70     10.94     50.73   21.5717       
+ 10222 LE-S-ACAP500  -9999.00    398.73  99999.00    0.3987       
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =    10.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #03
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10501 MAUA3GUTE013    -75.00     66.56    120.00   55.4699       
+ 10503 MAUA3VUTE013    -82.00     66.35    131.00   50.6506       
+ 10391 PIEPNGUTE013    -51.20     23.66     51.24   46.1711       
+ 10436 PIEMANUTE013    -51.20     23.34     51.24   45.5578       
+ 10471 PIEJRQUTE013    -36.70     18.63     50.73   36.7185       
+ 10411 BALBI1UHE013   -121.00    -35.86    120.60   29.6354       
+ 10447 PIETBQUTE013    -36.70     13.98     50.73   27.5628       
+ 10406 CROCHAUTE013    -51.20     10.63     51.24   20.7446       
+ 10222 LE-S-ACAP500  -9999.00    444.05  99999.00    0.4441       
+ 
+ 
+Numero do incremento de carga:   3
+Carregamento do sistema =    15.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #04
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10501 MAUA3GUTE013    -75.00     66.16    120.00   55.1373       
+ 10503 MAUA3VUTE013    -82.00     65.94    131.00   50.3362       
+ 10391 PIEPNGUTE013    -51.20     25.52     51.24   49.8076       
+ 10436 PIEMANUTE013    -51.20     23.40     51.24   45.6736       
+ 10471 PIEJRQUTE013    -36.70     18.89     50.73   37.2403       
+ 10447 PIETBQUTE013    -36.70     17.13     50.73   33.7660       
+ 10411 BALBI1UHE013   -121.00    -38.51    120.60   31.8274       
+ 10406 CROCHAUTE013    -51.20      8.78     51.24   17.1375       
+ 10222 LE-S-ACAP500  -9999.00    490.94  99999.00    0.4909       
+ 
+ 
+Numero do incremento de carga:   4
+Carregamento do sistema =    20.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #05
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10501 MAUA3GUTE013    -75.00     65.73    120.00   54.7790       
+ 10391 PIEPNGUTE013    -51.20     27.40     51.24   53.4673       
+ 10503 MAUA3VUTE013    -82.00     65.50    131.00   49.9975       
+ 10436 PIEMANUTE013    -51.20     23.46     51.24   45.7837       
+ 10447 PIETBQUTE013    -36.70     20.39     50.73   40.1918       
+ 10471 PIEJRQUTE013    -36.70     19.15     50.73   37.7556       
+ 10411 BALBI1UHE013   -121.00    -41.27    120.60   34.1055       
+ 10406 CROCHAUTE013    -51.20      6.86     51.24   13.3931       
+ 10222 LE-S-ACAP500  -9999.00    539.43  99999.00    0.5394       
+ 
+ 
+Numero do incremento de carga:   5
+Carregamento do sistema =    25.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #06
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     29.28     51.24   57.1500       
+ 10501 MAUA3GUTE013    -75.00     65.27    120.00   54.3948       
+ 10503 MAUA3VUTE013    -82.00     65.02    131.00   49.6343       
+ 10447 PIETBQUTE013    -36.70     23.77     50.73   46.8517       
+ 10436 PIEMANUTE013    -51.20     23.51     51.24   45.8867       
+ 10471 PIEJRQUTE013    -36.70     19.41     50.73   38.2629       
+ 10411 BALBI1UHE013   -121.00    -44.13    120.60   36.4714       
+ 10406 CROCHAUTE013    -51.20      4.87     51.24    9.5090       
+ 10222 LE-S-ACAP500  -9999.00    589.57  99999.00    0.5896       
+ 
+ 
+Numero do incremento de carga:   6
+Carregamento do sistema =    30.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #07
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     31.18     51.24   60.8554       
+ 10501 MAUA3GUTE013    -75.00     64.78    120.00   53.9845       
+ 10447 PIETBQUTE013    -36.70     27.27     50.73   53.7586       
+ 10503 MAUA3VUTE013    -82.00     64.51    131.00   49.2465       
+ 10436 PIEMANUTE013    -51.20     23.56     51.24   45.9811       
+ 10411 BALBI1UHE013   -121.00    -47.10    120.60   38.9268       
+ 10471 PIEJRQUTE013    -36.70     19.66     50.73   38.7604       
+ 10406 CROCHAUTE013    -51.20      2.81     51.24    5.4823       
+ 10222 LE-S-ACAP500  -9999.00    641.40  99999.00    0.6414       
+ 
+ 
+Numero do incremento de carga:   7
+Carregamento do sistema =    35.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #08
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     33.09     51.24   64.5831       
+ 10447 PIETBQUTE013    -36.70     30.91     50.73   60.9268       
+ 10501 MAUA3GUTE013    -75.00     64.26    120.00   53.5482       
+ 10503 MAUA3VUTE013    -82.00     63.97    131.00   48.8340       
+ 10436 PIEMANUTE013    -51.20     23.60     51.24   46.0654       
+ 10411 BALBI1UHE013   -121.00    -50.18    120.60   41.4739       
+ 10471 PIEJRQUTE013    -36.70     19.91     50.73   39.2460       
+ 10406 CROCHAUTE013    -51.20      0.67     51.24    1.3099       
+ 10222 LE-S-ACAP500  -9999.00    694.97  99999.00    0.6950       
+ 
+ 
+Numero do incremento de carga:   8
+Carregamento do sistema =    40.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #09
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     34.69     50.73   68.3722       
+ 10391 PIEPNGUTE013    -51.20     35.01     51.24   68.3326       
+ 10501 MAUA3GUTE013    -75.00     63.70    120.00   53.0856       
+ 10503 MAUA3VUTE013    -82.00     63.40    131.00   48.3968       
+ 10436 PIEMANUTE013    -51.20     23.64     51.24   46.1378       
+ 10411 BALBI1UHE013   -121.00    -53.38    120.60   44.1147       
+ 10471 PIEJRQUTE013    -36.70     20.15     50.73   39.7175       
+ 10406 CROCHAUTE013    -51.20     -1.54     51.24    3.0140       
+ 10222 LE-S-ACAP500  -9999.00    750.33  99999.00    0.7503       
+ 
+ 
+Numero do incremento de carga:   9
+Carregamento do sistema =    45.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #10
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     38.61     50.73   76.1126       
+ 10391 PIEPNGUTE013    -51.20     36.95     51.24   72.1031       
+ 10501 MAUA3GUTE013    -75.00     63.12    120.00   52.5967       
+ 10503 MAUA3VUTE013    -82.00     62.79    131.00   47.9346       
+ 10411 BALBI1UHE013   -121.00    -56.69    120.60   46.8517       
+ 10436 PIEMANUTE013    -51.20     23.67     51.24   46.1962       
+ 10471 PIEJRQUTE013    -36.70     20.38     50.73   40.1725       
+ 10406 CROCHAUTE013    -51.20     -3.84     51.24    7.4919       
+ 10222 LE-S-ACAP500  -9999.00    807.54  99999.00    0.8076       
+ 
+ 
+Numero do incremento de carga:  10
+Carregamento do sistema =    50.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #11
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     42.70     50.73   84.1684       
+ 10391 PIEPNGUTE013    -51.20     38.89     51.24   75.8938       
+ 10501 MAUA3GUTE013    -75.00     62.50    120.00   52.0814       
+ 10411 BALBI1UHE013   -121.00    -60.12    120.60   49.6876       
+ 10503 MAUA3VUTE013    -82.00     62.16    131.00   47.4475       
+ 10436 PIEMANUTE013    -51.20     23.69     51.24   46.2385       
+ 10471 PIEJRQUTE013    -36.70     20.60     50.73   40.6082       
+ 10406 CROCHAUTE013    -51.20     -6.21     51.24   12.1269       
+ 10222 LE-S-ACAP500  -9999.00    866.67  99999.00    0.8667       
+ 
+ 
+Numero do incremento de carga:  11
+Carregamento do sistema =    55.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #12
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     46.96     50.73   92.5622       
+ 10391 PIEPNGUTE013    -51.20     40.84     51.24   79.7036       
+ 10411 BALBI1UHE013   -121.00    -63.68    120.60   52.6253       
+ 10501 MAUA3GUTE013    -75.00     61.85    120.00   51.5396       
+ 10503 MAUA3VUTE013    -82.00     61.49    131.00   46.9354       
+ 10436 PIEMANUTE013    -51.20     23.70     51.24   46.2622       
+ 10471 PIEJRQUTE013    -36.70     20.81     50.73   41.0217       
+ 10406 CROCHAUTE013    -51.20     -8.66     51.24   16.9238       
+ 10222 LE-S-ACAP500  -9999.00    927.79  99999.00    0.9278       
+ 
+ 
+Numero do incremento de carga:  12
+Carregamento do sistema =    60.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #13
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Normal -> Lim. S
+ 10391 PIEPNGUTE013    -51.20     42.78     51.24   83.4882       
+ 10411 BALBI1UHE013   -121.00    -67.41    120.60   55.7074       
+ 10501 MAUA3GUTE013    -75.00     61.17    120.00   50.9763       
+ 10503 MAUA3VUTE013    -82.00     60.79    131.00   46.4030       
+ 10436 PIEMANUTE013    -51.20     23.69     51.24   46.2379       
+ 10471 PIEJRQUTE013    -36.70     20.99     50.73   41.3765       
+ 10406 CROCHAUTE013    -51.20    -11.24     51.24   21.9496       
+ 10222 LE-S-ACAP500  -9999.00    991.91  99999.00    0.9919       
+ 
+ 
+Numero do incremento de carga:  13
+Carregamento do sistema =    65.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #14
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10391 PIEPNGUTE013    -51.20     44.59     51.24   87.0268       
+ 10411 BALBI1UHE013   -121.00    -71.56    120.60   59.1365       
+ 10501 MAUA3GUTE013    -75.00     60.50    120.00   50.4180       
+ 10436 PIEMANUTE013    -51.20     23.58     51.24   46.0260       
+ 10503 MAUA3VUTE013    -82.00     60.10    131.00   45.8752       
+ 10471 PIEJRQUTE013    -36.70     21.05     50.73   41.5005       
+ 10406 CROCHAUTE013    -51.20    -14.09     51.24   27.5249       
+ 10222 LE-S-ACAP500  -9999.00   1063.85  99999.00    1.0639       
+ 
+ 
+Numero do incremento de carga:  14
+Carregamento do sistema =    70.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #15
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10391 PIEPNGUTE013    -51.20     46.40     51.24   90.5471       
+ 10411 BALBI1UHE013   -121.00    -75.87    120.60   62.7044       
+ 10501 MAUA3GUTE013    -75.00     59.81    120.00   49.8381       
+ 10436 PIEMANUTE013    -51.20     23.45     51.24   45.7671       
+ 10503 MAUA3VUTE013    -82.00     59.38    131.00   45.3270       
+ 10471 PIEJRQUTE013    -36.70     21.09     50.73   41.5670       
+ 10406 CROCHAUTE013    -51.20    -17.06     51.24   33.3200       
+ 10222 LE-S-ACAP500  -9999.00   1138.66  99999.00    1.1387       
+ 
+ 
+Numero do incremento de carga:  15
+Carregamento do sistema =    75.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #16
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10391 PIEPNGUTE013    -51.20     48.19     51.24   94.0401       
+ 10411 BALBI1UHE013   -121.00    -80.37    120.60   66.4208       
+ 10501 MAUA3GUTE013    -75.00     59.09    120.00   49.2376       
+ 10436 PIEMANUTE013    -51.20     23.29     51.24   45.4533       
+ 10503 MAUA3VUTE013    -82.00     58.63    131.00   44.7594       
+ 10471 PIEJRQUTE013    -36.70     21.09     50.73   41.5662       
+ 10406 CROCHAUTE013    -51.20    -20.15     51.24   39.3504       
+ 10222 LE-S-ACAP500  -9999.00   1216.58  99999.00    1.2166       
+ 
+ 
+Numero do incremento de carga:  16
+Carregamento do sistema =    80.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #17
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10391 PIEPNGUTE013    -51.20     49.96     51.24   97.4941       
+ 10411 BALBI1UHE013   -121.00    -85.06    120.60   70.2980       
+ 10501 MAUA3GUTE013    -75.00     58.34    120.00   48.6181       
+ 10406 CROCHAUTE013    -51.20    -23.37     51.24   45.6354       
+ 10436 PIEMANUTE013    -51.20     23.10     51.24   45.0750       
+ 10503 MAUA3VUTE013    -82.00     57.87    131.00   44.1737       
+ 10471 PIEJRQUTE013    -36.70     21.05     50.73   41.4864       
+ 10222 LE-S-ACAP500  -9999.00   1297.91  99999.00    1.2979       
+ 
+ 
+Numero do incremento de carga:  17
+Carregamento do sistema =    85.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #18
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Normal -> Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    -89.99    120.60   74.3746       
+ 10406 CROCHAUTE013    -51.20    -26.74     51.24   52.2358       
+ 10501 MAUA3GUTE013    -75.00     57.56    120.00   47.9632       
+ 10436 PIEMANUTE013    -51.20     22.86     51.24   44.6042       
+ 10503 MAUA3VUTE013    -82.00     57.06    131.00   43.5547       
+ 10471 PIEJRQUTE013    -36.70     20.95     50.73   41.2929       
+ 10222 LE-S-ACAP500  -9999.00   1383.56  99999.00    1.3836       
+ 
+ 
+Numero do incremento de carga:  18
+Carregamento do sistema =    90.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #19
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    -95.24    120.60   78.7101       
+ 10406 CROCHAUTE013    -51.20    -30.33     51.24   59.2456       
+ 10501 MAUA3GUTE013    -75.00     56.69    120.00   47.2439       
+ 10436 PIEMANUTE013    -51.20     22.54     51.24   43.9976       
+ 10503 MAUA3VUTE013    -82.00     56.17    131.00   42.8747       
+ 10471 PIEJRQUTE013    -36.70     20.76     50.73   40.9319       
+ 10222 LE-S-ACAP500  -9999.00   1474.95  99999.00    1.4750       
+ 
+ 
+Numero do incremento de carga:  19
+Carregamento do sistema =    95.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #20
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00   -100.75    120.60   83.2661       
+ 10406 CROCHAUTE013    -51.20    -34.10     51.24   66.6039       
+ 10501 MAUA3GUTE013    -75.00     55.82    120.00   46.5160       
+ 10436 PIEMANUTE013    -51.20     22.18     51.24   43.2797       
+ 10503 MAUA3VUTE013    -82.00     55.26    131.00   42.1867       
+ 10471 PIEJRQUTE013    -36.70     20.51     50.73   40.4340       
+ 10222 LE-S-ACAP500  -9999.00   1571.18  99999.00    1.5712       
+ 
+ 
+Numero do incremento de carga:  20
+Carregamento do sistema =   100.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #21
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00   -106.58    120.60   88.0800       
+ 10406 CROCHAUTE013    -51.20    -38.08     51.24   74.3698       
+ 10501 MAUA3GUTE013    -75.00     54.94    120.00   45.7866       
+ 10436 PIEMANUTE013    -51.20     21.74     51.24   42.4220       
+ 10503 MAUA3VUTE013    -82.00     54.36    131.00   41.4972       
+ 10471 PIEJRQUTE013    -36.70     20.17     50.73   39.7638       
+ 10222 LE-S-ACAP500  -9999.00   1673.12  99999.00    1.6731       
+ 
+ 
+Numero do incremento de carga:  21
+Carregamento do sistema =   105.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #22
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00   -112.78    120.60   93.2091       
+ 10406 CROCHAUTE013    -51.20    -42.31     51.24   82.6336       
+ 10501 MAUA3GUTE013    -75.00     54.08    120.00   45.0671       
+ 10436 PIEMANUTE013    -51.20     21.20     51.24   41.3816       
+ 10503 MAUA3VUTE013    -82.00     53.47    131.00   40.8171       
+ 10471 PIEJRQUTE013    -36.70     19.72     50.73   38.8681       
+ 10222 LE-S-ACAP500  -9999.00   1782.14  99999.00    1.7822       
+ 
+ 
+Numero do incremento de carga:  22
+Carregamento do sistema =   110.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #23
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00   -119.49    120.60   98.7498       
+ 10406 CROCHAUTE013    -51.20    -46.87     51.24   91.5476       
+ 10501 MAUA3GUTE013    -75.00     53.25    120.00   44.3774       
+ 10503 MAUA3VUTE013    -82.00     52.62    131.00   40.1652       
+ 10436 PIEMANUTE013    -51.20     20.54     51.24   40.0864       
+ 10471 PIEJRQUTE013    -36.70     19.10     50.73   37.6579       
+ 10222 LE-S-ACAP500  -9999.00   1900.52  99999.00    1.9005       
+ 
+ 
+Numero do incremento de carga:  23
+Carregamento do sistema =   115.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #24
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Normal -> Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Normal -> Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     53.20    120.00   44.3313       
+ 10503 MAUA3VUTE013    -82.00     52.56    131.00   40.1215       
+ 10436 PIEMANUTE013    -51.20     19.76     51.24   38.5616       
+ 10471 PIEJRQUTE013    -36.70     18.35     50.73   36.1639       
+ 10222 LE-S-ACAP500  -9999.00   2027.25  99999.00    2.0273       
+ 
+ 
+Numero do incremento de carga:  24
+Carregamento do sistema =   120.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #25
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     54.24    120.00   45.1962       
+ 10503 MAUA3VUTE013    -82.00     53.63    131.00   40.9391       
+ 10436 PIEMANUTE013    -51.20     18.60     51.24   36.3071       
+ 10471 PIEJRQUTE013    -36.70     17.13     50.73   33.7680       
+ 10222 LE-S-ACAP500  -9999.00   2178.62  99999.00    2.1786       
+ 
+ 
+Numero do incremento de carga:  26
+Carregamento do sistema =   122.5000
+Arquivo Historico: CONT_001.SAV          
+Caso #26
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     55.56    120.00   46.2965       
+ 10503 MAUA3VUTE013    -82.00     54.99    131.00   41.9792       
+ 10436 PIEMANUTE013    -51.20     17.40     51.24   33.9549       
+ 10471 PIEJRQUTE013    -36.70     15.75     50.73   31.0557       
+ 10222 LE-S-ACAP500  -9999.00   2294.69  99999.00    2.2947       
+ 
+ 
+Numero do incremento de carga:  30
+Carregamento do sistema =   122.8125
+Arquivo Historico: CONT_001.SAV          
+Caso #27
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     55.95    120.00   46.6223       
+ 10503 MAUA3VUTE013    -82.00     55.40    131.00   42.2872       
+ 10436 PIEMANUTE013    -51.20     17.07     51.24   33.3227       
+ 10471 PIEJRQUTE013    -36.70     15.37     50.73   30.2986       
+ 10222 LE-S-ACAP500  -9999.00   2320.29  99999.00    2.3203       
+ 
+ 
+Numero do incremento de carga:  32
+Carregamento do sistema =   122.9688
+Arquivo Historico: CONT_001.SAV          
+Caso #28
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     56.28    120.00   46.8982       
+ 10503 MAUA3VUTE013    -82.00     55.74    131.00   42.5480       
+ 10436 PIEMANUTE013    -51.20     16.81     51.24   32.8044       
+ 10471 PIEJRQUTE013    -36.70     15.05     50.73   29.6701       
+ 10222 LE-S-ACAP500  -9999.00   2339.73  99999.00    2.3398       
+ 
+ 
+Numero do incremento de carga:  36
+Carregamento do sistema =   123.0245
+Arquivo Historico: CONT_001.SAV          
+Caso #29
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20    -51.20     51.24  100.0000 Lim. I
+ 10411 BALBI1UHE013   -121.00   -121.00    120.60  100.0000 Lim. I
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     56.50    120.00   47.0840       
+ 10503 MAUA3VUTE013    -82.00     55.97    131.00   42.7237       
+ 10436 PIEMANUTE013    -51.20     16.63     51.24   32.4630       
+ 10471 PIEJRQUTE013    -36.70     14.84     50.73   29.2525       
+ 10222 LE-S-ACAP500  -9999.00   2351.80  99999.00    2.3518       
+ 
+ 
+Numero do incremento de carga:  37
+Carregamento do sistema =   116.7556
+Arquivo Historico: CONT_001.SAV          
+Caso #30
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. I -> Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. I -> Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     84.21    120.00   70.1783       
+ 10503 MAUA3VUTE013    -82.00     84.57    131.00   64.5537       
+ 10436 PIEMANUTE013    -51.20     21.37     51.24   41.7053       
+ 10471 PIEJRQUTE013    -36.70     20.39     50.73   40.1867       
+ 10222 LE-S-ACAP500  -9999.00   1946.69  99999.00    1.9467       
+ 
+ 
+Numero do incremento de carga:  38
+Carregamento do sistema =   114.3797
+Arquivo Historico: CONT_001.SAV          
+Caso #31
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     87.47    120.00   72.8891       
+ 10503 MAUA3VUTE013    -82.00     87.92    131.00   67.1161       
+ 10436 PIEMANUTE013    -51.20     18.97     51.24   37.0213       
+ 10471 PIEJRQUTE013    -36.70     17.36     50.73   34.2118       
+ 10222 LE-S-ACAP500  -9999.00   2064.68  99999.00    2.0647       
+ 
+ 
+Numero do incremento de carga:  39
+Carregamento do sistema =   114.0553
+Arquivo Historico: CONT_001.SAV          
+Caso #32
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     87.67    120.00   73.0619       
+ 10503 MAUA3VUTE013    -82.00     88.14    131.00   67.2794       
+ 10436 PIEMANUTE013    -51.20     18.84     51.24   36.7598       
+ 10471 PIEJRQUTE013    -36.70     17.18     50.73   33.8634       
+ 10222 LE-S-ACAP500  -9999.00   2068.38  99999.00    2.0684       
+ 
+ 
+Numero do incremento de carga:  40
+Carregamento do sistema =   113.7122
+Arquivo Historico: CONT_001.SAV          
+Caso #33
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     87.88    120.00   73.2355       
+ 10503 MAUA3VUTE013    -82.00     88.35    131.00   67.4435       
+ 10436 PIEMANUTE013    -51.20     18.70     51.24   36.5004       
+ 10471 PIEJRQUTE013    -36.70     17.00     50.73   33.5160       
+ 10222 LE-S-ACAP500  -9999.00   2071.74  99999.00    2.0718       
+ 
+ 
+Numero do incremento de carga:  41
+Carregamento do sistema =   113.3507
+Arquivo Historico: CONT_001.SAV          
+Caso #34
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     88.09    120.00   73.4098       
+ 10503 MAUA3VUTE013    -82.00     88.57    131.00   67.6083       
+ 10436 PIEMANUTE013    -51.20     18.57     51.24   36.2431       
+ 10471 PIEJRQUTE013    -36.70     16.83     50.73   33.1698       
+ 10222 LE-S-ACAP500  -9999.00   2074.76  99999.00    2.0748       
+ 
+ 
+Numero do incremento de carga:  42
+Carregamento do sistema =   112.9709
+Arquivo Historico: CONT_001.SAV          
+Caso #35
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     88.30    120.00   73.5846       
+ 10503 MAUA3VUTE013    -82.00     88.78    131.00   67.7735       
+ 10436 PIEMANUTE013    -51.20     18.44     51.24   35.9881       
+ 10471 PIEJRQUTE013    -36.70     16.65     50.73   32.8250       
+ 10222 LE-S-ACAP500  -9999.00   2077.45  99999.00    2.0775       
+ 
+ 
+Numero do incremento de carga:  43
+Carregamento do sistema =   112.5731
+Arquivo Historico: CONT_001.SAV          
+Caso #36
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     88.51    120.00   73.7598       
+ 10503 MAUA3VUTE013    -82.00     89.00    131.00   67.9391       
+ 10436 PIEMANUTE013    -51.20     18.31     51.24   35.7354       
+ 10471 PIEJRQUTE013    -36.70     16.48     50.73   32.4817       
+ 10222 LE-S-ACAP500  -9999.00   2079.80  99999.00    2.0798       
+ 
+ 
+Numero do incremento de carga:  44
+Carregamento do sistema =   112.1575
+Arquivo Historico: CONT_001.SAV          
+Caso #37
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     88.72    120.00   73.9352       
+ 10503 MAUA3VUTE013    -82.00     89.22    131.00   68.1049       
+ 10436 PIEMANUTE013    -51.20     18.18     51.24   35.4851       
+ 10471 PIEJRQUTE013    -36.70     16.30     50.73   32.1400       
+ 10222 LE-S-ACAP500  -9999.00   2081.81  99999.00    2.0818       
+ 
+ 
+Numero do incremento de carga:  45
+Carregamento do sistema =   111.7242
+Arquivo Historico: CONT_001.SAV          
+Caso #38
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     88.93    120.00   74.1108       
+ 10503 MAUA3VUTE013    -82.00     89.43    131.00   68.2709       
+ 10436 PIEMANUTE013    -51.20     18.06     51.24   35.2375       
+ 10471 PIEJRQUTE013    -36.70     16.13     50.73   31.8002       
+ 10222 LE-S-ACAP500  -9999.00   2083.49  99999.00    2.0835       
+ 
+ 
+Numero do incremento de carga:  46
+Carregamento do sistema =   111.2736
+Arquivo Historico: CONT_001.SAV          
+Caso #39
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     89.14    120.00   74.2864       
+ 10503 MAUA3VUTE013    -82.00     89.65    131.00   68.4369       
+ 10436 PIEMANUTE013    -51.20     17.93     51.24   34.9925       
+ 10471 PIEJRQUTE013    -36.70     15.96     50.73   31.4624       
+ 10222 LE-S-ACAP500  -9999.00   2084.83  99999.00    2.0848       
+ 
+ 
+Numero do incremento de carga:  47
+Carregamento do sistema =   110.8058
+Arquivo Historico: CONT_001.SAV          
+Caso #40
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     89.35    120.00   74.4619       
+ 10503 MAUA3VUTE013    -82.00     89.87    131.00   68.6027       
+ 10436 PIEMANUTE013    -51.20     17.81     51.24   34.7503       
+ 10471 PIEJRQUTE013    -36.70     15.79     50.73   31.1266       
+ 10222 LE-S-ACAP500  -9999.00   2085.84  99999.00    2.0859       
+ 
+ 
+Numero do incremento de carga:  48
+Carregamento do sistema =   110.3210
+Arquivo Historico: CONT_001.SAV          
+Caso #41
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     89.56    120.00   74.6371       
+ 10503 MAUA3VUTE013    -82.00     90.09    131.00   68.7684       
+ 10436 PIEMANUTE013    -51.20     17.68     51.24   34.5110       
+ 10471 PIEJRQUTE013    -36.70     15.62     50.73   30.7932       
+ 10222 LE-S-ACAP500  -9999.00   2086.51  99999.00    2.0865       
+ 
+ 
+Numero do incremento de carga:  49
+Carregamento do sistema =   109.7169
+Arquivo Historico: CONT_001.SAV          
+Caso #42
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     89.82    120.00   74.8470       
+ 10503 MAUA3VUTE013    -82.00     90.35    131.00   68.9667       
+ 10436 PIEMANUTE013    -51.20     17.54     51.24   34.2279       
+ 10471 PIEJRQUTE013    -36.70     15.42     50.73   30.3963       
+ 10222 LE-S-ACAP500  -9999.00   2086.88  99999.00    2.0869       
+ 
+ 
+Numero do incremento de carga:  50
+Carregamento do sistema =   108.9602
+Arquivo Historico: CONT_001.SAV          
+Caso #43
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     90.12    120.00   75.0978       
+ 10503 MAUA3VUTE013    -82.00     90.66    131.00   69.2038       
+ 10436 PIEMANUTE013    -51.20     17.37     51.24   33.8942       
+ 10471 PIEJRQUTE013    -36.70     15.18     50.73   29.9251       
+ 10222 LE-S-ACAP500  -9999.00   2086.69  99999.00    2.0867       
+ 
+ 
+Numero do incremento de carga:  51
+Carregamento do sistema =   108.0071
+Arquivo Historico: CONT_001.SAV          
+Caso #44
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     90.48    120.00   75.3968       
+ 10503 MAUA3VUTE013    -82.00     91.03    131.00   69.4865       
+ 10436 PIEMANUTE013    -51.20     17.17     51.24   33.5029       
+ 10471 PIEJRQUTE013    -36.70     14.90     50.73   29.3675       
+ 10222 LE-S-ACAP500  -9999.00   2085.53  99999.00    2.0856       
+ 
+ 
+Numero do incremento de carga:  52
+Carregamento do sistema =   106.7990
+Arquivo Historico: CONT_001.SAV          
+Caso #45
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     90.90    120.00   75.7522       
+ 10503 MAUA3VUTE013    -82.00     91.47    131.00   69.8224       
+ 10436 PIEMANUTE013    -51.20     16.93     51.24   33.0474       
+ 10471 PIEJRQUTE013    -36.70     14.56     50.73   28.7108       
+ 10222 LE-S-ACAP500  -9999.00   2082.82  99999.00    2.0828       
+ 
+ 
+Numero do incremento de carga:  53
+Carregamento do sistema =   105.2576
+Arquivo Historico: CONT_001.SAV          
+Caso #46
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     91.41    120.00   76.1722       
+ 10503 MAUA3VUTE013    -82.00     91.99    131.00   70.2194       
+ 10436 PIEMANUTE013    -51.20     16.66     51.24   32.5224       
+ 10471 PIEJRQUTE013    -36.70     14.18     50.73   27.9424       
+ 10222 LE-S-ACAP500  -9999.00   2077.64  99999.00    2.0777       
+ 
+ 
+Numero do incremento de carga:  54
+Carregamento do sistema =   103.2765
+Arquivo Historico: CONT_001.SAV          
+Caso #47
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.00    120.00   76.6647       
+ 10503 MAUA3VUTE013    -82.00     92.60    131.00   70.6849       
+ 10436 PIEMANUTE013    -51.20     16.36     51.24   31.9261       
+ 10471 PIEJRQUTE013    -36.70     13.72     50.73   27.0519       
+ 10222 LE-S-ACAP500  -9999.00   2068.60  99999.00    2.0686       
+ 
+ 
+Numero do incremento de carga:  55
+Carregamento do sistema =   100.7089
+Arquivo Historico: CONT_001.SAV          
+Caso #48
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.68    120.00   77.2356       
+ 10503 MAUA3VUTE013    -82.00     93.30    131.00   71.2246       
+ 10436 PIEMANUTE013    -51.20     16.02     51.24   31.2631       
+ 10471 PIEJRQUTE013    -36.70     13.21     50.73   26.0338       
+ 10222 LE-S-ACAP500  -9999.00   2053.57  99999.00    2.0536       
+ 
+ 
+Numero do incremento de carga:  58
+Carregamento do sistema =    99.8976
+Arquivo Historico: CONT_001.SAV          
+Caso #49
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.88    120.00   77.4020       
+ 10503 MAUA3VUTE013    -82.00     93.51    131.00   71.3819       
+ 10436 PIEMANUTE013    -51.20     15.92     51.24   31.0762       
+ 10471 PIEJRQUTE013    -36.70     13.06     50.73   25.7400       
+ 10222 LE-S-ACAP500  -9999.00   2048.16  99999.00    2.0482       
+ 
+ 
+Numero do incremento de carga:  61
+Carregamento do sistema =    99.6504
+Arquivo Historico: CONT_001.SAV          
+Caso #50
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.94    120.00   77.4515       
+ 10503 MAUA3VUTE013    -82.00     93.57    131.00   71.4286       
+ 10436 PIEMANUTE013    -51.20     15.90     51.24   31.0212       
+ 10471 PIEJRQUTE013    -36.70     13.01     50.73   25.6529       
+ 10222 LE-S-ACAP500  -9999.00   2046.45  99999.00    2.0465       
+ 
+ 
+Numero do incremento de carga:  64
+Carregamento do sistema =    99.5760
+Arquivo Historico: CONT_001.SAV          
+Caso #51
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.96    120.00   77.4663       
+ 10503 MAUA3VUTE013    -82.00     93.59    131.00   71.4426       
+ 10436 PIEMANUTE013    -51.20     15.89     51.24   31.0048       
+ 10471 PIEJRQUTE013    -36.70     13.00     50.73   25.6269       
+ 10222 LE-S-ACAP500  -9999.00   2045.93  99999.00    2.0459       
+ 
+ 
+Numero do incremento de carga:  66
+Carregamento do sistema =    99.5312
+Arquivo Historico: CONT_001.SAV          
+Caso #52
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.97    120.00   77.4751       
+ 10503 MAUA3VUTE013    -82.00     93.60    131.00   71.4510       
+ 10436 PIEMANUTE013    -51.20     15.88     51.24   30.9950       
+ 10471 PIEJRQUTE013    -36.70     12.99     50.73   25.6113       
+ 10222 LE-S-ACAP500  -9999.00   2045.61  99999.00    2.0456       
+ 
+ 
+Numero do incremento de carga:  74
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #53
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.97    120.00   77.4752       
+ 10503 MAUA3VUTE013    -82.00     93.60    131.00   71.4510       
+ 10436 PIEMANUTE013    -51.20     15.88     51.24   30.9949       
+ 10471 PIEJRQUTE013    -36.70     12.99     50.73   25.6112       
+ 10222 LE-S-ACAP500  -9999.00   2045.61  99999.00    2.0456       
+ 
+ 
+Numero do incremento de carga:  77
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #54
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.97    120.00   77.4752       
+ 10503 MAUA3VUTE013    -82.00     93.60    131.00   71.4510       
+ 10436 PIEMANUTE013    -51.20     15.88     51.24   30.9949       
+ 10471 PIEJRQUTE013    -36.70     12.99     50.73   25.6112       
+ 10222 LE-S-ACAP500  -9999.00   2045.61  99999.00    2.0456       
+ 
+ 
+Numero do incremento de carga:  78
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #55
+X------------------X-----------------------------X------------X
+      Barra          Geracao de Potencia Reativa  Carregamento 
+ Num.      Nome        Min      Atual      Max         (%)     
+X-----X------------X---------X---------X---------X------------X
+ 10391 PIEPNGUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10406 CROCHAUTE013    -51.20     51.24     51.24  100.0000 Lim. S
+ 10411 BALBI1UHE013   -121.00    120.60    120.60  100.0000 Lim. S
+ 10447 PIETBQUTE013    -36.70     50.73     50.73  100.0000 Lim. S
+ 10501 MAUA3GUTE013    -75.00     92.97    120.00   77.4752       
+ 10503 MAUA3VUTE013    -82.00     93.60    131.00   71.4510       
+ 10436 PIEMANUTE013    -51.20     15.88     51.24   30.9949       
+ 10471 PIEJRQUTE013    -36.70     12.99     50.73   25.6112       
+ 10222 LE-S-ACAP500  -9999.00   2045.61  99999.00    2.0456       

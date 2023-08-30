@@ -1,0 +1,1082 @@
+Relatorio de Curvas PxV - Fluxo de Potencia Continuado
+Sistema : MANAUS-SIN                                                                      
+ 
+ 
+Numero do incremento de carga:   1
+Carregamento do sistema =     5.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #02
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.948    -0.006
+ 10430 CIDNOV-AM069     0.996    -0.005
+ 10402 MANAU2-AM069     1.012    -0.005
+ 10450 SJOSE--AM069     1.007    -0.004
+ 10345 CONSE2-AM069     1.005    -0.004
+ 10012 LECHUG-AM500     1.046     0.004
+ 10451 PLACIB-AM069     1.013    -0.004
+ 10421 CESPEC-AM069     1.008    -0.003
+ 10485 IRANDU-AM069     0.984    -0.003
+ 10350 CACHO2-AM069     1.008    -0.003
+ 
+ 
+Numero do incremento de carga:   2
+Carregamento do sistema =    10.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #03
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.943    -0.006
+ 10430 CIDNOV-AM069     0.990    -0.005
+ 10402 MANAU2-AM069     1.007    -0.005
+ 10450 SJOSE--AM069     1.003    -0.005
+ 10345 CONSE2-AM069     1.000    -0.004
+ 10012 LECHUG-AM500     1.051     0.004
+ 10451 PLACIB-AM069     1.009    -0.004
+ 10421 CESPEC-AM069     1.004    -0.003
+ 10350 CACHO2-AM069     1.005    -0.003
+ 10492 MARAPA-AM069     1.006    -0.003
+ 
+ 
+Numero do incremento de carga:   3
+Carregamento do sistema =    15.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #04
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.937    -0.006
+ 10430 CIDNOV-AM069     0.985    -0.006
+ 10402 MANAU2-AM069     1.002    -0.005
+ 10450 SJOSE--AM069     0.998    -0.005
+ 10345 CONSE2-AM069     0.996    -0.005
+ 10012 LECHUG-AM500     1.055     0.004
+ 10451 PLACIB-AM069     1.005    -0.004
+ 10421 CESPEC-AM069     1.001    -0.004
+ 10350 CACHO2-AM069     1.001    -0.003
+ 10492 MARAPA-AM069     1.002    -0.003
+ 
+ 
+Numero do incremento de carga:   4
+Carregamento do sistema =    20.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #05
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.931    -0.006
+ 10430 CIDNOV-AM069     0.979    -0.006
+ 10402 MANAU2-AM069     0.997    -0.005
+ 10450 SJOSE--AM069     0.993    -0.005
+ 10345 CONSE2-AM069     0.991    -0.005
+ 10012 LECHUG-AM500     1.060     0.005
+ 10451 PLACIB-AM069     1.001    -0.004
+ 10421 CESPEC-AM069     0.997    -0.004
+ 10350 CACHO2-AM069     0.998    -0.004
+ 10492 MARAPA-AM069     0.999    -0.004
+ 
+ 
+Numero do incremento de carga:   5
+Carregamento do sistema =    25.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #06
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.924    -0.006
+ 10430 CIDNOV-AM069     0.973    -0.006
+ 10402 MANAU2-AM069     0.991    -0.006
+ 10450 SJOSE--AM069     0.988    -0.005
+ 10345 CONSE2-AM069     0.986    -0.005
+ 10012 LECHUG-AM500     1.064     0.005
+ 10451 PLACIB-AM069     0.997    -0.004
+ 10421 CESPEC-AM069     0.993    -0.004
+ 10350 CACHO2-AM069     0.994    -0.004
+ 10492 MARAPA-AM069     0.995    -0.004
+ 
+ 
+Numero do incremento de carga:   6
+Carregamento do sistema =    30.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #07
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10480 MANACA-AM069     0.918    -0.006
+ 10430 CIDNOV-AM069     0.967    -0.006
+ 10402 MANAU2-AM069     0.985    -0.006
+ 10450 SJOSE--AM069     0.983    -0.005
+ 10345 CONSE2-AM069     0.981    -0.005
+ 10012 LECHUG-AM500     1.070     0.005
+ 10451 PLACIB-AM069     0.992    -0.004
+ 10421 CESPEC-AM069     0.989    -0.004
+ 10350 CACHO2-AM069     0.990    -0.004
+ 10492 MARAPA-AM069     0.991    -0.004
+ 
+ 
+Numero do incremento de carga:   7
+Carregamento do sistema =    35.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #08
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.960    -0.006
+ 10480 MANACA-AM069     0.912    -0.006
+ 10402 MANAU2-AM069     0.979    -0.006
+ 10450 SJOSE--AM069     0.978    -0.005
+ 10345 CONSE2-AM069     0.976    -0.005
+ 10012 LECHUG-AM500     1.075     0.005
+ 10451 PLACIB-AM069     0.988    -0.005
+ 10421 CESPEC-AM069     0.985    -0.004
+ 10350 CACHO2-AM069     0.986    -0.004
+ 10492 MARAPA-AM069     0.987    -0.004
+ 
+ 
+Numero do incremento de carga:   8
+Carregamento do sistema =    40.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #09
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.953    -0.007
+ 10480 MANACA-AM069     0.905    -0.007
+ 10402 MANAU2-AM069     0.973    -0.006
+ 10450 SJOSE--AM069     0.972    -0.006
+ 10345 CONSE2-AM069     0.970    -0.005
+ 10012 LECHUG-AM500     1.080     0.005
+ 10451 PLACIB-AM069     0.983    -0.005
+ 10421 CESPEC-AM069     0.981    -0.004
+ 10350 CACHO2-AM069     0.982    -0.004
+ 10492 MARAPA-AM069     0.983    -0.004
+ 
+ 
+Numero do incremento de carga:   9
+Carregamento do sistema =    45.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #10
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.946    -0.007
+ 10480 MANACA-AM069     0.898    -0.007
+ 10402 MANAU2-AM069     0.966    -0.006
+ 10450 SJOSE--AM069     0.966    -0.006
+ 10345 CONSE2-AM069     0.964    -0.006
+ 10012 LECHUG-AM500     1.086     0.006
+ 10451 PLACIB-AM069     0.978    -0.005
+ 10421 CESPEC-AM069     0.977    -0.004
+ 10350 CACHO2-AM069     0.977    -0.004
+ 10492 MARAPA-AM069     0.978    -0.004
+ 
+ 
+Numero do incremento de carga:  10
+Carregamento do sistema =    50.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #11
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.939    -0.007
+ 10480 MANACA-AM069     0.891    -0.007
+ 10402 MANAU2-AM069     0.960    -0.007
+ 10450 SJOSE--AM069     0.960    -0.006
+ 10345 CONSE2-AM069     0.958    -0.006
+ 10012 LECHUG-AM500     1.091     0.006
+ 10451 PLACIB-AM069     0.973    -0.005
+ 10421 CESPEC-AM069     0.972    -0.005
+ 10492 MARAPA-AM069     0.974    -0.005
+ 10350 CACHO2-AM069     0.973    -0.005
+ 
+ 
+Numero do incremento de carga:  11
+Carregamento do sistema =    55.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #12
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.932    -0.008
+ 10480 MANACA-AM069     0.884    -0.007
+ 10402 MANAU2-AM069     0.953    -0.007
+ 10450 SJOSE--AM069     0.954    -0.006
+ 10345 CONSE2-AM069     0.952    -0.006
+ 10012 LECHUG-AM500     1.097     0.006
+ 10451 PLACIB-AM069     0.968    -0.005
+ 10421 CESPEC-AM069     0.967    -0.005
+ 10492 MARAPA-AM069     0.969    -0.005
+ 10350 CACHO2-AM069     0.968    -0.005
+ 
+ 
+Numero do incremento de carga:  12
+Carregamento do sistema =    60.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #13
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.923    -0.008
+ 10402 MANAU2-AM069     0.945    -0.008
+ 10480 MANACA-AM069     0.877    -0.007
+ 10450 SJOSE--AM069     0.947    -0.007
+ 10345 CONSE2-AM069     0.945    -0.007
+ 10012 LECHUG-AM500     1.104     0.006
+ 10451 PLACIB-AM069     0.962    -0.006
+ 10421 CESPEC-AM069     0.962    -0.005
+ 10350 CACHO2-AM069     0.963    -0.005
+ 10492 MARAPA-AM069     0.964    -0.005
+ 
+ 
+Numero do incremento de carga:  13
+Carregamento do sistema =    65.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #14
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.913    -0.010
+ 10402 MANAU2-AM069     0.935    -0.010
+ 10450 SJOSE--AM069     0.938    -0.009
+ 10345 CONSE2-AM069     0.937    -0.009
+ 10451 PLACIB-AM069     0.954    -0.008
+ 10480 MANACA-AM069     0.869    -0.007
+ 10421 CESPEC-AM069     0.955    -0.007
+ 10350 CACHO2-AM069     0.956    -0.007
+ 10492 MARAPA-AM069     0.957    -0.007
+ 10420 DISTR1-AM069     0.958    -0.007
+ 
+ 
+Numero do incremento de carga:  14
+Carregamento do sistema =    70.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #15
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.902    -0.011
+ 10402 MANAU2-AM069     0.925    -0.010
+ 10450 SJOSE--AM069     0.929    -0.009
+ 10345 CONSE2-AM069     0.927    -0.009
+ 10451 PLACIB-AM069     0.946    -0.008
+ 10421 CESPEC-AM069     0.947    -0.008
+ 10480 MANACA-AM069     0.862    -0.008
+ 10350 CACHO2-AM069     0.948    -0.008
+ 10492 MARAPA-AM069     0.949    -0.008
+ 10420 DISTR1-AM069     0.951    -0.007
+ 
+ 
+Numero do incremento de carga:  15
+Carregamento do sistema =    75.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #16
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.891    -0.012
+ 10402 MANAU2-AM069     0.914    -0.011
+ 10450 SJOSE--AM069     0.918    -0.010
+ 10345 CONSE2-AM069     0.917    -0.010
+ 10451 PLACIB-AM069     0.937    -0.009
+ 10421 CESPEC-AM069     0.939    -0.008
+ 10350 CACHO2-AM069     0.940    -0.008
+ 10492 MARAPA-AM069     0.941    -0.008
+ 10420 DISTR1-AM069     0.943    -0.008
+ 10480 MANACA-AM069     0.854    -0.008
+ 
+ 
+Numero do incremento de carga:  16
+Carregamento do sistema =    80.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #17
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.878    -0.012
+ 10402 MANAU2-AM069     0.902    -0.012
+ 10450 SJOSE--AM069     0.908    -0.011
+ 10345 CONSE2-AM069     0.907    -0.011
+ 10451 PLACIB-AM069     0.928    -0.009
+ 10421 CESPEC-AM069     0.930    -0.009
+ 10350 CACHO2-AM069     0.931    -0.009
+ 10492 MARAPA-AM069     0.933    -0.009
+ 10420 DISTR1-AM069     0.934    -0.009
+ 10440 DISTR2-AM069     0.942    -0.008
+ 
+ 
+Numero do incremento de carga:  17
+Carregamento do sistema =    85.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #18
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.865    -0.013
+ 10402 MANAU2-AM069     0.889    -0.013
+ 10450 SJOSE--AM069     0.896    -0.012
+ 10345 CONSE2-AM069     0.895    -0.011
+ 10451 PLACIB-AM069     0.918    -0.010
+ 10421 CESPEC-AM069     0.921    -0.009
+ 10350 CACHO2-AM069     0.922    -0.009
+ 10492 MARAPA-AM069     0.924    -0.009
+ 10420 DISTR1-AM069     0.925    -0.009
+ 10440 DISTR2-AM069     0.933    -0.009
+ 
+ 
+Numero do incremento de carga:  18
+Carregamento do sistema =    90.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #19
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.850    -0.014
+ 10402 MANAU2-AM069     0.876    -0.014
+ 10450 SJOSE--AM069     0.884    -0.013
+ 10345 CONSE2-AM069     0.883    -0.012
+ 10451 PLACIB-AM069     0.907    -0.011
+ 10421 CESPEC-AM069     0.911    -0.010
+ 10350 CACHO2-AM069     0.912    -0.010
+ 10492 MARAPA-AM069     0.914    -0.010
+ 10420 DISTR1-AM069     0.915    -0.010
+ 10440 DISTR2-AM069     0.924    -0.010
+ 
+ 
+Numero do incremento de carga:  19
+Carregamento do sistema =    95.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #20
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.834    -0.016
+ 10402 MANAU2-AM069     0.861    -0.015
+ 10450 SJOSE--AM069     0.870    -0.014
+ 10345 CONSE2-AM069     0.869    -0.014
+ 10451 PLACIB-AM069     0.895    -0.012
+ 10421 CESPEC-AM069     0.900    -0.011
+ 10350 CACHO2-AM069     0.901    -0.011
+ 10492 MARAPA-AM069     0.903    -0.011
+ 10420 DISTR1-AM069     0.905    -0.011
+ 10440 DISTR2-AM069     0.913    -0.011
+ 
+ 
+Numero do incremento de carga:  20
+Carregamento do sistema =   100.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #21
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.817    -0.018
+ 10402 MANAU2-AM069     0.844    -0.017
+ 10450 SJOSE--AM069     0.855    -0.015
+ 10345 CONSE2-AM069     0.854    -0.015
+ 10451 PLACIB-AM069     0.881    -0.013
+ 10421 CESPEC-AM069     0.888    -0.012
+ 10350 CACHO2-AM069     0.889    -0.012
+ 10492 MARAPA-AM069     0.891    -0.012
+ 10420 DISTR1-AM069     0.893    -0.012
+ 10440 DISTR2-AM069     0.901    -0.012
+ 
+ 
+Numero do incremento de carga:  21
+Carregamento do sistema =   105.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #22
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.797    -0.020
+ 10402 MANAU2-AM069     0.825    -0.019
+ 10450 SJOSE--AM069     0.837    -0.017
+ 10345 CONSE2-AM069     0.837    -0.017
+ 10451 PLACIB-AM069     0.866    -0.015
+ 10421 CESPEC-AM069     0.874    -0.014
+ 10350 CACHO2-AM069     0.876    -0.014
+ 10492 MARAPA-AM069     0.877    -0.014
+ 10420 DISTR1-AM069     0.879    -0.013
+ 10440 DISTR2-AM069     0.888    -0.013
+ 
+ 
+Numero do incremento de carga:  22
+Carregamento do sistema =   110.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #23
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.773    -0.023
+ 10402 MANAU2-AM069     0.803    -0.022
+ 10450 SJOSE--AM069     0.817    -0.020
+ 10345 CONSE2-AM069     0.816    -0.020
+ 10451 PLACIB-AM069     0.848    -0.018
+ 10421 CESPEC-AM069     0.859    -0.016
+ 10350 CACHO2-AM069     0.860    -0.016
+ 10492 MARAPA-AM069     0.862    -0.016
+ 10420 DISTR1-AM069     0.864    -0.016
+ 10440 DISTR2-AM069     0.873    -0.015
+ 
+ 
+Numero do incremento de carga:  23
+Carregamento do sistema =   115.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #24
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.743    -0.030
+ 10402 MANAU2-AM069     0.774    -0.029
+ 10345 CONSE2-AM069     0.790    -0.026
+ 10450 SJOSE--AM069     0.791    -0.026
+ 10451 PLACIB-AM069     0.825    -0.023
+ 10421 CESPEC-AM069     0.838    -0.020
+ 10350 CACHO2-AM069     0.839    -0.020
+ 10492 MARAPA-AM069     0.842    -0.020
+ 10420 DISTR1-AM069     0.844    -0.020
+ 10440 DISTR2-AM069     0.853    -0.020
+ 
+ 
+Numero do incremento de carga:  24
+Carregamento do sistema =   120.0000
+Arquivo Historico: CONT_001.SAV          
+Caso #25
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.697    -0.046
+ 10402 MANAU2-AM069     0.731    -0.043
+ 10345 CONSE2-AM069     0.751    -0.039
+ 10450 SJOSE--AM069     0.752    -0.039
+ 10451 PLACIB-AM069     0.791    -0.034
+ 10421 CESPEC-AM069     0.808    -0.030
+ 10350 CACHO2-AM069     0.810    -0.030
+ 10492 MARAPA-AM069     0.812    -0.030
+ 10420 DISTR1-AM069     0.814    -0.030
+ 10440 DISTR2-AM069     0.824    -0.029
+ 
+ 
+Numero do incremento de carga:  26
+Carregamento do sistema =   122.5000
+Arquivo Historico: CONT_001.SAV          
+Caso #26
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.653    -0.044
+ 10402 MANAU2-AM069     0.689    -0.042
+ 10345 CONSE2-AM069     0.713    -0.038
+ 10450 SJOSE--AM069     0.715    -0.037
+ 10451 PLACIB-AM069     0.759    -0.032
+ 10421 CESPEC-AM069     0.781    -0.028
+ 10350 CACHO2-AM069     0.782    -0.028
+ 10492 MARAPA-AM069     0.784    -0.028
+ 10420 DISTR1-AM069     0.787    -0.027
+ 10440 DISTR2-AM069     0.797    -0.027
+ 
+ 
+Numero do incremento de carga:  30
+Carregamento do sistema =   122.8125
+Arquivo Historico: CONT_001.SAV          
+Caso #27
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.641    -0.012
+ 10402 MANAU2-AM069     0.678    -0.011
+ 10345 CONSE2-AM069     0.703    -0.010
+ 10450 SJOSE--AM069     0.705    -0.010
+ 10451 PLACIB-AM069     0.751    -0.008
+ 10421 CESPEC-AM069     0.774    -0.007
+ 10350 CACHO2-AM069     0.775    -0.007
+ 10492 MARAPA-AM069     0.777    -0.007
+ 10420 DISTR1-AM069     0.780    -0.007
+ 10440 DISTR2-AM069     0.790    -0.007
+ 
+ 
+Numero do incremento de carga:  32
+Carregamento do sistema =   122.9688
+Arquivo Historico: CONT_001.SAV          
+Caso #28
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.632    -0.009
+ 10402 MANAU2-AM069     0.670    -0.009
+ 10345 CONSE2-AM069     0.695    -0.008
+ 10450 SJOSE--AM069     0.697    -0.008
+ 10451 PLACIB-AM069     0.744    -0.007
+ 10421 CESPEC-AM069     0.768    -0.006
+ 10350 CACHO2-AM069     0.769    -0.006
+ 10492 MARAPA-AM069     0.772    -0.006
+ 10420 DISTR1-AM069     0.774    -0.006
+ 10440 DISTR2-AM069     0.784    -0.006
+ 
+ 
+Numero do incremento de carga:  36
+Carregamento do sistema =   123.0245
+Arquivo Historico: CONT_001.SAV          
+Caso #29
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.626    -0.006
+ 10402 MANAU2-AM069     0.664    -0.006
+ 10345 CONSE2-AM069     0.690    -0.005
+ 10450 SJOSE--AM069     0.692    -0.005
+ 10451 PLACIB-AM069     0.739    -0.004
+ 10421 CESPEC-AM069     0.764    -0.004
+ 10350 CACHO2-AM069     0.766    -0.004
+ 10492 MARAPA-AM069     0.768    -0.004
+ 10420 DISTR1-AM069     0.770    -0.004
+ 10440 DISTR2-AM069     0.781    -0.004
+ 
+ 
+Numero do incremento de carga:  37
+Carregamento do sistema =   116.7556
+Arquivo Historico: CONT_001.SAV          
+Caso #30
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10411 BALBI1UHE013     1.203     0.185
+ 10406 CROCHAUTE013     1.176     0.116
+ 10410 BALBIN-AM230     1.192     0.096
+ 10418 P.FIG.-AM013     1.128     0.054
+ 10417 P.FIG.-AM069     1.135     0.052
+ 10416 P.FIG.-AM069     1.138     0.052
+ 10419 P.FIG.-AM230     1.164     0.052
+ 10012 LECHUG-AM500     1.195    -0.033
+ 10110 LECHUG-AM230     1.113    -0.020
+ 10120 LECHU1-AM000     1.112    -0.020
+ 
+ 
+Numero do incremento de carga:  38
+Carregamento do sistema =   114.3797
+Arquivo Historico: CONT_001.SAV          
+Caso #31
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.535    -0.086
+ 10402 MANAU2-AM069     0.579    -0.079
+ 10345 CONSE2-AM069     0.612    -0.071
+ 10450 SJOSE--AM069     0.616    -0.069
+ 10451 PLACIB-AM069     0.673    -0.058
+ 10421 CESPEC-AM069     0.709    -0.047
+ 10350 CACHO2-AM069     0.710    -0.047
+ 10492 MARAPA-AM069     0.713    -0.047
+ 10420 DISTR1-AM069     0.715    -0.047
+ 10440 DISTR2-AM069     0.726    -0.046
+ 
+ 
+Numero do incremento de carga:  39
+Carregamento do sistema =   114.0553
+Arquivo Historico: CONT_001.SAV          
+Caso #32
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.530    -0.005
+ 10402 MANAU2-AM069     0.574    -0.005
+ 10345 CONSE2-AM069     0.608    -0.004
+ 10450 SJOSE--AM069     0.612    -0.004
+ 10451 PLACIB-AM069     0.670    -0.003
+ 10421 CESPEC-AM069     0.706    -0.002
+ 10350 CACHO2-AM069     0.708    -0.002
+ 10492 MARAPA-AM069     0.710    -0.002
+ 10420 DISTR1-AM069     0.713    -0.002
+ 10440 DISTR2-AM069     0.724    -0.002
+ 
+ 
+Numero do incremento de carga:  40
+Carregamento do sistema =   113.7122
+Arquivo Historico: CONT_001.SAV          
+Caso #33
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.525    -0.005
+ 10402 MANAU2-AM069     0.570    -0.005
+ 10345 CONSE2-AM069     0.604    -0.004
+ 10450 SJOSE--AM069     0.609    -0.004
+ 10451 PLACIB-AM069     0.667    -0.003
+ 10421 CESPEC-AM069     0.704    -0.002
+ 10350 CACHO2-AM069     0.705    -0.002
+ 10492 MARAPA-AM069     0.708    -0.002
+ 10420 DISTR1-AM069     0.710    -0.002
+ 10440 DISTR2-AM069     0.721    -0.002
+ 
+ 
+Numero do incremento de carga:  41
+Carregamento do sistema =   113.3507
+Arquivo Historico: CONT_001.SAV          
+Caso #34
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.520    -0.005
+ 10402 MANAU2-AM069     0.565    -0.005
+ 10345 CONSE2-AM069     0.600    -0.004
+ 10450 SJOSE--AM069     0.605    -0.004
+ 10451 PLACIB-AM069     0.664    -0.003
+ 10421 CESPEC-AM069     0.702    -0.002
+ 10350 CACHO2-AM069     0.703    -0.002
+ 10492 MARAPA-AM069     0.705    -0.002
+ 10420 DISTR1-AM069     0.708    -0.002
+ 10440 DISTR2-AM069     0.719    -0.002
+ 
+ 
+Numero do incremento de carga:  42
+Carregamento do sistema =   112.9709
+Arquivo Historico: CONT_001.SAV          
+Caso #35
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.515    -0.005
+ 10402 MANAU2-AM069     0.561    -0.005
+ 10345 CONSE2-AM069     0.596    -0.004
+ 10450 SJOSE--AM069     0.601    -0.004
+ 10451 PLACIB-AM069     0.661    -0.003
+ 10421 CESPEC-AM069     0.699    -0.002
+ 10350 CACHO2-AM069     0.701    -0.002
+ 10492 MARAPA-AM069     0.703    -0.002
+ 10420 DISTR1-AM069     0.706    -0.002
+ 10440 DISTR2-AM069     0.717    -0.002
+ 
+ 
+Numero do incremento de carga:  43
+Carregamento do sistema =   112.5731
+Arquivo Historico: CONT_001.SAV          
+Caso #36
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.510    -0.005
+ 10402 MANAU2-AM069     0.556    -0.005
+ 10345 CONSE2-AM069     0.592    -0.004
+ 10450 SJOSE--AM069     0.597    -0.004
+ 10451 PLACIB-AM069     0.658    -0.003
+ 10421 CESPEC-AM069     0.697    -0.002
+ 10350 CACHO2-AM069     0.698    -0.002
+ 10492 MARAPA-AM069     0.701    -0.002
+ 10420 DISTR1-AM069     0.703    -0.002
+ 10440 DISTR2-AM069     0.714    -0.002
+ 
+ 
+Numero do incremento de carga:  44
+Carregamento do sistema =   112.1575
+Arquivo Historico: CONT_001.SAV          
+Caso #37
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.505    -0.005
+ 10402 MANAU2-AM069     0.551    -0.005
+ 10345 CONSE2-AM069     0.588    -0.004
+ 10450 SJOSE--AM069     0.593    -0.004
+ 10451 PLACIB-AM069     0.655    -0.003
+ 10421 CESPEC-AM069     0.695    -0.002
+ 10350 CACHO2-AM069     0.696    -0.002
+ 10492 MARAPA-AM069     0.699    -0.002
+ 10420 DISTR1-AM069     0.701    -0.002
+ 10440 DISTR2-AM069     0.712    -0.002
+ 
+ 
+Numero do incremento de carga:  45
+Carregamento do sistema =   111.7242
+Arquivo Historico: CONT_001.SAV          
+Caso #38
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.500    -0.005
+ 10402 MANAU2-AM069     0.547    -0.005
+ 10345 CONSE2-AM069     0.584    -0.004
+ 10450 SJOSE--AM069     0.590    -0.004
+ 10451 PLACIB-AM069     0.651    -0.003
+ 10421 CESPEC-AM069     0.692    -0.002
+ 10350 CACHO2-AM069     0.694    -0.002
+ 10492 MARAPA-AM069     0.696    -0.002
+ 10420 DISTR1-AM069     0.699    -0.002
+ 10440 DISTR2-AM069     0.710    -0.002
+ 
+ 
+Numero do incremento de carga:  46
+Carregamento do sistema =   111.2736
+Arquivo Historico: CONT_001.SAV          
+Caso #39
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.495    -0.005
+ 10402 MANAU2-AM069     0.542    -0.005
+ 10345 CONSE2-AM069     0.580    -0.004
+ 10450 SJOSE--AM069     0.586    -0.004
+ 10451 PLACIB-AM069     0.648    -0.003
+ 10421 CESPEC-AM069     0.690    -0.002
+ 10350 CACHO2-AM069     0.692    -0.002
+ 10492 MARAPA-AM069     0.694    -0.002
+ 10420 DISTR1-AM069     0.697    -0.002
+ 10440 DISTR2-AM069     0.708    -0.002
+ 
+ 
+Numero do incremento de carga:  47
+Carregamento do sistema =   110.8058
+Arquivo Historico: CONT_001.SAV          
+Caso #40
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.490    -0.005
+ 10402 MANAU2-AM069     0.538    -0.004
+ 10345 CONSE2-AM069     0.576    -0.004
+ 10450 SJOSE--AM069     0.582    -0.004
+ 10451 PLACIB-AM069     0.645    -0.003
+ 10421 CESPEC-AM069     0.688    -0.002
+ 10492 MARAPA-AM069     0.692    -0.002
+ 10350 CACHO2-AM069     0.689    -0.002
+ 10420 DISTR1-AM069     0.695    -0.002
+ 10440 DISTR2-AM069     0.706    -0.002
+ 
+ 
+Numero do incremento de carga:  48
+Carregamento do sistema =   110.3210
+Arquivo Historico: CONT_001.SAV          
+Caso #41
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.485    -0.005
+ 10402 MANAU2-AM069     0.533    -0.004
+ 10345 CONSE2-AM069     0.572    -0.004
+ 10450 SJOSE--AM069     0.578    -0.004
+ 10451 PLACIB-AM069     0.643    -0.003
+ 10421 CESPEC-AM069     0.686    -0.002
+ 10492 MARAPA-AM069     0.690    -0.002
+ 10350 CACHO2-AM069     0.687    -0.002
+ 10420 DISTR1-AM069     0.692    -0.002
+ 10440 DISTR2-AM069     0.704    -0.002
+ 
+ 
+Numero do incremento de carga:  49
+Carregamento do sistema =   109.7169
+Arquivo Historico: CONT_001.SAV          
+Caso #42
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.479    -0.006
+ 10402 MANAU2-AM069     0.528    -0.005
+ 10345 CONSE2-AM069     0.568    -0.005
+ 10450 SJOSE--AM069     0.574    -0.004
+ 10451 PLACIB-AM069     0.639    -0.003
+ 10492 MARAPA-AM069     0.687    -0.002
+ 10421 CESPEC-AM069     0.683    -0.002
+ 10350 CACHO2-AM069     0.685    -0.002
+ 10420 DISTR1-AM069     0.690    -0.002
+ 10513 MUBL4D-AM069     0.712    -0.002
+ 
+ 
+Numero do incremento de carga:  50
+Carregamento do sistema =   108.9602
+Arquivo Historico: CONT_001.SAV          
+Caso #43
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.472    -0.007
+ 10402 MANAU2-AM069     0.522    -0.006
+ 10345 CONSE2-AM069     0.562    -0.006
+ 10450 SJOSE--AM069     0.569    -0.005
+ 10451 PLACIB-AM069     0.635    -0.004
+ 10492 MARAPA-AM069     0.685    -0.003
+ 10421 CESPEC-AM069     0.681    -0.003
+ 10350 CACHO2-AM069     0.682    -0.003
+ 10420 DISTR1-AM069     0.687    -0.003
+ 10513 MUBL4D-AM069     0.710    -0.003
+ 
+ 
+Numero do incremento de carga:  51
+Carregamento do sistema =   108.0071
+Arquivo Historico: CONT_001.SAV          
+Caso #44
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.463    -0.009
+ 10402 MANAU2-AM069     0.514    -0.008
+ 10345 CONSE2-AM069     0.555    -0.007
+ 10450 SJOSE--AM069     0.563    -0.006
+ 10451 PLACIB-AM069     0.630    -0.005
+ 10492 MARAPA-AM069     0.681    -0.003
+ 10421 CESPEC-AM069     0.677    -0.003
+ 10350 CACHO2-AM069     0.679    -0.003
+ 10420 DISTR1-AM069     0.684    -0.003
+ 10513 MUBL4D-AM069     0.706    -0.003
+ 
+ 
+Numero do incremento de carga:  52
+Carregamento do sistema =   106.7990
+Arquivo Historico: CONT_001.SAV          
+Caso #45
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.453    -0.010
+ 10402 MANAU2-AM069     0.505    -0.009
+ 10345 CONSE2-AM069     0.547    -0.008
+ 10450 SJOSE--AM069     0.555    -0.007
+ 10451 PLACIB-AM069     0.624    -0.006
+ 10320 MAUAB1-AM069     0.704    -0.004
+ 10325 MAUAB2-AM069     0.704    -0.004
+ 10335 MAUA2M-AM069     0.704    -0.004
+ 10505 MAUA-3-AM069     0.707    -0.004
+ 10344 CONSE1-AM069     0.707    -0.004
+ 
+ 
+Numero do incremento de carga:  53
+Carregamento do sistema =   105.2576
+Arquivo Historico: CONT_001.SAV          
+Caso #46
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.441    -0.012
+ 10402 MANAU2-AM069     0.494    -0.011
+ 10345 CONSE2-AM069     0.538    -0.009
+ 10450 SJOSE--AM069     0.547    -0.009
+ 10451 PLACIB-AM069     0.618    -0.007
+ 10505 MAUA-3-AM069     0.703    -0.004
+ 10344 CONSE1-AM069     0.703    -0.004
+ 10335 MAUA2M-AM069     0.700    -0.004
+ 10325 MAUAB2-AM069     0.699    -0.004
+ 10320 MAUAB1-AM069     0.699    -0.004
+ 
+ 
+Numero do incremento de carga:  54
+Carregamento do sistema =   103.2765
+Arquivo Historico: CONT_001.SAV          
+Caso #47
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.426    -0.015
+ 10402 MANAU2-AM069     0.481    -0.013
+ 10345 CONSE2-AM069     0.527    -0.011
+ 10450 SJOSE--AM069     0.537    -0.010
+ 10451 PLACIB-AM069     0.610    -0.007
+ 10480 MANACA-AM069     0.795     0.005
+ 10505 MAUA-3-AM069     0.698    -0.005
+ 10344 CONSE1-AM069     0.698    -0.005
+ 10335 MAUA2M-AM069     0.695    -0.005
+ 10325 MAUAB2-AM069     0.695    -0.005
+ 
+ 
+Numero do incremento de carga:  55
+Carregamento do sistema =   100.7089
+Arquivo Historico: CONT_001.SAV          
+Caso #48
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.408    -0.018
+ 10402 MANAU2-AM069     0.466    -0.015
+ 10345 CONSE2-AM069     0.514    -0.013
+ 10450 SJOSE--AM069     0.526    -0.011
+ 10451 PLACIB-AM069     0.602    -0.008
+ 10480 MANACA-AM069     0.801     0.006
+ 10505 MAUA-3-AM069     0.693    -0.005
+ 10344 CONSE1-AM069     0.693    -0.005
+ 10335 MAUA2M-AM069     0.690    -0.005
+ 10325 MAUAB2-AM069     0.690    -0.005
+ 
+ 
+Numero do incremento de carga:  58
+Carregamento do sistema =    99.8976
+Arquivo Historico: CONT_001.SAV          
+Caso #49
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.402    -0.005
+ 10402 MANAU2-AM069     0.461    -0.005
+ 10345 CONSE2-AM069     0.510    -0.004
+ 10450 SJOSE--AM069     0.522    -0.003
+ 10451 PLACIB-AM069     0.600    -0.002
+ 10480 MANACA-AM069     0.803     0.002
+ 10505 MAUA-3-AM069     0.692    -0.001
+ 10344 CONSE1-AM069     0.692    -0.001
+ 10335 MAUA2M-AM069     0.689    -0.001
+ 10325 MAUAB2-AM069     0.689    -0.001
+ 
+ 
+Numero do incremento de carga:  61
+Carregamento do sistema =    99.6504
+Arquivo Historico: CONT_001.SAV          
+Caso #50
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.401    -0.002
+ 10402 MANAU2-AM069     0.460    -0.001
+ 10345 CONSE2-AM069     0.509    -0.001
+ 10450 SJOSE--AM069     0.521    -0.001
+ 10451 PLACIB-AM069     0.599    -0.001
+ 10480 MANACA-AM069     0.804     0.001
+ 10505 MAUA-3-AM069     0.691    -0.000
+ 10344 CONSE1-AM069     0.691    -0.000
+ 10335 MAUA2M-AM069     0.689    -0.000
+ 10325 MAUAB2-AM069     0.688    -0.000
+ 
+ 
+Numero do incremento de carga:  64
+Carregamento do sistema =    99.5760
+Arquivo Historico: CONT_001.SAV          
+Caso #51
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.400    -0.000
+ 10402 MANAU2-AM069     0.459    -0.000
+ 10345 CONSE2-AM069     0.509    -0.000
+ 10450 SJOSE--AM069     0.521    -0.000
+ 10451 PLACIB-AM069     0.599    -0.000
+ 10480 MANACA-AM069     0.804     0.000
+ 10505 MAUA-3-AM069     0.691    -0.000
+ 10344 CONSE1-AM069     0.691    -0.000
+ 10335 MAUA2M-AM069     0.689    -0.000
+ 10325 MAUAB2-AM069     0.688    -0.000
+ 
+ 
+Numero do incremento de carga:  66
+Carregamento do sistema =    99.5312
+Arquivo Historico: CONT_001.SAV          
+Caso #52
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.400    -0.000
+ 10402 MANAU2-AM069     0.459    -0.000
+ 10345 CONSE2-AM069     0.508    -0.000
+ 10450 SJOSE--AM069     0.521    -0.000
+ 10451 PLACIB-AM069     0.599    -0.000
+ 10480 MANACA-AM069     0.804     0.000
+ 10505 MAUA-3-AM069     0.691    -0.000
+ 10344 CONSE1-AM069     0.691    -0.000
+ 10335 MAUA2M-AM069     0.689    -0.000
+ 10325 MAUAB2-AM069     0.688    -0.000
+ 
+ 
+Numero do incremento de carga:  74
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #53
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10430 CIDNOV-AM069     0.400    -0.000
+ 10402 MANAU2-AM069     0.459    -0.000
+ 10345 CONSE2-AM069     0.508    -0.000
+ 10450 SJOSE--AM069     0.521    -0.000
+ 10451 PLACIB-AM069     0.599    -0.000
+ 10480 MANACA-AM069     0.804     0.000
+ 10505 MAUA-3-AM069     0.691    -0.000
+ 10344 CONSE1-AM069     0.691    -0.000
+ 10335 MAUA2M-AM069     0.689    -0.000
+ 10325 MAUAB2-AM069     0.688    -0.000
+ 
+ 
+Numero do incremento de carga:  77
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #54
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10012 LECHUG-AM500     1.197     0.000
+ 10110 LECHUG-AM230     1.115     0.000
+ 10111 LECHUG-AM138     1.067     0.000
+ 10120 LECHU1-AM000     1.114     0.000
+ 10130 LECHU1-AM000     1.059     0.000
+ 10132 LECHU3-AM000     1.059     0.000
+ 10222 LE-S-ACAP500     1.010     0.000
+ 10300 APAREC-AM069     0.959     0.000
+ 10306 IRANDU-AM138     0.889     0.000
+ 10308 PARQ10-AM138     0.903     0.000
+ 
+ 
+Numero do incremento de carga:  78
+Carregamento do sistema =    99.5308
+Arquivo Historico: CONT_001.SAV          
+Caso #55
+X------------------X-------------------X
+      Barra                             
+ Num.      Nome      Tensao   Variacao  
+X-----X------------X---------X---------X
+ 10012 LECHUG-AM500     1.197     0.000
+ 10110 LECHUG-AM230     1.115     0.000
+ 10111 LECHUG-AM138     1.067     0.000
+ 10120 LECHU1-AM000     1.114     0.000
+ 10130 LECHU1-AM000     1.059     0.000
+ 10132 LECHU3-AM000     1.059     0.000
+ 10222 LE-S-ACAP500     1.010     0.000
+ 10300 APAREC-AM069     0.959     0.000
+ 10306 IRANDU-AM138     0.889     0.000
+ 10308 PARQ10-AM138     0.903     0.000
