@@ -1,0 +1,413 @@
+@startuml Manaus
+
+left to right direction
+
+skinparam linetype polyline
+skinparam linetype ortho
+skinparam BackgroundColor transparent
+
+skinparam object {
+    backgroundColor<<500kV>> #990F02
+    FontColor<<500kV>> #FFFFFF
+    backgroundColor<<230kV>> #90EE90
+    backgroundColor<<138kv>> #FFB347
+    backgroundColor<<69kV>>  #FFB3C6
+    backgroundColor<<13kV>>  #63E5FF
+}
+
+object 10012 <<500kV>> {
+    SLECHUG-AM500
+    }
+object 10110 <<230kV>> {
+    OLECHUG-AM230
+    }
+object 10111 <<138kV>> {
+    MLECHUG-AM138
+    }
+object 10120 {
+    ZLECHU1-AM000
+    }
+object 10130 {
+    ZLECHU1-AM000
+    }
+object 10132 {
+    ZLECHU3-AM000
+    }
+object 10222 <<500kV>> {
+    SLE-S-ACAP500
+    }
+object 10300 <<69kV>> {
+    JAPAREC-AM069
+    }
+object 10306 <<138kV>> {
+    MIRANDU-AM138
+    }
+object 10308 <<138kV>> {
+    MPARQ10-AM138
+    }
+object 10310 <<138kV>> {
+    MDI-4---AM138
+    }
+object 10312 <<138kV>> {
+    MRIOPTE-AM138
+    }
+object 10313 <<138kV>> {
+    MAMAZON-AM138
+    }
+object 10320 <<69kV>> {
+    JMAUAB1-AM069
+    }
+object 10325 <<69kV>> {
+    JMAUAB2-AM069
+    }
+object 10335 <<69kV>> {
+    JMAUA2M-AM069
+    }
+object 10344 <<69kV>> {
+    JCONSE1-AM069
+    }
+object 10345 <<69kV>> {
+    JCONSE2-AM069
+    }
+object 10350 <<69kV>> {
+    JCACHO2-AM069
+    }
+object 10351 <<69kV>> {
+    JCACHO1-AM069
+    }
+object 10361 {
+    ZJTEIX1-AM000
+    }
+object 10362 {
+    ZJTEIX2-AM000
+    }
+object 10363 {
+    ZJTEIX3-AM000
+    }
+object 10364 {
+    ZJTEIX4-AM000
+    }
+object 10369 {
+    ZJTEIX5-AM000
+    }
+object 10370 <<69kV>> {
+    JFLORES-AM069
+    }
+object 10379 <<69kV>> {
+    JAMBEV--AM069
+    }
+object 10380 <<69kV>> {
+    JPNEGRA-AM069
+    }
+object 10384 {
+    ZMAU3-4-AM000
+    }
+object 10390 <<69kV>> {
+    JPIEPNG-AM069
+    }
+object 10391 <<13kV>> {
+    DPIEPNGUTE013
+    }
+object 10393 <<69kV>> {
+    JPISMAE-AM069
+    }
+object 10394 <<69kV>> {
+    JSHOPMA-AM069
+    }
+object 10395 <<69kV>> {
+    JSERING-AM069
+    }
+object 10400 <<230kV>> {
+    OMANAUS-AM230
+    }
+object 10401 <<69kV>> {
+    JMANA1A-AM069
+    }
+object 10402 <<69kV>> {
+    JMANAU2-AM069
+    }
+object 10405 <<230kV>> {
+    OCROCHA-AM230
+    }
+object 10406 <<13kV>> {
+    DCROCHAUTE013
+    }
+object 10410 <<230kV>> {
+    OBALBIN-AM230
+    }
+object 10411 <<13kV>> {
+    DBALBI1UHE013
+    }
+object 10416 <<69kV>> {
+    JP.FIG1-AM069
+    }
+object 10417 <<69kV>> {
+    JP.FIG2-AM069
+    }
+object 10418 <<13kV>> {
+    DP.FIG.-AM013
+    }
+object 10419 <<230kV>> {
+    OP.FIG.-AM230
+    }
+object 10420 <<69kV>> {
+    JDISTR1-AM069
+    }
+object 10421 <<69kV>> {
+    JCESPEC-AM069
+    }
+object 10422 {
+    ZMANA-1-AM000
+    }
+object 10424 {
+    ZMANA-2-AM000
+    }
+object 10426 {
+    ZMANA-3-AM000
+    }
+object 10428 {
+    ZMANA-4-AM000
+    }
+object 10430 <<69kV>> {
+    JCIDNOV-AM069
+    }
+object 10435 <<69kV>> {
+    JMANAUA-AM069
+    }
+object 10436 <<13kV>> {
+DPIEMANUTE013
+    }
+object 10437 <<69kV>> {
+    JSTAETE-AM069
+    }
+object 10440 <<69kV>> {
+    JDISTR2-AM069
+    }
+object 10445 <<69kV>> {
+    JTAMBAQ-AM069
+    }
+object 10447 <<13kV>> {
+DPIETBQUTE013
+    }
+object 10450 <<69kV>> {
+    JSJOSE--AM069
+    }
+object 10451 <<69kV>> {
+    JPLACIB-AM069
+    }
+object 10460 <<69kV>> {
+    JSTOANT-AM069
+    }
+object 10461 <<69kV>> {
+    JJARAQU-AM069
+    }
+object 10466 <<69kV>> {
+    JSIVAM--AM069
+    }
+object 10471 <<13kV>> {
+DPIEJRQUTE013
+    }
+object 10480 <<69kV>> {
+    JMANACA-AM069
+    }
+object 10485 <<69kV>> {
+    JIRANDU-AM069
+    }
+object 10490 <<69kV>> {
+    JREDENC-AM069
+    }
+object 10492 <<69kV>> {
+    JMARAPA-AM069
+    }
+object 10500 <<230kV>> {
+    OMAUA-3-AM230
+    }
+object 10501 <<13kV>> {
+    DMAUA3GUTE013
+    }
+object 10503 <<13kV>> {
+    DMAUA3VUTE013
+    }
+object 10504 <<138kV>> {
+    MMAUA-3-AM138
+    }
+object 10505 <<69kV>> {
+    JMAUA-3-AM069
+    }
+object 10509 <<69kV>> {
+    JMUBL4M-AM069
+    }
+object 10510 <<230kV>> {
+    OJ.TEIX-AM230
+    }
+object 10511 <<138kV>> {
+    MJ.TEIX-AM138
+    }
+object 10513 <<69kV>> {
+    JMUBL4D-AM069
+    }
+object 10515 <<69kV>> {
+    JAMAZON-AM069
+    }
+object 10520 <<138kV>> {
+    MMUTIRA-AM138
+    }
+object 10530 <<138kV>> {
+    MCGRAND-AM138
+    }
+object 10540 <<138kV>> {
+    MCOMPEN-AM138
+    }
+object 10545 <<138kV>> {
+    MCENTRO-AM138
+    }
+object 10550 <<138kV>> {
+    MDISTR3-AM138
+    }
+object 10700 <<138kV>> {
+    MJARAQ2-AM138
+    }
+object 10755 <<230kV>> {
+    OAE-SB5-AM230
+    }
+10012 -- 10120
+10012 -- 10222
+10110 -- 10130
+10110 -- 10132
+10110 -- 10400
+10110 -- 10400
+10110 -- 10510
+10110 -- 10510
+10110 -- 10510
+10111 -- 10312
+10111 -- 10313
+10111 -- 10313
+10120 -- 10110
+10130 -- 10111
+10132 -- 10111
+10300 -- 10380
+10300 -- 10395
+10306 -- 10485
+10313 -- 10515
+10313 -- 10515
+10313 -- 10515
+10313 -- 10700
+10313 -- 10700
+10320 -- 10325
+10320 -- 10402
+10320 -- 10420
+10320 -- 10492
+10325 -- 10335
+10325 -- 10440
+10325 -- 10440
+10335 -- 10505
+10335 -- 10509
+10344 -- 10505
+10345 -- 10430
+10345 -- 10505
+10350 -- 10440
+10350 -- 10492
+10351 -- 10300
+10351 -- 10350
+10351 -- 10395
+10351 -- 10401
+10361 -- 10511
+10362 -- 10511
+10363 -- 10511
+10364 -- 10511
+10369 -- 10511
+10370 -- 10379
+10370 -- 10490
+10370 -- 10490
+10380 -- 10390
+10380 -- 10490
+10380 -- 10490
+10384 -- 10504
+10391 -- 10390
+10393 -- 10300
+10393 -- 10380
+10393 -- 10485
+10395 -- 10394
+10400 -- 10422
+10400 -- 10424
+10400 -- 10426
+10400 -- 10428
+10400 -- 10755
+10401 -- 10370
+10401 -- 10370
+10401 -- 10370
+10401 -- 10394
+10401 -- 10395
+10402 -- 10430
+10402 -- 10450
+10402 -- 10460
+10405 -- 10110
+10405 -- 10406
+10405 -- 10419
+10410 -- 10110
+10410 -- 10411
+10416 -- 10417
+10416 -- 10417
+10417 -- 10418
+10417 -- 10418
+10419 -- 10410
+10419 -- 10416
+10419 -- 10416
+10420 -- 10350
+10420 -- 10421
+10420 -- 10440
+10422 -- 10401
+10424 -- 10401
+10426 -- 10401
+10428 -- 10401
+10430 -- 10437
+10435 -- 10436
+10440 -- 10445
+10440 -- 10505
+10440 -- 10505
+10445 -- 10447
+10450 -- 10451
+10451 -- 10505
+10460 -- 10466
+10461 -- 10471
+10485 -- 10480
+10500 -- 10384
+10500 -- 10501
+10500 -- 10503
+10500 -- 10510
+10500 -- 10510
+10504 -- 10310
+10504 -- 10310
+10504 -- 10505
+10504 -- 10505
+10504 -- 10505
+10504 -- 10505
+10505 -- 10325
+10505 -- 10420
+10505 -- 10420
+10505 -- 10492
+10510 -- 10361
+10510 -- 10362
+10510 -- 10363
+10510 -- 10364
+10510 -- 10369
+10511 -- 10520
+10511 -- 10520
+10511 -- 10550
+10511 -- 10550
+10513 -- 10420
+10513 -- 10509
+10515 -- 10435
+10515 -- 10437
+10515 -- 10460
+10515 -- 10461
+10520 -- 10530
+10520 -- 10530
+10530 -- 10308
+10530 -- 10308
+10530 -- 10540
+10530 -- 10545
+10540 -- 10306
+10540 -- 10545
+10755 -- 10500
+@enduml

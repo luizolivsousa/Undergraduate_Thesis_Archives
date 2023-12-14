@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="v7DR3OZrTKcgggxZ--NC" name="Page-1">
+        <mxGraphModel dx="403" dy="1567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="57" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="24" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;INÍCIO&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="-90" width="70" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="" style="edgeStyle=none;html=1;strokeWidth=3;" parent="1" source="30" target="70" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Seleciona a potência instalada do primeiro ano de análise&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="-110" width="165" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="43" target="48" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="43" target="78" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Todos os anos&lt;br&gt;analisados?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="30" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;FIM&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1150" y="50" width="70" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="" style="edgeStyle=none;html=1;strokeWidth=3;" parent="1" source="70" target="89" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Determina o valor da margem a partir do ponto de máximo carregamento&amp;nbsp;definido pelo usuário&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="-110" width="250" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="NÃO" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="40" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="" style="edgeStyle=none;html=1;strokeWidth=3;" parent="1" source="78" target="70" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Seleciona o valor de potência instalada correspondente ao ano seguinte&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="30" width="250" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="SIM" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1080" y="40" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="" style="edgeStyle=none;html=1;strokeWidth=3;" parent="1" source="89" target="43" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Valor da margem é armazenado&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="-110" width="180" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
